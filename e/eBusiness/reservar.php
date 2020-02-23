@@ -132,84 +132,24 @@
         </header>
         <!-- header end -->
 
-
-
-        <!-- Start About area -->
-        <div id="about" class="about-area area-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="section-headline text-center">
-                            <h2>REGISTRATE PARA CONTINUAR</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nombre</label>
-                            <input type="tex" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su nombre">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su Emaiil">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Repetir Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repita su Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Mas informacion Migratoria</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mas informacion migratoria">
-
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; " >Registrate</button>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; " >Ya tienes cuenta?, Identificate</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-        <!-- End About area -->
-
-
         <!-- start pricing area -->
         <div id="pricing" class="pricing-area area-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="section-headline text-center">
-                            <h2>Paquetes & Tours</h2>
+                            <h2>PASO FINAL</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="pri_table_list active">
-                            <span class="saleon">LIMITADO</span>
-                            <h3>CONCHAGUA <br /> <span>$35.99 / PERSONA</span><br /> <span>22 DE FEBRERO DE 2020</span></h3>
+
+                            <h3>ESTAS A PUNTO DE PAGAR <br /> <span>$35.99 (50%) RESERVA DE VIAJE </span><br /> <span>DETALLES DE LA COMPRA</span></h3>
 
                             <ol>
                                 <li class="check">VOLCAN DE CONCHAGUA</li>
@@ -220,20 +160,51 @@
                                 <li class="check">ENTRADA AL VOLCAN</li>
                                 <li class="check cross">DESAYUNO</li>
                                 <li class="check cross">ALMUERZO</li>
+                                <li class="">NUMERO DE PERSONAS  (2)</li>
 
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">NUMERO DE PERSONAS</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
+
 
                             </ol>
-                            <button><a style="color:   #ffffff" href="reservar.php">RESERVAR</a></button>
-                            <button><a style="color:   #ffffff" href="reservar.php">REALIZAR CITA</a></button>
+                            <div id="paypal-button"></div>
+                            <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                            <script>
+                                paypal.Button.render({
+                                    // Configure environment
+                                    env: 'sandbox', // sandbox | production
+
+
+                                    style: {
+                                        label: 'generic', // checkout | credit | pay | buynow | generic
+                                        size: 'responsive', // small | medium | large | responsive
+                                        shape: 'pill', // pill | rect
+                                        color: 'blue'   // gold | blue | silver | black
+                                    },
+
+                                    client: {
+                                        sandbox: 'AaumyvB48f0FgJZGEuoc_qLaxMJw_IwrsXe7cBx_nWRA0O0er3tkYaQuCJBG0P2zg2CKSiyIThJGEiMG',
+                                        production: 'AUS_afGj6oF8ojYIXquhK3BZdLwOWL1ZT437Q0WOHbn1PhN6CUlv1SSALh0JVBsogpl9c-NdcmYaAcDW'
+                                    },
+                                    // Set up a payment
+                                    payment: function (data, actions) {
+                                        return actions.payment.create({
+                                            transactions: [{
+                                                    amount: {
+                                                        total: '0.01',
+                                                        currency: 'EUR'
+                                                    }
+                                                }]
+                                        });
+                                    },
+                                    // Execute the payment
+                                    onAuthorize: function (data, actions) {
+                                        return actions.payment.execute()
+                                                .then(function () {
+                                                    // Show a confirmation message to the buyer
+                                                    window.alert('Thank you for your purchase!');
+                                                });
+                                    }
+                                }, '#paypal-button');
+                            </script>
                         </div>
                     </div>
 
@@ -338,46 +309,38 @@
                                     &copy; Copyright <strong>Universidad Nacional de El Salvador</strong>
                                 </p>
                             </div>
-                            <!--
-                            <div class="credits">
-                                
-                                  All the links in the footer should remain intact.
-                                  You can delete the links only if you purchased the pro version.
-                                  Licensing information: https://bootstrapmade.com/license/
-                                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
-                               
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                            </div>
-                            -->
+
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- end Footer bottom Area -->
+        </div>
+    </footer>
+    <!-- end Footer bottom Area -->
 
 
 
 
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-        <!-- JavaScript Libraries -->
-        <script src="lib/jquery/jquery.min.js"></script>
-        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/venobox/venobox.min.js"></script>
-        <script src="lib/knob/jquery.knob.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/parallax/parallax.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/nivo-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-        <script src="lib/appear/jquery.appear.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/venobox/venobox.min.js"></script>
+    <script src="lib/knob/jquery.knob.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/parallax/parallax.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/nivo-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+    <script src="lib/appear/jquery.appear.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
 
-        <!-- Contact Form JavaScript File -->
-        <script src="contactform/contactform.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
 
-        <script src="js/main.js"></script>
-    </body>
+    <script src="js/main.js"></script>
+</body>
 
 </html>
