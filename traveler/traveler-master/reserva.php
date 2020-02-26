@@ -222,6 +222,14 @@
                                     <li>FECHAS: 02 AL 05 DE ENERO</li>
                                     
                                 </ul>
+                                
+                              
+                                
+                                    <button class="btn btn-primary btn-lg btn-block" style="background: #009cde;color: #fff  ; none repeat scroll 0 0; border: 1px solid #3EC1D5;border-radius: 30px; height: 55px;width:750px; margin-left: 130px; ">REALIZA CITA PARA PAGAR EN AGENCIA</button>   
+                            
+                            
+                                
+                             
                                 <div id="paypal-button"></div>
                             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
                             <script>
@@ -262,7 +270,7 @@
                                     }
                                 }, '#paypal-button');
                             </script>
-                                <a href="#" class="btn btn-default btn-sm">Get started</a>
+                               
                             </div>
                         </div>
                       

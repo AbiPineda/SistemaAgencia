@@ -262,7 +262,7 @@
                                 <input type="text" value="TOTAL: $325.00" >
 
 
-                                <p><span class="btn btn-primary">Reservar</span></p>
+                                <p><a href="reserva.php" class="btn btn-primary">Reservar</a></p>
                             </div>
 
                         </div>
