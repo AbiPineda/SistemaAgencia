@@ -564,7 +564,13 @@
     background: rgba(#04091e,.40);
    }
 }
-
+.paquetes-banner {
+    background:url(../img/paquetes/01.jpg) center;
+    background-size:cover;
+    .overlay-bg{
+     background: rgba(#04091e,.40);
+    }
+ }
 .about-content {
     margin-top: 70px;
     padding: 90px 0px;
