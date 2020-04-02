@@ -213,7 +213,7 @@
 
                             <figure>
                                 <div class="overlay"><i class="ti-plus"></i></div>
-                                <img src="images/portfolio/ROATAN.jpg" alt="Image" class="img-responsive">
+                                <img  width="" src="images/portfolio/ROATAN.jpg" alt="Image" class="img-responsive">
                             </figure>
                             <div class="fh5co-text" style="text-align: center">
                                 <h2>Roatan</h2>
