@@ -33,13 +33,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/cliente.html" class="nav-link">
+                  <a href="../vistas/registroCliente.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Cliente</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Catalogo de Clientes</p>
                 </a>
@@ -57,13 +57,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Paquetes</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Disponibilidad de Reserva</p>
                 </a>
@@ -80,13 +80,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Tours</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Disponibilidad de Reserva</p>
                 </a>
@@ -103,19 +103,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Vehiculo</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Disponibilidad de Reserva</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Mantenimiento</p>
                 </a>
@@ -132,13 +132,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Encomienda</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Calculo de Costo</p>
                 </a>
@@ -156,13 +156,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Generar Cita</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/advanced.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Llenado de Formulario</p>
                 </a>
@@ -181,25 +181,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Cotización de Vuelo</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Cotización de Paquete</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Cotización de Tours</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Cotización de Vehiculo</p>
                 </a>
@@ -217,7 +217,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Proveedor</p>
                 </a>
@@ -234,7 +234,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Estadisticas</p>
                 </a>
@@ -251,13 +251,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registrar Usuario</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../pages/forms/general.html" class="nav-link">
+                  <a href="../vistas/error404.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Bitácora</p>
                 </a>
