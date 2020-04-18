@@ -25,11 +25,12 @@ include_once '../plantillas/barra_lateral.php';
     </section>
 
     <!-- Main content -->
-    <section class="content" style="margin-left">
-        <div class="container-fluid">
+    <section class="content" style="margin-left: 150px" >
+        <div class="container-fluid ">
             <div class="row">
+                
                 <!-- left column -->
-                <div class="col-md-8">
+                <div class="col-10">
                     <!-- general form elements -->
                     <div class="card card-info">
                         <div class="card-header">
@@ -40,14 +41,14 @@ include_once '../plantillas/barra_lateral.php';
                         <form role="form">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nombre</label>
                                             <input type="text" class="form-control" placeholder="Introduzca su nombre">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Apellidos</label>
                                             <input type="text" class="form-control"
@@ -56,7 +57,7 @@ include_once '../plantillas/barra_lateral.php';
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Documento Unico de Identidad (DUI)</label>
@@ -64,7 +65,7 @@ include_once '../plantillas/barra_lateral.php';
                                                 placeholder="Introduzca su numero de DUI">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Telefono</label>
                                             <input type="text" class="form-control " name="tel" data-mask='0000-0000' placeholder="Introduzca su Numero de Telefono">
@@ -72,7 +73,7 @@ include_once '../plantillas/barra_lateral.php';
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Correo Electronico</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1"
@@ -80,7 +81,7 @@ include_once '../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Contraseña</label>
                                             <input type="password" class="form-control" id="exampleInputPassword1"
