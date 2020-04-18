@@ -103,7 +103,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/error404.php" class="nav-link">
+                  <a href="../vistas/registroVehiculo.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Vehiculo</p>
                 </a>

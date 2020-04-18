@@ -26,14 +26,12 @@ include_once '../plantillas/barra_lateral.php';
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content" style="margin-left: 350px">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
+    <section class="content">
+        <div class="container-fluid ">
             <div class="row">
-                <section class="content">
+                <div class="offset-1">
                     <div class="error-page">
                         <h2 class="headline text-warning">404</h2>
-
                         <div class="error-content">
                             <br><br>
                             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Pagina no encontrada.
@@ -44,8 +42,8 @@ include_once '../plantillas/barra_lateral.php';
                         </div>
                         <!-- /.error-content -->
                     </div>
-                    <!-- /.error-page -->
-                </section>
+
+                </div>
             </div> <!-- /.cierre row -->
         </div><!-- /.container-fluid -->
     </section>

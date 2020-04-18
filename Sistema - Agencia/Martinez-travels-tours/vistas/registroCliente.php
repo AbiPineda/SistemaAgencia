@@ -89,16 +89,17 @@ include_once '../plantillas/barra_lateral.php';
                                                    placeholder="Introduzca su Contraseña">
                                         </div>
                                     </div>
+                                    <div style="text-align: right;width:2200px">
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-default float-right">Cancelar</button>
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-info float-right">Guardar</button>
+
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
 
-                                <div class="card-footer">
-                                    <button style="margin: 5px" type="submit"
-                                            class="btn btn-default float-right">Cancelar</button>
-                                    <button style="margin: 5px" type="submit"
-                                            class="btn btn-info float-right">Guardar</button>
-
-                                </div>
+                               
                         </form>
                     </div>
 

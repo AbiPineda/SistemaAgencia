@@ -30,7 +30,12 @@ include_once '../plantillas/barra_lateral.php';
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
+            <div class="offset-1">
+            
 
+
+
+            </div> <!-- cierre offset-->
 
             </div> <!-- /.cierre row -->
 
