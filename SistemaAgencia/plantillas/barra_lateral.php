@@ -122,6 +122,7 @@
               </li>
             </ul>
           </li>
+          <!--INCIA CARGO EXPRES MENU-->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-mail-bulk"></i>
@@ -132,20 +133,38 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/error404.php" class="nav-link">
+                  <a href="../vistas/cargoExpress/registroEncomienda.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
-                  <p>Registro de Encomienda</p>
+                  <p>Registro Encomienda</p>
                 </a>
               </li>
+
               <li class="nav-item">
-                  <a href="../vistas/error404.php" class="nav-link">
+                  <a href="../vistas/cargoExpress/modificacionEncomienda.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
-                  <p>Calculo de Costo</p>
+                  <p>Modificación Encomienda</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="../vistas/cargoExpress/calculoEncomienda.php" class="nav-link">
+                  <i class="fas fa-ellipsis-v nav-icon"></i>
+                  <p>Calculo Encomienda</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="../vistas/cargoExpress/actualizacionEnvio.php" class="nav-link">
+                  <i class="fas fa-ellipsis-v nav-icon"></i>
+                  <p>Actualizacion de Envio</p>
                 </a>
               </li>
               
             </ul>
           </li>
+          <!--TERMINA CARGO EXPRES MENU-->
+
+           <!--INCIA ASESORIA MIGRATORIA MENU-->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-balance-scale-right"></i>
@@ -156,13 +175,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/error404.php" class="nav-link">
+                  <a href="../vistas/asesoriaMigra/programacionCitas.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Generar Cita</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../vistas/error404.php" class="nav-link">
+                  <a href="../vistas/asesoriaMigra/registroMigratoria.php" class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Llenado de Formulario</p>
                 </a>
@@ -170,6 +189,8 @@
               
             </ul>
           </li>
+         <!--TERMINA ASESORIA MIGRATORIA MENU-->  
+
           <li class="nav-header">COTIZACIONES</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
