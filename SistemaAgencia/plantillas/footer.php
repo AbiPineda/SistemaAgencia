@@ -38,6 +38,17 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
     <!-- Page script -->
+
+    <!--contenido principal-->
+    <script type="text/javascript">
+        function cargar_contenido(contenedor,contenido){
+            //alert(contenido);
+            //alert(contenedor);
+          $("#"+contenedor).load(contenido);
+        }
+    </script>
+
+    <!--fin de contenido principal-->
 <script>
         $(function() {
             //Initialize Select2 Elements

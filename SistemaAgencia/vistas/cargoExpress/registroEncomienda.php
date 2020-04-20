@@ -1,1 +1,1 @@
-<h1>Estamos empezando el juego  EN PROCESO............ </h1>
+<h1>Estamos empezando el juego  EN PROCESO.....rEGISTRO....... </h1>

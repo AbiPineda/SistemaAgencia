@@ -33,7 +33,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/registroCliente.php" class="nav-link">
+                <a onclick="cargar_contenido('contenido_principal','registroCliente.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Cliente</p>
                 </a>
@@ -133,35 +134,47 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/cargoExpress/registroEncomienda.php" class="nav-link">
+                 <a onclick="cargar_contenido('contenido_principal','cargoExpress/registroEncomienda.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro Encomienda</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                  <a href="../vistas/cargoExpress/modificacionEncomienda.php" class="nav-link">
+                <a onclick="cargar_contenido('contenido_principal','cargoExpress/modificacionEncomienda.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Modificación Encomienda</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                  <a href="../vistas/cargoExpress/calculoEncomienda.php" class="nav-link">
+           <a onclick="cargar_contenido('contenido_principal','cargoExpress/calculoEncomienda.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Calculo Encomienda</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                  <a href="../vistas/cargoExpress/actualizacionEnvio.php" class="nav-link">
+              <a onclick="cargar_contenido('contenido_principal','cargoExpress/actualizacionEnvio.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Actualizacion de Envio</p>
                 </a>
+                
               </li>
               
             </ul>
+            
           </li>
+
+          <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-user"></i>
+ 
+                            </li>
+                        </ul>
           <!--TERMINA CARGO EXPRES MENU-->
 
            <!--INCIA ASESORIA MIGRATORIA MENU-->
@@ -175,13 +188,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../vistas/asesoriaMigra/programacionCitas.php" class="nav-link">
+               <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/registroMigratoria.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Generar Cita</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="../vistas/asesoriaMigra/registroMigratoria.php" class="nav-link">
+                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+         class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Llenado de Formulario</p>
                 </a>
@@ -293,3 +308,5 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  
