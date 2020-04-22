@@ -1,18 +1,50 @@
+/*mis estilos JcMoz*/
 #titulo{
-    animation: latir infinite 5s linear;
+    
 }
 
-@keyframes latir{
-0%{
-   transform: scale(1,1);
+.center{
+    width: 75%;
+    margin: 0px auto;
 }
-50%{
-    transform: scale(1.02,1.02);
+#cargoExpres{
+    width: 33%;
+    font-size: 30px;
+    margin-top: -20px;
 }
-55%{
-    transform: scale(0.95,0.95);
+#cargoExpres img{
+    display: block;
+    float: left;
+    height:px;
+    margin-top: 28px;
+    margin-right: -257px;
+    width: 130%;
+    animation: girar infinite 30s linear;
 }
-100%{
-    transform: scale(1,1);
+
+/*para cargo expres reglas*/
+    #cargoExpresRe{
+    width: 33%;
+    font-size: 30px;
+    margin-top: -20px;
+}
+#cargoExpresRe img{
+    display: block;
+    float: right;
+    height:215px;
+    margin-top: -6px;
+    margin-right: -257px;
+    width: 119%;
+    animation: girar infinite 30s linear;
+}
+@keyframes girar{
+from{
+   transform: rotate(0deg);
+}
+to{
+    transform: rotate(360deg);
 }
 }
+/*final de la champios Kiev*/
+
+/*mis estilos JcMoz*/

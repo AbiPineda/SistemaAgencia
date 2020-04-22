@@ -9,6 +9,7 @@ include_once './plantillas/barra_lateral.php';
 <!-- Content Wrapper. Contains page content -->
 <div id="contenido_principal" >
 <div class="content-wrapper">
+            
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">

@@ -28,7 +28,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="<?=$base_url?>css/style.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

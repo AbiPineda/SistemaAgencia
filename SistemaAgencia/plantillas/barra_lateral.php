@@ -134,7 +134,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                 <a onclick="cargar_contenido('contenido_principal','cargoExpress/registroEncomienda.php')" 
+                 <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/registroEncomienda.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro Encomienda</p>
@@ -142,7 +142,7 @@
               </li>
 
               <li class="nav-item">
-                <a onclick="cargar_contenido('contenido_principal','cargoExpress/modificacionEncomienda.php')" 
+                <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/modificacionEncomienda.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Modificación Encomienda</p>
@@ -150,7 +150,7 @@
               </li>
 
               <li class="nav-item">
-           <a onclick="cargar_contenido('contenido_principal','cargoExpress/calculoEncomienda.php')" 
+           <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/calculoEncomienda.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Calculo Encomienda</p>
@@ -158,7 +158,7 @@
               </li>
 
               <li class="nav-item">
-              <a onclick="cargar_contenido('contenido_principal','cargoExpress/actualizacionEnvio.php')" 
+              <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/actualizacionEnvio.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Actualizacion de Envio</p>
@@ -179,21 +179,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-               <a onclick="cargar_contenido('contenido_principal','cargoExpress/producto.php')" 
+               <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/producto.php')" 
          class="nav-link">
                   <i class="fas fa-paste"></i>
                   <p>Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+                  <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/categoria.php')" 
          class="nav-link">
                   <i class="fas fa-paste"></i>
                   <p>Categoria</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+                  <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/cargoExpress/reglas.php')" 
          class="nav-link">
                   <i class="fas fa-paste"></i>
                   <p>Reglas</p>
@@ -226,14 +226,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-               <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/registroMigratoria.php')" 
+               <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/asesoriaMigra/registroMigratoria.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Generar Cita</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+                  <a onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/asesoriaMigra/programacionCitas.php')" 
          class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Llenado de Formulario</p>

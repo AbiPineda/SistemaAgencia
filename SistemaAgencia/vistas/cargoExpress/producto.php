@@ -7,6 +7,7 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -35,7 +36,7 @@
                     <!-- general form elements -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Datos </h3>
+                            <h3 class="card-title">Datos de los Productos </h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -46,7 +47,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca su nombre">
+                                            <input type="text" class="form-control" placeholder="Introduzca el nombre">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -54,40 +55,34 @@
                                             <label for="cars">Seleccione la Categoría:</label>
 
                                             <select id="categoria" class="form-control">
-                                                <option value="permitido">Permitido</option>
-                                                <option value="no">No permitido</option>
-                                               
+                                                <option value="permitido">Alimentos</option>
+                                                <option value="no">Licores y Tabaco</option>
+                                                 <option value="no">Medicamentos</option>
                                             </select> 
                                         </div>
                                     </div>
+
                                 </div>
-                              
-                                <!-- /.card-body -->
-
-
+                            </div><!-- /.card-body -->
                         </form>
-                    </div>
+                    </div> <!-- /.card-body -->
 
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-
-
-
-
-
-
-
-                <!-- /.card -->
-
-
-                <!-- /.card -->
             </div>
             <!--/.col (right) -->
         </div>
         <!-- /.row -->
+    </section>
+            <div class="center">
+                <div id="cargoExpresRe">
+                    <img src="vistas/cargoExpress/img/cargo.png" class="app-logo" alt="Logotipo"/> 
+                </div>
+                
+            </div>
+       
 </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 </div>
+
 <!-- /.content-wrapper -->
