@@ -166,6 +166,44 @@
                 
               </li>
               
+              <!--****para Registro de producto*****-->
+              
+              
+              <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-file-alt"></i>
+              <p>
+               Registro de Producto
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+               <a onclick="cargar_contenido('contenido_principal','cargoExpress/producto.php')" 
+         class="nav-link">
+                  <i class="fas fa-paste"></i>
+                  <p>Productos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+         class="nav-link">
+                  <i class="fas fa-paste"></i>
+                  <p>Categoria</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a onclick="cargar_contenido('contenido_principal','asesoriaMigra/programacionCitas.php')" 
+         class="nav-link">
+                  <i class="fas fa-paste"></i>
+                  <p>Reglas</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+              <!--*******************-->
+              
             </ul>
             
           </li>
