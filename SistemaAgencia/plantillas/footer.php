@@ -42,10 +42,17 @@
     
     <script type="text/javascript">
      window.addEventListener('load', ()=>{
-         if( localStorage.getItem('contenido') != ''){
+         if( localStorage.getItem('contenido') != null){
                cargar_contenido('contenido_principal', localStorage.getItem('contenido'));
            }
      });
+     
+//   window.onunload  = function() {
+//  localStorage.removeItem('contenido');
+//  //return '';
+//};
+     
+     
     </script>
     
     
