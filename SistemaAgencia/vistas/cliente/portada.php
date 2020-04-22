@@ -1,12 +1,13 @@
 <?php
-include_once '../config/parametros.php';
-include_once '../plantillas/cabecera.php';
-include_once '../plantillas/navbar.php';
-include_once '../plantillas/barra_lateral.php';
+include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 
 <!-- Content Wrapper. Contains page content -->
+<div id="contenido_principal" >
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -27,31 +28,27 @@ include_once '../plantillas/barra_lateral.php';
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid ">
+    <section class="content" style="margin-left: 350px">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="offset-1">
-                    <div class="error-page">
-                        <h2 class="headline text-warning">404</h2>
-                        <div class="error-content">
-                            <br><br>
-                            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Pagina no encontrada.
-                            </h3>
-                            <p>
-                                Nos encontramos desarrollando este espacio.
-                            </p>
-                        </div>
-                        <!-- /.error-content -->
-                    </div>
+            <div class="offset-1">
+            
 
-                </div>
+
+
+            </div> <!-- cierre offset-->
+
             </div> <!-- /.cierre row -->
+
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+</div>
 
 
 <?php
-include_once '../plantillas/footer.php';
+include_once '../../plantillas/footer.php';
+  ?>
