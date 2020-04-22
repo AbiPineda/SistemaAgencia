@@ -1,0 +1,18 @@
+modals alerts 
+	launch success modal
+	launch sucess toast
+timeline
+
+advanced Elements
+	multiple		para seleccionar muchas ubiciaciones
+	date range		este puede servir para seleccionar las fechas entre viajes
+	Color & Time Picker	para definir la hora de salida 
+	Input masks		para las mascaras
+calendar 			puede servir para hacer el itinerario
+gallery				puede srvir para las fotos 
+mailbox				muy util para para manejar los mensjes recividos
+	compose			se encuentra un editor para hacer publicaciones se ve muy bien 
+
+pages	
+	e commerce 		puede sere util paara presentar las los vuelos carros tours etc
+	contacts 		es perfecto para los contactos de la agencia 

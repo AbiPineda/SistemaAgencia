@@ -81,7 +81,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="<?=$base_url?>vistas/error404.php" class="nav-link">
+                  <a  onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/tours/registro-tour.php')"  class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Registro de Tours</p>
                 </a>

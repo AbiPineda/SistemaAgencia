@@ -39,9 +39,22 @@
     <script src="<?=$base_url?>dist/js/demo.js"></script>
     <!-- Page script -->
 
+    
+    <script type="text/javascript">
+     window.addEventListener('load', ()=>{
+         if( localStorage.getItem('contenido') != ''){
+               cargar_contenido('contenido_principal', localStorage.getItem('contenido'));
+           }
+     });
+    </script>
+    
+    
+    
+    
     <!--contenido principal-->
     <script type="text/javascript">
         function cargar_contenido(contenedor,contenido){
+            localStorage.setItem('contenido',contenido);
             //alert(contenido);
             //alert(contenedor);
           $("#"+contenedor).load(contenido);
