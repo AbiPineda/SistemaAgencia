@@ -14,6 +14,21 @@
 </div>
 <!-- ./wrapper -->
 
+
+<script src="<?=$base_url?>js/foto.js"></script> 
+
+ <!--      esto es para que se vea la direccion de una foto que se esta subiendo-->
+      <script src="<?=$base_url?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script> 
+
+      <script type="text/javascript">
+            $(document).ready(function () {
+                bsCustomFileInput.init();
+            });
+        </script>
+
+
+
+
 <!-- jQuery -->
 <script src="<?=$base_url?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -38,14 +53,9 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?=$base_url?>dist/js/demo.js"></script>
     <!-- Page script -->
-      <script src="<?=$base_url?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>   
-      
-         <script type="text/javascript">
-            $(document).ready(function () {
-                bsCustomFileInput.init();
-            });
-        </script>
-    
+  
+<!--    esto es para que no se pierde el contenido con el que se esta trabajando -->
+        
     <script type="text/javascript">
      window.addEventListener('load', ()=>{
          if( localStorage.getItem('contenido') != null){
@@ -153,7 +163,7 @@
     </script>
 
 
- 
+
     
 </body>
 </html>

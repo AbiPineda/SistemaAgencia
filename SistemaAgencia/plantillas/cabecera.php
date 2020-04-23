@@ -30,6 +30,7 @@
     
     <link rel="stylesheet" href="<?=$base_url?>css/style.css">
 
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -40,3 +41,5 @@
  <!-- Para uso de mascaras -->
 <script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
 <link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css" />
+
+ <link rel="stylesheet" href="<?=$base_url?>css/foto.css">
