@@ -298,7 +298,7 @@ include_once '../../config/parametros.php';
     $(document).ready(function () {
         bsCustomFileInput.init();
     });
-    < /script
+
 </script>
 
 <script src="<?=$base_url?>js/foto.js"></script> 

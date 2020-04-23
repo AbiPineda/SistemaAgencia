@@ -86,8 +86,15 @@
                   <p>Registro de Tours</p>
                 </a>
               </li>
+              
               <li class="nav-item">
-                  <a href=".<?=$base_url?>vistas/error404.php" class="nav-link">
+                  <a  onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/tours/ver_rour.php')"  class="nav-link">
+                  <i class="fas fa-ellipsis-v nav-icon"></i>
+                  <p>Ver Tours</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                   <a  onclick="cargar_contenido('contenido_principal','<?=$base_url?>vistas/tours/ver_rour.php')"  class="nav-link">
                   <i class="fas fa-ellipsis-v nav-icon"></i>
                   <p>Disponibilidad de Reserva</p>
                 </a>

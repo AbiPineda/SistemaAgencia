@@ -21,5 +21,8 @@ function archivo(evt) {
     }
 }
 
-document.getElementById('files').addEventListener('change', archivo, false);
+if(document.getElementById('files') != null){
+    document.getElementById('files').addEventListener('change', archivo, false);
 //document.getElementById('fotoLib').addEventListener('change', archivo, false);
+}
+
