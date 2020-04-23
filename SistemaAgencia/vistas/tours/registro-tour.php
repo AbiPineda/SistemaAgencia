@@ -65,8 +65,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -81,7 +81,7 @@
                                             <!-- /.input group -->
                                         </div>
                                     </div>
-                                     
+
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Precio</label>
@@ -96,7 +96,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>El viaje incluye</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>El viaje no incluye</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Requisitos de viaje</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Promociones especiales</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -123,34 +155,47 @@
                                             <label>Hoteles</label>
                                             <div class="select2-blue">
                                                 <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Seleccione los hoteles" data-dropdown-css-class="select2-blue" style="width: 100%;" data-select2-id="15" tabindex="-1" aria-hidden="true">
-                                                      <option data-select2-id="146">Hoteles(Costa Rica)</option>
+                                                    <option data-select2-id="146">Hoteles(Costa Rica)</option>
                                                     <option data-select2-id="147">Hilton (Costa Rica)</option>
                                                     <option data-select2-id="148">Real Roma (Costa Rica)</option>
                                                     <option data-select2-id="149">Presidencia (Costa Rica)</option>
-                                                                                                      
-                                                       <option data-select2-id="161">Monterreal (Nicaragua)</option>
+
+                                                    <option data-select2-id="161">Monterreal (Nicaragua)</option>
                                                     <option data-select2-id="163">San Pedro (Nicaragua)</option>
                                                 </select>
-                                                
+
                                             </div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
 
-
-
-
-
-
-                                    <div style="text-align: right;width:2200px">
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-default float-right">Cancelar</button>
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-info float-right">Guardar</button>
-
-                                    </div>
                                 </div>
-                                <!-- /.card-body -->
+                               
+                                <div class="row">
+                                     <div class="offset-md-3"></div>
+                                    <div class="col-lg-6">
+                                         <label>Seleccione foto</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" >
+                                            <label class="custom-file-label" for="customFile"></label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                                <div style="text-align: right;width:2200px">
+                                    <button style="margin: 5px" type="submit"
+                                            class="btn btn-default float-right">Cancelar</button>
+                                    <button style="margin: 5px" type="submit"
+                                            class="btn btn-info float-right">Guardar</button>
+
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
 
 
                         </form>
@@ -179,6 +224,9 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+
+
 
 <script>
     $(function () {
@@ -253,3 +301,10 @@
 
     })
 </script>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script

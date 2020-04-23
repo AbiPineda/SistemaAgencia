@@ -38,7 +38,13 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?=$base_url?>dist/js/demo.js"></script>
     <!-- Page script -->
-
+      <script src="<?=$base_url?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>   
+      
+         <script type="text/javascript">
+            $(document).ready(function () {
+                bsCustomFileInput.init();
+            });
+        </script>
     
     <script type="text/javascript">
      window.addEventListener('load', ()=>{
@@ -147,5 +153,7 @@
     </script>
 
 
+ 
+    
 </body>
 </html>
