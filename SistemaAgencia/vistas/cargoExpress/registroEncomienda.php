@@ -54,41 +54,93 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="cars">Seleccione el Producto:</label>
+                                            <label for="cars">Seleccione el Cliente:</label>
 
                                             <select id="categoria" class="form-control">
-                                                <option value="permitido">Acetaminofen</option>
-                                                <option value="no">Jeringas</option>
-                                                <option value="no">Y más efecto de diseño</option>
+                                                <option value="permitido">Jessenia Corinca</option>
+                                                <option value="no">Jenny Orellana</option>
+                                                <option value="no">Judith Hernández</option>
                                             </select> 
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Unidades de medidad</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca la unidad de medida">
+                                        <div class="col-lg-6">
+                                          <div class="form-group">
+                                            <label for="cars">Seleccione el Producto:</label>
+
+                                            <select id="categoria" class="form-control">
+                                                <option value="permitido">Acetaminofén</option>
+                                                <option value="no">Jeringas</option>
+                                            </select> 
                                         </div>
-                                    </div>
+                                            </div>
+                                    
+                                    
                                 </div>
                                 <!--****************FIN FILA*************-->
                                 
                                  <!--Esta es una fila-->
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                   <div class="col-lg-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Tarifa</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca la tarifa">
+                                            <label>Dirección</label>
+                                            <input type="text" class="form-control" placeholder="Introduzca la dirección">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Comisión</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca la comisión">
+                                            <label>Destino Final</label>
+                                            <input type="text" class="form-control" placeholder="Introduzca el destino final">
                                         </div>
                                     </div>
+                                </div>
+                                 
+                                 
+                                <!--****************FIN FILA*************-->
+                                
+                                <!--Esta es una fila-->
+                                <div class="row">
+                                   <div class="col-lg-3">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Costo</label>
+                                            <input type="text" class="form-control" placeholder="Calculado...">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Cantidad</label>
+                                            <input type="" class="form-control" placeholder="Depende el producto">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Estado</label>
+                                            <select id="categoria" class="form-control">
+                                                <option value="permitido">Enviado</option>
+                                                <option value="no">Otros </option>
+                                            </select> 
+                                           </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                     <div style="text-align: right;width:2200px">
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-default float-right">Cancelar</button>
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-info float-right">Guardar</button>
+
+                                    </div>
+                                    
                                 </div>
                                  
                                  

@@ -49,7 +49,18 @@
                                             <label>Nombre</label>
                                             <input type="text" class="form-control" placeholder="Introduzca de la Categoría">
                                         </div>
+                                        
+                                          
                                     </div>
+                                     <div class="col-lg-6">
+                                    <div style="text-align: right;width:315px; margin-top: 6%;">
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-default float-right">Cancelar</button>
+                                        <button style="margin: 5px" type="submit"
+                                            class="btn btn-info float-right">Guardar</button>
+
+                                    </div>
+                                     </div>
                                 </div>
                             </div><!-- /.card-body -->
                         </form>
