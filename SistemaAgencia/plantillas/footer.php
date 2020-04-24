@@ -52,6 +52,12 @@
     <script src="<?=$base_url?>dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?=$base_url?>dist/js/demo.js"></script>
+    
+    !-- DataTables -->
+<script src="<?=$base_url?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=$base_url?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?=$base_url?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?=$base_url?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- Page script -->
   
 <!--    esto es para que no se pierde el contenido con el que se esta trabajando -->
@@ -161,6 +167,8 @@
 
         })
     </script>
+    
+    
 
 
 
