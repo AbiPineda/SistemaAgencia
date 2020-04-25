@@ -2658,14 +2658,14 @@ $jscomp.polyfill("Array.prototype.find", function(f) { return f ? f : function(f
         oLanguage: {
             oAria: { sSortAscending: ": activate to sort column ascending", sSortDescending: ": activate to sort column descending" },
             oPaginate: {
-                sFirst: "Primero",
-                sLast: "Ultimo",
-                sNext: "Siguiente",
-                sPrevious: "Anterior"
+                sFirst: "First",
+                sLast: "Last",
+                sNext: "Next",
+                sPrevious: "Previous"
             },
             sEmptyTable: "No data available in table",
             sInfo: "Showing _START_ to _END_ of _TOTAL_ entries",
-            sInfoEmpty: "Mostrando 0 desde 0 de 0 entradas",
+            sInfoEmpty: "Mostrando 0 a 0 de 0 entradas",
             sInfoFiltered: "(filtered from _MAX_ total entries)",
             sInfoPostFix: "",
             sDecimal: "",
@@ -2673,7 +2673,7 @@ $jscomp.polyfill("Array.prototype.find", function(f) { return f ? f : function(f
             sLengthMenu: "Show _MENU_ entries",
             sLoadingRecords: "Loading...",
             sProcessing: "Processing...",
-            sSearch: "Buscar:",
+            sSearch: "Search:",
             sSearchPlaceholder: "",
             sUrl: "",
             sZeroRecords: "No matching records found"
@@ -3074,4 +3074,482 @@ $jscomp.polyfill("Array.prototype.find", function(f) { return f ? f : function(f
     f.fn.DataTable = function(a) { return f(this).dataTable(a).api() };
     f.each(q, function(a, b) { f.fn.DataTable[a] = b });
     return f.fn.dataTable
+});
+sType: null,
+    sWidth: null,
+    sWidthOrig: null
+};
+q.defaults = {
+    aaData: null,
+    aaSorting: [
+        [0, "asc"]
+    ],
+    aaSortingFixed: [],
+    ajax: null,
+    aLengthMenu: [10, 25, 50, 100],
+    aoColumns: null,
+    aoColumnDefs: null,
+    aoSearchCols: [],
+    asStripeClasses: null,
+    bAutoWidth: !0,
+    bDeferRender: !1,
+    bDestroy: !1,
+    bFilter: !0,
+    bInfo: !0,
+    bLengthChange: !0,
+    bPaginate: !0,
+    bProcessing: !1,
+    bRetrieve: !1,
+    bScrollCollapse: !1,
+    bServerSide: !1,
+    bSort: !0,
+    bSortMulti: !0,
+    bSortCellsTop: !1,
+    bSortClasses: !0,
+    bStateSave: !1,
+    fnCreatedRow: null,
+    fnDrawCallback: null,
+    fnFooterCallback: null,
+    fnFormatNumber: function(a) { return a.toString().replace(/\B(?=(\d{3})+(?!\d))/g, this.oLanguage.sThousands) },
+    fnHeaderCallback: null,
+    fnInfoCallback: null,
+    fnInitComplete: null,
+    fnPreDrawCallback: null,
+    fnRowCallback: null,
+    fnServerData: null,
+    fnServerParams: null,
+    fnStateLoadCallback: function(a) { try { return JSON.parse((-1 === a.iStateDuration ? sessionStorage : localStorage).getItem("DataTables_" + a.sInstance + "_" + location.pathname)) } catch (b) {} },
+    fnStateLoadParams: null,
+    fnStateLoaded: null,
+    fnStateSaveCallback: function(a, b) {
+        try {
+            (-1 === a.iStateDuration ? sessionStorage : localStorage).setItem("DataTables_" + a.sInstance + "_" + location.pathname, JSON.stringify(b))
+        } catch (c) {}
+    },
+    fnStateSaveParams: null,
+    iStateDuration: 7200,
+    iDeferLoading: null,
+    iDisplayLength: 10,
+    iDisplayStart: 0,
+    iTabIndex: 0,
+    oClasses: {},
+    oLanguage: {
+        oAria: { sSortAscending: ": activate to sort column ascending", sSortDescending: ": activate to sort column descending" },
+        oPaginate: {
+            sFirst: "First",
+            sLast: "Last",
+            sNext: "Next",
+            sPrevious: "Previous"
+        },
+        sEmptyTable: "No data available in table",
+        sInfo: "Showing _START_ to _END_ of _TOTAL_ entries",
+        sInfoEmpty: "Showing 0 to 0 of 0 entries",
+        sInfoFiltered: "(filtered from _MAX_ total entries)",
+        sInfoPostFix: "",
+        sDecimal: "",
+        sThousands: ",",
+        sLengthMenu: "Show _MENU_ entries",
+        sLoadingRecords: "Loading...",
+        sProcessing: "Processing...",
+        sSearch: "Search:",
+        sSearchPlaceholder: "",
+        sUrl: "",
+        sZeroRecords: "No matching records found"
+    },
+    oSearch: f.extend({}, q.models.oSearch),
+    sAjaxDataProp: "data",
+    sAjaxSource: null,
+    sDom: "lfrtip",
+    searchDelay: null,
+    sPaginationType: "simple_numbers",
+    sScrollX: "",
+    sScrollXInner: "",
+    sScrollY: "",
+    sServerMethod: "GET",
+    renderer: null,
+    rowId: "DT_RowId"
+};
+H(q.defaults);
+q.defaults.column = { aDataSort: null, iDataSort: -1, asSorting: ["asc", "desc"], bSearchable: !0, bSortable: !0, bVisible: !0, fnCreatedCell: null, mData: null, mRender: null, sCellType: "td", sClass: "", sContentPadding: "", sDefaultContent: null, sName: "", sSortDataType: "std", sTitle: null, sType: null, sWidth: null };
+H(q.defaults.column);
+q.models.oSettings = {
+    oFeatures: { bAutoWidth: null, bDeferRender: null, bFilter: null, bInfo: null, bLengthChange: null, bPaginate: null, bProcessing: null, bServerSide: null, bSort: null, bSortMulti: null, bSortClasses: null, bStateSave: null },
+    oScroll: { bCollapse: null, iBarWidth: 0, sX: null, sXInner: null, sY: null },
+    oLanguage: { fnInfoCallback: null },
+    oBrowser: { bScrollOversize: !1, bScrollbarLeft: !1, bBounding: !1, barWidth: 0 },
+    ajax: null,
+    aanFeatures: [],
+    aoData: [],
+    aiDisplay: [],
+    aiDisplayMaster: [],
+    aIds: {},
+    aoColumns: [],
+    aoHeader: [],
+    aoFooter: [],
+    oPreviousSearch: {},
+    aoPreSearchCols: [],
+    aaSorting: null,
+    aaSortingFixed: [],
+    asStripeClasses: null,
+    asDestroyStripes: [],
+    sDestroyWidth: 0,
+    aoRowCallback: [],
+    aoHeaderCallback: [],
+    aoFooterCallback: [],
+    aoDrawCallback: [],
+    aoRowCreatedCallback: [],
+    aoPreDrawCallback: [],
+    aoInitComplete: [],
+    aoStateSaveParams: [],
+    aoStateLoadParams: [],
+    aoStateLoaded: [],
+    sTableId: "",
+    nTable: null,
+    nTHead: null,
+    nTFoot: null,
+    nTBody: null,
+    nTableWrapper: null,
+    bDeferLoading: !1,
+    bInitialised: !1,
+    aoOpenRows: [],
+    sDom: null,
+    searchDelay: null,
+    sPaginationType: "two_button",
+    iStateDuration: 0,
+    aoStateSave: [],
+    aoStateLoad: [],
+    oSavedState: null,
+    oLoadedState: null,
+    sAjaxSource: null,
+    sAjaxDataProp: null,
+    bAjaxDataGet: !0,
+    jqXHR: null,
+    json: p,
+    oAjaxData: p,
+    fnServerData: null,
+    aoServerParams: [],
+    sServerMethod: null,
+    fnFormatNumber: null,
+    aLengthMenu: null,
+    iDraw: 0,
+    bDrawing: !1,
+    iDrawError: -1,
+    _iDisplayLength: 10,
+    _iDisplayStart: 0,
+    _iRecordsTotal: 0,
+    _iRecordsDisplay: 0,
+    oClasses: {},
+    bFiltered: !1,
+    bSorted: !1,
+    bSortCellsTop: null,
+    oInit: null,
+    aoDestroyCallback: [],
+    fnRecordsTotal: function() {
+        return "ssp" == D(this) ? 1 * this._iRecordsTotal :
+            this.aiDisplayMaster.length
+    },
+    fnRecordsDisplay: function() { return "ssp" == D(this) ? 1 * this._iRecordsDisplay : this.aiDisplay.length },
+    fnDisplayEnd: function() {
+        var a = this._iDisplayLength,
+            b = this._iDisplayStart,
+            c = b + a,
+            d = this.aiDisplay.length,
+            e = this.oFeatures,
+            f = e.bPaginate;
+        return e.bServerSide ? !1 === f || -1 === a ? b + d : Math.min(b + a, this._iRecordsDisplay) : !f || c > d || -1 === a ? d : c
+    },
+    oInstance: null,
+    sInstance: null,
+    iTabIndex: 0,
+    nScrollHead: null,
+    nScrollFoot: null,
+    aLastSort: [],
+    oPlugins: {},
+    rowIdFn: null,
+    rowId: null
+};
+q.ext = C = {
+    buttons: {},
+    classes: {},
+    builder: "-source-",
+    errMode: "alert",
+    feature: [],
+    search: [],
+    selector: { cell: [], column: [], row: [] },
+    internal: {},
+    legacy: { ajax: null },
+    pager: {},
+    renderer: { pageButton: {}, header: {} },
+    order: {},
+    type: { detect: [], search: {}, order: {} },
+    _unique: 0,
+    fnVersionCheck: q.fnVersionCheck,
+    iApiIndex: 0,
+    oJUIClasses: {},
+    sVersion: q.version
+};
+f.extend(C, { afnFiltering: C.search, aTypes: C.type.detect, ofnSearch: C.type.search, oSort: C.type.order, afnSortData: C.order, aoFeatures: C.feature, oApi: C.internal, oStdClasses: C.classes, oPagination: C.pager });
+f.extend(q.ext.classes, {
+    sTable: "dataTable",
+    sNoFooter: "no-footer",
+    sPageButton: "paginate_button",
+    sPageButtonActive: "current",
+    sPageButtonDisabled: "disabled",
+    sStripeOdd: "odd",
+    sStripeEven: "even",
+    sRowEmpty: "dataTables_empty",
+    sWrapper: "dataTables_wrapper",
+    sFilter: "dataTables_filter",
+    sInfo: "dataTables_info",
+    sPaging: "dataTables_paginate paging_",
+    sLength: "dataTables_length",
+    sProcessing: "dataTables_processing",
+    sSortAsc: "sorting_asc",
+    sSortDesc: "sorting_desc",
+    sSortable: "sorting",
+    sSortableAsc: "sorting_asc_disabled",
+    sSortableDesc: "sorting_desc_disabled",
+    sSortableNone: "sorting_disabled",
+    sSortColumn: "sorting_",
+    sFilterInput: "",
+    sLengthSelect: "",
+    sScrollWrapper: "dataTables_scroll",
+    sScrollHead: "dataTables_scrollHead",
+    sScrollHeadInner: "dataTables_scrollHeadInner",
+    sScrollBody: "dataTables_scrollBody",
+    sScrollFoot: "dataTables_scrollFoot",
+    sScrollFootInner: "dataTables_scrollFootInner",
+    sHeaderTH: "",
+    sFooterTH: "",
+    sSortJUIAsc: "",
+    sSortJUIDesc: "",
+    sSortJUI: "",
+    sSortJUIAscAllowed: "",
+    sSortJUIDescAllowed: "",
+    sSortJUIWrapper: "",
+    sSortIcon: "",
+    sJUIHeader: "",
+    sJUIFooter: ""
+});
+var Pb = q.ext.pager;
+f.extend(Pb, { simple: function(a, b) { return ["previous", "next"] }, full: function(a, b) { return ["first", "previous", "next", "last"] }, numbers: function(a, b) { return [ka(a, b)] }, simple_numbers: function(a, b) { return ["previous", ka(a, b), "next"] }, full_numbers: function(a, b) { return ["first", "previous", ka(a, b), "next", "last"] }, first_last_numbers: function(a, b) { return ["first", ka(a, b), "last"] }, _numbers: ka, numbers_length: 7 });
+f.extend(!0, q.ext.renderer, {
+    pageButton: {
+        _: function(a, b,
+            c, d, e, h) {
+            var g = a.oClasses,
+                k = a.oLanguage.oPaginate,
+                l = a.oLanguage.oAria.paginate || {},
+                n, m, q = 0,
+                t = function(b, d) {
+                    var p, r = g.sPageButtonDisabled,
+                        u = function(b) { Xa(a, b.data.action, !0) };
+                    var w = 0;
+                    for (p = d.length; w < p; w++) {
+                        var v = d[w];
+                        if (f.isArray(v)) {
+                            var x = f("<" + (v.DT_el || "div") + "/>").appendTo(b);
+                            t(x, v)
+                        } else {
+                            n = null;
+                            m = v;
+                            x = a.iTabIndex;
+                            switch (v) {
+                                case "ellipsis":
+                                    b.append('<span class="ellipsis">&#x2026;</span>');
+                                    break;
+                                case "first":
+                                    n = k.sFirst;
+                                    0 === e && (x = -1, m += " " + r);
+                                    break;
+                                case "previous":
+                                    n = k.sPrevious;
+                                    0 === e && (x = -1, m +=
+                                        " " + r);
+                                    break;
+                                case "next":
+                                    n = k.sNext;
+                                    e === h - 1 && (x = -1, m += " " + r);
+                                    break;
+                                case "last":
+                                    n = k.sLast;
+                                    e === h - 1 && (x = -1, m += " " + r);
+                                    break;
+                                default:
+                                    n = v + 1, m = e === v ? g.sPageButtonActive : ""
+                            }
+                            null !== n && (x = f("<a>", { "class": g.sPageButton + " " + m, "aria-controls": a.sTableId, "aria-label": l[v], "data-dt-idx": q, tabindex: x, id: 0 === c && "string" === typeof v ? a.sTableId + "_" + v : null }).html(n).appendTo(b), $a(x, { action: v }, u), q++)
+                        }
+                    }
+                };
+            try { var v = f(b).find(y.activeElement).data("dt-idx") } catch (mc) {}
+            t(f(b).empty(), d);
+            v !== p && f(b).find("[data-dt-idx=" +
+                v + "]").focus()
+        }
+    }
+});
+f.extend(q.ext.type.detect, [function(a, b) { b = b.oLanguage.sDecimal; return db(a, b) ? "num" + b : null }, function(a, b) {
+    if (a && !(a instanceof Date) && !cc.test(a)) return null;
+    b = Date.parse(a);
+    return null !== b && !isNaN(b) || P(a) ? "date" : null
+}, function(a, b) { b = b.oLanguage.sDecimal; return db(a, b, !0) ? "num-fmt" + b : null }, function(a, b) { b = b.oLanguage.sDecimal; return Ub(a, b) ? "html-num" + b : null }, function(a, b) { b = b.oLanguage.sDecimal; return Ub(a, b, !0) ? "html-num-fmt" + b : null }, function(a, b) {
+    return P(a) || "string" ===
+        typeof a && -1 !== a.indexOf("<") ? "html" : null
+}]);
+f.extend(q.ext.type.search, { html: function(a) { return P(a) ? a : "string" === typeof a ? a.replace(Rb, " ").replace(Ea, "") : "" }, string: function(a) { return P(a) ? a : "string" === typeof a ? a.replace(Rb, " ") : a } });
+var Da = function(a, b, c, d) {
+    if (0 !== a && (!a || "-" === a)) return -Infinity;
+    b && (a = Tb(a, b));
+    a.replace && (c && (a = a.replace(c, "")), d && (a = a.replace(d, "")));
+    return 1 * a
+};
+f.extend(C.type.order, {
+    "date-pre": function(a) { a = Date.parse(a); return isNaN(a) ? -Infinity : a },
+    "html-pre": function(a) {
+        return P(a) ?
+            "" : a.replace ? a.replace(/<.*?>/g, "").toLowerCase() : a + ""
+    },
+    "string-pre": function(a) { return P(a) ? "" : "string" === typeof a ? a.toLowerCase() : a.toString ? a.toString() : "" },
+    "string-asc": function(a, b) { return a < b ? -1 : a > b ? 1 : 0 },
+    "string-desc": function(a, b) { return a < b ? 1 : a > b ? -1 : 0 }
+});
+Ha("");
+f.extend(!0, q.ext.renderer, {
+    header: {
+        _: function(a, b, c, d) {
+            f(a.nTable).on("order.dt.DT", function(e, f, g, k) {
+                a === f && (e = c.idx, b.removeClass(c.sSortingClass + " " + d.sSortAsc + " " + d.sSortDesc).addClass("asc" == k[e] ? d.sSortAsc : "desc" == k[e] ? d.sSortDesc :
+                    c.sSortingClass))
+            })
+        },
+        jqueryui: function(a, b, c, d) {
+            f("<div/>").addClass(d.sSortJUIWrapper).append(b.contents()).append(f("<span/>").addClass(d.sSortIcon + " " + c.sSortingClassJUI)).appendTo(b);
+            f(a.nTable).on("order.dt.DT", function(e, f, g, k) {
+                a === f && (e = c.idx, b.removeClass(d.sSortAsc + " " + d.sSortDesc).addClass("asc" == k[e] ? d.sSortAsc : "desc" == k[e] ? d.sSortDesc : c.sSortingClass), b.find("span." + d.sSortIcon).removeClass(d.sSortJUIAsc + " " + d.sSortJUIDesc + " " + d.sSortJUI + " " + d.sSortJUIAscAllowed + " " + d.sSortJUIDescAllowed).addClass("asc" ==
+                    k[e] ? d.sSortJUIAsc : "desc" == k[e] ? d.sSortJUIDesc : c.sSortingClassJUI))
+            })
+        }
+    }
+});
+var ib = function(a) { return "string" === typeof a ? a.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;") : a };
+q.render = {
+    number: function(a, b, c, d, e) {
+        return {
+            display: function(f) {
+                if ("number" !== typeof f && "string" !== typeof f) return f;
+                var g = 0 > f ? "-" : "",
+                    h = parseFloat(f);
+                if (isNaN(h)) return ib(f);
+                h = h.toFixed(c);
+                f = Math.abs(h);
+                h = parseInt(f, 10);
+                f = c ? b + (f - h).toFixed(c).substring(2) : "";
+                return g + (d || "") + h.toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                    a) + f + (e || "")
+            }
+        }
+    },
+    text: function() { return { display: ib, filter: ib } }
+};
+f.extend(q.ext.internal, {
+    _fnExternApiFunc: Qb,
+    _fnBuildAjax: va,
+    _fnAjaxUpdate: qb,
+    _fnAjaxParameters: zb,
+    _fnAjaxUpdateDraw: Ab,
+    _fnAjaxDataSrc: wa,
+    _fnAddColumn: Ia,
+    _fnColumnOptions: ma,
+    _fnAdjustColumnSizing: aa,
+    _fnVisibleToColumnIndex: ba,
+    _fnColumnIndexToVisible: ca,
+    _fnVisbleColumns: W,
+    _fnGetColumns: oa,
+    _fnColumnTypes: Ka,
+    _fnApplyColumnDefs: nb,
+    _fnHungarianMap: H,
+    _fnCamelToHungarian: L,
+    _fnLanguageCompat: Ga,
+    _fnBrowserDetect: lb,
+    _fnAddData: R,
+    _fnAddTr: pa,
+    _fnNodeToDataIndex: function(a,
+        b) { return b._DT_RowIndex !== p ? b._DT_RowIndex : null },
+    _fnNodeToColumnIndex: function(a, b, c) { return f.inArray(c, a.aoData[b].anCells) },
+    _fnGetCellData: I,
+    _fnSetCellData: ob,
+    _fnSplitObjNotation: Na,
+    _fnGetObjectDataFn: U,
+    _fnSetObjectDataFn: Q,
+    _fnGetDataMaster: Oa,
+    _fnClearTable: qa,
+    _fnDeleteIndex: ra,
+    _fnInvalidate: ea,
+    _fnGetRowElements: Ma,
+    _fnCreateTr: La,
+    _fnBuildHead: pb,
+    _fnDrawHead: ha,
+    _fnDraw: S,
+    _fnReDraw: V,
+    _fnAddOptionsHtml: sb,
+    _fnDetectHeader: fa,
+    _fnGetUniqueThs: ua,
+    _fnFeatureHtmlFilter: ub,
+    _fnFilterComplete: ia,
+    _fnFilterCustom: Db,
+    _fnFilterColumn: Cb,
+    _fnFilter: Bb,
+    _fnFilterCreateSearch: Ta,
+    _fnEscapeRegex: Ua,
+    _fnFilterData: Eb,
+    _fnFeatureHtmlInfo: xb,
+    _fnUpdateInfo: Hb,
+    _fnInfoMacros: Ib,
+    _fnInitialise: ja,
+    _fnInitComplete: xa,
+    _fnLengthChange: Va,
+    _fnFeatureHtmlLength: tb,
+    _fnFeatureHtmlPaginate: yb,
+    _fnPageChange: Xa,
+    _fnFeatureHtmlProcessing: vb,
+    _fnProcessingDisplay: K,
+    _fnFeatureHtmlTable: wb,
+    _fnScrollDraw: na,
+    _fnApplyToChildren: N,
+    _fnCalculateColumnWidths: Ja,
+    _fnThrottle: Sa,
+    _fnConvertToWidth: Jb,
+    _fnGetWidestNode: Kb,
+    _fnGetMaxLenString: Lb,
+    _fnStringToCss: B,
+    _fnSortFlatten: Y,
+    _fnSort: rb,
+    _fnSortAria: Nb,
+    _fnSortListener: Za,
+    _fnSortAttachListener: Qa,
+    _fnSortingClasses: Aa,
+    _fnSortData: Mb,
+    _fnSaveState: Ba,
+    _fnLoadState: Ob,
+    _fnSettingsFromNode: Ca,
+    _fnLog: O,
+    _fnMap: M,
+    _fnBindAction: $a,
+    _fnCallbackReg: E,
+    _fnCallbackFire: A,
+    _fnLengthOverflow: Wa,
+    _fnRenderer: Ra,
+    _fnDataSource: D,
+    _fnRowAttributes: Pa,
+    _fnExtend: ab,
+    _fnCalculateEnd: function() {}
+});
+f.fn.dataTable = q;
+q.$ = f;
+f.fn.dataTableSettings = q.settings;
+f.fn.dataTableExt = q.ext;
+f.fn.DataTable = function(a) { return f(this).dataTable(a).api() };
+f.each(q, function(a, b) { f.fn.DataTable[a] = b });
+return f.fn.dataTable
 });
