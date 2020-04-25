@@ -1,77 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-
-
-  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  
-  
-  
-  
-     <!-- /.col (left) -->
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Date picker</h3>
-              </div>
-              <div class="card-body">
-           
-                <!-- Date range -->
-                <div class="form-group">
-                  <label>Date range:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="far fa-calendar-alt"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control float-right" id="reservation">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-            
-              </div>
-               
-            </div>
-
-          </div>
-
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-
-<!-- Select2 -->
-<script src="../../plugins/select2/js/select2.full.min.js"></script>
-
-<!-- InputMask -->
-<script src="../../plugins/moment/moment.min.js"></script>
-<script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<!-- date-range-picker -->
-<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
-
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Bootstrap Switch -->
-<script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<!-- AdminLTE App -->
-
-<!-- Page script -->
-<script>
-  $(function () {
+$(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
 
@@ -142,6 +69,3 @@
     });
 
   })
-</script>
-</body>
-</html>
