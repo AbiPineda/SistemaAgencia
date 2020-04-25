@@ -106,15 +106,15 @@ include_once '../../config/parametros.php';
                                             </select>
                                         </div>
                                     </div>
-                                <div class="row">
-                                    <div class="offset"></div>
-                                        <div class="col-sm-10" style="text-align:;width:1050px">
+                                    <div class="col-sm-10">
+                                    <div class="offset-sm-6"></div>
+                                    <div class="col-lg-6">
                                         <label>Seleccione foto</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="files" name="foto" >
-                                            <label class="custom-file-label" for="files" ></label>
+                                            <label class="custom-file-label" for="files"></label>
                                         </div>
-                                         </div>
+                                    </div>
 
                                 </div>
                                     <div style="text-align: right;width:2200px">
