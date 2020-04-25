@@ -43,9 +43,8 @@ include_once '../../config/parametros.php';
                                     <th>Fecha de salida</th>
 
                                     <th>tipo</th>
-                                    <th>Editar</th>
-                                    <th>Itineerario  </th>
-                                    <th>Retirar</th>
+                                    <th>Acciones</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,138 +53,373 @@ include_once '../../config/parametros.php';
                                     <td>DEL 4 AL 9 DE ABRIL 2019</td>
                                     <td>Internacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>¡¡¡VAMONOS A ORIENTE - VOLCAN DE CONCHAGUA!!!</td>
                                     <td>FECHA: 22 DE FEBRERO DE 2020</td>
-                                    <td>Nacional>
+                                    <td>Nacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
-                                
-                                 <tr>
+                                <tr>
                                     <td>VÁMONOS A NICARAGUA</td>
                                     <td>DEL 4 AL 8 DE ABRIL 2020</td>
                                     <td>Internacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
-                                
-                                
-                                 <tr>
+                                <tr>
                                     <td>¡ ¡ ¡ VÁMONOS A MACHUPICCHU !!!</td>
                                     <td>FECHA: Paquete disponible año 2020</td>
                                     <td>Internacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
-                                
-                                 <tr>
+                                <tr>
                                     <td>¡¡¡ TOURS A PARADISIACA ROATÁN!!! </td>
                                     <td>02 AL 05 DE ENERO</td>
                                     <td>Internacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
-                                
-                                 <tr>
+                                <tr>
                                     <td>VÁMONOS AL FESTIVAL DE LAS FLORES A GUATEMALA</td>
                                     <td>DEL 16 AL 17 DE NOVIEMBRE  2019</td>
                                     <td>Nacional</td>
                                     <td> 
-                                        <a type="button" class="btn btn-block btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-edit" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
-                                            <i class="fas fa-car" style="color: white"></i>
-                                        </a>
-                                    </td>
-                                    <td> 
-                                        <a type="button" class="btn btn-block btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
-                                            <i class="fas fa-trash" style="color: white"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>!VAMONOS A COSTA RICA¡</td>
+                                    <td>DEL 4 AL 9 DE ABRIL 2019</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡¡¡VAMONOS A ORIENTE - VOLCAN DE CONCHAGUA!!!</td>
+                                    <td>FECHA: 22 DE FEBRERO DE 2020</td>
+                                    <td>Nacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>VÁMONOS A NICARAGUA</td>
+                                    <td>DEL 4 AL 8 DE ABRIL 2020</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡ ¡ ¡ VÁMONOS A MACHUPICCHU !!!</td>
+                                    <td>FECHA: Paquete disponible año 2020</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡¡¡ TOURS A PARADISIACA ROATÁN!!! </td>
+                                    <td>02 AL 05 DE ENERO</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>VÁMONOS AL FESTIVAL DE LAS FLORES A GUATEMALA</td>
+                                    <td>DEL 16 AL 17 DE NOVIEMBRE  2019</td>
+                                    <td>Nacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+
+                                <tr>
+                                    <td>!VAMONOS A COSTA RICA¡</td>
+                                    <td>DEL 4 AL 9 DE ABRIL 2019</td>
+                                    <td>Internacional</td>
+                                    <td > 
+                                        <div class="btn-group center">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡¡¡VAMONOS A ORIENTE - VOLCAN DE CONCHAGUA!!!</td>
+                                    <td>FECHA: 22 DE FEBRERO DE 2020</td>
+                                    <td>Nacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>VÁMONOS A NICARAGUA</td>
+                                    <td>DEL 4 AL 8 DE ABRIL 2020</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡ ¡ ¡ VÁMONOS A MACHUPICCHU !!!</td>
+                                    <td>FECHA: Paquete disponible año 2020</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>¡¡¡ TOURS A PARADISIACA ROATÁN!!! </td>
+                                    <td>02 AL 05 DE ENERO</td>
+                                    <td>Internacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>VÁMONOS AL FESTIVAL DE LAS FLORES A GUATEMALA</td>
+                                    <td>DEL 16 AL 17 DE NOVIEMBRE  2019</td>
+                                    <td>Nacional</td>
+                                    <td> 
+                                        <div class="btn-group">
+                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-edit" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                                <i class="fas fa-trash" style="color: white"></i>
+                                            </a>
+
+                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                                <i class="fas fa-car" style="color: white"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tr>
                             </tbody>
-                            
-                            
-                            
+
+
+
                             <tfoot>
                                 <tr>
                                     <th>Rendering engine</th>
                                     <th>Browser</th>
                                     <th>Platform(s)</th>
                                     <th>Engine version</th>
-                                    <th>CSS grade</th>
-                                    <th>CSS grade</th>
+
                                 </tr>
                             </tfoot>
                         </table>
@@ -207,21 +441,21 @@ include_once '../../config/parametros.php';
 <script src="<?= $base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>  
 
 <script>
-                                            $(function () {
-                                                $("#example1").DataTable({
-                                                    "responsive": true,
-                                                    "autoWidth": false,
+                                                $(function () {
+                                                    $("#example1").DataTable({
+                                                        "responsive": true,
+                                                        "autoWidth": false,
+                                                    });
+                                                    $('#example2').DataTable({
+                                                        "paging": true,
+                                                        "lengthChange": false,
+                                                        "searching": false,
+                                                        "ordering": true,
+                                                        "info": true,
+                                                        "autoWidth": false,
+                                                        "responsive": true,
+                                                    });
                                                 });
-                                                $('#example2').DataTable({
-                                                    "paging": true,
-                                                    "lengthChange": false,
-                                                    "searching": false,
-                                                    "ordering": true,
-                                                    "info": true,
-                                                    "autoWidth": false,
-                                                    "responsive": true,
-                                                });
-                                            });
 </script>
 
 

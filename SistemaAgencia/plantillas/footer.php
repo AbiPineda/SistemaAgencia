@@ -1,5 +1,4 @@
-
-  <footer class="main-footer">
+<footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.4
     </div>
@@ -21,10 +20,6 @@
 <script src="<?=$base_url?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?=$base_url?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- Ekko Lightbox -->
-<script src="<?=$base_url?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
- <!-- Filterizr-->
- <script src="<?=$base_url?>plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?=$base_url?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -41,7 +36,10 @@
      
      
     </script>
-
+    
+    
+    
+    
     <!--contenido principal-->
     <script type="text/javascript">
         function cargar_contenido(contenedor,contenido){
@@ -52,25 +50,6 @@
         }
     </script>
 
- <!-- disponibilidad de vehiculos -->
- <script>
-        $(function() {
-            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox({
-                    alwaysShowClose: true
-                });
-            });
-
-            $('.filter-container').filterizr({
-                gutterPixels: 3
-            });
-            $('.btn[data-filter]').on('click', function() {
-                $('.btn[data-filter]').removeClass('active');
-                $(this).addClass('active');
-            });
-        })
-    </script>
 
 </body>
 </html>

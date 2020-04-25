@@ -1,228 +1,254 @@
 <?php
-include_once '../../config/parametros.php';
+include '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-<div class="content-wrapper" style="min-height: 1185.73px;">
+
+
+<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/ekko-lightbox/ekko-lightbox.css">
+
+
+
+
+
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Catalogo de Clientes</h1>
+                    <h1>Gallery</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Catalogo de Clientes</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Gallery</li>
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-12">
-
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Datos Personales</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
-                                        role="grid" aria-describedby="example1_info">
-                                        <thead>
-                                            <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Rendering engine: activate to sort column descending">
-                                                    Nombre</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1" aria-label="Browser: activate to sort column ascending">
-                                                    Apellidos</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="Platform(s): activate to sort column ascending">
-                                                    Documento de Identidad</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="Engine version: activate to sort column ascending">
-                                                    Correo Electronico</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="CSS grade: activate to sort column ascending">Acciones
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr role="row" class="odd" style="text-align: center;">
-                                                <td tabindex="0" class="sorting_1">Gecko</td>
-                                                <td>Firefox 1.0</td>
-                                                <td>Win 98+ / OSX.2+</td>
-                                                <td>1.7</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-primary"><i
-                                                                class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                        <button type="button" class="btn btn-warning"><i
-                                                                class="fas fa-long-arrow-alt-down"
-                                                                style="color: white"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td tabindex="0" class="sorting_1">Gecko</td>
-                                                <td>Firefox 1.5</td>
-                                                <td>Win 98+ / OSX.2+</td>
-                                                <td>1.8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td tabindex="0" class="sorting_1">Gecko</td>
-                                                <td>Firefox 2.0</td>
-                                                <td>Win 98+ / OSX.2+</td>
-                                                <td>1.8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td tabindex="0" class="sorting_1">Gecko</td>
-                                                <td>Firefox 3.0</td>
-                                                <td>Win 2k+ / OSX.3+</td>
-                                                <td>1.9</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Camino 1.0</td>
-                                                <td>OSX.2+</td>
-                                                <td>1.8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Camino 1.5</td>
-                                                <td>OSX.3+</td>
-                                                <td>1.8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Netscape 7.2</td>
-                                                <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                                <td>1.7</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Netscape Browser 8</td>
-                                                <td>Win 98SE+</td>
-                                                <td>1.7</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Netscape Navigator 9</td>
-                                                <td>Win 98+ / OSX.2+</td>
-                                                <td>1.8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1" tabindex="0">Gecko</td>
-                                                <td>Mozilla 1.0</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1</td>
-                                                <td>A</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th rowspan="1" colspan="1">Nombre</th>
-                                                <th rowspan="1" colspan="1">Apellidos</th>
-                                                <th rowspan="1" colspan="1">Documento de Identidad</th>
-                                                <th rowspan="1" colspan="1">Correo Electronico</th>
-                                                <th rowspan="1" colspan="1">Acciones</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="card-title">
+                                FilterizR Gallery with Ekko Lightbox
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="btn-group w-100 mb-2">
+                                    <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> All items </a>
+                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="1"> Category 1 (WHITE) </a>
+                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> Category 2 (BLACK) </a>
+                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> Category 3 (COLORED) </a>
+                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Category 4 (COLORED, BLACK) </a>
+                                </div>
+                                <div class="mb-2">
+                                    <a class="btn btn-secondary" href="javascript:void(0)" data-shuffle> Shuffle items </a>
+                                    <div class="float-right">
+                                        <select class="custom-select" style="width: auto;" data-sortOrder>
+                                            <option value="index"> Sort by Position </option>
+                                            <option value="sortData"> Sort by Custom Data </option>
+                                        </select>
+                                        <div class="btn-group">
+                                            <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> Ascending </a>
+                                            <a class="btn btn-default" href="javascript:void(0)" data-sortDesc> Descending </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-
-                                <div class="col-sm-12 col-md-7">
-                                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                        <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled"
-                                                id="example1_previous"><a href="#" aria-controls="example1"
-                                                    data-dt-idx="0" tabindex="0" class="page-link">Anterior</a></li>
-                                            <li class="paginate_button page-item active"><a href="#"
-                                                    aria-controls="example1" data-dt-idx="1" tabindex="0"
-                                                    class="page-link">1</a></li>
-                                            <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                    data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                            <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                    data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                            <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                    data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                            <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                    data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                            <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                    data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                            <li class="paginate_button page-item next" id="example1_next"><a href="#"
-                                                    aria-controls="example1" data-dt-idx="7" tabindex="0"
-                                                    class="page-link">Siguiente</a></li>
-                                        </ul>
+                            <div>
+                                <div class="filter-container p-0 row">
+                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
                                     </div>
+                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=2" data-toggle="lightbox" data-title="sample 2 - black">
+                                            <img src="https://via.placeholder.com/300/000000?text=2" class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3" data-toggle="lightbox" data-title="sample 3 - red">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3" class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4" data-toggle="lightbox" data-title="sample 4 - red">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4" class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=5" data-toggle="lightbox" data-title="sample 5 - black">
+                                            <img src="https://via.placeholder.com/300/000000?text=5" class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6" data-toggle="lightbox" data-title="sample 6 - white">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=6" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7" data-toggle="lightbox" data-title="sample 7 - white">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=7" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=8" data-toggle="lightbox" data-title="sample 8 - black">
+                                            <img src="https://via.placeholder.com/300/000000?text=8" class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
+                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9" data-toggle="lightbox" data-title="sample 9 - red">
+                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9" class="img-fluid mb-2" alt="red sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10" data-toggle="lightbox" data-title="sample 10 - white">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=10" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11" data-toggle="lightbox" data-title="sample 11 - white">
+                                            <img src="https://via.placeholder.com/300/FFFFFF?text=11" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
+                                        <a href="https://via.placeholder.com/1200/000000.png?text=12" data-toggle="lightbox" data-title="sample 12 - black">
+                                            <img src="https://via.placeholder.com/300/000000?text=12" class="img-fluid mb-2" alt="black sample" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Ekko Lightbox
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/000000.png?text=2" data-toggle="lightbox" data-title="sample 2 - black" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/000000?text=2" class="img-fluid mb-2" alt="black sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3" data-toggle="lightbox" data-title="sample 3 - red" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3" class="img-fluid mb-2" alt="red sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4" data-toggle="lightbox" data-title="sample 4 - red" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4" class="img-fluid mb-2" alt="red sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/000000.png?text=5" data-toggle="lightbox" data-title="sample 5 - black" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/000000?text=5" class="img-fluid mb-2" alt="black sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6" data-toggle="lightbox" data-title="sample 6 - white" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FFFFFF?text=6" class="img-fluid mb-2" alt="white sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7" data-toggle="lightbox" data-title="sample 7 - white" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FFFFFF?text=7" class="img-fluid mb-2" alt="white sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/000000.png?text=8" data-toggle="lightbox" data-title="sample 8 - black" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/000000?text=8" class="img-fluid mb-2" alt="black sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9" data-toggle="lightbox" data-title="sample 9 - red" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9" class="img-fluid mb-2" alt="red sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10" data-toggle="lightbox" data-title="sample 10 - white" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FFFFFF?text=10" class="img-fluid mb-2" alt="white sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11" data-toggle="lightbox" data-title="sample 11 - white" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/FFFFFF?text=11" class="img-fluid mb-2" alt="white sample" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://via.placeholder.com/1200/000000.png?text=12" data-toggle="lightbox" data-title="sample 12 - black" data-gallery="gallery">
+                                        <img src="https://via.placeholder.com/300/000000?text=12" class="img-fluid mb-2" alt="black sample" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
+        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
 
-<!-- DataTables -->
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-</script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-</script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-</script>
 
+
+<!-- jQuery -->
+<script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
+<script src="<?= $base_url ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
+<script src="<?= $base_url ?>plugins/filterizr/jquery.filterizr.min.js"></script>
+<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Page specific script -->
 <script>
-$(function() {
-    $("#example1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-    });
-});
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+
+        $('.filter-container').filterizr({
+            gutterPixels: 3
+        });
+        $('.btn[data-filter]').on('click', function () {
+            $('.btn[data-filter]').removeClass('active');
+            $(this).addClass('active');
+        });
+    })
 </script>
+
+
+
+
+
+
