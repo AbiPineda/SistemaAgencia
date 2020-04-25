@@ -241,5 +241,6 @@ include_once '../../config/parametros.php';
 
 <!--  necesaio paa que sirva la foto con vista preevia-->
 <script src="<?=$base_url?>js/foto.js"></script> 
+
 <!--necesario para que funcione el selector multiple-->
  <script src="<?=$base_url?>plugins/select2/js/select2.full.min.js"></script>

@@ -26,13 +26,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?=$base_url?>dist/js/demo.js"></script>
 
-
-
-
-
-
- 
-    <script type="text/javascript">
+<script type="text/javascript">
      window.addEventListener('load', ()=>{
          if( localStorage.getItem('contenido') != null){
                cargar_contenido('contenido_principal', localStorage.getItem('contenido'));
