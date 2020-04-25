@@ -1,9 +1,6 @@
 <?php
-include_once '../plantillas/cabecera.php';
-include_once '../plantillas/navbar.php';
-include_once '../plantillas/barra_lateral.php';
+include_once '../../config/parametros.php';
 ?>
-
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -36,7 +33,7 @@ include_once '../plantillas/barra_lateral.php';
                     <!-- general form elements -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Datos Personales</h3>
+                            <h3 class="card-title">Datos Generales</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -109,6 +106,17 @@ include_once '../plantillas/barra_lateral.php';
                                             </select>
                                         </div>
                                     </div>
+                                <div class="row">
+                                    <div class="offset"></div>
+                                        <div class="col-sm-10" style="text-align:;width:1050px">
+                                        <label>Seleccione foto</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="files" name="foto" >
+                                            <label class="custom-file-label" for="files" ></label>
+                                        </div>
+                                         </div>
+
+                                </div>
                                     <div style="text-align: right;width:2200px">
                                         <button style="margin: 5px" type="submit"
                                             class="btn btn-default float-right">Cancelar</button>
@@ -181,7 +189,3 @@ include_once '../plantillas/barra_lateral.php';
 </div>
 <!-- /.content-wrapper -->
 
-
-<?php
-include_once '../plantillas/footer.php';
-?>
