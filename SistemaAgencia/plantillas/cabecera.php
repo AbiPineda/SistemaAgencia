@@ -19,6 +19,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <link rel="stylesheet" href="<?=$base_url?>css/style.css">
    <link rel="stylesheet" href="<?=$base_url?>css/foto.css">
+   <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="<?=$base_url?>plugins/ekko-lightbox/ekko-lightbox.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
