@@ -1,10 +1,10 @@
 <?php
 include_once './config/parametros.php';
 include_once './plantillas/cabecera.php';
-include_once './plantillas/navbar.php';
-include_once './plantillas/barra_lateral.php';
-?>
-
+include_once  './plantillas/navbar.php';
+  include_once './plantillas/barra_lateral.php';
+  ?>
+  
 
 <!-- Content Wrapper. Contains page content -->
 <div id="contenido_principal" >
@@ -48,8 +48,6 @@ include_once './plantillas/barra_lateral.php';
 </div>
 <!-- /.content-wrapper -->
 </div>
-
-
 <?php
-include_once './plantillas/footer.php';
-  ?>
+  include_once './plantillas/footer.php';
+?>
