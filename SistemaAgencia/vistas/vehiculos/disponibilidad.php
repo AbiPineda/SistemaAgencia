@@ -2,163 +2,332 @@
 include_once '../../config/parametros.php';
 ?>
 
- 
-<link rel="stylesheet" href="<?=$base_url?>dist/css/adminlte.min.css">
-<link rel="stylesheet" href="<?=$base_url?>plugins/ekko-lightbox/ekko-lightbox.css">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Disponibilidad</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                <li class="breadcrumb-item active">Disponibilidad de Reserva</li>
-                            </ol>
-                        </div>
-                    </div>
+<link rel="stylesheet" href="<?=$base_url?>dist/css/disponibilidad.css">
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Disponibilidad</h1>
                 </div>
-                <!-- /.container-fluid -->
-            </section>
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-info">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Flota de Vehículos Disponibles
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div>
-                                        <div class="btn-group w-100 mb-2">
-                                            <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> Todos </a>
-                                            <a class="btn btn-info" href="javascript:void(0)" data-filter="1"> Económicos</a>
-                                            <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> Sedan</a>
-                                            <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> Microbus</a>
-                                            <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Pickup</a>
-                                        </div>
-                                        <div class="mb-2">
-                                            <a class="btn btn-secondary" href="javascript:void(0)" data-shuffle> Mezclar </a>
-                                            <div class="float-right">
-                                               
-                                             <!--   <div class="btn-group">
-                                                    <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> Ascendente </a>
-                                                    <a class="btn btn-default" href="javascript:void(0)" data-sortDesc> Descendente </a>
-                                                </div>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="filter-container p-0 row">
-                                            <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/SV/CARS/ECAR.doi.320.high.imageLargeThreeQuarterNodePath.png/1533822841872.png?text=1" data-toggle="lightbox" data-title="Kia Picanto 1.0">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/SV/CARS/ECAR.doi.320.high.imageLargeThreeQuarterNodePath.png/1533822841872.png?text=1" class="img-fluid mb-2" alt="white sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="2" data-sort="black sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/CCMR.doi.320.high.imageSmallSideProfileNodePath.png/1541613232311.png?text=2" data-toggle="lightbox" data-title="Ford Focus">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/CCMR.doi.320.high.imageSmallSideProfileNodePath.png/1541613232311.png?text=2" class="img-fluid mb-2" alt="black sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="3" data-sort="red sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/VANS/FVMR.doi.320.high.imageSmallSideProfileNodePath.png/1523650704806.png?text=3" data-toggle="lightbox" data-title="Seat Alhambra">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/VANS/FVMR.doi.320.high.imageSmallSideProfileNodePath.png/1523650704806.png?text=3" class="img-fluid mb-2" alt="red sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="4" data-sort="red sample">
-                                                <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4" data-toggle="lightbox" data-title="sample 4 - red">
-                                                    <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4" class="img-fluid mb-2" alt="red sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="2" data-sort="black sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/CDMR.doi.320.high.imageSmallSideProfileNodePath.png/1541613478829.png?text=5" data-toggle="lightbox" data-title="Seat Leon">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/CDMR.doi.320.high.imageSmallSideProfileNodePath.png/1541613478829.png?text=5" class="img-fluid mb-2" alt="black sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/EDMR.doi.320.high.imageSmallSideProfileNodePath.png/1542396923898.png?text=6" data-toggle="lightbox" data-title="Seat Ibiza">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/EDMR.doi.320.high.imageSmallSideProfileNodePath.png/1542396923898.png?text=6" class="img-fluid mb-2" alt="white sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/MBMR.doi.320.high.imageSmallSideProfileNodePath.png/1569256364039.png?text=7" data-toggle="lightbox" data-title="Toyota Aygo">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/CARS/MBMR.doi.320.high.imageSmallSideProfileNodePath.png/1569256364039.png?text=7" class="img-fluid mb-2" alt="white sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="4" data-sort="black sample">
-                                                <a href="https://via.placeholder.com/1200/000000.png?text=8" data-toggle="lightbox" data-title="sample 8 - black">
-                                                    <img src="https://via.placeholder.com/300/000000?text=8" class="img-fluid mb-2" alt="black sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="3" data-sort="red sample">
-                                                <a href="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/VANS/LVMR.doi.320.high.imageSmallSideProfileNodePath.png/1522248269633.png?text=9" data-toggle="lightbox" data-title="Passenger Minibus">
-                                                    <img src="https://www.alamo.com/alamoData/vehicle/bookingCountries/ES/VANS/LVMR.doi.320.high.imageSmallSideProfileNodePath.png/1522248269633.png?text=9" class="img-fluid mb-2" alt="red sample" />
-                                                </a>
-                                            </div>
-                                            <div class="filtr-item col-sm-2" data-category="4" data-sort="white sample">
-                                                <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10" data-toggle="lightbox" data-title="sample 10 - white">
-                                                    <img src="https://via.placeholder.com/300/FFFFFF?text=10" class="img-fluid mb-2" alt="white sample" />
-                                                </a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item active">Disponibilidad de Reserva</li>
+                    </ol>
                 </div>
-                <!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+            </div>
         </div>
-        <!-- /.content-wrapper -->
+        <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="offset-1"></div>
 
- 
+                <!-- left column -->
+                <div class="cards">
 
-    <!-- jQuery -->
-    <script src="<?=$base_url?>plugins/jquery/jquery.min.js"></script>
-    <script src="<?=$base_url?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
- <script src="<?=$base_url?>dist/js/adminlte.min.js"></script>
-    <script src="<?=$base_url?>plugins/filterizr/jquery.filterizr.min.js"></script>
-    <!-- Page specific script -->
-    <script>
-        $(function() {
-            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox({
-                    alwaysShowClose: true
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?wave" alt="wave" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?beach" alt="beach" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?mountain" alt="mountain" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?field" alt="field" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          Card title
+          <small>Image from unsplash.com</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <script>
+            $(document).ready(function() {
+                var zindex = 10;
+
+                $("div.card").click(function(e) {
+                    e.preventDefault();
+
+                    var isShowing = false;
+
+                    if ($(this).hasClass("show")) {
+                        isShowing = true
+                    }
+
+                    if ($("div.cards").hasClass("showing")) {
+                        // a card is already in view
+                        $("div.card.show")
+                            .removeClass("show");
+
+                        if (isShowing) {
+                            // this card was showing - reset the grid
+                            $("div.cards")
+                                .removeClass("showing");
+                        } else {
+                            // this card isn't showing - get in with it
+                            $(this)
+                                .css({
+                                    zIndex: zindex
+                                })
+                                .addClass("show");
+
+                        }
+
+                        zindex++;
+
+                    } else {
+                        // no cards in view
+                        $("div.cards")
+                            .addClass("showing");
+                        $(this)
+                            .css({
+                                zIndex: zindex
+                            })
+                            .addClass("show");
+
+                        zindex++;
+                    }
+
                 });
             });
-
-            $('.filter-container').filterizr({
-                gutterPixels: 3
-            });
-            $('.btn[data-filter]').on('click', function() {
-                $('.btn[data-filter]').removeClass('active');
-                $(this).addClass('active');
-            });
-        })
-    </script>
-    
-    
-    
-    
-
-    <script src="<?=$base_url?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="<?=$base_url?>plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="<?=$base_url?>dist/js/demo.js"></script>
- 
-    
-    
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
