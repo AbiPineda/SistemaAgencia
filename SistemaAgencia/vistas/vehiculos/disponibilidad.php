@@ -96,9 +96,9 @@ button:hover {
                             <div class="card">
 
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Sedan" 
+                                    <img class="card__image" data-tags="Sedan"
                                         src="https://ik.imagekit.io/udcdt0pvr/wp-content/uploads/2019/08/hyundai-elantra-njautoimport-carro-8-300x225.jpeg?wave"
-                                        alt="wave" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -126,8 +126,8 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Sedan"  
-                                        src="https://testdrivenow.com/files/IMG_5415-300x225.jpg?beach" alt="beach" />
+                                    <img class="card__image" data-tags="Sedan"
+                                        src="https://testdrivenow.com/files/IMG_5415-300x225.jpg?beach" alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -156,9 +156,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Sedan, Económico" 
+                                    <img class="card__image" data-tags="Sedan, Económico"
                                         src="https://images.offerup.com/2gupyTAHFQSa4jwjVGGSaX4IIyU=/300x225/86bb/86bb327b5f5a40ca8f456fb132c909f0.jpg?mountain"
-                                        alt="mountain" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -186,9 +186,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Microbus" 
+                                    <img class="card__image" data-tags="Microbus"
                                         src="https://images.offerup.com/4jPoQ7BuVBrQ64KBK9J0nkDy52Y=/300x225/6d91/6d91f3858f1947e29332859392ae15e7.jpg?field"
-                                        alt="field" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -217,9 +217,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Microbus" 
+                                    <img class="card__image" data-tags="Microbus"
                                         src="https://tse3.mm.bing.net/th?id=OIP.LDKfIMtM6Q3Di6r8gLoGXAHaFj&pid=Api&P=0&w=300&h=300?water"
-                                        alt="water" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -248,9 +248,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Microbus" 
+                                    <img class="card__image" data-tags="Microbus"
                                         src="https://www.service-repair-workshop-manual.com/wp-content/uploads/2013/10/KIA-Sedona-Factory-Service-Repair-Manual-Download-300x225.jpg?river"
-                                        alt="river" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -279,9 +279,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Pickup" 
+                                    <img class="card__image" data-tags="Pickup"
                                         src="https://noticias.coches.com/wp-content/uploads/2015/01/mitsubishi_l200-challenger-2015_r24-300x225.jpg?kite"
-                                        alt="kite" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -310,9 +310,9 @@ button:hover {
 
                             <div class="card">
                                 <div class="card__image-holder">
-                                    <img class="card__image" data-tags="Pickup" 
+                                    <img class="card__image" data-tags="Pickup, Económico"
                                         src="https://cdn.dealerspike.com/imglib/v1/300x225/imglib/Assets/Inventory/6C/97/6C976285-9B57-44A7-9042-D707A5169D4E.jpg?underwater"
-                                        alt="underwater" />
+                                        alt="" />
                                 </div>
                                 <div class="card-title">
                                     <a href="#" class="toggle-info btn">
@@ -339,119 +339,116 @@ button:hover {
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
                     </div>
-                    <!-- /.content-wrapper -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div><!-- /.content-wrapper -->
 
 
-                    <script>
-                    $(document).ready(function() {
-                        var zindex = 10;
 
-                        $("div.card").click(function(e) {
-                            e.preventDefault();
+<script>
+$(document).ready(function() {
+    var zindex = 10;
 
-                            var isShowing = false;
+    $("div.card").click(function(e) {
+        e.preventDefault();
 
-                            if ($(this).hasClass("show")) {
-                                isShowing = true
-                            }
+        var isShowing = false;
 
-                            if ($("div.cards").hasClass("showing")) {
-                                // a card is already in view
-                                $("div.card.show")
-                                    .removeClass("show");
+        if ($(this).hasClass("show")) {
+            isShowing = true
+        }
 
-                                if (isShowing) {
-                                    // this card was showing - reset the grid
-                                    $("div.cards")
-                                        .removeClass("showing");
-                                } else {
-                                    // this card isn't showing - get in with it
-                                    $(this)
-                                        .css({
-                                            zIndex: zindex
-                                        })
-                                        .addClass("show");
+        if ($("div.cards").hasClass("showing")) {
+            // a card is already in view
+            $("div.card.show")
+                .removeClass("show");
 
-                                }
+            if (isShowing) {
+                // this card was showing - reset the grid
+                $("div.cards")
+                    .removeClass("showing");
+            } else {
+                // this card isn't showing - get in with it
+                $(this)
+                    .css({
+                        zIndex: zindex
+                    })
+                    .addClass("show");
 
-                                zindex++;
+            }
 
-                            } else {
-                                // no cards in view
-                                $("div.cards")
-                                    .addClass("showing");
-                                $(this)
-                                    .css({
-                                        zIndex: zindex
-                                    })
-                                    .addClass("show");
+            zindex++;
 
-                                zindex++;
-                            }
+        } else {
+            // no cards in view
+            $("div.cards")
+                .addClass("showing");
+            $(this)
+                .css({
+                    zIndex: zindex
+                })
+                .addClass("show");
 
-                        });
-                    });
-                    </script>
+            zindex++;
+        }
 
-                    <script>
-                    (function() {
-                        var $imgs = $('#gallery img');
-                        var $buttons = $('#buttons');
-                        var tagged = {};
+    });
+});
+</script>
 
-                        $imgs.each(function() {
-                            var img = this;
-                            var tags = $(this).data('tags');
+<script>
+(function() {
+    var $imgs = $('#gallery img');
+    var $buttons = $('#buttons');
+    var tagged = {};
 
-                            if (tags) {
-                                tags.split(',').forEach(function(tagName) {
-                                    if (tagged[tagName] == null) {
-                                        tagged[tagName] = [];
-                                    }
-                                    tagged[tagName].push(img);
-                                })
-                            }
-                        })
+    $imgs.each(function() {
+        var img = this;
+        var tags = $(this).data('tags');
 
-                        $('<button/>', {
-                            text: 'Todos',
-                            class: 'active',
-                            click: function() {
-                                $(this)
-                                    .addClass('active')
-                                    .siblings()
-                                    .removeClass('active');
-                                $imgs.show();
-                            }
-                        }).appendTo($buttons);
+        if (tags) {
+            tags.split(',').forEach(function(tagName) {
+                if (tagged[tagName] == null) {
+                    tagged[tagName] = [];
+                }
+                tagged[tagName].push(img);
+            })
+        }
+    })
 
-                        $.each(tagged, function(tagName) {
-                            var $n = $(tagged[tagName]).length;
-                            $('<button/>', {
-                                text: tagName + '(' + $n + ')',
-                                click: function() {
-                                    $(this)
-                                        .addClass('active')
-                                        .siblings()
-                                        .removeClass('active');
-                                    $imgs
-                                        .hide()
-                                        .filter(tagged[tagName])
-                                        .show();
-                                }
-                            }).appendTo($buttons);
-                        });
-                    }())
-                    </script>
+    $('<button/>', {
+        text: 'Todos',
+        class: 'active',
+        click: function() {
+            $(this)
+                .addClass('active')
+                .siblings()
+                .removeClass('active');
+            $imgs.show();
+        }
+    }).appendTo($buttons);
 
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-                   
+    $.each(tagged, function(tagName) {
+        var $n = $(tagged[tagName]).length;
+        $('<button/>', {
+            text: tagName + '(' + $n + ')',
+            click: function() {
+                $(this)
+                    .addClass('active')
+                    .siblings()
+                    .removeClass('active');
+                $imgs
+                    .hide()
+                    .filter(tagged[tagName])
+                    .show();
+            }
+        }).appendTo($buttons);
+    });
+}())
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
