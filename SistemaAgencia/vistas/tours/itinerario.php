@@ -9,7 +9,6 @@ include_once '../../config/parametros.php';
 <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-
 <!-- Google Font: Source Sans Pro -->
 
 
@@ -140,15 +139,10 @@ include_once '../../config/parametros.php';
 <!-- fullCalendar 2.2.5 -->
 <script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar/main.min.js"></script>
-<script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
-
-<script src='<?= $base_url ?>plugins/fullcalendar/main.js'></script>
-<script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
-
 <!-- Page specific script -->
 <script>
     $(function () {
@@ -211,7 +205,7 @@ include_once '../../config/parametros.php';
         });
 
         var calendar = new Calendar(calendarEl, {
-            locale: 'es',
+                 locale: 'es',
             plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid'],
             header: {
                 left: 'prev,next today',
@@ -279,8 +273,7 @@ include_once '../../config/parametros.php';
         });
 
         calendar.render();
-         $('#calendar').fullCalendar({
-         });
+        // $('#calendar').fullCalendar()
 
         /* ADDING EVENTS */
         var currColor = '#3c8dbc' //Red by default
