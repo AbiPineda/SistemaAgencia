@@ -143,6 +143,7 @@ include_once '../../config/parametros.php';
 <script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
 <script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
 <!-- Page specific script -->
 <script>
     $(function () {
