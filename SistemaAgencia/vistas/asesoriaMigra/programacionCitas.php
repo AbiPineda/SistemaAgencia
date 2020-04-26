@@ -1,5 +1,5 @@
  <?php 
- include_once '../../config/parametros.php';;
+ include_once '../../config/parametros.php';
  ?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?=$base_url?>plugins/a/css/bootstrap.min.css">
