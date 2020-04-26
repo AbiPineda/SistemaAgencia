@@ -5,17 +5,17 @@ include_once '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
 <!--para el calendario-->
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="../../plugins/a/css/font-awesome.min.css">
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/styles.css">
-<link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type='text/javascript' src='js/moment.min.js'></script>
-<script type='text/javascript' src='js/fullcalendar.min.js'></script>
-<script type='text/javascript' src='js/locale/es.js'></script>
+<link rel="stylesheet" href="../../plugins/a/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../plugins/a/css/styles.css">
+<link rel='stylesheet' type='text/css' href='../../plugins/a/css/fullcalendar.css' />
+<script src="../../plugins/a/js/jquery-3.2.1.js"></script>
+<script src="../../plugins/a/js/popper.min.js"></script>
+<script src="../../plugins/a/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='../../plugins/a/js/moment.min.js'></script>
+<script type='text/javascript' src='../../plugins/a/js/fullcalendar.min.js'></script>
+<script type='text/javascript' src='../../plugins/a/js/locale/es.js'></script>
 <script>
 function addZero(i) {
     if (i < 10) {

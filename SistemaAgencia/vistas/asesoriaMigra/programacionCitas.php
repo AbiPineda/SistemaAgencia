@@ -2,13 +2,15 @@
  include_once '../../config/parametros.php';
  ?>
 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="<?=$base_url?>plugins/a/css/font-awesome.min.css">
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?=$base_url?>plugins/a/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?=$base_url?>plugins/a/css/styles.css">
 <link rel='stylesheet' type='text/css' href='<?=$base_url?>plugins/a/css/fullcalendar.css' />
 <script src="<?=$base_url?>plugins/a/js/jquery-3.2.1.js"></script>
 <script src="<?=$base_url?>plugins/a/js/popper.min.js"></script>
 <script src="<?=$base_url?>plugins/a/js/bootstrap.min.js"></script>
-<script type='<?=$base_url?>plugins/a/text/javascript' src='js/moment.min.js'></script>
+<script type='text/javascript' src='<?=$base_url?>plugins/a/js/moment.min.js'></script>
 <script type='text/javascript' src='<?=$base_url?>plugins/a/js/fullcalendar.min.js'></script>
 <script type='text/javascript' src='<?=$base_url?>plugins/a/js/locale/es.js'></script>
 
