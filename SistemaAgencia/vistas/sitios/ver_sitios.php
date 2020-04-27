@@ -90,14 +90,15 @@ include_once '../../config/parametros.php';
     <!-- Main content -->
    
         <div class="container-fluid ">
-            <div class="row" >
+            <div class="row center" >
                 <div id="buttons"></div>
             </div>
-            <div class="row" style="background: greenyellow">
+            <div class="row">
+              
                 <div class="col-12">
                 <div id="gallery" >
                     <!-- left column -->
-                    <div class="cards">
+                    <div class="cardsX">
                         <div class="card Sedan">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Sedan"
@@ -365,14 +366,14 @@ include_once '../../config/parametros.php';
                 isShowing = true
             }
 
-            if ($("div.cards").hasClass("showing")) {
+            if ($("div.cardsX").hasClass("showing")) {
                 // a card is already in view
                 $("div.card.show")
                         .removeClass("show");
 
                 if (isShowing) {
                     // this card was showing - reset the grid
-                    $("div.cards")
+                    $("div.cardsX")
                             .removeClass("showing");
                 } else {
                     // this card isn't showing - get in with it
@@ -387,8 +388,8 @@ include_once '../../config/parametros.php';
                 zindex++;
 
             } else {
-                // no cards in view
-                $("div.cards")
+                // no cardsX in view
+                $("div.cardsX")
                         .addClass("showing");
                 $(this)
                         .css({
@@ -453,9 +454,9 @@ include_once '../../config/parametros.php';
                             .siblings()
                             .removeClass('active');
 
-                    var $cards = ($imgs.parents().parents().find(".card").hide());
-                    console.log($cards[0]);
-                    console.log($cards.filter(tagged[tagName]));
+                    var $cardsX = ($imgs.parents().parents().find(".card").hide());
+                    console.log($cardsX[0]);
+                    console.log($cardsX.filter(tagged[tagName]));
 
 
                     $card.hide();
