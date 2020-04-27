@@ -155,7 +155,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/modificacionEncomienda.php')" 
+                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/verEncomienda.php')" 
                                class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Modificación Encomienda</p>
