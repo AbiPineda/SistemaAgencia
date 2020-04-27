@@ -311,7 +311,8 @@ include_once '../../config/parametros.php';
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>aaa</label>
+                                            <label>*Verificar documentación en orden, pasaporte valido para 6 meses, cartas de invitación cuando sean requeridas, permisos o actas notables  de acuerdo a la Ley Lepina para menores de 18 años.</label>
+                                            <label>*Boletos aereos no reembolsables, no endosables y no transferibles.</label>
                                         </div>
                                     </div>
                                 </div>
