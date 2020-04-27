@@ -236,6 +236,7 @@ include_once '../../config/parametros.php';
 <script src="<?=$base_url?>plugins/daterangepicker/daterangepicker.js"></script>
 <script src="<?=$base_url?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="<?=$base_url?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="<?=$base_url?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <script src="<?=$base_url?>js/inicializador-calendario.js"></script>
 
 

@@ -19,7 +19,7 @@ $(function () {
         format: 'L'
     });
     //Date range picker
-    $('#reservation').daterangepicker()
+    $('#reservation').daterangepicker()zz
     //Date range picker with time picker
     $('#reservationtime').daterangepicker({
       timePicker: true,
