@@ -90,11 +90,11 @@ include_once '../../config/parametros.php';
     <!-- Main content -->
    
         <div class="container-fluid ">
-            <div class="row" style="background: red">
+            <div class="row" >
                 <div id="buttons"></div>
             </div>
             <div class="row" style="background: greenyellow">
-               
+                <div class="col-12">
                 <div id="gallery" >
                     <!-- left column -->
                     <div class="cards">
@@ -345,7 +345,7 @@ include_once '../../config/parametros.php';
                     </div>
                 </div>
                 </div>
-              
+</div>              
           
         </div>
     </section>
