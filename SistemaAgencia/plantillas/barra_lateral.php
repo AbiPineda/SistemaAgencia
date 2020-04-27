@@ -88,13 +88,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a  onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/ver_rour')"  class="nav-link">
+                            <a  onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/ver_rour.php')"  class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Tours</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/sitios_turisticos')"  class="nav-link">
+                            <a  onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/sitios_turisticos')"  class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Sitios Turisticos</p>
                             </a>
