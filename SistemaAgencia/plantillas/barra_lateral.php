@@ -125,7 +125,13 @@
                         <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/mantenimiento.php')"  class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Mantenimiento</p>
+                                <p>Registrar Mantenimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/verMantenimientos.php')"  class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Mantenimientos</p>
                             </a>
                         </li>
                     </ul>
