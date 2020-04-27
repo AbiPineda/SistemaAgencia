@@ -18,7 +18,7 @@ include_once '../../config/parametros.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-5" id="titulo">
-                    <h1>Registro de Encomienda</h1>
+                    <h1>Modificar Encomienda</h1>
                 </div>
                 <div class="col-sm-3" id="titulo">
                     <div class="center">
@@ -31,7 +31,7 @@ include_once '../../config/parametros.php';
                 <div class="col-sm-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Registrar Encomienda</li>
+                        <li class="breadcrumb-item active">Modificación de Encomienda</li>
                     </ol>
                 </div>
             </div>
@@ -295,3 +295,4 @@ include_once '../../config/parametros.php';
         });
     });
 </script>
+

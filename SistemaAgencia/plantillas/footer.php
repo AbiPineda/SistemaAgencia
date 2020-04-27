@@ -47,6 +47,7 @@
             //alert(contenido);
             //alert(contenedor);
           $("#"+contenedor).load(contenido);
+          //alert(contenido);
         }
     </script>
 
