@@ -21,12 +21,12 @@ include_once '../../config/parametros.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Registrar Cliente</h1>
+                    <h1>Registrar Sitio Turisticos</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Registrar Cliente</li>
+                        <li class="breadcrumb-item active">Registrar de Sitios Turisticos</li>
                     </ol>
                 </div>
             </div>
@@ -44,7 +44,7 @@ include_once '../../config/parametros.php';
                     <!-- general form elements -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Datos Personales</h3>
+                            <h3 class="card-title">Datos de sitios Turisticos</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -56,9 +56,6 @@ include_once '../../config/parametros.php';
                                             <label>Titulo del viaje</label>
 
                                             <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
-                                                                                                </div>-->
                                                 <input type="text" class="form-control">
                                             </div>
                                             <!-- /.input group -->
@@ -66,15 +63,10 @@ include_once '../../config/parametros.php';
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Fecha del viaje</label>
+                                            <label>Ubicacion</label>
 
                                             <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text">
-                                                                                                        <i class="far fa-calendar-alt"></i>
-                                                                                                    </span>
-                                                                                                </div>-->
-                                                <input type="text" class="form-control float-right" id="reservation">
+                                                <input type="text" class="form-control">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -83,94 +75,45 @@ include_once '../../config/parametros.php';
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Lugar de Salida</label>
-                                            <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
-                                                                                                </div>-->
-                                                <input type="text" class="form-control" >
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Precio</label>
-                                            <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text">$</span>
-                                                                                                </div>-->
-                                                <input type="text" class="form-control" >
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>El viaje incluye</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>El viaje no incluye</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Requisitos de viaje</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Promociones especiales</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Sitios turisticos</label>
-                                            <select class="select2 select2-hidden-accessible form-control float-righ" multiple="" data-placeholder="Selececcione los sitios turisticos" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                                <option data-select2-id="46">SAN JOSÉ (Costa Rica)</option>
-                                                <option data-select2-id="47">CARTAGO (Costa Rica)</option>
-                                                <option data-select2-id="48">PARQUE LA SABANA (Costa Rica)</option>
-                                                <option data-select2-id="49">ZARCERO (Costa Rica)</option>
-                                                <option data-select2-id="50">TERMALES LA FORTUNA (Costa Rica)</option>
-                                                <option data-select2-id="51">Washington (Costa Rica)</option>
-                                                <option data-select2-id="61">SAN JUAN DEL SUR (Nicaragua)</option>
-                                                <option data-select2-id="63">GRANADA (Nicaragua)</option>
+                                            <label>Tipo</label>
+                                            <select class="select2 select2-hidden-accessible form-control float-righ" multiple="" data-placeholder="Selececcione el tipo" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                               <option data-select2-id="46">Playa</option>
+                                                <option data-select2-id="47">Montaña</option>
+                                                <option data-select2-id="48">Reserva Natural</option>
+                                                <option data-select2-id="49">Parque Nacional</option>
+                                                <option data-select2-id="50">Restaurante</option>
+                                                <option data-select2-id="51">Shows Artitisticos</option>
+                                                <option data-select2-id="61">Hotel</option>
+                                                <option data-select2-id="63">Otros</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6">
+                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Hoteles</label>
-                                            <div class="select2-blue">
-                                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Seleccione los hoteles" data-dropdown-css-class="select2-blue" style="width: 100%;" data-select2-id="15" tabindex="-1" aria-hidden="true">
-                                                    <option data-select2-id="146">Hoteles(Costa Rica)</option>
-                                                    <option data-select2-id="147">Hilton (Costa Rica)</option>
-                                                    <option data-select2-id="148">Real Roma (Costa Rica)</option>
-                                                    <option data-select2-id="149">Presidencia (Costa Rica)</option>
-                                                    <option data-select2-id="161">Monterreal (Nicaragua)</option>
-                                                    <option data-select2-id="163">San Pedro (Nicaragua)</option>
-                                                </select>
+                                            <label>Coordenadas</label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
                                             </div>
+                                            <!-- /.input group -->
                                         </div>
-                                        <!-- /.form-group -->
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Descripcion</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Informacion de contacto</label>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        </div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="row">
                                     <div class="offset-md-3"></div>
                                     <div class="col-lg-6">
@@ -188,6 +131,7 @@ include_once '../../config/parametros.php';
                                         <output id="list"></output>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
 
                                     <div style="text-align: right;width:2200px">
@@ -198,25 +142,23 @@ include_once '../../config/parametros.php';
 
                                     </div>
                                 </div>
-                                <!-- /.card-body -->
-                           </div>
+                            </div>            <!-- /.card-body -->
                         </form>
-                    
+
+
+                        <!-- /.card-body -->
                     </div>
+                    <!-- /.card -->
 
-                    <!-- /.card-body -->
+                    <!-- /.card -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
-
-                <!-- /.card -->
-                <!-- /.card -->
+                <!--/.col (right) -->
             </div>
-            <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
 
 

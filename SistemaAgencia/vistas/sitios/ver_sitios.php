@@ -79,7 +79,7 @@ include_once '../../config/parametros.php';
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Disponibilidad de Reserva</li>
+                        <li class="breadcrumb-item active">Sitios Turisticos Registrados</li>
                     </ol>
                 </div>
             </div>
@@ -219,8 +219,8 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                    Ford Scape 2010
-                                    <small>Desde: US$38.50/día.</small>
+                                    Montezuma
+                                    <small>Nicaragua Puerto Alegre</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
