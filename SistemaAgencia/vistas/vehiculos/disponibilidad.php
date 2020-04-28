@@ -123,7 +123,9 @@ include_once '../../config/parametros.php';
                                     4 puertas </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a href="#" class="btn">Reservar</a>
+                                        <a class="btn" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerVehiculo.php')">Reservar
+                                            
+                                        </a>
                                     </div>
                                 </div>
                             </div>
