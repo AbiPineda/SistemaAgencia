@@ -96,7 +96,7 @@ include_once '../../config/parametros.php';
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control">
                                                 </div>
 
                                             </div>
@@ -118,7 +118,7 @@ include_once '../../config/parametros.php';
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
                                                 </div>
 
                                             </div>
@@ -139,7 +139,7 @@ include_once '../../config/parametros.php';
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite la Dirección de su casa" class="form-control">
                                                 </div>
 
                                             </div>
@@ -161,7 +161,7 @@ include_once '../../config/parametros.php';
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el correo electrónico" class="form-control">
                                                 </div>
 
                                             </div>
@@ -182,14 +182,14 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Número de teléfono casa?</label> 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el número de Teléfono" class="form-control">
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Número de teléfono oficina?</label> 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el número de la oficina" class="form-control">
                                                 </div>
 
                                             </div>
@@ -203,14 +203,14 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Número de teléfono celular?</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el número de celular" class="form-control">
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Número de pasaporte?</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" placeholder="Digite el numero de pasaporte" class="form-control">
                                                 </div>
 
                                             </div>
@@ -246,6 +246,7 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Perdido</option>
                                                         <option value="no">Robado</option>
 
@@ -274,7 +275,7 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Cuántas personas que viajaran con usted?</label>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" placeholder="Digite el Número de personas" class="form-control">
                                                 </div>
 
                                             </div>
@@ -359,6 +360,20 @@ include_once '../../config/parametros.php';
                                                 <div class="form-group">
                                                     <label>¿Ha tenido visa antes?</label>
                                                    <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            
+                                             <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>¿Ha viajado antes a Estados Unidos?</label>
+                                                   <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -369,10 +384,337 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Tiene alguna petición de familia en trámite con la embajada de Estados Unidos?</label>
+                                                   <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Nombre de la empresa que visitará en los Estados Unidos?</label>
+                                                    <input type="text" placeholder="Digite la Empresa" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Dirección de esa persona?</label>
+                                                     <input type="text" placeholder="Digite la Dirección" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Dirección de esa empresa?</label>
+                                                    <input type="text" placeholder="Digite la Dirección" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                         <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Número de teléfono de esa persona?</label>
+                                                     <input type="text" placeholder="Digite la Teléfono" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Número de teléfono de esa empresa?</label>
+                                                    <input type="text" placeholder="Digite la Teléfono" class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿e-mail de esa persona?</label>
+                                                     <input type="text" placeholder="Digite el e-mail" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿e-mail de esa empresa?</label>
+                                                    <input type="text" placeholder="Digite el e-mail" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-                                        Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna. 
+                                       
+                                      <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Nombre completo de padre?</label>
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Fecha de nacimiento de padre?</label>
+                                                    <input type="date" class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                        </div> 
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Esta su padre en los Estados Unidos?</label>
+                                                   <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Qué estatus tiene su padre?</label>
+                                                   <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Indocumentado</option>
+                                                        <option value="no">Residente</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Nombre completo de madre?</label>
+                                                   <input type="text" placeholder="Digite el nombre" class="form-control">
+                                               
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Fecha de nacimiento de madre?</label>
+                                                    <input type="date" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <label>¿Esta su madre en los Estados Unidos? </label>
+                                                    <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <label>¿Qué estatus tiene su madre? </label><br>
+                                                 <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Indocumentado</option>
+                                                        <option value="no">Residente</option>
+
+                                                    </select>    
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="form-group">
+                                                    <label>¿Tiene parientes en los Estados Unidos que no sean sus padres? </label>
+                                                <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>   
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                         <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Nombre de esa persona?</label>
+                                                     <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Parentesco que tiene con ella?</label>
+                                                    <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Hermana/o</option>
+                                                        <option value="no">Prima/o</option>
+
+                                                    </select> 
+                                                     </div>
+
+                                            </div>
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>¿Fecha de nacimiento de esa persona?</label>
+                                                     <input type="date" placeholder="Digite el e-mail" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label>¿Nacionalidad de esa persona? </label>
+                                                <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Salvadoreña</option>
+                                                        <option value="no">Otra</option>
+
+                                                    </select>    
+                                                </div>
+
+                                            </div>
+                                            
+                                             <div class="col-lg-4">
+                                                 <div class="form-group">
+                                                    <label>¿Es casado/a?  </label>
+                                                <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Si</option>
+                                                        <option value="no">No</option>
+
+                                                    </select>    
+                                                </div>
+
+                                            </div>
+                              
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                        
+                                         <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Nombre de su cónyuge?</label>
+                                                    <br>
+                                                    <br>
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <label>¿Fecha de nacimiento de su cónyuge?</label>
+                                                    <input type="date" placeholder="Digite el nombre" class="form-control">
+                                                
+                                                </div>
+
+                                            </div>
+                                            
+                                             <div class="col-lg-3">
+                                                 <div class="form-group">
+                                                    <label>¿Nacionalidad de su cónyuge?</label>
+                                               <select id="categoria" class="form-control">
+                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="permitido">Salvadoreña</option>
+                                                        <option value="no">Otra</option>
+
+                                                    </select>     
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********--> 
+                                    </div>
+                                    
+                                    
+                                    
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
