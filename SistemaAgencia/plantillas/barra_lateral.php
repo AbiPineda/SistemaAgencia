@@ -85,7 +85,7 @@
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/registro-tour.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro de Tours</p>
+                                <p>Publicar Tour</p>
                             </a>
                         </li>
 
@@ -97,10 +97,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/sitios_turisticos')"
+                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/registrar_reserva.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Sitios Turisticos</p>
+                                <p>Registrar Reserva</p>
                             </a>
                         </li>
                     </ul>
