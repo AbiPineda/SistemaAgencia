@@ -77,8 +77,8 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Tipo</label>
                                             <select class="select2 select2-hidden-accessible form-control float-righ" multiple="" data-placeholder="Selececcione el tipo" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                                <option selected="selected" data-select2-id="46">Playa</option>
-                                                <option data-select2-id="47">Montaña</option>
+                                                <option data-select2-id="46">Playa</option>
+                                                <option selected="selected" data-select2-id="47">Montaña</option>
                                                 <option data-select2-id="48">Reserva Natural</option>
                                                 <option data-select2-id="49">Parque Nacional</option>
                                                 <option data-select2-id="50">Restaurante</option>
