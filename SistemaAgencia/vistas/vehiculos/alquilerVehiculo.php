@@ -90,8 +90,7 @@ include_once '../../config/parametros.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Dirección del Lugar</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Digite dirección">
+                                            <input type="text" class="form-control" placeholder="Digite dirección">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -146,8 +145,7 @@ include_once '../../config/parametros.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Dirección del Lugar</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Digite dirección">
+                                            <input type="text" class="form-control" placeholder="Digite dirección">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -200,9 +198,69 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
                             <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                            <h3 class="timeline-header no-border"><a href="#">Servicios Realizados</a></h3>
+                            <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary1" checked>
+                                                <label for="checkboxPrimary1"> Exoneración en Caso de Daños por
+                                                    Colisión, $13.56 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-success d-inline">
+                                                <input type="checkbox" checked id="checkboxSuccess1">
+                                                <label for="checkboxSuccess1">
+                                                    Protección de efectos personales,<BR> $5.65 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-danger d-inline">
+                                                <input type="checkbox" checked id="checkboxDanger1">
+                                                <label for="checkboxDanger1">
+                                                    Seguro de responsabilidad civil adicional, $16.95 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary2">
+                                                <label for="checkboxPrimary2">
+                                                    WI-FI móvil, $10.99 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-success d-inline">
+                                                <input type="checkbox" id="checkboxSuccess2">
+                                                <label for="checkboxSuccess2">
+                                                    Asientos de seguridad para niños, <BR>$5.00 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-danger d-inline">
+                                                <input type="checkbox" id="checkboxDanger2">
+                                                <label for="checkboxDanger2"> Conductor Adicional, $5.00 (por dia)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,18 +271,47 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
                             <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                            <h3 class="timeline-header"><a href="#">Comentarios</a></h3>
+                            <h3 class="timeline-header"><a href="#">Información Adicional</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="3"
-                                                placeholder="Describir insidentes"></textarea>
+                                            <label for="">Exoneración en caso de Daños por Colisión (CDW): Su plan
+                                                alternativo sólido. Con CDW, estará protegido si su seguro personal o
+                                                tarjeta de crédito no le cubre por pérdidas por un vehículo alquilado
+                                                que haya sido robado o dañado.<br><br>
+
+                                                Protección de efectos personales (PEP): Igualmente importante en sus
+                                                viajes es la protección de sus pertenencias, PEP ayuda a proteger las
+                                                pérdidas o daños cubiertos de los artículos personales.<br><br>
+
+
+                                                Seguro de responsabilidad civil adicional (ALI): Lo colocamos a usted en
+                                                el asiento del conductor, Con ALI usted está cubierto con la póliza de
+                                                responsabilidad civil primaria por hasta $2 millones.<br><br>
+
+
+                                                WI-FI móvil: El WIFI móvil ofrece la libertad de conectividad móvil
+                                                hasta
+                                                para 5 dispositivos, sin tener que preocuparse por cargos de
+                                                roaming.<br><br>
+
+
+                                                Asientos de seguridad para niños: Mantenga a los niños seguros cuando
+                                                viaje con nuestros asientos de seguridad para niños.<br><br>
+
+                                                Conductor Adicional: Todos los conductores deben cumplir con el
+                                                requisito mínimo de edad y mostrar una licencia de conducir válida en el
+                                                momento de retirar el vehículo.
+
+
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerReporte.php')">Guardar</a>
+                                    <a class="btn btn-primary btn-sm" style="color: white"
+                                        onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerReporte.php')">Guardar</a>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
 
@@ -250,7 +337,7 @@ include_once '../../config/parametros.php';
                 <script
                     src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
                 </script>
-                
+
 
                 <script>
                 $(function() {
