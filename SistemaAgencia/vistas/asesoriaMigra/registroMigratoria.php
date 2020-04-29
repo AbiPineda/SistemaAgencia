@@ -85,41 +85,18 @@ include_once '../../config/parametros.php';
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>
-                                                        ¿Nombre según su pasaporte?
-                                                    </label>
-
-                                                </div>
-
+                                                    <label>¿Nombre según su pasaporte?</label>
+                                                 <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control">
+                                                
                                             </div>
-                                            <div class="col-lg-7">
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control">
-                                                </div>
-
                                             </div>
-
-                                        </div> 
-                                        <!--************** fin una pregunta*********-->
-
-                                        <!--**************una pregunta*********-->
-                                        <div class="row">
-
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>
-                                                        ¿Nombre de soltera/o?
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
-                                                </div>
+                                                    <label>¿Nombre de soltera/o?</label>
+                                                     <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                   </div>
 
                                             </div>
 
@@ -128,47 +105,25 @@ include_once '../../config/parametros.php';
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label>
-                                                        ¿Dirección de casa?
-                                                    </label>
-
+                                                    <label>¿Dirección de casa? </label>
+                                                     <input type="text" placeholder="Digite la Dirección de su casa" class="form-control">
+                                                
                                                 </div>
 
                                             </div>
-                                            <div class="col-lg-7">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <input type="text" placeholder="Digite la Dirección de su casa" class="form-control">
-                                                </div>
-
-                                            </div>
-
-                                        </div> 
-                                        <!--************** fin una pregunta*********-->
-
-                                        <!--**************una pregunta*********-->
-                                        <div class="row">
-
-                                            <div class="col-lg-5">
-                                                <div class="form-group">
-                                                    <label>
-                                                        ¿Correo electrónico?
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Digite el correo electrónico" class="form-control">
-                                                </div>
+                                                  <label>¿Correo electrónico?</label>  
+                                                     <input type="text" placeholder="Digite el correo electrónico" class="form-control">
+                                                 
+                                                     </div>
 
                                             </div>
 
                                         </div> 
                                         <!--************** fin una pregunta*********-->
-
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
@@ -258,10 +213,71 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********-->
+                                        
+                                        <!--************** fin una pregunta*********-->  
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                    <div class="card">
+                                                         
+                                                        <div class="card-header">
+                                                            <h4 class="card-title"><label>¿Redes Sociales que utiliza? </label></h4>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <!-- the events -->
+                                                            <div id="external-events">
+                                                                <div class="external-event bg-blue">Facebook</div>
+                                                                <div class="external-event bg-success">WhatsApp</div>
+                                                                <div class="checkbox">
+                                                                    <label for="drop-remove">
+                                                                        <input type="checkbox" id="drop-remove">
+                                                                        Eliminar
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
+                                                   
 
-                                    </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6">
+                                                 <!-- /.card -->
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h3 class="card-title">Nombre de las personas</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                                              <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                                                <ul class="fc-color-picker" id="color-chooser">
+                                                                    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
+                                                                    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
+                                                                    <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
+                                                                    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
+                                                                    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <!-- /btn-group -->
+                                                            <div class="input-group">
+                                                                <input id="new-event" type="text" class="form-control" placeholder="Digite el nombre">
 
-                                    <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                                                <div class="input-group-append">
+                                                                    <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
+                                                                </div>
+                                                                <!-- /btn-group -->
+                                                            </div>
+                                                            <!-- /input-group -->
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+                                        </div> 
+                                        <!--************** fin una pregunta*********-->
+
+                                    </div><!--fin de una pestaña-->
+
+                   <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
