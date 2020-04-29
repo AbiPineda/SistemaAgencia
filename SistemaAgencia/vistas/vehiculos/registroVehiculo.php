@@ -15,7 +15,7 @@ include_once '../../config/parametros.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Mantenimiento de Vehiculos</h1>
+                    <h1>Mantenimiento de Vehículos</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -42,7 +42,7 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
                             <span class="time"><i class="fas fa-clock"></i> 12:05</span>
-                            <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+                            <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
 
                             <div class="timeline-body">
                                 <div class="row">
@@ -70,7 +70,7 @@ include_once '../../config/parametros.php';
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Año</label>
-                                            <input type="number" class="form-control" min=2010>
+                                            <input type="number" class="form-control" min=2010 max=2020>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -124,7 +124,7 @@ include_once '../../config/parametros.php';
                                     <div class="col-sm-1">
                                         <div class="form-group">
                                             <label>Pasajeros</label>
-                                            <input type="number" class="form-control" min=1>
+                                            <input type="number" class="form-control" min=1 max=20>
                                         </div>
                                     </div>
                                     <div class="col-sm-1">
@@ -147,7 +147,7 @@ include_once '../../config/parametros.php';
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-8">
                                         <label>Seleccione foto</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="files" name="foto">
@@ -167,7 +167,7 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
                             <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                            <h3 class="timeline-header no-border"><a href="#">Servicios Realizados</a></h3>
+                            <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -207,26 +207,21 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
                             <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                            <h3 class="timeline-header"><a href="#"> Requisitos para rentar su vehículo</a>
+                            <h3 class="timeline-header"><a href="#"> Información Adicional</a>
                                 </h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>
-                                                Licencia de conducir vigente<br>
-                                                DUI o Pasaporte vigente<br>
-                                                Tarjeta de crédito y fecha de vencimiento.<br>
-                                                Números telefónicos,(extranjero/local).<br>
-                                                Dirección de casa o trabajo, hotel.<br>
-                                                Ser mayor de edad (21 años).<br>
+                                               
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                    <a class="btn btn-default btn-sm" style="color: black">Cancelar</a>
                                 </div>
 
                             </div>
