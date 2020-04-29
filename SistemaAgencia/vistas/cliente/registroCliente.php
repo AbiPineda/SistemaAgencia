@@ -105,18 +105,18 @@ include_once '../../config/parametros.php';
                                                 placeholder="Introduzca su Contraseña">
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-default btn-sm" style="color: black">Cancelar</a>
-                                </div>
+                                <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                <a class="btn btn-default btn-sm" style="color: black">Cancelar</a>
+                            </div>
                         </div>
                     </div>
                     <!-- END timeline item -->
                     <!-- timeline item -->
-                    
+
                 </div>
                 <!-- END timeline item -->
 
@@ -137,6 +137,11 @@ include_once '../../config/parametros.php';
                     src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
                 </script>
 
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+                </script>
+                
+                <script type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
                 <script>
                 $(function() {
                     $("#example1").DataTable({
