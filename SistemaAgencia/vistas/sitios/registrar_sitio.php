@@ -53,7 +53,7 @@ include_once '../../config/parametros.php';
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Titulo del viaje</label>
+                                            <label>Nombre del sitio turiistico</label>
 
                                             <div class="input-group">
                                                 <input type="text" class="form-control">
@@ -101,18 +101,13 @@ include_once '../../config/parametros.php';
                                     
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Descripcion</label>
                                             <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Informacion de contacto</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                        </div>
-                                    </div>
+                                  
                                 </div>
                                 <div class="row">
                                     <div class="offset-md-3"></div>
@@ -126,6 +121,66 @@ include_once '../../config/parametros.php';
 
                                 </div>
                                 <div class="row">
+                                    <div class="offset-md-5"></div>
+                                    <div class="col-md-6">
+                                        <output id="list"></output>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre de Contacto</label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Telefono de Contactos</label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Correo Electronico</label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Costos</label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="offset-md-3"></div>
+                                    <div class="col-lg-6">
+                                        <label>Seleccione foto</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="files" name="foto" >
+                                            <label class="custom-file-label" for="files"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                  <div class="row">
                                     <div class="offset-md-5"></div>
                                     <div class="col-md-6">
                                         <output id="list"></output>

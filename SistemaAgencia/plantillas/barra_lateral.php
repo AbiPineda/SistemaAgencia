@@ -59,13 +59,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Paquetes</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Disponibilidad de Reserva</p>
                             </a>
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/registrar_reserva.php')"
+                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/registro_reserva.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Reserva</p>
@@ -333,19 +333,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Cotización de Paquete</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Cotización de Tours</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Cotización de Vehiculo</p>
                             </a>
@@ -363,7 +363,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Proveedor</p>
                             </a>
@@ -380,7 +380,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Estadisticas</p>
                             </a>
@@ -397,13 +397,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Usuario</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/error404.php" class="nav-link">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Bitácora</p>
                             </a>
