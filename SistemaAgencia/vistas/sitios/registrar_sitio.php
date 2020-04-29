@@ -117,7 +117,7 @@ include_once '../../config/parametros.php';
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" rows="1" placeholder="Digite aquì..."></textarea>
+                                            <textarea class="form-control" rows="1" placeholder="Digite aquí..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
