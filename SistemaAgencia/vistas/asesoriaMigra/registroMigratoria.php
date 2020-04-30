@@ -242,7 +242,7 @@ include_once '../../config/parametros.php';
                                                         </div>
                                                         <div class="card-body">
                                                             <!-- the events -->
-                                                            <div id="external-events">
+                                                            <div id="external-events1">
                                                                 <div class="external-event bg-blue">Facebook</div>
                                                                 <div class="external-event bg-success">WhatsApp</div>
                                                                 <div class="checkbox">
@@ -268,7 +268,7 @@ include_once '../../config/parametros.php';
                                                         <div class="card-body">
                                                             <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                                                               <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                                                                <ul class="fc-color-picker" id="color-chooser">
+                                                                <ul class="fc-color-picker" id="color-chooser1">
                                                                     <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
                                                                     <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
                                                                     <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
@@ -278,10 +278,10 @@ include_once '../../config/parametros.php';
                                                             </div>
                                                             <!-- /btn-group -->
                                                             <div class="input-group">
-                                                                <input id="new-event" type="text" class="form-control" placeholder="Digite el nombre">
+                                                                <input id="new-event1" type="text" class="form-control" placeholder="Digite el nombre">
 
                                                                 <div class="input-group-append">
-                                                                    <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
+                                                                    <button id="add-new-event1" type="button" class="btn btn-primary">Agregar</button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -747,13 +747,13 @@ include_once '../../config/parametros.php';
                                         <!--************** fin una pregunta*********--> 
                                     </div>
                                     
-                                    
-                                    
-                                    </div>
-
                                     <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                                         Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
                                     </div>
+                                    
+                                    </div>
+
+                                    
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -873,6 +873,105 @@ include_once '../../config/parametros.php';
 
     })
 </script>
+
+<script>
+       
+    $(function () {
+
+    /* initialize the external events
+     -----------------------------------------------------------------*/
+    function ini_events(ele) {
+      ele.each(function () {
+
+        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+        // it doesn't need to have a start or end
+        var eventObject = {
+          title: $.trim($(this).text()) // use the element's text as the event title
+        }
+
+        // store the Event Object in the DOM element so we can get to it later
+        $(this).data('eventObject', eventObject)
+
+        // make the event draggable using jQuery UI
+        $(this).draggable({
+          zIndex        : 1070,
+          revert        : true, // will cause the event to go back to its
+          revertDuration: 0  //  original position after the drag
+        })
+
+      })
+    }
+
+    ini_events($('#external-events1 div.external-event'))
+
+    /* initialize the calendar
+     -----------------------------------------------------------------*/
+  
+    var Draggable = FullCalendarInteraction.Draggable;
+
+    var containerEl = document.getElementById('external-events1');
+    var checkbox = document.getElementById('drop-remove');
+    var calendarEl = document.getElementById('calendar');
+
+    // initialize the external events
+    // -----------------------------------------------------------------
+
+    new Draggable(containerEl, {
+      itemSelector: '.external-event',
+      eventData: function(eventEl) {
+        console.log(eventEl);
+        return {
+          title: eventEl.innerText,
+          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
+          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
+          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
+        };
+      }
+    });
+
+    /* ADDING EVENTS */
+    var currColor = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser = $('#color-chooser-btn')
+    $('#color-chooser1 > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event1').css({
+        'background-color': currColor,
+        'border-color'    : currColor
+      })
+    })
+    $('#add-new-event1').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event1').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor,
+        'border-color'    : currColor,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events1').prepend(event)
+
+      //Add draggable funtionality
+      ini_events(event)
+
+      //Remove event from text input
+      $('#new-event1').val('')
+    })
+  })
+    
+    
+    /////////////////*****fin primero
+    </script>
 <script>
   $(function () {
 
