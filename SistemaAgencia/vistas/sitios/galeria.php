@@ -90,258 +90,264 @@ include_once '../../config/parametros.php';
     <!-- Main content -->
     <section class="content" >
         <div class="container-fluid ">
-            <div class="row center" >
-                <div id="buttons"></div>
+            <div class="row" style="margin-left: 10px;">
+               <div class="col-12">
+               <a class="btn ">
+                  <i class="fas fa-plus" s></i> Agregar toto
+                </a>
+                 
             </div>
+            </div>
+            
             <div class="row">
-              
+
                 <div class="col-12">
-                <div id="gallery" >
-                    <!-- left column -->
-                    <div class="cardsX">
-                        <div class="card Playa">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Playa"
-                                     src="<?= $base_url ?>img/beach"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
-                                    </div>
+                    <div id="gallery" >
+                        <!-- left column -->
+                        <div class="cardsX">
+                            <div class="card Playa">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Playa"
+                                         src="<?= $base_url ?>img/beach"
+                                         alt="" />
                                 </div>
-                            </div>
-                        </div>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
 
-                        <div class="card Playa">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Playa"
-                                     src="<?= $base_url ?>img/1"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card Turisentro">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Turisentro"
-                                       src="<?= $base_url ?>img/2"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                            <div class="card Playa">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Playa"
+                                         src="<?= $base_url ?>img/1"
+                                         alt="" />
+                                </div>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card Montallas">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                       src="<?= $base_url ?>img/3"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-description">
+                            <div class="card Turisentro">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Turisentro"
+                                         src="<?= $base_url ?>img/2"
+                                         alt="" />
                                 </div>
-                                <div class="card-flap flap2">
-                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card Montallas">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                       src="<?= $base_url ?>img/4"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-description">
+                            <div class="card Montallas">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Montallas"
+                                         src="<?= $base_url ?>img/3"
+                                         alt="" />
                                 </div>
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-description">
+                                    </div>
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card Montallas">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                      src="<?= $base_url ?>img/8"
-                                     alt="" />
-                            </div>
-                          <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-description">
+                            <div class="card Montallas">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Montallas"
+                                         src="<?= $base_url ?>img/4"
+                                         alt="" />
                                 </div>
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-description">
+                                    </div>
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card Comedor">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Comedor"
-                                       src="<?= $base_url ?>img/beach"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                  <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-description">
+                            <div class="card Montallas">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Montallas"
+                                         src="<?= $base_url ?>img/8"
+                                         alt="" />
                                 </div>
-                                <div class="card-flap flap2">
-                                      <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-description">
                                     </div>
-                                 
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card Turisentro">
-                            <div class="card__image-holder">
-                                <img class="card__image" data-tags="Turisentro"
-                                      src="<?= $base_url ?>img/7"
-                                     alt="" />
-                            </div>
-                            <div class="card-title">
-                                <a href="#" class="toggle-info btn-danger">
-                                    <span class="left"></span>
-                                    <span class="right"></span>
-                                </a>
-                                <h2>
-                                   Elimina Foto
-                                    <small></small>
-                                </h2>
-                            </div>
-                            <div class="card-flap flap1">
-                                <div class="card-description">
+
+                            <div class="card Comedor">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Comedor"
+                                         src="<?= $base_url ?>img/beach"
+                                         alt="" />
                                 </div>
-                                <div class="card-flap flap2">
-                                    <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-description">
+                                    </div>
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card Turisentro">
+                                <div class="card__image-holder">
+                                    <img class="card__image" data-tags="Turisentro"
+                                         src="<?= $base_url ?>img/7"
+                                         alt="" />
+                                </div>
+                                <div class="card-title">
+                                    <a href="#" class="toggle-info btn-danger">
+                                        <span class="left"></span>
+                                        <span class="right"></span>
+                                    </a>
+                                    <h2>
+                                        Elimina Foto
+                                        <small></small>
+                                    </h2>
+                                </div>
+                                <div class="card-flap flap1">
+                                    <div class="card-description">
+                                    </div>
+                                    <div class="card-flap flap2">
+                                        <div class="card-actions">
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
+                                               class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
+                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
+                                               class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-</div>              
-          
+            </div>              
+
         </div>
     </section>
 
-</div>>
+</div>
 
 
 
