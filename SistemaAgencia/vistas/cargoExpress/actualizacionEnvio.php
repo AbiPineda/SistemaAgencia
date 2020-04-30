@@ -19,7 +19,7 @@ include_once '../../config/parametros.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-5" id="titulo">
-                    <h1>Registro de Actualización de Envio</h1>
+                    <h1>Registro de Actualización de Envió</h1>
                 </div>
                 <div class="col-sm-3" id="titulo">
                     <div class="center">
