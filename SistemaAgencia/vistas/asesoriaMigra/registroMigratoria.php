@@ -3,24 +3,24 @@ include_once '../../config/parametros.php';
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- SweetAlert2 -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/sweetalert2/sweetalert2.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.css">
 <!-- Toastr -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/toastr/toastr.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="<?=$base_url?>dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 <!-- fullCalendar -->
-  <link rel="stylesheet" href="<?=$base_url?>plugins/fullcalendar/main.min.css">
-  <link rel="stylesheet" href="<?=$base_url?>plugins/fullcalendar-daygrid/main.min.css">
-  <link rel="stylesheet" href="<?=$base_url?>plugins/fullcalendar-timegrid/main.min.css">
-  <link rel="stylesheet" href="<?=$base_url?>plugins/fullcalendar-bootstrap/main.min.css">
-  
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
+
 <!--necesario para que funcione el selector multiple-->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -32,13 +32,13 @@ include_once '../../config/parametros.php';
 <script>
     $(function () {
         $("#casado").change(function () {
-          // alert($(this).val());
+            // alert($(this).val());
             if ($(this).val() === "si") {
                 $("#input_nombre_conyuge").prop("disabled", false);
                 $("#input_fecha_conyuge").prop("disabled", false);
                 $("#nacionalidad_conyuge").prop("disabled", false);
             }
-            
+
             if ($(this).val() === "no") {
                 $("#input_nombre_conyuge").prop("disabled", true);
                 $("#input_fecha_conyuge").prop("disabled", true);
@@ -106,15 +106,15 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Nombre según su pasaporte?</label>
-                                                 <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control">
-                                                
-                                            </div>
+                                                    <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control">
+
+                                                </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Nombre de soltera/o?</label>
-                                                     <input type="text" placeholder="Digite el nombre" class="form-control">
-                                                   </div>
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                </div>
 
                                             </div>
 
@@ -126,17 +126,17 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Dirección de casa? </label>
-                                                     <input type="text" placeholder="Digite la Dirección de su casa" class="form-control">
-                                                
+                                                    <input type="text" placeholder="Digite la Dirección de su casa" class="form-control">
+
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                  <label>¿Correo electrónico?</label>  
-                                                     <input type="text" placeholder="Digite el correo electrónico" class="form-control">
-                                                 
-                                                     </div>
+                                                    <label>¿Correo electrónico?</label>  
+                                                    <input type="text" placeholder="Digite el correo electrónico" class="form-control">
+
+                                                </div>
 
                                             </div>
 
@@ -231,63 +231,63 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********-->
-                                        
+
                                         <!--************** fin una pregunta*********-->  
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                    <div class="card">
-                                                         
-                                                        <div class="card-header">
-                                                            <h4 class="card-title"><label>¿Redes Sociales que utiliza? </label></h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <!-- the events -->
-                                                            <div id="external-events1">
-                                                                <div class="external-event bg-blue">Facebook</div>
-                                                                <div class="external-event bg-success">WhatsApp</div>
-                                                                <div class="checkbox">
-                                                                    <label for="drop-remove">
-                                                                        <input type="checkbox" id="drop-remove">
-                                                                        Eliminar
-                                                                    </label>
-                                                                </div>
+                                                <div class="card">
+
+                                                    <div class="card-header">
+                                                        <h4 class="card-title"><label>¿Redes Sociales que utiliza? </label></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <!-- the events -->
+                                                        <div id="external-events1">
+                                                            <div class="external-event bg-blue">Facebook</div>
+                                                            <div class="external-event bg-success">WhatsApp</div>
+                                                            <div class="checkbox">
+                                                                <label for="drop-remove">
+                                                                    <input type="checkbox" id="drop-remove">
+                                                                    Eliminar
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <!-- /.card-body -->
                                                     </div>
-                                                   
+                                                    <!-- /.card-body -->
+                                                </div>
+
 
                                             </div>
-                                            
+
                                             <div class="col-lg-6">
-                                                 <!-- /.card -->
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h3 class="card-title">Nombre de las personas</h3>
+                                                <!-- /.card -->
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Nombre de las personas</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                                          <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                                            <ul class="fc-color-picker" id="color-chooser1">
+                                                                <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
+                                                            </ul>
                                                         </div>
-                                                        <div class="card-body">
-                                                            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                                                              <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                                                                <ul class="fc-color-picker" id="color-chooser1">
-                                                                    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-                                                                </ul>
+                                                        <!-- /btn-group -->
+                                                        <div class="input-group">
+                                                            <input id="new-event1" type="text" class="form-control" placeholder="Digite el nombre">
+
+                                                            <div class="input-group-append">
+                                                                <button id="add-new-event1" type="button" class="btn btn-primary">Agregar</button>
                                                             </div>
                                                             <!-- /btn-group -->
-                                                            <div class="input-group">
-                                                                <input id="new-event1" type="text" class="form-control" placeholder="Digite el nombre">
-
-                                                                <div class="input-group-append">
-                                                                    <button id="add-new-event1" type="button" class="btn btn-primary">Agregar</button>
-                                                                </div>
-                                                                <!-- /btn-group -->
-                                                            </div>
-                                                            <!-- /input-group -->
                                                         </div>
+                                                        <!-- /input-group -->
                                                     </div>
+                                                </div>
                                             </div>
 
                                         </div> 
@@ -295,7 +295,7 @@ include_once '../../config/parametros.php';
 
                                     </div><!--fin de una pestaña-->
 
-                   <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                    <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
@@ -318,59 +318,59 @@ include_once '../../config/parametros.php';
                                         <!--************** fin una pregunta*********-->  
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                    <div class="card">
-                                                         
-                                                        <div class="card-header">
-                                                            <h4 class="card-title"><label>¿Nombre de las personas? </label></h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <!-- the events -->
-                                                            <div id="external-events">
-                                                                <div class="external-event bg-success">Petronila González</div>
-                                                                <div class="external-event bg-warning">N'Golo Kanté</div>
-                                                                <div class="checkbox">
-                                                                    <label for="drop-remove">
-                                                                        <input type="checkbox" id="drop-remove">
-                                                                        Eliminar
-                                                                    </label>
-                                                                </div>
+                                                <div class="card">
+
+                                                    <div class="card-header">
+                                                        <h4 class="card-title"><label>¿Nombre de las personas? </label></h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <!-- the events -->
+                                                        <div id="external-events">
+                                                            <div class="external-event bg-success">Petronila González</div>
+                                                            <div class="external-event bg-warning">N'Golo Kanté</div>
+                                                            <div class="checkbox">
+                                                                <label for="drop-remove">
+                                                                    <input type="checkbox" id="drop-remove">
+                                                                    Eliminar
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <!-- /.card-body -->
                                                     </div>
-                                                   
+                                                    <!-- /.card-body -->
+                                                </div>
+
 
                                             </div>
-                                            
+
                                             <div class="col-lg-6">
-                                                 <!-- /.card -->
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h3 class="card-title">Nombre de las personas</h3>
+                                                <!-- /.card -->
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Nombre de las personas</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                                          <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                                            <ul class="fc-color-picker" id="color-chooser">
+                                                                <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
+                                                                <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
+                                                            </ul>
                                                         </div>
-                                                        <div class="card-body">
-                                                            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                                                              <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                                                                <ul class="fc-color-picker" id="color-chooser">
-                                                                    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                                                                    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-                                                                </ul>
+                                                        <!-- /btn-group -->
+                                                        <div class="input-group">
+                                                            <input id="new-event" type="text" class="form-control" placeholder="Digite el nombre">
+
+                                                            <div class="input-group-append">
+                                                                <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
                                                             </div>
                                                             <!-- /btn-group -->
-                                                            <div class="input-group">
-                                                                <input id="new-event" type="text" class="form-control" placeholder="Digite el nombre">
-
-                                                                <div class="input-group-append">
-                                                                    <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
-                                                                </div>
-                                                                <!-- /btn-group -->
-                                                            </div>
-                                                            <!-- /input-group -->
                                                         </div>
+                                                        <!-- /input-group -->
                                                     </div>
+                                                </div>
                                             </div>
 
                                         </div> 
@@ -381,20 +381,20 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Parentesco que tiene con ellas?</label>
-                                                   <select class="select2" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">
-                                                    <option>Primos/as</option>
-                                                    <option>Madre</option>
-                                                    <option>Padre</option>
-                                                    <option>Hermanos/as</option>
-                                                </select>
+                                                    <select class="select2" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">
+                                                        <option>Primos/as</option>
+                                                        <option>Madre</option>
+                                                        <option>Padre</option>
+                                                        <option>Hermanos/as</option>
+                                                    </select>
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Ha tenido visa antes?</label>
-                                                   <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -402,12 +402,12 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                             <div class="col-lg-4">
+
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Ha viajado antes a Estados Unidos?</label>
-                                                   <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -418,15 +418,15 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Tiene alguna petición de familia en trámite con la embajada de Estados Unidos?</label>
-                                                   <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -441,20 +441,20 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Dirección de esa persona?</label>
-                                                     <input type="text" placeholder="Digite la Dirección" class="form-control">
-                                                
+                                                    <input type="text" placeholder="Digite la Dirección" class="form-control">
+
                                                 </div>
 
                                             </div>
@@ -465,20 +465,20 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
-                                         <!--**************una pregunta*********-->
+
+                                        <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Número de teléfono de esa persona?</label>
-                                                     <input type="text" placeholder="Digite la Teléfono" class="form-control">
-                                                
+                                                    <input type="text" placeholder="Digite la Teléfono" class="form-control">
+
                                                 </div>
 
                                             </div>
@@ -492,15 +492,15 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿e-mail de esa persona?</label>
-                                                     <input type="text" placeholder="Digite el e-mail" class="form-control">
-                                                
+                                                    <input type="text" placeholder="Digite el e-mail" class="form-control">
+
                                                 </div>
 
                                             </div>
@@ -511,16 +511,16 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-                                       
-                                      <!--**************una pregunta*********-->
+
+                                        <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
@@ -545,8 +545,8 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Esta su padre en los Estados Unidos?</label>
-                                                   <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -557,8 +557,8 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Qué estatus tiene su padre?</label>
-                                                   <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Indocumentado</option>
                                                         <option value="no">Residente</option>
 
@@ -569,15 +569,15 @@ include_once '../../config/parametros.php';
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Nombre completo de madre?</label>
-                                                   <input type="text" placeholder="Digite el nombre" class="form-control">
-                                               
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+
                                                 </div>
 
                                             </div>
@@ -588,12 +588,12 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
@@ -601,7 +601,7 @@ include_once '../../config/parametros.php';
                                                 <div class="form-group">
                                                     <label>¿Esta su madre en los Estados Unidos? </label>
                                                     <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -612,8 +612,8 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-3">
                                                 <div class="form-group">
                                                     <label>¿Qué estatus tiene su madre? </label><br>
-                                                 <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Indocumentado</option>
                                                         <option value="no">Residente</option>
 
@@ -624,8 +624,8 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-5">
                                                 <div class="form-group">
                                                     <label>¿Tiene parientes en los Estados Unidos que no sean sus padres? </label>
-                                                <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Si</option>
                                                         <option value="no">No</option>
 
@@ -633,20 +633,20 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
-                                         <!--**************una pregunta*********-->
+
+                                        <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Nombre de esa persona?</label>
-                                                     <input type="text" placeholder="Digite el nombre" class="form-control">
-                                                
+                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+
                                                 </div>
 
                                             </div>
@@ -654,34 +654,34 @@ include_once '../../config/parametros.php';
                                                 <div class="form-group">
                                                     <label>¿Parentesco que tiene con ella?</label>
                                                     <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Hermana/o</option>
                                                         <option value="no">Prima/o</option>
 
                                                     </select> 
-                                                     </div>
+                                                </div>
 
                                             </div>
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
+
                                         <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Fecha de nacimiento de esa persona?</label>
-                                                     <input type="date" placeholder="Digite el e-mail" class="form-control">
-                                                
+                                                    <input type="date" placeholder="Digite el e-mail" class="form-control">
+
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>¿Nacionalidad de esa persona? </label>
-                                                <select id="categoria" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="categoria" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Salvadoreña</option>
                                                         <option value="no">Otra</option>
 
@@ -689,12 +689,12 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                             <div class="col-lg-4">
-                                                 <div class="form-group">
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
                                                     <label>¿Es casado/a?  </label>
-                                                <select id="casado" class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                    <select id="casado" class="form-control">
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="si">Si</option>
                                                         <option value="no">No</option>
 
@@ -702,11 +702,11 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                              
+
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
-                                        
-                                         <!--**************una pregunta*********-->
+
+                                        <!--**************una pregunta*********-->
                                         <div class="row">
 
                                             <div class="col-lg-6">
@@ -715,7 +715,7 @@ include_once '../../config/parametros.php';
                                                     <br>
                                                     <br>
                                                     <input type="text" id="input_nombre_conyuge" disabled placeholder="Digite el nombre" class="form-control">
-                                                
+
                                                 </div>
 
                                             </div>
@@ -723,16 +723,16 @@ include_once '../../config/parametros.php';
                                                 <div class="form-group">
                                                     <label>¿Fecha de nacimiento de su cónyuge?</label>
                                                     <input type="date" id="input_fecha_conyuge" disabled placeholder="Digite el nombre" class="form-control">
-                                                
+
                                                 </div>
 
                                             </div>
-                                            
-                                             <div class="col-lg-3">
-                                                 <div class="form-group">
+
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
                                                     <label>¿Nacionalidad de su cónyuge?</label>
                                                     <select id="nacionalidad_conyuge" disabled class="form-control">
-                                                       <option value="" selected>Seleccione</option>
+                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Salvadoreña</option>
                                                         <option value="no">Otra</option>
 
@@ -740,61 +740,118 @@ include_once '../../config/parametros.php';
                                                 </div>
 
                                             </div>
-                                            
-                                            
+
+
 
                                         </div> 
                                         <!--************** fin una pregunta*********--> 
                                     </div>
-                                    
+
                                     <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
-                                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Estudios realizados?</label>
+                                                    <div class="select2-blue">
+                                                         <select id="estudios" class="form-control">
+                                                        <option>Primero-Noveno</option>
+                                                            <option>Educación Media</option>
+                                                            <option>Educación Superior</option>
+                                                        </select>
+                                                    </div>   
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Lugar donde los estudio?</label>
+                                                    <input type="text" placeholder="Digite el lugar" class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                        </div> 
+                                        <!--**************una pregunta*********--> 
+                                        
+                                        <!--**************una pregunta*********-->
+                                        <div class="row">
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Direccion del lugar donde los estudio?</label>
+                                                    <input type="text" placeholder="Digite el lugar" class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>¿Año en que los termino?</label>
+                                                    <input type="date" placeholder="Digite la Dirección" class="form-control">
+                                                 
+                                                </div>
+
+                                            </div>
+                                            
+
+                                        </div> 
+                                        <!--**************una pregunta*********--> 
+                                             <div style="text-align: right;width:577px;margin-top:-8px;">
+                                        <button style="margin: 5px" type="submit"
+                                                class="btn btn-default float-right">Cancelar
+                                        </button>
+                                        <button style="margin: 5px" type="submit"
+                                                class="btn btn-info float-right">Guardar</button>
+
                                     </div>
-                                    
                                     </div>
 
-                                    
                                 </div>
+
+
                             </div>
-                            <!-- /.card -->
                         </div>
+                        <!-- /.card -->
                     </div>
-                    <div class="col-12 col-sm-1"></div>
                 </div>
-
-
+                <div class="col-12 col-sm-1"></div>
             </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
+
+
     </div>
-    <!-- /.content-wrapper -->
-    <!-- /.control-sidebar -->
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
 
 <!-- jQuery -->
-<script src="<?=$base_url?>plugins/jquery/jquery.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?=$base_url?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<?=$base_url?>dist/js/adminlte.min.js"></script>
+<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?=$base_url?>dist/js/demo.js"></script>
+<script src="<?= $base_url ?>dist/js/demo.js"></script>
 
 <!--Para agregar los familiares pluing-->
-<script src="<?=$base_url?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-ui/jquery-ui.min.js"></script>
 
 <!-- fullCalendar 2.2.5 -->
-<script src="<?=$base_url?>plugins/fullcalendar/locales/el.js"></script>
-<script src="<?=$base_url?>plugins/moment/moment.min.js"></script>
-<script src="<?=$base_url?>plugins/fullcalendar/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar/locales/el.js"></script>
+<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar/main.min.js"></script>
 
-<script src="<?=$base_url?>plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="<?=$base_url?>plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="<?=$base_url?>plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="<?=$base_url?>plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
 <!-- Page specific script -->
 <!--Para agregar los familiares pluing-->
 
@@ -875,195 +932,195 @@ include_once '../../config/parametros.php';
 </script>
 
 <script>
-       
+
     $(function () {
 
-    /* initialize the external events
-     -----------------------------------------------------------------*/
-    function ini_events(ele) {
-      ele.each(function () {
+        /* initialize the external events
+         -----------------------------------------------------------------*/
+        function ini_events(ele) {
+            ele.each(function () {
 
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
+                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                // it doesn't need to have a start or end
+                var eventObject = {
+                    title: $.trim($(this).text()) // use the element's text as the event title
+                }
+
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject)
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 1070,
+                    revert: true, // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                })
+
+            })
         }
 
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject)
+        ini_events($('#external-events1 div.external-event'))
 
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+
+        var Draggable = FullCalendarInteraction.Draggable;
+
+        var containerEl = document.getElementById('external-events1');
+        var checkbox = document.getElementById('drop-remove');
+        var calendarEl = document.getElementById('calendar');
+
+        // initialize the external events
+        // -----------------------------------------------------------------
+
+        new Draggable(containerEl, {
+            itemSelector: '.external-event',
+            eventData: function (eventEl) {
+                console.log(eventEl);
+                return {
+                    title: eventEl.innerText,
+                    backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                    borderColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                    textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
+                };
+            }
+        });
+
+        /* ADDING EVENTS */
+        var currColor = '#3c8dbc' //Red by default
+        //Color chooser button
+        var colorChooser = $('#color-chooser-btn')
+        $('#color-chooser1 > li > a').click(function (e) {
+            e.preventDefault()
+            //Save color
+            currColor = $(this).css('color')
+            //Add color effect to button
+            $('#add-new-event1').css({
+                'background-color': currColor,
+                'border-color': currColor
+            })
         })
+        $('#add-new-event1').click(function (e) {
+            e.preventDefault()
+            //Get value and make sure it is not null
+            var val = $('#new-event1').val()
+            if (val.length == 0) {
+                return
+            }
 
-      })
-    }
+            //Create events
+            var event = $('<div />')
+            event.css({
+                'background-color': currColor,
+                'border-color': currColor,
+                'color': '#fff'
+            }).addClass('external-event')
+            event.html(val)
+            $('#external-events1').prepend(event)
 
-    ini_events($('#external-events1 div.external-event'))
+            //Add draggable funtionality
+            ini_events(event)
 
-    /* initialize the calendar
-     -----------------------------------------------------------------*/
-  
-    var Draggable = FullCalendarInteraction.Draggable;
-
-    var containerEl = document.getElementById('external-events1');
-    var checkbox = document.getElementById('drop-remove');
-    var calendarEl = document.getElementById('calendar');
-
-    // initialize the external events
-    // -----------------------------------------------------------------
-
-    new Draggable(containerEl, {
-      itemSelector: '.external-event',
-      eventData: function(eventEl) {
-        console.log(eventEl);
-        return {
-          title: eventEl.innerText,
-          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
-        };
-      }
-    });
-
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser1 > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event1').css({
-        'background-color': currColor,
-        'border-color'    : currColor
-      })
+            //Remove event from text input
+            $('#new-event1').val('')
+        })
     })
-    $('#add-new-event1').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event1').val()
-      if (val.length == 0) {
-        return
-      }
 
-      //Create events
-      var event = $('<div />')
-      event.css({
-        'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
-      event.html(val)
-      $('#external-events1').prepend(event)
 
-      //Add draggable funtionality
-      ini_events(event)
-
-      //Remove event from text input
-      $('#new-event1').val('')
-    })
-  })
-    
-    
     /////////////////*****fin primero
-    </script>
+</script>
 <script>
-  $(function () {
+    $(function () {
 
-    /* initialize the external events
-     -----------------------------------------------------------------*/
-    function ini_events(ele) {
-      ele.each(function () {
+        /* initialize the external events
+         -----------------------------------------------------------------*/
+        function ini_events(ele) {
+            ele.each(function () {
 
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
+                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                // it doesn't need to have a start or end
+                var eventObject = {
+                    title: $.trim($(this).text()) // use the element's text as the event title
+                }
+
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject)
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 1070,
+                    revert: true, // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                })
+
+            })
         }
 
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject)
+        ini_events($('#external-events div.external-event'))
 
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+
+        var Draggable = FullCalendarInteraction.Draggable;
+
+        var containerEl = document.getElementById('external-events');
+        var checkbox = document.getElementById('drop-remove');
+        var calendarEl = document.getElementById('calendar');
+
+        // initialize the external events
+        // -----------------------------------------------------------------
+
+        new Draggable(containerEl, {
+            itemSelector: '.external-event',
+            eventData: function (eventEl) {
+                console.log(eventEl);
+                return {
+                    title: eventEl.innerText,
+                    backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                    borderColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                    textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
+                };
+            }
+        });
+
+        /* ADDING EVENTS */
+        var currColor = '#3c8dbc' //Red by default
+        //Color chooser button
+        var colorChooser = $('#color-chooser-btn')
+        $('#color-chooser > li > a').click(function (e) {
+            e.preventDefault()
+            //Save color
+            currColor = $(this).css('color')
+            //Add color effect to button
+            $('#add-new-event').css({
+                'background-color': currColor,
+                'border-color': currColor
+            })
         })
+        $('#add-new-event').click(function (e) {
+            e.preventDefault()
+            //Get value and make sure it is not null
+            var val = $('#new-event').val()
+            if (val.length == 0) {
+                return
+            }
 
-      })
-    }
+            //Create events
+            var event = $('<div />')
+            event.css({
+                'background-color': currColor,
+                'border-color': currColor,
+                'color': '#fff'
+            }).addClass('external-event')
+            event.html(val)
+            $('#external-events').prepend(event)
 
-    ini_events($('#external-events div.external-event'))
+            //Add draggable funtionality
+            ini_events(event)
 
-    /* initialize the calendar
-     -----------------------------------------------------------------*/
-  
-    var Draggable = FullCalendarInteraction.Draggable;
-
-    var containerEl = document.getElementById('external-events');
-    var checkbox = document.getElementById('drop-remove');
-    var calendarEl = document.getElementById('calendar');
-
-    // initialize the external events
-    // -----------------------------------------------------------------
-
-    new Draggable(containerEl, {
-      itemSelector: '.external-event',
-      eventData: function(eventEl) {
-        console.log(eventEl);
-        return {
-          title: eventEl.innerText,
-          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
-        };
-      }
-    });
-
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event').css({
-        'background-color': currColor,
-        'border-color'    : currColor
-      })
+            //Remove event from text input
+            $('#new-event').val('')
+        })
     })
-    $('#add-new-event').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event').val()
-      if (val.length == 0) {
-        return
-      }
-
-      //Create events
-      var event = $('<div />')
-      event.css({
-        'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
-      event.html(val)
-      $('#external-events').prepend(event)
-
-      //Add draggable funtionality
-      ini_events(event)
-
-      //Remove event from text input
-      $('#new-event').val('')
-    })
-  })
 </script>
 
