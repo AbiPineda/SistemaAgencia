@@ -16,11 +16,11 @@ include_once '../../config/parametros.php';
 
 <!-- DataTables -->
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -54,7 +54,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+
                             <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
 
                             <div class="timeline-body">
@@ -78,11 +78,6 @@ include_once '../../config/parametros.php';
                                             <label>Fecha del viaje</label>
 
                                             <div class="input-group">
-                                                <!--<div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                <i class="far fa-calendar-alt"></i>
-                                                 </span>
-                                                 </div>-->
                                                 <input type="text" class="form-control float-right" id="reservation">
                                             </div>
                                             <!-- /.input group -->
@@ -125,7 +120,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
+
                             <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
@@ -134,7 +129,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>El viaje incluye</label>
                                             <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí ..."></textarea>
+                                                      placeholder="Digitar aquí ..."></textarea>
                                         </div>
                                     </div>
 
@@ -143,7 +138,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>El viaje no incluye</label>
                                             <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí..."></textarea>
+                                                      placeholder="Digitar aquí..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -151,7 +146,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Requisitos de viaje</label>
                                             <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí ..."></textarea>
+                                                      placeholder="Digitar aquí ..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -159,16 +154,16 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Promociones especiales</label>
                                             <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí ..."></textarea>
+                                                      placeholder="Digitar aquí ..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Sitios turisticos</label>
                                             <select class="select2 select2-hidden-accessible form-control float-righ"
-                                                multiple="" data-placeholder="Selececcione los sitios turisticos"
-                                                style="width: 100%;" data-select2-id="7" tabindex="-1"
-                                                aria-hidden="true">
+                                                    multiple="" data-placeholder="Selececcione los sitios turisticos"
+                                                    style="width: 100%;" data-select2-id="7" tabindex="-1"
+                                                    aria-hidden="true">
                                                 <option data-select2-id="46">SAN JOSÉ (Costa Rica)</option>
                                                 <option data-select2-id="47">CARTAGO (Costa Rica)</option>
                                                 <option data-select2-id="48">PARQUE LA SABANA (Costa Rica)</option>
@@ -185,9 +180,9 @@ include_once '../../config/parametros.php';
                                             <label>Hoteles</label>
                                             <div class="select2-blue">
                                                 <select class="select2 select2-hidden-accessible" multiple=""
-                                                    data-placeholder="Seleccione los hoteles"
-                                                    data-dropdown-css-class="select2-blue" style="width: 100%;"
-                                                    data-select2-id="15" tabindex="-1" aria-hidden="true">
+                                                        data-placeholder="Seleccione los hoteles"
+                                                        data-dropdown-css-class="select2-blue" style="width: 100%;"
+                                                        data-select2-id="15" tabindex="-1" aria-hidden="true">
                                                     <option data-select2-id="146">Hoteles(Costa Rica)</option>
                                                     <option data-select2-id="147">Hilton (Costa Rica)</option>
                                                     <option data-select2-id="148">Real Roma (Costa Rica)</option>
@@ -199,176 +194,198 @@ include_once '../../config/parametros.php';
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                    <label>Seleccione foto</label>
+                                        <label>Seleccione foto</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="files" name="foto" >
                                             <label class="custom-file-label" for="files"></label>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                    <output id="list"></output>
+                                        <output id="list"></output>
                                     </div>
+
+                                </div>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                    <a class="btn btn-danger btn-sm"style="color: white" >Cancelar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- END timeline item -->
                     <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-comments bg-yellow"></i>
-                        <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                            <h3 class="timeline-header"><a href="#">Requisitos</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for=""></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-default btn-sm" >Cancelar</a>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- END timeline item -->
+            </div>
+        </div>
+    </section>
 
 
-                <!-- formulario mantenimiento -->
-                <!-- /.card-header -->
+    <!-- formulario mantenimiento -->
+    <!-- /.card-header -->
 
-                <!-- DataTables -->
-                <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-                </script>
-
-
-                <!--  necesario para que funcione el calendiario con limites-->
-                <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
-                <script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
-                <script src="<?= $base_url ?>plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-                <script src="<?= $base_url ?>plugins/daterangepicker/daterangepicker.js"></script>
-                <script src="<?= $base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
-                </script>
-                <script src="<?= $base_url ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-                <script src="<?= $base_url ?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js">
-                </script>
-                <script src="<?= $base_url ?>js/inicializador-calendario.js"></script>
+    <!-- DataTables -->
+    <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
+    </script>
+    <script
+        src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+    </script>
+    <script
+        src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
+    </script>
+    <script
+        src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
+    </script>
 
 
-                <!--  necesaio paa que sirva la foto con vista preevia-->
-                <script src="<?= $base_url ?>js/foto.js"></script>
+    <!--  necesario para que funcione el calendiario con limites-->
+    <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+    <script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
+    <script src="<?= $base_url ?>plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="<?= $base_url ?>plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?= $base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
+    </script>
+    <script src="<?= $base_url ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="<?= $base_url ?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js">
+    </script>
+    <script src="<?= $base_url ?>js/inicializador-calendario.js"></script>
 
-                <!--necesario para que funcione el selector multiple-->
-                <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
-                <script>
-                $(function() {
-                    //Initialize Select2 Elements
-                    $('.select2').select2()
+    <!--  necesaio paa que sirva la foto con vista preevia-->
+    <script src="<?= $base_url ?>js/foto.js"></script>
 
-                    //Initialize Select2 Elements
-                    $('.select2bs4').select2({
-                        theme: 'bootstrap4'
-                    })
+    <!--necesario para que funcione el selector multiple-->
+    <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
-                    //Datemask dd/mm/yyyy
-                    $('#datemask').inputmask('dd/mm/yyyy', {
-                        'placeholder': 'dd/mm/yyyy'
-                    })
-                    //Datemask2 mm/dd/yyyy
-                    $('#datemask2').inputmask('mm/dd/yyyy', {
-                        'placeholder': 'mm/dd/yyyy'
-                    })
-                    //Money Euro
-                    $('[data-mask]').inputmask()
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2();
 
-                    //Date range picker
-                    $('#reservationdate').datetimepicker({
-                        format: 'L'
-                    });
-                    //Date range picker
-                    $('#reservation').daterangepicker()
-                    //Date range picker with time picker
-                    $('#reservationtime').daterangepicker({
-                        timePicker: true,
-                        timePickerIncrement: 30,
-                        locale: {
-                            format: 'MM/DD/YYYY hh:mm A'
-                        }
-                    })
-                    //Date range as a button
-                    $('#daterange-btn').daterangepicker({
-                            ranges: {
-                                'Today': [moment(), moment()],
-                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
-                                    .subtract(1, 'month').endOf('month')
-                                ]
-                            },
-                            startDate: moment().subtract(29, 'days'),
-                            endDate: moment()
-                        },
-                        function(start, end) {
-                            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
-                                'MMMM D, YYYY'))
-                        }
-                    )
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
 
-                    //Timepicker
-                    $('#timepicker').datetimepicker({
-                        format: 'LT'
-                    })
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            });
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            });
+            //Money Euro
+            $('[data-mask]').inputmask();
 
-                    //Bootstrap Duallistbox
-                    $('.duallistbox').bootstrapDualListbox()
+            //Date range picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+            ////CONFIGURACION DEL CALENDARIO
+            $('#reservation').daterangepicker({
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    "separator": " - ",
+                    "applyLabel": "Aplicar",
+                    "cancelLabel": "Cancelar",
+                    "fromLabel": "De",
+                    "toLabel": "A",
+                    "customRangeLabel": "Custom",
+                    "daysOfWeek": [
+                        "Dom",
+                        "Lun",
+                        "Mar",
+                        "Mie",
+                        "Jue",
+                        "Vie",
+                        "Sab"
+                    ],
+                    "monthNames": [
+                        "Enero",
+                        "Febrero",
+                        "Marzo",
+                        "Abril",
+                        "Mayo",
+                        "Junio",
+                        "Julio",
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre",
+                        "Noviembre",
+                        "Diciembre"
+                    ],
+                    "firstDay": 0
+                }
+            });
 
-                    //Colorpicker
-                    $('.my-colorpicker1').colorpicker()
-                    //color picker with addon
-                    $('.my-colorpicker2').colorpicker()
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+            //Date range as a button
+            $('#daterange-btn').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
+                                .subtract(1, 'month').endOf('month')
+                    ]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                        'MMMM D, YYYY'));
+            }
+            );
 
-                    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-                        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-                    });
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            });
 
-                    $("input[data-bootstrap-switch]").each(function() {
-                        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-                    });
+            //Bootstrap Duallistbox
+            $('.duallistbox').bootstrapDualListbox();
 
-                })
-                </script>
+            //Colorpicker
+            $('.my-colorpicker1').colorpicker();
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker();
 
-                <script>
-                $(function() {
-                    $("#example1").DataTable({
-                        "responsive": true,
-                        "autoWidth": false,
-                    });
-                    $('#example2').DataTable({
-                        "paging": true,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": true,
-                        "info": true,
-                        "autoWidth": false,
-                        "responsive": true,
-                    });
-                });
-                </script>
+            $('.my-colorpicker2').on('colorpickerChange', function (event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            });
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            });
+
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true
+            });
+        });
+    </script>

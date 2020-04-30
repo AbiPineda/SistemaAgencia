@@ -96,7 +96,7 @@ include_once '../../config/parametros.php';
                                 <div class="card-body">
                                     <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                                         <div >
-                                            <button style="margin: 5px" type="submit" class="btn btn-default float-right">Cancelar</button>
+                                            <button style="margin: 5px" type="submit" class="btn btn-danger float-right">Cancelar</button>
                                             <button style="margin: 5px" type="submit" class="btn btn-info float-right">Guardar</button>
 
                                         </div>

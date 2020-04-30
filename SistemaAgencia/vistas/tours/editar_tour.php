@@ -207,7 +207,7 @@ $228.00 (TERCERA EDAD)
 
                                     <div style="text-align: right;width:2200px">
                                         <button style="margin: 5px" type="submit"
-                                                class="btn btn-default float-right">Cancelar</button>
+                                                class="btn btn-danger float-right">Cancelar</button>
                                         <button style="margin: 5px" type="submit"
                                                 class="btn btn-info float-right">Actualizar</button>
 

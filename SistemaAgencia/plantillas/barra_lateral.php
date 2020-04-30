@@ -129,13 +129,8 @@
                                 <p>Ver sitios</p>
                             </a>
                         </li>
-
-
-
                     </ul>
                 </li>
-
-
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-car"></i>
@@ -179,11 +174,8 @@
                                         <p>Mantenimientos Realizados</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
-
-
                     </ul>
                 </li>
                 <!--INCIA CARGO EXPRES MENU-->
@@ -203,7 +195,6 @@
                                 <p>Registro Encomienda</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/verEncomienda.php')"
                                 class="nav-link">
@@ -211,7 +202,6 @@
                                 <p>Modificación Encomienda</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php')"
                                 class="nav-link">
@@ -219,19 +209,14 @@
                                 <p>Calculo Encomienda</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Actualizacion de Envio</p>
                             </a>
-
                         </li>
-
                         <!--****para Registro de producto*****-->
-
-
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-file-alt"></i>
@@ -262,22 +247,16 @@
                                         <p>Reglas</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
                         <!--*******************-->
-
                     </ul>
-
                 </li>
-
                 <ul class="sub-menu children dropdown-menu">
                     <li><i class="fa fa-user"></i>
-
                     </li>
                 </ul>
                 <!--TERMINA CARGO EXPRES MENU-->
-
                 <!--INCIA ASESORIA MIGRATORIA MENU-->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -302,7 +281,6 @@
                                 <p>Llenado de Formulario</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/asesoriaMigra/registroPreguntas.php')"
                                 class="nav-link">
@@ -310,11 +288,9 @@
                                 <p>Registro de Preguntas</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                 <!--TERMINA ASESORIA MIGRATORIA MENU-->
-
                 <li class="nav-header">COTIZACIONES</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -363,26 +339,26 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                             <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/registro_contacto.php')"
+                            <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/registro_contacto.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Contactos</p>
-                              
+
                             </a>
-                           
+
                         </li>
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                             <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/ver_contactos.php')"
+                            <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/ver_contactos.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Contactos</p>
-                              
+
                             </a>
                         </li>
                     </ul>
-                 
+
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

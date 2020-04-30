@@ -137,7 +137,7 @@ include_once '../../config/parametros.php';
                         <i class="fas fa-users bg-purple"></i>
                         <div class="timeline-item">
                             
-                            <h3 class="timeline-header no-border"><a href="#">Datos del Proveedor</a></h3>
+                            <h3 class="timeline-header no-border"><a href="#">Datos de Contacto</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-3">
@@ -180,8 +180,8 @@ include_once '../../config/parametros.php';
 
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-default btn-sm" style="color: black">Cancelar</a>
+                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
                             </div>
                         </div>
