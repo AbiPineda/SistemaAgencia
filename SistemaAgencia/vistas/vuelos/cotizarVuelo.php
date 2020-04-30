@@ -41,7 +41,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-plane bg-blue"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                            
                             <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
 
                             <div class="timeline-body">
@@ -184,7 +184,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
+                           
                             <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
                             <div class="timeline-body">
                                 
@@ -305,7 +305,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
+                            
                             <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
@@ -317,7 +317,7 @@ include_once '../../config/parametros.php';
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
 

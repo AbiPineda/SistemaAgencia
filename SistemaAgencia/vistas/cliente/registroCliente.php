@@ -109,7 +109,7 @@ include_once '../../config/parametros.php';
                                 </div>
                             </div>
                             <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
                                 <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                             </div>
                         </div>
