@@ -310,7 +310,7 @@ include_once '../../config/parametros.php';
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-primary btn-sm" style="color: white"
+                                    <a class="btn btn-info btn-sm" style="color: white"
                                         onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerReporte.php')">Guardar</a>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>

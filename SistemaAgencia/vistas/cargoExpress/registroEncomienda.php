@@ -3,11 +3,11 @@ include_once '../../config/parametros.php';
 ?>
 <!-- DataTables -->
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -73,7 +73,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Dirección</label>
                                             <input type="text" class="form-control"
-                                                placeholder="Introduzca la dirección">
+                                                   placeholder="Introduzca la dirección">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -81,7 +81,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Destino Final</label>
                                             <input type="text" class="form-control"
-                                                placeholder="Introduzca el destino final">
+                                                   placeholder="Introduzca el destino final">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -193,43 +193,48 @@ include_once '../../config/parametros.php';
 
                 </div>
                 <!-- END timeline item -->
+            </div>
+        </div>
+    </section>
+</div>
 
 
-                <!-- formulario mantenimiento -->
-                <!-- /.card-header -->
 
-                <!-- DataTables -->
-                <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-                </script>
+<!-- formulario mantenimiento -->
+<!-- /.card-header -->
 
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-                </script>
+<!-- DataTables -->
+<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
+</script>
+<script
+    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+</script>
+<script
+    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
+</script>
+<script
+    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
+</script>
 
-                <script type="text/javascript"
-                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-                <script>
-                $(function() {
-                    $("#example1").DataTable({
-                        "responsive": true,
-                        "autoWidth": false,
-                    });
-                    $('#example2').DataTable({
-                        "paging": true,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": true,
-                        "info": true,
-                        "autoWidth": false,
-                        "responsive": true,
-                    });
-                });
-                </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>

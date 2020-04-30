@@ -8,30 +8,18 @@ include_once '../../config/parametros.php';
 <link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-
+<div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-5" id="titulo">
+                <div class="col-sm-6">
                     <h1>Calculo de Encomienda</h1>
                 </div>
-                <div class="col-sm-3" id="titulo">
-                    <div class="center">
-                        <div id="cargoExpres">
-                            <img src="vistas/cargoExpress/img/cargo.png" class="app-logo" alt="Logotipo"/> 
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Calcular la Encomienda</li>
+                        <li class="breadcrumb-item active">Calculo Encomienda</li>
                     </ol>
                 </div>
             </div>
@@ -39,21 +27,23 @@ include_once '../../config/parametros.php';
     </section>
 
     <!-- Main content -->
-    <section class="content" >
-        <div class="container-fluid ">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-6">
-                    <!-- general form elements -->
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Datos de la Encomienda</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="card-body">
-                                <!--Esta es una fila-->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="timeline">
+                    <!-- timeline time label -->
+                    <div class="time-label">
+                        <span class="bg-red">Información</span>
+                    </div>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-users bg-blue"></i>
+                        <div class="timeline-item">
+
+                            <h3 class="timeline-header"><a href="#">Datos de la Encomienda</a></h3>
+
+                            <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -66,6 +56,7 @@ include_once '../../config/parametros.php';
                                             </select> 
                                         </div>
                                     </div>
+
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="cars">Seleccione el Producto:</label>
@@ -76,167 +67,121 @@ include_once '../../config/parametros.php';
                                             </select> 
                                         </div>
                                     </div>
-
-
-                                </div>
-                                <!--****************FIN FILA*************-->
-
-                                <!--Esta es una fila-->
-                                <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Dirección</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca la dirección">
+                                            <input type="text" class="form-control"
+                                                   placeholder="Introduzca la dirección">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Destino Final</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca el destino final">
+                                            <input type="text" class="form-control"
+                                                   placeholder="Introduzca el destino final">
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <!--****************FIN FILA*************-->
-
-                                <!--Esta es una fila-->
-                                <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Costo</label>
                                             <input type="number" class="form-control" placeholder="Calculado...">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Cantidad</label>
                                             <input type="number" class="form-control" placeholder="Depende el producto">
                                         </div>
                                     </div>
-                                    
-                                     <div style="text-align: right;width:2200px">
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-success float-right">Agregar</button>
-
-                                    </div>
+                                  
                                 </div>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
 
+                                </div>
+                            </div>
 
-                                <!--****************FIN FILA*************-->
-
-
-
-
-
-
-
-
-                            </div><!-- /.card-body -->
-                        </form>
-                    </div> <!-- /.card-body -->
-
-                </div>
-                <!--****************fin de row*********************-->
-
-                <!-- left column -->
-                <div class="col-6">
-                    <!-- general form elements -->
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Producto Seleccionado</h3>
                         </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="card-body">
+                    </div>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+
+                            <h3 class="timeline-header no-border"><a href="#">Producto Seleccionado</a></h3>
+                            <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-sm-12">
+
                                         <table id="example2" class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr style="text-align: center;">
                                                     <th>Producto</th>
                                                     <th>Costo</th>
                                                     <th>Cantidad</th>
+                                                    <th>Sub Total</th>
                                                     <th>Acción</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr style="text-align: center;">
                                                     <td>Acetaminofén</td>
                                                     <td>$48.20</td>
                                                     <td>2 Lbs</td>
+                                                    <td>$96</td>
                                                     <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                       
-                                                    </div>
-                                                </td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-danger"><i
+                                                                    class="fas fa-trash-alt"></i></button>
+
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                                <tr>
+                                                <tr style="text-align: center;">
                                                     <td>Jeringas</td>
-                                                    <td>$35.89</td>
+                                                    <td>$35.89</td>                                                    
                                                     <td>15 Jerigas</td>
-                                                     <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                       
-                                                    </div>
-                                                </td>
+                                                    <td>$527.12</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-danger"><i
+                                                                    class="fas fa-trash-alt"></i></button>
+
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
 
-                                        </table> 
+                                        </table>
                                     </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        
-                                        <div style="text-align: right;width:475px;margin-top: 23px;"> 
-                                            <label> Total de Encomienda:  </label> <label> $84.09</label>
+
+                                    <div class="col-sm-12">
+                                        <div style="text-align: right;width:475px;margin-top: 27px;">
+                                            <label> Total de Encomienda: </label> <label> $84.09</label>
                                         </div>
-                                        
-                                        
                                     </div>
+
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        
-                                         <div style="text-align: right;width:207px;margin-top:-31px;">
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-default float-right">Cancelar
-                                        </button>
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-warning float-right">Imprimir
-                                        </button>
-
-                                    </div>
-
-                                    </div>
-                                </div>
-                            </div><!-- /.card-body -->
-                        </form>
-                    </div> <!-- /.card-body -->
+                            </div>
+                            <div class="timeline-footer" style="text-align: right;">
+                                <a class="btn btn-secondary btn-sm" style="color: white">Imprimir</a>
+                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
 
                 </div>
-                <!--****************fin de row*********************-->
+                <!-- END timeline item -->
             </div>
-            <!--/.col (right) -->
         </div>
-        <!-- /.row -->
     </section>
-
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
 </div>
 
 <!-- /.content-wrapper -->
