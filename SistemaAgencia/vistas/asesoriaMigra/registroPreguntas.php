@@ -24,11 +24,22 @@ include_once '../../config/parametros.php';
                 
                 $("#input_cerrada").prop("disabled", true);
                 $("#combo_cerrada").prop("disabled", true);
+                 $("#input_rama").prop("disabled", true);
             }
             
             if ($(this).val() === "cerrada") {
                 $("#input_cerrada").prop("disabled", false);
                 $("#combo_cerrada").prop("disabled", false);
+                
+                $("#input_abierta").prop("disabled", true);
+                $("#combo_abierta").prop("disabled", true);
+                 $("#input_rama").prop("disabled", true);
+            }
+            
+              if ($(this).val() === "rama") {
+                    $("#input_rama").prop("disabled", false);
+                $("#input_cerrada").prop("disabled", true);
+                $("#combo_cerrada").prop("disabled", true);
                 
                 $("#input_abierta").prop("disabled", true);
                 $("#combo_abierta").prop("disabled", true);
@@ -82,8 +93,10 @@ include_once '../../config/parametros.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione tipo de Pregunta</label>
                                                 <select name='id_pregunta' id='id_pregunta' class="form-control">
+                                                    <option value="">Seleccione</option>
                                                     <option value="abierta">Abiertas</option>
                                                     <option value="cerrada">Cerradas</option>
+                                                    <option value="rama">Rama</option>
                                                 </select>
 
                                                 <!--<input id="id_input" type="text" disabled>-->
@@ -132,7 +145,7 @@ include_once '../../config/parametros.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Digite la Pregunta</label>
-                                                <input id="input_abierta" type="text" disabled class="form-control">
+                                                <input id="input_abierta" placeholder="Digite la pregunta" type="text" disabled class="form-control">
                                             </div>
 
                                         </div>
@@ -141,7 +154,7 @@ include_once '../../config/parametros.php';
                                             <div class="form-group">
                                                 <label for="cars">Más de una Respuesta</label>
                                                 <select name='id_categoria' id='combo_abierta' data-placeholder="Seleccione" class="form-control" disabled>
-                                                    <option value="1">Opciones</option>
+                                                    <option value="1">Seleccione</option>
                                                     <option value="2">Si</option>
                                                     <option value="3">No</option>
 
@@ -177,7 +190,7 @@ include_once '../../config/parametros.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Digite la Pregunta</label>
-                                                <input id="input_cerrada" type="text" disabled class="form-control" style="width:100%;">
+                                                <input id="input_cerrada" placeholder="Digite la pregunta" type="text" disabled class="form-control" style="width:100%;">
                                             </div>
 
                                         </div>
@@ -198,6 +211,39 @@ include_once '../../config/parametros.php';
 
 
                                         <div class="col-lg-1"></div>
+                                        
+
+                                    </div>
+                                     
+                                    <!--fin de Una fila para jugar-->
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <!-- END timeline item -->
+                        
+                         <!-- timeline item -->
+                        <div>
+                            <i class="fas fa-address-card bg-gradient-info"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-address-card"></i>Selección</span>
+                                <h3 class="timeline-header"><a href="#">Registro de una nueva rama</a></h3>
+                                <div class="timeline-body" style="margin-top: -9px;">
+                                    <!--Una fila para jugar-->
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+
+                                        <div class="col-lg-6">
+
+                                            <div class="form-group">
+                                                <label for="cars">Digite la rama</label>
+                                                <input id="input_rama" type="text" placeholder="Digite la rama" disabled class="form-control" style="width:100%;">
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-lg-2"></div>
                                         
 
                                     </div>
