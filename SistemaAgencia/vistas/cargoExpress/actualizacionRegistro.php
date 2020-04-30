@@ -13,7 +13,7 @@ include_once '../../config/parametros.php';
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header" style="margin-top: -12px;">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -30,7 +30,7 @@ include_once '../../config/parametros.php';
     </section>
 
     <!-- Main content -->
-    <section class="content" style="margin-top: 7px;">
+    <section class="content">
         <div class="container-fluid">
 
             <!-- Timelime example  -->
@@ -42,46 +42,43 @@ include_once '../../config/parametros.php';
 
                         <!-- timeline item -->
                         <div>
-                            <i class="fas fa-comments bg-gradient-blue"></i>
+                            <i class="fas fa-save bg-gradient-blue"></i>
                             <div class="timeline-item">
-                                <span class="time"><i class="fas fa-address-book"></i>Encomiemda a Buscar</span>
-                                <h3 class="timeline-header"><a href="#">Encomienda a Buscar</a></h3>
-                                <div class="timeline-body" style="margin-top: -9px;">
+                                <span class="time"><i class="fas fa-address-book"></i>Registro</span>
+                                <h3 class="timeline-header"><a href="#">Registro de actualización</a></h3>
+                                <div class="timeline-body" style="margin-top: 7px;">
                                      <div class="row">
-                                        <div class="col-lg-2"></div>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-6">
                                      <div class="form-group">
-                                      <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Encomienda</th>
-                                                <td>Cliente</td>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Lugar</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Pastillas</td>
-                                                <td>Juan Alfaro</td>
-                                                <td>24/03/2020</td>
-                                                <td>8:00pm</td>
-                                                <td>San Vicente</td>
-                                                <td><div class="btn-group">
-                                                                
-                                                        <a type="button" class="btn btn-success" 
-                                                           onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/actualizacionRegistro.php')"   >
-                                                            <i class="fas fa-car" style="color: white"></i>
-                                                        </a>
-                                                       
-                                                    </div></td>
+                                       <form id="task-form">
+                                        <div class="form-group">
+                                            <label>Encomienda</label>
+                                            <input type="text" id="name" placeholder="Encomienda" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <input type="date" id="name" placeholder="Encomienda" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lugar</label>
+                                            <input type="date" id="name" placeholder="Lugar" class="form-control">
+                                        </div>
 
-                                            </tr>
-                                        </tbody>
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
+                                        </div>
 
-                                    </table>    
+                                        <input type="hidden" id="taskId">
+                                        <div >
+                                            <button style="margin: 5px" type="submit"
+                                                    class="btn btn-default float-right">Cancelar</button>
+                                            <button style="margin: 5px" type="submit"
+                                                    class="btn btn-info float-right">Guardar</button>
+
+                                        </div>
+                                    </form>
                                      </div>
                                     </div>
                                         <div class="col-lg-2"></div>
@@ -91,6 +88,9 @@ include_once '../../config/parametros.php';
                         </div>
                         <!-- END timeline item -->
                         
+
+                        
+
                         
                         <!-- timeline time label -->
                         <div class="time-label">
@@ -106,6 +106,10 @@ include_once '../../config/parametros.php';
 
     </section>
     <!-- /.content -->
+</div>
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 </div>
 <script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -160,3 +164,4 @@ include_once '../../config/parametros.php';
 
 
 <!--fin de la paginacion de las tablas-->
+
