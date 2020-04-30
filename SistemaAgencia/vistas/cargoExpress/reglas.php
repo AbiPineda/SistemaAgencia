@@ -1,24 +1,26 @@
 <?php
-//include_once '../plantillas/cabecera.php';
-//include_once '../plantillas/navbar.php';
-//include_once '../plantillas/barra_lateral.php';
+include_once '../../config/parametros.php';
 ?>
+<!-- DataTables -->
+<link rel="stylesheet"
+    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet"
+    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="<?=$base_url?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-
+<div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6" id="titulo">
+                <div class="col-sm-6">
                     <h1>Registro de Reglas</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Reglas de los Productos</li>
+                        <li class="breadcrumb-item active">Registro de Reglas</li>
                     </ol>
                 </div>
             </div>
@@ -26,26 +28,26 @@
     </section>
 
     <!-- Main content -->
-    <section class="content" >
-        <div class="container-fluid ">
-            <div class="row">
-                <div class="offset-1"></div>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="timeline">
+                    <!-- timeline time label -->
+                    <div class="time-label">
+                        <span class="bg-red">Información</span>
+                    </div>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-box-open bg-blue"></i>
+                        <div class="timeline-item">
 
-                <!-- left column -->
-                <div class="col-10">
-                    <!-- general form elements -->
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Reglas de los Productos </h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="card-body">
-                                <!--Esta es una fila-->
+                            <h3 class="timeline-header"><a href="#">Reglas de los Productos</a></h3>
+
+                            <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
+                                    <div class="col-sm-6">
+                                    <div class="form-group">
                                             <label for="cars">Seleccione el Producto:</label>
 
                                             <select id="categoria" class="form-control">
@@ -55,70 +57,81 @@
                                             </select> 
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
+
+                                    <div class="col-sm-6">
+                                         <!-- text input -->
+                                         <div class="form-group">
                                             <label>Unidades de medidad</label>
                                             <input type="text" class="form-control" placeholder="Introduzca la unidad de medida">
                                         </div>
                                     </div>
-                                </div>
-                                <!--****************FIN FILA*************-->
-                                
-                                 <!--Esta es una fila-->
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
+                                    <div class="col-sm-6">
+                                         <!-- text input -->
+                                         <div class="form-group">
                                             <label>Tarifa</label>
                                             <input type="text" class="form-control" placeholder="Introduzca la tarifa">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
+                                    <div class="col-sm-6">
+                                         <!-- text input -->
+                                         <div class="form-group">
                                             <label>Comisión</label>
                                             <input type="text" class="form-control" placeholder="Introduzca la comisión">
                                         </div>
                                     </div>
-                                    
-                                     <div style="text-align: right;width:2200px">
-                                        <button style="margin: 5px" type="submit"
-                                            class="btn btn-default float-right">Cancelar</button>
-                                        <button style="margin: 5px" type="submit"
-                                            class="btn btn-info float-right">Guardar</button>
-
-                                    </div>
+                                   
                                 </div>
-                                 
-                                 
-                                <!--****************FIN FILA*************-->
-                               
-                                
-                               
-                                
-                                
-                            </div><!-- /.card-body -->
-                        </form>
-                    </div> <!-- /.card-body -->
+                                <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                    </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END timeline item -->
+                   
 
                 </div>
-            </div>
-            <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-    </section>
-        
-            <div class="center">
-                <div id="cargoExpresRe">
-                    <img src="vistas/cargoExpress/img/cargo.png" class="app-logo" alt="Logotipo"/> 
-                </div>
-                
-            </div>
-       
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
+                <!-- END timeline item -->
 
-<!-- /.content-wrapper -->
+
+                <!-- formulario mantenimiento -->
+                <!-- /.card-header -->
+
+                <!-- DataTables -->
+                <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
+                </script>
+                <script
+                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+                </script>
+                <script
+                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
+                </script>
+                <script
+                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
+                </script>
+
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+                </script>
+
+                <script type="text/javascript"
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+                <script>
+                $(function() {
+                    $("#example1").DataTable({
+                        "responsive": true,
+                        "autoWidth": false,
+                    });
+                    $('#example2').DataTable({
+                        "paging": true,
+                        "lengthChange": false,
+                        "searching": false,
+                        "ordering": true,
+                        "info": true,
+                        "autoWidth": false,
+                        "responsive": true,
+                    });
+                });
+                </script>
