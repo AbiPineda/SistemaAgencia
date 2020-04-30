@@ -29,6 +29,24 @@ include_once '../../config/parametros.php';
 <!-- AdminLTE css -->
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
 <!--**************************************************************-->
+<script>
+    $(function () {
+        $("#casado").change(function () {
+          // alert($(this).val());
+            if ($(this).val() === "si") {
+                $("#input_nombre_conyuge").prop("disabled", false);
+                $("#input_fecha_conyuge").prop("disabled", false);
+                $("#nacionalidad_conyuge").prop("disabled", false);
+            }
+            
+            if ($(this).val() === "no") {
+                $("#input_nombre_conyuge").prop("disabled", true);
+                $("#input_fecha_conyuge").prop("disabled", true);
+                $("#nacionalidad_conyuge").prop("disabled", true);
+            }
+        });
+    });
+</script>
 
 <div class="wrapper">
 
@@ -675,9 +693,9 @@ include_once '../../config/parametros.php';
                                              <div class="col-lg-4">
                                                  <div class="form-group">
                                                     <label>¿Es casado/a?  </label>
-                                                <select id="categoria" class="form-control">
+                                                <select id="casado" class="form-control">
                                                        <option value="" selected>Seleccione</option>
-                                                        <option value="permitido">Si</option>
+                                                        <option value="si">Si</option>
                                                         <option value="no">No</option>
 
                                                     </select>    
@@ -696,7 +714,7 @@ include_once '../../config/parametros.php';
                                                     <label>¿Nombre de su cónyuge?</label>
                                                     <br>
                                                     <br>
-                                                    <input type="text" placeholder="Digite el nombre" class="form-control">
+                                                    <input type="text" id="input_nombre_conyuge" disabled placeholder="Digite el nombre" class="form-control">
                                                 
                                                 </div>
 
@@ -704,7 +722,7 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-3">
                                                 <div class="form-group">
                                                     <label>¿Fecha de nacimiento de su cónyuge?</label>
-                                                    <input type="date" placeholder="Digite el nombre" class="form-control">
+                                                    <input type="date" id="input_fecha_conyuge" disabled placeholder="Digite el nombre" class="form-control">
                                                 
                                                 </div>
 
@@ -713,7 +731,7 @@ include_once '../../config/parametros.php';
                                              <div class="col-lg-3">
                                                  <div class="form-group">
                                                     <label>¿Nacionalidad de su cónyuge?</label>
-                                               <select id="categoria" class="form-control">
+                                                    <select id="nacionalidad_conyuge" disabled class="form-control">
                                                        <option value="" selected>Seleccione</option>
                                                         <option value="permitido">Salvadoreña</option>
                                                         <option value="no">Otra</option>
