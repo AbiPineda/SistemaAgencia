@@ -41,7 +41,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-users bg-blue"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                           
                             <h3 class="timeline-header"><a href="#">Datos Personales</a></h3>
 
                             <div class="timeline-body">
@@ -87,7 +87,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
+                            
                             <h3 class="timeline-header no-border"><a href="#">Información para Inicio de Sesión</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
