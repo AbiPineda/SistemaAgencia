@@ -148,6 +148,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php')"
+                                class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Mostrar Registros</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/disponibilidad.php')"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
