@@ -799,11 +799,8 @@ include_once '../../config/parametros.php';
                                         </div> 
                                         <!--**************una pregunta*********--> 
                                              <div style="text-align: right;width:577px;margin-top:-8px;">
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-default float-right">Cancelar
-                                        </button>
-                                        <button style="margin: 5px" type="submit"
-                                                class="btn btn-info float-right">Guardar</button>
+                                      <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
 
                                     </div>
                                     </div>
