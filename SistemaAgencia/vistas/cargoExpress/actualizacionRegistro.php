@@ -72,10 +72,10 @@ include_once '../../config/parametros.php';
 
                                         <input type="hidden" id="taskId">
                                         <div >
-                                            <button style="margin: 5px" type="submit"
-                                                    class="btn btn-default float-right">Cancelar</button>
-                                            <button style="margin: 5px" type="submit"
-                                                    class="btn btn-info float-right">Guardar</button>
+                                             <div class="timeline-footer" style="text-align: right;">
+                                <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                            </div>
 
                                         </div>
                                     </form>

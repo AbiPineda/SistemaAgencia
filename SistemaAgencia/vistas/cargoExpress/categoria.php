@@ -46,13 +46,16 @@ include_once '../../config/parametros.php';
 
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Nombre</label>
                                             <input type="text" class="form-control"
                                                 placeholder="Introduzca de la Categoría">
                                         </div>
                                     </div>
+                                    
+                                     <div class="col-sm-3"></div>
 
 
                                 </div>

@@ -46,7 +46,7 @@ include_once '../../config/parametros.php';
                             <div class="timeline-item">
                                 <span class="time"><i class="fas fa-address-book"></i>Encomiemda a Buscar</span>
                                 <h3 class="timeline-header"><a href="#">Encomienda a Buscar</a></h3>
-                                <div class="timeline-body" style="margin-top: -9px;">
+                                <div class="timeline-body" style="margin-top: 15px;">
                                      <div class="row">
                                         <div class="col-lg-2"></div>
                                         <div class="col-lg-8">
