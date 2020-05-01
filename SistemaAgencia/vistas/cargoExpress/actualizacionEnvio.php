@@ -54,8 +54,8 @@ include_once '../../config/parametros.php';
                                       <table id="example2" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
+                                                 <th>Cliente</th>
                                                 <th>Encomienda</th>
-                                                <td>Cliente</td>
                                                 <th>Fecha</th>
                                                 <th>Hora</th>
                                                 <th>Lugar</th>
@@ -64,8 +64,8 @@ include_once '../../config/parametros.php';
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Pastillas</td>
                                                 <td>Juan Alfaro</td>
+                                                <td>Pastillas</td>
                                                 <td>24/03/2020</td>
                                                 <td>8:00pm</td>
                                                 <td>San Vicente</td>
