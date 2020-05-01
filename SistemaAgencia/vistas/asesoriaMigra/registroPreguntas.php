@@ -25,6 +25,7 @@ include_once '../../config/parametros.php';
                 $("#input_cerrada").prop("disabled", true);
                 $("#combo_cerrada").prop("disabled", true);
                  $("#input_rama").prop("disabled", true);
+                  $("#combo_rama").prop("disabled", false);
             }
             
             if ($(this).val() === "cerrada") {
@@ -34,12 +35,14 @@ include_once '../../config/parametros.php';
                 $("#input_abierta").prop("disabled", true);
                 $("#combo_abierta").prop("disabled", true);
                  $("#input_rama").prop("disabled", true);
+                 $("#combo_rama").prop("disabled", false);
             }
             
               if ($(this).val() === "rama") {
-                    $("#input_rama").prop("disabled", false);
+                $("#input_rama").prop("disabled", false);
                 $("#input_cerrada").prop("disabled", true);
                 $("#combo_cerrada").prop("disabled", true);
+                $("#combo_rama").prop("disabled", true);
                 
                 $("#input_abierta").prop("disabled", true);
                 $("#combo_abierta").prop("disabled", true);
@@ -107,7 +110,7 @@ include_once '../../config/parametros.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Seleccione rama de la Pregunta</label>
-                                                <select name='id_categoria' id='id_categoria' class="form-control">
+                                                <select name='combo_rama' id='combo_rama' class="form-control">
                                                     <option value="1" selected>Rama</option>
                                                     <option value="2">Información Personal</option>
                                                     <option value="3">Información de Viaje</option>
