@@ -80,7 +80,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Lugar de Recogida</label>
                                             <select class="form-control">
-                                                <option>Servicio Adomicilio</option>
+                                                <option>servicio a domicilio</option>
                                                 <option>Aeropuerto</option>
                                                 <option>Ciudad</option>
                                             </select>

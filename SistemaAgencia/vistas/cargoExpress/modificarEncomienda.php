@@ -3,9 +3,9 @@ include_once '../../config/parametros.php';
 ?>
 <!-- DataTables -->
 <link rel="stylesheet"
-      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      href=<?=$base_url?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet"
-      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+      href="<?=$base_url?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
@@ -204,16 +204,16 @@ include_once '../../config/parametros.php';
 <!-- /.card-header -->
 
 <!-- DataTables -->
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
+<script src="<?=$base_url?>plugins/datatables/jquery.dataTables.min.js">
 </script>
 <script
-    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+    src="<?=$base_url?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
 </script>
 <script
-    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
+    src="<?=$base_url?>plugins/datatables-responsive/js/dataTables.responsive.min.js">
 </script>
 <script
-    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
+    src="<?=$base_url?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
