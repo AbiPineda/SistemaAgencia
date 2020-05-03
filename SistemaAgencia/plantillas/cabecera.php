@@ -44,6 +44,8 @@
 <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
 <!-- Theme style -->
 
+<!--esta es para las galeria-->
+
 
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">

@@ -1,21 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-
-<!--necesario para que funcione el selector multiple-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
-
-<!--  necesario para que funcione el calendiario con limites-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-
-
-<!--  necesaio paa que sirva la foto con vista preevia-->
-<!--<link rel="stylesheet" href="<?= $base_url ?>css/foto.css">-->
-
-
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -192,29 +177,6 @@ include_once '../../config/parametros.php';
     </section>
 </div>
 
-
-<!-- formulario mantenimiento -->
-<!-- /.card-header -->
-
-
-<!--  necesario para que funcione el calendiario con limites-->
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
-<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
-<script src="<?= $base_url ?>plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<script src="<?= $base_url ?>plugins/daterangepicker/daterangepicker.js"></script>
-<script src="<?= $base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
-</script>
-<script src="<?= $base_url ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<script src="<?= $base_url ?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js">
-</script>
-
-
-
-<!--  necesaio paa que sirva la foto con vista preevia-->
-<script src="<?= $base_url ?>js/foto.js"></script>
-
-<!--necesario para que funcione el selector multiple-->
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
 <script>
     $(function () {
