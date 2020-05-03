@@ -1,19 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!--necesario para que funcione el selector multiple-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
-
-<!--  necesario para que funcione el calendiario con limites-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-
-
-<!--  necesaio paa que sirva la foto con vista preevia-->
-<link rel="stylesheet" href="<?= $base_url ?>css/foto.css">  
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -74,7 +61,9 @@ include_once '../../config/parametros.php';
                                                                                                         <i class="far fa-calendar-alt"></i>
                                                                                                     </span>
                                                                                                 </div>-->
-                                                <input type="text" class="form-control float-right"  >
+                                               
+                                                <input type="text" class="form-control float-right" id="reservation">
+                                          
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -233,118 +222,114 @@ $228.00 (TERCERA EDAD)
 
 <!-- /.content -->
 
-<!--  necesario para que funcione el calendiario con limites-->
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
-<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
-<script src="<?= $base_url ?>plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<script src="<?= $base_url ?>plugins/daterangepicker/daterangepicker.js"></script>
-<script src="<?= $base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+ <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2();
 
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
 
-<!--  necesaio paa que sirva la foto con vista preevia-->
-<script src="<?= $base_url ?>js/foto.js"></script> 
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            });
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            });
+            //Money Euro
+            $('[data-mask]').inputmask();
 
-<!--necesario para que funcione el selector multiple-->
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+            //Date range picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+            ////CONFIGURACION DEL CALENDARIO
+            $('#reservation').daterangepicker({
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    "separator": " - ",
+                    "applyLabel": "Aplicar",
+                    "cancelLabel": "Cancelar",
+                    "fromLabel": "De",
+                    "toLabel": "A",
+                    "customRangeLabel": "Custom",
+                    "daysOfWeek": [
+                        "Dom",
+                        "Lun",
+                        "Mar",
+                        "Mie",
+                        "Jue",
+                        "Vie",
+                        "Sab"
+                    ],
+                    "monthNames": [
+                        "Enero",
+                        "Febrero",
+                        "Marzo",
+                        "Abril",
+                        "Mayo",
+                        "Junio",
+                        "Julio",
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre",
+                        "Noviembre",
+                        "Diciembre"
+                    ],
+                    "firstDay": 0
+                }
+            });
 
-<script>
-    $(function () {
-        //Initialize Select2 Elements
-        $('.select2').select2();
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-        });
-
-        //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('dd/mm/yyyy', {
-            'placeholder': 'dd/mm/yyyy'
-        });
-        //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', {
-            'placeholder': 'mm/dd/yyyy'
-        });
-        //Money Euro
-        $('[data-mask]').inputmask();
-
-        //Date range picker
-        $('#reservationdate').datetimepicker({
-            format: 'L'
-        });
-        ////CONFIGURACION DEL CALENDARIO
-        $('#reservation').daterangepicker({
-            locale: {
-                format: 'DD/MM/YYYY',
-                "separator": " - ",
-                "applyLabel": "Aplicar",
-                "cancelLabel": "Cancelar",
-                "fromLabel": "De",
-                "toLabel": "A",
-                "customRangeLabel": "Custom",
-                "daysOfWeek": [
-                    "Dom",
-                    "Lun",
-                    "Mar",
-                    "Mie",
-                    "Jue",
-                    "Vie",
-                    "Sab"
-                ],
-                "monthNames": [
-                    "Enero",
-                    "Febrero",
-                    "Marzo",
-                    "Abril",
-                    "Mayo",
-                    "Junio",
-                    "Julio",
-                    "Agosto",
-                    "Septiembre",
-                    "Octubre",
-                    "Noviembre",
-                    "Diciembre"
-                ],
-                "firstDay": 0
-            }
-        });
-
-        $('#reservationtime').daterangepicker({
-            timePicker: true,
-            timePickerIncrement: 30,
-            locale: {
-                format: 'DD/MM/YYYY'
-            }
-        });
-        //Date range as a button
-        $('#daterange-btn').daterangepicker({
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
-                            .subtract(1, 'month').endOf('month')
-                ]
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+            //Date range as a button
+            $('#daterange-btn').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
+                                .subtract(1, 'month').endOf('month')
+                    ]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
             },
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment()
-        },
-        function (start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
-                    'MMMM D, YYYY'));
-        }
-        );
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                        'MMMM D, YYYY'));
+            }
+            );
 
-        //Timepicker
-        $('#timepicker').datetimepicker({
-            format: 'LT'
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            });
+
+            //Bootstrap Duallistbox
+            $('.duallistbox').bootstrapDualListbox();
+
+            //Colorpicker
+          
+
+            $('.my-colorpicker2').on('colorpickerChange', function (event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            });
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            });
+
         });
-
-
-
-
-
-    });
-</script>
+    </script>

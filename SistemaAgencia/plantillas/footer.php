@@ -46,6 +46,7 @@
     <script src="<?= $base_url ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
     <script src="<?= $base_url ?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js">
     </script>
+
     
 
     <!--  necesaio paa que sirva la foto con vista preevia-->
