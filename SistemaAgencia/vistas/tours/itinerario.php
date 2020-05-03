@@ -2,15 +2,6 @@
 include_once '../../config/parametros.php';
 ?>
 
-<!-- fullCalendar -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-<!-- Google Font: Source Sans Pro -->
-
 
 <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
@@ -132,19 +123,7 @@ include_once '../../config/parametros.php';
 <!-- ./wrapper -->
 
 
-<!-- jQuery UI -->
-<script src="<?= $base_url ?>plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- AdminLTE App -->
 
-<!-- fullCalendar 2.2.5 -->
-<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
-<script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
-<!-- Page specific script -->
 <script>
     $(function () {
 

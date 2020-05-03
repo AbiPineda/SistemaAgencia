@@ -36,6 +36,13 @@
         <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
         <!-- iCheck for checkboxes and radio inputs -->
         <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        
+        <!-- fullCalendar -->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
+<!-- Theme style -->
 
 
     </head>

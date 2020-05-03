@@ -51,7 +51,19 @@
 
     <!--  necesaio paa que sirva la foto con vista preevia-->
     <script src="<?= $base_url ?>js/foto.js"></script>
+<!-- jQuery UI -->
+<script src="<?= $base_url ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- AdminLTE App -->
 
+<!-- fullCalendar 2.2.5 -->
+<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
+<script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
+<!-- Page specific script -->
 
 
 
