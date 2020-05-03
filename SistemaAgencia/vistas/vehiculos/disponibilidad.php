@@ -348,10 +348,9 @@ include_once '../../config/parametros.php';
                     </div>
                 </div>
                 </div>
-</div>              
-          
+            </div>
         </div>
-    </section>
+</div>
 
 
 
@@ -470,5 +469,3 @@ include_once '../../config/parametros.php';
     }())
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>

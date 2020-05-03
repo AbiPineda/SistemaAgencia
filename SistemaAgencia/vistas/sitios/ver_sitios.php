@@ -1,9 +1,11 @@
 <?php
 include_once '../../config/parametros.php';
+
 ?>
 
 
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/disponibilidad.css">
+
 <style>
     .container {
         width: 1170px;
@@ -506,5 +508,3 @@ include_once '../../config/parametros.php';
     }())
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>

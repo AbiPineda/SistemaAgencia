@@ -1,16 +1,13 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet"  href="<?=$base_url?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"   href="<?=$base_url?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-}
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+    }
 </style>
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -46,7 +43,7 @@ include_once '../../config/parametros.php';
                             <div class="row">
                                 <div class="col-sm-12">
                                     <table id="tabla_vehiculos1" class="table table-bordered table-striped dataTable dtr-inline"
-                                        role="grid" aria-describedby="tabla_vehiculos1_info">
+                                           role="grid" aria-describedby="tabla_vehiculos1_info">
                                         <thead>
                                             <tr role="row" style="text-align: center;">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="tabla_vehiculos1"
@@ -84,10 +81,10 @@ include_once '../../config/parametros.php';
                                                 <td>
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-toggle="modal" data-target="#modal-default1">
+                                                                data-toggle="modal" data-target="#modal-default1">
                                                             <i class="fas fa-car"></i>
                                                             <button type="button" class="btn btn-success"
-                                                                data-toggle="modal" data-target="#modal-default">
+                                                                    data-toggle="modal" data-target="#modal-default">
                                                                 <i class="fas fa-eye"></i>
                                                             </button>
                                                             <button type="button" class="btn btn-primary"><i
@@ -140,74 +137,74 @@ include_once '../../config/parametros.php';
                 </button>
             </div>
             <div class="modal-body">
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <tbody>
-                                <tr style="text-align: center;">
-                                    <th>Marca</th>
-                                    <td>Hyundai</td>
-                                </tr>
-                                <tr style="text-align: center;">
-                                    <th>Modelo</th>
-                                    <td>Elantra</td>
-                                </tr>
-                                <tr style="text-align: center;">
-                                    <th>Año</th>
-                                    <td>2014</td>
-                                </tr>
-                                <tr style="text-align: center;">
-                                    <th>Placa</th>
-                                    <td>AA12345</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr style="text-align: center;">
+                                <th>Marca</th>
+                                <td>Hyundai</td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <th>Modelo</th>
+                                <td>Elantra</td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <th>Año</th>
+                                <td>2014</td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <th>Placa</th>
+                                <td>AA12345</td>
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Combustible</th>
                                 <td>Gasolina</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Color</th>
                                 <td>Gris</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Kilometraje</th>
                                 <td>1500km</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Transmisión</th>
                                 <td>Automática</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Precio</th>
                                 <td><span class="badge bg-success">$28.50</span></td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Pasajeros</th>
                                 <td><span class="badge bg-warning">5</span></td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Puertas</th>
                                 <td><span class="badge bg-warning">4</span></td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Categoria</th>
                                 <td><span class="badge bg-info">Sedan</span></td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Aire Acondicionado</th>
                                 <td>Sí</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Audio</th>
                                 <td>Sí</td>
-                                </tr>
-                                <tr style="text-align: center;">
+                            </tr>
+                            <tr style="text-align: center;">
                                 <th>Silla para Bebé</th>
                                 <td>Sí</td>
-                                </tr>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
-                 
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
         </div>
@@ -227,9 +224,9 @@ include_once '../../config/parametros.php';
             <div class="modal-body">
                 <p>
                     <img class="center"
-                        src="https://ik.imagekit.io/udcdt0pvr/wp-content/uploads/2019/08/hyundai-elantra-njautoimport-carro-8-300x225.jpeg?wave"
-                        alt="" />
-                    <p>
+                         src="https://ik.imagekit.io/udcdt0pvr/wp-content/uploads/2019/08/hyundai-elantra-njautoimport-carro-8-300x225.jpeg?wave"
+                         alt="" />
+                <p>
             </div>
 
         </div>
@@ -239,21 +236,14 @@ include_once '../../config/parametros.php';
 </div>
 <!-- /.modal -->
 
-<!-- DataTables -->
-<script src="<?=$base_url?>plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?=$base_url?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-</script>
-<script src="<?=$base_url?>plugins/datatables-responsive/js/dataTables.responsive.min.js">
-</script>
-<script src="<?=$base_url?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-</script>
+
 
 <script>
-$(function() {
-    $("#tabla_vehiculos1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
+    $(function () {
+        $("#tabla_vehiculos1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+
     });
-   
-});
 </script>

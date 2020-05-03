@@ -1,14 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet"
-      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"
-      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
