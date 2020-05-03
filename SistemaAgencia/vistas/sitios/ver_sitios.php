@@ -463,7 +463,7 @@ include_once '../../config/parametros.php';
                         tagged[tagName] = [];
                     }
                     tagged[tagName].push(img);
-                    console.log('este es el tagName: ' + [tagName]);
+                  //  console.log('este es el tagName: ' + [tagName]);
                 });
             }
         });

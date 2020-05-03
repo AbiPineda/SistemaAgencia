@@ -3,11 +3,11 @@ include_once '../../config/parametros.php';
 ?>
 <!-- DataTables -->
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+      href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -41,7 +41,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
-                           
+
                             <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
 
                             <div class="timeline-body">
@@ -133,7 +133,7 @@ include_once '../../config/parametros.php';
                                             <input type="number" class="form-control" min=1 max=5>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-sm-4">
                                         <!-- select -->
                                         <div class="form-group">
@@ -166,7 +166,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                           
+
                             <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
@@ -206,15 +206,15 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
-                            
+
                             <h3 class="timeline-header"><a href="#"> Información Adicional</a>
-                                </h3>
+                            </h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>
-                                               
+
                                             </label>
                                         </div>
                                     </div>
@@ -228,39 +228,12 @@ include_once '../../config/parametros.php';
                         </div>
                     </div>
                 </div>
-                <!-- END timeline item -->
+            </div>
+        </div>
+    </section>
+</div>
+<!-- END timeline item -->
 
 
-                <!-- formulario mantenimiento -->
-                <!-- /.card-header -->
-
-                <!-- DataTables -->
-                <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-                </script>
-
-                <script>
-                $(function() {
-                    $("#example1").DataTable({
-                        "responsive": true,
-                        "autoWidth": false,
-                    });
-                    $('#example2').DataTable({
-                        "paging": true,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": true,
-                        "info": true,
-                        "autoWidth": false,
-                        "responsive": true,
-                    });
-                });
-                </script>
+<!-- formulario mantenimiento -->
+<!-- /.card-header -->

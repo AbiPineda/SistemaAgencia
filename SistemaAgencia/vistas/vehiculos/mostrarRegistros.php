@@ -2,10 +2,8 @@
 include_once '../../config/parametros.php';
 ?>
 <!-- DataTables -->
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet"  href="<?=$base_url?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet"   href="<?=$base_url?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <style>
 .center {
     display: block;
@@ -44,33 +42,33 @@ include_once '../../config/parametros.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div id="tabla_vehiculos1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
-                                        role="grid" aria-describedby="example1_info">
+                                    <table id="tabla_vehiculos1" class="table table-bordered table-striped dataTable dtr-inline"
+                                        role="grid" aria-describedby="tabla_vehiculos1_info">
                                         <thead>
                                             <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1"
+                                                <th class="sorting_asc" tabindex="0" aria-controls="tabla_vehiculos1"
                                                     rowspan="1" colspan="1" aria-sort="ascending"
                                                     aria-label="Rendering engine: activate to sort column descending">
                                                     Marca</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1" rowspan="1"
                                                     colspan="1" aria-label="Browser: activate to sort column ascending">
                                                     Modelo</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1" rowspan="1"
                                                     colspan="1"
                                                     aria-label="Platform(s): activate to sort column ascending">
                                                     Año</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1" rowspan="1"
                                                     colspan="1"
                                                     aria-label="Engine version: activate to sort column ascending">
                                                     Combustible</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1" rowspan="1"
                                                     colspan="1"
                                                     aria-label="Engine version: activate to sort column ascending">
                                                     Trasmisión</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1" rowspan="1"
                                                     colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Acciones
                                                 </th>
@@ -242,28 +240,20 @@ include_once '../../config/parametros.php';
 <!-- /.modal -->
 
 <!-- DataTables -->
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+<script src="<?=$base_url?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=$base_url?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
 </script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
+<script src="<?=$base_url?>plugins/datatables-responsive/js/dataTables.responsive.min.js">
 </script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
+<script src="<?=$base_url?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
 </script>
 
 <script>
 $(function() {
-    $("#example1").DataTable({
+    $("#tabla_vehiculos1").DataTable({
         "responsive": true,
         "autoWidth": false,
     });
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-    });
+   
 });
 </script>

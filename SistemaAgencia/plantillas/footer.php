@@ -25,6 +25,37 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?=$base_url?>dist/js/demo.js"></script>
 
+
+<!-- DataTables -->
+<script src="<?= $base_url ?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= $base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= $base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= $base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>  
+
+
+
+
+
+    <!--  necesario para que funcione el calendiario con limites-->
+    <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+    <script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
+    <script src="<?= $base_url ?>plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="<?= $base_url ?>plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?= $base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
+    </script>
+    <script src="<?= $base_url ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="<?= $base_url ?>plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js">
+    </script>
+    
+
+    <!--  necesaio paa que sirva la foto con vista preevia-->
+    <script src="<?= $base_url ?>js/foto.js"></script>
+
+
+
+
+
+
 <script type="text/javascript">
      window.addEventListener('load', ()=>{
          if( localStorage.getItem('contenido') != null){

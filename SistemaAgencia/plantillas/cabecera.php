@@ -20,6 +20,23 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <link rel="stylesheet" href="<?=$base_url?>css/style.css">
    <link rel="stylesheet" href="<?=$base_url?>css/foto.css">
+   
+<!-- DataTables -->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+<!--necesario para que funcione el selector multiple-->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+
+<!--  necesario para que funcione el calendiario con limites-->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

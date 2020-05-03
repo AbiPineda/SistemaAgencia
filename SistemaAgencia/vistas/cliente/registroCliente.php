@@ -1,13 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?=$base_url?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -41,7 +35,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-users bg-blue"></i>
                         <div class="timeline-item">
-                           
+
                             <h3 class="timeline-header"><a href="#">Datos Personales</a></h3>
 
                             <div class="timeline-body">
@@ -57,7 +51,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Apellidos</label>
                                             <input type="text" class="form-control"
-                                                placeholder="Introduzca sus apellidos">
+                                                   placeholder="Introduzca sus apellidos">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -65,7 +59,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Documento Unico de Identidad</label>
                                             <input type="text" class="form-control" data-mask='00000000-0'
-                                                placeholder="Introduzca su numero de DUI">
+                                                   placeholder="Introduzca su numero de DUI">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
@@ -73,7 +67,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Telefono</label>
                                             <input type="text" class="form-control " name="tel" data-mask='0000-0000'
-                                                placeholder="Introduzca numero de telefono">
+                                                   placeholder="Introduzca numero de telefono">
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +81,7 @@ include_once '../../config/parametros.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                            
+
                             <h3 class="timeline-header no-border"><a href="#">Información para Inicio de Sesión</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
@@ -95,14 +89,14 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Correo Electronico</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Introduzca su Correo Electronico">
+                                                   placeholder="Introduzca su Correo Electronico">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Contraseña</label>
                                             <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Introduzca su Contraseña">
+                                                   placeholder="Introduzca su Contraseña">
                                         </div>
                                     </div>
 
@@ -119,43 +113,11 @@ include_once '../../config/parametros.php';
 
                 </div>
                 <!-- END timeline item -->
+            </div>
+        </div>
+    </section>
+</div>
 
+<!-- formulario mantenimiento -->
+<!-- /.card-header -->
 
-                <!-- formulario mantenimiento -->
-                <!-- /.card-header -->
-
-                <!-- DataTables -->
-                <script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-                </script>
-                <script
-                    src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-                </script>
-
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-                </script>
-                
-                <script type="text/javascript"
-                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-                <script>
-                $(function() {
-                    $("#example1").DataTable({
-                        "responsive": true,
-                        "autoWidth": false,
-                    });
-                    $('#example2').DataTable({
-                        "paging": true,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": true,
-                        "info": true,
-                        "autoWidth": false,
-                        "responsive": true,
-                    });
-                });
-                </script>

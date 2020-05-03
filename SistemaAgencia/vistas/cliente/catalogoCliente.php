@@ -1,11 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet"
-    href="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -37,29 +33,29 @@ include_once '../../config/parametros.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div id="catalogo_cliente_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
-                                        role="grid" aria-describedby="example1_info">
+                                    <table id="catalogo_cliente" class="table table-bordered table-striped dataTable dtr-inline"
+                                        role="grid" aria-describedby="catalogo_cliente_info">
                                         <thead>
                                             <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1"
+                                                <th class="sorting_asc" tabindex="0" aria-controls="catalogo_cliente"
                                                     rowspan="1" colspan="1" aria-sort="ascending"
                                                     aria-label="Rendering engine: activate to sort column descending">
                                                     Nombre</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="catalogo_cliente" rowspan="1"
                                                     colspan="1" aria-label="Browser: activate to sort column ascending">
                                                     Apellidos</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="catalogo_cliente" rowspan="1"
                                                     colspan="1"
                                                     aria-label="Platform(s): activate to sort column ascending">
                                                     Documento de Identidad</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="catalogo_cliente" rowspan="1"
                                                     colspan="1"
                                                     aria-label="Engine version: activate to sort column ascending">
                                                     Correo Electronico</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                <th class="sorting" tabindex="0" aria-controls="catalogo_cliente" rowspan="1"
                                                     colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Acciones
                                                 </th>
@@ -280,29 +276,14 @@ include_once '../../config/parametros.php';
     <!-- /.content -->
 </div>
 
-<!-- DataTables -->
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
-</script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/dataTables.responsive.min.js">
-</script>
-<script src="http://localhost/Plantillas/SistemaAgencia/plugins/datatables-responsive/js/responsive.bootstrap4.min.js">
-</script>
+
 
 <script>
 $(function() {
-    $("#example1").DataTable({
+    $("#catalogo_cliente").DataTable({
         "responsive": true,
         "autoWidth": false,
     });
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-    });
+   
 });
 </script>

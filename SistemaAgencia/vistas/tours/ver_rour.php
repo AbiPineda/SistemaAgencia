@@ -1,9 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- DataTables -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -36,7 +33,7 @@ include_once '../../config/parametros.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table id="tabla_tour" class="table table-bordered table-striped">
                             <thead style="text-align: center;">
                                 <tr>
                                     <th>Nombre del Tour</th>
@@ -487,28 +484,14 @@ include_once '../../config/parametros.php';
     <!-- /.content -->
 </div>
 
-<!-- DataTables -->
-<script src="<?= $base_url ?>plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>  
 
 <script>
-                                                $(function () {
-                                                    $("#example1").DataTable({
-                                                        "responsive": true,
-                                                        "autoWidth": false,
-                                                    });
-                                                    $('#example2').DataTable({
-                                                        "paging": true,
-                                                        "lengthChange": false,
-                                                        "searching": false,
-                                                        "ordering": true,
-                                                        "info": true,
-                                                        "autoWidth": false,
-                                                        "responsive": true,
-                                                    });
-                                                });
+$(function () {
+    $("#tabla_tour").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+    });
+});
 </script>
 
 

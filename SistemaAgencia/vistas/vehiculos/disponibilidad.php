@@ -426,7 +426,7 @@ include_once '../../config/parametros.php';
                         tagged[tagName] = [];
                     }
                     tagged[tagName].push(img);
-                    console.log('este es el tagName: ' + [tagName]);
+                    //console.log('este es el tagName: ' + [tagName]);
                 });
             }
         });
@@ -457,12 +457,12 @@ include_once '../../config/parametros.php';
                             .removeClass('active');
 
                     var $cardsX = ($imgs.parents().parents().find(".card").hide());
-                    console.log($cardsX[0]);
-                    console.log($cardsX.filter(tagged[tagName]));
+//                    console.log($cardsX[0]);
+//                    console.log($cardsX.filter(tagged[tagName]));
 
 
                     $card.hide();
-                    console.log($("." + tagName).show());
+                    $("." + tagName).show();
 
                 }
             }).appendTo($buttons);
