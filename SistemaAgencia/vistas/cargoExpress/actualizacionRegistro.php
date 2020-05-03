@@ -2,12 +2,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- DataTables -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 <!--****************fin****************-->
 <!-- Content Wrapper. Contains page content -->
@@ -47,51 +41,51 @@ include_once '../../config/parametros.php';
                                 <span class="time"><i class="fas fa-address-book"></i>Registro</span>
                                 <h3 class="timeline-header"><a href="#">Registro de actualización</a></h3>
                                 <div class="timeline-body" style="margin-top: 7px;">
-                                     <div class="row">
+                                    <div class="row">
                                         <div class="col-lg-3"></div>
                                         <div class="col-lg-6">
-                                     <div class="form-group">
-                                       <form id="task-form">
-                                        <div class="form-group">
-                                            <label>Encomienda</label>
-                                            <input type="text" id="name" placeholder="Encomienda" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha</label>
-                                            <input type="date" id="name" placeholder="Encomienda" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Lugar</label>
-                                            <input type="date" id="name" placeholder="Lugar" class="form-control">
-                                        </div>
+                                            <div class="form-group">
+                                                <form id="task-form">
+                                                    <div class="form-group">
+                                                        <label>Encomienda</label>
+                                                        <input type="text" id="name" placeholder="Encomienda" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Fecha</label>
+                                                        <input type="date" id="name" placeholder="Encomienda" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Lugar</label>
+                                                        <input type="date" id="name" placeholder="Lugar" class="form-control">
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <label>Descripción</label>
-                                            <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
-                                        </div>
+                                                    <div class="form-group">
+                                                        <label>Descripción</label>
+                                                        <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
+                                                    </div>
 
-                                        <input type="hidden" id="taskId">
-                                        <div >
-                                             <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                            </div>
+                                                    <input type="hidden" id="taskId">
+                                                    <div >
+                                                        <div class="timeline-footer" style="text-align: right;">
+                                                            <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+                                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                                        </div>
 
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </form>
-                                     </div>
-                                    </div>
                                         <div class="col-lg-2"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
                         <!-- END timeline item -->
-                        
 
-                        
 
-                        
+
+
+
                         <!-- timeline time label -->
                         <div class="time-label">
                             <span class="bg-green">Actualización de Envió</span>
@@ -99,29 +93,13 @@ include_once '../../config/parametros.php';
                         <!-- /.timeline-label -->
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
         </div>
-        <!-- /.timeline -->
-
     </section>
-    <!-- /.content -->
 </div>
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="<?= $base_url ?>plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?= $base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
+
+
+
 <script>
     $(function () {
         $('#example2').DataTable({
