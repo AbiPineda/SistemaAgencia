@@ -1,10 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
-<!-- overlayScrollbars -->
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
+
 
 
 <div class="wrapper">
