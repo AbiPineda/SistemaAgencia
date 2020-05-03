@@ -88,14 +88,14 @@ include_once '../../config/parametros.php';
     </section>
 
     <!-- Main content -->
-   
-        <div class="container-fluid ">
-            <div class="row center" >
-                <div id="buttons"></div>
-            </div>
-            <div class="row">
-              
-                <div class="col-12">
+
+    <div class="container-fluid ">
+        <div class="row center" >
+            <div id="buttons"></div>
+        </div>
+        <div class="row">
+
+            <div class="col-12">
                 <div id="gallery" >
                     <!-- left column -->
                     <div class="cardsX">
@@ -111,18 +111,18 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -147,18 +147,18 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -174,7 +174,7 @@ include_once '../../config/parametros.php';
                         <div class="card Turisentro">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Turisentro"
-                                       src="<?= $base_url ?>img/2"
+                                     src="<?= $base_url ?>img/2"
                                      alt="" />
                             </div>
                             <div class="card-title">
@@ -183,18 +183,18 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -210,7 +210,7 @@ include_once '../../config/parametros.php';
                         <div class="card Montallas">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Montallas"
-                                       src="<?= $base_url ?>img/3"
+                                     src="<?= $base_url ?>img/3"
                                      alt="" />
                             </div>
                             <div class="card-title">
@@ -231,7 +231,7 @@ include_once '../../config/parametros.php';
                                     4 puertas
                                 </div>
                                 <div class="card-flap flap2">
-                                     <div class="card-actions">
+                                    <div class="card-actions">
                                         <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
                                            class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
                                         <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
@@ -244,7 +244,7 @@ include_once '../../config/parametros.php';
                         <div class="card Montallas">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Montallas"
-                                       src="<?= $base_url ?>img/4"
+                                     src="<?= $base_url ?>img/4"
                                      alt="" />
                             </div>
                             <div class="card-title">
@@ -253,18 +253,18 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -280,27 +280,27 @@ include_once '../../config/parametros.php';
                         <div class="card Montallas">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Montallas"
-                                      src="<?= $base_url ?>img/8"
+                                     src="<?= $base_url ?>img/8"
                                      alt="" />
                             </div>
-                          <div class="card-title">
+                            <div class="card-title">
                                 <a href="#" class="toggle-info btn">
                                     <span class="left"></span>
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -316,7 +316,7 @@ include_once '../../config/parametros.php';
                         <div class="card Comedor">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Comedor"
-                                       src="<?= $base_url ?>img/beach"
+                                     src="<?= $base_url ?>img/beach"
                                      alt="" />
                             </div>
                             <div class="card-title">
@@ -337,20 +337,20 @@ include_once '../../config/parametros.php';
                                     Polarizado, A/A
                                 </div>
                                 <div class="card-flap flap2">
-                                      <div class="card-actions">
+                                    <div class="card-actions">
                                         <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
                                            class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
                                         <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
                                            class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
                                     </div>
-                                 
+
                                 </div>
                             </div>
                         </div>
                         <div class="card Turisentro">
                             <div class="card__image-holder">
                                 <img class="card__image" data-tags="Turisentro"
-                                      src="<?= $base_url ?>img/7"
+                                     src="<?= $base_url ?>img/7"
                                      alt="" />
                             </div>
                             <div class="card-title">
@@ -359,18 +359,18 @@ include_once '../../config/parametros.php';
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                   Montezuma
+                                    Montezuma
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                      Lorem Ipsum is simply dummy text<br> 
-                                   of the printing and typesetting industry.<br>
-                                   Lorem Ipsum has been the industry's<br>
-                                   standard dummy text ever since the<br>
-                                   1500s, when an unknown printer took a <br>
-                                   galley of type and scrambled it to make<br>
+                                    Lorem Ipsum is simply dummy text<br> 
+                                    of the printing and typesetting industry.<br>
+                                    Lorem Ipsum has been the industry's<br>
+                                    standard dummy text ever since the<br>
+                                    1500s, when an unknown printer took a <br>
+                                    galley of type and scrambled it to make<br>
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
@@ -384,11 +384,10 @@ include_once '../../config/parametros.php';
                         </div>
                     </div>
                 </div>
-                </div>
-</div>              
-          
+            </div>
         </div>
-    </section>
+    </div>
+</div>
 
 
 
@@ -463,7 +462,7 @@ include_once '../../config/parametros.php';
                         tagged[tagName] = [];
                     }
                     tagged[tagName].push(img);
-                  //  console.log('este es el tagName: ' + [tagName]);
+                    //  console.log('este es el tagName: ' + [tagName]);
                 });
             }
         });
