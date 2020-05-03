@@ -2,16 +2,6 @@
 include_once '../../config/parametros.php';
 ?>
 
-<!--necesario para que funcione el selector multiple-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
-<!-- AdminLTE css -->
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-<!--**************************************************************-->
-
-
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <script>
@@ -315,17 +305,7 @@ include_once '../../config/parametros.php';
 </aside>
 <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
-<!-- jQuery -->
-<script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= $base_url ?>dist/js/demo.js"></script>
-<!-- Select2 -->
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+
 
 <script>
     $(function () {
@@ -385,11 +365,7 @@ include_once '../../config/parametros.php';
         //Bootstrap Duallistbox
         $('.duallistbox').bootstrapDualListbox()
 
-        //Colorpicker
-        $('.my-colorpicker1').colorpicker()
-        //color picker with addon
-        $('.my-colorpicker2').colorpicker()
-
+       
         $('.my-colorpicker2').on('colorpickerChange', function (event) {
             $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
         });

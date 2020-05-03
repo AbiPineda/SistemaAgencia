@@ -1,34 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
 ?>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- SweetAlert2 -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.css">
-<!-- Toastr -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-<!-- fullCalendar -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
-
-<!--necesario para que funcione el selector multiple-->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
-<!-- AdminLTE css -->
-<link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-<!--**************************************************************-->
 <script>
     $(function () {
         $("#casado").change(function () {
@@ -817,42 +789,10 @@ include_once '../../config/parametros.php';
             </div>
 
 
+        </section>
     </div>
-    <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
-<!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
 
-
-<!-- jQuery -->
-<script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= $base_url ?>dist/js/demo.js"></script>
-
-<!--Para agregar los familiares pluing-->
-<script src="<?= $base_url ?>plugins/jquery-ui/jquery-ui.min.js"></script>
-
-<!-- fullCalendar 2.2.5 -->
-<script src="<?= $base_url ?>plugins/fullcalendar/locales/el.js"></script>
-<script src="<?= $base_url ?>plugins/moment/moment.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar/main.min.js"></script>
-
-<script src="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
-<!-- Page specific script -->
-<!--Para agregar los familiares pluing-->
-
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
 <script>
     $(function () {
@@ -912,10 +852,6 @@ include_once '../../config/parametros.php';
         //Bootstrap Duallistbox
         $('.duallistbox').bootstrapDualListbox()
 
-        //Colorpicker
-        $('.my-colorpicker1').colorpicker()
-        //color picker with addon
-        $('.my-colorpicker2').colorpicker()
 
         $('.my-colorpicker2').on('colorpickerChange', function (event) {
             $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
