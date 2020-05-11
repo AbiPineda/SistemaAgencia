@@ -36,15 +36,17 @@
         <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
         <!-- iCheck for checkboxes and radio inputs -->
         <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-        
-        <!-- fullCalendar -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
-<!-- Theme style -->
 
-<!--esta es para las galeria-->
+        <!-- fullCalendar -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar/main.min.css">
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-daygrid/main.min.css">
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-timegrid/main.min.css">
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.css">
+        <!-- Theme style -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/a/css/font-awesome.min.css">
+        <link rel='stylesheet' type='text/css' href='<?= $base_url ?>plugins/a/css/fullcalendar.css' />
+
 
 
     </head>
