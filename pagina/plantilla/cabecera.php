@@ -39,6 +39,7 @@
 
         <!-- Responsive Stylesheet File -->
         <link href="<?=$base_url?>css/responsive.css" rel="stylesheet">
+        
 
         <!-- =======================================================
           Theme Name: eBusiness
