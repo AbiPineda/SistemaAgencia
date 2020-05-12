@@ -1,4 +1,9 @@
+<?php
+include_once '../../config/parametros.php';
+?>
 
+ <!-- Latest compiled and minified CSS -->
+       <link rel='stylesheet' type='text/css' href='<?= $base_url ?>plugins/a/css/fullcalendar.css' />
 
 <script>
     function addZero(i) {
@@ -78,8 +83,8 @@
 <div class="content-wrapper">
     <div class="container">
         <div class="col-sm-5" id="titulo">
-                    <h1>Programación de Citas</h1>
-                </div>
+            <h1>Programación de Citas</h1>
+        </div>
         <!--si lo tocas se arruina-->
         <h2 class="lead"></h2>
         <!--si lo tocas se arruina-->
@@ -172,3 +177,6 @@
     </div>
 
 </div>
+<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
+<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
+<!-- Page specific script -->
