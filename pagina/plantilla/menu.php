@@ -49,7 +49,7 @@
                                                     <a href="#pricing">Tours</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/vistas/tours/vehiculos/vehiculo.php">Renta de Vehiculos</a>
+                                                    <a href="./vistas/vehiculos/vehiculo.php">Renta de Vehiculos</a>
                                                 </li>
                                             </ul> 
                                         </li>
