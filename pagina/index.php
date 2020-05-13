@@ -120,7 +120,7 @@ include_once './plantilla/portada.php';
                             <div class=" about-move">
                                 <div class="services-details">
                                     <div class="single-services">
-                                        <a class="services-icon" href="#">
+                                        <a class="services-icon" href="./vistas/tours/">
                                             <i class="fa fa-calendar"></i>
                                         </a>
                                         <h4>Tours</h4>

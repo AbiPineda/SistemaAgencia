@@ -134,7 +134,9 @@
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->
-        <script src="<?=$base_url?>lib/jquery/jquery.min.js"></script>
+        
+        <script src="<?=$base_url?>js/jquery.min.js"></script>
+        
         <script src="<?=$base_url?>lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?=$base_url?>lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="<?=$base_url?>lib/venobox/venobox.min.js"></script>
@@ -150,7 +152,7 @@
         <script src="<?=$base_url?>contactform/contactform.js"></script>
 
         <script src="<?=$base_url?>js/main.js"></script>
-        <script src="<?=$base_url?>js/adminlte.min.js"></script>
+    
     </body>
 
 </html>

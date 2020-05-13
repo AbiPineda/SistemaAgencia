@@ -21,7 +21,7 @@
             rel="stylesheet">
 
         <!-- Bootstrap CSS File -->
-        <link href="<?=$base_url?>lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?=$base_url?>css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Libraries CSS Files -->
         <link href="<?=$base_url?>lib/nivo-slider/css/nivo-slider.css" rel="stylesheet">

@@ -3,8 +3,6 @@ include_once('../../config/parametros.php');
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
-
-
 <!-- Slick -->
 <link type="text/css" rel="stylesheet" href="../../css/slick.css" />
 <link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
@@ -173,15 +171,12 @@ include_once '../../plantilla/menu.php';
 </div>
 
 
-<!-- jQuery Plugins -->
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/slick.min.js"></script>
-<script src="../../js/nouislider.min.js"></script>
-<script src="../../js/jquery.zoom.min.js"></script>
-<script src="../../js/mainG.js"></script>
 
 
 <?php 
 include_once '../../plantilla/footer.php';
  ?>
+ <!-- jQuery Plugins -->
+<script src="../../js/slick.min.js"></script>
+<script src="../../js/jquery.zoom.min.js"></script>
+<script src="../../js/mainG.js"></script>

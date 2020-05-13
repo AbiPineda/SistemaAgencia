@@ -46,7 +46,7 @@
                                                     <a  href="#pricing">Paquetes</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#pricing">Tours</a>
+                                                    <a href="<?=$base_url?>vistas/tours/">Tours</a>
                                                 </li>
                                                 <li>
                                                     <a href="./vistas/vehiculos/vehiculo.php">Renta de Vehiculos</a>
