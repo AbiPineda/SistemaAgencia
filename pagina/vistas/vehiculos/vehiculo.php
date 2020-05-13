@@ -93,14 +93,15 @@ include_once '../../plantilla/menu.php';
                                                                     here</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                            
+
                                                             <div class="product-btns">
                                                                 <button class="add-to-wishlist"><i
                                                                         class="fa fa-heart-o"></i><span
                                                                         class="tooltipp">Lista de Deseos</span></button>
-                                                                
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
+
+                                                                <button class="quick-view"
+                                                                    onclick="location.href='detalle-vehiculo.php'">
+                                                                    <i class="fa fa-eye"></i><span
                                                                         class="tooltipp">Detalle</span></button>
                                                             </div>
                                                         </div>
@@ -125,12 +126,12 @@ include_once '../../plantilla/menu.php';
                                                                     here</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
+
                                                             <div class="product-btns">
                                                                 <button class="add-to-wishlist"><i
                                                                         class="fa fa-heart-o"></i><span
                                                                         class="tooltipp">Lista de Deseos</span></button>
-                                                               
+
                                                                 <button class="quick-view"><i
                                                                         class="fa fa-eye"></i><span
                                                                         class="tooltipp">Detalle</span></button>
@@ -157,12 +158,12 @@ include_once '../../plantilla/menu.php';
                                                                     here</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                            
+
                                                             <div class="product-btns">
                                                                 <button class="add-to-wishlist"><i
                                                                         class="fa fa-heart-o"></i><span
                                                                         class="tooltipp">Lista de Deseos</span></button>
-                                                              
+
                                                                 <button class="quick-view"><i
                                                                         class="fa fa-eye"></i><span
                                                                         class="tooltipp">Detalle</span></button>
@@ -186,12 +187,12 @@ include_once '../../plantilla/menu.php';
                                                                     here</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
+
                                                             <div class="product-btns">
                                                                 <button class="add-to-wishlist"><i
                                                                         class="fa fa-heart-o"></i><span
                                                                         class="tooltipp">Lista de Deseos</span></button>
-                                                               
+
                                                                 <button class="quick-view"><i
                                                                         class="fa fa-eye"></i><span
                                                                         class="tooltipp">Detalle</span></button>
@@ -215,12 +216,12 @@ include_once '../../plantilla/menu.php';
                                                                     here</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
+
                                                             <div class="product-btns">
                                                                 <button class="add-to-wishlist"><i
                                                                         class="fa fa-heart-o"></i><span
                                                                         class="tooltipp">Lista de Deseos</span></button>
-                                                             
+
                                                                 <button class="quick-view"><i
                                                                         class="fa fa-eye"></i><span
                                                                         class="tooltipp">Detalle</span></button>
