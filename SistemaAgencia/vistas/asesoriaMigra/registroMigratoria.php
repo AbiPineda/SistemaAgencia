@@ -235,7 +235,7 @@ include_once '../../config/parametros.php';
                                                 <!-- /.card -->
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h3 class="card-title">Nombre de las personas</h3>
+                                                        <h3 class="card-title">Ingrese la red social</h3>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
