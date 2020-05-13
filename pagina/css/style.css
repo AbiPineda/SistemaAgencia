@@ -40,6 +40,10 @@
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 
+.centrado{
+    text-align:  center;
+}
+
 html,
 body {
     height: 100%;

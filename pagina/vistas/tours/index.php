@@ -39,7 +39,7 @@ include_once '../../plantilla/menu.php';
 <!--Banner de auto -->
 
 
-
+<!-- End Blog Area -->
 <div class="blog-page area-padding">
     <div class="container">
         <div class="row">
@@ -95,8 +95,9 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn" onclick="location.href='descripcion.php';">
+                                                                <i class="fa fa-shopping-cart"></i>Reservar
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -135,11 +136,11 @@ include_once '../../plantilla/menu.php';
                                                         <div class="product-body">
                                                             <p class="product-category">Nacional</p>
                                                             <h3 class="product-name"><a href="#">Vamos a Panama
-                                                                    </a></h3>
+                                                                </a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
 
-                                                            
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -156,11 +157,11 @@ include_once '../../plantilla/menu.php';
                                                         <div class="product-body">
                                                             <p class="product-category">Category</p>
                                                             <h3 class="product-name"><a href="#">Vamos Otra vez a PAnama
-                                                                    </a></h3>
+                                                                </a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
 
-                                                            
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -176,11 +177,12 @@ include_once '../../plantilla/menu.php';
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">Internacional</p>
-                                                            <h3 class="product-name"><a href="#">Vamos a Conchagua</a></h3>
+                                                            <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
+                                                            </h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
 
-                                                            
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -210,7 +212,7 @@ include_once '../../plantilla/menu.php';
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
 
-                                                            
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -231,7 +233,7 @@ include_once '../../plantilla/menu.php';
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
 
-                                                            
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
