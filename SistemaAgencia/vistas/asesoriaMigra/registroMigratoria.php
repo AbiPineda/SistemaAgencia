@@ -106,7 +106,7 @@ include_once '../../config/parametros.php';
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>¿Correo electrónico?</label>  
-                                                    <input type="text" placeholder="Digite el correo electrónico" class="form-control">
+                                                    <input type="email" placeholder="Digite el correo electrónico" class="form-control">
 
                                                 </div>
 

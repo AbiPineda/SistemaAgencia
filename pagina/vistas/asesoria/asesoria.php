@@ -27,43 +27,107 @@ include_once '../../plantilla/portada.php';
 
   <!-- USER INFORMATION FIELD SET --> 
   <fieldset>
-    <h2 class="fs-title">Basic Information</h2>
-    <h3 class="fs-subtitle">We just need some basic information to begin your scoring</h3>
+    <h2 class="fs-title">Información Básica</h2>
+    <h3 class="fs-subtitle"></h3>
+
     <!-- Begin What's Your First Name Field -->
+    <!--************** fin una pregunta*********-->
         <div class="hs_firstname field hs-form-field">
-        
-          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your First Name? *</label>
-
-          <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="ingresa tu nombre" >
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-    <!-- End What's Your First Name Field -->
-
-    <!-- Begin What's Your Email Field -->
-        <div class="hs_email field hs-form-field">
-        
-          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
-
-          <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-    <!-- End What's Your Email Field -->
-
-    <!-- Begin Total Number of Constituents in Your Database Field -->
-        <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
-        
-          <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What's the Total Number of Constituents in your Database? *</label>
-
-          <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="total_number_of_constituents_in_your_database" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
-          <span class="error1" style="display: none;">
+          <label>¿Nombre según su pasaporte?</label>
+    <input type="text" placeholder="Digite el nombre según pasaporte" class="form-control" required="required"
+    data-rule-required="true" data-msg-required="Ingrese el nombre según pasaporte">
+    <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
         </div>
 
+    
+        
+          <label>¿Nombre de soltera/o?</label>
+          <input  name="te" required="required" type="text" class="form-control" placeholder="Digite el nombre" data-rule-required="true" data-msg-required="Nombre de soltera/o incorrecto" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+  
+ 
+        
+          <label>¿Dirección de casa? </label>
+          <input  name="direccion" class="form-control" required="required" type="text"  placeholder="Digite la dirección" data-rule-required="true" data-msg-required="Dirrección incorrecta" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        
+          <label>¿Correo electrónico?</label>
+          <input  name="correp" class="form-control" required="required" type="email" value="" placeholder="Digite el correo electrónico" data-rule-required="true" data-msg-required="Correo incorrectro" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+    
+        
+          <label>¿Fecha de nacimiento?</label>
+
+          <input name="fecha" class="form-control" required="required" size="60" maxlength="128" type="date" value="" placeholder="" data-rule-required="true" data-msg-required="Fecha vacía" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+          <label>¿Número de teléfono casa?</label> 
+          <input type="text" name="telefono_casa" placeholder="Digite el número de Teléfono" class="form-control"
+          data-rule-required="true" data-msg-required="Teléfono de casa vacío" required="required">
+
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+
+        <label>¿Número de teléfono oficina?</label> 
+        <input type="text" name="tel_oficina" placeholder="Digite el número de la oficina" class="form-control"
+         data-rule-required="true" data-msg-required="Teléfono de oficina vacío" required="required">
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+          <label>¿Número de teléfono celular?</label>
+         <input type="text" name="tel_celular" placeholder="Digite el número de celular" class="form-control"
+           data-rule-required="true" data-msg-required="Teléfono de celular vacío" required="required">
+
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+          <label>¿Número de pasaporte?</label>
+          <input type="text" name="num_pasaporte" placeholder="Digite el numero de pasaporte" class="form-control"
+           data-rule-required="true" data-msg-required="Número de pasaporte incorrecto" required="required">
+           
+           <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+          <label>¿Tipo de pasaporte?</label>
+          <select  name="tipo_pasaporte1" class="form-control"  data-rule-required="true" data-msg-required="Seleccione tipo de pasaporte" required="required">
+            <option value="" selected>Seleccione</option>
+           <option value="permitido">Diplomatico</option>
+            <option value="no">Oficial</option>
+            <option value="no"> Salvoconductos </option>
+
+           </select>
+
+           <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+                                                    
+          <label>¿Ha perdido algún pasaporte o se lo han robado?</label>
+          <select name="robado" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+          <option value="" selected>Seleccione</option>
+          <option value="permitido">Perdido</option>
+          <option value="no">Robado</option>
+
+          </select>
+
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+                                              
     <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
     
@@ -262,7 +326,7 @@ include_once '../../plantilla/portada.php';
 
 </form>
 <!--para que me deje colocar bien las preguntas y no se monte en las preguntas-->
-<section class="post-content-area single-post-area" style="margin-top: 606px;">
+<section class="post-content-area single-post-area" style="margin-top: 1335px;">
 
 </section>
 <!--fin de que para que no se monte-->
