@@ -5,14 +5,14 @@ include_once '../../plantilla/menu.php';
 ?>
 
 <!-- Slick -->
-<link type="text/css" rel="stylesheet" href="css/slick.css" />
-<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+<link type="text/css" rel="stylesheet" href="../../css/slick.css" />
+<link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
 <!-- nouislider -->
-<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+<link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
 <!-- Font Awesome Icon -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/font-awesome.min.css">
 <!-- Custom stlylesheet -->
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
 
 <!--Banner de auto -->
 <div class="header-bg-autos page-area">
@@ -263,12 +263,12 @@ include_once '../../plantilla/menu.php';
 <!-- end Footer bottom Area -->
 
 <!-- jQuery Plugins -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
-<script src="js/main.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/slick.min.js"></script>
+<script src="../../js/nouislider.min.js"></script>
+<script src="../../js/jquery.zoom.min.js"></script>
+<script src="../../js/mainG.js"></script>
 
 
 
