@@ -2,378 +2,275 @@
 include_once('../../config/parametros.php');
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
-include_once '../../plantilla/portada.php';
 ?>
-<div id="portfolio" class="portfolio-area area-padding fix">
+
+<!-- Slick -->
+<link type="text/css" rel="stylesheet" href="../../css/slick.css" />
+<link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" href="../../css/font-awesome.min.css">
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
+
+<!--Banner de auto -->
+<div class="header-bg-autos page-area">
+    <div class="home-overly"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="section-headline text-center">
-                    <h2>Tours Dispobles</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Start Portfolio -page -->
-
-            <div class="awesome-project-content">
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 design ">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/conchagua.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/conchagua.jpg">
-                                        <h4>HORA DE SALIDA: 5:00 AM</h4>
-                                        <span>LUGARES A VISITAR:
-                                            ✔VOLCAN DE CONCHAGUA
-                                            ✔CITY TOUR AL PUEBLO DE CONCHAGUA
-                                            ✔MIRADOR ESPIRITU DE LA MONTAÑA
-                                            ✔PARQUE DE LA FAMILIA
-                                        </span>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="slider-content text-center">
+                    <div class="header-bottom">
+                        <div class="layer2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".4s">
+                            <h1 class="title2">Los Mejores Tours</h1>
                         </div>
-                        <a href="./descripcion.php" class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER MAS</a>
-                    </div>
-
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/machupichu.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/machupichu.jpg">
-                                        <h4>Paquete disponible año 2020</h4>
-                                        <span>VISITANDO:
-                                            ✔ City Tour en Cusco
-                                            ✔ Tour del Valle Sagrado de los Incas
-                                            ✔ Ollantaytambo
-                                            ✔ Aguas Calientes
-                                            ✔ Machu Picchu.
-                                            ✔Otros.</span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
+                            <span>
+                                <h2 class="title2">Con Los Mejores Precios</h2>
+                            </span>
                         </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
                     </div>
                 </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/panama.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/panama.jpg">
-                                        <h4>VÁMONOS A PANAMÁ (POR TIERRA)</h4>
-                                        <span>VISITANDO:
-                                            ✔️ CIUDAD DE PANAMÁ
-                                            ✔️ CANAL DE PANAMÁ (EXCLUSAS DE MIRAFLORES)
-                                            ✔️ ZONA LIBRE DE COLON
-                                            ✔️ ISLA TABOGA
-                                            ✔️ CALZADA AMADOR
-                                            ✔️ ALBROOK MALL
-                                            ✔️ CASCO VIEJO
-                                            ✔️ EN COSTA RICA: PLAYA EL COCO.
-                                            ✔️ EN NICARAGUA: SAN JUAN DEL SUR Y GRANADA.
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 design ">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/conchagua.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/conchagua.jpg">
-                                        <h4>HORA DE SALIDA: 5:00 AM</h4>
-                                        <span>LUGARES A VISITAR:
-                                            ✔VOLCAN DE CONCHAGUA
-                                            ✔CITY TOUR AL PUEBLO DE CONCHAGUA
-                                            ✔MIRADOR ESPIRITU DE LA MONTAÑA
-                                            ✔PARQUE DE LA FAMILIA
-                                        </span>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <a href="./descripcion.php" class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER MAS</a>
-                    </div>
-
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/machupichu.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/machupichu.jpg">
-                                        <h4>Paquete disponible año 2020</h4>
-                                        <span>VISITANDO:
-                                            ✔ City Tour en Cusco
-                                            ✔ Tour del Valle Sagrado de los Incas
-                                            ✔ Ollantaytambo
-                                            ✔ Aguas Calientes
-                                            ✔ Machu Picchu.
-                                            ✔Otros.</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/panama.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/panama.jpg">
-                                        <h4>VÁMONOS A PANAMÁ (POR TIERRA)</h4>
-                                        <span>VISITANDO:
-                                            ✔️ CIUDAD DE PANAMÁ
-                                            ✔️ CANAL DE PANAMÁ (EXCLUSAS DE MIRAFLORES)
-                                            ✔️ ZONA LIBRE DE COLON
-                                            ✔️ ISLA TABOGA
-                                            ✔️ CALZADA AMADOR
-                                            ✔️ ALBROOK MALL
-                                            ✔️ CASCO VIEJO
-                                            ✔️ EN COSTA RICA: PLAYA EL COCO.
-                                            ✔️ EN NICARAGUA: SAN JUAN DEL SUR Y GRANADA.
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 design ">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/conchagua.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/conchagua.jpg">
-                                        <h4>HORA DE SALIDA: 5:00 AM</h4>
-                                        <span>LUGARES A VISITAR:
-                                            ✔VOLCAN DE CONCHAGUA
-                                            ✔CITY TOUR AL PUEBLO DE CONCHAGUA
-                                            ✔MIRADOR ESPIRITU DE LA MONTAÑA
-                                            ✔PARQUE DE LA FAMILIA
-                                        </span>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <a href="./descripcion.php" class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER MAS</a>
-                    </div>
-
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/machupichu.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/machupichu.jpg">
-                                        <h4>Paquete disponible año 2020</h4>
-                                        <span>VISITANDO:
-                                            ✔ City Tour en Cusco
-                                            ✔ Tour del Valle Sagrado de los Incas
-                                            ✔ Ollantaytambo
-                                            ✔ Aguas Calientes
-                                            ✔ Machu Picchu.
-                                            ✔Otros.</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/panama.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/panama.jpg">
-                                        <h4>VÁMONOS A PANAMÁ (POR TIERRA)</h4>
-                                        <span>VISITANDO:
-                                            ✔️ CIUDAD DE PANAMÁ
-                                            ✔️ CANAL DE PANAMÁ (EXCLUSAS DE MIRAFLORES)
-                                            ✔️ ZONA LIBRE DE COLON
-                                            ✔️ ISLA TABOGA
-                                            ✔️ CALZADA AMADOR
-                                            ✔️ ALBROOK MALL
-                                            ✔️ CASCO VIEJO
-                                            ✔️ EN COSTA RICA: PLAYA EL COCO.
-                                            ✔️ EN NICARAGUA: SAN JUAN DEL SUR Y GRANADA.
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-
-                  <!-- single-awesome-project start -->
-                  <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/panama.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/panama.jpg">
-                                        <h4>VÁMONOS A PANAMÁ (POR TIERRA)</h4>
-                                        <span>VISITANDO:
-                                            ✔️ CIUDAD DE PANAMÁ
-                                            ✔️ CANAL DE PANAMÁ (EXCLUSAS DE MIRAFLORES)
-                                            ✔️ ZONA LIBRE DE COLON
-                                            ✔️ ISLA TABOGA
-                                            ✔️ CALZADA AMADOR
-                                            ✔️ ALBROOK MALL
-                                            ✔️ CASCO VIEJO
-                                            ✔️ EN COSTA RICA: PLAYA EL COCO.
-                                            ✔️ EN NICARAGUA: SAN JUAN DEL SUR Y GRANADA.
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 design ">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/conchagua.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/conchagua.jpg">
-                                        <h4>HORA DE SALIDA: 5:00 AM</h4>
-                                        <span>LUGARES A VISITAR:
-                                            ✔VOLCAN DE CONCHAGUA
-                                            ✔CITY TOUR AL PUEBLO DE CONCHAGUA
-                                            ✔MIRADOR ESPIRITU DE LA MONTAÑA
-                                            ✔PARQUE DE LA FAMILIA
-                                        </span>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <a href="./descripcion.php" class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER MAS</a>
-                    </div>
-
-                </div>
-                <!-- single-awesome-project end -->
-                <!-- single-awesome-project start -->
-                <div class="col-md-4 col-sm-4 col-xs-12 development">
-                    <div class="single-awesome-project">
-                        <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/machupichu.jpg" alt="" /></a>
-                            <div class="add-actions text-center">
-                                <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery"
-                                        href="<?=$base_url?>img/portfolio/machupichu.jpg">
-                                        <h4>Paquete disponible año 2020</h4>
-                                        <span>VISITANDO:
-                                            ✔ City Tour en Cusco
-                                            ✔ Tour del Valle Sagrado de los Incas
-                                            ✔ Ollantaytambo
-                                            ✔ Aguas Calientes
-                                            ✔ Machu Picchu.
-                                            ✔Otros.</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary"
-                            style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; ">VER
-                            MAS</button>
-                    </div>
-                </div>
-                <!-- single-awesome-project end -->
-
             </div>
         </div>
     </div>
 </div>
+<!--Banner de auto -->
+
+
+
+<div class="blog-page area-padding">
+    <div class="container">
+        <div class="row">
+            <!-- End left sidebar -->
+            <!-- Start single blog -->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+
+                    <!-- SECTION -->
+                    <div class="section">
+                        <!-- container -->
+                        <div class="container">
+                            <!-- row -->
+                            <div class="row">
+
+                                <!-- section title -->
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h3 class="title">Flota Disponible</h3>
+                                        <div class="section-nav">
+                                            <ul class="section-tab-nav tab-nav">
+                                                <li class="active"><a data-toggle="tab" href="#tab1">Sedán</a></li>
+                                                <li><a data-toggle="tab" href="#tab12">Económico</a></li>
+                                                <li><a data-toggle="tab" href="#tab3">Microbus</a></li>
+                                                <li><a data-toggle="tab" href="#tab4">Pickup</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /section title -->
+
+                                <!-- Products tab & slick -->
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="products-tabs">
+                                            <!-- tab -->
+                                            <div id="tab1" class="tab-pane active">
+                                                <div class="products-slick" data-nav="#slick-nav-1">
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/conchagua.jpg" alt="">
+                                                            <div class="product-label">
+                                                                <span class="sale">-30%</span>
+                                                                <span class="new">NEW</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+                                                            
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i
+                                                                        class="fa fa-heart-o"></i><span
+                                                                        class="tooltipp">Lista de Deseos</span></button>
+                                                                
+                                                                <button class="quick-view"><i
+                                                                        class="fa fa-eye"></i><span
+                                                                        class="tooltipp">Detalle</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/machupichu.jpg" alt="">
+                                                            <div class="product-label">
+                                                                <span class="new">NEW</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+                                                           
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i
+                                                                        class="fa fa-heart-o"></i><span
+                                                                        class="tooltipp">Lista de Deseos</span></button>
+                                                               
+                                                                <button class="quick-view"><i
+                                                                        class="fa fa-eye"></i><span
+                                                                        class="tooltipp">Detalle</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Detalle</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/panama.jpg" alt="">
+                                                            <div class="product-label">
+                                                                <span class="sale">-30%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+                                                            
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i
+                                                                        class="fa fa-heart-o"></i><span
+                                                                        class="tooltipp">Lista de Deseos</span></button>
+                                                              
+                                                                <button class="quick-view"><i
+                                                                        class="fa fa-eye"></i><span
+                                                                        class="tooltipp">Detalle</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/panama.jpg" alt="">
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+                                                           
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i
+                                                                        class="fa fa-heart-o"></i><span
+                                                                        class="tooltipp">Lista de Deseos</span></button>
+                                                               
+                                                                <button class="quick-view"><i
+                                                                        class="fa fa-eye"></i><span
+                                                                        class="tooltipp">Detalle</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/conchagua.jpg" alt="">
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+                                                           
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i
+                                                                        class="fa fa-heart-o"></i><span
+                                                                        class="tooltipp">Lista de Deseos</span></button>
+                                                             
+                                                                <button class="quick-view"><i
+                                                                        class="fa fa-eye"></i><span
+                                                                        class="tooltipp">Detalle</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+                                                </div>
+                                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                            </div>
+                                            <!-- /tab -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Products tab & slick -->
+                            </div>
+                            <!-- /row -->
+                        </div>
+                        <!-- /container -->
+                    </div>
+                    <!-- /SECTION -->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog Area -->
+
+<div class="clearfix"></div>
+
+
+<!-- end Footer bottom Area -->
+
+
+
+
 
 <?php 
 include_once '../../plantilla/footer.php';
  ?>
+
+<script src="../../js/slick.min.js"></script>
+<script src="../../js/nouislider.min.js"></script>
+<script src="../../js/jquery.zoom.min.js"></script>
+<script src="../../js/mainG.js"></script>
