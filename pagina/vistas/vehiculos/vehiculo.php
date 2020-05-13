@@ -20,18 +20,9 @@ include_once '../../plantilla/menu.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="slider-content text-center">
-                    <div class="header-bottom">
-                        <div class="layer2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".4s">
-                            <h1 class="title2">Alquiler de Vehículos</h1>
-                        </div>
-                        <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
-                            <span>
-                                <a href="" class="ready-btn">ver más</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                <br>
+                <br>
+                <br>
             </div>
         </div>
     </div>
@@ -81,7 +72,7 @@ include_once '../../plantilla/menu.php';
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="./img/hyundai.png" alt="">
+                                                            <img src="../../img/vehiculos/hyundai.png" alt="">
                                                             <div class="product-label">
                                                                 <span class="sale">-30%</span>
                                                                 <span class="new">NEW</span>
@@ -115,7 +106,7 @@ include_once '../../plantilla/menu.php';
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="./img/mishubichi.png" alt="">
+                                                            <img src="../../img/vehiculos/mishubichi.png" alt="">
                                                             <div class="product-label">
                                                                 <span class="new">NEW</span>
                                                             </div>
@@ -147,7 +138,7 @@ include_once '../../plantilla/menu.php';
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="./img/ford.png" alt="">
+                                                            <img src="../../img/vehiculos/ford.png" alt="">
                                                             <div class="product-label">
                                                                 <span class="sale">-30%</span>
                                                             </div>
@@ -179,7 +170,7 @@ include_once '../../plantilla/menu.php';
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="./img/hyundai-elantra.png" alt="">
+                                                            <img src="../../img/vehiculos/hyundai-elantra.png" alt="">
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">Category</p>
@@ -208,7 +199,7 @@ include_once '../../plantilla/menu.php';
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="./img/sportero.png" alt="">
+                                                            <img src="../../img/vehiculos/sportero.png" alt="">
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">Category</p>
