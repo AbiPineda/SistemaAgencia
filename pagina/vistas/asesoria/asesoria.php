@@ -15,20 +15,6 @@ include_once '../../plantilla/portada.php';
   </span>
 </div>
 
-
-
-<!-- Modal -info -->
-<div class="container">
-<div id="modal-3" class="modal" data-modal-effect="slide-top">
-  <div class="modal-content">
-    <h2 class="fs-title">Score Index</h2>
-    <h3 class="fs-subtitle">Getting the most out of your data</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis consectetur ligula. Morbi dapibus tellus a ipsum sollicitudin aliquet. Phasellus id est lacus. Pellentesque a elementum velit, a tempor nulla. Mauris mauris lectus, tincidunt et purus rhoncus, eleifend convallis turpis. Nunc ullamcorper bibendum diam, vitae tempus dolor hendrerit iaculis. Phasellus tellus elit, feugiat vel mi et, euismod varius augue. Nulla a porttitor sapien. Donec vestibulum ac nisl sed bibendum. Praesent neque ipsum, commodo eget venenatis vel, tempus sit amet ante. Curabitur vel odio eget urna dapibus imperdiet sit amet eget felis. Vestibulum eros velit, posuere a metus eget, aliquam euismod purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    <input type="button" name="next" class="next action-button modal-close" value="Got it!">
-  </div>
-</div>
-</div>
-
 <form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
   <ul id="progressbar">
     <li class="active">Información Personal</li>
@@ -80,7 +66,7 @@ include_once '../../plantilla/portada.php';
 
     <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div>
+    
   </fieldset>
 
 
@@ -124,7 +110,6 @@ include_once '../../plantilla/portada.php';
         <!-- End Calc of Total Number of Donors Fields -->
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
   </fieldset>
 
 
@@ -168,7 +153,7 @@ include_once '../../plantilla/portada.php';
         <!-- End Average Gift Size Perchent Change Field -->
     <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+
   </fieldset>
 
 
@@ -213,7 +198,6 @@ include_once '../../plantilla/portada.php';
         <!-- End Average Gift Size Percent Change Field 2 -->
     <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
   </fieldset>
 
 
@@ -273,15 +257,10 @@ include_once '../../plantilla/portada.php';
         <!-- End Final Calc -->
     <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
     <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    
 </fieldset>
 
-  <fieldset>
-    <h2 class="fs-title">It's on the way!</h2>
-    <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-  </fieldset>
-
+</form>
 <!--para que me deje colocar bien las preguntas y no se monte en las preguntas-->
 <section class="post-content-area single-post-area" style="margin-top: 606px;">
 
