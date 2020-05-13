@@ -27,7 +27,7 @@ include_once '../../plantilla/menu.php';
                         </div>
                         <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
                             <span>
-                                <h2 class="title2">Con Los Mejores Precios</h2>
+                                <h2 class="title2">Con Los Mejores Precios y calidad</h2>
                             </span>
                         </div>
                     </div>
@@ -58,13 +58,11 @@ include_once '../../plantilla/menu.php';
                                 <!-- section title -->
                                 <div class="col-md-12">
                                     <div class="section-title">
-                                        <h3 class="title">Flota Disponible</h3>
+                                        <h3 class="title">Nuestros Tours</h3>
                                         <div class="section-nav">
                                             <ul class="section-tab-nav tab-nav">
-                                                <li class="active"><a data-toggle="tab" href="#tab1">Sedán</a></li>
-                                                <li><a data-toggle="tab" href="#tab12">Económico</a></li>
-                                                <li><a data-toggle="tab" href="#tab3">Microbus</a></li>
-                                                <li><a data-toggle="tab" href="#tab4">Pickup</a></li>
+                                                <li class="active"><a data-toggle="tab" href="#tab1">Nacional</a></li>
+                                                <li><a data-toggle="tab" href="#tab2">Internacional</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -75,7 +73,7 @@ include_once '../../plantilla/menu.php';
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="products-tabs">
-                                            <!-- tab -->
+                                            <!-- tab 1-->
                                             <div id="tab1" class="tab-pane active">
                                                 <div class="products-slick" data-nav="#slick-nav-1">
                                                     <!-- product -->
@@ -88,21 +86,13 @@ include_once '../../plantilla/menu.php';
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#">product name goes
-                                                                    here</a></h3>
+                                                            <p class="product-category">Nacional</p>
+                                                            <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
+                                                            </h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                            
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i
-                                                                        class="fa fa-heart-o"></i><span
-                                                                        class="tooltipp">Lista de Deseos</span></button>
-                                                                
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
-                                                                        class="tooltipp">Detalle</span></button>
-                                                            </div>
+
+
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -120,22 +110,13 @@ include_once '../../plantilla/menu.php';
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
+                                                            <p class="product-category">Nacional</p>
                                                             <h3 class="product-name"><a href="#">product name goes
-                                                                    here</a></h3>
+                                                                </a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i
-                                                                        class="fa fa-heart-o"></i><span
-                                                                        class="tooltipp">Lista de Deseos</span></button>
-                                                               
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
-                                                                        class="tooltipp">Detalle</span></button>
-                                                            </div>
                                                         </div>
+
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
                                                                     class="fa fa-shopping-cart"></i>Detalle</button>
@@ -152,21 +133,13 @@ include_once '../../plantilla/menu.php';
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#">product name goes
-                                                                    here</a></h3>
+                                                            <p class="product-category">Nacional</p>
+                                                            <h3 class="product-name"><a href="#">Vamos a Panama
+                                                                    </a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
+
                                                             
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i
-                                                                        class="fa fa-heart-o"></i><span
-                                                                        class="tooltipp">Lista de Deseos</span></button>
-                                                              
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
-                                                                        class="tooltipp">Detalle</span></button>
-                                                            </div>
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -182,20 +155,12 @@ include_once '../../plantilla/menu.php';
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#">product name goes
-                                                                    here</a></h3>
+                                                            <h3 class="product-name"><a href="#">Vamos Otra vez a PAnama
+                                                                    </a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i
-                                                                        class="fa fa-heart-o"></i><span
-                                                                        class="tooltipp">Lista de Deseos</span></button>
-                                                               
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
-                                                                        class="tooltipp">Detalle</span></button>
-                                                            </div>
+
+                                                            
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -210,21 +175,12 @@ include_once '../../plantilla/menu.php';
                                                             <img src="../../img/tours/conchagua.jpg" alt="">
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#">product name goes
-                                                                    here</a></h3>
+                                                            <p class="product-category">Internacional</p>
+                                                            <h3 class="product-name"><a href="#">Vamos a Conchagua</a></h3>
                                                             <h4 class="product-price">$980.00 <del
                                                                     class="product-old-price">$990.00</del></h4>
-                                                           
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i
-                                                                        class="fa fa-heart-o"></i><span
-                                                                        class="tooltipp">Lista de Deseos</span></button>
-                                                             
-                                                                <button class="quick-view"><i
-                                                                        class="fa fa-eye"></i><span
-                                                                        class="tooltipp">Detalle</span></button>
-                                                            </div>
+
+                                                            
                                                         </div>
                                                         <div class="add-to-cart">
                                                             <button class="add-to-cart-btn"><i
@@ -235,7 +191,59 @@ include_once '../../plantilla/menu.php';
                                                 </div>
                                                 <div id="slick-nav-1" class="products-slick-nav"></div>
                                             </div>
-                                            <!-- /tab -->
+                                            <!-- /tab 1-->
+
+                                            <!-- tab 2-->
+                                            <div id="tab2" class="tab-pane">
+                                                <div class="products-slick" data-nav="#slick-nav-1">
+
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/panama.jpg" alt="">
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Internacional</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+
+                                                            
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="../../img/tours/conchagua.jpg" alt="">
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Internacional</p>
+                                                            <h3 class="product-name"><a href="#">product name goes
+                                                                    here</a></h3>
+                                                            <h4 class="product-price">$980.00 <del
+                                                                    class="product-old-price">$990.00</del></h4>
+
+                                                            
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <button class="add-to-cart-btn"><i
+                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /product -->
+                                                </div>
+                                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                            </div>
+                                            <!-- /tab 2-->
+
                                         </div>
                                     </div>
                                 </div>
