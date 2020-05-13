@@ -137,41 +137,108 @@ include_once '../../plantilla/portada.php';
 
   <!-- ACQUISITION FIELD SET -->  
   <fieldset>
-    <h2 class="fs-title">Acquisition of Donors</h2>
-    <h3 class="fs-subtitle">How have you been doing in acquiring donors?</h3>
-      <!-- Begin Total Number of Donors in Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
-        
-          <label for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 1? *</label>
+    <h2 class="fs-title">Información Básica de viaje</h2>
+    <h3 class="fs-subtitle"></h3>
 
-          <input id="edit-submitted-acquisition-amount-1" class="form-text hs-input" name="total_number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
+   <label>¿Fecha probable de viaje?</label>
+    <input type="date" name="fecha_viaje" class="form-control"
+    data-rule-required="true" data-msg-required="Fecha vacía" required="required">
+    <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
-        </div>
-      <!-- End Total Number of Donors in Year 1 Field -->
+                                    
 
-      <!-- Begin Total Number of Donors in Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
-        
-          <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 2? *</label>
+    <label>¿Ha tenido visa antes?</label>
+    <select name="ha_visa" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+    <option value="" selected>Seleccione</option>
+    <option value="permitido">Si</option>
+    <option value="no">No</option>
 
-          <input id="edit-submitted-acquisition-amount-2" class="form-text hs-input" name="total_number_of_donors_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
+    </select>
+    <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
-        </div>
-        <!-- End Total Number of Donors in Year 2 Field -->
+    
+    <label>¿Ha viajado antes a Estados Unidos?</label>
+     <select name="ha_viajado" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+     <option value="" selected>Seleccione</option>
+     <option value="permitido">Si</option>
+      <option value="no">No</option>
 
-      <!-- Begin Calc of Total Number of Donors Fields -->
-      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+    </select>
+
+     <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+      
+      <label>¿Tiene alguna petición de familia en trámite con la embajada de Estados Unidos?</label>
+        <select id="categoria" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+        <option value="" selected>Seleccione</option>
+        <option value="permitido">Si</option>
+        <option value="no">No</option>
+
+        </select>
+
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+                                                
+      <label>¿Nombre de la empresa que visitará en los Estados Unidos?</label>
+      <input type="text" name="empresa" placeholder="Digite la Empresa" class="form-control"
+      data-rule-required="true" data-msg-required="Nombre de la empresa vacía" required="required">
+
+       <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+                                       
+      
+     <label>¿Dirección de esa persona?</label>
+     <input type="text" name="direc_persona" placeholder="Digite la Dirección" class="form-control"
+      data-rule-required="true" data-msg-required="Nombre de la persona vacío" required="required">
+
+     <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+
+     <label>¿Número de teléfono de esa persona?</label>
+     <input type="text" name="tel_persona" placeholder="Digite la Teléfono" class="form-control"  data-rule-required="true" data-msg-required="Número de la persona vacío" required="required">
+
+     <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+
+     <label>¿e-mail de esa persona?</label>
+       <input type="text" name="email_persona" placeholder="Digite el e-mail" class="form-control"
+       data-rule-required="true" data-msg-required="Email de la persona vacío" required="required">
+
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+     
+     <label>¿Dirección de esa empresa?</label>
+     <input type="text" name="dire_empresa" placeholder="Digite la Dirección" class="form-control" 
+     data-rule-required="true" data-msg-required="Dirección de la empresa vacío" required="required">
+
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>                                         
+                                                    
+       <label>¿Número de teléfono de esa empresa?</label>
+       <input type="text" name="tel_empresa2" placeholder="Digite la Teléfono" class="form-control" 
+       data-rule-required="true" data-msg-required="Número de la empresa vacío" required="required">
         
-          <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Total Donors Percent Change</label>
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>                                         
+                                          
+       <label>¿e-mail de esa empresa?</label>
+       <input type="text" name="email_empresa" placeholder="Digite el e-mail" class="form-control" data-rule-required="true" data-msg-required="Email de la empresa vacío" required="required">
 
-          <input id="edit-submitted-acquisition-percent-change" class="form-text hs-input" name="total_donor_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
-        <!-- End Calc of Total Number of Donors Fields -->
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>  
+
     <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
   </fieldset>
