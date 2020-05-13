@@ -3,6 +3,7 @@ include_once '../../config/parametros.php';
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 include_once '../../plantilla/portada.php';
+$espacio=1460;
 ?>
 
    <link href="pregunta.css" rel="stylesheet">
@@ -247,40 +248,136 @@ include_once '../../plantilla/portada.php';
 
   <!-- Cultivation FIELD SET -->  
   <fieldset>
-    <h2 class="fs-title">Cultivation and Nurturing your Donors</h2>
-    <h3 class="fs-subtitle">How have you been nurturing donors to get better donations?</h3>
-      <!-- Begin Average Gift Size in Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
-        
-          <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 1? *</label>
+    <h2 class="fs-title">Información básica familiar</h2>
+    <h3 class="fs-subtitle"></h3>
 
-          <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
+     <label>¿Nombre completo de padre?</label>
+   <input type="text" name="nom_padre" placeholder="Digite el nombre" class="form-control"
+   data-rule-required="true" data-msg-required="Nombre del padre vacío" required="required">
+         <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Average Gift Size in Year 1 Field -->
+          </span> 
+                                             
+   <label>¿Fecha de nacimiento de padre?</label>
+   <input type="date" name="fecha_padre" class="form-control" data-rule-required="true" data-msg-required="Fecha de nacimiento vacío" required="required">
 
-      <!-- Begin Average Gift Size in Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-2">
-        
-          <label for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 2? *</label>
-
-          <input id="edit-submitted-cultivation-amount-2" class="form-text hs-input" name="average_gift_size_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
+         <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Average Gift Size in Year 2 Field -->
+          </span> 
 
-      <!-- Begin Average Gift Size Perchent Change Field -->
-      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field" id="webform-component-cultivation--percent-change1">
-        
-          <label for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average Gift Size Percent Change</label>
+     <label>¿Esta su padre en los Estados Unidos?</label>
+     <select name="usa_padre" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+      <option value="" selected>Seleccione</option>
+      <option value="permitido">Si</option>
+      <option value="no">No</option>
 
-          <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input" name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
+      </select>
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+       
+       <label>¿Qué estatus tiene su padre?</label>
+        <select name="estatus_padre" class="form-control" data-rule-required="true" data-msg-required="Estatus padre vacío" required="required">
+            <option value="" selected>Seleccione</option>
+            <option value="permitido">Indocumentado</option>
+            <option value="no">Residente</option>       
+        </select>
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+
+      <label>¿Nombre completo de madre?</label>
+      <input name="nom_madre" type="text" placeholder="Digite el nombre" class="form-control" data-rule-required="true" data-msg-required="Nombre de la madre vacío" required="required">
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+      
+       <label>¿Fecha de nacimiento de madre?</label>
+       <input type="date" name="fecha_madre" class="form-control" data-rule-required="true" data-msg-required="Fecha de nacimiento de la madre vacía" required="required">
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+
+     <label>¿Esta su madre en los Estados Unidos? </label>
+      <select name="usa_madre" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+          <option value="" selected>Seleccione</option>
+          <option value="permitido">Si</option>
+          <option value="no">No</option>
+
+       </select>
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+            
+             <label>¿Qué estatus tiene su madre? </label><br>
+              <select name="estatus_madre" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+                 <option value="" selected>Seleccione</option>
+                 <option value="permitido">Indocumentado</option>
+                 <option value="no">Residente</option>
+
+             </select>  
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>   
+            
+            <label>¿Tiene parientes en los Estados Unidos que no sus padres? </label>
+             <select id="categoria" class="form-control" data-rule-required="true" data-msg-required="Seleccione la optión" required="required">
+               <option value="" selected>Seleccione</option>
+                <option value="permitido">Si</option>
+                <option value="no">No</option>
+
+             </select>   
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+                                                    
+         <label>¿Nombre de esa persona?</label>
+           <input type="text" name="nom_persona_fa" placeholder="Digite el nombre" class="form-control" data-rule-required="true" data-msg-required="Nombre de la persona vacío" required="required">
+
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+             
+               <label>¿Parentesco que tiene con ella?</label>
+               <select name="paren_persona" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+                  <option value="" selected>Seleccione</option>
+                  <option value="permitido">Hermana/o</option>
+                  <option value="no">Prima/o</option>
+
+               </select> 
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+                                                
+          <label>¿Fecha de nacimiento de esa persona?</label>
+          <input type="date" name="fecha_nac_persona_fa" placeholder="" class="form-control" data-rule-required="true" data-msg-required="Email de la empresa vacío" required="required">  
+
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+
+           <label>¿Nacionalidad de esa persona? </label>
+          <select name="naci_persona" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+              <option value="" selected>Seleccione</option>
+              <option value="permitido">Salvadoreña</option>
+              <option value="no">Otra</option>
+
+          </select>  
+
+          
+         <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>   
+                                                
         <!-- End Average Gift Size Perchent Change Field -->
     <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
@@ -335,8 +432,11 @@ include_once '../../plantilla/portada.php';
 
   <!-- RETENTION FIELD SET -->  
   <fieldset>
-    <h2 class="fs-title">Retention of your donors</h2>
-    <h3 class="fs-subtitle">How long can you keep your donors and their donations?</h3>
+    <h2 class="fs-title">Información básica familiar</h2>
+    <h3 class="fs-subtitle"></h3>
+
+  
+                                        <!--************** fin una pregunta*********--> 
         <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
           <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
         
@@ -393,7 +493,7 @@ include_once '../../plantilla/portada.php';
 
 </form>
 <!--para que me deje colocar bien las preguntas y no se monte en las preguntas-->
-<section class="post-content-area single-post-area" style="margin-top: 1335px;">
+<section class="post-content-area single-post-area" style="margin-top: <?php echo $espacio.'px';?>;">
 
 </section>
 <!--fin de que para que no se monte-->
