@@ -18,6 +18,24 @@ include_once '../../plantilla/menu.php';
 <!-- Custom stlylesheet -->
 <link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
 
+<!-- hacer icono mas grande -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<!-- Ejemplo:
+<i class="fa fa-bars fa-xs"></i>
+<i class="fa fa-bars fa-sm"></i>
+<i class="fa fa-bars fa-lg"></i>
+<i class="fa fa-bars fa-2x"></i>
+<i class="fa fa-bars fa-3x"></i>
+<i class="fa fa-bars fa-4x"></i>
+<i class="fa fa-bars fa-5x"></i>
+<i class="fa fa-bars fa-10x"></i>
+ -->
+
+
+
+<style>
+
+</style>
 
 <!--Banner de auto -->
 <div class="header-bg page-area">
@@ -25,11 +43,11 @@ include_once '../../plantilla/menu.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-               <BR>
-               <BR>
-               <BR>
-               
-               
+                <BR>
+                <BR>
+                <BR>
+
+
             </div>
         </div>
     </div>
@@ -47,19 +65,20 @@ include_once '../../plantilla/menu.php';
             <div class="col-md-5 col-md-push-2">
                 <div id="product-main-img">
                     <div class="product-preview">
-                        <img src="./img/product01.png" alt="">
+                        <img src="../../img/vehiculos/hyundai.png" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product03.png" alt="">
+                        <img src="https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/aqgAAOSwirVejSTq/$_3.JPG?set_id=2" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product06.png" alt="">
+                        <img src="https://www.rtautomotriz.com/images/ELGOLF/Ext94617-1.jpg?0" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product08.png" alt="">
+                        <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
+                            alt="">
                     </div>
                 </div>
             </div>
@@ -68,19 +87,20 @@ include_once '../../plantilla/menu.php';
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
                     <div class="product-preview">
-                        <img src="./img/product01.png" alt="">
+                        <img src="../../img/vehiculos/hyundai.png" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product03.png" alt="">
+                        <img src="https://i.ebayimg.com/00/s/NzY4WDEwMjQ=/z/aqgAAOSwirVejSTq/$_3.JPG?set_id=2" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product06.png" alt="">
+                        <img src="https://www.rtautomotriz.com/images/ELGOLF/Ext94617-1.jpg?0" alt="">
                     </div>
 
                     <div class="product-preview">
-                        <img src="./img/product08.png" alt="">
+                        <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
+                            alt="">
                     </div>
                 </div>
             </div>
@@ -88,7 +108,7 @@ include_once '../../plantilla/menu.php';
             <!-- Product details -->
             <div class="col-md-5">
                 <div class="product-details">
-                    <h2 class="product-name">product name goes here</h2>
+                    <h2 class="product-name"> Hyundai Elantra 2014</h2>
                     <div>
                         <div class="product-rating">
                             <i class="fa fa-star"></i>
@@ -100,18 +120,34 @@ include_once '../../plantilla/menu.php';
 
                     </div>
                     <div>
-                        <h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
+                        <h3 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h3>
 
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-
+                    <div class="product-rating">
+                        <div class="col-md-6">
+                            <!-- Iconos -->
+                            <i class="fa fa-car fa-1x" style="color: #c90100"></i>
+                            <p>Combustible:</p>
+                            <i class="fa fa-wrench fa-1x" style="color: #c90100"> </i>
+                            <p>Transmición:</p>
+                            <i class="fa fa-users fa-1x" style="color: #c90100"></i>
+                            <p>Pasajeros:</p>
+                        </div>
+                        <div class="col-md-6">
+                        <i class="fa fa-door-open fa-1x" style="color: #c90100"></i>
+                        <p>Puertas:</p>
+                        <i class="fa fa-volume-up fa-1x" style="color: #c90100"></i>
+                        <p>Sonido:</p>
+                        <i class="fa fa-wifi fa-1x" style="color: #c90100"></i>
+                        <p>Wifi:</p>
+                        </div>
+                        <!-- Fin de Iconos -->
+                    </div>
 
 
                     <div class="add-to-cart">
 
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
                     </div>
 
 
@@ -188,7 +224,7 @@ include_once '../../plantilla/menu.php';
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product01.png" alt="">
+                            <img src="../../img/vehiculos/hyundai.png" alt="">
                             <div class="product-label">
                                 <span class="sale">-30%</span>
                             </div>
