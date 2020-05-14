@@ -430,12 +430,17 @@ $espacio=1460;
 
 
     <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
+    <a onclick="cargar_contenido_asesoria('contenido_calendario', 'citas.php')">
     <input type="button" data-page="4" name="next" class="next action-button" value="Guardar" />
+   </a>
   </fieldset>
 
 
 
 </form>
+
+<div id="contenido_calendario">
+</div>
 <!--para que me deje colocar bien las preguntas y no se monte en las preguntas-->
 <section class="post-content-area single-post-area" style="margin-top: <?php echo $espacio.'px';?>;">
 
@@ -449,7 +454,16 @@ include_once '../../plantilla/footer.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
     
- 
+ <!--contenido principal-->
+    <script type="text/javascript">
+        function cargar_contenido_asesoria(contenedor,contenido){
+            localStorage.setItem('contenido',contenido);
+            //alert(contenido);
+            //alert(contenedor);
+          $("#"+contenedor).load(contenido);
+          //alert(contenido);
+        }
+    </script>
 
 <script>
   
