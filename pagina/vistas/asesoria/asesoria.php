@@ -327,7 +327,7 @@ $espacio=1460;
           </span>   
             
             <label>¿Tiene parientes en los Estados Unidos que no sus padres? </label>
-             <select id="categoria" class="form-control" data-rule-required="true" data-msg-required="Seleccione la optión" required="required">
+             <select id="categoria" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
                <option value="" selected>Seleccione</option>
                 <option value="permitido">Si</option>
                 <option value="no">No</option>
@@ -359,7 +359,7 @@ $espacio=1460;
           </span> 
                                                 
           <label>¿Fecha de nacimiento de esa persona?</label>
-          <input type="date" name="fecha_nac_persona_fa" placeholder="" class="form-control" data-rule-required="true" data-msg-required="Email de la empresa vacío" required="required">  
+          <input type="date" name="fecha_nac_persona_fa" placeholder="" class="form-control" data-rule-required="true" data-msg-required="Fecha de nacimiento vacía" required="required">  
 
          <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
@@ -373,7 +373,7 @@ $espacio=1460;
 
           </select>  
 
-          
+
          <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>   
@@ -388,108 +388,52 @@ $espacio=1460;
 
   <!-- Cultivation2 FIELD SET --> 
   <fieldset>
-    <h2 class="fs-title">Total Cultivation in Donation</h2>
-    <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
-              <!-- Begin Total Giving In Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-        
-          <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 1? *</label>
+    <h2 class="fs-title">Información Básica de formacion Académica</h2>
+    <h3 class="fs-subtitle"></h3>
 
-          <input id="edit-submitted-cultivation-amount-3" class="form-text hs-input" name="total_giving_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
+
+      <label>¿Estudios realizados?</label>
+      <div class="select2-blue">
+           <select name="estudios" class="form-control" data-rule-required="true" data-msg-required="Seleccione la opción" required="required">
+          <option value="" selected>Seleccione</option>
+          <option value="Primero-Noveno">Primero-Noveno</option>
+          <option value="Educación Media">Educación Media</option>
+          <option value="Educación Superior">Educación Superior</option>
+          </select>
+
+           <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Total Giving In Year 1 Field -->
-
-      <!-- Begin Total Giving In Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-4"> 
-        
-          <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 2? *</label>
-
-          <input id="edit-submitted-cultivation-amount-4" class="form-text hs-input" name="total_giving_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          </span> 
+                                                   
+       <label>¿Lugar donde los estudio?</label>
+       <input type="text" name="lugar_estudio" placeholder="Digite el lugar" class="form-control" data-rule-required="true" data-msg-required="Lugar donde estudio vacío" required="required">
         <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        
-        <!-- End Total Giving In Year 2 Field -->
+          </span> 
+                                               
+       <label>¿Direccion del lugar donde los estudio?</label>
+       <input type="text" name="direc_lugar" placeholder="Digite el lugar" class="form-control" data-rule-required="true" data-msg-required="Dirección donde estudio vacío" required="required">
 
-      <!-- Begin Average Gift Size Percent Change Field 2 -->
-      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_giving_percent_change field hs-form-field" id="webform-component-cultivation--percent-change2">
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
+                                                
+       <label>¿Año en que los termino?</label>
+       <input type="date" name="ano_termino" placeholder="Digite la Dirección" class="form-control" data-rule-required="true" data-msg-required="Año que termino los estudio vacío" required="required">
 
-          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Average Gift Size Percent Change</label>
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span> 
 
-          <input id="edit-submitted-cultivation-percent-change2" class="form-text hs-input" name="total_giving_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
-        <!-- End Average Gift Size Percent Change Field 2 -->
+      <!--<a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
+      <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>-->
+
+
     <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
+    <input type="button" data-page="4" name="next" class="next action-button" value="Guardar" />
   </fieldset>
 
 
-
-  <!-- RETENTION FIELD SET -->  
-  <fieldset>
-    <h2 class="fs-title">Información básica familiar</h2>
-    <h3 class="fs-subtitle"></h3>
-
-  
-                                        <!--************** fin una pregunta*********--> 
-        <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
-          <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
-        
-          <label for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1? *</label>
-
-          <input id="edit-submitted-retention-amount-1" class="form-text hs-input" name="number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 Field-->
-
-
-        <!-- Begin Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--amount-2 hs_number_of_year_1_donors_who_also_gave_in_year_2 field hs-form-field">
-        
-          <label for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1 that also gave in year 2? *</label>
-
-          <input id="edit-submitted-retention-amount-2" class="form-text hs-input" name="number_of_year_1_donors_who_also_gave_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
-
-        <!-- Begin Retention Rate Percent -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--percent-change field hs-form-field">
-        
-          <label for="edit-submitted-retention-percent-change">Retention Rate</label>
-
-         <input id="edit-submitted-retention-percent-change" class="form-text hs-input" name="retention_rate_percent" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-
-        <!-- End Retention Rate Percent -->
-
-
-        <!-- Begin Final Calc -->
-          <div class="form-item webform-component webform-component-textfield hs_fundraising_400_index field hs-form-field" id="webform-component-final-grade--grade">
-
-          <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Fundraising 400 Index Score</label>
-
-          <input id="edit-submitted-final-grade-grade" class="form-text hs-input" name="fundraising_400_index" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          </div>
-        <!-- End Final Calc -->
-    <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
-    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
-    
-</fieldset>
 
 </form>
 <!--para que me deje colocar bien las preguntas y no se monte en las preguntas-->
