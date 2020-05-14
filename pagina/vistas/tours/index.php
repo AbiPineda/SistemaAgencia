@@ -39,7 +39,7 @@ include_once '../../plantilla/menu.php';
 <!--Banner de auto -->
 
 
-<!-- End Blog Area -->
+
 <div class="blog-page area-padding">
     <div class="container">
         <div class="row">
@@ -95,7 +95,7 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn" onclick="location.href='descripcion.php';">
+                                                            <button class="add-to-cart-btn" oncli>
                                                                 <i class="fa fa-shopping-cart"></i>Reservar
                                                             </button>
                                                         </div>
