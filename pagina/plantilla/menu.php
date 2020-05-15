@@ -52,7 +52,7 @@
                                                     <a href="./vistas/vehiculos/vehiculo.php">Renta de Vehiculos</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Cargo Express</a>
+                                                    <a href="<?=$base_url?>vistas/encomienda/">Encomienda</a>
                                                 </li>
                                             </ul> 
                                         </li>
