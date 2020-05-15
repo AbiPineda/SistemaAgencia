@@ -8,7 +8,7 @@ $espacio=1460;
 
    <link href="pregunta.css" rel="stylesheet">
 
-<div style="margin-top: 15px;">
+<div style="margin-top: 72px;">
 <div class="info">
   <h1>Información Migratoria</h1>
   <span>
