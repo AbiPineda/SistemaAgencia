@@ -3,7 +3,7 @@ include_once '../../config/parametros.php';
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 //include_once '../../plantilla/portada.php';
-$espacio=1460;
+$espacio=36;
 ?>
 
  
@@ -24,17 +24,6 @@ $espacio=1460;
 
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="cars">Seleccione el Cliente:</label>
-
-                                            <select id="categoria" class="form-control">
-                                                <option value="permitido">Jessenia Corinca</option>
-                                                <option value="no">Jenny Orellana</option>
-                                                <option value="no">Judith Hernández</option>
-                                            </select> 
-                                        </div>
-                                    </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -44,6 +33,14 @@ $espacio=1460;
                                                 <option value="permitido">Acetaminofén</option>
                                                 <option value="no">Jeringas</option>
                                             </select> 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Cantidad</label>
+                                            <input type="number" class="form-control" placeholder="lbs">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -62,20 +59,8 @@ $espacio=1460;
                                                    placeholder="Introduzca el destino final">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Costo</label>
-                                            <input type="number" class="form-control" placeholder="Calculado...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Cantidad</label>
-                                            <input type="number" class="form-control" placeholder="Depende el producto">
-                                        </div>
-                                    </div>
+                                    
+                                    
                                   
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
@@ -94,15 +79,15 @@ $espacio=1460;
 <div class="container main-section">
     <div class="row">
       <div class="col-lg-12 pb-2">
-        <h4>Shoping Cart</h4>
+        <h4>Producto Seleccionado</h4>
       </div>
       <div class="col-lg-12 pl-3 pt-3">
         <table class="table table-hover border bg-white">
           <thead>
             <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th style="width:10%;">Quantity</th>
+              <th>Producto</th>
+              <th>Cantidad</th> 
+              <th>Costo</th>
               <th>Subtotal</th>
               <th>Action</th>
             </tr>
@@ -112,39 +97,19 @@ $espacio=1460;
               <td>
                 <div class="row">
                   <div class="col-lg-2 Product-img">
-                    <img src="https://images.unsplash.com/photo-1562106783-b9ca87a40fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=60" alt="..." class="img-responsive" />
+                    <img src="https://previews.123rf.com/images/steveallenuk/steveallenuk1503/steveallenuk150300051/37744391-una-selecci%C3%B3n-de-las-jeringas-y-agujas-hipod%C3%A9rmicas-utilizado-en-la-medicina-para-dar-inyecciones-.jpg" alt="..." class="img-responsive" />
                   </div>
                   <div class="col-lg-10">
-                    <h4 class="nomargin">GUYA</h4>
+                    <h4 class="nomargin">Jeringas</h4>
                   </div>
                 </div>
               </td>
-              <td> 12,000 </td>
+             
               <td data-th="Quantity">
                 <input type="number" class="form-control text-center" value="1">
               </td>
-              <td>12,000</td>
-              <td class="actions" data-th="" style="width:10%;">
-                <button class="btn btn-warning btn-sm"><i class="fa fa-refresh"></i></button>
-                <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="row">
-                  <div class="col-lg-2 Product-img">
-                    <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="..." class="img-responsive" />
-                  </div>
-                  <div class="col-lg-10">
-                    <h4 class="nomargin">COCO OIL</h4>
-                  </div>
-                </div>
-              </td>
-              <td> 35,000 </td>
-              <td data-th="Quantity">
-                <input type="number" class="form-control text-center" value="1">
-              </td>
-              <td> 35,000 </td>
+               <td> 35.00 </td>
+              <td>35.00</td>
               <td class="actions" data-th="" style="width:10%;">
                 <button class="btn btn-warning btn-sm"><i class="fa fa-refresh"></i></button>
                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
@@ -153,10 +118,10 @@ $espacio=1460;
           </tbody>
           <tfoot>
             <tr>
-              <td><a href="#" class="btn btn-info text-white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+             
               <td colspan="2" class="hidden-xs"></td>
               <td class="hidden-xs text-center" style="width:10%;"><strong>Total : 47,000</strong></td>
-              <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+              <td><a href="#" class="btn btn-success btn-block">Enviar Cotización <i class="fa fa-angle-right"></i></a></td>
             </tr>
           </tfoot>
         </table>
