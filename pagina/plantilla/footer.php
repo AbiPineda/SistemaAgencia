@@ -77,7 +77,7 @@
                         <div class="row">
                             <!-- Start Google Map -->
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; " >INICIAR CHAT CON SERVICIO AL CLIENTE</button>
+                                <button class="btn btn-lg btn-block boton-azul" >INICIAR CHAT CON SERVICIO AL CLIENTE</button>
                             </div>
 
                         </div>
