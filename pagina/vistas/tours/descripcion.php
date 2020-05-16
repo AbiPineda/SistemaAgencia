@@ -80,7 +80,7 @@ include_once '../../plantilla/menu.php';
                             </h3>
                         </div>
                         <div class="col-md-6" style="text-align: center"> <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Reservar Paquete</button>
+                                <button class="add-to-cart-btn" onclick="location.href='completar-transaccion.php'"><i class="fa fa-shopping-cart"></i>Siguiente</button>
                             </div></div>
 
 
