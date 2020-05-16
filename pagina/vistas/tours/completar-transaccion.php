@@ -103,12 +103,15 @@ include_once '../../plantilla/menu.php';
                                                 include_once './botonPaypal.php';
                                                 ?>
                                                
-                                                <?php
-                                                include_once './botonReserva.php';
-                                                ?>
+                                               
                                             </div>
                                             <div class="row">
-
+                                            
+                                                     <?php
+                                                include_once './botonReserva.php';
+                                                ?>
+                                           
+                                                 
                                             </div>
 
                                         </div>

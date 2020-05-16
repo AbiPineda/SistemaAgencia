@@ -1,8 +1,8 @@
 body {
-     text-align: center;
-    display: inline-block;
-    vertical-align: top;
-    border-collapse: collapse;
+    
+ 
+ 
+    
 }
 
 * {
@@ -10,6 +10,7 @@ body {
     user-select: none;
     cursor: default;
     box-sizing: border-box;
+      text-align: center;
 }
 
 .hidden {
@@ -774,7 +775,7 @@ body {
     }
 }
 
-
+///
 
 @media only screen and (min-width: 500px) {
 
