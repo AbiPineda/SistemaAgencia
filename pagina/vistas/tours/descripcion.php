@@ -3,20 +3,6 @@ include_once('../../config/parametros.php');
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
-<!-- Slick -->
-<link type="text/css" rel="stylesheet" href="../../css/slick.css" />
-<link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
-
-<!-- nouislider -->
-<link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
-
-<!-- Font Awesome Icon -->
-<link rel="stylesheet" href="../../css/font-awesome.min.css">
-
-<!-- Custom stlylesheet -->
-<link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
-
-
 <br>
 <br><br>
 
@@ -308,7 +294,3 @@ include_once '../../plantilla/menu.php';
 <?php
 include_once '../../plantilla/footer.php';
 ?>
-<!-- jQuery Plugins -->
-<script src="../../js/slick.min.js"></script>
-<script src="../../js/jquery.zoom.min.js"></script>
-<script src="../../js/mainG.js"></script>

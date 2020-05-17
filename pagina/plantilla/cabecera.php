@@ -3,7 +3,7 @@
 
     <head>
 
-        
+
         <meta charset="utf-8">
         <title>Martinez Travels & Tours</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -38,6 +38,15 @@
 
         <!-- Responsive Stylesheet File -->
         <link href="<?= $base_url ?>css/responsive.css" rel="stylesheet">
+
+        <link type="text/css" rel="stylesheet" href="../../css/slick.css" />
+        <link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
+        <!-- nouislider -->
+        <link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="../../css/font-awesome.min.css">
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
 
 
         <!-- =======================================================

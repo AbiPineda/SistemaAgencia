@@ -5,17 +5,6 @@ include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
 
-<!-- Slick -->
-<link type="text/css" rel="stylesheet" href="../../css/slick.css" />
-<link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
-<!-- nouislider -->
-<link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
-<!-- Font Awesome Icon -->
-<link rel="stylesheet" href="../../css/font-awesome.min.css">
-<!-- Custom stlylesheet -->
-<link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
-
-
 <br><br>
 
 
@@ -98,57 +87,56 @@ include_once '../../plantilla/menu.php';
                                                 </label>
                                             </div>
                                             <div class="row">
-                                            
-                                                     <?php
-                                                include_once './botonPaypal.php';
-                                                ?>
-                                               
-                                               
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <?php
+                                                    include_once './botonPaypal.php';
+                                                    ?>
+
+                                                </div>
                                             </div>
+
+
                                             <div class="row">
-                                            
-                                                     <?php
-                                                include_once './botonReserva.php';
-                                                ?>
-                                           
-                                                 
+                                                <!-- Start Google Map -->
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-lg btn-block boton-azul" >Realizar Cita</button>
+                                                </div>
+
+
+
+
+
+
                                             </div>
+                                            <!-- /Order Details -->
+
 
                                         </div>
-                                        <!-- /Order Details -->
-
-
                                     </div>
+                                    <!-- Products tab & slick -->
                                 </div>
-                                <!-- Products tab & slick -->
+                                <!-- /row -->
                             </div>
-                            <!-- /row -->
+                            <!-- /container -->
                         </div>
-                        <!-- /container -->
+                        <!-- /SECTION -->
+
+
+
+
                     </div>
-                    <!-- /SECTION -->
-
-
-
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Blog Area -->
+    <!-- End Blog Area -->
 
-<div class="clearfix"></div>
-
+    <div class="clearfix"></div>
 
 
 
 
-<?php
-include_once '../../plantilla/footer.php';
-?>
 
-<script src="../../js/slick.min.js"></script>
-<script src="../../js/nouislider.min.js"></script>
-<script src="../../js/jquery.zoom.min.js"></script>
-<script src="../../js/mainG.js"></script>
+    <?php
+    include_once '../../plantilla/footer.php';
+    ?>
