@@ -27,7 +27,7 @@
 }
 
 .accordion-group li:nth-child(2) .accordion-overlay {
-    background-color: #ca9964;
+    background-color: #d9cdc1;
     opacity: 0.8;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .accordion-group li:nth-child(1) .accordion-overlay {
-    background-color: #a87339;
+    background-color: #d9cdc1;
     opacity: 0.8;
 }
 

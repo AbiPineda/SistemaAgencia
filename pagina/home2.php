@@ -1,7 +1,7 @@
 <?php
 include_once('./config/parametros.php');
 include_once './plantilla/cabecera.php';
-include_once './plantilla/menu.php';
+include_once './plantilla/menuHome2.php';
 
 ?>
 
@@ -12,9 +12,6 @@ include_once './plantilla/menu.php';
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
-
 
 <!--Banner de auto -->
 <div class="header-bg-autos page-area">
@@ -33,7 +30,7 @@ include_once './plantilla/menu.php';
 
 
 
-<div class="blog-page area-padding">
+<div class="blog-page area-padding" style="margin-top: -67px;">
     <div class="container">
         <div class="row">
             <!-- End left sidebar -->
@@ -44,119 +41,201 @@ include_once './plantilla/menu.php';
                     <!-- SECTION -->
                     <div class="section">
                         <!-- container -->
-                        <div class="container">
+                        <div class="container" >
                             <!-- row -->
-                            <div class="row">
+                            <div class="row" >
 
 
                                 <div class="site-outer">
 
                                     <div class="site-inner">
-                                        <section class="container-fluid">
+                                        <section class="container-fluid" >
                                             <!-- ACCORDION ROW -->
                                             <div class="row">
-                                                <ul class="accordion-group" id="accordion">
-                                                    <li
-                                                        style="background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');">
+                                                <ul class="accordion-group" id="accordion" style="height: 413px;">
+                                                    <li style="background-image: url('<?=$base_url?>img/asesoria/banner.jpg">
+                                                          
+
                                                         <div class="accordion-overlay"></div>
-                                                        <h3>Rustic</h3>
+                                                       
                                                         <section class="hidden-xs">
                                                             <article>
-                                                                <p>Rual and rustic</p>
+                                                                <p>Asesoría Migratoria</p>
                                                             </article>
                                                         </section>
                                                     </li>
                                                     <li class="out"
-                                                        style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80');">
+                                                        style="background-image: url('<?=$base_url?>img/slider/001.jpg');">
                                                         <div class="accordion-overlay"></div>
-                                                        <h3>Clean</h3>
+                                                       
                                                         <section class="hidden-xs">
                                                             <article>
-                                                                <p>For the single or couple
-                                                                </p>
+                                                                <p>Tours</p>
                                                             </article>
                                                         </section>
                                                     </li>
                                                     <li
-                                                        style="background-image: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80');">
+                                                        style="background-image: url('<?=$base_url?>img/slider/003.jpg');">
                                                         <div class="accordion-overlay"></div>
-                                                        <h3>Stylish</h3>
                                                         <section class="hidden-xs">
                                                             <article>
-                                                                <p>When people want it cosy but stylish</p>
+                                                                <p>Paquetes Turísticos</p>
                                                             </article>
                                                         </section>
                                                     </li>
                                                     <li
-                                                        style="background-image: url('https://images.unsplash.com/photo-1495433324511-bf8e92934d90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');">
+                                                        style="background-image: url('<?=$base_url?>img/vehiculos/carrito.jpg');">
                                                         <div class="accordion-overlay"></div>
-                                                        <h3>Family</h3>
+                                                        
                                                         <section class="hidden-xs">
                                                             <article>
-                                                                <p>For the family dinner</p>
+                                                                <p>Vehiculos</p>
+                                                            </article>
+                                                        </section>
+                                                    </li>
+
+                                                    <li
+                                                        style="background-image: url('<?=$base_url?>img/tours/vueloss.jpg');">
+                                                        <div class="accordion-overlay"></div>
+                                                        
+                                                        <section class="hidden-xs">
+                                                            <article>
+                                                                <p>Vuelos</p>
                                                             </article>
                                                         </section>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <!-- BEGIN NEW ROW AFTER ACCORDION -->
-                                            <div class="row mg">
+<div class="row mg">
                                                 <!-- FIRST ROW -->
-                                                <div class="container">
-                                                    <h1 class="text-center head red">Quality</h1>
-                                                    <div class="row">
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <div class="product-box">
-                                                                <h3 class="text-center">High quality</h3>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                    typesetting industry. Lorem Ipsum has been the
-                                                                    industry's standard dummy text ever since the 1500s,
-                                                                    when an unknown printer took a galley of type and
-                                                                    scrambled it to make a type specimen book. It has
-                                                                    survived not only five centuries, but also the leap
-                                                                    into electronic typesetting, remaining essentially
-                                                                    unchanged. It was popularised in the 1960s with the
-                                                                    release of Letraset sheets containing Lorem Ipsum
-                                                                    passages, and more recently with desktop publishing
-                                                                    software like Aldus PageMaker including versions of
-                                                                    Lorem Ipsum.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <div class="product-box">
-                                                                <h3 class="text-center">Smart design</h3>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                    typesetting industry. Lorem Ipsum has been the
-                                                                    industry's standard dummy text ever since the 1500s,
-                                                                    when an unknown printer took a galley of type and
-                                                                    scrambled it to make a type specimen book. It has
-                                                                    survived not only five centuries, but also the leap
-                                                                    into electronic typesetting, remaining essentially
-                                                                    unchanged. It was popularised in the 1960s with the
-                                                                    release of Letraset sheets containing Lorem Ipsum
-                                                                    passages, and more recently with desktop publishing
-                                                                    software like Aldus PageMaker including versions of
-                                                                    Lorem Ipsum.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <div class="product-box">
-                                                                <h3 class="text-center">Modern or retro</h3>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                    typesetting industry. Lorem Ipsum has been the
-                                                                    industry's standard dummy text ever since the 1500s,
-                                                                    when an unknown printer took a galley of type and
-                                                                    scrambled it to make a type specimen book. It has
-                                                                    survived not only five centuries, but also the leap
-                                                                    into electronic typesetting, remaining essentially
-                                                                    unchanged. It was popularised in the 1960s with the
-                                                                    release of Letraset sheets containing Lorem Ipsum
-                                                                    passages, and more recently with desktop publishing
-                                                                    software like Aldus PageMaker including versions of
-                                                                    Lorem Ipsum.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+<div class="container" style="margin-top: -130px;">
+                                                      <!-- Start Service area -->
+    <div id="services" class="services-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline services-head text-center">
+                        <h2>Servicios</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="services-contents">
+                    <!-- Start Left services -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="#">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <h4>Asesoría Migratoria</h4>
+                                    <p>
+                                        Sí estás pensando en viajar a E.E.U.U ¡Asesórate con Nosotros!
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="#">
+                                        <i class="fa fa-camera-retro"></i>
+                                    </a>
+                                    <h4>Paquetes</h4>
+                                    <p>
+                                        Haz realidad tus sueños con nuestros paquetes turísticos para Centro América,
+                                        Sudamérica y Europa
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <!-- end col-md-4 -->
+                        <div class=" about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="./vistas/tours/">
+                                        <i class="fa fa-calendar"></i>
+                                    </a>
+                                    <h4>Tours</h4>
+                                    <p>
+                                        Quieres viajar? tu elige el destino, nosotros te llevamos haz realidad tus
+                                        sueños viaja a Centro América, Sudamérica y Europa
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <!-- end col-md-4 -->
+                        <div class=" about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="#">
+                                        <i class="fa fa-car"></i>
+                                    </a>
+                                    <h4>Renta de Vehiculos </h4>
+                                    <p>
+                                        Si lo que quieres es movilizarte en modernos vehículos, pregunta por nuestro
+                                        servicio de alquiler de autos.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                    <!-- End Left services -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <!-- end col-md-4 -->
+                        <div class=" about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="#">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                    <h4>Cargo Expreso</h4>
+                                    <p>
+                                        Deseas relizar envios al extrangero, no busques más somos la mejor opcion para
+                                        enviar tu encomienda.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                    <!-- End Left services -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <!-- end col-md-4 -->
+                        <div class=" about-move">
+                            <div class="services-details">
+                                <div class="single-services">
+                                    <a class="services-icon" href="#">
+                                        <i class="fa fa-users"></i>
+                                    </a>
+                                    <h4>Atención al Cliente 24/7</h4>
+                                    <p>
+                                        Tienes alguna duda, no te preocupes estamos aqui para ayudarte, ponte en
+                                        contacto con nosotros
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end about-details -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Service area -->
+
                                                 </div>
                                             </div>
                                         </section>
