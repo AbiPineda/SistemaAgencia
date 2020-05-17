@@ -141,6 +141,11 @@
 
 <script src="<?= $base_url ?>js/main.js"></script>
 
+<script src="<?= $base_url ?>js/slick.min.js"></script>
+<script src="<?= $base_url ?>js/nouislider.min.js"></script>
+<script src="<?= $base_url ?>js/jquery.zoom.min.js"></script>
+<script src="<?= $base_url ?>js/mainG.js"></script>
+
 
 </body>
 

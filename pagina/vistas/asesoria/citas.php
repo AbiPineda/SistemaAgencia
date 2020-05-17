@@ -177,8 +177,8 @@
             </div>
             <div id="content" class="col-lg-1"></div>
         </div>
-
-
-
     </div>
+
+
+</div>
 

@@ -88,8 +88,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn" oncli>
-                                                                <i class="fa fa-shopping-cart"></i>Reservar
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"  >
+                                                                <i class="fa fa-eye"></i>Ver
                                                             </button>
                                                         </div>
                                                     </div>
@@ -112,8 +112,8 @@ include_once '../../plantilla/menu.php';
                                                         </div>
 
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Detalle</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -136,8 +136,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -157,8 +157,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -178,8 +178,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -208,8 +208,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
@@ -229,8 +229,8 @@ include_once '../../plantilla/menu.php';
 
                                                         </div>
                                                         <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i
-                                                                    class="fa fa-shopping-cart"></i>Reservar</button>
+                                                            <button class="add-to-cart-btn"  onclick="location.href='descripcion.php'"><i
+                                                                    class="fa fa-eye"></i>Ver</button>
                                                         </div>
                                                     </div>
                                                     <!-- /product -->
