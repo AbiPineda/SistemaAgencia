@@ -48,7 +48,7 @@
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="<?= $base_url ?>css/styleGalery.css" />
 
-
+        <link href="<?= $base_url ?>css/modificaciones.css" rel="stylesheet">
         <!-- =======================================================
           Theme Name: eBusiness
           Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/

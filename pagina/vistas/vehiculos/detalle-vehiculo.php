@@ -30,9 +30,6 @@ include_once '../../plantilla/menu.php';
 <i class="fa fa-bars fa-5x"></i>
 <i class="fa fa-bars fa-10x"></i>
  -->
-
-
-
 <style>
 
 </style>
@@ -110,36 +107,25 @@ include_once '../../plantilla/menu.php';
                 <div class="product-details">
                     <h2 class="product-name"> Hyundai Elantra 2014</h2>
                     <div>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-
-                    </div>
-                    <div>
                         <h3 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h3>
-
                     </div>
                     <div class="product-rating">
                         <div class="col-md-6">
                             <!-- Iconos -->
-                            <i class="fa fa-car fa-1x" style="color: #c90100"></i>
-                            <p>Combustible:</p>
-                            <i class="fa fa-wrench fa-1x" style="color: #c90100"> </i>
-                            <p>Transmición:</p>
-                            <i class="fa fa-users fa-1x" style="color: #c90100"></i>
-                            <p>Pasajeros:</p>
+                            <i class="fa fa-car fa-1x" style="color: #009cde"></i>
+                            <p>Gasolina</p>
+                            <i class="fa fa-tachometer fa-1x" style="color:#009cde"> </i>
+                            <p>Automático</p>
+                            <i class="fa fa-users fa-1x" style="color: #009cde"></i>
+                            <p>Pasajeros:5</p>
                         </div>
                         <div class="col-md-6">
-                        <i class="fa fa-door-open fa-1x" style="color: #c90100"></i>
-                        <p>Puertas:</p>
-                        <i class="fa fa-volume-up fa-1x" style="color: #c90100"></i>
-                        <p>Sonido:</p>
-                        <i class="fa fa-wifi fa-1x" style="color: #c90100"></i>
-                        <p>Wifi:</p>
+                            <i class="fa fa-door fa-1x" style="color: #009cde"></i>
+                            <p>Puertas: 4</p>
+                            <i class="fa fa-volume-up fa-1x" style="color: #009cde"></i>
+                            <p>Sonido: Sí</p>
+                            <i class="fa fa-wifi fa-1x" style="color: #009cde"></i>
+                            <p>Wifi: Sí</p>
                         </div>
                         <!-- Fin de Iconos -->
                     </div>
@@ -147,8 +133,34 @@ include_once '../../plantilla/menu.php';
 
                     <div class="add-to-cart">
 
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                        <button class="add-to-cart-btn" data-toggle="modal" data-target="#modal-default"><i
+                                class="fa fa-shopping-cart"></i> Reservar</button>
                     </div>
+                    <!-- /.modal -->
+                    <div class="modal fade" id="modal-default">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title">Alquiler de Vehículo <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></h6>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                    <label>aqui formulario</label>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
 
 
 
@@ -161,9 +173,9 @@ include_once '../../plantilla/menu.php';
                 <div id="product-tab">
                     <!-- product tab nav -->
                     <ul class="tab-nav">
-                        <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
-                        <li><a data-toggle="tab" href="#tab2">Details</a></li>
-                        <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab1">Descripción</a></li>
+                        <li><a data-toggle="tab" href="#tab2">Detalles</a></li>
+
                     </ul>
                     <!-- /product tab nav -->
 
@@ -216,7 +228,7 @@ include_once '../../plantilla/menu.php';
 
                 <div class="col-md-12">
                     <div class="section-title text-center">
-                        <h3 class="title">Related Products</h3>
+                        <h3 class="title">Productos Relacionados</h3>
                     </div>
                 </div>
 
@@ -230,22 +242,21 @@ include_once '../../plantilla/menu.php';
                             </div>
                         </div>
                         <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            <p class="product-category">Sedan</p>
+                            <h3 class="product-name"><a href="#">Hyundai Elantra 2014</a></h3>
+                            <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
                             <div class="product-rating">
                             </div>
                             <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-                                        to wishlist</span></button>
-                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
-                                        to compare</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                        view</span></button>
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                        class="tooltipp">Lista de Deseos</span></button>
+
+                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
+                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -255,33 +266,27 @@ include_once '../../plantilla/menu.php';
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product02.png" alt="">
+                            <img src="../../img/vehiculos/hyundai-elantra.png" alt="">
                             <div class="product-label">
                                 <span class="new">NEW</span>
                             </div>
                         </div>
                         <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            <p class="product-category">Económico</p>
+                            <h3 class="product-name"><a href="#"> Hyundai Elantra 2010</a></h3>
+                            <h4 class="product-price">$23.90 <del class="product-old-price">$35.00</del></h4>
                             <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
                             </div>
                             <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-                                        to wishlist</span></button>
-                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
-                                        to compare</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                        view</span></button>
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                        class="tooltipp">Lista de Deseos</span></button>
+
+                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
+                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -293,30 +298,24 @@ include_once '../../plantilla/menu.php';
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product03.png" alt="">
+                            <img src="../../img/vehiculos/ford.png" alt="">
                         </div>
                         <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            <p class="product-category">Microbus</p>
+                            <h3 class="product-name"><a href="#">Ford Scape 2010</a></h3>
+                            <h4 class="product-price">$38.50 <del class="product-old-price">$40.00</del></h4>
                             <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
                             </div>
                             <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-                                        to wishlist</span></button>
-                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
-                                        to compare</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                        view</span></button>
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                        class="tooltipp">Lista de Deseos</span></button>
+
+                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
+                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -326,25 +325,24 @@ include_once '../../plantilla/menu.php';
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product04.png" alt="">
+                            <img src="../../img/vehiculos/mishubichi.png" alt="">
                         </div>
                         <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            <p class="product-category">Sedan</p>
+                            <h3 class="product-name"><a href="#">Mitsubishi Lancer 2015</a></h3>
+                            <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
                             <div class="product-rating">
                             </div>
                             <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-                                        to wishlist</span></button>
-                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
-                                        to compare</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                        view</span></button>
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                        class="tooltipp">Lista de Deseos</span></button>
+
+                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
+                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -358,17 +356,9 @@ include_once '../../plantilla/menu.php';
     <!-- /Section -->
     <!-- /FIN DE MOSTRAR PRODUCTOS ABAJO -->
 
-
-
-
-
-
-
     <!-- /FIN .content-wrapper -->
 </div>
 
-</div>
-</div>
 
 
 <!-- jQuery Plugins -->
