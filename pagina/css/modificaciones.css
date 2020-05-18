@@ -11,7 +11,7 @@ body{
 }
 
 .products-slick .slick-list{
-    background: white;
+   // background: white;
 }
 
 
@@ -36,7 +36,8 @@ body{
     background: #009bded7;
 }
 .section{
-    padding-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .section-title {
@@ -47,6 +48,23 @@ body{
 
 .caja-footer {
      background: white;
+     margin-top: 30px;
    
      
+}
+
+.form-control{
+    margin: 2px;
+}
+label{
+    margin: 2px;
+}
+#tabContentModificado{
+    padding: 0 15px 61px;
+    margin-bottom: 20px;
+}
+
+.footer-area {
+    padding: 0px 0;
+   
 }

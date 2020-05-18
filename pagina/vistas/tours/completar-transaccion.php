@@ -11,13 +11,6 @@ include_once '../../plantilla/menu.php';
 
 
 
-<div class="blog-page area-padding">
-    <div class="container">
-        <div class="row">
-            <!-- End left sidebar -->
-            <!-- Start single blog -->
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="row">
 
                     <!-- SECTION -->
                     <div class="section">
@@ -27,7 +20,7 @@ include_once '../../plantilla/menu.php';
                             <div class="row">
 
                                 <!-- section title -->
-                                <div class="col-md-12">
+                                <div class="col-md-12 fondo-blanco">
                                     <div class="section-title">
                                         <h3 class="title">Completa la transaccion</h3>
                                         <div class="section-nav">
@@ -38,8 +31,8 @@ include_once '../../plantilla/menu.php';
                                 <!-- /section title -->
 
                                 <!-- Products tab & slick -->
-                                <div class="col-md-12">
-                                    <div class="row">
+                                <div class="col-md-12 fondo-blanco">
+                                    <div class="row fondo-blanco">
 
 
 
@@ -120,16 +113,10 @@ include_once '../../plantilla/menu.php';
                             <!-- /container -->
                         </div>
                         <!-- /SECTION -->
+                    </div>>
 
 
 
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Blog Area -->
 
     <div class="clearfix"></div>
 

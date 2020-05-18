@@ -43,9 +43,7 @@ include_once '../../config/parametros.php';
                                             <label>Titulo del viaje</label>
 
                                             <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
-                                                                                                </div>-->
+                                                                                  >
                                                 <input type="text" class="form-control" value="!VAMONOS A COSTA RICA¡">
                                             </div>
                                             <!-- /.input group -->
@@ -56,11 +54,7 @@ include_once '../../config/parametros.php';
                                             <label>Fecha del viaje</label>
 
                                             <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text">
-                                                                                                        <i class="far fa-calendar-alt"></i>
-                                                                                                    </span>
-                                                                                                </div>-->
+                                                
 
                                                 <input type="text" class="form-control float-right" id="reservation">
 
@@ -74,9 +68,7 @@ include_once '../../config/parametros.php';
                                         <div class="form-group">
                                             <label>Lugar de Salida</label>
                                             <div class="input-group">
-                                                <!--                                                <div class="input-group-prepend">
-                                                                                                    <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
-                                                                                                </div>-->
+                                                
                                                 <input type="text" class="form-control" value="Parque Cañas San Vicente 8:00 am">
                                             </div>
                                             <!-- /.input group -->
