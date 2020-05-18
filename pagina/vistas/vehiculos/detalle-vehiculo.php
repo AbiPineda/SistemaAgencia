@@ -30,9 +30,6 @@ include_once '../../plantilla/menu.php';
 <i class="fa fa-bars fa-5x"></i>
 <i class="fa fa-bars fa-10x"></i>
  -->
-
-
-
 <style>
 
 </style>
@@ -117,13 +114,13 @@ include_once '../../plantilla/menu.php';
                             <!-- Iconos -->
                             <i class="fa fa-car fa-1x" style="color: #009cde"></i>
                             <p>Gasolina</p>
-                            <i class="fa fa-wrench fa-1x" style="color:#009cde"> </i>
+                            <i class="fa fa-tachometer fa-1x" style="color:#009cde"> </i>
                             <p>Automático</p>
                             <i class="fa fa-users fa-1x" style="color: #009cde"></i>
                             <p>Pasajeros:5</p>
                         </div>
                         <div class="col-md-6">
-                            <i class="fa fa-door-open fa-1x" style="color: #009cde"></i>
+                            <i class="fa fa-door fa-1x" style="color: #009cde"></i>
                             <p>Puertas: 4</p>
                             <i class="fa fa-volume-up fa-1x" style="color: #009cde"></i>
                             <p>Sonido: Sí</p>
@@ -136,8 +133,37 @@ include_once '../../plantilla/menu.php';
 
                     <div class="add-to-cart">
 
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                        <button class="add-to-cart-btn" data-toggle="modal" data-target="#modal-default"><i
+                                class="fa fa-shopping-cart"></i> Reservar</button>
                     </div>
+
+
+
+
+                    <div class="modal fade" id="modal-default">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title">Alquiler de Vehículo <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></h6>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                    <label>aqui formulario</label>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+
 
 
 
@@ -333,17 +359,9 @@ include_once '../../plantilla/menu.php';
     <!-- /Section -->
     <!-- /FIN DE MOSTRAR PRODUCTOS ABAJO -->
 
-
-
-
-
-
-
     <!-- /FIN .content-wrapper -->
 </div>
 
-</div>
-</div>
 
 
 <!-- jQuery Plugins -->
