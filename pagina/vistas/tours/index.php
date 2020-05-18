@@ -256,7 +256,7 @@ include_once '../../plantilla/menu.php';
 
 
 
-
+<br><br>
 <?php
 include_once '../../plantilla/footer.php';
 ?>

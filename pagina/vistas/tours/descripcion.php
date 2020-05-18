@@ -4,9 +4,10 @@ include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
 <br>
-<br><br><br>
 
+<br><br><br>
 <div class="section">
+    
     <div class="container">
         <div class="row fondo-blanco">
             <!-- inicio -->
