@@ -136,10 +136,7 @@ include_once '../../plantilla/menu.php';
                         <button class="add-to-cart-btn" data-toggle="modal" data-target="#modal-default"><i
                                 class="fa fa-shopping-cart"></i> Reservar</button>
                     </div>
-
-
-
-
+                    <!-- /.modal -->
                     <div class="modal fade" id="modal-default">
                         <div class="modal-dialog">
                             <div class="modal-content">
