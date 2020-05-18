@@ -16,8 +16,8 @@ body {
   width: 430px;
   background:
     linear-gradient(
-    rgba(35,43,85,0.75),
-    rgba(35,43,85,0.95)),
+    rgba(28, 57, 208, 0.75),
+    rgba(60, 65, 85, 0.95)),
     url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
   background-size: cover;
   margin-left: auto;
