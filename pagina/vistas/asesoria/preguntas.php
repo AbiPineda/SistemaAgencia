@@ -9,6 +9,8 @@ include_once '../../plantilla/menu.php';
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <style>
 .panel.with-nav-tabs .panel-heading {
     padding: 5px 5px 0 5px;
@@ -50,7 +52,7 @@ include_once '../../plantilla/menu.php';
 }
 
 .with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #009cde;
+    background-color: #f5f5f5;
     border-color: #ddd;
 }
 
@@ -70,249 +72,31 @@ include_once '../../plantilla/menu.php';
     background-color: #555;
 }
 
-/********************************************************************/
-/*** PANEL PRIMARY ***/
-.with-nav-tabs.panel-primary .nav-tabs>li>a,
-.with-nav-tabs.panel-primary .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>li>a:focus {
-    color: #fff;
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.with-nav-tabs.panel-primary .nav-tabs>.open>a,
-.with-nav-tabs.panel-primary .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-primary .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>li>a:focus {
-    color: #fff;
-    background-color: #3071a9;
-    border-color: transparent;
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.with-nav-tabs.panel-primary .nav-tabs>li.active>a,
-.with-nav-tabs.panel-primary .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>li.active>a:focus {
-    color: #428bca;
-    background-color: #fff;
-    border-color: #428bca;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #428bca;
-    border-color: #3071a9;
-}
-
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #fff;
-}
-
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #3071a9;
-}
-
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    background-color: #4a9fe9;
-}
-
-/********************************************************************/
-/*** PANEL SUCCESS ***/
-.with-nav-tabs.panel-success .nav-tabs>li>a,
-.with-nav-tabs.panel-success .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>li>a:focus {
-    color: #3c763d;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>.open>a,
-.with-nav-tabs.panel-success .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-success .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>li>a:focus {
-    color: #3c763d;
-    background-color: #d6e9c6;
-    border-color: transparent;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>li.active>a,
-.with-nav-tabs.panel-success .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>li.active>a:focus {
-    color: #3c763d;
-    background-color: #fff;
-    border-color: #d6e9c6;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #3c763d;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #d6e9c6;
-}
-
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-success .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    color: #fff;
-    background-color: #3c763d;
-}
-
-/********************************************************************/
-/*** PANEL INFO ***/
-.with-nav-tabs.panel-info .nav-tabs>li>a,
-.with-nav-tabs.panel-info .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>li>a:focus {
-    color: #31708f;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>.open>a,
-.with-nav-tabs.panel-info .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-info .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>li>a:focus {
-    color: #31708f;
-    background-color: #bce8f1;
-    border-color: transparent;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>li.active>a,
-.with-nav-tabs.panel-info .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>li.active>a:focus {
-    color: #31708f;
-    background-color: #fff;
-    border-color: #bce8f1;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #31708f;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #bce8f1;
-}
-
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-info .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    color: #fff;
-    background-color: #31708f;
-}
-
-/********************************************************************/
-/*** PANEL WARNING ***/
-.with-nav-tabs.panel-warning .nav-tabs>li>a,
-.with-nav-tabs.panel-warning .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>li>a:focus {
-    color: #8a6d3b;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>.open>a,
-.with-nav-tabs.panel-warning .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-warning .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>li>a:focus {
-    color: #8a6d3b;
-    background-color: #faebcc;
-    border-color: transparent;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>li.active>a,
-.with-nav-tabs.panel-warning .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>li.active>a:focus {
-    color: #8a6d3b;
-    background-color: #fff;
-    border-color: #faebcc;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #fcf8e3;
-    border-color: #faebcc;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #8a6d3b;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #faebcc;
-}
-
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-warning .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    color: #fff;
-    background-color: #8a6d3b;
-}
-
-/********************************************************************/
-/*** PANEL DANGER ***/
-.with-nav-tabs.panel-danger .nav-tabs>li>a,
-.with-nav-tabs.panel-danger .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>li>a:focus {
-    color: #a94442;
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>.open>a,
-.with-nav-tabs.panel-danger .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-danger .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>li>a:focus {
-    color: #a94442;
-    background-color: #ebccd1;
-    border-color: transparent;
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>li.active>a,
-.with-nav-tabs.panel-danger .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>li.active>a:focus {
-    color: #a94442;
-    background-color: #fff;
-    border-color: #ebccd1;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #f2dede;
-    /* bg color */
-    border-color: #ebccd1;
-    /* border color */
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #a94442;
-    /* normal text color */
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #ebccd1;
-    /* hover bg color */
-}
-
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-danger .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    color: #fff;
-    /* active text color */
-    background-color: #a94442;
-    /* active bg color */
+input[type=submit]:hover {
+    background-color: #45a049;
 }
 </style>
 
@@ -362,21 +146,160 @@ include_once '../../plantilla/menu.php';
                                                     <ul class="nav nav-tabs">
                                                         <li class="active"><a href="#tab1default"
                                                                 data-toggle="tab">Información Personal</a></li>
-                                                        <li><a href="#tab2default" data-toggle="tab">Información de Viaje</a></li>
-                                                        <li><a href="#tab3default" data-toggle="tab">Información Familiar</a></li>
-                                                        <li><a href="#tab4default" data-toggle="tab">Formación Academica</a></li>
-                                                        
+                                                        <li><a href="#tab2default" data-toggle="tab">Información de
+                                                                Viaje</a></li>
+                                                        <li><a href="#tab3default" data-toggle="tab">Información
+                                                                Familiar</a></li>
+                                                        <li><a href="#tab4default" data-toggle="tab">Formación
+                                                                Academica</a></li>
+
                                                     </ul>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="tab-content">
-                                                        <div class="tab-pane fade in active" id="tab1default">Default 1
+                                                        <div class="tab-pane fade in active" id="tab1default">
+                                                            <div class="container contact-form">
+                                                                <form method="post">
+                                                                    <h3>Datos Generales de Información Personal</h3>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Nombre según su
+                                                                                    pasaporte?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre de soltera/o?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Dirección de casa?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Correo
+                                                                                    electrónico?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Fecha de nacimiento?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Número de teléfono casa?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Número de teléfono
+                                                                                    oficina?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Número de teléfono celular?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Número de pasaporte?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Tipo de
+                                                                                    pasaporte?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Ha perdido algún pasaporte o se lo
+                                                                                    han robado? </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Redes Sociales que utiliza?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="submit" value="Guardar">
+                                                            </form>
                                                         </div>
-                                                        <div class="tab-pane fade" id="tab2default">Default 2</div>
-                                                        <div class="tab-pane fade" id="tab3default">Default 3</div>
-                                                        <div class="tab-pane fade" id="tab4default">Default 4</div>
-                                                        <div class="tab-pane fade" id="tab5default">Default 5</div>
+                                                        
+
+
                                                     </div>
+                                                    <div class="tab-pane fade" id="tab2default">Default 2
+
+
+                                                    <label>Eunice</label>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="tab3default">Default 3
+
+
+                                                    <label>Abi</label>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="tab4default">Default 4</div>
+                                                    <div class="tab-pane fade" id="tab5default">Default 5</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -389,6 +312,7 @@ include_once '../../plantilla/menu.php';
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
