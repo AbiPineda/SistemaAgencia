@@ -8,30 +8,14 @@ include_once './plantilla/menuHome2.php';
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="<?=$base_url?>css/home2.css">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!--Banner de auto -->
-<div class="header-bg-autos page-area">
-    <div class="home-overly"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <br><br><br>
+       <div class="blog-page area-padding">
 
-
-            </div>
-        </div>
-    </div>
-</div>
-<!--Banner de auto -->
-
-
-
-<div class="blog-page area-padding" style="margin-top: -67px;">
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <!-- End left sidebar -->
             <!-- Start single blog -->
@@ -41,7 +25,7 @@ include_once './plantilla/menuHome2.php';
                     <!-- SECTION -->
                     <div class="section">
                         <!-- container -->
-                        <div class="container" >
+                        <div class="container">
                             <!-- row -->
                             <div class="row" >
 
@@ -50,6 +34,7 @@ include_once './plantilla/menuHome2.php';
 
                                     <div class="site-inner">
                                         <section class="container-fluid" >
+                                          
                                             <!-- ACCORDION ROW -->
                                             <div class="row">
                                                 <ul class="accordion-group" id="accordion" style="height: 413px;">
@@ -106,13 +91,23 @@ include_once './plantilla/menuHome2.php';
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!-- BEGIN NEW ROW AFTER ACCORDION -->
+                                     
+                                            <!-- BEGIN NEW ROW AFTER ACCORDION --> 
+   
+      </section>
+    </div>
+    
+
+</div>
+</div>
+
 <div class="row mg">
                                                 <!-- FIRST ROW -->
-<div class="container" style="margin-top: -130px;">
+<div class="container" style="margin-top: -127px;">
                                                       <!-- Start Service area -->
     <div id="services" class="services-area area-padding">
-        <div class="container">
+   
+        <div class="container" id="registro_mostrar">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-headline services-head text-center">
@@ -238,7 +233,7 @@ include_once './plantilla/menuHome2.php';
 
                                                 </div>
                                             </div>
-                                        </section>
+                                      
                                     </div>
 
 
@@ -263,9 +258,7 @@ include_once './plantilla/menuHome2.php';
 
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+       
 <!-- End Blog Area -->
 
 <div class="clearfix"></div>
@@ -426,7 +419,16 @@ $("select").each(function() {
 }.call(this));
 </script>
 
-
+  <!--contenido principal-->
+    <script type="text/javascript">
+        function cargar_contenido(contenedor,contenido){
+            localStorage.setItem('contenido',contenido);
+            //alert(contenido);
+            //alert(contenedor);
+          $("#"+contenedor).load(contenido);
+          //alert(contenido);
+        }
+    </script>
 
 
 <?php 

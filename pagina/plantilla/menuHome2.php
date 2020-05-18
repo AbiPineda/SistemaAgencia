@@ -1,4 +1,5 @@
-  <body data-spy="scroll" data-target="#navbar-example">
+ <body data-spy="scroll" data-target="#navbar-example">
+
 
         <div id="preloader"></div>
 
@@ -36,7 +37,7 @@
                                         </li>
 
                                         <li>
-                                            <a class="page-scroll" href="#contact">Regristrate</a>
+                                            <a class="page-scroll" onclick="cargar_contenido('registro_mostrar', '<?= $base_url ?>registrate.php')">Regristrate</a>
                                         </li>
 
 
