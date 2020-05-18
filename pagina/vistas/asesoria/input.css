@@ -1,0 +1,85 @@
+    .title {
+  background-color: #8470ff;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-title p{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-size: 40px;
+}
+
+#toDoList {
+  display: relative;
+  margin-top: 60px;
+}
+
+
+#newItem {
+  text-align: center;
+}
+
+#submitNew {
+  display: flex;
+  justify-content: center;
+}
+
+#toDoList input  {
+  width: 60%;
+  margin: auto;
+}
+
+/*Email sign up mark*/
+
+#emailSignUp {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+#returnForm {
+  text-align: center;
+}
+
+#SecondSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#Head1 {
+  font-family: 'Thasadith', sans-serif;
+  color: #6c5ce7;
+}
+
+.ExplainationText {
+  font-family: 'Thasadith', sans-serif;
+  color: #6c5ce7;
+  display: flex;
+  justify-content: center;
+}
+
+table, th, td {
+  border: 2px solid black;
+  margin: auto;
+}
+
+/*
+
+Form and table
+
+*/
+
+
+.containerForWhole {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.containerForWhole {
+  text-align: center;
+}     
