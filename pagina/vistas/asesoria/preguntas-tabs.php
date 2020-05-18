@@ -270,7 +270,7 @@ input[type=submit]:hover {
                                                                                     </option>
                                                                                     <option value="robado">Robado
                                                                                     </option>
-                                                                                    
+
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -295,10 +295,10 @@ input[type=submit]:hover {
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="tab2default">Default 2
+                                                        <div class="tab-pane fade" id="tab2default">
                                                             <div class="container contact-form">
                                                                 <form method="post">
-                                                                    <h3>Drop Us a Message</h3>
+                                                                    <h3>Datos de Información sobre Viajes</h3>
                                                                     <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
@@ -309,11 +309,153 @@ input[type=submit]:hover {
                                                                                     placeholder="Your name..">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <input type="submit" name="btnSubmit"
-                                                                                class="btnContact"
-                                                                                value="Send Message" />
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Cuántas personas que
+                                                                                    viajaran con usted?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
                                                                         </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre de las personas?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Parentesco que tiene
+                                                                                    con ellas?</label>
+                                                                                <select id="parentesco"
+                                                                                    name="parentesco">
+                                                                                    <option value="madre">Madre</option>
+                                                                                    <option value="padre">Padre</option>
+                                                                                    <option value="hermanos">Hermano/a
+                                                                                    </option>
+                                                                                    <option value="primos">Primo/a
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Ha tenido visa
+                                                                                    antes?</label>
+                                                                                <select id="visa" name="visa">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname"> ¿Ha viajado antes a
+                                                                                    EEUU? </label>
+                                                                                <select id="viajar" name="viajar">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Tiene alguna
+                                                                                    petición trámite con
+                                                                                    la embajada?</label>
+                                                                                <select id="peticion" name="peticion">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre de la empresa que visitará
+                                                                                    en los EEUU?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Dirección de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Dirección de esa empresa?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Número de teléfono de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Teléfono de esa empresa?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿E-mail de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿E-mail de la empresa?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <div class="form-group">
+                                                                                <input type="submit" name="btnSubmit"
+                                                                                    class="btnContact"
+                                                                                    value="Guardar" />
+                                                                            </div>
+                                                                        </div>
+
                                                                     </div>
                                                                 </form>
                                                             </div>
