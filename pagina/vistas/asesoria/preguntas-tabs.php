@@ -160,7 +160,7 @@ input[type=submit]:hover {
                                                         <div class="tab-pane fade in active" id="tab1default">
                                                             <div class="container contact-form">
                                                                 <form method="post">
-                                                                    <h3>Drop Us a Message</h3>
+                                                                    <h3>Datos de Información Personal</h3>
                                                                     <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
@@ -168,13 +168,128 @@ input[type=submit]:hover {
                                                                                     pasaporte?</label>
                                                                                 <input type="text" id="fname"
                                                                                     name="firstname"
-                                                                                    placeholder="Your name..">
+                                                                                    placeholder="Digite su nombre:">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <input type="submit" name="btnSubmit"
-                                                                                class="btnContact"
-                                                                                value="Send Message" />
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Nombre de
+                                                                                    soltera/o?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su nombre:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Dirección de casa?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su dirección:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Correo
+                                                                                    electrónico?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su correo electrónico:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Fecha de
+                                                                                    nacimiento?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Ingrese su fecha de nacimiento:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Número de teléfono
+                                                                                    casa?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su numero:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Número de teléfono
+                                                                                    oficina?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su numero:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Número de teléfono
+                                                                                    celular?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su numero:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Número de
+                                                                                    pasaporte?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Digite su numero:">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Tipo de
+                                                                                    pasaporte?</label>
+                                                                                <select id="pasaporte" name="pasaporte">
+                                                                                    <option value="diplomatico">
+                                                                                        Diplomatico
+                                                                                    </option>
+                                                                                    <option value="oficial">Oficial
+                                                                                    </option>
+                                                                                    <option value="salvoconductos">
+                                                                                        Salvoconductos
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Ha perdido algún
+                                                                                    pasaporte o se lo han robado?
+                                                                                </label>
+                                                                                <select id="perdido" name="perdido">
+                                                                                    <option value="perdido">
+                                                                                        Perdido
+                                                                                    </option>
+                                                                                    <option value="robado">Robado
+                                                                                    </option>
+                                                                                    
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Redes Sociales que utiliza?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Redes sociales">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <div class="form-group">
+                                                                                <input type="submit" name="btnSubmit"
+                                                                                    class="btnContact"
+                                                                                    value="Guardar" />
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -187,7 +302,8 @@ input[type=submit]:hover {
                                                                     <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
-                                                                                <label for="fname">¿Fecha probable de viaje?</label>
+                                                                                <label for="fname">¿Fecha probable de
+                                                                                    viaje?</label>
                                                                                 <input type="text" id="fname"
                                                                                     name="firstname"
                                                                                     placeholder="Your name..">
@@ -202,9 +318,75 @@ input[type=submit]:hover {
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="tab3default">Default 3</div>
-                                                        <div class="tab-pane fade" id="tab4default">Default 4</div>
-                                                        <div class="tab-pane fade" id="tab5default">Default 5</div>
+                                                        <div class="tab-pane fade" id="tab3default">Default 3
+                                                            <div class="container contact-form">
+                                                                <form method="post">
+                                                                    <h3>Drop Us a Message</h3>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Fecha probable de
+                                                                                    viaje?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="submit" name="btnSubmit"
+                                                                                class="btnContact"
+                                                                                value="Send Message" />
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="tab4default">Default 4
+                                                            <div class="container contact-form">
+                                                                <form method="post">
+                                                                    <h3>Drop Us a Message</h3>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Fecha probable de
+                                                                                    viaje?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="submit" name="btnSubmit"
+                                                                                class="btnContact"
+                                                                                value="Send Message" />
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="tab5default">Default 5
+                                                            <div class="container contact-form">
+                                                                <form method="post">
+                                                                    <h3>Drop Us a Message</h3>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">¿Fecha probable de
+                                                                                    viaje?</label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="submit" name="btnSubmit"
+                                                                                class="btnContact"
+                                                                                value="Send Message" />
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
