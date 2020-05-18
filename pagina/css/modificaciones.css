@@ -1,0 +1,52 @@
+.header-area{
+    background:   black;
+} 
+
+.navbar-toggle .icon-bar {
+    background: white;
+}
+
+body{
+    background: #f9f9f9;
+}
+
+.products-slick .slick-list{
+    background: white;
+}
+
+
+.fondo-blanco{
+    background: white;
+}
+
+.footer-area-bottom{
+    background: black;
+}
+
+.products-slick .slick-list {
+    
+    //background: #f9f9f9;  
+    background: white;
+}
+.copyright>p{
+    color: white;
+}
+
+.product .add-to-cart{
+    background: #009bded7;
+}
+.section{
+    padding-top: 15px;
+}
+
+.section-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 40px;
+}
+
+.caja-footer {
+     background: white;
+   
+     
+}
