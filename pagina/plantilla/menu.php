@@ -10,7 +10,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
 
                             <!-- Navigation -->
-                            <nav class="navbar navbar-default">
+                            <nav class="navbar navbar-dark" >
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
