@@ -77,7 +77,51 @@
                 <div class="row">
                     <!-- Start Google Map -->
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <button class="btn btn-lg btn-block boton-azul" >INICIAR CHAT CON SERVICIO AL CLIENTE</button>
+                        <!--PONDRE EL CHAT-->
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="./css/chat.css">
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="floating-chat enter">
+<i class="fa fa-comments" aria-hidden="true"></i>
+<div class="chat">
+<div class="header">
+<span class="title">
+MartínezT&T
+</span>
+<button>
+<i class="fa fa-times" aria-hidden="true"></i>
+</button>
+</div>
+<ul class="messages">
+<li class="other">Hola Estamos para servirte</li>
+<li class="other">¿Que servicio deseas?</li>
+<li class="self">Tours</li>
+<li class="other">Paquetes</li>
+<li class="self">Vehiculos solo chulada y con A/C</li>
+<li class="other">Vuelos</li>
+<li class="self">Encomienda</li>
+</ul>
+<div class="footer">
+<div class="text-box" disabled="true" contenteditable="true"></div>
+<button id="sendMessage">Enviar</button>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="./js/chat.js"></script>
+
+                        <!--FIN DEL CHAT-->
                     </div>
 
                 </div>
