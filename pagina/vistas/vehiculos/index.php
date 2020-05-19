@@ -44,10 +44,10 @@ include_once '../../plantilla/portada.php';
                 <div class="col-md-4 col-sm-4 col-xs-12 design ">
                     <div class="single-awesome-project">
                         <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/conchagua.jpg" alt="" /></a>
+                            <a href="#"><img src="../../img/tours/conchagua.jpg" alt="" /></a>
                             <div class="add-actions text-center">
                                 <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery" href="<?=$base_url?>img/portfolio/conchagua.jpg">
+                                    <a class="venobox" data-gall="myGallery" href="../../img/tours/conchagua.jpg">
                                         <h4>HORA DE SALIDA: 5:00 AM</h4>
                                         <span>LUGARES A VISITAR:
                                             ✔VOLCAN DE CONCHAGUA
@@ -75,10 +75,10 @@ include_once '../../plantilla/portada.php';
                 <div class="col-md-4 col-sm-4 col-xs-12 development">
                     <div class="single-awesome-project">
                         <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/machupichu.jpg" alt="" /></a>
+                            <a href="#"><img src="../../img/tours/machupichu.jpg" alt="" /></a>
                             <div class="add-actions text-center">
                                 <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery" href="<?=$base_url?>img/portfolio/machupichu.jpg">
+                                    <a class="venobox" data-gall="myGallery" href="../../img/tours/machupichu.jpg">
                                         <h4>Paquete disponible año 2020</h4>
                                         <span>VISITANDO:
                                             ✔ City Tour en Cusco
@@ -101,10 +101,10 @@ include_once '../../plantilla/portada.php';
                 <div class="col-md-4 col-sm-4 col-xs-12 development">
                     <div class="single-awesome-project">
                         <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/panama.jpg" alt="" /></a>
+                            <a href="#"><img src="../../img/tours/panama.jpg" alt="" /></a>
                             <div class="add-actions text-center">
                                 <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery" href="<?=$base_url?>img/portfolio/panama.jpg">
+                                    <a class="venobox" data-gall="myGallery" href="../../img/tours/panama.jpg">
                                         <h4>VÁMONOS A PANAMÁ (POR TIERRA)</h4>
                                         <span>VISITANDO:
                                             ✔️ CIUDAD DE PANAMÁ
@@ -130,10 +130,10 @@ include_once '../../plantilla/portada.php';
                 <div class="col-md-4 col-sm-4 col-xs-12 development">
                     <div class="single-awesome-project">
                         <div class="awesome-img">
-                            <a href="#"><img src="<?=$base_url?>img/portfolio/nicaragua.jpg" alt="" /></a>
+                            <a href="#"><img src="../../img/tours/nicaragua.jpg" alt="" /></a>
                             <div class="add-actions text-center">
                                 <div class="project-dec">
-                                    <a class="venobox" data-gall="myGallery" href="img/portfolio/nicaragua.jpg">
+                                    <a class="venobox" data-gall="myGallery" href="../../img/tours/nicaragua.jpg">
                                         <h4>VÁMONOS A NICARAGUA
                                             DEL 4 AL 8 DE ABRIL 2020</h4>
                                         <span>VISITANDO:

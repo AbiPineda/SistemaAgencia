@@ -29,20 +29,18 @@ include_once '../../plantilla/menu.php';
 <i class="fa fa-bars fa-4x"></i>
 <i class="fa fa-bars fa-5x"></i>
 <i class="fa fa-bars fa-10x"></i>
- -->
+-->
 <style>
 
 </style>
-
+<br><br><br>
 <!--Banner de auto -->
-<div class="header-bg page-area">
+<div class="header-bg page-area" style="padding-top: 10px">
     <div class="home-overly"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <BR>
-                <BR>
-                <BR>
+                
 
 
             </div>
@@ -50,12 +48,13 @@ include_once '../../plantilla/menu.php';
     </div>
 </div>
 <!--Banner de auto -->
+<div class="section">
 
-
-
-<div id="portfolio" class="portfolio-area area-padding fix">
     <div class="container">
-        <div class="row">
+        <div class="row fondo-blanco">
+<br><br>
+
+
             <!-- inicio -->
 
             <!-- Product main img -->
@@ -75,7 +74,7 @@ include_once '../../plantilla/menu.php';
 
                     <div class="product-preview">
                         <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
-                            alt="">
+                             alt="">
                     </div>
                 </div>
             </div>
@@ -97,7 +96,7 @@ include_once '../../plantilla/menu.php';
 
                     <div class="product-preview">
                         <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
-                            alt="">
+                             alt="">
                     </div>
                 </div>
             </div>
@@ -142,9 +141,9 @@ include_once '../../plantilla/menu.php';
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h6 class="modal-title">Alquiler de Vehículo <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button></h6>
-                                    
+                                            <span aria-hidden="true">&times;</span>
+                                        </button></h6>
+
                                 </div>
                                 <div class="modal-body">
                                     <label>aqui formulario</label>
@@ -213,151 +212,153 @@ include_once '../../plantilla/menu.php';
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-
-
-    <!-- /MOSTRAR PRODUCTOS ABAJO -->
-
-    <!-- Section -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="section-title text-center">
-                        <h3 class="title">Productos Relacionados</h3>
-                    </div>
-                </div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="../../img/vehiculos/hyundai.png" alt="">
-                            <div class="product-label">
-                                <span class="sale">-30%</span>
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Sedan</p>
-                            <h3 class="product-name"><a href="#">Hyundai Elantra 2014</a></h3>
-                            <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                        class="tooltipp">Lista de Deseos</span></button>
-
-                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
-                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="../../img/vehiculos/hyundai-elantra.png" alt="">
-                            <div class="product-label">
-                                <span class="new">NEW</span>
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Económico</p>
-                            <h3 class="product-name"><a href="#"> Hyundai Elantra 2010</a></h3>
-                            <h4 class="product-price">$23.90 <del class="product-old-price">$35.00</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                        class="tooltipp">Lista de Deseos</span></button>
-
-                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
-                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="../../img/vehiculos/ford.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Microbus</p>
-                            <h3 class="product-name"><a href="#">Ford Scape 2010</a></h3>
-                            <h4 class="product-price">$38.50 <del class="product-old-price">$40.00</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                        class="tooltipp">Lista de Deseos</span></button>
-
-                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
-                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="../../img/vehiculos/mishubichi.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Sedan</p>
-                            <h3 class="product-name"><a href="#">Mitsubishi Lancer 2015</a></h3>
-                            <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                        class="tooltipp">Lista de Deseos</span></button>
-
-                                <button class="quick-view" onclick="location.href='detalle-vehiculo.php'">
-                                    <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /Section -->
-    <!-- /FIN DE MOSTRAR PRODUCTOS ABAJO -->
-
-    <!-- /FIN .content-wrapper -->
+   
 </div>
+ 
+<!-- /MOSTRAR PRODUCTOS ABAJO -->
+
+<!-- Section -->
+<div class="section" style="padding-top: 0px;">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row fondo-blanco" style="margin-bottom:-26">
+
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">Productos Relacionados</h3>
+                </div>
+            </div>
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="../../img/vehiculos/hyundai.png" alt="">
+                        <div class="product-label">
+                            <span class="sale">-30%</span>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">Sedan</p>
+                        <h3 class="product-name"><a href="#">Hyundai Elantra 2014</a></h3>
+                        <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
+                        <div class="product-rating">
+                        </div>
+                        <div class="product-btns">
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                    class="tooltipp">Lista de Deseos</span></button>
+
+                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
+                        </div>
+                    </div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="../../img/vehiculos/hyundai-elantra.png" alt="">
+                        <div class="product-label">
+                            <span class="new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">Económico</p>
+                        <h3 class="product-name"><a href="#"> Hyundai Elantra 2010</a></h3>
+                        <h4 class="product-price">$23.90 <del class="product-old-price">$35.00</del></h4>
+                        <div class="product-rating">
+                        </div>
+                        <div class="product-btns">
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                    class="tooltipp">Lista de Deseos</span></button>
+
+                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
+                        </div>
+                    </div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="../../img/vehiculos/ford.png" alt="">
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">Microbus</p>
+                        <h3 class="product-name"><a href="#">Ford Scape 2010</a></h3>
+                        <h4 class="product-price">$38.50 <del class="product-old-price">$40.00</del></h4>
+                        <div class="product-rating">
+                        </div>
+                        <div class="product-btns">
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                    class="tooltipp">Lista de Deseos</span></button>
+
+                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
+                        </div>
+                    </div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="../../img/vehiculos/mishubichi.png" alt="">
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">Sedan</p>
+                        <h3 class="product-name"><a href="#">Mitsubishi Lancer 2015</a></h3>
+                        <h4 class="product-price">$28.50 <del class="product-old-price">$35.00</del></h4>
+                        <div class="product-rating">
+                        </div>
+                        <div class="product-btns">
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+                                    class="tooltipp">Lista de Deseos</span></button>
+
+                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
+                        </div>
+                    </div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Reservar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Section -->
+<!-- /FIN DE MOSTRAR PRODUCTOS ABAJO -->
+
+<!-- /FIN .content-wrapper -->
+
 
 
 
@@ -370,6 +371,6 @@ include_once '../../plantilla/menu.php';
 <script src="../../js/mainG.js"></script>
 
 
-<?php 
+<?php
 include_once '../../plantilla/footer.php';
- ?>
+?>
