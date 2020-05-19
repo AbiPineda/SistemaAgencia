@@ -79,7 +79,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!--PONDRE EL CHAT-->
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="./css/chat.css">
+<link rel="stylesheet" type="text/css" href="<?=$base_url?>css/chat.css">
 
 <script>
   window.console = window.console || function(t) {};
@@ -119,7 +119,7 @@ MartínezT&T
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/chat.js"></script>
+<script type="text/javascript" src="<?=$base_url?>js/chat.js"></script>
 
                         <!--FIN DEL CHAT-->
                     </div>
