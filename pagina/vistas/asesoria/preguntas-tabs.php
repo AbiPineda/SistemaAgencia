@@ -76,11 +76,11 @@ include_once '../../plantilla/menu.php';
 input[type=text],
 select {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 9px 7px;
+    margin: 2px 0;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 1px;
     box-sizing: border-box;
 }
 
@@ -328,17 +328,18 @@ input[type=submit]:hover {
                                                                                         personas?</label>
                                                                                     <input type="text" id="name1"
                                                                                         name="name1"
-                                                                                        placeholder="Your name..">
+                                                                                        placeholder="Your name.."><input
+                                                                                        type="button" id="btnAdd"
+                                                                                        value="+" />
                                                                                 </fieldset>
                                                                                 <fieldset>
-                                                                                    <input type="button" id="btnAdd"
-                                                                                        value="+" />
-                                                                                    
+
+
                                                                                 </fieldset>
                                                                             </div>
                                                                         </div>
-                                                                        
-                                                                        
+
+
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Parentesco que tiene
@@ -361,7 +362,6 @@ input[type=submit]:hover {
                                                                                 <select id="visa" name="visa">
                                                                                     <option value="si">Sí</option>
                                                                                     <option value="no">No</option>
-
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -471,24 +471,191 @@ input[type=submit]:hover {
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="tab3default">Default 3
+                                                        <div class="tab-pane fade" id="tab3default">
                                                             <div class="container contact-form">
                                                                 <form method="post">
-                                                                    <h3>Drop Us a Message</h3>
+                                                                    <h3>Datos Generales de Familiares</h3>
                                                                     <div class="row">
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
-                                                                                <label for="fname">¿Fecha probable de
-                                                                                    viaje?</label>
+                                                                                <label for="fname">
+                                                                                    ¿Nombre completo de padre?
+                                                                                </label>
                                                                                 <input type="text" id="fname"
                                                                                     name="firstname"
                                                                                     placeholder="Your name..">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <input type="submit" name="btnSubmit"
-                                                                                class="btnContact"
-                                                                                value="Send Message" />
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Fecha de nacimiento de padre?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Está su padre en los EEUU?
+                                                                                </label>
+                                                                                <select id="" name="visa">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Qué estatus tiene?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre completo de madre?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Fecha de nacimiento de madre?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Esta su madre en los EEUU?
+                                                                                </label>
+                                                                                <select id="" name="visa">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Qué estatus tiene?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Parientes en los EEUU que no sean
+                                                                                    sus padres?
+                                                                                </label>
+                                                                                <select id="" name="visa">
+                                                                                    <option value="si">Sí</option>
+                                                                                    <option value="no">No</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Parentesco que tiene con ella?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Fecha de nacimiento de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nacionalidad de esa persona?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Es casado/a?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nombre de su cónyuge?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Fecha de nacimiento de su cónyuge?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Nacionalidad de su cónyuge?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <div class="form-group">
+                                                                                <input type="submit" name="btnSubmit"
+                                                                                    class="btnContact"
+                                                                                    value="Guardar" />
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -508,10 +675,12 @@ input[type=submit]:hover {
                                                                                     placeholder="Your name..">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <input type="submit" name="btnSubmit"
-                                                                                class="btnContact"
-                                                                                value="Send Message" />
+                                                                        <div class="col-md-11">
+                                                                            <div class="form-group">
+                                                                                <input type="submit" name="btnSubmit"
+                                                                                    class="btnContact"
+                                                                                    value="Guardar" />
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </form>
