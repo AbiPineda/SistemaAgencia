@@ -151,7 +151,7 @@ input[type=submit]:hover {
                                                         <li><a href="#tab3default" data-toggle="tab">Información
                                                                 Familiar</a></li>
                                                         <li><a href="#tab4default" data-toggle="tab">Formación
-                                                                Academica</a></li>
+                                                                Académica</a></li>
 
                                                     </ul>
                                                 </div>
@@ -661,15 +661,48 @@ input[type=submit]:hover {
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="tab4default">Default 4
+                                                        <div class="tab-pane fade" id="tab4default">
                                                             <div class="container contact-form">
                                                                 <form method="post">
-                                                                    <h3>Drop Us a Message</h3>
+                                                                    <h3>Datos sobre Formación Académica</h3>
                                                                     <div class="row">
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label for="fname">¿Fecha probable de
-                                                                                    viaje?</label>
+                                                                                <label for="fname"> ¿Estudios
+                                                                                    realizados? </label>
+                                                                                    <select id="educacion" name="educacion">
+                                                                                    <option value="basica">Educación Basica</option>
+                                                                                    <option value="media">Educación Media</option>
+                                                                                    <option value="superior">Educación Superior</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Lugar donde los estudio?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                    ¿Dirección del lugar donde los
+                                                                                    estudio?
+                                                                                </label>
+                                                                                <input type="text" id="fname"
+                                                                                    name="firstname"
+                                                                                    placeholder="Your name..">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label for="fname">
+                                                                                ¿Año en que los termino? 
+                                                                                </label>
                                                                                 <input type="text" id="fname"
                                                                                     name="firstname"
                                                                                     placeholder="Your name..">
