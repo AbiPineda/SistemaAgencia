@@ -5,35 +5,7 @@ include_once '../../plantilla/menu.php';
 ?>
 
 
-<!-- Slick -->
-<link type="text/css" rel="stylesheet" href="../../css/slick.css" />
-<link type="text/css" rel="stylesheet" href="../../css/slick-theme.css" />
-
-<!-- nouislider -->
-<link type="text/css" rel="stylesheet" href="../../css/nouislider.min.css" />
-
-<!-- Font Awesome Icon -->
-<link rel="stylesheet" href="../../css/font-awesome.min.css">
-
-<!-- Custom stlylesheet -->
-<link type="text/css" rel="stylesheet" href="../../css/styleGalery.css" />
-
-<!-- hacer icono mas grande -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-<!-- Ejemplo:
-<i class="fa fa-bars fa-xs"></i>
-<i class="fa fa-bars fa-sm"></i>
-<i class="fa fa-bars fa-lg"></i>
-<i class="fa fa-bars fa-2x"></i>
-<i class="fa fa-bars fa-3x"></i>
-<i class="fa fa-bars fa-4x"></i>
-<i class="fa fa-bars fa-5x"></i>
-<i class="fa fa-bars fa-10x"></i>
--->
-<style>
-
-</style>
-<br><br><br>
+<br><br>
 <!--Banner de auto -->
 <div class="header-bg page-area" style="padding-top: 10px">
     <div class="home-overly"></div>
@@ -362,13 +334,6 @@ include_once '../../plantilla/menu.php';
 
 
 
-<!-- jQuery Plugins -->
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/slick.min.js"></script>
-<script src="../../js/nouislider.min.js"></script>
-<script src="../../js/jquery.zoom.min.js"></script>
-<script src="../../js/mainG.js"></script>
 
 
 <?php

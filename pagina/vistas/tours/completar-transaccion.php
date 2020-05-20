@@ -114,13 +114,46 @@ include_once '../../plantilla/menu.php';
     </div>
     <!-- /SECTION -->
 </div>
+<!-- SECTION -->
 
 
 
+<!-- SECTION -->
+<div class="section" style="margin-bottom: 0px">
+    <!-- container -->
+    <div class="container fondo-blanco">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="pri_table_list active">
+
+                            <h3>ESTAS A PUNTO DE PAGAR <br /> <span>$35.99 (50%) RESERVA DE VIAJE </span><br /> <span>DETALLES DE LA COMPRA</span></h3>
+
+                            <ol>
+                                <li class="check">VOLCAN DE CONCHAGUA</li>
+                                <li class="check">MIRADOR ESPIRITU DE LA MONTAÑA</li>
+                                <li class="check">PARQUE DE LA FAMILIA</li>
+                                <li class="check">TRANSPORTE CON A/C</li>
+                                <li class="check">TRANSPORTE 4x4</li>
+                                <li class="check">ENTRADA AL VOLCAN</li>
+                                <li class="check cross">DESAYUNO</li>
+                                <li class="check cross">ALMUERZO</li>
+                                <li class="">NUMERO DE PERSONAS  (2)</li>
 
 
+
+                            </ol>
+                         
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+<!-- SECTION -->
 <br>
-
 
 <?php
 include_once '../../plantilla/footer.php';

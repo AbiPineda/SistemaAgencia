@@ -70,3 +70,11 @@ label{
     padding: 0px 0;
    
 }
+
+.pri_table_list{
+        border: 0px;
+}
+
+.active>h3 {
+    background: white;
+}
