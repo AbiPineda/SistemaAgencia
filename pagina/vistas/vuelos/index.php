@@ -7,8 +7,7 @@ include_once '../../plantilla/menu.php';
 
 <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+
 <style>
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
@@ -429,7 +428,7 @@ html .ui-button.ui-state-disabled:active {
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                
+
             </div>
         </div>
     </div>
@@ -438,65 +437,73 @@ html .ui-button.ui-state-disabled:active {
 
 <!-- SECTION -->
 <section id="padder">
-<br><br> <br><br> <br><br> <br><br>
-  <div id="slider">
-    <ul>
-      <li class="slide active" style="background-image:url('http://i.huffpost.com/gen/2832512/images/o-AMSTERDAM-CANALS-facebook.jpg')">
-        <div class="slide-title">Amsterdam</div>
-      </li>
-      <li class="slide" style="background-image:url('http://postodiconversazione.com/wp-content/uploads/navigli_milano_5.jpg')">
-        <div class="slide-title">Milano</div>
-      </li>
-      <li class="slide" style="background-image:url('http://airlines-airports.com/wp-content/uploads/2016/08/Germany-Cologne.jpg')">
-        <div class="slide-title">Cologne</div>
-      </li>
-      <div id="controls">
-        <div class="prev"><a href="javascript:void(0)">PREV</a></div>
-        <div class="next"><a href="javascript:void(0)">NEXT</a></div>
-      </div>
-    </ul>
-  </div>
-  <section class="container get_booking" id="content">
-    <form name="booking_details" method="post">
-      <div id="booking_details">
-        <div id="search_destination"><i class="fa icon-search"></i>
-          <input class="search" type="text" placeholder="Enter Destination/Hotel Name"/>
-        </div>
-        <div id="dates_people">
-          <div class="date_box" id="check_in">
-            <p class="label">CHECK-IN</p>
-            <input class="datepicker" type="hidden" name="check_in_date"/>
-            <div class="date">25</div>
-            <div class="aside">
-              <div class="month">December</div>
-              <div class="year">2016</div>
+    <br><br> <br><br> <br><br> <br><br>
+    <div id="slider">
+        <ul>
+            <li class="slide active"
+                style="background-image:url('http://i.huffpost.com/gen/2832512/images/o-AMSTERDAM-CANALS-facebook.jpg')">
+                <div class="slide-title">Amsterdam</div>
+            </li>
+            <li class="slide"
+                style="background-image:url('http://postodiconversazione.com/wp-content/uploads/navigli_milano_5.jpg')">
+                <div class="slide-title">Milano</div>
+            </li>
+            <li class="slide"
+                style="background-image:url('http://airlines-airports.com/wp-content/uploads/2016/08/Germany-Cologne.jpg')">
+                <div class="slide-title">Cologne</div>
+            </li>
+            <div id="controls">
+                <div class="prev"><a href="javascript:void(0)">PREV</a></div>
+                <div class="next"><a href="javascript:void(0)">NEXT</a></div>
             </div>
-          </div>
-          <div class="date_box" id="check_out">
-            <p class="label">CHECK-OUT</p>
-            <input class="datepicker" type="hidden" name="check_out_box"/>
-            <div class="date">20</div>
-            <div class="aside">
-              <div class="month">January</div>
-              <div class="year">2017</div>
-            </div>
-          </div>
-          <div class="user_counter" id="user_adult">
-            <p class="label">ADULTS</p>
-            <input type="hidden" name="count_adult" value="3"/>
-            <div class="count">3</div>
-            <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i class="fa icon-minus"></i></a></div>
-          </div>
-          <div class="user_counter" id="user_children">
-            <p class="label">CHILDREN</p>
-            <input name="count_children" type="hidden" value="3"/>
-            <div class="count">3</div>
-            <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i class="fa icon-minus"></i></a></div>
-          </div>
-        </div>
-      </div><a id="cta_go" href="javascript:void(0)"><span class="centered"><span>SHOW OFFERS</span><i class="fa fa-arrow-right"></i></span></a>
-    </form>
-  </section>
+        </ul>
+    </div>
+    <section class="container get_booking" id="content">
+        <form name="booking_details" method="post">
+            <div id="booking_details">
+                <div id="search_destination"><i class="fa icon-search"></i>
+                    <input class="search" type="text" placeholder="Enter Destination/Hotel Name" />
+                </div>
+                <div id="dates_people">
+                    <div class="date_box" id="check_in">
+                        <p class="label">CHECK-IN</p>
+                        <input class="datepicker" type="hidden" name="check_in_date" />
+                        <div class="date">25</div>
+                        <div class="aside">
+                            <div class="month">December</div>
+                            <div class="year">2016</div>
+                        </div>
+                    </div>
+                    <div class="date_box" id="check_out">
+                        <p class="label">CHECK-OUT</p>
+                        <input class="datepicker" type="hidden" name="check_out_box" />
+                        <div class="date">20</div>
+                        <div class="aside">
+                            <div class="month">January</div>
+                            <div class="year">2017</div>
+                        </div>
+                    </div>
+                    <div class="user_counter" id="user_adult">
+                        <p class="label">ADULTS</p>
+                        <input type="hidden" name="count_adult" value="3" />
+                        <div class="count">3</div>
+                        <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i
+                                    class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i
+                                    class="fa icon-minus"></i></a></div>
+                    </div>
+                    <div class="user_counter" id="user_children">
+                        <p class="label">CHILDREN</p>
+                        <input name="count_children" type="hidden" value="3" />
+                        <div class="count">3</div>
+                        <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i
+                                    class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i
+                                    class="fa icon-minus"></i></a></div>
+                    </div>
+                </div>
+            </div><a id="cta_go" href="javascript:void(0)"><span class="centered"><span>SHOW OFFERS</span><i
+                        class="fa fa-arrow-right"></i></span></a>
+        </form>
+    </section>
 </section>
 
 <script>
@@ -601,6 +608,8 @@ $(function() {
 
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 
 <?php
 include_once '../../plantilla/footer.php';
