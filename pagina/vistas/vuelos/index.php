@@ -113,37 +113,10 @@ body a {
 }
 
 header {
-    padding: 20px 30px;
-    position: relative;
-    z-index: 2;
+
 }
 
-header .logo {
-    display: inline-block;
-}
 
-header .logo img {
-    max-width: 100%;
-    height: 30px;
-}
-
-header nav {
-    float: right;
-}
-
-header nav ul li {
-    display: inline-block;
-}
-
-header nav ul li a {
-    margin: 0px 20px;
-    line-height: 30px;
-    color: #fff;
-}
-
-header nav ul li:last-child a {
-    margin-right: 0px;
-}
 
 #slider {
     position: relative;
