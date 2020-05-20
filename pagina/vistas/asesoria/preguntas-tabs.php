@@ -83,7 +83,7 @@ include_once '../../plantilla/menu.php';
                                                                                     pasaporte?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su nombre">
+                                                                                       placeholder="Digite su nombre" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -92,7 +92,7 @@ include_once '../../plantilla/menu.php';
                                                                                     soltera/o?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su nombre">
+                                                                                       placeholder="Digite su nombre" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -101,7 +101,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su dirección">
+                                                                                       placeholder="Digite su dirección" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -110,7 +110,7 @@ include_once '../../plantilla/menu.php';
                                                                                     electrónico?</label>
                                                                                 <input type="email" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su correo electrónico">
+                                                                                       placeholder="Digite su correo electrónico" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -119,7 +119,7 @@ include_once '../../plantilla/menu.php';
                                                                                     nacimiento?</label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Ingrese su fecha de nacimiento">
+                                                                                       placeholder="Ingrese su fecha de nacimiento" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -128,7 +128,7 @@ include_once '../../plantilla/menu.php';
                                                                                     casa?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su número">
+                                                                                       placeholder="Digite su número" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -137,7 +137,7 @@ include_once '../../plantilla/menu.php';
                                                                                     oficina?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su número">
+                                                                                       placeholder="Digite su número" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -146,7 +146,7 @@ include_once '../../plantilla/menu.php';
                                                                                     celular?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su número">
+                                                                                       placeholder="Digite su número" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -155,14 +155,14 @@ include_once '../../plantilla/menu.php';
                                                                                     pasaporte?</label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite su número">
+                                                                                       placeholder="Digite su número" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Tipo de
                                                                                     pasaporte?</label>
-                                                                                <select id="pasaporte" name="pasaporte">
+                                                                                <select id="pasaporte" name="pasaporte" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="diplomatico">
                                                                                         Diplomatico
@@ -180,7 +180,7 @@ include_once '../../plantilla/menu.php';
                                                                                 <label for="fname">¿Ha perdido algún
                                                                                     pasaporte o se lo han robado?
                                                                                 </label>
-                                                                                <select id="perdido" name="perdido">
+                                                                                <select id="perdido" name="perdido" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="perdido">
                                                                                         Perdido
@@ -196,13 +196,10 @@ include_once '../../plantilla/menu.php';
                                                                                 <label for="fname">
                                                                                     ¿Redes Sociales que utiliza?
                                                                                 </label>
-                                                                               <div class="form-group multiple-form-group input-group">
-                        <div class="input-group-btn input-group-select">
-                            <input type="hidden" class="input-group-select-val" name="contacts['type'][]" value="phone">
-                        </div>
+                        <div class="form-group multiple-form-group input-group">
                         <input type="text" name="contacts['value'][]" class="form-control" placeholder="Digite la red social">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-success btn-add" style="margin-top:-15px;">+</button>
+                            <button type="button" class="btn btn-success btn-add" style="margin-top:1px;">+</button>
                         </span>
                     </div>
               

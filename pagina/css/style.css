@@ -1723,17 +1723,7 @@ div#preloader {
     padding: 100px;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"] {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    color: #444;
-    height: 40px;
-    margin-bottom: 16px;
-    padding-left: 20px;
-    width: 100%;
-}
+
 
 .contact-form textarea {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
