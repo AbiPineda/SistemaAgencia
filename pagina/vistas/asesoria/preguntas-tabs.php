@@ -6,118 +6,10 @@ include_once '../../plantilla/menu.php';
 ?>
 
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="<?= $base_url ?>css/bootstrap.min.css" rel="stylesheet">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
-<style>
-.panel.with-nav-tabs .panel-heading {
-    padding: 5px 5px 0 5px;
-}
-
-.panel.with-nav-tabs .nav-tabs {
-    border-bottom: none;
-}
-
-.panel.with-nav-tabs .nav-justified {
-    margin-bottom: -1px;
-}
-
-/********************************************************************/
-/*** PANEL DEFAULT ***/
-.with-nav-tabs.panel-default .nav-tabs>li>a,
-.with-nav-tabs.panel-default .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>li>a:focus {
-    color: #777;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>.open>a,
-.with-nav-tabs.panel-default .nav-tabs>.open>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>.open>a:focus,
-.with-nav-tabs.panel-default .nav-tabs>li>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>li>a:focus {
-    color: #777;
-    background-color: #ddd;
-    border-color: transparent;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>li.active>a,
-.with-nav-tabs.panel-default .nav-tabs>li.active>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>li.active>a:focus {
-    color: #555;
-    background-color: #fff;
-    border-color: #ddd;
-    border-bottom-color: transparent;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu {
-    background-color: #f5f5f5;
-    border-color: #ddd;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>li>a {
-    color: #777;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>li>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>li>a:focus {
-    background-color: #ddd;
-}
-
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>.active>a,
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>.active>a:hover,
-.with-nav-tabs.panel-default .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
-    color: #fff;
-    background-color: #555;
-}
-
-
-input[type=text],
-select {
-    width: 100%;
-    padding: 9px 7px;
-    margin: 2px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 1px;
-    box-sizing: border-box;
-}
-
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-</style>
-
-
-<!--Banner de auto -->
-<div class="header-bg page-area">
-    <div class="home-overly"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <BR>
-                <BR>
-                <BR>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-<!--Banner de auto -->
-
+<link href="<?= $base_url ?>css/css-asesoria/style.css" rel="stylesheet">
 
 <div class="blog-page area-padding">
     <div class="container">
@@ -747,13 +639,6 @@ input[type=submit]:hover {
         </div>
     </div>
 </div>
-
-
-<script>
-
-</script>
-
-
 
 <?php 
 include_once '../../plantilla/footer.php';
