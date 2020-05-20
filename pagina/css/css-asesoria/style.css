@@ -13,9 +13,6 @@
 
 /********************************************************************/
 
-
-/*** PANEL DEFAULT ***/
-
 .with-nav-tabs.panel-default .nav-tabs>li>a,
 .with-nav-tabs.panel-default .nav-tabs>li>a:hover,
 .with-nav-tabs.panel-default .nav-tabs>li>a:focus {
@@ -61,6 +58,9 @@
     color: #fff;
     background-color: #555;
 }
+
+
+/*** INPUT ***/
 
 input[type=text],
 select {

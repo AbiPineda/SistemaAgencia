@@ -3,6 +3,62 @@ include_once('../../config/parametros.php');
 include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
+<link href="<?= $base_url ?>css/bootstrap.min.css" rel="stylesheet">
+
+<link href="<?= $base_url ?>js/bootstrap.min.js" rel="stylesheet">
+
+<style>
+input[type=text],
+select {
+    width: 100%;
+    padding: 9px 4px;
+    margin: 2px 1px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.badgebox {
+    opacity: 0;
+}
+
+.badgebox+.badge {
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    /* Makes the badge's width stay the same checked and unchecked */
+    width: 27px;
+}
+
+.badgebox:focus+.badge {
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+
+    /* Adding a light border */
+    box-shadow: inset 0px 0px 5px;
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked+.badge {
+    /* Move the check mark back when checked */
+    text-indent: 0;
+}
+</style>
 
 
 <br><br>
@@ -12,7 +68,7 @@ include_once '../../plantilla/menu.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                
+
 
 
             </div>
@@ -24,7 +80,7 @@ include_once '../../plantilla/menu.php';
 
     <div class="container">
         <div class="row fondo-blanco">
-<br><br>
+            <br><br>
 
 
             <!-- inicio -->
@@ -46,7 +102,7 @@ include_once '../../plantilla/menu.php';
 
                     <div class="product-preview">
                         <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
-                             alt="">
+                            alt="">
                     </div>
                 </div>
             </div>
@@ -68,7 +124,7 @@ include_once '../../plantilla/menu.php';
 
                     <div class="product-preview">
                         <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_d3cd3f472a4f4405aae5e4ac5c243f81.jpg"
-                             alt="">
+                            alt="">
                     </div>
                 </div>
             </div>
@@ -112,13 +168,164 @@ include_once '../../plantilla/menu.php';
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title">Alquiler de Vehículo <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <h5 class="modal-title">Alquiler de Vehículo <button type="button" class="close"
+                                            data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
-                                        </button></h6>
+                                        </button></h5>
 
                                 </div>
                                 <div class="modal-body">
-                                    <label>aqui formulario</label>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label for="fname">Nombre de Cliente</label>
+                                                <input type="text" id="fname" name="firstname"
+                                                    placeholder="Digite su nombre:">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="fname">Numero de Telefono</label>
+                                                <input type="text" id="fname" name="firstname"
+                                                    placeholder="Digite su telefono">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="fname">Lugar de Recogida</label>
+                                                <select id="" name="">
+                                                    <option>Servicio a Domicilio</option>
+                                                    <option>Aeropuerto</option>
+                                                    <option>Ciudad</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="fname">Dirección</label>
+                                                <input type="text" id="fname" name="firstname" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="fname">Fecha</label>
+                                                <input type="text" id="fname" name="firstname" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="fname">Hora</label>
+                                                <select>
+                                                    <option>00:00</option>
+                                                    <option>01:00</option>
+                                                    <option>02:00</option>
+                                                    <option>03:00</option>
+                                                    <option>04:00</option>
+                                                    <option>05:00</option>
+                                                    <option>06:00</option>
+                                                    <option>07:00</option>
+                                                    <option>08:00</option>
+                                                    <option>08:00</option>
+                                                    <option>10:00</option>
+                                                    <option>11:00</option>
+                                                    <option>12:00</option>
+                                                    <option>13:00</option>
+                                                    <option>14:00</option>
+                                                    <option>15:00</option>
+                                                    <option>16:00</option>
+                                                    <option>17:00</option>
+                                                    <option>18:00</option>
+                                                    <option>19:00</option>
+                                                    <option>20:00</option>
+                                                    <option>21:00</option>
+                                                    <option>22:00</option>
+                                                    <option>23:00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="fname">Lugar de Devolución</label>
+                                                <select id="" name="">
+                                                    <option>Servicio a Domicilio</option>
+                                                    <option>Aeropuerto</option>
+                                                    <option>Ciudad</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="fname">Dirección</label>
+                                                <input type="text" id="fname" name="firstname" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="fname">Fecha</label>
+                                                <input type="text" id="fname" name="firstname" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="fname">Hora</label>
+                                                <select id="" name="">
+                                                    <option>00:00</option>
+                                                    <option>01:00</option>
+                                                    <option>02:00</option>
+                                                    <option>03:00</option>
+                                                    <option>04:00</option>
+                                                    <option>05:00</option>
+                                                    <option>06:00</option>
+                                                    <option>07:00</option>
+                                                    <option>08:00</option>
+                                                    <option>08:00</option>
+                                                    <option>10:00</option>
+                                                    <option>11:00</option>
+                                                    <option>12:00</option>
+                                                    <option>13:00</option>
+                                                    <option>14:00</option>
+                                                    <option>15:00</option>
+                                                    <option>16:00</option>
+                                                    <option>17:00</option>
+                                                    <option>18:00</option>
+                                                    <option>19:00</option>
+                                                    <option>20:00</option>
+                                                    <option>21:00</option>
+                                                    <option>22:00</option>
+                                                    <option>23:00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row text-center">
+                                            <br>
+                                            <label for="default" class="btn btn-info">Exoneración en Daños <input
+                                                    type="checkbox" id="default" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                            <br>
+                                            <label for="primary" class="btn btn-info">Protección de Efectos <input
+                                                    type="checkbox" id="primary" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                            <br>
+
+                                            <label for="info" class="btn btn-info">Seguro de Responsabilidad <input
+                                                    type="checkbox" id="info" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                            <br>
+                                            <label for="success" class="btn btn-info">WI-FI móvil <input type="checkbox"
+                                                    id="success" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                            <br>
+                                            <label for="warning" class="btn btn-info">Asientos para niños <input
+                                                    type="checkbox" id="warning" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                            <br>
+                                            <label for="danger" class="btn btn-info">Conductor Adicional <input
+                                                    type="checkbox" id="danger" class="badgebox"><span
+                                                    class="badge">&check;</span></label>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -156,11 +363,15 @@ include_once '../../plantilla/menu.php';
                         <div id="tab1" class="tab-pane fade in active">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                        eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                        in
                                         culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                             </div>
@@ -171,11 +382,15 @@ include_once '../../plantilla/menu.php';
                         <div id="tab2" class="tab-pane fade in">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                        eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                                        in
                                         culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                             </div>
@@ -187,9 +402,9 @@ include_once '../../plantilla/menu.php';
 
         </div>
     </div>
-   
+
 </div>
- 
+
 <!-- /MOSTRAR PRODUCTOS ABAJO -->
 
 <!-- Section -->
@@ -221,8 +436,8 @@ include_once '../../plantilla/menu.php';
                         <div class="product-rating">
                         </div>
                         <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                    class="tooltipp">Lista de Deseos</span></button>
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Lista de
+                                    Deseos</span></button>
 
                             <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
                                 <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
@@ -251,8 +466,8 @@ include_once '../../plantilla/menu.php';
                         <div class="product-rating">
                         </div>
                         <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                    class="tooltipp">Lista de Deseos</span></button>
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Lista de
+                                    Deseos</span></button>
 
                             <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
                                 <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
@@ -265,7 +480,7 @@ include_once '../../plantilla/menu.php';
             </div>
             <!-- /product -->
 
-            
+
 
             <!-- product -->
             <div class="col-md-3 col-xs-6">
@@ -280,8 +495,8 @@ include_once '../../plantilla/menu.php';
                         <div class="product-rating">
                         </div>
                         <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                    class="tooltipp">Lista de Deseos</span></button>
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Lista de
+                                    Deseos</span></button>
 
                             <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
                                 <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
@@ -307,8 +522,8 @@ include_once '../../plantilla/menu.php';
                         <div class="product-rating">
                         </div>
                         <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                    class="tooltipp">Lista de Deseos</span></button>
+                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Lista de
+                                    Deseos</span></button>
 
                             <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
                                 <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
@@ -334,7 +549,7 @@ include_once '../../plantilla/menu.php';
 
 
 
-
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <?php
 include_once '../../plantilla/footer.php';
