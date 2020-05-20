@@ -82,7 +82,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"  >
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"  >
                                             <i class="fa fa-eye"></i>Ver
                                         </button>
                                     </div>
@@ -106,7 +106,7 @@ include_once '../../plantilla/menu.php';
                                     </div>
 
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@ include_once '../../plantilla/menu.php';
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'descripcion.php'"><i
+                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>

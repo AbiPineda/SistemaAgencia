@@ -13,7 +13,7 @@ include_once '../../plantilla/menu.php';
 
 
 <!-- SECTION -->
-<div class="section" style="margin-bottom: 0px">
+<div class="section" style="margin-bottom: 0px;">
     <!-- container -->
     <div class="container">
         <!-- row -->
@@ -32,7 +32,7 @@ include_once '../../plantilla/menu.php';
 
             <!-- Products tab & slick -->
             <div class="col-md-12 fondo-blanco">
-                <div class="row fondo-blanco">
+                <div class="row fondo-blanco" style="margin-right: 0px;">
 
 
 
@@ -43,7 +43,7 @@ include_once '../../plantilla/menu.php';
                     </div>
 
                     <!-- Order Details -->
-                    <div class="col-md-4 order-details" style="background: white">
+                    <div class="col-md-4 order-details" style="background: white;margin-top: 20px">
                         <div class="section-title text-center">
                             <h3 class="title">Tu Orden</h3>
                         </div>

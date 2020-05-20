@@ -109,7 +109,7 @@ include_once '../../plantilla/menu.php';
 
 <div class="section">
     <div class="container">
-        <div class="row fondo-blanco">
+        <div class="row fondo-blanco" style="    padding-left: 20px;padding-right: 20px;">
 
 
             <div id="product-tab">
