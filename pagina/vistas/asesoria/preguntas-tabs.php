@@ -7,7 +7,9 @@ include_once '../../plantilla/menu.php';
 
 
 <link href="<?= $base_url ?>css/bootstrap.min.css" rel="stylesheet">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<link href="<?= $base_url ?>js/bootstrap.min.js" rel="stylesheet">
+
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="<?= $base_url ?>css/css-asesoria/style.css" rel="stylesheet">
 
