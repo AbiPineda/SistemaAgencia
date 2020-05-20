@@ -196,9 +196,16 @@ include_once '../../plantilla/menu.php';
                                                                                 <label for="fname">
                                                                                     ¿Redes Sociales que utiliza?
                                                                                 </label>
-                                                                                <input type="text" id="fname"
-                                                                                       name="firstname"
-                                                                                       placeholder="Redes sociales">
+                                                                               <div class="form-group multiple-form-group input-group">
+                        <div class="input-group-btn input-group-select">
+                            <input type="hidden" class="input-group-select-val" name="contacts['type'][]" value="phone">
+                        </div>
+                        <input type="text" name="contacts['value'][]" class="form-control" placeholder="Digite la red social">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-add" style="margin-top:-15px;">+</button>
+                        </span>
+                    </div>
+              
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-11">
@@ -248,9 +255,15 @@ include_once '../../plantilla/menu.php';
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Nombre de las
                                                                                     personas?</label>
-                                                                                <input type="text" id="name1"
-                                                                                       name="name1"
-                                                                                       placeholder="Digite el nombre de las personas">                                                                   
+                                                                                <div class="form-group multiple-form-group input-group">
+                        <div class="input-group-btn input-group-select">
+                            <input type="hidden" class="input-group-select-val" name="contacts['type'][]" value="phone">
+                        </div>
+                        <input type="text" name="contacts['value'][]" class="form-control" placeholder="Digite el nombre de la persona">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-add" style="margin-top:-15px;">+</button>
+                        </span>
+                    </div>                                                                  
                                                                             </div>
                                                                         </div>
 
@@ -724,7 +737,7 @@ include_once '../../plantilla/menu.php';
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="<?=$base_url?>vistas/asesoria/js/input.js"></script>
 <?php
 include_once '../../plantilla/footer.php';
 ?>
