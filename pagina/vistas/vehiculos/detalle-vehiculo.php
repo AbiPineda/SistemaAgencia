@@ -60,6 +60,12 @@ input[type=submit]:hover {
 }
 </style>
 
+<style>
+    .btn-info{
+        width: 95%;
+    }
+</style>
+
 
 <br><br>
 <!--Banner de auto -->
@@ -165,7 +171,7 @@ input[type=submit]:hover {
                     </div>
                     <!-- /.modal -->
                     <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Alquiler de Vehículo <button type="button" class="close"
@@ -298,34 +304,51 @@ input[type=submit]:hover {
                                         </div>
 
                                         <div class="row text-center">
-                                            <br>
-                                            <label for="default" class="btn btn-info">Exoneración en Daños <input
+                                            <div class="col-md-4">
+                                                 <label for="default" class="btn btn-info">Exoneración en Daños <input
                                                     type="checkbox" id="default" class="badgebox"><span
                                                     class="badge">&check;</span></label>
-                                            <br>
-                                            <label for="primary" class="btn btn-info">Protección de Efectos <input
+                                            </div>
+                                          
+                                           
+                                            <div class="col-md-4">
+                                                 <label for="primary" class="btn btn-info">Protección de Efectos <input
                                                     type="checkbox" id="primary" class="badgebox"><span
                                                     class="badge">&check;</span></label>
-                                            <br>
-
-                                            <label for="info" class="btn btn-info">Seguro de Responsabilidad <input
+                                            </div>
+                                           
+                                            <div class="col-md-4">
+                                                <label for="info" class="btn btn-info">Seguro de Responsabilidad <input
                                                     type="checkbox" id="info" class="badgebox"><span
                                                     class="badge">&check;</span></label>
-                                            <br>
-                                            <label for="success" class="btn btn-info">WI-FI móvil <input type="checkbox"
+                                            </div>
+      
+                                    </div>
+                                        <div class="row text-center">
+                                            <div class="col-md-4">
+                                                  <label for="success" class="btn btn-info">WI-FI móvil <input type="checkbox"
                                                     id="success" class="badgebox"><span
                                                     class="badge">&check;</span></label>
-                                            <br>
+                                            </div>
+                                            <div class="col-md-4">
+                                                
                                             <label for="warning" class="btn btn-info">Asientos para niños <input
                                                     type="checkbox" id="warning" class="badgebox"><span
                                                     class="badge">&check;</span></label>
-                                            <br>
-                                            <label for="danger" class="btn btn-info">Conductor Adicional <input
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label  for="danger" class="btn btn-info">Conductor Adicional <input
                                                     type="checkbox" id="danger" class="badgebox"><span
                                                     class="badge">&check;</span></label>
+                                            </div>
                                         </div>
-                                        
-                                    </div>
+                                           
+                                          
+                                         
+                                           
+                                           
+                                        </div>
+                                  
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
