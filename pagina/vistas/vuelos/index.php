@@ -4,11 +4,422 @@ include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
 
-<link rel="stylesheet" href="<?= $base_url ?>css/css-vuelos/bootstrap.min.css"> <!-- Bootstrap style -->
-<link rel="stylesheet" href="<?= $base_url ?>slick/slick.css" />
-<link rel="stylesheet" href="<?= $base_url ?>slick/slick-theme.css" />
-<link rel="stylesheet" href="<?= $base_url ?>css/css-vuelos/datepicker.css" />
-<link rel="stylesheet" href="<?= $base_url ?>css/css-vuelos/tooplate-style.css">
+
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    min-width: 620px;
+}
+
+body a {
+    text-decoration: none;
+}
+
+#padder {
+    padding: 0px 50px 30px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.topbar {
+    padding: 15px 30px;
+}
+
+.topbar .preferences {
+    display: inline-block;
+}
+
+.topbar .preferences .drop {
+    position: relative;
+    cursor: pointer;
+}
+
+.topbar .preferences .drop span {
+    display: inline-block;
+    padding: 5px 7px;
+    color: #4b4186;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #4b4186;
+    border-radius: 10px;
+    width: 34px;
+    background: #fff;
+}
+
+.topbar .preferences .drop span i.arrow-down {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.topbar .preferences .drop span i.arrow-down:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border-top: 5px solid #4b4186;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.topbar .preferences .drop span i.arrow-down:after {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    border-top: 3px solid #fff;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.topbar .preferences .drop .drop_options {
+    position: absolute;
+    display: none;
+    width: 100%;
+    z-index: 5;
+}
+
+.topbar .preferences .drop .drop_options li {
+    text-align: center;
+}
+
+.topbar .preferences .drop .drop_options li:hover span {
+    background: #4b4186;
+    color: #fff;
+}
+
+.topbar #login_register {
+    display: inline-block;
+    float: right;
+}
+
+.topbar #login_register a {
+    color: #4b4186;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+header {
+    padding: 20px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+header .logo {
+    display: inline-block;
+}
+
+header .logo img {
+    max-width: 100%;
+    height: 30px;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    margin: 0px 20px;
+    line-height: 30px;
+    color: #fff;
+}
+
+header nav ul li:last-child a {
+    margin-right: 0px;
+}
+
+#slider {
+    position: relative;
+    margin-top: -72px;
+    z-index: 1;
+    width: 100%;
+}
+
+#slider .slide {
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    list-style: none;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+#slider .slide.active {
+    display: block;
+}
+
+#slider .slide .slide-title {
+    font-family: "Kaushan Script", cursive;
+    font-size: 100px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 100%;
+    text-align: center;
+}
+
+#slider #controls .next,
+#slider #controls .prev {
+    position: absolute;
+    cursor: pointer;
+}
+
+#slider #controls .next {
+    top: 50%;
+    right: -45px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+#slider #controls .prev {
+    top: 50%;
+    left: -45px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+}
+
+#slider #controls a {
+    color: #4b4186;
+}
+
+.get_booking {
+    margin-top: -110px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.get_booking #booking_details {
+    display: inline-block;
+    width: 68%;
+    margin-right: 10px;
+    background: #4b4186;
+}
+
+.get_booking #booking_details #search_destination {
+    padding: 20px;
+    background: #413975;
+}
+
+.get_booking #booking_details #search_destination i.fa {
+    color: #fff;
+    opacity: 0.3;
+    font-size: 40px;
+    margin-right: 5px;
+}
+
+.get_booking #booking_details #search_destination input.search {
+    display: inline-block;
+    width: 80%;
+    padding: 0px 15px;
+    font-size: 20px;
+    line-height: 40px;
+    vertical-align: top;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.get_booking #booking_details #dates_people {
+    display: table;
+    width: 100%;
+}
+
+.get_booking #booking_details #dates_people .user_counter,
+.get_booking #booking_details #dates_people .date_box {
+    display: table-cell;
+    width: 25%;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.get_booking #booking_details #dates_people .user_counter:last-child,
+.get_booking #booking_details #dates_people .date_box:last-child {
+    border: none;
+}
+
+.get_booking #booking_details #dates_people .user_counter p.label,
+.get_booking #booking_details #dates_people .date_box p.label {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.get_booking #booking_details #dates_people .date_box {
+    color: #fff;
+}
+
+.get_booking #booking_details #dates_people .date_box .date {
+    display: inline-block;
+    font-size: 50px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.get_booking #booking_details #dates_people .date_box .aside {
+    display: inline-block;
+    text-align: left;
+}
+
+.get_booking #booking_details #dates_people .date_box .month,
+.get_booking #booking_details #dates_people .date_box .year {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.get_booking #booking_details #dates_people .user_counter {
+    color: #fff;
+}
+
+.get_booking #booking_details #dates_people .user_counter .count {
+    font-size: 50px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.get_booking #booking_details #dates_people .user_counter .counter_controls {
+    display: inline-block;
+}
+
+.get_booking #booking_details #dates_people .user_counter .counter_controls a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+}
+
+.get_booking #booking_details #dates_people .user_counter .counter_controls a.counter_down {
+    margin-top: 10px;
+}
+
+.get_booking #cta_go {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    background: #df7521;
+    color: #fff;
+    line-height: 198px;
+    vertical-align: top;
+}
+
+.get_booking #cta_go:hover {
+    background: #e5914e;
+}
+
+.get_booking #cta_go span.centered {
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.get_booking #cta_go span.centered i {
+    display: block;
+}
+
+.ui-widget-header,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    background: #e6edf6;
+    color: #4b4186;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    background: #df7521;
+    color: #fff;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+@media all and (min-width: 1px) and (max-width: 850px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    header .logo img {
+        height: 20px;
+    }
+
+    header nav ul li a {
+        margin: 0px 10px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    #slider .slide .slide-title {
+        font-size: 50px;
+    }
+
+    .get_booking {
+        text-align: center;
+    }
+
+    .get_booking #booking_details,
+    .get_booking #cta_go {
+        width: 98%;
+        margin: 10px auto;
+    }
+}
+</style>
 <br>
 
 
@@ -18,9 +429,7 @@ include_once '../../plantilla/menu.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <br>
-                <br>
-
+                
             </div>
         </div>
     </div>
@@ -28,268 +437,170 @@ include_once '../../plantilla/menu.php';
 <!--Banner de auto -->
 
 <!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- section title -->
-            <div class="col-md-12 fondo-blanco">
-                <!-- SECTION -->
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="tm-main-content" id="top">
-                            <div class="tm-top-bar-bg"></div>
-                            <div class="tm-section tm-bg-img" id="tm-section-1">
-                                <div class="tm-bg-white ie-container-width-fix-2">
-                                    <div class="container ie-h-align-center-fix">
-                                        <div class="row">
-                                            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-                                                <form action="index.html" method="get"
-                                                    class="tm-search-form tm-section-pad-2">
-                                                    <div class="form-row tm-search-form-row">
-                                                        <div class="form-group tm-form-element tm-form-element-100">
-                                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                                            <input name="city" type="text" class="form-control"
-                                                                id="inputCity" placeholder=" Ciudad de Partida">
-                                                        </div>
-                                                        <div class="form-group tm-form-element tm-form-element-50">
-                                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                                            <input name="check-in" type="text" class="form-control"
-                                                                id="inputCheckIn" placeholder="Check In">
-                                                        </div>
-                                                        <div class="form-group tm-form-element tm-form-element-50">
-                                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                                            <input name="check-out" type="text" class="form-control"
-                                                                id="inputCheckOut" placeholder="Check Out">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row tm-search-form-row">
-                                                        <div class="form-group tm-form-element tm-form-element-2">
-                                                            <select name="adult" class="form-control tm-select"
-                                                                id="adult">
-                                                                <option value="">Adult</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                                <option value="8">8</option>
-                                                                <option value="9">9</option>
-                                                                <option value="10">10</option>
-                                                            </select>
-                                                            <i class="fa fa-2x fa-user tm-form-element-icon"></i>
-                                                        </div>
-                                                        <div class="form-group tm-form-element tm-form-element-2">
-                                                            <select name="children" class="form-control tm-select"
-                                                                id="children">
-                                                                <option value="">Children</option>
-                                                                <option value="0">0</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                                <option value="8">8</option>
-                                                                <option value="9">9</option>
-                                                                <option value="10">10</option>
-                                                            </select>
-                                                            <i
-                                                                class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
-                                                        </div>
-                                                        <div class="form-group tm-form-element tm-form-element-2">
-                                                            <select name="room" class="form-control tm-select"
-                                                                id="room">
-                                                                <option value="">Room</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                                <option value="8">8</option>
-                                                                <option value="9">9</option>
-                                                                <option value="10">10</option>
-                                                            </select>
-                                                            <i class="fa fa-2x fa-bed tm-form-element-icon"></i>
-                                                        </div>
-                                                        <div class="form-group tm-form-element tm-form-element-2">
-                                                            <button type="submit"
-                                                                class="btn btn-primary tm-btn-search">Check
-                                                                Availability</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
-                                                        <p class="tm-margin-b-0">Lorem ipsum dolor sit amet, consectetur
-                                                            adipiscing elit.</p>
-                                                        <a href="#"
-                                                            class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Need
-                                                            Help?</a>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section id="padder">
+<br><br> <br><br> <br><br> <br><br>
+  <div id="slider">
+    <ul>
+      <li class="slide active" style="background-image:url('http://i.huffpost.com/gen/2832512/images/o-AMSTERDAM-CANALS-facebook.jpg')">
+        <div class="slide-title">Amsterdam</div>
+      </li>
+      <li class="slide" style="background-image:url('http://postodiconversazione.com/wp-content/uploads/navigli_milano_5.jpg')">
+        <div class="slide-title">Milano</div>
+      </li>
+      <li class="slide" style="background-image:url('http://airlines-airports.com/wp-content/uploads/2016/08/Germany-Cologne.jpg')">
+        <div class="slide-title">Cologne</div>
+      </li>
+      <div id="controls">
+        <div class="prev"><a href="javascript:void(0)">PREV</a></div>
+        <div class="next"><a href="javascript:void(0)">NEXT</a></div>
+      </div>
+    </ul>
+  </div>
+  <section class="container get_booking" id="content">
+    <form name="booking_details" method="post">
+      <div id="booking_details">
+        <div id="search_destination"><i class="fa icon-search"></i>
+          <input class="search" type="text" placeholder="Enter Destination/Hotel Name"/>
         </div>
-    </div>
-</div>
-</div>
-<!-- load JS files -->
-<script src="<?= $base_url ?>js/js-vuelos/jquery-1.11.3.min.js"></script> <!-- jQuery (https://jquery.com/download/) -->
-<script src="<?= $base_url ?>js/js-vuelos/popper.min.js"></script> <!-- https://popper.js.org/ -->
-<script src="<?= $base_url ?>js/js-vuelos/bootstrap.min.js"></script> <!-- https://getbootstrap.com/ -->
-<script src="<?= $base_url ?>js/js-vuelos/datepicker.min.js"></script> <!-- https://github.com/qodesmith/datepicker -->
-<script src="<?= $base_url ?>js/js-vuelos/jquery.singlePageNav.min.js"></script>
-<!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-<script src="<?= $base_url ?>slick/slick.min.js"></script> <!-- http://kenwheeler.github.io/slick/ -->
+        <div id="dates_people">
+          <div class="date_box" id="check_in">
+            <p class="label">CHECK-IN</p>
+            <input class="datepicker" type="hidden" name="check_in_date"/>
+            <div class="date">25</div>
+            <div class="aside">
+              <div class="month">December</div>
+              <div class="year">2016</div>
+            </div>
+          </div>
+          <div class="date_box" id="check_out">
+            <p class="label">CHECK-OUT</p>
+            <input class="datepicker" type="hidden" name="check_out_box"/>
+            <div class="date">20</div>
+            <div class="aside">
+              <div class="month">January</div>
+              <div class="year">2017</div>
+            </div>
+          </div>
+          <div class="user_counter" id="user_adult">
+            <p class="label">ADULTS</p>
+            <input type="hidden" name="count_adult" value="3"/>
+            <div class="count">3</div>
+            <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i class="fa icon-minus"></i></a></div>
+          </div>
+          <div class="user_counter" id="user_children">
+            <p class="label">CHILDREN</p>
+            <input name="count_children" type="hidden" value="3"/>
+            <div class="count">3</div>
+            <div class="counter_controls"><a class="counter_up" href="javascript:void(0)"><i class="fa icon-plus"></i></a><a class="counter_down" href="javascript:void(0)"><i class="fa icon-minus"></i></a></div>
+          </div>
+        </div>
+      </div><a id="cta_go" href="javascript:void(0)"><span class="centered"><span>SHOW OFFERS</span><i class="fa fa-arrow-right"></i></span></a>
+    </form>
+  </section>
+</section>
+
 <script>
-/* Google map   
-            ------------------------------------------------*/
-var map = '';
-var center;
+$(function() {
+    //Set Current Date
+    var today = new Date();
+    $('#check_in .date').text($.datepicker.formatDate('dd', today));
+    $('#check_in .month').text($.datepicker.formatDate('MM', today));
+    $('#check_in .year').text($.datepicker.formatDate('yy', today));
+    $('#check_in input').val($.datepicker.formatDate('mm/dd/yy', today));
+    var chkout_date = $.datepicker.parseDate('mm/dd/yy', $('#check_in input').val());
+    chkout_date.setDate(chkout_date.getDate() + 1);
+    $('#check_out .datepicker').val($.datepicker.formatDate('mm/dd/yy', chkout_date));
+    $('#check_out .date').text($.datepicker.formatDate('dd', chkout_date));
+    $('#check_out .month').text($.datepicker.formatDate('MM', chkout_date));
+    $('#check_out .year').text($.datepicker.formatDate('yy', chkout_date));
 
-function initialize() {
-    var mapOptions = {
-        zoom: 16,
-        center: new google.maps.LatLng(13.7567928, 100.5653741),
-        scrollwheel: false
-    };
-
-    map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-
-    google.maps.event.addDomListener(map, 'idle', function() {
-        calculateCenter();
+    //Drop Down
+    $('.drop span').on('click', function() {
+        $(this).parent().find('.drop_options').slideToggle('fast');
     });
 
-    google.maps.event.addDomListener(window, 'resize', function() {
-        map.setCenter(center);
+    $('.drop_options li span').on('click', function() {
+        $(this).parents('.drop_options').slideUp('fast');
     });
-}
 
-function calculateCenter() {
-    center = map.getCenter();
-}
-
-function loadGoogleMap() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src =
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' +
-        'callback=initialize';
-    document.body.appendChild(script);
-}
-
-function setCarousel() {
-
-    if ($('.tm-article-carousel').hasClass('slick-initialized')) {
-        $('.tm-article-carousel').slick('destroy');
-    }
-
-    if ($(window).width() < 438) {
-        // Slick carousel
-        $('.tm-article-carousel').slick({
-            infinite: false,
-            dots: true,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        });
-    } else {
-        $('.tm-article-carousel').slick({
-            infinite: false,
-            dots: true,
-            slidesToShow: 2,
-            slidesToScroll: 1
-        });
-    }
-}
-
-function setPageNav() {
-    if ($(window).width() > 991) {
-        $('#tm-top-bar').singlePageNav({
-            currentClass: 'active',
-            offset: 79
-        });
-    } else {
-        $('#tm-top-bar').singlePageNav({
-            currentClass: 'active',
-            offset: 65
-        });
-    }
-}
-
-function togglePlayPause() {
-    vid = $('.tmVideo').get(0);
-
-    if (vid.paused) {
-        vid.play();
-        $('.tm-btn-play').hide();
-        $('.tm-btn-pause').show();
-    } else {
-        vid.pause();
-        $('.tm-btn-play').show();
-        $('.tm-btn-pause').hide();
-    }
-}
-
-$(document).ready(function() {
-
-    $(window).on("scroll", function() {
-        if ($(window).scrollTop() > 100) {
-            $(".tm-top-bar").addClass("active");
+    //Slider
+    $('#slider #controls .prev').on('click', function() {
+        var prevSlide = $("#slider .slide.active").prev('.slide');
+        $('#slider .active').removeClass('animated fadeIn active');
+        if (prevSlide.length) {
+            $(prevSlide).addClass('animated fadeIn active');
         } else {
-            //remove the background property so it comes transparent again (defined in your css)
-            $(".tm-top-bar").removeClass("active");
+            $('#slider .slide').last().addClass('animated fadeIn active');
         }
     });
 
-    // Google Map
-    loadGoogleMap();
-
-    // Date Picker
-    const pickerCheckIn = datepicker('#inputCheckIn');
-    const pickerCheckOut = datepicker('#inputCheckOut');
-
-    // Slick carousel
-    setCarousel();
-    setPageNav();
-
-    $(window).resize(function() {
-        setCarousel();
-        setPageNav();
+    $('#slider #controls .next').on('click', function() {
+        var nextSlide = $("#slider .slide.active").next('.slide');
+        $('#slider .active').removeClass('animated fadeIn active');
+        if (nextSlide.length) {
+            $(nextSlide).addClass('animated fadeIn active');
+        } else {
+            $('#slider .slide').first().addClass('animated fadeIn active');
+        }
     });
 
-    // Close navbar after clicked
-    $('.nav-link').click(function() {
-        $('#mainNav').removeClass('show');
+    //DatePicker
+    $('.datepicker').datepicker({
+        defaultDate: '+1d',
+        minDate: 0,
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate'),
+                day = $.datepicker.formatDate('dd', $(this).datepicker('getDate')),
+                month = $.datepicker.formatDate('MM', $(this).datepicker('getDate')),
+                year = date.getFullYear();
+            $(this).parent().find('.date').text(day);
+            $(this).parent().find('.month').text(month);
+            $(this).parent().find('.year').text(year);
+            if ($(this).parent().attr('id') == "check_in") {
+                var chkout_date = $.datepicker.parseDate('mm/dd/yy', $('#check_in input').val());
+                chkout_date.setDate(chkout_date.getDate() + 1);
+                $('#check_out .datepicker').val($.datepicker.formatDate('mm/dd/yy', chkout_date));
+                $('#check_out .date').text($.datepicker.formatDate('dd', chkout_date));
+                $('#check_out .month').text($.datepicker.formatDate('MM', chkout_date));
+                $('#check_out .year').text($.datepicker.formatDate('yy', chkout_date));
+            } else {
+                var chkin_date = $.datepicker.parseDate('mm/dd/yy', $('#check_out input').val());
+                chkin_date.setDate(chkin_date.getDate() - 1);
+                $('#check_in .datepicker').val($.datepicker.formatDate('mm/dd/yy', chkin_date));
+                $('#check_in .date').text($.datepicker.formatDate('dd', chkin_date));
+                $('#check_in .month').text($.datepicker.formatDate('MM', chkin_date));
+                $('#check_in .year').text($.datepicker.formatDate('yy', chkin_date));
+            }
+        }
+    });
+    $('#check_out .datepicker').datepicker("option", {
+        minDate: +1
+    });
+    $('.date_box .date').on('click', function() {
+        $(this).parent().find('.datepicker').datepicker('show');
     });
 
-    // Control video
-    $('.tm-btn-play').click(function() {
-        togglePlayPause();
+    //Counter
+    $('.counter_controls a').on('click', function() {
+        var count = parseInt($(this).parents('.user_counter').find('.count').text());
+        if ($(this).hasClass('counter_up')) {
+            $(this).parents('.user_counter').find('.count').text(count + 1);
+            $(this).parents('.user_counter').find('input').val(count + 1);
+        } else {
+            if ($(this).parents('.user_counter').attr('id') == "user_adult") {
+                if (count > 1) {
+                    $(this).parents('.user_counter').find('.count').text(count - 1);
+                    $(this).parents('.user_counter').find('input').val(count - 1);
+                }
+            } else if (count) {
+                $(this).parents('.user_counter').find('.count').text(count - 1);
+                $(this).parents('.user_counter').find('input').val(count - 1);
+            }
+        }
     });
 
-    $('.tm-btn-pause').click(function() {
-        togglePlayPause();
-    });
-
-    // Update the current year in copyright
-    $('.tm-current-year').text(new Date().getFullYear());
 });
 </script>
-
-
 
 <?php
 include_once '../../plantilla/footer.php';
