@@ -8,7 +8,7 @@ include_once '../../plantilla/menu.php';
 
 
 
-<div class="container-linea-tiempo" >
+<div class="container-linea-tiempo">
     <div class="row caja-time">
         <!-- Products tab & slick -->
         <div class="col-md-12 ">
@@ -273,49 +273,49 @@ include_once '../../plantilla/menu.php';
                                     </div>
                                 </div>
                             </div>
-                                <!-- FIN de 1ra fila -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fa fa-comments icono-linea bg-yellow"></i>
-                        <div class="timeline-item">
-
-                            <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
-                                                cartas
-                                                de invitación cuando sean requeridas, permisos o actas notables de
-                                                acuerdo a
-                                                la Ley Lepina para menores de 18 años.</label>
-                                            <label>*Boletos aereos no reembolsables, no endosables y no
-                                                transferibles.</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                </div>
-
-                            </div>
+                            <!-- FIN de 1ra fila -->
                         </div>
                     </div>
                 </div>
+                <!-- END timeline item -->
+                <!-- timeline item -->
+                <div>
+                    <i class="fa fa-comments icono-linea bg-yellow"></i>
+                    <div class="timeline-item">
 
+                        <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
+                        <div class="timeline-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
+                                            cartas
+                                            de invitación cuando sean requeridas, permisos o actas notables de
+                                            acuerdo a
+                                            la Ley Lepina para menores de 18 años.</label>
+                                        <label>*Boletos aereos no reembolsables, no endosables y no
+                                            transferibles.</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-footer" style="text-align: right;">
+                                <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Products tab & slick -->
 
         </div>
-    </div>
+        <!-- Products tab & slick -->
 
-    <?php
+    </div>
+</div>
+
+<?php
 include_once '../../plantilla/footer.php';
 ?>
 
-    964px
+964px

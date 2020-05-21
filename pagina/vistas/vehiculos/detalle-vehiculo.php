@@ -60,9 +60,9 @@ input[type=submit]:hover {
 </style>
 
 <style>
-    .btn-info{
-        width: 95%;
-    }
+.btn-info {
+    width: 95%;
+}
 </style>
 
 
@@ -180,178 +180,259 @@ input[type=submit]:hover {
 
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div class="form-group">
-                                                <label for="fname">Nombre de Cliente</label>
-                                                <input type="text" id="fname" name="firstname"
-                                                    placeholder="Digite su nombre:">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label for="fname">Numero de Telefono</label>
-                                                <input type="text" id="fname" name="firstname"
-                                                    placeholder="Digite su telefono">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="fname">Lugar de Recogida</label>
-                                                <select id="" name="">
-                                                    <option>Servicio a Domicilio</option>
-                                                    <option>Aeropuerto</option>
-                                                    <option>Ciudad</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="fname">Dirección</label>
-                                                <input type="text" id="fname" name="firstname" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="fname">Fecha</label>
-                                                <input type="text" id="fname" name="firstname" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="fname">Hora</label>
-                                                <select>
-                                                    <option>00:00</option>
-                                                    <option>01:00</option>
-                                                    <option>02:00</option>
-                                                    <option>03:00</option>
-                                                    <option>04:00</option>
-                                                    <option>05:00</option>
-                                                    <option>06:00</option>
-                                                    <option>07:00</option>
-                                                    <option>08:00</option>
-                                                    <option>08:00</option>
-                                                    <option>10:00</option>
-                                                    <option>11:00</option>
-                                                    <option>12:00</option>
-                                                    <option>13:00</option>
-                                                    <option>14:00</option>
-                                                    <option>15:00</option>
-                                                    <option>16:00</option>
-                                                    <option>17:00</option>
-                                                    <option>18:00</option>
-                                                    <option>19:00</option>
-                                                    <option>20:00</option>
-                                                    <option>21:00</option>
-                                                    <option>22:00</option>
-                                                    <option>23:00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="fname">Lugar de Devolución</label>
-                                                <select id="" name="">
-                                                    <option>Servicio a Domicilio</option>
-                                                    <option>Aeropuerto</option>
-                                                    <option>Ciudad</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="fname">Dirección</label>
-                                                <input type="text" id="fname" name="firstname" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="fname">Fecha</label>
-                                                <input type="text" id="fname" name="firstname" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="fname">Hora</label>
-                                                <select id="" name="">
-                                                    <option>00:00</option>
-                                                    <option>01:00</option>
-                                                    <option>02:00</option>
-                                                    <option>03:00</option>
-                                                    <option>04:00</option>
-                                                    <option>05:00</option>
-                                                    <option>06:00</option>
-                                                    <option>07:00</option>
-                                                    <option>08:00</option>
-                                                    <option>08:00</option>
-                                                    <option>10:00</option>
-                                                    <option>11:00</option>
-                                                    <option>12:00</option>
-                                                    <option>13:00</option>
-                                                    <option>14:00</option>
-                                                    <option>15:00</option>
-                                                    <option>16:00</option>
-                                                    <option>17:00</option>
-                                                    <option>18:00</option>
-                                                    <option>19:00</option>
-                                                    <option>20:00</option>
-                                                    <option>21:00</option>
-                                                    <option>22:00</option>
-                                                    <option>23:00</option>
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="row text-center">
-                                            <div class="col-md-4">
-                                                 <label for="default" class="btn btn-info">Exoneración en Daños <input
-                                                    type="checkbox" id="default" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
+
+                                    <div class="row caja-time">
+                                        <!-- Products tab & slick -->
+                                        <div class="col-md-12 ">
+
+                                            <div class="timeline">
+                                                <!-- timeline time label -->
+                                                <div class="time-label">
+                                                    <span class="bg-red">Información</span>
+                                                </div>
+                                                <!-- /.timeline-label -->
+                                                <!-- timeline item -->
+                                                <div>
+                                                    <i class="fa fa-users icono-linea bg-blue"></i>
+                                                    <div class="timeline-item">
+
+                                                        <h3 class="timeline-header"><a href="#">Datos Generales</a>
+                                                        </h3>
+
+                                                        <div class="timeline-body">
+                                                            <!-- INICIO de primera fila -->
+                                                            <div class="row">
+                                                                <div class="col-sm-8">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label for="fname">Nombre de Cliente</label>
+                                                                        <input type="text" id="fname" name="firstname"
+                                                                            placeholder="Digite su nombre:">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-4">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label for="fname">Numero de Telefono</label>
+                                                                        <input type="text" id="fname" name="firstname"
+                                                                            placeholder="Digite su telefono">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- FIN de primera fila -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END timeline item -->
+                                                <!-- timeline item -->
+                                                <div>
+                                                    <i class="fa fa-car icono-linea bg-green"></i>
+                                                    <div class="timeline-item">
+
+                                                        <h3 class="timeline-header no-border"><a href="#">Datos de
+                                                                Alquiler</a></h3>
+                                                        <div class="timeline-body">
+
+                                                            <!-- INICIO de 2da fila -->
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <div class="form-group">
+                                                                        <label>Lugar de Recogida</label>
+                                                                        <select class="form-control">
+                                                                            <option>Servicio a Domicilio</option>
+                                                                            <option>Aeropuerto</option>
+                                                                            <option>Ciudad</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    <div class="form-group">
+                                                                        <label for="fname">Dirección</label>
+                                                                        <input type="text" id="fname" name="firstname"
+                                                                            placeholder="Digite su telefono">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha</label>
+                                                                        <input type="date" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <div class="form-group">
+                                                                        <label>Hora</label>
+                                                                        <select class="form-control">
+                                                                            <option>00:00</option>
+                                                                            <option>01:00</option>
+                                                                            <option>02:00</option>
+                                                                            <option>03:00</option>
+                                                                            <option>04:00</option>
+                                                                            <option>05:00</option>
+                                                                            <option>06:00</option>
+                                                                            <option>07:00</option>
+                                                                            <option>08:00</option>
+                                                                            <option>08:00</option>
+                                                                            <option>10:00</option>
+                                                                            <option>11:00</option>
+                                                                            <option>12:00</option>
+                                                                            <option>13:00</option>
+                                                                            <option>14:00</option>
+                                                                            <option>15:00</option>
+                                                                            <option>16:00</option>
+                                                                            <option>17:00</option>
+                                                                            <option>18:00</option>
+                                                                            <option>19:00</option>
+                                                                            <option>20:00</option>
+                                                                            <option>21:00</option>
+                                                                            <option>22:00</option>
+                                                                            <option>23:00</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- FIN de 2da fila -->
+                                                            <!-- Inicio de 1ra fila -->
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <div class="form-group">
+                                                                        <label>Lugar de Devolución</label>
+                                                                        <select class="form-control">
+                                                                            <option>Servicio a Domicilio</option>
+                                                                            <option>Aeropuerto</option>
+                                                                            <option>Ciudad</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    <div class="form-group">
+                                                                        <label for="fname">Dirección</label>
+                                                                        <input type="text" id="fname" name="firstname"
+                                                                            placeholder="Digite su telefono">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha</label>
+                                                                        <input type="date" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <div class="form-group">
+                                                                        <label>Hora</label>
+                                                                        <select class="form-control">
+                                                                            <option>00:00</option>
+                                                                            <option>01:00</option>
+                                                                            <option>02:00</option>
+                                                                            <option>03:00</option>
+                                                                            <option>04:00</option>
+                                                                            <option>05:00</option>
+                                                                            <option>06:00</option>
+                                                                            <option>07:00</option>
+                                                                            <option>08:00</option>
+                                                                            <option>08:00</option>
+                                                                            <option>10:00</option>
+                                                                            <option>11:00</option>
+                                                                            <option>12:00</option>
+                                                                            <option>13:00</option>
+                                                                            <option>14:00</option>
+                                                                            <option>15:00</option>
+                                                                            <option>16:00</option>
+                                                                            <option>17:00</option>
+                                                                            <option>18:00</option>
+                                                                            <option>19:00</option>
+                                                                            <option>20:00</option>
+                                                                            <option>21:00</option>
+                                                                            <option>22:00</option>
+                                                                            <option>23:00</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- FIN de 1ra fila -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END timeline item -->
+                                                <!-- timeline item -->
+                                                <div>
+                                                    <i class="fa fa-comments icono-linea bg-yellow"></i>
+                                                    <div class="timeline-item">
+
+                                                        <h3 class="timeline-header"><a href="#">Servicios Opcionales</a></h3>
+                                                        <div class="timeline-body">
+                                                            <div class="row">
+                                                                <div class="offset"></div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-primary">
+                                                                        <input id="checkbox2" type="checkbox" checked>
+                                                                        <label for="checkbox2">
+                                                                        Exoneración en Daños
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-success">
+                                                                        <input id="checkbox3" type="checkbox">
+                                                                        <label for="checkbox3">
+                                                                        Protección de Efectos
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-danger">
+                                                                        <input id="checkbox6" type="checkbox" checked>
+                                                                        <label for="checkbox6">
+                                                                        Seguro de Responsabilidad
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-primary">
+                                                                        <input id="checkbox1" type="checkbox" checked>
+                                                                        <label for="checkbox1">
+                                                                        WI-FI móvil
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-success">
+                                                                        <input id="checkbox4" type="checkbox">
+                                                                        <label for="checkbox4">
+                                                                        Asientos para niños
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-danger">
+                                                                        <input id="checkbox5" type="checkbox" checked>
+                                                                        <label for="checkbox5">
+                                                                        Conductor Adicional
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                          
-                                           
-                                            <div class="col-md-4">
-                                                 <label for="primary" class="btn btn-info">Protección de Efectos <input
-                                                    type="checkbox" id="primary" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
-                                            </div>
-                                           
-                                            <div class="col-md-4">
-                                                <label for="info" class="btn btn-info">Seguro de Responsabilidad <input
-                                                    type="checkbox" id="info" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
-                                            </div>
-      
+
+                                        </div>
+                                        <!-- Products tab & slick -->
+
                                     </div>
-                                        <div class="row text-center">
-                                            <div class="col-md-4">
-                                                  <label for="success" class="btn btn-info">WI-FI móvil <input type="checkbox"
-                                                    id="success" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                
-                                            <label for="warning" class="btn btn-info">Asientos para niños <input
-                                                    type="checkbox" id="warning" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label  for="danger" class="btn btn-info">Conductor Adicional <input
-                                                    type="checkbox" id="danger" class="badgebox"><span
-                                                    class="badge">&check;</span></label>
-                                            </div>
-                                        </div>
-                                           
-                                          
-                                         
-                                           
-                                           
-                                        </div>
-                                  
+
+
+
+
+
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary">Guardar</button>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
