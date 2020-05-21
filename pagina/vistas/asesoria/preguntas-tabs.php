@@ -234,10 +234,10 @@ include_once '../../plantilla/menu.php';
                                                                                     viaje?</label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Fecha">
+                                                                                       placeholder="Fecha" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-5">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Cuántas personas
@@ -245,32 +245,31 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el número de personas">
+                                                                                       placeholder="Digite el número de personas" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Nombre de las
                                                                                     personas?</label>
-                                                                                <div class="form-group multiple-form-group input-group">
-                        <div class="input-group-btn input-group-select">
-                            <input type="hidden" class="input-group-select-val" name="contacts['type'][]" value="phone">
-                        </div>
-                        <input type="text" name="contacts['value'][]" class="form-control" placeholder="Digite el nombre de la persona">
+                         <div class="form-group multiple-form-group input-group">
+
+                        <input type="text" name="contacts['value'][]" class="form-control" placeholder="Digite el nombre" class="form-control">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-success btn-add" style="margin-top:-15px;">+</button>
+                            <button type="button" class="btn btn-success btn-add" style="margin-top:1px;">+</button>
                         </span>
-                    </div>                                                                  
+                        </div>                                                                  
                                                                             </div>
                                                                         </div>
 
-
+                                                                    </div><!--fin de una pregunta-->
+                                                                    <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Parentesco que tiene
                                                                                     con ellas?</label>
                                                                                 <select id="parentesco"
-                                                                                        name="parentesco">
+                                                                                        name="parentesco" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="madre">Madre</option>
                                                                                     <option value="padre">Padre</option>
@@ -285,8 +284,8 @@ include_once '../../plantilla/menu.php';
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Ha tenido visa
                                                                                     antes?</label>
-                                                                                <select id="visa" name="visa">
-                                                                                     <option selected="">Seleccione</option>
+                                                                                <select id="visa" name="visa" class="form-control">
+                                                                                     <option selected="" >Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
                                                                                 </select>
@@ -296,7 +295,7 @@ include_once '../../plantilla/menu.php';
                                                                             <div class="form-group">
                                                                                 <label for="fname"> ¿Ha viajado antes a
                                                                                     EEUU? </label>
-                                                                                <select id="viajar" name="viajar">
+                                                                                <select id="viajar" name="viajar" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
@@ -304,12 +303,15 @@ include_once '../../plantilla/menu.php';
                                                                                 </select>
                                                                             </div>
                                                                         </div>
+
+                                                                    </div><!--fin de una fila-->
+                                                                    <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">¿Tiene alguna
                                                                                     petición trámite con
                                                                                     la embajada?</label>
-                                                                                <select id="peticion" name="peticion">
+                                                                                <select id="peticion" name="peticion" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
@@ -325,7 +327,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el nombre de la empresa">
+                                                                                       placeholder="Digite el nombre de la empresa" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -335,9 +337,11 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite la dirección de la persona">
+                                                                                       placeholder="Digite la dirección" class="form-control">
                                                                             </div>
                                                                         </div>
+                                                                    </div><!--fin de una fila-->
+                                                                    <div class="row">
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
@@ -345,7 +349,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite la dirección de la empresa">
+                                                                                       placeholder="Digite la dirección de la empresa" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -355,7 +359,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el número de teléfono">
+                                                                                       placeholder="Digite el número de teléfono" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -365,9 +369,11 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el teléfono de la empresa">
+                                                                                       placeholder="Digite el teléfono" class="form-control">
                                                                             </div>
                                                                         </div>
+                                                                    </div><!--fin de una fila-->
+                                                                    <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
@@ -375,7 +381,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="email" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el email de la persona">
+                                                                                       placeholder="Digite el email" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-5">
@@ -385,9 +391,10 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el email de la empresa">
+                                                                                       placeholder="Digite el email " class="form-control">
                                                                             </div>
                                                                         </div>
+                                                                    </div><!--fin de un fila-->
                                                                         <div class="col-md-11">
                                                                              <a name="btnSubmit" data-toggle="tab"
                                                                                class="btn btn-danger" 
@@ -401,7 +408,7 @@ include_once '../../plantilla/menu.php';
                                                                             </a>
                                                                         </div>
 
-                                                                    </div>
+                                                                  
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -410,24 +417,24 @@ include_once '../../plantilla/menu.php';
                                                                 <form method="post">
                                                                     <h3>Datos Generales de Familiares</h3>
                                                                     <div class="row">
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Nombre completo de padre?
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el nombre del padre">
+                                                                                       placeholder="Digite el nombre del padre" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Fecha de nacimiento de padre?
                                                                                 </label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="fecha">
+                                                                                       placeholder="fecha" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -435,27 +442,27 @@ include_once '../../plantilla/menu.php';
                                                                                 <label for="fname">
                                                                                     ¿Está su padre en los EEUU?
                                                                                 </label>
-                                                                                <select id="" name="visa">
+                                                                                <select id="" name="visa" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-2">
+                                                                    </div><!--fin de una fila-->
+                                                                    <div class="row">
+                                                                         <div class="col-md-2">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Qué estatus tiene?
                                                                                 </label>
-                                                                                <select id="" name="visa">
+                                                                                <select id="" name="visa" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="si">Ciudadano/a</option>
                                                                                     <option value="no">Inducumentado/a</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                    </div><!--fin de una fila-->
-                                                                    <div class="row">
                                                                         <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
@@ -463,7 +470,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el nombre de la madre">
+                                                                                       placeholder="Digite el nombre de la madre" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -473,67 +480,71 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="fecha">
+                                                                                       placeholder="fecha" class="form-control">
                                                                             </div>
-                                                                        </div>
+                                                                        </div><br>
                                                                         <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Esta su madre en los EEUU?
                                                                                 </label>
-                                                                                <select id="" name="visa">
+                                                                                <select id="" name="visa" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-2">
+                                                                        
+                                                                        </div><!--fin de la fila-->
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Qué estatus tiene?
                                                                                 </label>
-                                                                                <select id="" name="visa">
+                                                                                <select id="" name="visa" class="form-control">
                                                                                      <option selected="">Seleccione</option>
                                                                                     <option value="si">Ciudadano/a</option>
                                                                                     <option value="no">Inducumentado/a</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        </div><!--fin de la fila-->
 
-                                                                        <div class="row">
-
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-5">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Parientes en los EEUU que no sean
                                                                                     sus padres?
                                                                                 </label>
-                                                                                <select id="" name="visa">
+                                                                                <select id="" name="visa" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Nombre de esa persona?
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el nombre de la persona">
+                                                                                       placeholder="Digite el nombre de la persona" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                       
+                                                                    </div><!--fin de la fila-->
+                                                                    <div class="row">
+                                                                         <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Parentesco que tiene con ella?
                                                                                 </label>
                                                                                 <select id="parentesco"
-                                                                                        name="parentesco">
+                                                                                        name="parentesco" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="madre">Madre</option>
                                                                                     <option value="padre">Padre</option>
@@ -544,61 +555,63 @@ include_once '../../plantilla/menu.php';
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                    </div><!--fin de la fila-->
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Fecha de nacimiento de esa persona?
                                                                                 </label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Fecha">
+                                                                                       placeholder="Fecha" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Nacionalidad de esa persona?
                                                                                 </label>
                                                                                 <select id="parentesco"
-                                                                                        name="parentesco">
+                                                                                        name="parentesco" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="Salvadoreña">Salvadoreña</option>
                                                                                     <option value="Otra">Otra</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-2">
                                                                             <div class="form-group">
+                                                                                <br>
                                                                                 <label for="fname">
+
                                                                                     ¿Es casado/a?
                                                                                 </label>
                                                                                <select id="casado"
-                                                                                        name="parentesco">
+                                                                                        name="parentesco" class="form-control">
                                                                                     <option value="selec" selected="">Seleccione</option>
                                                                                     <option value="si">Si</option>
                                                                                     <option value="no">No</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
+                                                                    </div><!--fin de una fila-->
                                                                         <div class="col-md-4">
-                                                                            <div class="form-group">
+                                                                            <div class="form-group"><br>
                                                                                 <label for="fname">
                                                                                     ¿Nombre de su cónyuge?
                                                                                 </label>
                                                                     <input type="text" id="input_nombre_conyuge"
                                                                                        name="firstname" disabled="" 
-                                                                                       placeholder="Digite el nombre del cónyuge">
+                                                                                       placeholder="Digite el nombre del cónyuge" class="form-control">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label for="fname">
                                                                                     ¿Fecha de nacimiento de su cónyuge?
                                                                                 </label>
                                                                                 <input type="date" id="input_fecha_conyuge"
                                                                                        name="firstname"
-                                                                                       placeholder="fecha" disabled />
+                                                                                       placeholder="fecha" disabled class="form-control"/>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-3">
@@ -606,7 +619,7 @@ include_once '../../plantilla/menu.php';
                                                                                 <label for="fname">
                                                                                     ¿Nacionalidad de su cónyuge?
                                                                                 </label>
-                                                                                <select id="nacionalidad_conyuge" name="parentesco" disabled>
+                                                                                <select id="nacionalidad_conyuge" name="parentesco" disabled class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="Salvadoreña">Salvadoreña</option>
                                                                                     <option value="Otra">Otra</option>
@@ -640,7 +653,7 @@ include_once '../../plantilla/menu.php';
                                                                                 <label> ¿Estudios
                                                                                     realizados? </label>
                                                                                     
-                                                                                <select id="educacion" name="educacion">
+                                                                                <select id="educacion" name="educacion" class="form-control">
                                                                                     <option selected="">Seleccione</option>
                                                                                     <option value="basica">Educación Basica</option>
                                                                                     <option value="media">Educación Media</option>
@@ -655,7 +668,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Digite el nombre del lugar">
+                                                                                       placeholder="Digite el nombre del lugar" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
@@ -666,7 +679,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="text" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="Dirección del lugar">
+                                                                                       placeholder="Dirección del lugar" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-5">
@@ -676,7 +689,7 @@ include_once '../../plantilla/menu.php';
                                                                                 </label>
                                                                                 <input type="date" id="fname"
                                                                                        name="firstname"
-                                                                                       placeholder="fecha">
+                                                                                       placeholder="fecha" class="form-control">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-11">
