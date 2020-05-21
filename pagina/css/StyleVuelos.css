@@ -1,0 +1,329 @@
+ @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  min-width: 620px;
+}
+body a {
+  text-decoration: none;
+}
+
+#padder {
+  padding: 0px 50px 30px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.topbar {
+  padding: 15px 30px;
+}
+.topbar .preferences {
+  display: inline-block;
+}
+.topbar .preferences .drop {
+  position: relative;
+  cursor: pointer;
+}
+.topbar .preferences .drop span {
+  display: inline-block;
+  padding: 5px 7px;
+  color: #4b4186;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #4b4186;
+  border-radius: 10px;
+  width: 34px;
+  background: #fff;
+}
+.topbar .preferences .drop span i.arrow-down {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+.topbar .preferences .drop span i.arrow-down:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  border-top: 5px solid #4b4186;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.topbar .preferences .drop span i.arrow-down:after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 4px;
+  border-top: 3px solid #fff;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+.topbar .preferences .drop .drop_options {
+  position: absolute;
+  display: none;
+  width: 100%;
+  z-index: 5;
+}
+.topbar .preferences .drop .drop_options li {
+  text-align: center;
+}
+.topbar .preferences .drop .drop_options li:hover span {
+  background: #4b4186;
+  color: #fff;
+}
+.topbar #login_register {
+  display: inline-block;
+  float: right;
+}
+.topbar #login_register a {
+  color: #4b4186;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+header {
+  padding: 20px 30px;
+  position: relative;
+  z-index: 2;
+}
+header .logo {
+  display: inline-block;
+}
+header .logo img {
+  max-width: 100%;
+  height: 30px;
+}
+
+
+#slider {
+  position: relative;
+  margin-top: -72px;
+  z-index: 1;
+  width: 100%;
+}
+#slider .slide {
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  list-style: none;
+  display: none;
+  transition: all 0.5s ease;
+}
+#slider .slide.active {
+  display: block;
+}
+#slider .slide .slide-title {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 100px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  width: 100%;
+  text-align: center;
+}
+#slider #controls .next, #slider #controls .prev {
+  position: absolute;
+  cursor: pointer;
+}
+#slider #controls .next {
+  top: 50%;
+  right: -45px;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+}
+#slider #controls .prev {
+  top: 50%;
+  left: -45px;
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+}
+#slider #controls a {
+  color: #4b4186;
+}
+
+.get_booking {
+  margin-top: -110px;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+.get_booking #booking_details {
+  display: inline-block;
+  width: 68%;
+  margin-right: 10px;
+  background: #4b4186;
+}
+.get_booking #booking_details #search_destination {
+  padding: 20px;
+  background: #413975;
+}
+.get_booking #booking_details #search_destination i.fa {
+  color: #fff;
+  opacity: 0.3;
+  font-size: 40px;
+  margin-right: 5px;
+}
+.get_booking #booking_details #search_destination input.search {
+  display: inline-block;
+  width: 80%;
+  padding: 0px 15px;
+  font-size: 20px;
+  line-height: 40px;
+  vertical-align: top;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+.get_booking #booking_details #dates_people {
+  display: table;
+  width: 100%;
+}
+.get_booking #booking_details #dates_people .user_counter, .get_booking #booking_details #dates_people .date_box {
+  display: table-cell;
+  width: 25%;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 15px;
+  text-align: center;
+}
+.get_booking #booking_details #dates_people .user_counter:last-child, .get_booking #booking_details #dates_people .date_box:last-child {
+  border: none;
+}
+.get_booking #booking_details #dates_people .user_counter p.label, .get_booking #booking_details #dates_people .date_box p.label {
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.get_booking #booking_details #dates_people .date_box {
+  color: #fff;
+}
+.get_booking #booking_details #dates_people .date_box .date {
+  display: inline-block;
+  font-size: 50px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.get_booking #booking_details #dates_people .date_box .aside {
+  display: inline-block;
+  text-align: left;
+}
+.get_booking #booking_details #dates_people .date_box .month, .get_booking #booking_details #dates_people .date_box .year {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.get_booking #booking_details #dates_people .user_counter {
+  color: #fff;
+}
+.get_booking #booking_details #dates_people .user_counter .count {
+  font-size: 50px;
+  display: inline-block;
+  margin-right: 15px;
+}
+.get_booking #booking_details #dates_people .user_counter .counter_controls {
+  display: inline-block;
+}
+.get_booking #booking_details #dates_people .user_counter .counter_controls a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+}
+.get_booking #booking_details #dates_people .user_counter .counter_controls a.counter_down {
+  margin-top: 10px;
+}
+.get_booking #cta_go {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  background: #DF7521;
+  color: #fff;
+  line-height: 198px;
+  vertical-align: top;
+}
+.get_booking #cta_go:hover {
+  background: #e5914e;
+}
+.get_booking #cta_go span.centered {
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.get_booking #cta_go span.centered i {
+  display: block;
+}
+
+.ui-widget-header,
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  background: #e6edf6;
+  color: #4b4186;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  background: #DF7521;
+  color: #fff;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@media all and (min-width: 1px) and (max-width: 850px) {
+  header {
+    padding: 20px 10px;
+  }
+  header .logo img {
+    height: 20px;
+  }
+  header nav ul li a {
+    margin: 0px 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  #slider .slide .slide-title {
+    font-size: 50px;
+  }
+
+  .get_booking {
+    text-align: center;
+  }
+  .get_booking #booking_details, .get_booking #cta_go {
+    width: 98%;
+    margin: 10px auto;
+  }
+}

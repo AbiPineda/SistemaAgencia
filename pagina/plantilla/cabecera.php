@@ -49,5 +49,8 @@
         <link type="text/css" rel="stylesheet" href="<?= $base_url ?>css/styleGalery.css" />
 
         <link href="<?= $base_url ?>css/modificaciones.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="<?=$base_url?>css/StyleVuelos.css">
         
     </head>
