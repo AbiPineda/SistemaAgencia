@@ -5,257 +5,10 @@ include_once '../../plantilla/menu.php';
 ?>
 <br><br>
 
-<style>
-.timeline {
-    margin: 0 0 45px;
-    padding: 0;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.timeline::before {
-    border-radius: .25rem;
-    background: #dee2e6;
-    bottom: 0;
-    content: '';
-    left: 31px;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    width: 4px;
-}
-
-.timeline>div {
-    margin-bottom: 15px;
-    margin-right: 10px;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.timeline>div>.timeline-item {
-    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
-    border-radius: .25rem;
-    background: #fff;
-    color: #495057;
-    margin-left: 60px;
-    margin-right: 15px;
-    margin-top: 0;
-    padding: 0;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.timeline>div>.timeline-item>.timeline-header {
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-    color: #495057;
-    font-size: 16px;
-    line-height: 1.1;
-    margin: 0;
-    padding: 10px;
-}
-
-.timeline>div>.timeline-item>.timeline-body,
-.timeline>div>.timeline-item>.timeline-footer {
-    padding: 10px;
-}
-
-.timeline>div>.timeline-item>.timeline-header>a {
-    font-weight: 600;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-.timeline>.time-label>span {
-    border-radius: 4px;
-    background-color: #fff;
-    display: inline-block;
-    font-weight: 600;
-    padding: 5px;
-}
 
 
 
-
-.bg-red,
-.bg-red>a {
-    color: #fff !important;
-}
-
-.bg-red {
-    background-color: #dc3545 !important;
-}
-
-///
-.timeline>div>.fa,
-.timeline>div>.fab,
-.timeline>div>.far,
-.timeline>div>.fas,
-.timeline>div>.glyphicon,
-.timeline>div>.ion {
-    background: #adb5bd;
-    border-radius: 50%;
-    font-size: 15px;
-    height: 30px;
-    left: 18px;
-    line-height: 30px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 30px;
-}
-
-.timeline>div::after,
-.timeline>div::before {
-    content: "";
-    display: table;
-}
-
-.bg-blue,
-.bg-blue>a {
-    color: #fff !important;
-}
-
-.bg-blue {
-    background-color: #007bff !important;
-}
-
-.fa,
-.fas {
-    font-weight: 900;
-    margin: 19px
-}
-
-.fa,
-.far,
-.fas {
-    font-family: "Font Awesome 5 Free";
-
-}
-
-.bg-green {
-    background-color: #28a745 !important;
-    color: #fff !important;
-}
-
-.bg-yellow {
-    background-color: #ffc107 !important;
-    color: #fff !important;
-}
-
-label:not(.form-check-label):not(.custom-file-label) {
-    font-weight: 700;
-}
-
-
-
-
-.checkbox {
-    padding-left: 96px;
-}
-
-.checkbox label {
-    display: inline-block;
-    position: relative;
-    padding-left: 5px;
-}
-
-.checkbox label::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 0;
-    margin-left: -20px;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    background-color: #fff;
-    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-}
-
-.checkbox label::after {
-    display: inline-block;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    left: 0;
-    top: 0;
-    margin-left: -20px;
-    padding-left: 3px;
-    padding-top: 1px;
-    font-size: 11px;
-    color: #555555;
-}
-
-.checkbox input[type="checkbox"] {
-    opacity: 0;
-}
-
-.checkbox input[type="checkbox"]:focus+label::before {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
-}
-
-.checkbox input[type="checkbox"]:checked+label::after {
-    font-family: 'FontAwesome';
-    content: "\f00c";
-}
-
-.checkbox input[type="checkbox"]:disabled+label {
-    opacity: 0.65;
-}
-
-.checkbox input[type="checkbox"]:disabled+label::before {
-    background-color: #eeeeee;
-    cursor: not-allowed;
-}
-
-.checkbox.checkbox-circle label::before {
-    border-radius: 50%;
-}
-
-.checkbox.checkbox-inline {
-    margin-top: 0;
-}
-
-.checkbox-primary input[type="checkbox"]:checked+label::before {
-    background-color: #428bca;
-    border-color: #428bca;
-}
-
-.checkbox-primary input[type="checkbox"]:checked+label::after {
-    color: #fff;
-}
-
-.checkbox-danger input[type="checkbox"]:checked+label::before {
-    background-color: #d9534f;
-    border-color: #d9534f;
-}
-
-.checkbox-danger input[type="checkbox"]:checked+label::after {
-    color: #fff;
-}
-
-
-.checkbox-success input[type="checkbox"]:checked+label::before {
-    background-color: #5cb85c;
-    border-color: #5cb85c;
-}
-
-.checkbox-success input[type="checkbox"]:checked+label::after {
-    color: #fff;
-}
-</style>
-
-
-<div class="container-md">
+<div class="container-linea-tiempo" >
     <div class="row caja-time">
         <!-- Products tab & slick -->
         <div class="col-md-12 ">
@@ -268,7 +21,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                 <!-- /.timeline-label -->
                 <!-- timeline item -->
                 <div>
-                    <i class="fa fa-plane fa-2x bg-blue"></i>
+                    <i class="fa fa-plane icono-linea bg-blue"></i>
                     <div class="timeline-item">
 
                         <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
@@ -409,7 +162,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                 <!-- END timeline item -->
                 <!-- timeline item -->
                 <div>
-                    <i class="fa fa-user fa-2x bg-green"></i>
+                    <i class="fa fa-user icono-linea bg-green"></i>
                     <div class="timeline-item">
 
                         <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
@@ -519,7 +272,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                                         </label>
                                     </div>
                                 </div>
-                                </>
+                            </div>
                                 <!-- FIN de 1ra fila -->
                             </div>
                         </div>
@@ -527,7 +280,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                     <!-- END timeline item -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fa fa-comments fa-2x bg-yellow"></i>
+                        <i class="fa fa-comments icono-linea bg-yellow"></i>
                         <div class="timeline-item">
 
                             <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
