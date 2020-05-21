@@ -154,7 +154,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 
 .checkbox {
-    padding-left: 20px;
+    padding-left: 96px;
 }
 
 .checkbox label {
@@ -167,8 +167,8 @@ label:not(.form-check-label):not(.custom-file-label) {
     content: "";
     display: inline-block;
     position: absolute;
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     left: 0;
     margin-left: -20px;
     border: 1px solid #cccccc;
