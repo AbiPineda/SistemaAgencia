@@ -238,13 +238,90 @@ include_once '../../plantilla/menu.php';
             </div>
             <!-- Products tab & slick -->
         </div>
-        <!-- /row -->
+        <!-- /row --> 
     </div>
     <!-- /container -->
+
+
 </div>
 <!-- /SECTION -->
 
+<br><br><br>
 
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12 fondo-blanco">
+                <div class="section-title">
+                    <h3 class="title">Crea tu propio Tour</h3>
+
+                </div>
+                <div class="row">
+                    <!-- single-well start-->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="well-left">
+                            <div class="single-well">
+                                <a href="#">
+                                    <img src="../../img/tours/machupichu.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single-well end-->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="well-middle">
+                            <div class="single-well">
+                                <a href="#">
+                                    <h4 class="sec-head">Agencia de Viajes</h4>
+                                </a>
+                                <p>
+                                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                   when an unknown printer took a galley of type and scrambled it to make a type 
+                                   specimen book. It has survived not only five centuries, but also the leap into 
+                                   electronic typesetting, remaining essentially unchanged. It was popularised in
+                                   the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                   and more recently with desktop publishing software like Aldus PageMaker including
+                                   versions of Lorem Ipsum.
+                                </p>
+                                <a href="cotizacion.php" class=" btn boton-azul">CREAR EL TUR DE TUS SUEÑOS</a>
+<!--                                
+                                <ul>
+                                  <li>
+                                    <i class="fa fa-check"></i> Interior design Package
+                                  </li>
+                                  <li>
+                                    <i class="fa fa-check"></i> Building House
+                                  </li>
+                                  <li>
+                                    <i class="fa fa-check"></i> Reparing of Residentail Roof
+                                  </li>
+                                  <li>
+                                    <i class="fa fa-check"></i> Renovaion of Commercial Office
+                                  </li>
+                                  <li>
+                                    <i class="fa fa-check"></i> Make Quality Products
+                                  </li>
+                                </ul>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col-->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SECTION -->
 
 
 
@@ -256,7 +333,7 @@ include_once '../../plantilla/menu.php';
 
 
 
-<br><br><br>
+<br>
 <?php
 include_once '../../plantilla/footer.php';
 ?>

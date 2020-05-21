@@ -4,7 +4,6 @@ include_once '../../plantilla/cabecera.php';
 include_once '../../plantilla/menu.php';
 ?>
 <link href="<?= $base_url ?>css/bootstrap.min.css" rel="stylesheet">
-
 <link href="<?= $base_url ?>js/bootstrap.min.js" rel="stylesheet">
 
 <style>
