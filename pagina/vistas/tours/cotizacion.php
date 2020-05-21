@@ -111,7 +111,7 @@ a {
 
 .fa, .fas {
     font-weight: 900;
-    margin: 25px
+    margin: 19px
 }
 
 .fa, .far, .fas {
@@ -151,7 +151,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                     <!-- /.timeline-label -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fas fa-plane bg-blue"></i>
+                        <i class="fa fa-plane fa-2x bg-blue"></i>
                         <div class="timeline-item">
 
                             <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
@@ -294,7 +294,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                     <!-- END timeline item -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fa fa-user fa-2x bg-green"></i>
                         <div class="timeline-item">
 
                             <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
@@ -415,7 +415,7 @@ label:not(.form-check-label):not(.custom-file-label) {
                     <!-- END timeline item -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fas fa-comments bg-yellow"></i>
+                        <i class="fa fa-comments fa-2x bg-yellow"></i>
                         <div class="timeline-item">
 
                             <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
