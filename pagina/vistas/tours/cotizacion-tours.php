@@ -198,4 +198,3 @@ include_once '../../plantilla/menu.php';
 include_once '../../plantilla/footer.php';
 ?>
 
-964px

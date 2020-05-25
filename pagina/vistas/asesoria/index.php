@@ -68,7 +68,7 @@ include_once '../../plantilla/portada.php';
                                         <p>
                                             Tel Agencia: 2319-2338 / 2312-0381
                                         </p>
-                                    <a href="asesoria.php">
+                                    <a href="preguntas-tabs.php">
                                         <button class="btn btn-primary btn-lg btn-block" style="background: #3EC1D5; none repeat scroll 0 0; border: 1px solid #3EC1D5; " >Inicia tu proceso Aquí
                                         </button>
                                     </a>   

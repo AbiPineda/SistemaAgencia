@@ -38,16 +38,16 @@
                                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios<span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a  href="<?=$base_url?>vistas/asesoria/"">Asesoria Migratora</a>
+                                                    <a  href="<?=$base_url?>vistas/asesoria/">Asesoria Migratora</a>
                                                 </li>
                                                 <li>
-                                                    <a  href="#pricing">Paquetes</a>
+                                                    <a  href="<?=$base_url?>vistas/paquetes/">Paquetes</a>
                                                 </li>
                                                 <li>
                                                     <a href="<?=$base_url?>vistas/tours/">Tours</a>
                                                 </li>
                                                 <li>
-                                                    <a href="./vistas/vehiculos/vehiculo.php">Renta de Vehiculos</a>
+                                                    <a href="<?=$base_url?>vistas/vehiculos/">Renta de Vehiculos</a>
                                                 </li>
                                                 <li>
                                                     <a href="<?=$base_url?>vistas/encomienda/">Encomienda</a>
