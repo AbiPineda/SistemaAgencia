@@ -52,6 +52,9 @@
                                                 <li>
                                                     <a href="<?=$base_url?>vistas/encomienda/">Encomienda</a>
                                                 </li>
+                                                <li>
+                                                    <a href="<?=$base_url?>vistas/vuelos">Vuelos</a>
+                                                </li>
                                             </ul> 
                                         </li>
 
