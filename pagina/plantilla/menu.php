@@ -41,7 +41,7 @@
                                                     <a  href="<?=$base_url?>vistas/asesoria/">Asesoria Migratora</a>
                                                 </li>
                                                 <li>
-                                                    <a  href="<?=$base_url?>vistas/paquetes/">Paquetes</a>
+                                                    <a  href="<?=$base_url?>vistas/paquete/">Paquetes</a>
                                                 </li>
                                                 <li>
                                                     <a href="<?=$base_url?>vistas/tours/">Tours</a>

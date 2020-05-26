@@ -93,7 +93,7 @@ include_once './plantilla/portada.php';
                         <div class="about-move">
                             <div class="services-details">
                                 <div class="single-services">
-                                    <a class="services-icon" href="#">
+                                    <a class="services-icon" href="vistas/asesoria/">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     <h4>Asesoría Migratoria</h4>
@@ -109,7 +109,7 @@ include_once './plantilla/portada.php';
                         <div class="about-move">
                             <div class="services-details">
                                 <div class="single-services">
-                                    <a class="services-icon" href="#">
+                                    <a class="services-icon" href="vistas/paquete/">
                                         <i class="fa fa-camera-retro"></i>
                                     </a>
                                     <h4>Paquetes</h4>
@@ -145,7 +145,7 @@ include_once './plantilla/portada.php';
                         <div class=" about-move">
                             <div class="services-details">
                                 <div class="single-services">
-                                    <a class="services-icon" href="#">
+                                    <a class="services-icon" href="./vistas/vehiculos/">
                                         <i class="fa fa-car"></i>
                                     </a>
                                     <h4>Renta de Vehiculos </h4>
@@ -164,7 +164,7 @@ include_once './plantilla/portada.php';
                         <div class=" about-move">
                             <div class="services-details">
                                 <div class="single-services">
-                                    <a class="services-icon" href="#">
+                                    <a class="services-icon" href="vistas/encomienda/">
                                         <i class="fa fa-check"></i>
                                     </a>
                                     <h4>Cargo Expreso</h4>
