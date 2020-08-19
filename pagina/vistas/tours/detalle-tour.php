@@ -7,7 +7,7 @@ include_once '../../plantilla/menu.php';
 
 <br><br><br>
 <div class="section">
-    
+
     <div class="container">
         <div class="row fondo-blanco">
             <!-- inicio -->
@@ -57,7 +57,9 @@ include_once '../../plantilla/menu.php';
             <!-- Product details -->
             <div class="col-md-5">
                 <div class="product-details">
-                    <div style="text-align: center"><h2 class="product-name">!!Vamos a Nicaragua!!!</h2></div>
+                    <div style="text-align: center">
+                        <h2 class="product-name">!!Vamos a Nicaragua!!!</h2>
+                    </div>
 
 
                     <div class="row">
@@ -65,9 +67,12 @@ include_once '../../plantilla/menu.php';
                             <h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
                             </h3>
                         </div>
-                        <div class="col-md-6" style="text-align: center"> <div class="add-to-cart">
-                                <button class="add-to-cart-btn" onclick="location.href = 'completar-transaccion.php'"><i class="fa fa-shopping-cart"></i>Siguiente</button>
-                            </div></div>
+                        <div class="col-md-6" style="text-align: center">
+                            <div class="add-to-cart">
+                                <button class="add-to-cart-btn" onclick="location.href = 'completar-transaccion.php'"><i
+                                        class="fa fa-shopping-cart"></i>Siguiente</button>
+                            </div>
+                        </div>
 
 
 
@@ -79,25 +84,25 @@ include_once '../../plantilla/menu.php';
                     <h2 class="product-name centrado">Lugar y hora de salida</h2>
                     <p class="centrado">Parque Cañas San Vicente 8:00 am</p>
                     <div class="row">
-                                <div class="offset-2"></div>
-                                <div class="col-md-5 centrado"> <label for="adulto">niños(0 a 12)</label> </div>
-                                <div class="col-md-5"> <input class="form-control"  name="adulto" type="number"></div>
-                         
+                        <div class="offset-2"></div>
+                        <div class="col-md-5 centrado"> <label for="adulto">niños(0 a 12)</label> </div>
+                        <div class="col-md-5"> <input class="form-control" name="adulto" type="number"></div>
+
                     </div>
                     <div class="row">
-                                <div class="offset-2"></div>
-                                <div class="col-md-5 centrado"> <label for="adulto">Adultos 12 a 60)</label> </div>
-                                <div class="col-md-5"> <input  class="form-control" name="adulto" type="number"></div>
-                         
+                        <div class="offset-2"></div>
+                        <div class="col-md-5 centrado"> <label for="adulto">Adultos 12 a 60)</label> </div>
+                        <div class="col-md-5"> <input class="form-control" name="adulto" type="number"></div>
+
                     </div>
                     <div class="row">
-                                <div class="offset-2"></div>
-                                <div class="col-md-5 centrado"> <label for="adulto">Tercera Edad (60+)</label> </div>
-                                <div class="col-md-5"> <input class="form-control"  name="adulto" type="number"></div>
-                         
+                        <div class="offset-2"></div>
+                        <div class="col-md-5 centrado"> <label for="adulto">Tercera Edad (60+)</label> </div>
+                        <div class="col-md-5"> <input class="form-control" name="adulto" type="number"></div>
+
                     </div>
-                 
-                
+
+
                 </div>
             </div>
             <!-- /Product details -->
@@ -130,125 +135,126 @@ include_once '../../plantilla/menu.php';
                     <div id="tab1" class="tab-pane fade in active">
                         <div class="row">
                             <div class="col-md-12" id="modificacion">
-                            <div class="products-tabs">
-                                <!-- tab 1-->
-                                <div id="tabSitos" class="tab-pane active">
-                                    <div class="products-slick" data-nav="#slick-nav-1">
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="../../img/tours/conchagua.jpg" alt="">
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
+                                <div class="products-tabs">
+                                    <!-- tab 1-->
+                                    <div id="tabSitos" class="tab-pane active">
+                                        <div class="products-slick" data-nav="#slick-nav-1">
+                                            <!-- product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <img src="../../img/tours/conchagua.jpg" alt="">
+                                                    <div class="product-label">
+                                                        <span class="sale">-30%</span>
+                                                        <span class="new">NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Nacional</p>
+                                                    <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
+                                                    </h3>
+
+
+
+                                                </div>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn"
+                                                        onclick="location.href = 'descripcion.php';">
+                                                        <i class="fa fa-eye"></i>Ver
+                                                    </button>
                                                 </div>
                                             </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Nacional</p>
-                                                <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
-                                                </h3>
+                                            <!-- /product -->
 
+                                            <!-- product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <img src="../../img/tours/machupichu.jpg" alt="">
+                                                    <div class="product-label">
+                                                        <span class="new">NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Nacional</p>
+                                                    <h3 class="product-name"><a href="#">product name goes
+                                                        </a></h3>
 
+                                                </div>
 
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn" onclick="location.href = 'descripcion.php';">
-                                                    <i class="fa fa-eye"></i>Ver
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="../../img/tours/machupichu.jpg" alt="">
-                                                <div class="product-label">
-                                                    <span class="new">NEW</span>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn"><i
+                                                            class="fa fa-eye"></i>Ver</button>
                                                 </div>
                                             </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Nacional</p>
-                                                <h3 class="product-name"><a href="#">product name goes
-                                                    </a></h3>
+                                            <!-- /product -->
 
-                                            </div>
+                                            <!-- product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <img src="../../img/tours/panama.jpg" alt="">
+                                                    <div class="product-label">
+                                                        <span class="sale">-30%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Nacional</p>
+                                                    <h3 class="product-name"><a href="#">Vamos a Panama
+                                                        </a></h3>
 
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i
-                                                        class="fa fa-eye"></i>Ver</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
 
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="../../img/tours/panama.jpg" alt="">
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
+
+                                                </div>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn"><i
+                                                            class="fa fa-eye"></i>Ver</button>
                                                 </div>
                                             </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Nacional</p>
-                                                <h3 class="product-name"><a href="#">Vamos a Panama
-                                                    </a></h3>
+                                            <!-- /product -->
+
+                                            <!-- product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <img src="../../img/tours/panama.jpg" alt="">
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Category</p>
+                                                    <h3 class="product-name"><a href="#">Vamos Otra vez a PAnama
+                                                        </a></h3>
 
 
 
+                                                </div>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn"><i
+                                                            class="fa fa-eye"></i>Ver</button>
+                                                </div>
                                             </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i
-                                                        class="fa fa-eye"></i>Ver</button>
+                                            <!-- /product -->
+
+                                            <!-- product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <img src="../../img/tours/conchagua.jpg" alt="">
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Internacional</p>
+                                                    <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
+                                                    </h3>
+
+
+
+                                                </div>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn"><i
+                                                            class="fa fa-eye"></i>ver</button>
+                                                </div>
                                             </div>
+                                            <!-- /product -->
                                         </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="../../img/tours/panama.jpg" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">Vamos Otra vez a PAnama
-                                                    </a></h3>
-
-
-
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i
-                                                        class="fa fa-eye"></i>Ver</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="../../img/tours/conchagua.jpg" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Internacional</p>
-                                                <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
-                                                </h3>
-
-
-
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i
-                                                        class="fa fa-eye"></i>ver</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
                                     </div>
-                                    <div id="slick-nav-1" class="products-slick-nav"></div>
                                 </div>
                             </div>
-                    </div>
-                            </div>
+                        </div>
                     </div>
                     <!-- /tab1  -->
 
@@ -258,7 +264,7 @@ include_once '../../plantilla/menu.php';
                     <div id="tab3" class="tab-pane fade in">
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="centrado">TRANSPORTE DE LUJO  (TV, BAÑO, ASIENTOS RECLINABLES, A/C)<br>
+                                <p class="centrado">TRANSPORTE DE LUJO (TV, BAÑO, ASIENTOS RECLINABLES, A/C)<br>
                                     HOTELES<br>
                                     5 DESAYUNOS<br>
                                     1 CENA<br>

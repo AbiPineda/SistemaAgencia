@@ -76,13 +76,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Nacional</p>
                                         <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
                                         </h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"  >
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'">
                                             <i class="fa fa-eye"></i>Ver
                                         </button>
                                     </div>
@@ -101,12 +101,12 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Nacional</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                             </a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
                                     </div>
 
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -124,13 +124,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Nacional</p>
                                         <h3 class="product-name"><a href="#">Vamos a Panama
                                             </a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -145,13 +145,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">Vamos Otra vez a PAnama
                                             </a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -166,13 +166,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Internacional</p>
                                         <h3 class="product-name"><a href="#">Vamos a Conchagua</a>
                                         </h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -196,13 +196,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Internacional</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -217,13 +217,13 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Internacional</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
 
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"  onclick="location.href = 'detalle-tour.php'"><i
+                                        <button class="add-to-cart-btn" onclick="location.href = 'detalle-tour.php'"><i
                                                 class="fa fa-eye"></i>Ver</button>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@ include_once '../../plantilla/menu.php';
             </div>
             <!-- Products tab & slick -->
         </div>
-        <!-- /row --> 
+        <!-- /row -->
     </div>
     <!-- /container -->
 
@@ -281,17 +281,17 @@ include_once '../../plantilla/menu.php';
                                     <h4 class="sec-head">Agencia de Viajes</h4>
                                 </a>
                                 <p>
-                                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                   when an unknown printer took a galley of type and scrambled it to make a type 
-                                   specimen book. It has survived not only five centuries, but also the leap into 
-                                   electronic typesetting, remaining essentially unchanged. It was popularised in
-                                   the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                   and more recently with desktop publishing software like Aldus PageMaker including
-                                   versions of Lorem Ipsum.
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in
+                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                    and more recently with desktop publishing software like Aldus PageMaker including
+                                    versions of Lorem Ipsum.
                                 </p>
-                                <a href="cotizacion.php" class=" btn boton-azul">CREAR EL TUR DE TUS SUEÑOS</a>
-<!--                                
+                                <a href="cotizacion-tours.php" class=" btn boton-azul">CREAR EL TUR DE TUS SUEÑOS</a>
+                                <!--                                
                                 <ul>
                                   <li>
                                     <i class="fa fa-check"></i> Interior design Package
