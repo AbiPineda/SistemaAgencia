@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/christi5/admin.christianmeza.com/
+    - /bin/cp SistemaAgencia/index.html $DEPLOYPATH
+    
+    - /bin/cp -r SistemaAgencia/css $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/config $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/img $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/js $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/pages $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/plantillas $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/plugins $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/vistas $DEPLOYPATH
