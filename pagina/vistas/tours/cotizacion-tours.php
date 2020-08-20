@@ -53,9 +53,9 @@ include_once '../../plantilla/menu.php';
                                 </div>
                             </div>
                             <!-- FIN de primera fila -->
-                            
-                            
-                            
+
+
+
                             <!-- FIN de 3ra fila -->
                         </div>
 
@@ -72,7 +72,7 @@ include_once '../../plantilla/menu.php';
 
                             <!-- INICIO de 2da fila -->
                             <div class="row">
-                            <div class="col-sm-3">
+                                <div class="col-sm-3">
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Lugar de Salida</label>
@@ -97,17 +97,17 @@ include_once '../../plantilla/menu.php';
                                         <input type="number" class="form-control" min="1" max="3">
                                     </div>
                                 </div>
-                                
-                                
+
+
                             </div><!-- INICIO de 3ra fila -->
                             <div class="row">
-                            <div class="col-sm-3">
+                                <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Bebés (0 a 4 años)</label>
                                         <input type="number" class="form-control" min="1" max="3">
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Niños (5 a 11 años)</label>
@@ -120,7 +120,7 @@ include_once '../../plantilla/menu.php';
                                         <input type="number" class="form-control" min="1" max="100">
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Adultos Mayores</label>
@@ -129,7 +129,7 @@ include_once '../../plantilla/menu.php';
                                 </div>
                             </div>
                             <!-- FIN de 2da fila -->
-                            
+
                         </div>
                     </div>
                 </div>
@@ -141,13 +141,13 @@ include_once '../../plantilla/menu.php';
 
                         <h3 class="timeline-header"><a href="#">Servicios Adicionales</a></h3>
                         <div class="timeline-body">
-                        <div class="row"  style="font-size: 13px;">
+                            <div class="row" style="font-size: 13px;">
                                 <div class="offset"></div>
                                 <div class="col-sm-3">
                                     <div class="checkbox checkbox-primary" style="padding-left: 55px;">
                                         <input id="checkbox1" type="checkbox" checked>
                                         <label for="checkbox1">
-                                        Alojamiento
+                                            Alojamiento
                                         </label>
                                     </div>
                                 </div>
@@ -175,14 +175,14 @@ include_once '../../plantilla/menu.php';
                                         </label>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                           
+
                         </div>
                         <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                            </div>
+                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                        </div>
 
                     </div>
                 </div>
@@ -197,4 +197,3 @@ include_once '../../plantilla/menu.php';
 <?php
 include_once '../../plantilla/footer.php';
 ?>
-

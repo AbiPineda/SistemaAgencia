@@ -38,7 +38,8 @@ include_once '../../plantilla/menu.php';
 
                     <div class="col-md-8">
 
-                        <img role="presentation" src="http://localhost/Plantillas/pagina/img/tours/panama.jpg" class="zoomImg"    >
+                        <img role="presentation" src="http://localhost/Plantillas/pagina/img/tours/panama.jpg"
+                            class="zoomImg">
 
                     </div>
 
@@ -92,7 +93,7 @@ include_once '../../plantilla/menu.php';
                         <div class="row">
                             <!-- Start Google Map -->
                             <div class="col-md-12">
-                                <button class="btn btn-lg btn-block boton-azul" >Realizar Cita</button>
+                                <button class="btn btn-lg btn-block boton-azul">Realizar Cita</button>
                             </div>
 
 
@@ -126,29 +127,30 @@ include_once '../../plantilla/menu.php';
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
 
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="pri_table_list active">
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="pri_table_list active">
 
-                            <h3>ESTAS A PUNTO DE PAGAR <br /> <span>$35.99 (50%) RESERVA DE VIAJE </span><br /> <span>DETALLES DE LA COMPRA</span></h3>
+                    <h3>ESTAS A PUNTO DE PAGAR <br /> <span>$35.99 (50%) RESERVA DE VIAJE </span><br /> <span>DETALLES
+                            DE LA COMPRA</span></h3>
 
-                            <ol>
-                                <li class="check">VOLCAN DE CONCHAGUA</li>
-                                <li class="check">MIRADOR ESPIRITU DE LA MONTAÑA</li>
-                                <li class="check">PARQUE DE LA FAMILIA</li>
-                                <li class="check">TRANSPORTE CON A/C</li>
-                                <li class="check">TRANSPORTE 4x4</li>
-                                <li class="check">ENTRADA AL VOLCAN</li>
-                                <li class="check cross">DESAYUNO</li>
-                                <li class="check cross">ALMUERZO</li>
-                                <li class="">NUMERO DE PERSONAS  (2)</li>
+                    <ol>
+                        <li class="check">VOLCAN DE CONCHAGUA</li>
+                        <li class="check">MIRADOR ESPIRITU DE LA MONTAÑA</li>
+                        <li class="check">PARQUE DE LA FAMILIA</li>
+                        <li class="check">TRANSPORTE CON A/C</li>
+                        <li class="check">TRANSPORTE 4x4</li>
+                        <li class="check">ENTRADA AL VOLCAN</li>
+                        <li class="check cross">DESAYUNO</li>
+                        <li class="check cross">ALMUERZO</li>
+                        <li class="">NUMERO DE PERSONAS (2)</li>
 
 
 
-                            </ol>
-                         
-                        </div>
-                    </div>
+                    </ol>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
