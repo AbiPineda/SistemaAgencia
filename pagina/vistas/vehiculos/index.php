@@ -10,8 +10,8 @@ include_once '../../plantilla/menu.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                
-                
+
+
             </div>
         </div>
     </div>
@@ -61,22 +61,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"
-                                                    onclick="location.href = 'detalle-vehiculo.php'">
-                                                <i class="fa fa-eye"></i><span
-                                                    class="tooltipp">Detalle</span></button>
+                                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
@@ -94,21 +92,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Detalle</button>
                                     </div>
                                 </div>
@@ -126,21 +123,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
@@ -155,21 +151,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
@@ -184,21 +179,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
@@ -224,21 +218,21 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"
+                                                    onclick="location.href = 'detalle-vehiculo.php'"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Detalle</button>
                                     </div>
                                 </div>
@@ -256,37 +250,37 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
-                                                    class="tooltipp">Detalle</span></button>
+                                            <button class="quick-view"
+                                                onclick="location.href = 'detalle-vehiculo.php'"><i
+                                                    class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
                                 <!-- /product -->
-                                
+
                             </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
                         <!-- /tab 2-->
-                        
-                        
+
+
                         <!-- tab 3-->
                         <div id="tab3" class="tab-pane">
                             <div class="products-slick" data-nav="#slick-nav-1">
 
-                                 <!-- product -->
+                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="../../img/vehiculos/hyundai.png" alt="">
@@ -299,28 +293,26 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"
-                                                    onclick="location.href = 'detalle-vehiculo.php'">
-                                                <i class="fa fa-eye"></i><span
-                                                    class="tooltipp">Detalle</span></button>
+                                            <button class="quick-view" onclick="location.href = 'detalle-vehiculo.php'">
+                                                <i class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"> <i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
                                 <!-- /product -->
-                                
-                                 <!-- product -->
+
+                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="../../img/vehiculos/sportero.png" alt="">
@@ -329,36 +321,36 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
-                                                    class="tooltipp">Detalle</span></button>
+                                            <button class="quick-view"
+                                                onclick="location.href = 'detalle-vehiculo.php'"><i
+                                                    class="fa fa-eye"></i><span class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
                                 <!-- /product -->
-                                
+
                             </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
                         <!-- /tab 3-->
-                        
-                          <!-- tab 4-->
+
+                        <!-- tab 4-->
                         <div id="tab4" class="tab-pane">
                             <div class="products-slick" data-nav="#slick-nav-1">
 
-                                  <!-- product -->
+                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="../../img/vehiculos/mishubichi.png" alt="">
@@ -370,21 +362,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Detalle</button>
                                     </div>
                                 </div>
@@ -402,21 +393,20 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
@@ -431,26 +421,25 @@ include_once '../../plantilla/menu.php';
                                         <p class="product-category">Category</p>
                                         <h3 class="product-name"><a href="#">product name goes
                                                 here</a></h3>
-                                        <h4 class="product-price">$980.00 <del
-                                                class="product-old-price">$990.00</del></h4>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        </h4>
 
                                         <div class="product-btns">
-                                            <button class="add-to-wishlist"><i
-                                                    class="fa fa-heart-o"></i><span
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">Lista de Deseos</span></button>
 
-                                            <button class="quick-view"><i
-                                                    class="fa fa-eye"></i><span
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span
                                                     class="tooltipp">Detalle</span></button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i
+                                        <button class="add-to-cart-btn"
+                                            onclick="location.href = 'detalle-vehiculo.php'"><i
                                                 class="fa fa-shopping-cart"></i>Reservar</button>
                                     </div>
                                 </div>
                                 <!-- /product -->
-                                
+
                             </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
