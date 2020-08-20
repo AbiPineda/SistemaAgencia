@@ -1,18 +1,19 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/christi5/pagina.christianmeza.com/
-    - /bin/cp pagina/home.php $DEPLOYPATH
-    - /bin/cp pagina/home2.php $DEPLOYPATH
-    - /bin/cp pagina/index.php $DEPLOYPATH
-    - /bin/cp pagina/registrate.php $DEPLOYPATH
-
-    - /bin/cp -r pagina/config $DEPLOYPATH
-    - /bin/cp -r pagina/contactform $DEPLOYPATH
-    - /bin/cp -r pagina/css $DEPLOYPATH
-    - /bin/cp -r pagina/img $DEPLOYPATH
-    - /bin/cp -r pagina/js $DEPLOYPATH
-    - /bin/cp -r pagina/lib $DEPLOYPATH
-    - /bin/cp -r pagina/plantilla $DEPLOYPATH
-    - /bin/cp -r pagina/vistas $DEPLOYPATH
+    - export DEPLOYPATH=/home/christi5/admin.christianmeza.com/
+    - /bin/cp SistemaAgencia/index.html $DEPLOYPATH
+    - /bin/cp SistemaAgencia/home.php $DEPLOYPATH
+    
+    - /bin/cp -r SistemaAgencia/css $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/dist $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/config $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/img $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/js $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/pages $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/plantillas $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/plugins $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/vistas $DEPLOYPATH
+        
+   
     
