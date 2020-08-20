@@ -14,8 +14,3 @@ deployment:
     - /bin/cp -r SistemaAgencia/plantillas $DEPLOYPATH
     - /bin/cp -r SistemaAgencia/plugins $DEPLOYPATH
     - /bin/cp -r SistemaAgencia/vistas $DEPLOYPATH
-    
-    - export DEPLOYPATH=/home/christi5/pagina.christianmeza.com/
-        
-   
-    
