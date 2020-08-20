@@ -5,6 +5,7 @@ deployment:
     - /bin/cp SistemaAgencia/index.html $DEPLOYPATH
     
     - /bin/cp -r SistemaAgencia/css $DEPLOYPATH
+    - /bin/cp -r SistemaAgencia/dist $DEPLOYPATH
     - /bin/cp -r SistemaAgencia/config $DEPLOYPATH
     - /bin/cp -r SistemaAgencia/img $DEPLOYPATH
     - /bin/cp -r SistemaAgencia/js $DEPLOYPATH
