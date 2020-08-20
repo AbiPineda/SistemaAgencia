@@ -7,63 +7,63 @@ include_once '../../config/parametros.php';
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/disponibilidad.css">
 
 <style>
-    .container {
-        width: 1170px;
-        margin: 0 auto;
-    }
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
 
-    #gallery {
-        border: 0px solid #efefef;
-        padding: 0px 0 0 0;
-    }
+#gallery {
+    border: 0px solid #efefef;
+    padding: 0px 0 0 0;
+}
 
-    #gallery img {
-        margin: 8px;
-        width: 283px;
-        cursor: pointer;
-        border-radius: 7px;
-    }
+#gallery img {
+    margin: 8px;
+    width: 283px;
+    cursor: pointer;
+    border-radius: 7px;
+}
 
-    #gallery img:hover {
-        margin: 8px;
-        opacity: .8;
-    }
+#gallery img:hover {
+    margin: 8px;
+    opacity: .8;
+}
 
-    header h1 {
-        font-weight: 700;
-        margin-left: 8px;
-    }
+header h1 {
+    font-weight: 700;
+    margin-left: 8px;
+}
 
-    #buttons button {
-        border: 1px solid #efefef;
-        margin-right: 8px;
-        border: 0;
-        padding: 8px;
-        border-radius: 3px;
-    }
+#buttons button {
+    border: 1px solid #efefef;
+    margin-right: 8px;
+    border: 0;
+    padding: 8px;
+    border-radius: 3px;
+}
 
-    #buttons button.active {
-        background-color: #bbb;
-        color: #111;
-    }
+#buttons button.active {
+    background-color: #bbb;
+    color: #111;
+}
 
-    #buttons {
-        margin: 8px;
-        padding-bottom: 8px;
-    }
+#buttons {
+    margin: 8px;
+    padding-bottom: 8px;
+}
 
-    button:hover {
-        background-color: #111;
-        color: #fff;
-    }
+button:hover {
+    background-color: #111;
+    color: #fff;
+}
 
-    #ocultar-card {
-        display: none;
-    }
-    #mostrar-card {
-        display: none;
-    }
+#ocultar-card {
+    display: none;
+}
 
+#mostrar-card {
+    display: none;
+}
 </style>
 
 
@@ -92,20 +92,18 @@ include_once '../../config/parametros.php';
     <!-- Main content -->
 
     <div class="container-fluid ">
-        <div class="row center" >
+        <div class="row center">
             <div id="buttons"></div>
         </div>
         <div class="row">
 
             <div class="col-12">
-                <div id="gallery" >
+                <div id="gallery">
                     <!-- left column -->
                     <div class="cardsX">
                         <div class="card Playa">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Playa"
-                                     src="<?= $base_url ?>img/beach"
-                                     alt="" />
+                                <img class="card__image" data-tags="Playa" src="<?= $base_url ?>img/beach.jpg" alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -119,7 +117,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -128,10 +126,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -139,9 +139,7 @@ include_once '../../config/parametros.php';
 
                         <div class="card Playa">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Playa"
-                                     src="<?= $base_url ?>img/1"
-                                     alt="" />
+                                <img class="card__image" data-tags="Playa" src="<?= $base_url ?>img/1.jpg" alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -155,7 +153,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -164,10 +162,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -175,9 +175,8 @@ include_once '../../config/parametros.php';
 
                         <div class="card Turisentro">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Turisentro"
-                                     src="<?= $base_url ?>img/2"
-                                     alt="" />
+                                <img class="card__image" data-tags="Turisentro" src="<?= $base_url ?>img/2.jpg"
+                                    alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -191,7 +190,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -200,10 +199,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -211,9 +212,7 @@ include_once '../../config/parametros.php';
 
                         <div class="card Montallas">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                     src="<?= $base_url ?>img/3"
-                                     alt="" />
+                                <img class="card__image" data-tags="Montallas" src="<?= $base_url ?>img/3.jpg" alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -234,10 +233,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -245,9 +246,7 @@ include_once '../../config/parametros.php';
 
                         <div class="card Montallas">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                     src="<?= $base_url ?>img/4"
-                                     alt="" />
+                                <img class="card__image" data-tags="Montallas" src="<?= $base_url ?>img/4.jpg" alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -261,7 +260,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -270,10 +269,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -281,9 +282,7 @@ include_once '../../config/parametros.php';
 
                         <div class="card Montallas">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Montallas"
-                                     src="<?= $base_url ?>img/8"
-                                     alt="" />
+                                <img class="card__image" data-tags="Montallas" src="<?= $base_url ?>img/8.jpg" alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -297,7 +296,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -306,10 +305,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -317,9 +318,8 @@ include_once '../../config/parametros.php';
 
                         <div class="card Comedor">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Comedor"
-                                     src="<?= $base_url ?>img/beach"
-                                     alt="" />
+                                <img class="card__image" data-tags="Comedor" src="<?= $base_url ?>img/beach.jpg"
+                                    alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -340,10 +340,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
 
                                 </div>
@@ -351,9 +353,8 @@ include_once '../../config/parametros.php';
                         </div>
                         <div class="card Turisentro">
                             <div class="card__image-holder">
-                                <img class="card__image" data-tags="Turisentro"
-                                     src="<?= $base_url ?>img/7"
-                                     alt="" />
+                                <img class="card__image" data-tags="Turisentro" src="<?= $base_url ?>img/7.jpg"
+                                    alt="" />
                             </div>
                             <div class="card-title">
                                 <a href="#" class="toggle-info btn">
@@ -367,7 +368,7 @@ include_once '../../config/parametros.php';
                             </div>
                             <div class="card-flap flap1">
                                 <div class="card-description">
-                                    Lorem Ipsum is simply dummy text<br> 
+                                    Lorem Ipsum is simply dummy text<br>
                                     of the printing and typesetting industry.<br>
                                     Lorem Ipsum has been the industry's<br>
                                     standard dummy text ever since the<br>
@@ -376,10 +377,12 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"  
-                                           class="btn btn-primary"> <i class="fas fa-edit" style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')" 
-                                           class="btn btn-success"> <i class="fas fa-image" style="color: white"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            class="btn btn-primary"> <i class="fas fa-edit"
+                                                style="color: white;"></i></a>
+                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            class="btn btn-success"> <i class="fas fa-image"
+                                                style="color: white"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -394,117 +397,116 @@ include_once '../../config/parametros.php';
 
 
 <script>
-    $(document).ready(function () {
-        var zindex = 10;
+$(document).ready(function() {
+    var zindex = 10;
 
-        $("div.card").click(function (e) {
-            e.preventDefault();
+    $("div.card").click(function(e) {
+        e.preventDefault();
 
-            var isShowing = false;
+        var isShowing = false;
 
-            if ($(this).hasClass("show")) {
-                isShowing = true
-            }
+        if ($(this).hasClass("show")) {
+            isShowing = true
+        }
 
-            if ($("div.cardsX").hasClass("showing")) {
-                // a card is already in view
-                $("div.card.show")
-                        .removeClass("show");
+        if ($("div.cardsX").hasClass("showing")) {
+            // a card is already in view
+            $("div.card.show")
+                .removeClass("show");
 
-                if (isShowing) {
-                    // this card was showing - reset the grid
-                    $("div.cardsX")
-                            .removeClass("showing");
-                } else {
-                    // this card isn't showing - get in with it
-                    $(this)
-                            .css({
-                                zIndex: zindex
-                            })
-                            .addClass("show");
-
-                }
-
-                zindex++;
-
-            } else {
-                // no cardsX in view
+            if (isShowing) {
+                // this card was showing - reset the grid
                 $("div.cardsX")
-                        .addClass("showing");
+                    .removeClass("showing");
+            } else {
+                // this card isn't showing - get in with it
                 $(this)
-                        .css({
-                            zIndex: zindex
-                        })
-                        .addClass("show");
+                    .css({
+                        zIndex: zindex
+                    })
+                    .addClass("show");
 
-                zindex++;
             }
 
-        });
+            zindex++;
+
+        } else {
+            // no cardsX in view
+            $("div.cardsX")
+                .addClass("showing");
+            $(this)
+                .css({
+                    zIndex: zindex
+                })
+                .addClass("show");
+
+            zindex++;
+        }
+
     });
+});
 </script>
 
 <script>
-    (function () {
-        var $imgs = $('#gallery img');
-        var $buttons = $('#buttons');
-        var $card = $(".card");
-        var tagged = {};
+(function() {
+    var $imgs = $('#gallery img');
+    var $buttons = $('#buttons');
+    var $card = $(".card");
+    var tagged = {};
 
-        //ses recorre todos los elementos que tengan el atributo data 
-        $imgs.each(function () {
-            var img = this;
-            var tags = $(this).data('tags');
+    //ses recorre todos los elementos que tengan el atributo data 
+    $imgs.each(function() {
+        var img = this;
+        var tags = $(this).data('tags');
 
-            if (tags) {
-                ///se separan por como por si alguno tiene 2 o masatributos
-                tags.split(',').forEach(function (tagName) {
-                    if (tagged[tagName] == null) {
-                        ///se creea un array donde estan todos los nombres de los elementos
-                        tagged[tagName] = [];
-                    }
-                    tagged[tagName].push(img);
-                    //  console.log('este es el tagName: ' + [tagName]);
-                });
-            }
-        });
+        if (tags) {
+            ///se separan por como por si alguno tiene 2 o masatributos
+            tags.split(',').forEach(function(tagName) {
+                if (tagged[tagName] == null) {
+                    ///se creea un array donde estan todos los nombres de los elementos
+                    tagged[tagName] = [];
+                }
+                tagged[tagName].push(img);
+                //  console.log('este es el tagName: ' + [tagName]);
+            });
+        }
+    });
 
+    $('<button/>', {
+        text: 'Todos',
+        class: 'active',
+        click: function() {
+            //esto se activa cuando se le da click a todos
+            $(this)
+                .addClass('active')
+                ///el de abajo es para obtener los elementos hermanos y quitarles la clase active
+                .siblings()
+                .removeClass('active');
+            $card.show();
+        }
+    }).appendTo($buttons);
+
+    $.each(tagged, function(tagName) {
+        var $n = $(tagged[tagName]).length;
         $('<button/>', {
-            text: 'Todos',
-            class: 'active',
-            click: function () {
-                //esto se activa cuando se le da click a todos
+            text: tagName + '(' + $n + ')',
+            click: function() {
+                //esto es para desctivar y desactivar los botones el css
                 $(this)
-                        .addClass('active')
-                        ///el de abajo es para obtener los elementos hermanos y quitarles la clase active
-                        .siblings()
-                        .removeClass('active');
-                $card.show();
+                    .addClass('active')
+                    .siblings()
+                    .removeClass('active');
+
+                var $cardsX = ($imgs.parents().parents().find(".card").hide());
+                console.log($cardsX[0]);
+                console.log($cardsX.filter(tagged[tagName]));
+
+
+                $card.hide();
+                console.log($("." + tagName).show());
+
             }
         }).appendTo($buttons);
-
-        $.each(tagged, function (tagName) {
-            var $n = $(tagged[tagName]).length;
-            $('<button/>', {
-                text: tagName + '(' + $n + ')',
-                click: function () {
-                    //esto es para desctivar y desactivar los botones el css
-                    $(this)
-                            .addClass('active')
-                            .siblings()
-                            .removeClass('active');
-
-                    var $cardsX = ($imgs.parents().parents().find(".card").hide());
-                    console.log($cardsX[0]);
-                    console.log($cardsX.filter(tagged[tagName]));
-
-
-                    $card.hide();
-                    console.log($("." + tagName).show());
-
-                }
-            }).appendTo($buttons);
-        });
-    }())
+    });
+}())
 </script>
-
