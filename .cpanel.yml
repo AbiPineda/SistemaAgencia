@@ -19,6 +19,7 @@ deployment:
     - /bin/cp pagina/home2.php /home/christi5/pagina.christianmeza.com/
     - /bin/cp pagina/index.php /home/christi5/pagina.christianmeza.com/
     - /bin/cp pagina/registrate.php /home/christi5/pagina.christianmeza.com/
+    - /bin/cp pagina/hook.php /home/christi5/pagina.christianmeza.com/
     
     - /bin/cp -r pagina/config /home/christi5/pagina.christianmeza.com/
     - /bin/cp -r pagina/contactform /home/christi5/pagina.christianmeza.com/
