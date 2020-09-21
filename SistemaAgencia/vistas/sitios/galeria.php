@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 
@@ -124,10 +127,10 @@ button:hover {
 
                                     <div class="card-flap flap2">
                                         <div class="card-actions">
-                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            <a onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
                                                 class="btn btn-primary"> <i class="fas fa-edit"
                                                     style="color: white;"></i></a>
-                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            <a onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
                                                 class="btn btn-success"> <i class="fas fa-image"
                                                     style="color: white"></i></a>
                                         </div>
@@ -153,10 +156,10 @@ button:hover {
                                 <div class="card-flap flap1">
                                     <div class="card-flap flap2">
                                         <div class="card-actions">
-                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
+                                            <a onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
                                                 class="btn btn-primary"> <i class="fas fa-edit"
                                                     style="color: white;"></i></a>
-                                            <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                            <a onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
                                                 class="btn btn-success"> <i class="fas fa-image"
                                                     style="color: white"></i></a>
                                         </div>
@@ -356,3 +359,6 @@ button:hover {
     </section>
 
 </div>
+<?php
+  include_once '../../plantillas/footer.php';
+?>

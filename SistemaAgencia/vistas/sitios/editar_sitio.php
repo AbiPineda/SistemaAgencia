@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -154,7 +157,9 @@ include_once '../../config/parametros.php';
     </section>
     <!-- /.content -->
 </div>
-
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 <script>
 $(function() {

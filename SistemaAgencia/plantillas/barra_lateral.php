@@ -126,14 +126,14 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/registrar_sitio.php')"
+                            <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Sitio</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/sitios/ver_sitios.php')"
+                            <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver sitios</p>

@@ -66,6 +66,23 @@
 
 
 
+<script type="text/javascript">
+  //al momento de borrar la funcion carga_contenido
+  //me dio problemas la pantalla ver_sitios, disponibilidad como es el mismo diseño.
+  // de ninguna manera de las tipicas me direcciono
+  //por eso me toco que hacer esta funcion
+  //si no les parece y lo logran hacer diferente adelante
+  //ahi les deje una forma de mandar id por url en ver_sitios
+    function redireccionar(pagina){
+  addEventListener('click',function (event) {
+  event.preventDefault(); //esto cancela el comportamiento del click
+   setTimeout(()=> location.href=""+pagina,1000);
+});
+};
+ 
+</script>
+
+
 
 
 

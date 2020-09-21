@@ -1,6 +1,9 @@
 <?php
 include_once '../../config/parametros.php';
-
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
+$p=4;//la ocupe para ver si mandaba el id,para algo va ha servir
 ?>
 
 
@@ -111,7 +114,7 @@ button:hover {
                                     <span class="right"></span>
                                 </a>
                                 <h2>
-                                    Montezuma
+                                    Aqui estoy probando
                                     <small>Costa Rica Puntarenas</small>
                                 </h2>
                             </div>
@@ -126,10 +129,9 @@ button:hover {
                                 </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')"
-                                            class="btn btn-primary"> <i class="fas fa-edit"
-                                                style="color: white;"></i></a>
-                                        <a onclick="cargar_contenido('contenido_principal', 'http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php')"
+                                        <a  onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/editar_sitio.php')" id="enlace" class="btn btn-primary"> 
+                                        <i class="fas fa-edit"style="color: white;"></i></a>
+                                        <a onclick="redireccionar('http://localhost/Plantillas/SistemaAgencia/vistas/sitios/galeria.php?ir=<?php echo $p?>')"
                                             class="btn btn-success"> <i class="fas fa-image"
                                                 style="color: white"></i></a>
                                     </div>
@@ -393,7 +395,9 @@ button:hover {
         </div>
     </div>
 </div>
-
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 
 <script>

@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+  include_once '../../plantillas/barra_lateral.php';
 ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -176,8 +179,9 @@ include_once '../../config/parametros.php';
         </div>
     </section>
 </div>
-
-
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 <script>
     $(function () {
         //Initialize Select2 Elements
