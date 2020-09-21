@@ -92,7 +92,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/paquetes/registro-paquete.php')"
+                            <a href="<?= $base_url ?>vistas/paquetes/registro-paquete.php"
                                class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Publicar Tour</p>
@@ -100,14 +100,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/paquetes/ver_paquete.php')"
+                            <a href="<?= $base_url ?>vistas/paquetes/ver_paquete.php"
                                class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Tours</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/paquetes/registro_reserva.php')"
+                            <a href="<?= $base_url ?>vistas/paquetes/registro_reserva.php"
                                class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Reserva</p>
