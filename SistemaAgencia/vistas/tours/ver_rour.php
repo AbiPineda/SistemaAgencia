@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+  include_once '../../plantillas/barra_lateral.php';
 ?>
 
 
@@ -51,18 +54,18 @@ include_once '../../config/parametros.php';
                                     <td>Internacional</td>
                                     <td> 
                                         <div class="btn-group">
-                                            <a type="button" class="btn btn-primary" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                            <a type="button" class="btn btn-primary" href="<?= $base_url ?>vistas/tours/editar_tour.php"   >
                                                 <i class="fas fa-edit" style="color: white"></i>
                                             </a>
 
-                                            <a type="button" class="btn btn-danger" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/editar_tour.php')"   >
+                                            <a type="button" class="btn btn-danger" href="<?= $base_url ?>vistas/tours/editar_tour.php">
                                                 <i class="fas fa-trash" style="color: white"></i>
                                             </a>
-                                             <a type="button" class="btn btn-warning" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                             <a type="button" class="btn btn-warning" href="<?= $base_url ?>vistas/tours/itinerario.php">
                                                 <i class="fas fa-long-arrow-alt-down" style="color: white"></i>
                                             </a>
 
-                                            <a type="button" class="btn btn-success" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/tours/itinerario.php')"   >
+                                            <a type="button" class="btn btn-success" href="<?= $base_url ?>vistas/tours/itinerario.php"   >
                                                 <i class="fas fa-car" style="color: white"></i>
                                             </a>
                                             
@@ -484,6 +487,9 @@ include_once '../../config/parametros.php';
     <!-- /.content -->
 </div>
 
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 <script>
 $(function () {

@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+  include_once '../../plantillas/barra_lateral.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -213,6 +216,9 @@ $228.00 (TERCERA EDAD)
 </div><!-- /.container-fluid -->
 
 <!-- /.content -->
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 <script>
     $(function () {
