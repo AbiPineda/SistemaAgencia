@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -304,7 +307,7 @@ include_once '../../config/parametros.php';
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-info btn-sm" style="color: white"
-                                        onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerReporte.php')">Guardar</a>
+                                        onclick="redireccionar('<?= $base_url ?>vistas/vehiculos/alquilerReporte.php')">Guardar</a>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
 
@@ -316,4 +319,8 @@ include_once '../../config/parametros.php';
         </div>
     </section>
 </div>
-               
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
+    

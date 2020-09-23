@@ -151,21 +151,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/registroVehiculo.php')"
+                            <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Vehiculo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php')"
+                            <a href="<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Mostrar Registros</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/disponibilidad.php')"
+                            <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Disponibilidad de Reserva</p>
@@ -178,14 +178,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/mantenimiento.php')"
+                                    <a href="<?= $base_url ?>vistas/vehiculos/mantenimiento.php"
                                         class="nav-link">
                                         <i class="fas fa-ellipsis-v nav-icon"></i>
                                         <p>Registrar Mantenimiento</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/verMantenimientos.php')"
+                                    <a href="<?= $base_url ?>vistas/vehiculos/verMantenimientos.php"
                                         class="nav-link">
                                         <i class="fas fa-ellipsis-v nav-icon"></i>
                                         <p>Mantenimientos Realizados</p>
@@ -206,28 +206,28 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/registroEncomienda.php')"
+                            <a href="<?= $base_url ?>vistas/cargoExpress/registroEncomienda.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/verEncomienda.php')"
+                            <a href="<?= $base_url ?>vistas/cargoExpress/verEncomienda.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Modificación Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php')"
+                            <a href="<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Calculo Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php')"
+                            <a href="<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Actualizacion de Envio</p>
@@ -244,21 +244,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/producto.php')"
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/producto.php"
                                         class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Productos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/categoria.php')"
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/categoria.php"
                                         class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Categoria</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/reglas.php')"
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/reglas.php"
                                         class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Reglas</p>

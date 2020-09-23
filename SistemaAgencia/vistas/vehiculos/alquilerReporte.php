@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -154,7 +157,7 @@ include_once '../../config/parametros.php';
                             <div class="row no-print"  style="text-align: right;">
                             <div class="col-12">
                                 <a target="_blank" class="btn btn-secondary" style="color: white"
-                                    onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/imprimirReporte.php')"><i
+                                    onclick="redireccionar('<?= $base_url ?>vistas/vehiculos/imprimirReporte.php')"><i
                                         class="fas fa-print"></i> Imprimir</a>
                             </div>
                         </div>
@@ -173,3 +176,7 @@ include_once '../../config/parametros.php';
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>

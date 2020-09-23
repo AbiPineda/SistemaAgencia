@@ -1,6 +1,9 @@
 <?php
 include_once '../../config/parametros.php';
-$algo="Mande parametros por a URL";
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
+
 ?>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -36,7 +39,7 @@ $algo="Mande parametros por a URL";
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+                                    <table id="tabla-encomienda" class="table table-bordered table-striped dataTable dtr-inline"
                                            role="grid" aria-describedby="example1_info">
                                         <thead>
                                             <tr role="row" style="text-align: center;">
@@ -87,7 +90,7 @@ $algo="Mande parametros por a URL";
                                                 <td>
                                                     <div class="btn-group">
                                                         <a type="button" class="btn btn-primary" 
-                                                           onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/modificarEncomienda.php')"   >
+                                                           href="<?= $base_url ?>vistas/cargoExpress/modificarEncomienda.php"   >
                                                             <i class="fas fa-edit" style="color: white"></i>
                                                         </a>
                                                         <button type="button" class="btn btn-danger"><i
@@ -123,9 +126,14 @@ $algo="Mande parametros por a URL";
     <!-- /.content -->
 </div>
 
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
+
 <script>
                                                     $(function () {
-                                                        $('#example1').DataTable({
+                                                        $('#tabla-encomienda').DataTable({
                                                             "paging": true,
                                                             "lengthChange": true,
                                                             "searching": true,

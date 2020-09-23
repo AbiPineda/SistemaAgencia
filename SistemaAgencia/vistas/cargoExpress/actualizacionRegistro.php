@@ -1,6 +1,9 @@
 <!--para las tablas que cargan en este archivo-->
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <!--****************fin****************-->
@@ -99,6 +102,10 @@ include_once '../../config/parametros.php';
 </div>
 
 
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 <script>
     $(function () {

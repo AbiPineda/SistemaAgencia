@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -127,7 +130,7 @@ include_once '../../config/parametros.php';
                                 <div class="row">
                                     <div class="col-sm-12">
 
-                                        <table id="example2" class="table table-bordered table-hover">
+                                        <table id="mod-enco" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr style="text-align: center;">
                                                     <th>Producto</th>
@@ -189,13 +192,15 @@ include_once '../../config/parametros.php';
         </div>
     </section>
 </div>
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
+
 <script>
     $(function () {
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
+        
+        $('#mod-enco').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,

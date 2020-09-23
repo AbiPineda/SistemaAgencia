@@ -1,5 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 
@@ -123,7 +126,7 @@ include_once '../../config/parametros.php';
                                     4 puertas </div>
                                 <div class="card-flap flap2">
                                     <div class="card-actions">
-                                        <a class="btn" onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vehiculos/alquilerVehiculo.php')">Reservar
+                                        <a class="btn" onclick="redireccionar('<?= $base_url ?>vistas/vehiculos/alquilerVehiculo.php')">Reservar
                                             
                                         </a>
                                     </div>
@@ -351,6 +354,11 @@ include_once '../../config/parametros.php';
             </div>
         </div>
 </div>
+
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 
 

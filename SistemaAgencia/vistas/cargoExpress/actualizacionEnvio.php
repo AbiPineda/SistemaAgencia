@@ -1,6 +1,9 @@
 <!--para las tablas que cargan en este archivo-->
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
 ?>
 
 
@@ -67,7 +70,7 @@ include_once '../../config/parametros.php';
                                                 <td><div class="btn-group">
                                                                 
                                                         <a type="button" class="btn btn-success" 
-                                                           onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/actualizacionRegistro.php')"   >
+                                                           href="<?= $base_url ?>vistas/cargoExpress/actualizacionRegistro.php"   >
                                                             <i class="fas fa-car" style="color: white"></i>
                                                         </a>
                                                        
@@ -103,6 +106,10 @@ include_once '../../config/parametros.php';
     <!-- /.content -->
 </div>
 
+
+<?php
+  include_once '../../plantillas/footer.php';
+?>
 
 <script>
     $(function () {
