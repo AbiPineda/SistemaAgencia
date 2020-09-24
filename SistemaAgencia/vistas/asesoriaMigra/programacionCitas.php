@@ -1,182 +1,150 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../../plantillas/cabecera.php';
+include_once  '../../plantillas/navbar.php';
+  include_once '../../plantillas/barra_lateral.php';
 ?>
 
- <!-- Latest compiled and minified CSS -->
-       <link rel='stylesheet' type='text/css' href='<?= $base_url ?>plugins/a/css/fullcalendar.css' />
 
-<script>
-    function addZero(i) {
-        if (i < 10) {
-            i = '0' + i;
-        }
-        return i;
-    }
-
-    var hoy = new Date();
-    var dd = hoy.getDate();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-
-    var mm = hoy.getMonth() + 1;
-    var yyyy = hoy.getFullYear();
-
-    dd = addZero(dd);
-    mm = addZero(mm);
-
-    $(document).ready(function () {
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            defaultDate: yyyy + '-' + mm + '-' + dd,
-            buttonIcons: true, // show the prev/next text
-            weekNumbers: false,
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events 
-            events: [
-                {
-                    title: 'María Salmerón',
-                    description: 'Cita de asesoría',
-                    start: yyyy + '-' + mm + '-01',
-                    color: '#f56954',
-                    textColor: '#ffffff',
-                },
-                {
-                    title: 'Angelina Lopéz',
-                    description: 'Asesoría para ella su esposo, hijos',
-                    start: yyyy + '-' + mm + '-07',
-                    end: yyyy + '-' + mm + '-10',
-                    color: '#00c0ef',
-                    textColor: '#ffffff',
-                },
-                {
-                    title: 'Pedro Flores',
-                    description: 'Cita de asesoría',
-                    start: yyyy + '-' + mm + '-09T16:00:00',
-                    color: '#3A87AD',
-                    textColor: '#ffffff',
-                }
-            ],
-            dayClick: function (date, jsEvent, view) {
-                $('#generar').modal();
-            },
-            eventClick: function (calEvent, jsEvent, view) {
-                $('#event-title').text(calEvent.title);
-                $('#event-description').html(calEvent.description);
-
-                $('#modal-event').modal();
-            },
-        });
-    });
-
-</script>
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <div class="container">
-        <div class="col-sm-5" id="titulo">
-            <h1>Programación de Citas</h1>
-        </div>
-        <!--si lo tocas se arruina-->
-        <h2 class="lead"></h2>
-        <!--si lo tocas se arruina-->
-        <div class="row">
-            <div id="content" class="col-lg-1"></div>
-            <div id="content" class="col-lg-10">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="calendar"></div>
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Programación de Citas</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Citas</li>
+                        </ol>
                     </div>
                 </div>
-                <!--Modal para mostrar los detalles de las citas -->
-                <div class="modal fade" id="modal-event" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="event-title"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="event-description"></div> <br>
-                                <div id="fecha"></div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div><!-- /.container-fluid -->
+        </section>
 
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-10">
+                        <div class="card card-primary">
+                            <div class="card-body p-0">
+                                <!-- THE CALENDAR -->
+                                <div id="calendar"></div>
                             </div>
+                            <!-- /.card-body -->
                         </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-1">
                     </div>
                 </div>
-                <!--fin de modal para mostrar detalles de las citas-->
-
-                <!--Modal para mostrar los generar las citas -->
-                <div class="modal fade" id="generar" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="event-title"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!--formulario para ingresar las citas-->
-                                <form id="task-form">
-                                    <div class="form-group">
-                                        <label for="cars">Seleccione el Cliente:</label>
-
-                                        <select id="categoria" class="form-control">
-                                            <option value="permitido">Jessenia Corinca</option>
-                                            <option value="no">Jenny Orellana</option>
-                                            <option value="no">Judith Hernández</option>
-                                        </select> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Fecha</label>
-                                        <input type="date" id="name" placeholder="Encomienda" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hora
-                                        </label>
-                                        <input type="text" id="name" placeholder="Posiblemente sea un reloj" class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Descripción</label>
-                                        <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
-                                    </div>
-
-                                    <input type="hidden" id="taskId">
-                                </form>
-                                <!--fin de formulario para ingreso de citas-->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--fin de modal para mostrar generar la cita-->
-            </div>
-            <div id="content" class="col-lg-1"></div>
-        </div>
-
-
-
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 
 </div>
-<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
-<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
-<!-- Page specific script -->
+<!-- ./wrapper -->
+<?php
+  include_once '../../plantillas/footer.php';
+?>
+
+
+<script>
+    $(function () {
+
+        var date = new Date();
+        var d = date.getDate(),
+                m = date.getMonth(),
+                y = date.getFullYear();
+
+        var Calendar = FullCalendar.Calendar;
+        var calendarEl = document.getElementById('calendar');
+
+        // initialize the external events
+        // -----------------------------------------------------------------
+
+        
+        var calendar = new Calendar(calendarEl, {
+            locale: 'es',
+            plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid'],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            'themeSystem': 'bootstrap',
+            //Random default events
+            events: [
+//        {
+//          title          : 'All Day Event',
+//          start          : new Date(y, m, 1),
+//          backgroundColor: '#f56954', //red
+//          borderColor    : '#f56954', //red
+//          allDay         : true
+//        },
+//        {
+//          title          : 'Long Event',
+//          start          : new Date(y, m, d - 5),
+//          end            : new Date(y, m, d - 2),
+//          backgroundColor: '#f39c12', //yellow
+//          borderColor    : '#f39c12' //yellow
+//        },
+//        {
+//          title          : 'Meeting',
+//          start          : new Date(y, m, d, 10, 30),
+//          allDay         : false,
+//          backgroundColor: '#0073b7', //Blue
+//          borderColor    : '#0073b7' //Blue
+//        },
+//        {
+//          title          : 'Lunch',
+//          start          : new Date(y, m, d, 12, 0),
+//          end            : new Date(y, m, d, 14, 0),
+//          allDay         : false,
+//          backgroundColor: '#00c0ef', //Info (aqua)
+//          borderColor    : '#00c0ef' //Info (aqua)
+//        },
+//        {
+//          title          : 'Birthday Party',
+//          start          : new Date(y, m, d + 1, 19, 0),
+//          end            : new Date(y, m, d + 1, 22, 30),
+//          allDay         : false,
+//          backgroundColor: '#00a65a', //Success (green)
+//          borderColor    : '#00a65a' //Success (green)
+//        },
+//        {
+//          title          : 'Click for Google',
+//          start          : new Date(y, m, 28),
+//          end            : new Date(y, m, 29),
+//          url            : 'http://google.com/',
+//          backgroundColor: '#3c8dbc', //Primary (light-blue)
+//          borderColor    : '#3c8dbc' //Primary (light-blue)
+//        }
+            ],
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar !!!
+            drop: function (info) {
+                // is the "remove after drop" checkbox checked?
+                if (checkbox.checked) {
+                    // if so, remove the element from the "Draggable Events" list
+                    info.draggedEl.parentNode.removeChild(info.draggedEl);
+                }
+            }
+        });
+
+        calendar.render();
+        $('#calendar').fullCalendar()
+    })
+</script>

@@ -285,7 +285,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/asesoriaMigra/programacionCitas.php')"
+                            <a href="<?= $base_url ?>vistas/asesoriaMigra/programacionCitas.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Generar Cita</p>
