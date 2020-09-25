@@ -356,7 +356,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/registro_contacto.php')"
+                            <a href="<?=$base_url?>vistas/contactos/registro_contacto.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Contactos</p>
@@ -367,7 +367,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?=$base_url?>vistas/contactos/ver_contactos.php')"
+                            <a href="<?=$base_url?>vistas/contactos/ver_contactos.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Contactos</p>
