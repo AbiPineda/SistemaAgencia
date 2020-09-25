@@ -55,6 +55,7 @@ include_once  '../../plantillas/navbar.php';
     <!-- /.content-wrapper -->
 
 </div>
+
 <!-- ./wrapper -->
 <?php
   include_once '../../plantillas/footer.php';
@@ -72,6 +73,7 @@ include_once  '../../plantillas/navbar.php';
         var Calendar = FullCalendar.Calendar;
         var calendarEl = document.getElementById('calendar');
 
+
         // initialize the external events
         // -----------------------------------------------------------------
 
@@ -86,53 +88,13 @@ include_once  '../../plantillas/navbar.php';
             },
             'themeSystem': 'bootstrap',
             //Random default events
-            events: [
-//        {
-//          title          : 'All Day Event',
-//          start          : new Date(y, m, 1),
-//          backgroundColor: '#f56954', //red
-//          borderColor    : '#f56954', //red
-//          allDay         : true
-//        },
-//        {
-//          title          : 'Long Event',
-//          start          : new Date(y, m, d - 5),
-//          end            : new Date(y, m, d - 2),
-//          backgroundColor: '#f39c12', //yellow
-//          borderColor    : '#f39c12' //yellow
-//        },
-//        {
-//          title          : 'Meeting',
-//          start          : new Date(y, m, d, 10, 30),
-//          allDay         : false,
-//          backgroundColor: '#0073b7', //Blue
-//          borderColor    : '#0073b7' //Blue
-//        },
-//        {
-//          title          : 'Lunch',
-//          start          : new Date(y, m, d, 12, 0),
-//          end            : new Date(y, m, d, 14, 0),
-//          allDay         : false,
-//          backgroundColor: '#00c0ef', //Info (aqua)
-//          borderColor    : '#00c0ef' //Info (aqua)
-//        },
-//        {
-//          title          : 'Birthday Party',
-//          start          : new Date(y, m, d + 1, 19, 0),
-//          end            : new Date(y, m, d + 1, 22, 30),
-//          allDay         : false,
-//          backgroundColor: '#00a65a', //Success (green)
-//          borderColor    : '#00a65a' //Success (green)
-//        },
-//        {
-//          title          : 'Click for Google',
-//          start          : new Date(y, m, 28),
-//          end            : new Date(y, m, 29),
-//          url            : 'http://google.com/',
-//          backgroundColor: '#3c8dbc', //Primary (light-blue)
-//          borderColor    : '#3c8dbc' //Primary (light-blue)
-//        }
-            ],
+            events:'http://localhost/API-REST-PHP/index.php/Cita/cita',
+            dateClick:function(date,jsEvent,view){
+                 $('#modal_eventos').modal();
+            },
+             eventClick:function(date,jsEvent,view){
+                 $('#modal_eventos').modal();
+            },
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (info) {
@@ -144,7 +106,60 @@ include_once  '../../plantillas/navbar.php';
             }
         });
 
-        calendar.render();
+          calendar.render();
         $('#calendar').fullCalendar()
+
+       
     })
 </script>
+
+<!--modal alternativo para los eventos-->
+ <div class="modal fade" id="modal_eventos" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloEvento">Agregar titulo </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <input type="hidden" id="txtId" name="txtId"/>
+                <input type="hidden" id="txtFecha" name="txtFecha"/>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-8">
+                        <label>Título:</label>
+                         <input type="text" id="txtTitulo" class="form-control" name="txtTitulo" placeholder="Titulo de la cita" />
+                    </div>
+
+                     <div class="form-group col-md-4">
+                        <label>Hora de la cita</label>
+                        <div class="input-group clockpicker" data-autoclose="true">
+                        <input type="text" id="txtHora" name="txtHora" class="form-control" value="10:30" />  
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> Descripción: </label>
+               <textarea id="txtDescripcion" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                <label> Color:</label>
+                <input type="color" id="txtColor" name="txtColor" value="#ff0000" class="form-control" style="height: 36px;" />
+               </div>
+
+                </div>
+                <div class="modal-footer">
+            <button type="button" id="btnAgregar" class="btn btn-success" >Agregar</button>
+            <button type="button" id="btnModificar" class="btn btn-secondary" >Modificar</button>
+              <button type="button" id="btnEliminar" class="btn btn-danger" >Eliminar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+<!--fin de modal de eventos-->
