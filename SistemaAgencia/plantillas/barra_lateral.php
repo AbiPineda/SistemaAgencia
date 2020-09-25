@@ -285,21 +285,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/asesoriaMigra/programacionCitas.php"
+                            <a href="<?= $base_url ?>vistas/Asesoria/programacionCitas.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Generar Cita</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/asesoriaMigra/registroMigratoria.php')"
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroMigratoria.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Llenado de Formulario</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/asesoriaMigra/registroPreguntas.php')"
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroPreguntas.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Preguntas</p>
@@ -319,7 +319,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/vuelos/cotizarVuelo.php')"
+                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php"
                                 class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Cotización de Vuelo</p>
