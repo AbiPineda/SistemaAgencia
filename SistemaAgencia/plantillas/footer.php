@@ -85,7 +85,7 @@
 
 
 
-
+<!--
 <script type="text/javascript">
      window.addEventListener('load', ()=>{
          if( localStorage.getItem('contenido') != null){
@@ -96,13 +96,13 @@
 
      
      
-    </script>
+    </script>-->
     
     
     
     
     <!--contenido principal-->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         function cargar_contenido(contenedor,contenido){
             localStorage.setItem('contenido',contenido);
             //alert(contenido);
@@ -110,7 +110,7 @@
           $("#"+contenedor).load(contenido);
           //alert(contenido);
         }
-    </script>
+    </script>-->
 
 
 </body>
