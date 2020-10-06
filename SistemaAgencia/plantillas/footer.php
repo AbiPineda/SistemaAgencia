@@ -64,6 +64,7 @@
 <script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
 <script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
 
+<script src="<?= $base_url ?>js/bootstrap-clockpicker.js"></script>
 
 
 <script type="text/javascript">

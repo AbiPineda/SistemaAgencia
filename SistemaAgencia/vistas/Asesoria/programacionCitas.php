@@ -6,7 +6,14 @@ include_once  '../../plantillas/navbar.php';
 ?>
 
 
+<script type="text/javascript">
+
+</script>
+
+
 <div class="wrapper">
+
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -57,26 +64,69 @@ include_once  '../../plantillas/navbar.php';
 </div>
 
 <!-- ./wrapper -->
+<!--modal alternativo para los eventos-->
+ <div class="modal fade" id="modal_eventos" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloEvento">Agregar titulo </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                <form id="register-form" onsubmit="return false">
+
+                <input type="text" id="txtId" name="txtId"/>
+                <input type="text" id="txtFecha" name="fecha"/>
+                <input type="hidden" name="id_cliente" value="1">
+
+                
+                <div class="form-row">
+
+                    <div class="form-group col-md-8">
+                        <label>Título:</label>
+                         <input type="text"  class="form-control" id="txtTitulo" name="title" placeholder="Titulo de la cita" />
+                    </div>
+
+                     <div class="form-group col-md-4">
+                        <label>Hora de la cita</label>
+                        <div class="input-group clockpicker" data-autoclose="true">
+                        <input type="text" id="txtHora" name="start" class="form-control" value="10:30" />  
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> Descripción: </label>
+               <textarea  name="descripcion" id="txtDescripcion" rows="3" class="form-control"></textarea>
+                </div>
+            
+
+                </div>
+                <div class="modal-footer">
+            <button type="button" id="btnAgregar" class="btn btn-success" >Agregar</button>
+            <button type="button" id="btnModificar" class="btn btn-secondary" >Modificar</button>
+              <button type="button" id="btnEliminar" class="btn btn-danger" >Eliminar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form> 
+                </div>
+            </div>
+            </div>
+<!--fin de modal de enventos-->
+
 <?php
   include_once '../../plantillas/footer.php';
 ?>
 
-
 <script>
+     var Calendar = FullCalendar.Calendar;
+     var calendarEl = document.getElementById('calendar');
+
     $(function () {
-
-        var date = new Date();
-        var d = date.getDate(),
-                m = date.getMonth(),
-                y = date.getFullYear();
-
-        var Calendar = FullCalendar.Calendar;
-        var calendarEl = document.getElementById('calendar');
-
-
-        // initialize the external events
-        // -----------------------------------------------------------------
-
         
         var calendar = new Calendar(calendarEl, {
             locale: 'es',
@@ -89,11 +139,33 @@ include_once  '../../plantillas/navbar.php';
             'themeSystem': 'bootstrap',
             //Random default events
             events:'http://localhost/API-REST-PHP/index.php/Cita/cita',
-            dateClick:function(date,jsEvent,view){
+            dateClick:function(info){
                  $('#modal_eventos').modal();
+                  $('#txtFecha').val(info.dateStr);
+                  $('#btnAgregar').prop("disabled",false);
+                $('#btnModificar').prop("disabled",true);
+                $('#btnEliminar').prop("disabled",true);
+                //limpiar();
+               
             },
-             eventClick:function(date,jsEvent,view){
-                 $('#modal_eventos').modal();
+             eventClick:function(info){
+            $('#modal_eventos').modal();
+            $('#btnAgregar').prop("disabled",true);
+            $('#btnModificar').prop("disabled",false);
+            $('#btnEliminar').prop("disabled",false);
+
+            $('#tituloEvento').html(info.event.title);
+
+            $('#txtId').val(info.event.extendedProps.id_cita);
+            $('#txtTitulo').val(info.event.extendedProps.nombre);
+            //$('#txtColor').val(info.event.color);
+            $('#txtDescripcion').val(info.event.extendedProps.descripcion);
+            // FechaHora=calEvent.start._i.split(" ");
+            let fechaHora = info.event.start.split("T");
+            $('#txtFecha').val(info.event.fechaHora[0]);
+            $('#txtHora').val(fechaHora[1]);
+
+              
             },
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
@@ -106,60 +178,65 @@ include_once  '../../plantillas/navbar.php';
             }
         });
 
-          calendar.render();
-        $('#calendar').fullCalendar()
-
-       
+        calendar.render();
+      //  $('#calendar').fullCalendar()
+    
     })
+
+     $("#btnAgregar").on('click', function(e){
+
+       e.preventDefault();
+       // recolectarDatos();
+
+        $.ajax({
+            url : "http://localhost/API-REST-PHP/index.php/Cita/citas",
+            method : 'POST',
+            data : $("#register-form").serialize(),
+            success : function(response){
+                 if (response) {
+                   
+                     $("#modal_eventos").modal('toggle');
+                      $('#calendar').fullCalendar('addEventSource');
+
+                   // $('#calendar').html(response);
+                    //$('#calendar').html(refetchEvents());
+
+
+                     // var calendar = new Calendar(calendarEl);
+                     // calendar.refetchEvents();
+                    // $('#calendar').fullCalendar('addEventSource');
+
+                    //window.location.reload();
+                    // $('#calendar').fullCalendar('refetchEvents');
+                   
+                     
+                       // if (!modal) {
+                        
+                       // }
+
+                       console.log(response);
+                    } 
+                
+            },
+            error : function(er){
+                console.log(er);
+                alert("Hay un error...."); 
+            }
+
+        });
+
+    });
+   
+
+    
 </script>
 
-<!--modal alternativo para los eventos-->
- <div class="modal fade" id="modal_eventos" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tituloEvento">Agregar titulo </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <input type="hidden" id="txtId" name="txtId"/>
-                <input type="hidden" id="txtFecha" name="txtFecha"/>
 
-                <div class="form-row">
 
-                    <div class="form-group col-md-8">
-                        <label>Título:</label>
-                         <input type="text" id="txtTitulo" class="form-control" name="txtTitulo" placeholder="Titulo de la cita" />
-                    </div>
+<script type="text/javascript">
+      
+   
 
-                     <div class="form-group col-md-4">
-                        <label>Hora de la cita</label>
-                        <div class="input-group clockpicker" data-autoclose="true">
-                        <input type="text" id="txtHora" name="txtHora" class="form-control" value="10:30" />  
-                        </div>
-                        
-                    </div>
-                </div>
+            $('.clockpicker').clockpicker();
+</script>
 
-                <div class="form-group">
-                    <label> Descripción: </label>
-               <textarea id="txtDescripcion" rows="3" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                <label> Color:</label>
-                <input type="color" id="txtColor" name="txtColor" value="#ff0000" class="form-control" style="height: 36px;" />
-               </div>
-
-                </div>
-                <div class="modal-footer">
-            <button type="button" id="btnAgregar" class="btn btn-success" >Agregar</button>
-            <button type="button" id="btnModificar" class="btn btn-secondary" >Modificar</button>
-              <button type="button" id="btnEliminar" class="btn btn-danger" >Eliminar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </div>
-                </div>
-            </div>
-            </div>
-<!--fin de modal de eventos-->
