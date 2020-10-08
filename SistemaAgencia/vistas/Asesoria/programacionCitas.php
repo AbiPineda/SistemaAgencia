@@ -1,17 +1,67 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
+//include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';
   include_once '../../plantillas/barra_lateral.php';
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 3 | Fixed Sidebar</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
 
-<script type="text/javascript">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="<?= $base_url ?>css/style.css">
+        <link rel="stylesheet" href="<?= $base_url ?>css/foto.css">
 
-</script>
+        <!-- DataTables -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 
-<div class="wrapper">
+        <!--necesario para que funcione el selector multiple-->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+
+        <!--  necesario para que funcione el calendiario con limites-->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+        <link rel='stylesheet' type='text/css' href='<?= $base_url ?>plugins/a/css/fullcalendar.css' />
+
+
+        <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/bootstrap-clockpicker.css">
+
+
+
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <!-- Site wrapper -->
+        <div class="wrapper">
+
+            <!-- Main Sidebar Container -->
+
+
+
+
+
+      
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -85,7 +135,7 @@ include_once  '../../plantillas/navbar.php';
                 
                 <div class="form-row">
 
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-4">
                         <label>Título:</label>
                          <input type="text"  class="form-control" id="txtTitulo" name="title" placeholder="Titulo de la cita" />
                     </div>
@@ -94,6 +144,13 @@ include_once  '../../plantillas/navbar.php';
                         <label>Hora de la cita</label>
                         <div class="input-group clockpicker" data-autoclose="true">
                         <input type="text" id="txtHora" name="start" class="form-control" value="10:30" />  
+                        </div>
+                        
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Cliente</label>
+                        <div class="con-json">
+                        <select></select>    
                         </div>
                         
                     </div>
@@ -118,71 +175,94 @@ include_once  '../../plantillas/navbar.php';
             </div>
 <!--fin de modal de enventos-->
 
+
+
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-
 <script>
-     var Calendar = FullCalendar.Calendar;
-     var calendarEl = document.getElementById('calendar');
+      $(document).ready(function(){
+        //*****para el combobox
+       $(".con-json select").change(function() {
+       $(".con-json select").empty();
+       $.getJSON('http://localhost/API-REST-PHP/index.php/Cita/cita',function(data){
+        console.log('aqui estoy'+data);
+       $.each(data, function(id,value){
+       $(".con-json select").append('<option value="'+id+'">'+value+'</option>');
+       });
+      });
+    });
 
-    $(function () {
-        
-        var calendar = new Calendar(calendarEl, {
-            locale: 'es',
-            plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid'],
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        //*********fin****
+
+
+
+
+        $('#calendar').fullCalendar({
+            header:{
+                left:'prev,next,today',
+                center:'title',
+                right:'month,basicWeek,basicDay'
             },
-            'themeSystem': 'bootstrap',
-            //Random default events
-            events:'http://localhost/API-REST-PHP/index.php/Cita/cita',
-            dateClick:function(info){
-                 $('#modal_eventos').modal();
-                  $('#txtFecha').val(info.dateStr);
-                  $('#btnAgregar').prop("disabled",false);
+            customButtons:{
+                Miboton:{
+                    text:"boton 1",
+                    click: function(){
+                        alert("Accion del boton");
+                    }
+                }
+            },
+            dayClick:function(date,jsEvent,view){
+                $('#modal_eventos').modal();
+                $('#txtFecha').val(date.format());
+                
+                $('#btnAgregar').prop("disabled",false);
                 $('#btnModificar').prop("disabled",true);
                 $('#btnEliminar').prop("disabled",true);
-                //limpiar();
-               
+                limpiar();
+                
+
             },
-             eventClick:function(info){
-            $('#modal_eventos').modal();
+            events:'http://localhost/API-REST-PHP/index.php/Cita/cita', //aqui pongo la api que e hecho
+            //http://localhost/restful/index.php/Calendario/calendario
+            eventClick:function(calEvent,jsEvent,view){
+
             $('#btnAgregar').prop("disabled",true);
             $('#btnModificar').prop("disabled",false);
             $('#btnEliminar').prop("disabled",false);
 
-            $('#tituloEvento').html(info.event.title);
+            $('#tituloEvento').html(calEvent.motivo);
 
-            $('#txtId').val(info.event.extendedProps.id_cita);
-            $('#txtTitulo').val(info.event.extendedProps.nombre);
-            //$('#txtColor').val(info.event.color);
-            $('#txtDescripcion').val(info.event.extendedProps.descripcion);
-            // FechaHora=calEvent.start._i.split(" ");
-            let fechaHora = info.event.start.split("T");
-            $('#txtFecha').val(info.event.fechaHora[0]);
-            $('#txtHora').val(fechaHora[1]);
+            $('#txtId').val(calEvent.id_cita);
+            $('#txtTitulo').val(calEvent.title);
+            $('#txtColor').val(calEvent.color);
+            $('#txtDescripcion').val(calEvent.descripcion);
+             FechaHora=calEvent.start._i.split(" ");
+            $('#txtFecha').val(FechaHora[0]);
+            $('#txtHora').val(FechaHora[1]);
 
-              
+                 $('#modal_eventos').modal();
+
+
             },
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (info) {
-                // is the "remove after drop" checkbox checked?
-                if (checkbox.checked) {
-                    // if so, remove the element from the "Draggable Events" list
-                    info.draggedEl.parentNode.removeChild(info.draggedEl);
-                }
+            editable:true,
+            eventDrop:function(calEvent){
+            $('#txtId').val(calEvent.id_cita);
+            $('#txtTitulo').val(calEvent.title);
+            $('#txtColor').val(calEvent.color);
+            $('#txtDescripcion').val(calEvent.descripcion);
+            var fechaHora=calEvent.start.format().split("T");
+            $('#txtFecha').val(fechaHora[0]);
+            $('#txtHora').val(fechaHora[1]); //todo el modal con los datos
+
+            recolectarDatos();
+            enviarInformacion(NuevoEvento,true);
+            
+
             }
+           
         });
-
-        calendar.render();
-      //  $('#calendar').fullCalendar()
-    
-    })
-
+    });//fin calendario
      $("#btnAgregar").on('click', function(e){
 
        e.preventDefault();
@@ -196,23 +276,8 @@ include_once  '../../plantillas/navbar.php';
                  if (response) {
                    
                      $("#modal_eventos").modal('toggle');
-                      $('#calendar').fullCalendar('addEventSource');
-
-                   // $('#calendar').html(response);
-                    //$('#calendar').html(refetchEvents());
-
-
-                     // var calendar = new Calendar(calendarEl);
-                     // calendar.refetchEvents();
-                    // $('#calendar').fullCalendar('addEventSource');
-
-                    //window.location.reload();
-                    // $('#calendar').fullCalendar('refetchEvents');
-                   
-                     
-                       // if (!modal) {
-                        
-                       // }
+                      $('#calendar').fullCalendar('refetchEvents'); 
+                       
 
                        console.log(response);
                     } 
@@ -230,6 +295,13 @@ include_once  '../../plantillas/navbar.php';
 
     
 </script>
+<script src="<?= $base_url ?>plugins/a/js/popper.min.js"></script>
+<script src="<?= $base_url ?>plugins/a/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/moment.min.js'></script>
+<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
+<script type='text/javascript' src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
+
+
 
 
 
