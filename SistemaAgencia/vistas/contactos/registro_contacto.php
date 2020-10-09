@@ -103,6 +103,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <form enctype="multipart/form-data">
+                                            <label>Seleccione Imagenes</label>
+                                            <div class="file-loading">
+                                                <input id="file-es" name="file-es[]" type="file" multiple>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
 
                         </div>
@@ -126,17 +137,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <form enctype="multipart/form-data">
-                                            <label>Seleccione Imagenes</label>
-                                            <div class="file-loading">
-                                                <input id="file-es" name="file-es[]" type="file" multiple>
-                                            </div>
-                                        </form>
-                                    </div>
 
-                                </div>
                             </div>
                             <div class="timeline-footer" style="text-align: right;">
                                 <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
@@ -158,7 +159,16 @@ $('#file-es').fileinput({
     theme: 'fas',
     language: 'es',
     uploadUrl: '#',
-    allowedFileExtensions: ['jpg', 'png', 'gif']
+    showUpload: false,
+    //showCaption: false,
+    maxFileSize: 2000,
+    maxFilesNum: 10,
+    allowedFileExtensions: ['jpg', 'png', 'gif'],
+    required: true,
+    uploadAsync: false
+
+
+
 });
 </script>
 
