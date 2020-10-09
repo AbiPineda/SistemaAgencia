@@ -39,8 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cliente/catalogoCliente.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/cliente/catalogoCliente.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Catalogo de Clientes</p>
                             </a>
@@ -48,7 +47,7 @@
                     </ul>
                 </li>
                 <li class="nav-header">SERVICIOS</li>
-                
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-umbrella-beach"></i>
@@ -59,23 +58,20 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/tours/registro-tour.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/tours/registro-tour.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Publicar Tour</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/tours/ver_rour.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/tours/ver_rour.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Tours</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/tours/registro_reserva.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/tours/registro_reserva.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Reserva</p>
                             </a>
@@ -92,23 +88,20 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/paquetes/registro-paquete.php"
-                               class="nav-link">
+                            <a href="<?= $base_url ?>vistas/paquetes/registro-paquete.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Publicar Tour</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/paquetes/ver_paquete.php"
-                               class="nav-link">
+                            <a href="<?= $base_url ?>vistas/paquetes/ver_paquete.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Tours</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/paquetes/registro_reserva.php"
-                               class="nav-link">
+                            <a href="<?= $base_url ?>vistas/paquetes/registro_reserva.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Reserva</p>
                             </a>
@@ -126,15 +119,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Sitio</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver sitios</p>
                             </a>
@@ -151,22 +142,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Vehiculo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Mostrar Registros</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Disponibilidad de Reserva</p>
                             </a>
@@ -178,15 +166,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/vehiculos/mantenimiento.php"
-                                        class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/mantenimiento.php" class="nav-link">
                                         <i class="fas fa-ellipsis-v nav-icon"></i>
                                         <p>Registrar Mantenimiento</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/vehiculos/verMantenimientos.php"
-                                        class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/verMantenimientos.php" class="nav-link">
                                         <i class="fas fa-ellipsis-v nav-icon"></i>
                                         <p>Mantenimientos Realizados</p>
                                     </a>
@@ -206,29 +192,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/registroEncomienda.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/cargoExpress/registroEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/verEncomienda.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/cargoExpress/verEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Modificación Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Calculo Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Actualizacion de Envio</p>
                             </a>
@@ -244,22 +226,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/producto.php"
-                                        class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/producto.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Productos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/categoria.php"
-                                        class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/categoria.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Categoria</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/reglas.php"
-                                        class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/cargoExpress/reglas.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Reglas</p>
                                     </a>
@@ -285,22 +264,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/Asesoria/programacionCitas.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/Asesoria/programacionCitas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Generar Cita</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/Asesoria/registroMigratoria.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroMigratoria.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Llenado de Formulario</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/Asesoria/registroPreguntas.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroPreguntas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro de Preguntas</p>
                             </a>
@@ -319,8 +295,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php"
-                                class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Cotización de Vuelo</p>
                             </a>
@@ -350,16 +325,15 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-address-card"></i>
                         <p>
-                            Contactos
+                            Servicios Adicionales
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?=$base_url?>vistas/contactos/registro_contacto.php"
-                                class="nav-link">
+                            <a href="<?=$base_url?>vistas/contactos/registro_contacto.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro Contactos</p>
+                                <p>Registro Servicios Adicionales</p>
 
                             </a>
 
@@ -367,10 +341,9 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?=$base_url?>vistas/contactos/ver_contactos.php"
-                                class="nav-link">
+                            <a href="<?=$base_url?>vistas/contactos/ver_contactos.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Ver Contactos</p>
+                                <p>Ver Servicios Adicionales</p>
 
                             </a>
                         </li>
