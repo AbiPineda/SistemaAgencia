@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Servicio</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control">
+                                                <input id="nombre" name="nombre" type="text" class="form-control">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -105,10 +105,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form enctype="multipart/form-data">
+                                        <form id="formularioID" enctype="multipart/form-data">
                                             <label>Seleccione Imagenes</label>
                                             <div class="file-loading">
-                                                <input id="file-es" name="file-es[]" type="file" multiple>
+                                                <input id="fotos" name="fotos[]" type="file" multiple>
                                             </div>
                                         </form>
                                     </div>
@@ -140,8 +140,9 @@
 
                             </div>
                             <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                                    style="color: white">Guardar</button>
+                                <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -155,7 +156,7 @@
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <script>
-$('#file-es').fileinput({
+$('#fotos').fileinput({
     theme: 'fas',
     language: 'es',
     uploadUrl: '#',
@@ -250,6 +251,18 @@ $(function() {
 
 });
 </script>
+
+<script>
+$(document).ready(function() {
+
+    $("#btnguardar").click(function() {
+        var formData = new FormData(document.getElementById("formularioID"));
+        console.log(formData);
+    });
+
+});
+</script>
+
 
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
