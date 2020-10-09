@@ -48,6 +48,9 @@ include_once  '../../plantillas/navbar.php';
 
         <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/bootstrap-clockpicker.css">
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
 
 
     </head>
@@ -149,9 +152,8 @@ include_once  '../../plantillas/navbar.php';
                     </div>
                     <div class="form-group col-md-4">
                         <label>Cliente</label>
-                        <div class="con-json">
-                        <select></select>    
-                        </div>
+                         <select name="id_cliente" id="cliente"></select>
+
                         
                     </div>
                 </div>
@@ -180,18 +182,33 @@ include_once  '../../plantillas/navbar.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+
+ <script type="text/javascript">
+          $(document).ready(function() {
+
+        $.ajax({
+        type: "GET",
+        url: 'http://localhost/API-REST-PHP/Usuario/obtenerUsuario', 
+        async: false,
+        dataType: "json",
+        success: function(data){
+          var $select = $('#cliente');
+          $.each(data, function(i,name) {
+           
+          $select.append('<option value=' + name.id_cliente + '>' + name.nombre + '</option>');
+          });    
+        },
+        error: function(data) {
+          alert('error');
+        }
+      });
+   
+  }); 
+    </script>
 <script>
       $(document).ready(function(){
         //*****para el combobox
-       $(".con-json select").change(function() {
-       $(".con-json select").empty();
-       $.getJSON('http://localhost/API-REST-PHP/index.php/Cita/cita',function(data){
-        console.log('aqui estoy'+data);
-       $.each(data, function(id,value){
-       $(".con-json select").append('<option value="'+id+'">'+value+'</option>');
-       });
-      });
-    });
+       
 
         //*********fin****
 
