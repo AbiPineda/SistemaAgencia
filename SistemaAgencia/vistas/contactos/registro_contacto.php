@@ -18,7 +18,6 @@
 
 
 
-
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -39,115 +38,122 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="timeline">
-                    <!-- timeline time label -->
-                    <div class="time-label">
-                        <span class="bg-red">Información</span>
-                    </div>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-car bg-blue"></i>
-                        <div class="timeline-item">
+        <form id="formularioID" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="timeline">
+                        <!-- timeline time label -->
+                        <div class="time-label">
+                            <span class="bg-red">Información</span>
+                        </div>
+                        <!-- /.timeline-label -->
+                        <!-- timeline item -->
+                        <div>
+                            <i class="fas fa-car bg-blue"></i>
+                            <div class="timeline-item">
 
-                            <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+                                <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
 
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Tipo de Servicio</label>
-                                            <select class="select2 select2-hidden-accessible form-control float-righ"
-                                                multiple="" data-placeholder="Seleccione el tipo" style="width: 100%;"
-                                                data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                                <option data-select2-id="47">Vehiculo</option>
-                                                <option data-select2-id="46">Guia Turistico</option>
-                                                <option data-select2-id="47">Busero</option>
-                                                <option data-select2-id="48">Taxista</option>
-                                                <option data-select2-id="428">Cocinero</option>
-                                                <option data-select2-id="418">Payaso</option>
+                                <div class="timeline-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Tipo de Servicio</label>
+                                                <select
+                                                    class="select2 select2-hidden-accessible form-control float-righ"
+                                                    multiple="" data-placeholder="Seleccione el tipo"
+                                                    style="width: 100%;" data-select2-id="7" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    <option data-select2-id="47">Vehiculo</option>
+                                                    <option data-select2-id="46">Guia Turistico</option>
+                                                    <option data-select2-id="47">Busero</option>
+                                                    <option data-select2-id="48">Taxista</option>
+                                                    <option data-select2-id="428">Cocinero</option>
+                                                    <option data-select2-id="418">Payaso</option>
 
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Nombre de Servicio</label>
-                                            <div class="input-group">
-                                                <input id="nombre" name="nombre" type="text" class="form-control">
+                                                </select>
                                             </div>
-                                            <!-- /.input group -->
                                         </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Costo promedio</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Descripcion del Servicio</label>
-                                            <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí ..."></textarea>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Nombre de Servicio</label>
+                                                <div class="input-group">
+                                                    <input id="nombre" name="nombre" type="text" class="form-control">
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>Costo promedio</label>
+                                                <div class="input-group">
+                                                    <input id="costos_defecto" name="costos_defecto" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Descripcion del Servicio</label>
+                                                <textarea name="descripcion_servicio" id="descripcion_servicio"
+                                                    class="form-control" rows="3"
+                                                    placeholder="Digitar aquí ..."></textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <form id="formularioID" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
                                             <label>Seleccione Imagenes</label>
                                             <div class="file-loading">
-                                                <input id="fotos" name="fotos[]" type="file" multiple>
+                                                <input type="file" multiple name="fotos[]" id="fotos">
                                             </div>
-                                        </form>
+
+                                        </div>
+
                                     </div>
-
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-user bg-green"></i>
-                        <div class="timeline-item">
+                        <!-- END timeline item -->
+                        <!-- timeline item -->
+                        <div>
+                            <i class="fas fa-user bg-green"></i>
+                            <div class="timeline-item">
 
-                            <h3 class="timeline-header no-border"><a href="#">Información de Contacto</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>El viaje incluye</label>
-                                            <textarea class="form-control" rows="3"
-                                                placeholder="Digitar aquí ..."></textarea>
+                                <h3 class="timeline-header no-border"><a href="#">Información de Contacto</a></h3>
+                                <div class="timeline-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>El viaje incluye</label>
+                                                <textarea name="informacion_contacto" id="informacion_contacto"
+                                                    class="form-control" rows="3"
+                                                    placeholder="Digitar aquí ..."></textarea>
+                                            </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-
-
                             </div>
-                            <div class="timeline-footer" style="text-align: right;">
-                                <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                                    style="color: white">Guardar</button>
-                                <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
+        <div class="timeline-footer" style="text-align: right;">
+            <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm" style="color: white">Guardar</button>
+            <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
         </div>
     </section>
 </div>
@@ -253,15 +259,50 @@ $(function() {
 </script>
 
 <script>
+const imageUploader = document.getElementById('fotos');
+
+
+const CLOUDINARY_URL = ``
+const CLOUDINARY_UPLOAD_PRESET = '';
+
+imageUploader.addEventListener('change', async (e) => {
+    console.log(e);
+});
 $(document).ready(function() {
+    let form = new FormData();
+
 
     $("#btnguardar").click(function() {
-        var formData = new FormData(document.getElementById("formularioID"));
-        console.log(formData);
-    });
 
+        form.append("fotos", document.getElementById("nombre").value);
+        form.append("tipo_servicio", "guia");
+        form.append("nombre", document.getElementById("nombre").value);
+        form.append("costos_defecto", document.getElementById("costos_defecto").value);
+        form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
+        form.append("informacion_contacto", document.getElementById("informacion_contacto").value);
+        var settings = {
+
+            "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form,
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+        }).fail(function(response) {
+            var respuestaDecodificada = JSON.parse(response.responseText);
+            console.log(respuestaDecodificada);
+        });
+    });
 });
 </script>
+
+
+
 
 
 <!-- CIERRE DE ETIQUETAS -->
