@@ -41,10 +41,11 @@
 
 
     <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/bootstrap-clockpicker.css">
+    <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
 </head>

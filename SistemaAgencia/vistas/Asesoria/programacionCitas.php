@@ -67,12 +67,20 @@ include_once'./pluing.php';
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/calendario-app.js"></script>
 
 
+
+    <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
+
     <script src="<?= $base_url ?>plugins/a/js/popper.min.js"></script>
     <script src="<?= $base_url ?>plugins/a/js/bootstrap.min.js"></script>
     <script type='text/javascript' src='<?= $base_url ?>plugins/a/js/moment.min.js'></script>
     <script type='text/javascript' src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
     <script type='text/javascript' src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
 
-    <script type="text/javascript">
-    $('.clockpicker').clockpicker();
+    <script src="<?= $base_url ?>js/mdtimepicker.js"></script>
+    <script>
+     $(document).ready(function(){
+      $('#timepicker').mdtimepicker(); //Initializes the time picker
+       });
     </script>
+
+  

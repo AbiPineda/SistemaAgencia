@@ -1,5 +1,6 @@
  $(document).ready(function() {
       
+       
         $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next,today',
@@ -14,14 +15,32 @@
                     }
                 }
             },
-            dayClick: function(date, jsEvent, view) {
-                $('#modal_eventos').modal();
-                $('#txtFecha').val(date.format());
+            dayClick: function(date, allDay,jsEvent, view) {
+                actual =  new Date();
+                const fechaComoCadena =date.format('YYYY-MM-DD h:mm');
+                const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado',
+                ];
+               const numeroDia = new Date(fechaComoCadena).getDay();
+               const nombreDia = dias[numeroDia];
 
-                $('#btnAgregar').prop("disabled", false);
-                $('#btnModificar').prop("disabled", true);
-                $('#btnEliminar').prop("disabled", true);
-                limpiar();
+              var day=2;
+              actual.setDate(actual.getDay()+day);
+
+              if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
+
+              }else{
+
+                if (date <= actual) {
+                //texto="no se puede ";
+              }else{
+                  //texto="si se puede ";
+                $('#modal_registro').modal();
+                $('#txtFecha').val(date.format());
+              }
+
+              }//fin else domingo
+
+              // limpiar();
 
 
             },
@@ -66,3 +85,9 @@
         });
     }); //fin calendario
    
+   function limpiar(){
+            
+            $('#txtFecha').val('');
+             $('#asistiran').val('');
+            
+                }
