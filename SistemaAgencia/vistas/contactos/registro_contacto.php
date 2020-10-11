@@ -3,6 +3,7 @@
 <?php include_once '../../plantillas/cabecera.php'; ?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
@@ -11,12 +12,11 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+
+
 <!-- COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
-
-
-
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -129,176 +129,40 @@
                             <h3 class="timeline-header no-border"><a href="#">Información de Contacto</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-8">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>El viaje incluye</label>
-                                            <textarea name="informacion_contacto" id="informacion_contacto"
+                                            <label>Informacion de Contacto</label>
+                                            <textarea name="informacion_contacto" id="informacion_contacto" rows="11"
                                                 class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
                                         </div>
                                     </div>
+                                    <div class="col-sm-4 text-center">
+                                        <div class="form-group">
+                                            <div class="kv-avatar">
+                                                <label>Informacion de Contacto</label>
+                                                <div class="file-loading">
+                                                    <input id="foto" name="foto" type="file" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="timeline-footer" style="text-align: right;">
-            <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm" style="color: white">Guardar</button>
-            <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-        </div>
+                <div class="timeline-footer" style="text-align: right;">
+                    <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                        style="color: white">Guardar</button>
+                    <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                </div>
     </section>
 </div>
-
-
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
-<script>
-$('#fotos').fileinput({
-    theme: 'fas',
-    language: 'es',
-    //uploadUrl: '#',
-    showUpload: false,
-    //showCaption: false,
-    maxFileSize: 2000,
-    maxFilesNum: 10,
-    allowedFileExtensions: ['jpg', 'png', 'gif'],
-    required: true,
-    uploadAsync: false
-
-
-
-});
-</script>
-
-
-
-<script>
-$(function() {
-    //Initialize Select2 Elements
-    $('.select2').select2();
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-        theme: 'bootstrap4'
-    });
-
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', {
-        'placeholder': 'dd/mm/yyyy'
-    });
-    //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', {
-        'placeholder': 'mm/dd/yyyy'
-    });
-    //Money Euro
-    $('[data-mask]').inputmask();
-
-    //Date range picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-            format: 'MM/DD/YYYY hh:mm A'
-        }
-    });
-    //Date range as a button
-    $('#daterange-btn').daterangepicker({
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
-                    .subtract(1, 'month').endOf('month')
-                ]
-            },
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment()
-        },
-        function(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
-                'MMMM D, YYYY'));
-        }
-    );
-
-    //Timepicker
-    $('#timepicker').datetimepicker({
-        format: 'LT'
-    });
-
-    //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox();
-
-
-
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    });
-
-    $("input[data-bootstrap-switch]").each(function() {
-        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });
-
-});
-</script>
-
-<script>
-// CUANDO LA PAGINA YA ESTA LISTA
-$(document).ready(function() {
-
-    //CUANDO SE LE DA EL CLICK AL BOTON DE GUARDAR 
-    $("#btnguardar").click(function() {
-        let form = new FormData();
-
-        //ESTO ES PARA L A GALERIA 
-        let files = document.getElementById("fotos").files;
-        for (let i = 0; i < files.length; i++) {
-            form.append('fotos[]', files[i]);
-        }
-
-        form.append("tipo_servicio", document.getElementById("tipo_servicio").value);
-        form.append("nombre", document.getElementById("nombre").value);
-        form.append("costos_defecto", document.getElementById("costos_defecto").value);
-        form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
-        form.append("informacion_contacto", document.getElementById("informacion_contacto").value);
-        let settings = {
-
-            "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
-            "method": "POST",
-            "timeout": 0,
-            "processData": false,
-            "mimeType": "multipart/form-data",
-            "contentType": false,
-            "data": form,
-        };
-
-        $.ajax(settings).done(function(response) {
-            let respuestaDecodificada = JSON.parse(response);
-            console.log(respuestaDecodificada);
-        }).fail(function(response) {
-            let respuestaDecodificada = JSON.parse(response.responseText);
-            console.log(respuestaDecodificada);
-        });
-    });
-});
-</script>
-
-
-
-
-
+<script src="<?= $base_url ?>js/controladores/servicios-contacto/servicio-contacto.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
