@@ -315,7 +315,7 @@
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vuelos/condiciones.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Tipos de Viaje</p>
+                                <p>Condiciones</p>
                             </a>
                         </li>
                     </ul>

@@ -5,6 +5,12 @@ include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+
+
+
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -38,7 +44,7 @@ include_once '../../plantillas/barra_lateral.php';
                     <div>
                         <i class="fas fa-plane bg-blue"></i>
                         <div class="timeline-item">
-                            
+
                             <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
 
                             <div class="timeline-body">
@@ -52,45 +58,18 @@ include_once '../../plantillas/barra_lateral.php';
                                                 placeholder="Digite nombre del Lugar">
                                         </div>
                                     </div>
+                                    <div class='col-sm-6'>
+                                        <div class="form-group">
+                                        <label>Fecha y Hora</label>
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Fecha</label>
-                                            <input type="date" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Hora</label>
-                                            <select class="form-control">
-                                                <option>00:00</option>
-                                                <option>01:00</option>
-                                                <option>02:00</option>
-                                                <option>03:00</option>
-                                                <option>04:00</option>
-                                                <option>05:00</option>
-                                                <option>06:00</option>
-                                                <option>07:00</option>
-                                                <option>08:00</option>
-                                                <option>08:00</option>
-                                                <option>10:00</option>
-                                                <option>11:00</option>
-                                                <option>12:00</option>
-                                                <option>13:00</option>
-                                                <option>14:00</option>
-                                                <option>15:00</option>
-                                                <option>16:00</option>
-                                                <option>17:00</option>
-                                                <option>18:00</option>
-                                                <option>19:00</option>
-                                                <option>20:00</option>
-                                                <option>21:00</option>
-                                                <option>22:00</option>
-                                                <option>23:00</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- FIN de primera fila -->
                                 <!-- INICIO de segunda fila -->
@@ -104,44 +83,19 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
+                                   
+                                    <div class='col-sm-6'>
                                         <div class="form-group">
-                                            <label>Fecha</label>
-                                            <input type="date" class="form-control">
+                                        <label>Fecha y Hora</label>
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Hora</label>
-                                            <select class="form-control">
-                                                <option>00:00</option>
-                                                <option>01:00</option>
-                                                <option>02:00</option>
-                                                <option>03:00</option>
-                                                <option>04:00</option>
-                                                <option>05:00</option>
-                                                <option>06:00</option>
-                                                <option>07:00</option>
-                                                <option>08:00</option>
-                                                <option>08:00</option>
-                                                <option>10:00</option>
-                                                <option>11:00</option>
-                                                <option>12:00</option>
-                                                <option>13:00</option>
-                                                <option>14:00</option>
-                                                <option>15:00</option>
-                                                <option>16:00</option>
-                                                <option>17:00</option>
-                                                <option>18:00</option>
-                                                <option>19:00</option>
-                                                <option>20:00</option>
-                                                <option>21:00</option>
-                                                <option>22:00</option>
-                                                <option>23:00</option>
-                                            </select>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <!-- FIN de segunda fila -->
                                 <!-- INICIO de 3ra fila -->
@@ -181,17 +135,17 @@ include_once '../../plantillas/barra_lateral.php';
                     <div>
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
-                           
+
                             <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
                             <div class="timeline-body">
-                                
+
                                 <!-- INICIO de 2da fila -->
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Preferencia de Aerolínea</label>
                                             <select class="form-control">
-                                               
+
                                                 <option value="">Aerolineas Argentinas</option>
                                                 <option value="">Aeromexico</option>
                                                 <option value="">Air Canada</option>
@@ -229,7 +183,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group">
                                             <label>Alianza</label>
                                             <select class="form-control">
-                                                
+
                                                 <option value="">Star Alliance</option>
                                                 <option value="">One World</option>
                                                 <option value="">Sky Team</option>
@@ -240,7 +194,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group">
                                             <label>Clase</label>
                                             <select class="form-control">
-                                                
+
                                                 <option value="">Ejecutiva</option>
                                                 <option value="">Económica</option>
                                                 <option value="">Primera</option>
@@ -251,7 +205,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group">
                                             <label>Tipo de Viaje</label>
                                             <select class="form-control">
-                                                
+
                                                 <option value="">Aventura</option>
                                                 <option value="">Ciudad</option>
                                                 <option value="">Cultural</option>
@@ -264,7 +218,7 @@ include_once '../../plantillas/barra_lateral.php';
                                 <!-- FIN de 2da fila -->
                                 <!-- Inicio de 1ra fila -->
                                 <div class="row">
-                                <div class="offset"></div>
+                                    <div class="offset"></div>
                                     <div class="col-sm-4">
                                         <div class="form-group clearfix">
                                             <div class="icheck-primary d-inline">
@@ -302,14 +256,17 @@ include_once '../../plantillas/barra_lateral.php';
                     <div>
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
-                            
+
                             <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>*Verificar documentación en orden, pasaporte valido para 6 meses, cartas de invitación cuando sean requeridas, permisos o actas notables  de acuerdo a la Ley Lepina para menores de 18 años.</label>
-                                            <label>*Boletos aereos no reembolsables, no endosables y no transferibles.</label>
+                                            <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
+                                                cartas de invitación cuando sean requeridas, permisos o actas notables
+                                                de acuerdo a la Ley Lepina para menores de 18 años.</label>
+                                            <label>*Boletos aereos no reembolsables, no endosables y no
+                                                transferibles.</label>
                                         </div>
                                     </div>
                                 </div>
@@ -329,3 +286,22 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+<script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js">
+</script>
+<script>
+$('#datetimepicker1').datetimepicker({
+    defaultDate: new Date(),
+    format: 'DD/MM/YYYY H:mm:ss',
+    sideBySide: true
+});
+</script>
+<script>
+$('#datetimepicker2').datetimepicker({
+    defaultDate: new Date(),
+    format: 'DD/MM/YYYY H:mm:ss',
+    sideBySide: true
+});
+</script>
