@@ -287,7 +287,7 @@
                 <!--INCIA VUELOS MENU-->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-balance-scale-right"></i>
+                        <i class="nav-icon fas fa-plane"></i>
                         <p>
                             Información Vuelos
                             <i class="fas fa-angle-left right"></i>
@@ -297,19 +297,19 @@
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vuelos/mostrarAerolineas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Opciones Avanzadas</p>
+                                <p>Información de Aerolineas</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/Asesoria/registroMigratoria.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoClase.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Información Adicional</p>
+                                <p>Tipos de Clase</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/Asesoria/registroPreguntas.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoViaje.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>----</p>
+                                <p>Tipos de Viaje</p>
                             </a>
                         </li>
                     </ul>

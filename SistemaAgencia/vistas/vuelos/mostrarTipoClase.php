@@ -18,12 +18,12 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Aerolineas Registradas</h1>
+                    <h1>Tipos de Clases Registradas</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Aerolineas Registradas</li>
+                        <li class="breadcrumb-item active">Tipos de Clases Registradas</li>
                     </ol>
                 </div>
             </div>
@@ -41,10 +41,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <h3 class="card-title">Datos Generales</h3>
                         <div class="timeline-footer" style="text-align: right;">
                             <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
-                                data-target="#modal-aerolinea">Nueva Aerolinea</a>
-                            <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
-                                data-target="#modal-alianza">Nueva Alianza</a>
-
+                                data-target="#modal-clase">Nueva Clase</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -64,23 +61,27 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Browser: activate to sort column ascending">
-                                                    Alianza</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Browser: activate to sort column ascending">
-                                                    Sitio Web</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Platform(s): activate to sort column ascending">
-                                                    Telefono de Contacto</th>
+                                                    Descripción</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr role="row" class="odd" style="text-align: center;">
-                                                <td tabindex="0" class="sorting_1">Avianca</td>
-                                                <td tabindex="0" class="sorting_1">Star Alliance</td>
-                                                <td>www.avianca.com/sv/es/</td>
-                                                <td>2222-2222</td>
+                                            <tr role="row" class="odd" style="text-align: left;">
+                                                <td tabindex="0" class="sorting_1">Clase económica</td>
+                                                <td tabindex="0" class="sorting_1">
+                                                    A pesar de los precios bajos, los pasajeros pueden viajar cómodos:
+                                                    asientos ajustables con el perfil adecuado que proporciona comodidad
+                                                    en una posición saludable.
+                                                    <br>
+                                                    En la clase económica se sirve un refrigerio de acuerdo a la hora,
+                                                    fecha y duración del vuelo (un desayuno leve almuerzo o cena
+                                                    completa).
+                                                    <br>
+                                                    Los pasajeros también pueden escoger entre una selección de bebidas
+                                                    además de extras como toallitas húmedas, tapones de oído, etc. que
+                                                    hacen del vuelo una experiencia más agradable.
+                                                </td>
+
                                                 <td>
                                                     <div class="btn-group">
 
@@ -99,9 +100,8 @@ include_once '../../plantillas/barra_lateral.php';
                                         <tfoot>
                                             <tr style="text-align: center;">
                                                 <th rowspan="1" colspan="1">Nombre</th>
-                                                <th rowspan="1" colspan="1">Alianza</th>
-                                                <th rowspan="1" colspan="1">Sitio Web</th>
-                                                <th rowspan="1" colspan="1">Telefono de Contacto</th>
+                                                <th rowspan="1" colspan="1">Descripción</th>
+
 
                                             </tr>
                                         </tfoot>
@@ -121,7 +121,7 @@ include_once '../../plantillas/barra_lateral.php';
     </section>
     <!-- /.content -->
 </div>
-<div class="modal fade" id="modal-aerolinea">
+<div class="modal fade" id="modal-clase">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -142,7 +142,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <i class="fas fa-plane bg-blue"></i>
                                     <div class="timeline-item">
 
-                                        <h3 class="timeline-header"><a href="#">Registrar Aerolinea</a> </h3>
+                                        <h3 class="timeline-header"><a href="#">Registrar Clase</a> </h3>
 
                                         <div class="timeline-body">
                                             <!-- INICIO de primera fila -->
@@ -150,29 +150,17 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <div class="col-sm-12">
                                                     <!-- text input -->
                                                     <div class="form-group">
-                                                        <label>Nombre de Aerolinea</label>
+                                                        <label>Tipo de Clase</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Digite nombre de la aerolinea">
+                                                            placeholder="Digite tipo de clase">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Alianza</label>
-                                                        <select class="form-control">
 
-                                                            <option value="">Star Alliance</option>
-                                                            <option value="">One World</option>
-                                                            <option value="">Sky Team</option>
-                                                        </select>
-                                                    </div>
                                                     <div class="form-group">
-                                                        <label>URL de Sitio Web</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite la url del sitio web">
+                                                        <label>Descripción</label>
+                                                        <textarea class="form-control" rows="6"
+                                                            placeholder="Digitar aquí..."></textarea>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Telefono de Contacto</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite el telefono de contacto">
-                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -198,74 +186,6 @@ include_once '../../plantillas/barra_lateral.php';
 </div>
 <!-- /.modal -->
 
-
-<div class="modal fade" id="modal-alianza">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="timeline">
-
-                                <div>
-                                    <i class="fas fa-plane bg-blue"></i>
-                                    <div class="timeline-item">
-
-                                        <h3 class="timeline-header"><a href="#">Registrar Alianza</a> </h3>
-
-                                        <div class="timeline-body">
-                                            <!-- INICIO de primera fila -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <!-- text input -->
-                                                    <div class="form-group">
-                                                        <label>Nombre de Alianza</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite nombre de alianza">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>URL de Sitio Web</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite url del sitio web">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Telefono de Contacto</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite telefono de contacto">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="timeline-footer" style="text-align: right;">
-                                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <p>
-            </div>
-
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 
 <?php
