@@ -29,7 +29,7 @@
                    toastr.success(response.mensaje)//me gusta
                     //console.log(response);
                     document.getElementById("register-form").reset();
-                  $("#recargar").load(" #recargar");
+                  $("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
                 }
 
             },
