@@ -284,6 +284,37 @@
                     </ul>
                 </li>
                 <!--TERMINA ASESORIA MIGRATORIA MENU-->
+                <!--INCIA VUELOS MENU-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-balance-scale-right"></i>
+                        <p>
+                            Información Vuelos
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarAerolineas.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Opciones Avanzadas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroMigratoria.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Información Adicional</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/Asesoria/registroPreguntas.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>----</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--TERMINA VUELOS MIGRATORIA MENU-->
                 <li class="nav-header">COTIZACIONES</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
