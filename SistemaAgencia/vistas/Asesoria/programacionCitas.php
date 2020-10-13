@@ -1,10 +1,12 @@
-<?php
-include_once '../../config/parametros.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
+<?php include_once '../../config/parametros.php';?>
+<?php include_once  '../../plantillas/navbar.php';?>
 
-include_once'./pluing.php';
-?>
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
+    type="text/css" />
+<link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
+
+<?php include_once '../../plantillas/barra_lateral.php';?>
+<?php include_once'./pluing.php';?>
 
 
         <!-- Content Wrapper. Contains page content -->
@@ -77,10 +79,13 @@ include_once'./pluing.php';
     <script type='text/javascript' src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
 
     <script src="<?= $base_url ?>js/mdtimepicker.js"></script>
+    <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
     <script>
      $(document).ready(function(){
       $('#timepicker').mdtimepicker(); //Initializes the time picker
        });
     </script>
 
+<?php include_once '../../plantillas/cierre.php'; ?>
   

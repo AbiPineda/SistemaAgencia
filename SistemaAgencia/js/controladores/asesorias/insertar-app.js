@@ -13,7 +13,20 @@
                     $("#modal_registro").modal('toggle');
                     $('#calendar').fullCalendar('refetchEvents');
 
+                   /* const Toast = Swal.mixin({
+                         toast: true,
+                        position: 'top-end',
+                         showConfirmButton: false,
+                         timer: 3000
 
+                      });
+                    Toast.fire({
+                    title: response.mensaje,
+                    icon: 'success',
+                    
+                    });*/
+
+                   toastr.success(response.mensaje)//me gusta
                     //console.log(response);
                     document.getElementById("register-form").reset();
                   $("#recargar").load(" #recargar");
@@ -21,8 +34,9 @@
 
             },
             error: function(er) {
-                console.log(er);
-                alert("Hay un error....");
+              toastr.error(er.error);
+                //console.log(er);
+                //alert("Hay un error....");
             }
 
         });
