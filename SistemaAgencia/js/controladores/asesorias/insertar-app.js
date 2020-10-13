@@ -14,7 +14,9 @@
                     $('#calendar').fullCalendar('refetchEvents');
 
 
-                    console.log(response);
+                    //console.log(response);
+                    document.getElementById("register-form").reset();
+                  $("#recargar").load(" #recargar");
                 }
 
             },

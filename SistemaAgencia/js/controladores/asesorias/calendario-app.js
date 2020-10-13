@@ -85,9 +85,4 @@
         });
     }); //fin calendario
    
-   function limpiar(){
-            
-            $('#txtFecha').val('');
-             $('#asistiran').val('');
-            
-                }
+  
