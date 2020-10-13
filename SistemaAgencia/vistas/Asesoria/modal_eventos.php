@@ -1,20 +1,6 @@
   <!-- ./wrapper -->
 
-  <script>
-    $(function () {
-        $("#asistencia").change(function () {
-            // alert($(this).val());
-            if ($(this).val() === "Si") {
-                $("#btn-asistiran").prop("disabled",true);
-                $("#asistiran").prop("disabled", true);
-            }
-            if ($(this).val() === "No") {
-                $("#btn-asistiran").prop("disabled",false);
-                $("#asistiran").prop("disabled", false);    
-            }
-        });
-    });
-</script>
+  <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/operaciones.js"></script>
 
     <!--modal alternativo para los eventos-->
     <div class="modal fade" id="modal_registro" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel"
@@ -33,11 +19,12 @@
                         <div class="form-row">
                              <div class="form-group col-md-8">
                                 <label>Cliente</label>
-                                <select name="id_cliente" id="cliente" class="form-control"></select>
+                                <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();"></select>
                             </div>
                             <div class="form-group col-md-4">
                                  <label>Fecha</label>
                               <input type="text" id="txtFecha" name="fecha" class="form-control" />
+                              <input type="hidden" id="usuario" name="usuario" class="form-control" />
                           </div>
                             
                         </div>
@@ -55,7 +42,7 @@
                         <div class="form-group col-md-8">
                              <label>¿Personas que asistirán ?</label>
                               <div class="form-group multiple-form-group input-group">
-                              <input type="text" name="contacts['value'][]" id="asistiran" disabled="true" class="form-control" placeholder="Digite el nombre">
+                              <input type="text" name="asistiran[]" id="asistiran" disabled="true" class="form-control" placeholder="Digite el nombre">
                               <span class="input-group-btn">
                               <button type="button" class="btn btn-success btn-add" id="btn-asistiran" disabled="true" style="margin-top:0px;">+</button>
                              </span>

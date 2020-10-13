@@ -10,7 +10,7 @@
             success: function(response) {
                 if (response) {
 
-                    $("#modal_eventos").modal('toggle');
+                    $("#modal_registro").modal('toggle');
                     $('#calendar').fullCalendar('refetchEvents');
 
 

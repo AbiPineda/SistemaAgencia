@@ -887,6 +887,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                 // store the Event Object in the DOM element so we can get to it later
                 $(this).data('eventObject', eventObject)
+                
 
                 // make the event draggable using jQuery UI
                 $(this).draggable({
@@ -907,7 +908,7 @@ include_once '../../plantillas/barra_lateral.php';
 
         var containerEl = document.getElementById('external-events1');
         var checkbox = document.getElementById('drop-remove');
-        var calendarEl = document.getElementById('calendar');
+       
 
         // initialize the external events
         // -----------------------------------------------------------------
