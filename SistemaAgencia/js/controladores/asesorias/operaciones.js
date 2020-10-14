@@ -5,17 +5,16 @@
     $(function () {
         $("#asistencia").change(function () {
             // alert($(this).val());
-            if ($(this).val() === "Si") {
+            if ($(this).val() === "1") {
                 $("#btn-asistiran").prop("disabled",true);
                 $("#asistiran").prop("disabled", true);
             }
-            if ($(this).val() === "No") {
+            if ($(this).val() === "0") {
                 $("#btn-asistiran").prop("disabled",false);
                 $("#asistiran").prop("disabled", false);    
             }
         });
     });
-
 function ShowSelected()
 {
 /* Para obtener el valor */

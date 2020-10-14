@@ -35,8 +35,8 @@
                              <label>¿Asistirá solo/a?</label>
                              <select name="asistencia" id="asistencia" class="form-control">
                                 <option selected>Seleccione</option>
-                                 <option value="Si">Si</option>
-                                 <option value="No">No</option>
+                                 <option value="1">Si</option>
+                                 <option value="0">No</option>
                              </select>
                              </div>
 
@@ -98,21 +98,22 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="register-form" onsubmit="return false">
+                <form id="update-form" onsubmit="return false">
                 <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-2"></div>
                             <div class="form-group col-md-4">
                                  <label>Fecha</label>
-                              <input type="text" id="txtFecha" name="fecha" class="form-control"/>
+                              <input type="text" id="txtFecha2" name="fecha" class="form-control"/>
+                              <input type="text" id="id_cliente" name="fecha" class="form-control"/>
                           </div>
 
                           <div class="form-group col-md-4">
                              <label>¿Asistirá solo/a?</label>
-                             <select name="asistencia" id="asistencia" class="form-control">
+                             <select name="asistencia" id="asistencia2" class="form-control">
                                 <option selected>Seleccione</option>
-                                 <option value="Si">Si</option>
-                                 <option value="No">No</option>
+                                 <option value="1">Si</option>
+                                 <option value="0">No</option>
                              </select>
                              </div>
                             
@@ -120,14 +121,15 @@
 
                         <div class="form-row">
                             
-
+                        <div class="form-group col-md-2"></div>
                         <div class="form-group col-md-8">
-                            <div id="recargar">
+                            <div id="recargar2">
                                 <label>¿Personas que asistirán ?</label>
+                              <div id="inputs"></div>
                               <div class="form-group multiple-form-group input-group">
-                              <input type="text" name="asistiran[]" id="asistiran" disabled="true" class="form-control" placeholder="Digite el nombre">
+                              <input type="text" name="asistiran[]" id="asistiran2" value="" disabled="true" class="form-control" placeholder="Agregar otra persona">
                               <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran" disabled="true" style="margin-top:0px;">+</button>
+                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran2" disabled="true" style="margin-top:0px;">+</button>
                              </span>
                              </div>
                                 
@@ -146,7 +148,7 @@
                             <div class="form-group col-md-4">
                                 <label>Hora de la cita</label>
                                 <div class="input-group clockpicker" data-autoclose="true">
-                            <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
+                            <input type="text" id="timepicker2" name="start" class="form-control" />
 
                                 </div>
 

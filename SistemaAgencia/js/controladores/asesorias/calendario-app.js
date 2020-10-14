@@ -48,21 +48,46 @@
             //http://localhost/restful/index.php/Calendario/calendario
             eventClick: function(calEvent, jsEvent, view) {
 
-                $('#btnAgregar').prop("disabled", true);
-                $('#btnModificar').prop("disabled", false);
-                $('#btnEliminar').prop("disabled", false);
-
                 $('#tituloEvento').html(calEvent.title);
+                $('#txtFecha2').val(calEvent.fecha);
+                $('#timepicker2').val(calEvent.hora);
+                document.getElementById("asistencia2").value = calEvent.compania;
 
-                $('#txtId').val(calEvent.id_cita);
-                $('#txtTitulo').val(calEvent.title);
-                $('#txtColor').val(calEvent.color);
-                $('#txtDescripcion').val(calEvent.descripcion);
-                FechaHora = calEvent.start._i.split(" ");
-                $('#txtFecha').val(FechaHora[0]);
-                $('#txtHora').val(FechaHora[1]);
+                if (calEvent.compania==0) {
+                    $('#asistiran2').prop("disabled",false);
+                    $('#btn-asistiran2').prop("disabled",false);
+                    //para mostrar en el input de las personas que asitiran
+                $(document).ready(function() {
 
+                 $.ajax({
+                 type: "GET",
+                 url: 'http://localhost/API-REST-PHP/index.php/PersonasCitas/personas/'+calEvent.id_cita,
+                 async: false,
+                dataType: "json",
+                    success: function(data) {
+
+                var $select = $('#inputs');
+                $.each(data.personas, function(i, name) {
+                    $select.append('<input id="input" class="form-control" value="'+name.nombres_personas+'">');
+                      });
+                 },
+                error: function(data) {
+                alert('error');
+                    }
+                 });
+
+                });
+                //****
+                }else{
+                   $('#asistiran2').prop("disabled",true);
+                   $('#btn-asistiran2').prop("disabled",true); 
+                     $('#inputs').empty();
+                }
+                $('#id_cliente').val(calEvent.id_cita);
                 $('#modal_eventos').modal();
+                //document.getElementById("update-form").reset();
+
+               
 
 
             },

@@ -85,7 +85,12 @@
      $(document).ready(function(){
       $('#timepicker').mdtimepicker(); //Initializes the time picker
        });
+
+     $(document).ready(function(){
+      $('#timepicker2').mdtimepicker(); //Initializes the time picker
+       });
     </script>
+
 
 <?php include_once '../../plantillas/cierre.php'; ?>
   
