@@ -105,7 +105,6 @@
                             <div class="form-group col-md-4">
                                  <label>Fecha</label>
                               <input type="text" id="txtFecha2" name="fecha" class="form-control"/>
-                              <input type="text" id="id_cliente" name="fecha" class="form-control"/>
                           </div>
 
                           <div class="form-group col-md-4">
