@@ -379,6 +379,13 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/contactos/ver_contactos.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Ver Servicios Adicionales</p>
+                        </li>
+                    </ul>
 
                 </li>
                 <li class="nav-item has-treeview">

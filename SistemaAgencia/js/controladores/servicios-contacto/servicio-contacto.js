@@ -184,7 +184,3 @@ $(document).ready(function () {
 
     }
 });
-
-
-
-
