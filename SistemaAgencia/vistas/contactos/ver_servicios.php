@@ -37,9 +37,9 @@
                         <table id="tabla_servicios" class="table table-bordered table-striped">
                             <thead style="text-align: center;">
                                 <tr>
-                                    <th>Nombre del Servicio</th>
-                                    <th>Costo Prommedio</th>
-                                    <th>tipo de Servicio</th>
+                                    <th>Tipo del Servicio</th>
+                                    <th>Descripcion</th>
+                                    <th>Costo Promedio</th>
                                     <th>Acciones</th>
 
                                 </tr>
@@ -55,28 +55,21 @@
                                         <td>!VAMONOS A COSTA RICA¡</td>
                                         <td>DEL 4 AL 9 DE ABRIL 2019</td>
                                         <td>Internacional</td>
-                                        <td>
+                                        <td id="33">
                                             <div class="btn-group">
-                                                <a type="button" class="btn btn-primary"
-                                                    href="<?= $base_url ?>vistas/tours/editar_tour.php">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#modal-editar">
                                                     <i class="fas fa-edit" style="color: white"></i>
-                                                </a>
+                                                </button>
 
-                                                <a type="button" class="btn btn-danger"
-                                                    href="<?= $base_url ?>vistas/tours/editar_tour.php">
+                                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#modal-galeria">
+                                                    <i class="fas fa-image" style="color: white"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#modal-eliminar">
                                                     <i class="fas fa-trash" style="color: white"></i>
-                                                </a>
-                                                <a type="button" class="btn btn-warning"
-                                                    href="<?= $base_url ?>vistas/tours/itinerario.php">
-                                                    <i class="fas fa-long-arrow-alt-down" style="color: white"></i>
-                                                </a>
-
-                                                <a type="button" class="btn btn-success"
-                                                    href="<?= $base_url ?>vistas/tours/itinerario.php">
-                                                    <i class="fas fa-car" style="color: white"></i>
-                                                </a>
-
-
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -95,6 +88,28 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-editar">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Large Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
