@@ -370,29 +370,23 @@
                         <li class="nav-item">
                             <a href="<?=$base_url?>vistas/contactos/registro_contacto.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro Servicios Adicionales</p>
-
+                                <p>Registro Servicios</p>
                             </a>
-
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?=$base_url?>vistas/contactos/ver_contactos.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Ver Servicios Adicionales</p>
-
+                                <p>Ver Servicios Contactos</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/contactos/ver_contactos.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/contactos/ver_servicios.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Ver Servicios Adicionales</p>
+                                <p>Ver Servicios</p>
+                            </a>
                         </li>
-                    </ul>
 
+                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -434,8 +428,6 @@
                         </li>
                     </ul>
                 </li>
-
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

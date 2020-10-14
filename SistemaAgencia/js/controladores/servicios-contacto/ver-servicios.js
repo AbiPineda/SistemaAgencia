@@ -11,11 +11,16 @@ $(document).ready(function () {
                 "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/obtenerServicio",
                 "dataSrc": function (json) {
                     //ESTO ES PARA PERSONALIZAR LE BOTON
-                    for (var i = 0, ien = json.servicio.length; i < ien; i++) {
-                        //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
-                        json.servicio[i]["botones"] = '<a href="#">View message</a>';
+              
+                    if (json.servicio) {
+                        for (var i = 0, ien = json.servicio.length; i < ien; i++) {
+                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
+                            json.servicio[i]["botones"] = '<a href="#">View message</a>';
+                        }
+                        return json.servicio;
+                    }else {
+                        return [];
                     }
-                    return json.servicio;
                 }
             },
             columns: [
