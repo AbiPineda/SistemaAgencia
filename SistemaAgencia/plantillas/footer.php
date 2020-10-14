@@ -68,6 +68,3 @@
 <script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
 
 <script src="<?= $base_url ?>js/bootstrap-clockpicker.js"></script>
-
-
-<script src='<?= $base_url ?>plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js'></script>

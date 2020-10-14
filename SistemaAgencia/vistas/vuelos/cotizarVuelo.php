@@ -51,15 +51,42 @@ include_once '../../plantillas/barra_lateral.php';
                                                 placeholder="Digite nombre del Lugar">
                                         </div>
                                     </div>
-                                    <div class='col-sm-6'>
+                                    <div class="col-sm-3">
+                                        <!-- text input -->
                                         <div class="form-group">
-                                        <label>Fecha y Hora</label>
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control" />
-                                                <span class="input-group-addon">
-                                                    <span class="fas fa-calendar"></span>
-                                                </span>
-                                            </div>
+                                            <label>Fecha</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Hora</label>
+                                            <select class="form-control">
+                                                <option>00:00</option>
+                                                <option>01:00</option>
+                                                <option>02:00</option>
+                                                <option>03:00</option>
+                                                <option>04:00</option>
+                                                <option>05:00</option>
+                                                <option>06:00</option>
+                                                <option>07:00</option>
+                                                <option>08:00</option>
+                                                <option>08:00</option>
+                                                <option>10:00</option>
+                                                <option>11:00</option>
+                                                <option>12:00</option>
+                                                <option>13:00</option>
+                                                <option>14:00</option>
+                                                <option>15:00</option>
+                                                <option>16:00</option>
+                                                <option>17:00</option>
+                                                <option>18:00</option>
+                                                <option>19:00</option>
+                                                <option>20:00</option>
+                                                <option>21:00</option>
+                                                <option>22:00</option>
+                                                <option>23:00</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -75,20 +102,44 @@ include_once '../../plantillas/barra_lateral.php';
                                                 placeholder="Digite nombre del Lugar">
                                         </div>
                                     </div>
-
-                                   
-                                    <div class='col-sm-6'>
+                                    <div class="col-sm-3">
+                                        <!-- text input -->
                                         <div class="form-group">
-                                        <label>Fecha y Hora</label>
-                                            <div class='input-group date' id='datetimepicker2'>
-                                                <input type='text' class="form-control" />
-                                                <span class="input-group-addon">
-                                                    <span class="fas fa-calendar"></span>
-                                                </span>
-                                            </div>
+                                            <label>Fecha</label>
+                                            <input type="date" class="form-control">
                                         </div>
                                     </div>
-
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Hora</label>
+                                            <select class="form-control">
+                                                <option>00:00</option>
+                                                <option>01:00</option>
+                                                <option>02:00</option>
+                                                <option>03:00</option>
+                                                <option>04:00</option>
+                                                <option>05:00</option>
+                                                <option>06:00</option>
+                                                <option>07:00</option>
+                                                <option>08:00</option>
+                                                <option>08:00</option>
+                                                <option>10:00</option>
+                                                <option>11:00</option>
+                                                <option>12:00</option>
+                                                <option>13:00</option>
+                                                <option>14:00</option>
+                                                <option>15:00</option>
+                                                <option>16:00</option>
+                                                <option>17:00</option>
+                                                <option>18:00</option>
+                                                <option>19:00</option>
+                                                <option>20:00</option>
+                                                <option>21:00</option>
+                                                <option>22:00</option>
+                                                <option>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- FIN de segunda fila -->
                                 <!-- INICIO de 3ra fila -->
@@ -279,17 +330,3 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<script>
-$('#datetimepicker1').datetimepicker({
-    defaultDate: new Date(),
-    format: 'DD/MM/YYYY H:mm:ss',
-    sideBySide: true
-});
-</script>
-<script>
-$('#datetimepicker2').datetimepicker({
-    defaultDate: new Date(),
-    format: 'DD/MM/YYYY H:mm:ss',
-    sideBySide: true
-});
-</script>
