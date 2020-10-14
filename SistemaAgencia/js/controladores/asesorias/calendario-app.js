@@ -52,7 +52,7 @@
                 $('#btnModificar').prop("disabled", false);
                 $('#btnEliminar').prop("disabled", false);
 
-                $('#tituloEvento').html(calEvent.motivo);
+                $('#tituloEvento').html(calEvent.title);
 
                 $('#txtId').val(calEvent.id_cita);
                 $('#txtTitulo').val(calEvent.title);

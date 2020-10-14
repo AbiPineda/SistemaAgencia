@@ -33,8 +33,8 @@
                 }
 
             },
-            error: function(er) {
-              toastr.error(er.error);
+            error: function(err) {
+              toastr.error('Hay error en el envio de la información');
                 //console.log(er);
                 //alert("Hay un error....");
             }
