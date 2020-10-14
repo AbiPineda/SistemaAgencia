@@ -5,9 +5,6 @@ include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
-
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -60,7 +57,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class='input-group date' id='datetimepicker1'>
                                                 <input type='text' class="form-control" />
                                                 <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                    <span class="fas fa-calendar"></span>
                                                 </span>
                                             </div>
                                         </div>
@@ -86,7 +83,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class='input-group date' id='datetimepicker2'>
                                                 <input type='text' class="form-control" />
                                                 <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                    <span class="fas fa-calendar"></span>
                                                 </span>
                                             </div>
                                         </div>
