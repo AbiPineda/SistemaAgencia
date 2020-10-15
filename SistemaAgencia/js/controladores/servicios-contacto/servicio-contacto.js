@@ -4,16 +4,16 @@ $(document).ready(function () {
     inicializarGaleria();
     inicializarFoto();
     inicializarCombo();
+    inicializarValidaciones();
 
-
-    //  ESTO ES PARA LAS VALIDACIONES 
-    $.validator.setDefaults({
-        submitHandler: function () {
-            // CUANDO TODO ESTE VALIDADO SE LLAMA EL GUARDAR
+    $(document).on('click', '#btnguardar', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+        let form = $("#miFormulario");
+        form.validate();
+        if (form.valid()) {
             guardar();
         }
     });
-    inicializarValidaciones();
 
     function guardar() {
         $('#loading').show();
@@ -30,6 +30,7 @@ $(document).ready(function () {
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
         form.append("informacion_contacto", document.getElementById("informacion_contacto").value);
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         let settings = {
 
             "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
@@ -102,6 +103,7 @@ $(document).ready(function () {
             language: 'es',
             required: true,
             maxFileSize: 2000,
+            showUpload: false,
             showClose: false,
             showCaption: true,
             browseLabel: '',

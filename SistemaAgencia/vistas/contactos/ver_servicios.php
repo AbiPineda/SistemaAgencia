@@ -1,9 +1,8 @@
 <?php include_once '../../config/parametros.php'; ?>
 <?php include_once '../../plantillas/cabecera.php'; ?>
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
-<?php include_once  '../../plantillas/navbar.php'; ?>
-<?php include_once '../../plantillas/barra_lateral.php'; ?>
-
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet">
+<?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -65,72 +64,90 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-    <!-- Modal EDITAR-->
-    <div class="modal fade" id="modal-editar">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Modificar Servicio</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Tipo de Servicio</label>
-                                <select name="tipo_servicio" id="tipo_servicio"
-                                    class="select2 select2-hidden-accessible form-control float-righ"
-                                    data-placeholder="Seleccione el tipo" style="width: 100%;" data-select2-id="7"
-                                    tabindex="-1" aria-hidden="true">
-                                </select>
-                            </div>
-                        </div>
+    <form id="miFormulario" name="miFormulario" role="form">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-editar">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
 
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Nombre de Servicio</label>
-                                <div class="input-group">
-                                    <input id="nombre" name="nombre" type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
+                    <div class="overlay-wrapper">
+                        <div id="loadingActualizar" class="overlay">
+                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                            <div class="text-bold pt-2">Cargando...
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Costo promedio</label>
-                                <div class="input-group">
-                                    <input id="costos_defecto" name="costos_defecto" type="number" class="form-control">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modificar Servicio</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Tipo de Servicio</label>
+                                        <select name="tipo_servicio" id="tipo_servicio"
+                                            class="select2 select2-hidden-accessible form-control float-righ"
+                                            data-placeholder="Seleccione el tipo" style="width: 100%;"
+                                            data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                        </select>
+                                    </div>
                                 </div>
-                                <!-- /.input group -->
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Nombre de Servicio</label>
+                                        <div class="input-group">
+                                            <input id="nombre" name="nombre" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Costo promedio</label>
+                                        <div class="input-group">
+                                            <input id="costos_defecto" name="costos_defecto" type="number"
+                                                class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Descripcion del Servicio</label>
+                                        <textarea name="descripcion_servicio" id="descripcion_servicio"
+                                            class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                                style="color: white">Actualizar</button>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- text input -->
-                            <div class="form-group">
-                                <label>Descripcion del Servicio</label>
-                                <textarea name="descripcion_servicio" id="descripcion_servicio" class="form-control"
-                                    rows="3" placeholder="Digitar aquí ..."></textarea>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
+        <!-- End Modal EDITAR-->
+    </form>
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- SCRIPT ADICIONALES AQUI -->
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios-contacto/ver-servicios.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>
