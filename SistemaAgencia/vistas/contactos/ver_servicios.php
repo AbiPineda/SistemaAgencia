@@ -38,6 +38,7 @@
                             <thead style="text-align: center;">
                                 <tr>
                                     <th>Tipo del Servicio</th>
+                                    <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Costo Promedio</th>
                                     <th>Acciones</th>
@@ -51,30 +52,6 @@
                                     </div>
                                 </div>
                                 <tbody id="tableBody" style="text-align: center;">
-                                    <tr>
-                                        <td>!VAMONOS A COSTA RICA¡</td>
-                                        <td>DEL 4 AL 9 DE ABRIL 2019</td>
-                                        <td>Internacional</td>
-                                        <td id="33">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#modal-editar">
-                                                    <i class="fas fa-edit" style="color: white"></i>
-                                                </button>
-
-                                                <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-galeria">
-                                                    <i class="fas fa-image" style="color: white"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                    data-target="#modal-eliminar">
-                                                    <i class="fas fa-trash" style="color: white"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-
                                 </tbody>
                             </div>
 
@@ -93,17 +70,58 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Large Modal</h4>
+                    <h4 class="modal-title">Modificar Servicio</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Tipo de Servicio</label>
+                                <select name="tipo_servicio" id="tipo_servicio"
+                                    class="select2 select2-hidden-accessible form-control float-righ"
+                                    data-placeholder="Seleccione el tipo" style="width: 100%;" data-select2-id="7"
+                                    tabindex="-1" aria-hidden="true">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Nombre de Servicio</label>
+                                <div class="input-group">
+                                    <input id="nombre" name="nombre" type="text" class="form-control">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Costo promedio</label>
+                                <div class="input-group">
+                                    <input id="costos_defecto" name="costos_defecto" type="number" class="form-control">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Descripcion del Servicio</label>
+                                <textarea name="descripcion_servicio" id="descripcion_servicio" class="form-control"
+                                    rows="3" placeholder="Digitar aquí ..."></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
                 </div>
             </div>
             <!-- /.modal-content -->

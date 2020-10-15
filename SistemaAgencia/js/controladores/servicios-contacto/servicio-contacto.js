@@ -51,7 +51,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                location.reload();
+                $("#miFormulario").trigger("reset");
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -99,9 +99,11 @@ $(document).ready(function () {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
         $('#foto').fileinput({
             theme: 'fas',
+            language: 'es',
+            required: true,
             maxFileSize: 2000,
             showClose: false,
-            showCaption: false,
+            showCaption: true,
             browseLabel: '',
             removeLabel: '',
             //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
@@ -139,9 +141,6 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: true,
                     minlength: 10,
-                },
-                foto: {
-                    required: true
                 }
             },
             messages: {
@@ -162,9 +161,6 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: "La descripcion del servico es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
-                },
-                foto: {
-                    required: "la foto es necesaria"
                 }
 
             },
