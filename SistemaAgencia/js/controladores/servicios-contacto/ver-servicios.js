@@ -12,7 +12,7 @@ $(document).ready(function () {
         idSerevicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
-        $('#modalActualizacion').hide();
+
         tipoSeleccionado = fila.find('td:eq(0)').text();
         nombreSeleccionado = fila.find('td:eq(1)').text();
         descripcionSeleccionada = fila.find('td:eq(2)').text();
@@ -34,9 +34,27 @@ $(document).ready(function () {
     });
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function () {
-        id = $(this).attr("name");
-        fila = $(this).closest("tr");
-        console.log(id);
+        idSerevicio = $(this).attr("name");
+        $('#modal-imagenes').modal('show');
+        $("#kv-explorer").fileinput({
+            theme: 'fas',
+            language: 'es',
+            uploadUrl: '#',
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+            initialPreview: [
+                "https://www.fillmurray.com/640/360",
+                "https://loremflickr.com/640/360",
+                "https://placekitten.com/640/360"
+            ],
+            initialPreviewConfig: [
+                { caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1 },
+                { caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2 },
+                { caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3 }
+            ]
+        });
+        $('#loadingImagenes').hide();
+
     });
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {

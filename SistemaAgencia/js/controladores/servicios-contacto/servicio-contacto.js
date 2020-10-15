@@ -14,7 +14,6 @@ $(document).ready(function () {
             guardar();
         }
     });
-
     function guardar() {
         $('#loading').show();
         let form = new FormData();
