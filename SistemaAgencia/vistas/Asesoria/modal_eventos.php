@@ -13,18 +13,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="register-form" onsubmit="return false">
+                <form id="register-form" name="register-form" onsubmit="return false">
                 <div class="modal-body">
                         <div class="form-row">
                              <div class="form-group col-md-8">
                                 <label>Cliente</label>
                                 <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();">
-                                    <option>Seleccione</option>
+                                    <option disabled="" selected="">Seleccione</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                  <label>Fecha</label>
-                              <input type="text" id="txtFecha" name="fecha" class="form-control"/>
+                              <input type="text" id="txtFecha"  name="fecha" class="form-control"/>
                               <input type="hidden" id="usuario" name="usuario" class="form-control" />
                           </div>
                             
@@ -34,7 +34,7 @@
                             <div class="form-group col-md-4">
                              <label>¿Asistirá solo/a?</label>
                              <select name="asistencia" id="asistencia" class="form-control">
-                                <option selected>Seleccione</option>
+                                <option disabled="" selected>Seleccione</option>
                                  <option value="1">Si</option>
                                  <option value="0">No</option>
                              </select>
@@ -103,16 +103,19 @@
                         <div class="form-row">
                             <div class="form-group col-md-2"></div>
                             <div class="form-group col-md-4">
+                              <input type="hidden" id="txtFecha3" name="fecha" class="form-control"/>
+                              <input type="hidden" id="txtId" name="id_cita" class="form-control"/>
                                  <label>Fecha</label>
-                              <input type="text" id="txtFecha2" name="fecha" class="form-control"/>
+                              <input type="text" id="txtFecha2" disabled="" name="fecha" class="form-control"/>
+
                           </div>
 
                           <div class="form-group col-md-4">
                              <label>¿Asistirá solo/a?</label>
                              <select name="asistencia" id="asistencia2" class="form-control">
                                 <option selected>Seleccione</option>
-                                 <option value="1">Si</option>
-                                 <option value="0">No</option>
+                                 <option value=1>Si</option>
+                                 <option value=0>No</option>
                              </select>
                              </div>
                             

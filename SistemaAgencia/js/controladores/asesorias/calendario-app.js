@@ -50,6 +50,8 @@
 
                 $('#tituloEvento').html(calEvent.title);
                 $('#txtFecha2').val(calEvent.fecha);
+                $('#txtFecha3').val(calEvent.fecha);
+                $('#txtId').val(calEvent.id_cita);
                 $('#timepicker2').val(calEvent.hora);
                 document.getElementById("asistencia2").value = calEvent.compania;
 
