@@ -6,6 +6,7 @@ $(document).ready(function () {
     inicializarCombo();
     inicializarValidaciones();
 
+    //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormulario");
@@ -14,6 +15,7 @@ $(document).ready(function () {
             guardar();
         }
     });
+    
     function guardar() {
         $('#loading').show();
         let form = new FormData();
@@ -87,7 +89,7 @@ $(document).ready(function () {
             //uploadUrl: '#',
             showUpload: false,
             //showCaption: false,
-            maxFileSize: 2000,
+            maxFileSize: 1000,
             maxFilesNum: 10,
             allowedFileExtensions: ['jpg', 'png', 'gif'],
             required: true,
@@ -101,7 +103,7 @@ $(document).ready(function () {
             theme: 'fas',
             language: 'es',
             required: true,
-            maxFileSize: 2000,
+            maxFileSize: 1000,
             showUpload: false,
             showClose: false,
             showCaption: true,

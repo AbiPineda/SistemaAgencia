@@ -39,7 +39,7 @@ $(document).ready(function () {
         $("#kv-explorer").fileinput({
             theme: 'fas',
             language: 'es',
-            uploadUrl: '#',
+            uploadUrl: 'http://localhost/API-REST-PHP/Imagen/delete',
             overwriteInitial: false,
             initialPreviewAsData: true,
             initialPreview: [
@@ -48,14 +48,25 @@ $(document).ready(function () {
                 "https://placekitten.com/640/360"
             ],
             initialPreviewConfig: [
-                { caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1 },
-                { caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2 },
-                { caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3 }
+                { caption: "nature-1.jpg", size: 329892, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 1 },
+                { caption: "nature-2.jpg", size: 872378, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 2 },
+                { caption: "nature-3.jpg", size: 632762, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 3 }
             ]
+          
         });
         $('#loadingImagenes').hide();
 
     });
+    ///CONFIRMACION
+    // $("#kv-explorer").on("filepredelete", function (jqXHR) {
+    //     var abort = true;
+    //     if (confirm("Are you sure you want to delete this image?")) {
+    //         abort = false;
+    //     }
+    //     return abort; // you can also send any data/object that you can receive on `filecustomerror` event
+    // });
+
+
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idSerevicio = $(this).attr("name");
