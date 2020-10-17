@@ -129,7 +129,7 @@
                                 <label>¿Personas que asistirán ?</label>
                               <div id="inputs"></div>
                               <div class="form-group multiple-form-group input-group">
-                              <input type="text" name="asistiran[]" id="asistiran2" value="" disabled="true" class="form-control" placeholder="Agregar otra persona">
+                              <input type="text" name="asistiran[]" id="asistiran2"  disabled="true" class="form-control" placeholder="Agregar otra persona">
                               <span class="input-group-btn">
                               <button type="button" class="btn btn-success btn-add" id="btn-asistiran2" disabled="true" style="margin-top:0px;">+</button>
                              </span>

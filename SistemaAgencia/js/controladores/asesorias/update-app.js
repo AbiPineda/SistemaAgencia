@@ -2,43 +2,54 @@
 
         e.preventDefault();
         // recolectarDatos();
-
-        $.ajax({
-            url: "http://localhost/API-REST-PHP/index.php/Cita/citas",
+         $.ajax({
+            url: "http://localhost/API-REST-PHP/index.php/Cita/updateCita",
             method: 'POST',
-            data: $("#update-form").serialize(),
-            success: function(response) {
-                if (response) {
+            data: $("#update-form").serialize()
 
-                    $("#modal_registro").modal('toggle');
-                    $('#calendar').fullCalendar('refetchEvents');
+        }).done(function (response) {
 
-                   /* const Toast = Swal.mixin({
-                         toast: true,
-                        position: 'top-end',
-                         showConfirmButton: false,
-                         timer: 3000
+          $("#modal_eventos").modal('toggle');
+          $('#calendar').fullCalendar('refetchEvents');
+          $("#recargar2").load(" #recargar2");//recargar solo un div y no toda la pagina
+           $('#inputs').empty();//vaciar los inputs dinamicos
+        
+            //REST_Controller::HTTP_OK
+            //let respuestaDecodificada = JSON.parse(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+            });
 
-                      });
-                    Toast.fire({
-                    title: response.mensaje,
-                    icon: 'success',
-                    
-                    });*/
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "";
 
-                   toastr.success(response.mensaje)//me gusta
-                    //console.log(response);
-                    document.getElementById("register-form").reset();
-                  $("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
-                }
-
-            },
-            error: function(err) {
-              toastr.error('Hay error en el envio de la información');
-                //console.log(er);
-                //alert("Hay un error....");
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                     //toastr.error(erroresEnvioDatos[mensaje]);
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
             }
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
 
-        });
+        })
 
     });

@@ -70,11 +70,11 @@
 
                 var $select = $('#inputs');
                 $.each(data.personas, function(i, name) {
-                    $select.append('<input id="input" name="input" class="form-control" value="'+name.nombres_personas+'">');
+                    $select.append('<input id="input" name="input[]" class="form-control" value="'+name.nombres_personas+'">');
                       });
                  },
                 error: function(data) {
-                alert('error');
+                //alert('error');
                     }
                  });
 

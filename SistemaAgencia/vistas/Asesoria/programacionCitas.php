@@ -65,7 +65,7 @@
     ?>
     <!--JavaScript con procedimientos para la vista-->
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox.js"></script>
-    <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/pruebasInsertar.js"></script>
+    <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-app.js"></script>
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/update-app.js"></script>
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/calendario-app.js"></script>
 
