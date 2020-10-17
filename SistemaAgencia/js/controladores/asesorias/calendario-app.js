@@ -16,7 +16,7 @@
                 }
             },
             dayClick: function(date, allDay,jsEvent, view) {
-                actual =  new Date();
+
                 const fechaComoCadena =date.format('YYYY-MM-DD h:mm');
                 const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado',
                 ];
@@ -26,7 +26,13 @@
                var hoy=moment(new Date()).format('YYYY-MM-DD');
              
               if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
-
+                const Toast = Swal.mixin();
+                Toast.fire({
+                  title: 'Oops...',
+                  icon: 'error',
+                  text: 'Este dia esta cerrado!',
+                  showConfirmButton: true,
+                });
               }else{
 
                 if (select>=hoy) {
@@ -39,7 +45,7 @@
                 Toast.fire({
                   title: 'Oops...',
                   icon: 'error',
-                  text: 'Supera el pasado no te ama',
+                  text: 'No se puede agendar una cita en el pasado',
                   showConfirmButton: true,
                 });
               }
@@ -105,19 +111,98 @@
             },
             editable: true,
             eventDrop: function(calEvent) {
+              const fechaComoCadena =calEvent.start.format();
+              var fechaHora=calEvent.start.format().split("T");
+                const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado',
+                ];
+               const numeroDia = new Date(fechaComoCadena).getDay();
+               const nombreDia = dias[numeroDia];
+               var select=moment(fechaHora[0]).format('YYYY-MM-DD');
+               var hoy=moment(new Date()).format('YYYY-MM-DD');
+             
+              if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
+                const Toast = Swal.mixin();
+                Toast.fire({
+                  title: 'Oops...',
+                  icon: 'error',
+                  text: 'Este dia esta cerrado!',
+                  showConfirmButton: true,
+                });
+                 $('#calendar').fullCalendar('refetchEvents');//refrescar el calendario
+              }else{
+                if (select>=hoy) {
+
+                //***********codigo de procedimientos
+                $('#tituloEvento').html(calEvent.title);
+                $('#txtFecha3').val(fechaHora[0]);
                 $('#txtId').val(calEvent.id_cita);
-                $('#txtTitulo').val(calEvent.title);
-                $('#txtColor').val(calEvent.color);
-                $('#txtDescripcion').val(calEvent.descripcion);
-                var fechaHora = calEvent.start.format().split("T");
-                $('#txtFecha').val(fechaHora[0]);
-                $('#txtHora').val(fechaHora[1]); //todo el modal con los datos
+                $('#timepicker2').val(calEvent.hora);
+              
+                $(document).ready(function() {
 
-                recolectarDatos();
-                enviarInformacion(NuevoEvento, true);
+                   $.ajax({
+                   url: "http://localhost/API-REST-PHP/index.php/Cita/moverDias",
+                   method: 'POST',
+                   data: $("#update-form").serialize()
 
+                 }).done(function (response) {
+                 $('#calendar').fullCalendar('refetchEvents');
+                //$("#recargar2").load(" #recargar2");//recargar solo un div y no toda la pagina
+                // $('#inputs').empty();//vaciar los inputs dinamicos
+        
+                  //REST_Controller::HTTP_OK
+                 //let respuestaDecodificada = JSON.parse(response);
+                  const Toast = Swal.mixin();
+                  Toast.fire({
+                      title: 'Exito...',
+                      icon: 'success',
+                      text: response.mensaje,
+                      showConfirmButton: true,
+                  }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+                });
 
+                }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "";
+
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                     //toastr.error(erroresEnvioDatos[mensaje]);
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
             }
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+              });
+          })
+        });
+    //***********codigo de procedimiento
+       }else{
+         const Toast = Swal.mixin();
+                Toast.fire({
+                  title: 'Oops...',
+                  icon: 'error',
+                  text: 'No se puede agendar una cita en el pasado',
+                  showConfirmButton: true,
+                });
+        $('#calendar').fullCalendar('refetchEvents');//refrescar el calendario
+       }
+
+    }
+
+      
+      }//eventDrop
 
         });
     }); //fin calendario
