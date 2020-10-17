@@ -185,6 +185,7 @@
                 text: listaErrores,
                 showConfirmButton: true,
               });
+             $('#calendar').fullCalendar('refetchEvents');//refrescar el calendario
           })
         });
     //***********codigo de procedimiento
