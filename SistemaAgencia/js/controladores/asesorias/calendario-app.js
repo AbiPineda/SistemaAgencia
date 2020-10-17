@@ -22,21 +22,29 @@
                 ];
                const numeroDia = new Date(fechaComoCadena).getDay();
                const nombreDia = dias[numeroDia];
-
-              var day=2;
-              actual.setDate(actual.getDay()+day);
-
+               var select=moment(date).format('YYYY-MM-DD');
+               var hoy=moment(new Date()).format('YYYY-MM-DD');
+             
               if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
 
               }else{
 
-                if (date <= actual) {
-                //texto="no se puede ";
-              }else{
-                  //texto="si se puede ";
+                if (select>=hoy) {
+
                 $('#modal_registro').modal();
                 $('#txtFecha').val(date.format());
+              }else{
+
+                const Toast = Swal.mixin();
+                Toast.fire({
+                  title: 'Oops...',
+                  icon: 'error',
+                  text: 'Supera el pasado no te ama',
+                  showConfirmButton: true,
+                });
               }
+
+              
 
               }//fin else domingo
 
