@@ -56,6 +56,8 @@
                 document.getElementById("asistencia2").value = calEvent.compania;
 
                 if (calEvent.compania==0) {
+                    $('#inputs').empty();//vaciar los inputs dinamicos
+                    //que los vacie y despues que los muestre...
                     $('#asistiran2').prop("disabled",false);
                     $('#btn-asistiran2').prop("disabled",false);
                     //para mostrar en el input de las personas que asitiran
