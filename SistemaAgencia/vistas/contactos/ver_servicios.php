@@ -155,25 +155,21 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
 
-                    <div class="overlay-wrapper">
-                        <div id="loadingImagenes" class="overlay">
-                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                            <div class="text-bold pt-2">Cargando...
-                            </div>
-                        </div>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Editar Imagenes</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="file-loading">
-                                <input id="kv-explorer" type="file" multiple>
-                            </div>
-                        </div>
 
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Imagenes</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div class="file-loading">
+                            <input id="kv-explorer" type="file" multiple>
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- /.modal-content -->
             </div>

@@ -1,11 +1,14 @@
 $(document).ready(function () {
     $('#loadingActualizar').hide();
+    let explorer = $("#kv-explorer");
     let ListaServicios;
     let idSerevicio;
     let tabla;
     inicializarValidaciones();
     inicializarTabla();
     inicializarCombo();
+
+
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
@@ -34,37 +37,44 @@ $(document).ready(function () {
     });
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function () {
-        idSerevicio = $(this).attr("name");
         $('#modal-imagenes').modal('show');
-        $("#kv-explorer").fileinput({
-            theme: 'fas',
-            language: 'es',
-            uploadUrl: 'http://localhost/API-REST-PHP/Imagen/delete',
-            overwriteInitial: false,
-            initialPreviewAsData: true,
-            initialPreview: [
-                "https://www.fillmurray.com/640/360",
-                "https://loremflickr.com/640/360",
-                "https://placekitten.com/640/360"
-            ],
-            initialPreviewConfig: [
-                { caption: "nature-1.jpg", size: 329892, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 1 },
-                { caption: "nature-2.jpg", size: 872378, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 2 },
-                { caption: "nature-3.jpg", size: 632762, width: "120px", url: "http://localhost/API-REST-PHP/Imagen/delete", key: 3 }
-            ]
-          
+        let identificador = $(this).attr("name");
+        let nombreTabla = 'servicio_adicional';
+        let urlFotos = [];
+        let infoFotos = [];
+        let myUrl = "http://localhost/API-REST-PHP/Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador;
+
+        $.ajax({
+            url: myUrl,
+            success: function (response) {
+                console.log(response);
+                response.forEach(element => {
+                    let informacion = {
+                        url: "http://localhost/API-REST-PHP/Imagen/delete",
+                        key: element.id_foto
+                    };
+                    infoFotos.push(informacion);
+                    urlFotos.push(element.foto_path);
+                });
+                explorer.fileinput({
+                    theme: 'fas',
+                    language: 'es',
+                    uploadUrl: 'http://localhost/API-REST-PHP/Imagen/delete',
+                    overwriteInitial: false,
+                    initialPreviewAsData: true,
+                    initialPreview: urlFotos,
+                    initialPreviewConfig: infoFotos
+
+                });
+            }
         });
-        $('#loadingImagenes').hide();
 
     });
-    ///CONFIRMACION
-    // $("#kv-explorer").on("filepredelete", function (jqXHR) {
-    //     var abort = true;
-    //     if (confirm("Are you sure you want to delete this image?")) {
-    //         abort = false;
-    //     }
-    //     return abort; // you can also send any data/object that you can receive on `filecustomerror` event
-    // });
+
+    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
+        console.log("cerrando modal")
+        explorer.fileinput('destroy');
+    })
 
 
     //BOTON PARA ELIMINAR
@@ -256,7 +266,7 @@ $(document).ready(function () {
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
-        var settings = {
+        let settings = {
             "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/update",
             "method": "PUT",
             "timeout": 0,
