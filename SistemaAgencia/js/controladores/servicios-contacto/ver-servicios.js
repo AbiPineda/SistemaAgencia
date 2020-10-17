@@ -1,14 +1,12 @@
 $(document).ready(function () {
     $('#loadingActualizar').hide();
     let explorer = $("#kv-explorer");
-    let ListaServicios;
+    let ListaDatos;
     let idSerevicio;
     let tabla;
     inicializarValidaciones();
     inicializarTabla();
     inicializarCombo();
-
-
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
@@ -25,9 +23,9 @@ $(document).ready(function () {
         document.getElementById("nombre").value = nombreSeleccionado;
         document.getElementById("costos_defecto").value = costoSeleccionado;
         document.getElementById("descripcion_servicio").value = descripcionSeleccionada;
-        for (let index = 0; index < ListaServicios.length; index++) {
-            if (ListaServicios[index].text == tipoSeleccionado) {
-                $('#tipo_servicio').val(ListaServicios[index].id); // Select the option with a value of '1'
+        for (let index = 0; index < ListaDatos.length; index++) {
+            if (ListaDatos[index].text == tipoSeleccionado) {
+                $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
                 $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
                 break;
             }
@@ -40,17 +38,17 @@ $(document).ready(function () {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
         let nombreTabla = 'servicio_adicional';
+        let informacionAdicional ={  tipo:nombreTabla, identificador:identificador};
         let urlFotos = [];
         let infoFotos = [];
-        let myUrl = "http://localhost/API-REST-PHP/Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador;
+
 
         $.ajax({
-            url: myUrl,
+            url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
             success: function (response) {
-                console.log(response);
                 response.forEach(element => {
                     let informacion = {
-                        url: "http://localhost/API-REST-PHP/Imagen/delete",
+                        url: URL_SERVIDOR + "Imagen/delete",
                         key: element.id_foto
                     };
                     infoFotos.push(informacion);
@@ -59,24 +57,19 @@ $(document).ready(function () {
                 explorer.fileinput({
                     theme: 'fas',
                     language: 'es',
-                    uploadUrl: 'http://localhost/API-REST-PHP/Imagen/delete',
+                    uploadUrl: URL_SERVIDOR + '/Imagen/save',
+                    uploadExtraData: informacionAdicional,
                     overwriteInitial: false,
                     initialPreviewAsData: true,
                     initialPreview: urlFotos,
-                    initialPreviewConfig: infoFotos
+                    initialPreviewConfig: infoFotos,
+                    required: true
 
                 });
             }
         });
 
     });
-
-    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
-        console.log("cerrando modal")
-        explorer.fileinput('destroy');
-    })
-
-
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idSerevicio = $(this).attr("name");
@@ -108,6 +101,11 @@ $(document).ready(function () {
             actualizar();
         }
     });
+    //CUANDO EL MODAL SE CIERRA
+    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
+        console.log("cerrando modal")
+        explorer.fileinput('destroy');
+    })
 
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
@@ -116,7 +114,7 @@ $(document).ready(function () {
             "deferRender": true,
             "ajax": {
                 "method": "GET",
-                "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/obtenerServicio",
+                "url": URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
                 "dataSrc": function (json) {
                     //PARA CONPROVAR QUE EL SERVICIO EXISTE
                     if (json.servicio) {
@@ -160,7 +158,7 @@ $(document).ready(function () {
     }
     function inicializarCombo() {
         //Initialize Select2 Elements
-        ListaServicios = [
+        ListaDatos = [
             {
                 "id": 1,
                 "text": "Vehiculo"
@@ -186,7 +184,7 @@ $(document).ready(function () {
         ];
         $('#tipo_servicio').select2(
             {
-                data: ListaServicios
+                data: ListaDatos
             }
         );
     }
@@ -252,9 +250,9 @@ $(document).ready(function () {
         $('#loadingActualizar').show();
         tipoSeleccionado = "";
         tipo = document.getElementById("tipo_servicio").value;//esto captura el id, y lo que yo quiero guardar es el texto
-        for (let index = 0; index < ListaServicios.length; index++) {
-            if (tipo == ListaServicios[index].id) {
-                tipoSeleccionado = ListaServicios[index].text;
+        for (let index = 0; index < ListaDatos.length; index++) {
+            if (tipo == ListaDatos[index].id) {
+                tipoSeleccionado = ListaDatos[index].text;
             }
         }
         let data = {
@@ -267,7 +265,7 @@ $(document).ready(function () {
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         let settings = {
-            "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/update",
+            "url": URL_SERVIDOR + "ServiciosAdicionales/update",
             "method": "PUT",
             "timeout": 0,
             "data": data
@@ -317,7 +315,7 @@ $(document).ready(function () {
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         var settings = {
-            "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/elimination",
+            "url": URL_SERVIDOR + "ServiciosAdicionales/elimination",
             "method": "DELETE",
             "timeout": 0,
             "data": data

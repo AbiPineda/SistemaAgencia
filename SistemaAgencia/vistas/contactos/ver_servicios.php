@@ -154,9 +154,6 @@
         <div class="modal fade" id="modal-imagenes">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-
-
-
                     <div class="modal-header">
                         <h4 class="modal-title">Editar Imagenes</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,7 +162,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="file-loading">
-                            <input id="kv-explorer" type="file" multiple>
+                            <input id="kv-explorer" name="foto" type="file" multiple>
                         </div>
                     </div>
 
@@ -181,15 +178,17 @@
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
+
+<!-- SCRIPT ADICIONALES AQUI -->
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- SCRIPT ADICIONALES AQUI -->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios-contacto/ver-servicios.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>
