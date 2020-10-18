@@ -185,6 +185,7 @@
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios-contacto/servicio-contacto.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

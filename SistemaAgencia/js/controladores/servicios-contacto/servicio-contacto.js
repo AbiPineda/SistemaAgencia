@@ -34,7 +34,7 @@ $(document).ready(function () {
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         let settings = {
 
-            "url": "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
+            "url": URL_SERVIDOR+"ServiciosAdicionales/save",
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -89,7 +89,7 @@ $(document).ready(function () {
             //uploadUrl: '#',
             showUpload: false,
             //showCaption: false,
-            maxFileSize: 1000,
+            maxFileSize: 2000,
             maxFilesNum: 10,
             allowedFileExtensions: ['jpg', 'png', 'gif'],
             required: true,
@@ -103,7 +103,8 @@ $(document).ready(function () {
             theme: 'fas',
             language: 'es',
             required: true,
-            maxFileSize: 1000,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
             showUpload: false,
             showClose: false,
             showCaption: true,

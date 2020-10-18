@@ -37,7 +37,7 @@ $(document).ready(function () {
     $(document).on('click', '.btn-group .btn-warning', function () {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
-        let nombreTabla = 'servicio_adicional';
+        let nombreTabla = 'servicios_adicionales';
         let informacionAdicional ={  tipo:nombreTabla, identificador:identificador};
         let urlFotos = [];
         let infoFotos = [];
@@ -63,7 +63,10 @@ $(document).ready(function () {
                     initialPreviewAsData: true,
                     initialPreview: urlFotos,
                     initialPreviewConfig: infoFotos,
-                    required: true
+                    required: true,
+                    maxFileSize: 2000,
+                    maxFilesNum: 10,
+                    allowedFileExtensions: ["jpg", "png", "gif"]
 
                 });
             }
