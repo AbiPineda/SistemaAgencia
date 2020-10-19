@@ -259,47 +259,49 @@ include_once '../../plantillas/barra_lateral.php';
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p>
-                    <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="timeline">
+            <form id="register-form" name="register-form" onsubmit="return false">
+                <div class="modal-body">
+                    <p>
+                        <!-- Main content -->
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="timeline">
 
-                                <div>
-                                    <i class="fas fa-car bg-blue"></i>
-                                    <div class="timeline-item">
+                                    <div>
+                                        <i class="fas fa-car bg-blue"></i>
+                                        <div class="timeline-item">
 
-                                        <h3 class="timeline-header"><a href="#">Registrar Marca</a> </h3>
+                                            <h3 class="timeline-header"><a href="#">Registrar Marca</a> </h3>
 
-                                        <div class="timeline-body">
-                                            <!-- INICIO de primera fila -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <!-- text input -->
-                                                    <div class="form-group">
-                                                        <label>Nombre de Marca</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite nombre de marca">
+                                            <div class="timeline-body">
+                                                <!-- INICIO de primera fila -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Nombre de Marca</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Digite nombre de marca">
+                                                        </div>
                                                     </div>
                                                 </div>
+
+
                                             </div>
-
-
-                                        </div>
-                                        <div class="timeline-footer" style="text-align: right;">
-                                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            <div class="timeline-footer" style="text-align: right;">
+                                                <a class="btn btn-info btn-sm" style="color: white"
+                                                    id="btnAgregar">Guardar</a>
+                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <p>
-            </div>
+                    </section>
+                    <p>
+                </div>
 
         </div>
         <!-- /.modal-content -->
@@ -340,11 +342,9 @@ include_once '../../plantillas/barra_lateral.php';
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>Seleccione Marca</label>
-                                                        <select class="form-control">
-
-                                                            <option value="">Toyota</option>
-                                                            <option value="">Nissan</option>
-                                                            <option value="">Hyundai</option>
+                                                        <select name="id_marca" id="marca" class="form-control"
+                                                            onchange="ShowSelected();">
+                                                            <option disabled="" selected="">Seleccione</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -440,6 +440,8 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 
 
 <script>
