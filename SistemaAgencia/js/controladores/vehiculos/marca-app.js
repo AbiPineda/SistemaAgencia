@@ -21,7 +21,7 @@ $("#btnAgregar").on('click', function(e) {
             showConfirmButton: true,
         }).then((result) => {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
-            //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+            location.reload();
         });
     }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

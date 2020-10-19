@@ -4,6 +4,8 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet" type="text/css" /> 
+
 <style>
 .center {
     display: block;
@@ -281,7 +283,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Nombre de Marca</label>
-                                                            <input type="text" class="form-control"
+                                                            <input type="text" name="marca" class="form-control"
                                                                 placeholder="Digite nombre de marca">
                                                         </div>
                                                     </div>
@@ -290,7 +292,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             </div>
                                             <div class="timeline-footer" style="text-align: right;">
-                                                <a class="btn btn-info btn-sm" style="color: white"
+                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
                                                     id="btnAgregar">Guardar</a>
                                                 <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                             </div>
@@ -354,8 +356,6 @@ include_once '../../plantillas/barra_lateral.php';
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                         <div class="timeline-footer" style="text-align: right;">
                                             <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
@@ -441,7 +441,10 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 
+<!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
 <script>
