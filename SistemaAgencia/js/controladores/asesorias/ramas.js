@@ -32,7 +32,13 @@ $(document).ready(function() {
                 });
             },
             error: function(err) {
-                //alert('error');
+                const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text:'No hay Ramas para mostrar',
+                showConfirmButton: true,
+            });
             }
         });
 
