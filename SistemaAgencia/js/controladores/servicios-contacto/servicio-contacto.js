@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
-        //  evento.preventDefault();//para evitar que la pagina se recargue
+        evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
@@ -41,19 +41,17 @@ $(document).ready(function () {
         form.append("nombre", document.getElementById("nombre").value);
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
-        form.append("informacion_contacto", document.getElementById("informacion_contacto").value);
-        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-        let settings = {
 
-            "url": URL_SERVIDOR + "ServiciosAdicionales/save",
-            "method": "POST",
-            "timeout": 0,
-            "processData": false,
-            "mimeType": "multipart/form-data",
-            "contentType": false,
-            "data": form,
-        };
-        $.ajax(settings).done(function (response) {
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "ServiciosAdicionales/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
@@ -70,7 +68,6 @@ $(document).ready(function () {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
-
             if (respuestaDecodificada.errores) {
                 ///ARREGLO DE ERRORES 
                 let erroresEnvioDatos = respuestaDecodificada.errores;
@@ -80,6 +77,7 @@ $(document).ready(function () {
             } else {
                 listaErrores = respuestaDecodificada.mensaje
             }
+
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
@@ -101,6 +99,8 @@ $(document).ready(function () {
         form.append("nombre", document.getElementById("nombreContacto").value);
         form.append("telefono", document.getElementById("telefonoContacto").value);
         form.append("correo", document.getElementById("correoContacto").value);
+        form.append("id_contacto", document.getElementById("contacto_servicio"));
+        console.log(document.getElementById("contacto_servicio").value);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -134,7 +134,16 @@ $(document).ready(function () {
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
-            let listaErrores = "ERRORES EN EL ENVIO DE INFORMACION";
+            let listaErrores = "";
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
+            }
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',

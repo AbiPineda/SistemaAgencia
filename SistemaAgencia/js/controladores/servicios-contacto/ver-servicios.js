@@ -38,7 +38,7 @@ $(document).ready(function () {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
         let nombreTabla = 'servicios_adicionales';
-        let informacionAdicional ={  tipo:nombreTabla, identificador:identificador};
+        let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
         let urlFotos = [];
         let infoFotos = [];
 
@@ -267,13 +267,12 @@ $(document).ready(function () {
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
-        let settings = {
-            "url": URL_SERVIDOR + "ServiciosAdicionales/update",
-            "method": "PUT",
-            "timeout": 0,
-            "data": data
-        };
-        $.ajax(settings).done(function (response) {
+        $.ajax({
+            url: URL_SERVIDOR + "ServiciosAdicionales/update",
+            method: "PUT",
+            timeout: 0,
+            data: data
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
@@ -317,13 +316,13 @@ $(document).ready(function () {
             "id_servicios": idSerevicio
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
-        var settings = {
-            "url": URL_SERVIDOR + "ServiciosAdicionales/elimination",
-            "method": "DELETE",
-            "timeout": 0,
-            "data": data
-        };
-        $.ajax(settings).done(function (response) {
+
+        $.ajax({
+            url: URL_SERVIDOR + "ServiciosAdicionales/elimination",
+            method: "DELETE",
+            timeout: 0,
+            data: data
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
