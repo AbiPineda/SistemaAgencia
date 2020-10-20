@@ -15,7 +15,22 @@ $(document).ready(function () {
             guardar();
         }
     });
-    
+
+    //BOTON PARA AGREGAR UN NUEVO CONTACTO 
+    $(document).on('click', '#btnAgregar', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+        let form = $("#formularioAgregar");
+        form.validate();
+        if (form.valid()) {
+            // guardar();
+            console.log("agregar");
+        }
+    });
+    //BOTON DE NUEVO
+    $(document).on('click', '#btn-nuevo', function (evento) {
+        $('#modal-agregar').modal('show');
+    });
+
     function guardar() {
         $('#loading').show();
         let form = new FormData();
@@ -24,8 +39,6 @@ $(document).ready(function () {
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
-        let foto_perfil = document.getElementById("foto").files[0];
-        form.append('foto', foto_perfil);
         form.append("tipo_servicio", document.getElementById("tipo_servicio").value);
         form.append("nombre", document.getElementById("nombre").value);
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
@@ -34,7 +47,7 @@ $(document).ready(function () {
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         let settings = {
 
-            "url": URL_SERVIDOR+"ServiciosAdicionales/save",
+            "url": URL_SERVIDOR + "ServiciosAdicionales/save",
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -122,7 +135,11 @@ $(document).ready(function () {
     function inicializarCombo() {
         //Initialize Select2 Elements
         $(function () {
-            $('.select2').select2();
+            $('#tipo_servicio').select2();
+        });
+
+        $(function () {
+            $('#contacto_servicio').select2();
         });
     }
     function inicializarValidaciones() {
@@ -138,13 +155,11 @@ $(document).ready(function () {
                     number: true,
                     min: 0
                 },
-                informacion_contacto: {
-                    required: true,
-                    minlength: 10,
-                },
                 descripcion_servicio: {
                     required: true,
                     minlength: 10,
+                }, fotos: {
+                    required: true
                 }
             },
             messages: {
@@ -158,13 +173,44 @@ $(document).ready(function () {
                     number: "Ingrese un numero",
                     min: "Debe de ser mayor que 0"
                 },
-                informacion_contacto: {
-                    required: "La informacion de contacto es necesaria",
-                    minlength: "Debe de tener una longitud minima de 10",
-                },
                 descripcion_servicio: {
                     required: "La descripcion del servico es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+
+        $('#formularioAgregar').validate({
+            rules: {
+                correoContacto: {
+                    email: true
+                },
+                nombreContacto: {
+                    required: true,
+                    minlength: 3,
+                }
+            },
+            messages: {
+                correoContacto: {
+                    email: "Ingrese un correo electrónico válido"
+                },
+                nombreContacto: {
+                    required: "Es necesario un nombre",
+                    minlength: "Debe de tener una longitud minima de 3"
                 }
 
             },

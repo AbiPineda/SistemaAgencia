@@ -138,7 +138,6 @@
                             <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
                                 style="color: white">Actualizar</button>
                         </div>
-
                     </div>
                 </div>
                 <!-- /.modal-content -->

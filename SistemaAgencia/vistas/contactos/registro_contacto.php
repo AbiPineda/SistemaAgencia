@@ -34,7 +34,7 @@
     <!-- Main content -->
     <section class="content">
 
-        <form id="miFormulario" name="miFormulario" role="form">
+        <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
             <div class="row">
                 <div class="col-md-12">
                     <!-- overlay-wrapper start -->
@@ -61,10 +61,22 @@
 
                                     <div class="timeline-body">
                                         <div class="row">
-                                            <div class="col-sm-4">
+
+                                            <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Tipo de Servicio</label>
-                                                    <select name="tipo_servicio" id="tipo_servicio" name="tipo_servicio"
+                                                    <label>Nombre de Servicio</label>
+                                                    <div class="input-group">
+                                                        <input id="nombre" name="nombre" type="text"
+                                                            class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Contacto</label>
+                                                    <select name="tipo_servicio" id="tipo_servicio"
                                                         class="select2 select2-hidden-accessible form-control float-righ"
                                                         data-placeholder="Seleccione el tipo" style="width: 100%;"
                                                         data-select2-id="7" tabindex="-1" aria-hidden="true">
@@ -78,18 +90,9 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label>Nombre de Servicio</label>
-                                                    <div class="input-group">
-                                                        <input id="nombre" name="nombre" type="text"
-                                                            class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Costo promedio</label>
                                                     <div class="input-group">
@@ -98,6 +101,34 @@
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group multiple-form-group input-group">
+                                                    <label>Contacto</label>
+
+                                                    <div class="input-group">
+                                                        <select name="contacto_servicio" id="contacto_servicio"
+                                                            class="select2 select2-hidden-accessible form-control"
+                                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                                            <option data-select2-id="47">Vehiculo</option>
+                                                            <option data-select2-id="46">Guia Turistico</option>
+                                                            <option data-select2-id="47">Busero</option>
+                                                            <option data-select2-id="48">Taxista</option>
+                                                            <option data-select2-id="428">Cocinero</option>
+                                                            <option data-select2-id="418">Payaso</option>
+                                                        </select>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <br>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
+                                                        name="btn-nuevo" style="margin-top: 10px; width: 100%;"
+                                                        id="btn-asistiran">+</button>
+                                                </span>
                                             </div>
 
                                         </div>
@@ -112,6 +143,20 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-image bg-green"></i>
+                                <div class="timeline-item">
+
+                                    <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                                    <div class="timeline-body">
+
                                         <div class="row">
                                             <div class="col-sm-12">
 
@@ -123,40 +168,7 @@
                                             </div>
 
                                         </div>
-                                    </div>
 
-                                </div>
-                            </div>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
-                            <div>
-                                <i class="fas fa-user bg-green"></i>
-                                <div class="timeline-item">
-
-                                    <h3 class="timeline-header no-border"><a href="#">Información de Contacto</a></h3>
-                                    <div class="timeline-body">
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Informacion de Contacto</label>
-                                                    <textarea name="informacion_contacto" id="informacion_contacto"
-                                                        rows="11" class="form-control" rows="3"
-                                                        placeholder="Digitar aquí ..."></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 text-center">
-                                                <div class="form-group">
-                                                    <div class="kv-avatar">
-                                                        <label>Foto de Contacto</label>
-                                                        <div class="file-loading">
-                                                            <input id="foto" name="foto" type="file">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -171,6 +183,84 @@
             </div>
         </form>
     </section>
+
+
+    <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-agregar">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Contacto</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Nombre de Contacto</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="nombreContacto"
+                                                    id="nombreContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Telefono de Contactos</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="telefonoContacto"
+                                                    name="telefonoContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Correo Electronico</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="correoContacto"
+                                                    id="correoContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="kv-avatar">
+                                        <label>Foto de Contacto</label>
+                                        <div class="file-loading">
+                                            <input id="foto" name="foto" type="file">
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- End Modal EDITAR-->
+    </form>
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
