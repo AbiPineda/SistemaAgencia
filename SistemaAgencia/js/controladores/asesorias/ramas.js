@@ -32,7 +32,7 @@ $(document).ready(function() {
                 });
             },
             error: function(err) {
-                const Toast = Swal.mixin();
+            const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',

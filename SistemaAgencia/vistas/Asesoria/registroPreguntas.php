@@ -69,11 +69,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione rama de la Pregunta</label>
                                                 <select name='combo_rama' id='combo_rama' class="form-control">
-                                                    <option disabled="" selected>Rama</option>
-                                                    <option value="2">Información Personal</option>
-                                                    <option value="3">Información de Viaje</option>
-                                                    <option value="3">Información Familiar</option>
-                                                    <option value="3">Información Educativa</option>
+                                                    <option disabled="" selected>Seleccione</option>
+                                                   
                                                 </select>
 
                                                 <!--<input id="id_input" type="text" disabled>-->
@@ -125,73 +122,6 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
-<script>
-    $(function () {
-        //Initialize Select2 Elements
-        $('.select2').select2()
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-        })
-
-        //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
-        //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', {'placeholder': 'mm/dd/yyyy'})
-        //Money Euro
-        $('[data-mask]').inputmask()
-
-        //Date range picker
-        $('#reservationdate').datetimepicker({
-            format: 'L'
-        });
-        //Date range picker
-        $('#reservation').daterangepicker()
-        //Date range picker with time picker
-        $('#reservationtime').daterangepicker({
-            timePicker: true,
-            timePickerIncrement: 30,
-            locale: {
-                format: 'MM/DD/YYYY hh:mm A'
-            }
-        })
-        //Date range as a button
-        $('#daterange-btn').daterangepicker(
-                {
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment()
-                },
-                function (start, end) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-                }
-        )
-
-        //Timepicker
-        $('#timepicker').datetimepicker({
-            format: 'LT'
-        })
-
-        //Bootstrap Duallistbox
-        $('.duallistbox').bootstrapDualListbox()
-
-       
-        $('.my-colorpicker2').on('colorpickerChange', function (event) {
-            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-        });
-
-        $("input[data-bootstrap-switch]").each(function () {
-            $(this).bootstrapSwitch('state', $(this).prop('checked'));
-        });
-
-    })
-</script>
+ <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
+<script src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>

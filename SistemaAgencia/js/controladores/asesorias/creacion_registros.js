@@ -10,7 +10,7 @@
           $('#botones').empty();
 
           if (selected=='Abiertas') {
-           
+           $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-green"></i>'+
                             '<div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
@@ -29,8 +29,8 @@
                                                 '<label for="cars">Más de una Respuesta</label>'+
                                                 '<select name="id_categoria" id="combo_abierta" data-placeholder="Seleccione" class="form-control">'+
                                                     '<option disabled selected >Seleccione</option>'+
-                                                    '<option value="2">Si</option>'+
-                                                    '<option value="3">No</option>'+
+                                                    '<option value="1">Si</option>'+
+                                                    '<option value="0">No</option>'+
 
                                                 '</select></div></div><div class="col-lg-1"></div>'+
 
@@ -49,7 +49,7 @@
                                 '</div></div></div></div>');
            }
            if (selected=='Cerradas') {
-
+            $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-gradient-info"></i> <div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Cerrada</a></h3>'+
@@ -83,6 +83,7 @@
            }
 
            if (selected=='Rama') {
+            $('#combo_rama').prop("disabled",true);
             $mostrar.append('<i class="fas fa-address-card bg-gradient-info"></i>'+
                             '<div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-address-card"></i>Selección</span>'+
