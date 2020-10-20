@@ -7,43 +7,7 @@ include_once '../../plantillas/barra_lateral.php';
 
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
- <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
-<script>
-    $(function () {
-        $("#id_pregunta").change(function () {
-          // alert($(this).val());
-            if ($(this).val() === "abierta") {
-                $("#input_abierta").prop("disabled", false);
-                $("#combo_abierta").prop("disabled", false);
-                
-                $("#input_cerrada").prop("disabled", true);
-                $("#combo_cerrada").prop("disabled", true);
-                 $("#input_rama").prop("disabled", true);
-                  $("#combo_rama").prop("disabled", false);
-            }
-            
-            if ($(this).val() === "cerrada") {
-                $("#input_cerrada").prop("disabled", false);
-                $("#combo_cerrada").prop("disabled", false);
-                
-                $("#input_abierta").prop("disabled", true);
-                $("#combo_abierta").prop("disabled", true);
-                 $("#input_rama").prop("disabled", true);
-                 $("#combo_rama").prop("disabled", false);
-            }
-            
-              if ($(this).val() === "rama") {
-                $("#input_rama").prop("disabled", false);
-                $("#input_cerrada").prop("disabled", true);
-                $("#combo_cerrada").prop("disabled", true);
-                $("#combo_rama").prop("disabled", true);
-                
-                $("#input_abierta").prop("disabled", true);
-                $("#combo_abierta").prop("disabled", true);
-            }
-        });
-    });
-</script>
+ 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -90,7 +54,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione tipo de Pregunta</label>
                                                 <select name='id_pregunta' id='id_pregunta' class="form-control">
-                                                    <option value="1" selected="">Seleccione</option>
+                                                    <option disabled="" selected="">Seleccione</option>
                                                     <option value="abierta">Abiertas</option>
                                                     <option value="cerrada">Cerradas</option>
                                                      <option value="cerrada">Rama</option>
@@ -161,7 +125,7 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
 <script>
     $(function () {
         //Initialize Select2 Elements
