@@ -111,7 +111,6 @@ $(document).ready(function () {
     })
 
     function inicializarTabla() {
-        
         tabla = $("#tabla_servicios").DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -135,7 +134,7 @@ $(document).ready(function () {
                             html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
-                            html +='        </button>';
+                            html += '        </button>';
                             html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
                             html += '            <i class="fas fa-trash" style="color: white"></i>';
@@ -145,21 +144,23 @@ $(document).ready(function () {
                             json.servicio[i]["botones"] = html;
 
                         }
+                        $('#loading').hide();
                         return json.servicio;
                     } else {
+                        $('#loading').hide();
                         return [];
                     }
                 }
             },
             columns: [
                 { data: "tipo_servicio" },
-                { data: "nombre" }, 
+                { data: "nombre" },
                 { data: "descripcion_servicio" },
                 { data: "costos_defecto" },
                 { data: "botones" },
             ]
         });
-        $('#loading').hide();
+
     }
     function inicializarCombo() {
         //Initialize Select2 Elements
@@ -288,7 +289,7 @@ $(document).ready(function () {
             });
         }).fail(function (response) {
             console.log(response);
-            
+
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
@@ -335,7 +336,7 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-              $('#loadingActualizar').hide();
+            $('#loadingActualizar').hide();
         });
     }
 });
