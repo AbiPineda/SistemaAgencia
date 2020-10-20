@@ -2,7 +2,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "GET",
-            url: 'http://localhost/API-REST-PHP/Usuario/obtenerUsuario',
+            url: URL_SERVIDOR+"Usuario/obtenerUsuario",
             async: false,
             dataType: "json",
             success: function(data) {
@@ -13,8 +13,8 @@ $(document).ready(function() {
                         '</option>');
                 });
             },
-            error: function(data) {
-                alert('error');
+            error: function(err) {
+                //alert('error');
             }
         });
 

@@ -64,6 +64,7 @@
     include_once '../../plantillas/footer.php';
     ?>
     <!--JavaScript con procedimientos para la vista-->
+    <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox.js"></script>
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-app.js"></script>
     <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/update-app.js"></script>

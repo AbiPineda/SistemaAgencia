@@ -89,10 +89,9 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione tipo de Pregunta</label>
                                                 <select name='id_pregunta' id='id_pregunta' class="form-control">
-                                                    <option value="">Seleccione</option>
+                                                    <option disabled="" selected="">Seleccione</option>
                                                     <option value="abierta">Abiertas</option>
                                                     <option value="cerrada">Cerradas</option>
-                                                    <option value="rama">Rama</option>
                                                 </select>
 
                                                 <!--<input id="id_input" type="text" disabled>-->
@@ -104,7 +103,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione rama de la Pregunta</label>
                                                 <select name='combo_rama' id='combo_rama' class="form-control">
-                                                    <option value="1" selected>Rama</option>
+                                                    <option disabled="" selected>Rama</option>
                                                     <option value="2">Información Personal</option>
                                                     <option value="3">Información de Viaje</option>
                                                     <option value="3">Información Familiar</option>
