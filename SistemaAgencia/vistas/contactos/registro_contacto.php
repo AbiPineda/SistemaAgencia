@@ -110,16 +110,8 @@
                                                         <select name="contacto_servicio" id="contacto_servicio"
                                                             class="select2 select2-hidden-accessible form-control"
                                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                                            <option data-select2-id="47">Vehiculo</option>
-                                                            <option data-select2-id="46">Guia Turistico</option>
-                                                            <option data-select2-id="47">Busero</option>
-                                                            <option data-select2-id="48">Taxista</option>
-                                                            <option data-select2-id="428">Cocinero</option>
-                                                            <option data-select2-id="418">Payaso</option>
                                                         </select>
-
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="col-sm-1">
@@ -130,7 +122,6 @@
                                                         id="btn-asistiran">+</button>
                                                 </span>
                                             </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
@@ -186,8 +177,8 @@
 
 
     <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
-        <!-- Modal EDITAR-->
         <div class="modal fade" id="modal-agregar">
+            <!-- Modal EDITAR-->
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -197,9 +188,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
                         <div class="row">
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -233,7 +223,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <div class="kv-avatar">
                                         <label>Foto de Contacto</label>
@@ -244,9 +234,6 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">

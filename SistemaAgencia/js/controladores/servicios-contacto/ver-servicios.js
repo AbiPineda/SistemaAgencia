@@ -30,7 +30,7 @@ $(document).ready(function () {
                 break;
             }
         }
-        $('#modal-editar').modal('show');;
+        $('#modal-editar').modal('show');
 
     });
     //BOTON EDITAR LA FOTO

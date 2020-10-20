@@ -1,29 +1,27 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
-    $('#loading').hide();
     inicializarGaleria();
     inicializarFoto();
-    inicializarCombo();
     inicializarValidaciones();
+    inicializarCombo();
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+        //  evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
             guardar();
         }
     });
-
     //BOTON PARA AGREGAR UN NUEVO CONTACTO 
     $(document).on('click', '#btnAgregar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#formularioAgregar");
         form.validate();
         if (form.valid()) {
-            // guardar();
-            console.log("agregar");
+
+            guardarContacto();
         }
     });
     //BOTON DE NUEVO
@@ -94,6 +92,62 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
+    function guardarContacto() {
+        $('#loading').show();
+        let form = new FormData();
+
+        let foto_perfil = document.getElementById("foto").files[0];
+        form.append('foto', foto_perfil);
+        form.append("nombre", document.getElementById("nombreContacto").value);
+        form.append("telefono", document.getElementById("telefonoContacto").value);
+        form.append("correo", document.getElementById("correoContacto").value);
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "Contacto/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let respuestaDecodificada = JSON.parse(response);
+            //AGREGAMOS RESPUESTA AL COMBO
+            let texto = respuestaDecodificada.contacto.nombre;
+            let id = respuestaDecodificada.id;
+            let newOption = new Option(texto, id, false, false);
+            $('#contacto_servicio').append(newOption).trigger('change');
+            //mandamos un mensaje al usuario
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: respuestaDecodificada.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                $("#formularioAgregar").trigger("reset");
+                $('#modal-agregar').modal('hide');
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "ERRORES EN EL ENVIO DE INFORMACION";
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $("#formularioAgregar").trigger("reset");
+            $('#modal-agregar').modal('hide');
+        });
+    }
     function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
@@ -133,13 +187,32 @@ $(document).ready(function () {
         });
     }
     function inicializarCombo() {
-        //Initialize Select2 Elements
-        $(function () {
-            $('#tipo_servicio').select2();
-        });
-
-        $(function () {
+        //COMBO DE TIPOS 
+        $('#tipo_servicio').select2();
+        //COMBO DE CONTACTOS
+        $.ajax({
+            url: URL_SERVIDOR + "Contacto/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.contactos) {
+                let lista = response.contactos;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_contacto,
+                        text: lista[index].nombre
+                    });
+                }
+                $('#contacto_servicio').select2(
+                    { data: myData }
+                );
+            }
+        }).fail(function (response) {
             $('#contacto_servicio').select2();
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
         });
     }
     function inicializarValidaciones() {
