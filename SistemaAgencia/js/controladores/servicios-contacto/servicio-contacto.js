@@ -41,6 +41,7 @@ $(document).ready(function () {
         form.append("nombre", document.getElementById("nombre").value);
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
+        form.append("id_contacto", document.getElementById("contacto_servicio").value);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -66,23 +67,13 @@ $(document).ready(function () {
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            let respuestaDecodificada = JSON.parse(response.responseText);
-            let listaErrores = "";
-            if (respuestaDecodificada.errores) {
-                ///ARREGLO DE ERRORES 
-                let erroresEnvioDatos = respuestaDecodificada.errores;
-                for (mensaje in erroresEnvioDatos) {
-                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                };
-            } else {
-                listaErrores = respuestaDecodificada.mensaje
-            }
-
+           console.log(response);
+        
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: listaErrores,
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
                 showConfirmButton: true,
             });
 
@@ -100,8 +91,6 @@ $(document).ready(function () {
         form.append("telefono", document.getElementById("telefonoContacto").value);
         form.append("correo", document.getElementById("correoContacto").value);
         form.append("id_contacto", document.getElementById("contacto_servicio"));
-        console.log(document.getElementById("contacto_servicio").value);
-
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "Contacto/save",
@@ -133,18 +122,8 @@ $(document).ready(function () {
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            let respuestaDecodificada = JSON.parse(response.responseText);
-            let listaErrores = "";
-            if (respuestaDecodificada.errores) {
-                ///ARREGLO DE ERRORES 
-                let erroresEnvioDatos = respuestaDecodificada.errores;
-                for (mensaje in erroresEnvioDatos) {
-                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                };
-            } else {
-                listaErrores = respuestaDecodificada.mensaje
-            }
-            const Toast = Swal.mixin();
+            console.log(response);
+            let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
@@ -155,6 +134,7 @@ $(document).ready(function () {
         }).always(function (xhr, opts) {
             $("#formularioAgregar").trigger("reset");
             $('#modal-agregar').modal('hide');
+            $('#loading').hide();
         });
     }
     function inicializarGaleria() {
@@ -216,6 +196,8 @@ $(document).ready(function () {
                 $('#contacto_servicio').select2(
                     { data: myData }
                 );
+            }else{
+                $('#contacto_servicio').select2();
             }
         }).fail(function (response) {
             $('#contacto_servicio').select2();

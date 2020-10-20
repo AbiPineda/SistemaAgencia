@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $('#loadingActualizar').hide();
     let explorer = $("#kv-explorer");
     let ListaDatos;
     let idSerevicio;
@@ -10,6 +9,7 @@ $(document).ready(function () {
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
+        $('#loadingActualizar').hide();
         idSerevicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
@@ -42,36 +42,36 @@ $(document).ready(function () {
         let urlFotos = [];
         let infoFotos = [];
 
-
         $.ajax({
             url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
-            success: function (response) {
-                response.forEach(element => {
-                    let informacion = {
-                        url: URL_SERVIDOR + "Imagen/delete",
-                        key: element.id_foto
-                    };
-                    infoFotos.push(informacion);
-                    urlFotos.push(element.foto_path);
-                });
-                explorer.fileinput({
-                    theme: 'fas',
-                    language: 'es',
-                    uploadUrl: URL_SERVIDOR + '/Imagen/save',
-                    uploadExtraData: informacionAdicional,
-                    overwriteInitial: false,
-                    initialPreviewAsData: true,
-                    initialPreview: urlFotos,
-                    initialPreviewConfig: infoFotos,
-                    required: true,
-                    maxFileSize: 2000,
-                    maxFilesNum: 10,
-                    allowedFileExtensions: ["jpg", "png", "gif"]
+            method: "GET",
 
-                });
-            }
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            response.forEach(element => {
+                let informacion = {
+                    url: URL_SERVIDOR + "Imagen/delete",
+                    key: element.id_foto
+                };
+                infoFotos.push(informacion);
+                urlFotos.push(element.foto_path);
+            });
+            explorer.fileinput({
+                theme: 'fas',
+                language: 'es',
+                uploadUrl: URL_SERVIDOR + '/Imagen/save',
+                uploadExtraData: informacionAdicional,
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: urlFotos,
+                initialPreviewConfig: infoFotos,
+                required: true,
+                maxFileSize: 2000,
+                maxFilesNum: 10,
+                allowedFileExtensions: ["jpg", "png", "gif"]
+
+            });
         });
-
     });
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
@@ -111,14 +111,16 @@ $(document).ready(function () {
     })
 
     function inicializarTabla() {
+        
         tabla = $("#tabla_servicios").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "method": "GET",
                 "url": URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
+                "method": "GET",
                 "dataSrc": function (json) {
+                    console.log(json);
                     //PARA CONPROVAR QUE EL SERVICIO EXISTE
                     if (json.servicio) {
                         for (let i = 0, ien = json.servicio.length; i < ien; i++) {
@@ -133,7 +135,7 @@ $(document).ready(function () {
                             html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
-                            html += '        </button>';
+                            html +='        </button>';
                             html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
                             html += '            <i class="fas fa-trash" style="color: white"></i>';
@@ -151,7 +153,7 @@ $(document).ready(function () {
             },
             columns: [
                 { data: "tipo_servicio" },
-                { data: "nombre" },
+                { data: "nombre" }, 
                 { data: "descripcion_servicio" },
                 { data: "costos_defecto" },
                 { data: "botones" },
@@ -285,25 +287,13 @@ $(document).ready(function () {
                 tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
-
-            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            let respuestaDecodificada = JSON.parse(response.responseText);
-            let listaErrores = "";
-
-            if (respuestaDecodificada.errores) {
-                ///ARREGLO DE ERRORES 
-                let erroresEnvioDatos = respuestaDecodificada.errores;
-                for (mensaje in erroresEnvioDatos) {
-                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                };
-            } else {
-                listaErrores = respuestaDecodificada.mensaje
-            }
+            console.log(response);
+            
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: listaErrores,
+                text: "ERROR EN ENVIO DE INFORMACION",
                 showConfirmButton: true,
             });
 
@@ -335,29 +325,17 @@ $(document).ready(function () {
             });
         }).fail(function (response) {
 
-            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            let respuestaDecodificada = JSON.parse(response.responseText);
-            let listaErrores = "";
-
-            if (respuestaDecodificada.errores) {
-                ///ARREGLO DE ERRORES 
-                let erroresEnvioDatos = respuestaDecodificada.errores;
-                for (mensaje in erroresEnvioDatos) {
-                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                };
-            } else {
-                listaErrores = respuestaDecodificada.mensaje
-            }
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: listaErrores,
+                text: "ERROR EN EL ENVIO DE INFORMACION",
                 showConfirmButton: true,
             });
 
         }).always(function (xhr, opts) {
-            //  $('#loadingActualizar').hide();
+              $('#loadingActualizar').hide();
         });
     }
 });
