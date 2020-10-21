@@ -43,19 +43,20 @@ include_once '../../plantillas/barra_lateral.php';
                         <div>
                             <i class="fas fa-comments bg-gradient-blue"></i>
                             <div class="timeline-item">
-                                <span class="time"><i class="fas fa-address-book"></i>Preguntas</span>
-                                <h3 class="timeline-header"><a href="#">Preguntas</a></h3>
+                                <span class="time"><i class="fas fa-address-book">Preguntas</i></span>
+                                <h3 class="timeline-header"><a href="#">Registro de Preguntas y Ramas</a></h3>
                                 <div class="timeline-body" style="margin-top: -9px;">
                                     <!--Una fila para jugar-->
+                                       <form id="recargar-form" name="recargar-form" onsubmit="return false">
                                     <div class="row">
-                                    <form id="recargar-form" name="recargar-form" onsubmit="return false">
+                                 
                                     
                                         <div class="col-lg-1"></div>
 
                                         <div class="col-lg-5">
 
                                             <div class="form-group">
-                                                <label for="cars">Seleccione tipo de Pregunta</label>
+                                                <label for="cars">Seleccione tipo de Pregunta o Rama</label>
                                                 <select name='id_pregunta' id='id_pregunta' class="form-control">
                                                     <option selected="">Seleccione</option>
                                                     <option value="abierta">Abiertas</option>
@@ -84,8 +85,8 @@ include_once '../../plantillas/barra_lateral.php';
 
 
                                         <div class="col-lg-1"></div>
-                                    </form>
                                     </div>
+                                     </form>
                                     <!--fin de Una fila para jugar-->
                                 </div>
                             </div>
@@ -131,7 +132,7 @@ include_once '../../plantillas/barra_lateral.php';
 <div id="script"></div>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-pregunta-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>
+<!--<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>-->
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
  <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>

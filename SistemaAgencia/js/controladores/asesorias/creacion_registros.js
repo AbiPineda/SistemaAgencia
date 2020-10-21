@@ -28,7 +28,7 @@
                                             '<div class="form-group">'+
                                                 '<label for="cars">Digite la Pregunta</label>'+
                                                 '<input id="input_abierta" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control">'+
-                                                 '<input id="rama" name="id_rama" type="text">'+
+                                                 '<input id="rama" name="id_rama" type="hidden">'+
                                                  '<input  value="abierta" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-6">'+
 
@@ -72,7 +72,7 @@
                                         '<div class="col-lg-6">'+
                                             '<div class="form-group"><label for="cars">Digite la Pregunta</label>'+
                                              '<input id="input_cerrada" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
-                                            '<input id="rama" name="id_rama" type="text">'+
+                                            '<input id="rama" name="id_rama" type="hidden">'+
                                             '<input  value="cerrada" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-4">'+
                                             '<div class="form-group">'+

@@ -10,6 +10,8 @@
         }).done(function (response) {
           document.getElementById("register-form").reset();
           document.getElementById("recargar-form").reset();
+           $('#mostrar').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
+          $('#botones').empty();
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
             //REST_Controller::HTTP_OK
