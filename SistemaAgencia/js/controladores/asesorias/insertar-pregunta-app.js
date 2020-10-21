@@ -1,9 +1,9 @@
- $("#btn-rama").on('click', function(e) {
+ $("#btn-preguntas").on('click', function(e) {
 
         e.preventDefault();
         // recolectarDatos();
         $.ajax({
-            url: URL_SERVIDOR+"Asesoria/ramitas",
+            url: URL_SERVIDOR+"Asesoria/preguntita",
             method: 'POST',
             data: $("#register-form").serialize()
 

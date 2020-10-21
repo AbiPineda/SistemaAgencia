@@ -8,6 +8,7 @@ include_once '../../plantillas/barra_lateral.php';
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
  <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"type="text/css" />
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -54,7 +55,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Seleccione tipo de Pregunta</label>
                                                 <select name='id_pregunta' id='id_pregunta' class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
+                                                    <option selected="">Seleccione</option>
                                                     <option value="abierta">Abiertas</option>
                                                     <option value="cerrada">Cerradas</option>
                                                      <option value="cerrada">Rama</option>
@@ -68,10 +69,11 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Seleccione rama de la Pregunta</label>
-                                                <select name='combo_rama' disabled id='combo_rama' class="form-control">
+                                                    <select name='combo_rama' id='combo_rama' class="form-control" onchange="ShowRama();">
                                                     
                                                    
-                                                </select>
+                                                </select> 
+                                               
 
                                                 <!--<input id="id_input" type="text" disabled>-->
                                             </div>
@@ -89,7 +91,9 @@ include_once '../../plantillas/barra_lateral.php';
                         <!-- END timeline item -->
                        
                         <!-- timeline item -->
-                        <div id="mostrar"></div>
+                        <div id="mostrar">
+
+                        </div>
                         <!-- END timeline item -->
                         <!-- timeline item -->
                         <div id="botones"></div>
@@ -123,9 +127,10 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 <div id="script"></div>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-pregunta-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-rama-app.js"></script>
+
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
  <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
