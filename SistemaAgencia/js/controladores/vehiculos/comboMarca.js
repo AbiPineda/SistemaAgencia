@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: 'http://localhost/API-REST-PHP/index.php/marcaVehiculo/marca',
+        url: URL_SERVIDOR+"marcaVehiculo/marca",//=http://localhost/API-REST-PHP/index.php/marcaVehiculo/marca
         async: false,
         dataType: "json",
         success: function(data) {
@@ -13,8 +13,15 @@ $(document).ready(function() {
                     '</option>');
             });
         },
-        error: function(data) {
-            alert('error');
+        error: function(err) {
+            //si da un error ya que quede la alerta
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text:'No hay Marcas para mostrar',
+                showConfirmButton: true,
+            });
         }
     });
 
