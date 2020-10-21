@@ -68,7 +68,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                         <!-- /.inicio de loading -->
+                                        <!-- /.inicio de loading -->
                                         <div class="overlay-wrapper">
                                             <div id="loading" class="overlay"><i
                                                     class="fas fa-3x fa-sync-alt fa-spin"></i>
@@ -108,55 +108,56 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                         </div>
                         <div class="modal-header">
-                            <h4 class="modal-title">Modificar Servicio</h4>
+                            <h4 class="modal-title">Modificar Vehiculo</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Tipo de Servicio</label>
-                                        <select name="tipo_servicio" id="tipo_servicio"
-                                            class="select2 select2-hidden-accessible form-control float-righ"
-                                            data-placeholder="Seleccione el tipo" style="width: 100%;"
-                                            data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Nombre de Servicio</label>
+                                        <label>Numero de Placa</label>
                                         <div class="input-group">
-                                            <input id="nombre" name="nombre" type="text" class="form-control">
+                                            <input id="placa" name="placa" type="text" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Costo promedio</label>
+                                        <label>Año</label>
                                         <div class="input-group">
-                                            <input id="costos_defecto" name="costos_defecto" type="number"
+                                            <input id="anio" name="anio" type="number" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Combustible</label>
+                                        <div class="input-group">
+                                            <input id="tipoCombustible" name="tipoCombustible" type="text"
                                                 class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <!-- text input -->
+                                <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Descripcion del Servicio</label>
-                                        <textarea name="descripcion_servicio" id="descripcion_servicio"
-                                            class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
+                                        <label>Precio Diario</label>
+                                        <div class="input-group">
+                                            <input id="precio_diario" name="precio_diario" type="text"
+                                                class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
                                 </div>
+                                
+
                             </div>
+
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -171,7 +172,6 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
         <!-- End Modal EDITAR-->
     </form>
-
 
     <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
         <!-- Modal EDITAR-->

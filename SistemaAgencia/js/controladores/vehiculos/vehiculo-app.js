@@ -3,6 +3,7 @@ $(document).ready(function() {
     let idVehiculo;
     let tabla;
 
+    // inicializarValidaciones();
     inicializarTabla();
 
 
@@ -11,7 +12,6 @@ $(document).ready(function() {
         $('#loadingActualizar').hide();
         idVehiculo = $(this).attr("name");
         fila = $(this).closest("tr");
-
 
         placaSeleccionado = fila.find('td:eq(0)').text();
         anioSeleccionado = fila.find('td:eq(1)').text();
@@ -121,8 +121,12 @@ $(document).ready(function() {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
+                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-secondary" data-toggle="modal"';
+                            html += '            data-target="#modal-ver">';
+                            html += '            <i class="fas fa-car" style="color: white"></i>';
+                            html += '        </button>';
                             html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
-                            html += '            data-target="">';
+                            html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-warning" data-toggle="modal"';
@@ -157,6 +161,68 @@ $(document).ready(function() {
 
     }
 
+
+
+    function inicializarValidaciones() {
+        $('#miFormulario').validate({
+            rules: {
+                placa: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 40
+                },
+                anio: {
+                    required: true,
+                    number: true,
+                    min: 2010
+                },
+                tipoCombustible: {
+                    required: true,
+                    minlength: 10,
+                },
+                precio_diario: {
+                    required: true,
+                    number: true,
+                    min: 1
+                }
+            },
+            messages: {
+                placa: {
+                    required: "Ingrese un nombre",
+                    minlength: "Logitud del nombre debe ser mayor a 3",
+                    maxlength: "Logitud del nombre no debe exceder a 40",
+                },
+                anio: {
+                    required: "Ingrese un numero",
+                    number: "Ingrese un numero",
+                    min: "Debe de ser mayor que 0"
+                },
+                tipoCombustible: {
+                    required: "La informacion de contacto es necesaria",
+                    minlength: "Debe de tener una longitud minima de 10",
+                },
+                precio_diario: {
+                    required: "Ingrese un numero",
+                    number: "Ingrese un numero",
+                    min: "Debe de ser mayor que 0"
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
 
     function actualizar() {
         $('#loadingActualizar').show();
