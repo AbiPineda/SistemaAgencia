@@ -95,6 +95,58 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
         <!-- /.row -->
     </section>
+    <form id="mostrar" name="mostrar" role="form">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-ver">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="overlay-wrapper">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle Vehiculo</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="card-body">
+                                    <div id="" class="dataTables_wrapper dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="tabla_vehiculosVer"
+                                                    class="table table-bordered table-striped">
+                                                    <thead style="text-align: center;">
+                                                        <tr>
+                                                            <th>Placa</th>
+                                                            <th>Año</th>
+                                                            <th>Precio</th>
+                                                            <th>Combustible</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- End Modal Mostrar-->
+    </form>
+
+
+
     <form id="miFormulario" name="miFormulario" role="form">
         <!-- Modal EDITAR-->
         <div class="modal fade" id="modal-editar">
@@ -154,7 +206,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-                                
+
 
                             </div>
 

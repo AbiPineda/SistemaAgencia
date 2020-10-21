@@ -7,6 +7,47 @@ $(document).ready(function() {
     inicializarTabla();
 
 
+
+    $(document).on('click', '.btn-group .btn-secondary', function() {
+
+        tabla = $("#tabla_vehiculosVer").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "deferRender": true,
+            "ajax": {
+                "url": URL_SERVIDOR + "vehiculo/vehiculos",
+                "method": "GET",
+                "dataSrc": function(json) {
+                    console.log(json);
+
+                    if (json.autos) {
+                        for (let i = 0, ien = json.autos.length; i < ien; i++) {
+                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
+                            html = "";
+                            html += '<td>';
+                            html += '</td>';
+                        }
+                        $('#loading').hide();
+                        return json.autos;
+                    } else {
+                        $('#loading').hide();
+                        return [];
+                    }
+                }
+            },
+            columns: [
+                { data: "placa" },
+                { data: "anio" },
+                { data: "precio_diario" },
+                { data: "tipoCombustible" },
+
+            ]
+        });
+        $('#modal-ver').modal('show');
+
+    });
+
+
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function() {
         $('#loadingActualizar').hide();
