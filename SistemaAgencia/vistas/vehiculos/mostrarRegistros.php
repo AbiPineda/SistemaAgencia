@@ -4,7 +4,8 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet" type="text/css" /> 
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
+    type="text/css" />
 
 <style>
 .center {
@@ -14,6 +15,7 @@ include_once '../../plantillas/barra_lateral.php';
     width: 75%;
 }
 </style>
+
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -53,79 +55,32 @@ include_once '../../plantillas/barra_lateral.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div id="tabla_vehiculos1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_vehiculos1"
-                                        class="table table-bordered table-striped dataTable dtr-inline" role="grid"
-                                        aria-describedby="tabla_vehiculos1_info">
-                                        <thead>
-                                            <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Rendering engine: activate to sort column descending">
-                                                    Marca</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Browser: activate to sort column ascending">
-                                                    Modelo</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Platform(s): activate to sort column ascending">
-                                                    Año</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Engine version: activate to sort column ascending">
-                                                    Combustible</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Engine version: activate to sort column ascending">
-                                                    Trasmisión</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="CSS grade: activate to sort column ascending">Acciones
-                                                </th>
+                                    <table id="tabla_vehiculos" class="table table-bordered table-striped">
+                                        <thead style="text-align: center;">
+                                            <tr>
+                                                <th>Placa</th>
+                                                <th>Año</th>
+                                                <th>Precio</th>
+                                                <th>Combustible</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr role="row" class="odd" style="text-align: center;">
-                                                <td tabindex="0" class="sorting_1">Hyundai</td>
-                                                <td>Elantra</td>
-                                                <td>2014</td>
-                                                <td>Gasolina</td>
-                                                <td>Automática</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-toggle="modal" data-target="#modal-default1">
-                                                            <i class="fas fa-car"></i>
-                                                            <button type="button" class="btn btn-success"
-                                                                data-toggle="modal" data-target="#modal-default">
-                                                                <i class="fas fa-eye"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary"><i
-                                                                    class="fas fa-edit"></i></button>
-                                                            <button type="button" class="btn btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-                                                            <button type="button" class="btn btn-warning"><i
-                                                                    class="fas fa-long-arrow-alt-down"
-                                                                    style="color: white"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                         <!-- /.inicio de loading -->
+                                        <div class="overlay-wrapper">
+                                            <div id="loading" class="overlay"><i
+                                                    class="fas fa-3x fa-sync-alt fa-spin"></i>
 
+                                                <div class="text-bold pt-2">Cargando...
+                                                </div>
+                                            </div>
+                                            <tbody id="tableBody" style="text-align: center;">
+                                            </tbody>
+                                        </div>
+                                        <!-- /.fin de loading -->
 
-                                        </tbody>
-                                        <tfoot>
-                                            <tr style="text-align: center;">
-                                                <th rowspan="1" colspan="1">Marca</th>
-                                                <th rowspan="1" colspan="1">Modelo</th>
-                                                <th rowspan="1" colspan="1">Año</th>
-                                                <th rowspan="1" colspan="1">Combustible</th>
-                                                <th rowspan="1" colspan="1">Transmisión</th>
-                                                <th rowspan="1" colspan="1">Acciones</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -140,116 +95,123 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
         <!-- /.row -->
     </section>
-    <!-- /.content -->
-</div>
+    <form id="miFormulario" name="miFormulario" role="form">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-editar">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
 
-<div class="modal fade" id="modal-default1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Información del Vehículo:</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr style="text-align: center;">
-                                <th>Marca</th>
-                                <td>Hyundai</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Modelo</th>
-                                <td>Elantra</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Año</th>
-                                <td>2014</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Placa</th>
-                                <td>AA12345</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Combustible</th>
-                                <td>Gasolina</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Color</th>
-                                <td>Gris</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Kilometraje</th>
-                                <td>1500km</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Transmisión</th>
-                                <td>Automática</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Precio</th>
-                                <td><span class="badge bg-success">$28.50</span></td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Pasajeros</th>
-                                <td><span class="badge bg-warning">5</span></td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Puertas</th>
-                                <td><span class="badge bg-warning">4</span></td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Categoria</th>
-                                <td><span class="badge bg-info">Sedan</span></td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Aire Acondicionado</th>
-                                <td>Sí</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Audio</th>
-                                <td>Sí</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <th>Silla para Bebé</th>
-                                <td>Sí</td>
-                            </tr>
+                    <div class="overlay-wrapper">
+                        <div id="loadingActualizar" class="overlay">
+                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                            <div class="text-bold pt-2">Cargando...
+                            </div>
+                        </div>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modificar Servicio</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Tipo de Servicio</label>
+                                        <select name="tipo_servicio" id="tipo_servicio"
+                                            class="select2 select2-hidden-accessible form-control float-righ"
+                                            data-placeholder="Seleccione el tipo" style="width: 100%;"
+                                            data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                        </select>
+                                    </div>
+                                </div>
 
-                        </tbody>
-                    </table>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Nombre de Servicio</label>
+                                        <div class="input-group">
+                                            <input id="nombre" name="nombre" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Costo promedio</label>
+                                        <div class="input-group">
+                                            <input id="costos_defecto" name="costos_defecto" type="number"
+                                                class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Descripcion del Servicio</label>
+                                        <textarea name="descripcion_servicio" id="descripcion_servicio"
+                                            class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                                style="color: white">Actualizar</button>
+                        </div>
+                    </div>
                 </div>
-
+                <!-- /.modal-content -->
             </div>
-
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Imagen:</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <!-- End Modal EDITAR-->
+    </form>
+
+
+    <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-imagenes">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Imagenes</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="file-loading">
+                            <input id="kv-explorer" name="foto" type="file" multiple>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /.modal-content -->
             </div>
-            <div class="modal-body">
-                <p>
-                    <img class="center"
-                        src="https://ik.imagekit.io/udcdt0pvr/wp-content/uploads/2019/08/hyundai-elantra-njautoimport-carro-8-300x225.jpeg?wave"
-                        alt="" />
-                <p>
-            </div>
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
+        <!-- End Modal EDITAR-->
+    </form>
+
+
+
 </div>
-<!-- /.cierre modal de imagen-->
+
+
+
+
+
+
+
+
+
+
 
 <!-- /.MODALES DE BOTONES PARA INSERTAR -->
 <div class="modal fade" id="modal-marca">
@@ -444,6 +406,8 @@ include_once '../../plantillas/barra_lateral.php';
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
+
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
