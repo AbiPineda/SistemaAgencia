@@ -19,7 +19,7 @@
                                         '<div class="col-lg-1"></div>'+
 
                                         '<div class="col-lg-7">'+
-
+                                         '<form id="pregunta-form" name="pregunta-form" onsubmit="return false">'+
                                             '<div class="form-group">'+
                                                 '<label for="cars">Digite la Pregunta</label>'+
                                                 '<input id="input_abierta" placeholder="Digite la pregunta" type="text" class="form-control">'+
@@ -32,7 +32,7 @@
                                                     '<option value="1">Si</option>'+
                                                     '<option value="0">No</option>'+
 
-                                                '</select></div></div><div class="col-lg-1"></div>'+
+                                                '</select></div></div><div class="col-lg-1"></form></div>'+
 
                                     '</div></div></div>');
 
@@ -54,7 +54,9 @@
                                 '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Cerrada</a></h3>'+
                                 '<div class="timeline-body" style="margin-top: -9px;"><div class="row">'+
-                                        '<div class="col-lg-1"></div><div class="col-lg-6">'+
+                                        '<div class="col-lg-1">'+
+                                        '</div><div class="col-lg-6">'+
+                                         '<form id="pregunta-form" name="pregunta-form" onsubmit="return false">'+
                                             '<div class="form-group"><label for="cars">Digite la Pregunta</label>'+
                                              '<input id="input_cerrada" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
                                             '</div></div><div class="col-lg-4">'+
@@ -65,7 +67,7 @@
                                                     '<option>No</option>'+
                                                     '<option>Tal Vez</option>'+
                                                     '<option>Pueda ser</option>'+
-                                                    '<option>Lo pensare</option></select></div></div>'+
+                                                    '<option>Lo pensare</option></select></div></form></div>'+
                                             '<div class="col-lg-1"></div></div></div></div>');
 
             $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
@@ -83,18 +85,26 @@
            }
 
            if (selected=='Rama') {
+
             $('#combo_rama').prop("disabled",true);
             $mostrar.append('<i class="fas fa-address-card bg-gradient-info"></i>'+
                             '<div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-address-card"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Registro de una nueva rama</a></h3>'+
                                 '<div class="timeline-body" style="margin-top: -9px;">'+
-                                    '<div class="row"><div class="col-lg-2"></div>'+
-                                      '<div class="col-lg-6"><div class="form-group">'+
+                                 '<form id="register-form" name="register-form" onsubmit="return false">'+
+                                    '<div class="row">'+
+                                   
+                                    '<div class="col-lg-2"></div>'+
+                                     
+                                      '<div class="col-lg-6">'+
+                                      '<div class="form-group">'+
                                                 '<label for="cars">Digite la rama</label>'+
-                                                '<input id="input_rama" type="text" placeholder="Digite la rama" class="form-control" style="width:100%;">'+
-                                            '</div></div><div class="col-lg-2"></div>'+
-                                        '</div></div></div>');
+                                                '<input id="input_rama" name="categoria_rama" type="text" placeholder="Digite la rama" class="form-control" style="width:100%;">'+
+                                               '</div>'+
+                                            '</div><div class="col-lg-2">'+
+                                            '</div>'+
+                                        '</div> </form></div></div>');
             $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
                             '<div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-save"></i>Guardar</span>'+
@@ -103,9 +113,12 @@
                                         '<div class="col-lg-1"></div><div class="col-lg-10"></div>'+
                                           '<div class="col-lg-1"></div>'+
                                         '<div style="text-align: right;width:577px;margin-top:-8px;">'+
-                                 '<a class="btn btn-primary btn-sm" id="btn-rama"  style="color: white">Guardar</a>'+
-                                '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
+                                '<button type="button" id="btn-rama" class="btn btn-primary btn-sm" style="color: white">Agregar</button>'+
+                    '<button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>'+
                                 '</div></div></div></div>');
+
+        $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-rama-app.js">');
+         
            }
 
         });
