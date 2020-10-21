@@ -48,6 +48,8 @@ include_once '../../plantillas/barra_lateral.php';
                                 <div class="timeline-body" style="margin-top: -9px;">
                                     <!--Una fila para jugar-->
                                     <div class="row">
+                                    <form id="recargar-form" name="recargar-form" onsubmit="return false">
+                                    
                                         <div class="col-lg-1"></div>
 
                                         <div class="col-lg-5">
@@ -69,7 +71,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Seleccione rama de la Pregunta</label>
-                                                    <select name='combo_rama' id='combo_rama' class="form-control" onchange="ShowRama();">
+                                                    <select name='combo_rama' disabled id='combo_rama' class="form-control" onchange="ShowRama();">
                                                     
                                                    
                                                 </select> 
@@ -82,7 +84,7 @@ include_once '../../plantillas/barra_lateral.php';
 
 
                                         <div class="col-lg-1"></div>
-
+                                    </form>
                                     </div>
                                     <!--fin de Una fila para jugar-->
                                 </div>

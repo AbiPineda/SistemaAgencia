@@ -10,7 +10,10 @@
           $('#mostrar').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
           $('#botones').empty();
 
+
           if (selected=='Abiertas') {
+            $('#combo_rama').empty();
+            $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-green"></i>'+
                             '<div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
@@ -25,8 +28,8 @@
                                             '<div class="form-group">'+
                                                 '<label for="cars">Digite la Pregunta</label>'+
                                                 '<input id="input_abierta" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control">'+
-                                                 '<input id="rama" disabled name="id_rama" type="hidden">'+
-                                                 '<input  value="abierta" disabled name="opcion" type="hidden">'+
+                                                 '<input id="rama" name="id_rama" type="text">'+
+                                                 '<input  value="abierta" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-6">'+
 
                                             '<div class="form-group">'+
@@ -52,8 +55,11 @@
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
            $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-pregunta-app.js">');
+            $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
            }
            if (selected=='Cerradas') {
+            $('#combo_rama').empty();
+            $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-gradient-info"></i> <div class="timeline-item">'+
                                 '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Cerrada</a></h3>'+
@@ -66,12 +72,12 @@
                                         '<div class="col-lg-6">'+
                                             '<div class="form-group"><label for="cars">Digite la Pregunta</label>'+
                                              '<input id="input_cerrada" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
-                                            '<input id="rama" name="id_rama" type="hidden">'+
+                                            '<input id="rama" name="id_rama" type="text">'+
                                             '<input  value="cerrada" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-4">'+
                                             '<div class="form-group">'+
                                                 '<label>Opciones de Respueta</label>'+
-                                                '<select class="select2" name="opcion_respuesta" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">'+
+                                                '<select class="select2" name="opcion_respuesta[]" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">'+
                                                     '<option>Si</option>'+
                                                     '<option>No</option>'+
                                                     '<option>Tal Vez</option>'+
@@ -87,11 +93,12 @@
                                         '<div class="col-lg-1"></div><div class="col-lg-10"></div>'+
                                           '<div class="col-lg-1"></div>'+
                                         '<div style="text-align: right;width:577px;margin-top:-8px;">'+
-                                 '<a class="btn btn-primary btn-sm" id="btn-preguntas" style="color: white">Guardar</a>'+
+                                 '<a class="btn btn-primary btn-sm" id="btn-cerrada" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
                $('.select2').select2();
-               $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-pregunta-app.js">');
+               $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-cerrada-app.js">');
+               $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
            }
 
            if (selected=='Rama') {

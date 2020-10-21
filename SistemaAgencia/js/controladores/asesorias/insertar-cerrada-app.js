@@ -1,15 +1,16 @@
- $("#btn-rama").on('click', function(e) {
+ $("#btn-cerrada").on('click', function(e) {
 
         e.preventDefault();
         // recolectarDatos();
         $.ajax({
-            url: URL_SERVIDOR+"Asesoria/ramitas",
+            url: URL_SERVIDOR+"Asesoria/cerrada",
             method: 'POST',
             data: $("#register-form").serialize()
 
         }).done(function (response) {
           document.getElementById("register-form").reset();
           document.getElementById("recargar-form").reset();
+          
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
             //REST_Controller::HTTP_OK
