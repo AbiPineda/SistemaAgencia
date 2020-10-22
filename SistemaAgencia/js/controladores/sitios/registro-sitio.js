@@ -147,6 +147,9 @@ $(document).ready(function () {
                     minlength: 10,
                 }, fotos: {
                     required: true
+                }, precio_sitio: {
+                    required: true,
+                    min :0
                 }
             },
             messages: {
@@ -164,6 +167,9 @@ $(document).ready(function () {
                     minlength: "Debe de tener una longitud minima de 10",
                 }, fotos: {
                     required: "Suba por lo menos 1 foto"
+                }, precio_sitio: {
+                    required: "El precio es necesario",
+                    min :"Debe de ser mayor que 0"
                 }
 
             },
@@ -290,6 +296,7 @@ $(document).ready(function () {
         form.append("descripcion", document.getElementById("descripcion").value);
         form.append("tipo", document.getElementById("ComboTipo").value);
         form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
+        form.append("precio_sitio", document.getElementById("precio_sitio").value);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({

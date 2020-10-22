@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Servicios disponibles</h1>
+                    <h1>Sitios Turisticos</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -42,10 +42,12 @@
                         <table id="tabla_servicios" class="table table-bordered table-striped">
                             <thead style="text-align: center;">
                                 <tr>
-                                    <th>Tipo del Servicio</th>
-                                    <th>Nombre</th>
+                                    <th>Sitio</th>
+                                    <th>Precio</th>
                                     <th>Descripcion</th>
-                                    <th>Costo Promedio</th>
+                                    <th>Contacto</th>
+                                    <th>teléfono</th>
+                                    <th>correo</th>
                                     <th>Acciones</th>
 
                                 </tr>

@@ -116,36 +116,38 @@ $(document).ready(function () {
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
+                "url": URL_SERVIDOR + "SitioTuristico/show",
                 "method": "GET",
                 "dataSrc": function (json) {
                     console.log(json);
                     //PARA CONPROVAR QUE EL SERVICIO EXISTE
-                    if (json.servicio) {
-                        for (let i = 0, ien = json.servicio.length; i < ien; i++) {
+                    if (json.sitios) {
+                        for (let i = 0, ien = json.sitios.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-primary" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.sitios[i].id_sitio_turistico + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-warning" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.sitios[i].id_sitio_turistico + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-danger" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.sitios[i].id_sitio_turistico + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
                             html += '            <i class="fas fa-trash" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
-                            json.servicio[i]["botones"] = html;
+                            json.sitios[i]["botones"] = html;
 
                         }
                         $('#loading').hide();
-                        return json.servicio;
+                         return json.sitios;
+                   
+
                     } else {
                         $('#loading').hide();
                         return [];
@@ -153,10 +155,12 @@ $(document).ready(function () {
                 }
             },
             columns: [
-                { data: "tipo_servicio" },
                 { data: "nombre" },
-                { data: "descripcion_servicio" },
-                { data: "costos_defecto" },
+                { data: "precio_sitio" },
+                { data: "descripcion" },
+                { data: "contactoN" },
+                { data: "telefono" },
+                { data: "correo" },
                 { data: "botones" },
             ]
         });

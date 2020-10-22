@@ -57,7 +57,7 @@
 
                                     <div class="timeline-body">
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Nombre del sitio turístico</label>
                                                     <div class="input-group">
@@ -67,8 +67,18 @@
                                                     <!-- /.input group -->
                                                 </div>
                                             </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Precio</label>
+                                                    <div class="input-group">
+                                                        <input type="number" min="0" class=" form-control"
+                                                            name="precio_sitio" id="precio_sitio">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
 
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Tipo</label>
                                                     <select name="ComboTipo" id="ComboTipo"
