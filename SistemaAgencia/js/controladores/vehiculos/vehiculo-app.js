@@ -10,39 +10,27 @@ $(document).ready(function() {
 
     $(document).on('click', '.btn-group .btn-secondary', function() {
 
-        tabla = $("#tabla_vehiculosVer").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-            "deferRender": true,
-            "ajax": {
-                "url": URL_SERVIDOR + "vehiculo/vehiculos",
-                "method": "GET",
-                "dataSrc": function(json) {
-                    console.log(json);
+        $('#loadingActualizar').hide();
+        idVehiculo = $(this).attr("name");
+        fila = $(this).closest("tr");
 
-                    if (json.autos) {
-                        for (let i = 0, ien = json.autos.length; i < ien; i++) {
-                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
-                            html = "";
-                            html += '<td>';
-                            html += '</td>';
-                        }
-                        $('#loading').hide();
-                        return json.autos;
-                    } else {
-                        $('#loading').hide();
-                        return [];
-                    }
-                }
-            },
-            columns: [
-                { data: "placa" },
-                { data: "anio" },
-                { data: "precio_diario" },
-                { data: "tipoCombustible" },
 
-            ]
-        });
+        placaSeleccionado = fila.find('td:eq(0)').text();
+        anioSeleccionado = fila.find('td:eq(1)').text();
+        precioSeleccionada = fila.find('td:eq(2)').text();
+        combustibleSeleccionado = fila.find('td:eq(3)').text();
+        categoriaSeleccionado = fila.find('td:eq(4)').text();
+        marcaSeleccionado = fila.find('td:eq(5)').text();
+
+
+        //MANDALOS LOS VALORES AL MODAL
+        document.getElementById("placa").value = placaSeleccionado;
+        document.getElementById("anio").value = anioSeleccionado;
+        document.getElementById("precio_diario").value = precioSeleccionada;
+        document.getElementById("tipoCombustible").value = combustibleSeleccionado;
+        document.getElementById("idcategoria").val = categoriaSeleccionado;
+        document.getElementById("marca").val = marcaSeleccionado;
+
         $('#modal-ver').modal('show');
 
     });

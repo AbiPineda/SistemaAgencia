@@ -1,7 +1,6 @@
 $("#btnAgregar").on('click', function(e) {
 
     e.preventDefault();
-    // recolectarDatos();
     $.ajax({
         url: "http://localhost/API-REST-PHP/index.php/marcaVehiculo/marca",
         method: 'POST',

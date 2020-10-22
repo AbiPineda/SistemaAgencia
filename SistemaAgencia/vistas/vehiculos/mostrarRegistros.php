@@ -96,60 +96,8 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.row -->
     </section>
     <form id="mostrar" name="mostrar" role="form">
-        <!-- Modal EDITAR-->
+        <!-- Modal mostrar-->
         <div class="modal fade" id="modal-ver">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="overlay-wrapper">
-
-                        <div class="modal-header">
-                            <h4 class="modal-title">Detalle Vehiculo</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="card-body">
-                                    <div id="" class="dataTables_wrapper dt-bootstrap4">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table id="tabla_vehiculosVer"
-                                                    class="table table-bordered table-striped">
-                                                    <thead style="text-align: center;">
-                                                        <tr>
-                                                            <th>Placa</th>
-                                                            <th>Año</th>
-                                                            <th>Precio</th>
-                                                            <th>Combustible</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal Mostrar-->
-    </form>
-
-
-
-    <form id="miFormulario" name="miFormulario" role="form">
-        <!-- Modal EDITAR-->
-        <div class="modal fade" id="modal-editar">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
@@ -160,7 +108,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                         </div>
                         <div class="modal-header">
-                            <h4 class="modal-title">Modificar Vehiculo</h4>
+                            <h4 class="modal-title">Detalle del Vehiculo</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -170,18 +118,60 @@ include_once '../../plantillas/barra_lateral.php';
 
                                 <div class="col-sm-3">
                                     <div class="form-group">
+                                        <label>Categoria</label>
+                                        <div class="input-group">
+                                            <input id="idcategoria" name="idcategoria" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Marca</label>
+                                        <div class="input-group">
+                                            <input id="marca" name="marca" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Modelo</label>
+                                        <div class="input-group">
+                                            <input id="modelo" name="modelo" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
                                         <label>Numero de Placa</label>
                                         <div class="input-group">
-                                            <input id="placa" name="placa" type="text" class="form-control">
+                                            <input id="placa" name="placa" type="text" class="form-control" disabled>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Año</label>
+                                        <div class="input-group">
+                                            <input id="anio" name="anio" type="number" class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Año</label>
+                                        <label>Color</label>
                                         <div class="input-group">
-                                            <input id="anio" name="anio" type="number" class="form-control">
+                                            <input id="color" name="color" type="number" class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -191,7 +181,17 @@ include_once '../../plantillas/barra_lateral.php';
                                         <label>Combustible</label>
                                         <div class="input-group">
                                             <input id="tipoCombustible" name="tipoCombustible" type="text"
-                                                class="form-control">
+                                                class="form-control" disabled>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Transmision</label>
+                                        <div class="input-group">
+                                            <input id="transmision" name="transmision" type="text"
+                                                class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -201,55 +201,130 @@ include_once '../../plantillas/barra_lateral.php';
                                         <label>Precio Diario</label>
                                         <div class="input-group">
                                             <input id="precio_diario" name="precio_diario" type="text"
-                                                class="form-control">
+                                                class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-
-
                             </div>
 
                         </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
-                                style="color: white">Actualizar</button>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+</div>
+<!-- End Modal Mostrar-->
+</form>
+
+
+
+<form id="miFormulario" name="miFormulario" role="form">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-editar">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
                         </div>
                     </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal EDITAR-->
-    </form>
-
-    <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
-        <!-- Modal EDITAR-->
-        <div class="modal fade" id="modal-imagenes">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Editar Imagenes</h4>
+                        <h4 class="modal-title">Modificar Vehiculo</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="file-loading">
-                            <input id="kv-explorer" name="foto" type="file" multiple>
+                        <div class="row">
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Numero de Placa</label>
+                                    <div class="input-group">
+                                        <input id="placa" name="placa" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Año</label>
+                                    <div class="input-group">
+                                        <input id="anio" name="anio" type="number" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Combustible</label>
+                                    <div class="input-group">
+                                        <input id="tipoCombustible" name="tipoCombustible" type="text"
+                                            class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Precio Diario</label>
+                                    <div class="input-group">
+                                        <input id="precio_diario" name="precio_diario" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+
+
                         </div>
+
                     </div>
-
-
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                            style="color: white">Actualizar</button>
+                    </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
         </div>
-        <!-- End Modal EDITAR-->
-    </form>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+
+<form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-imagenes">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Imagenes</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="file-loading">
+                        <input id="kv-explorer" name="foto" type="file" multiple>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
 
 
 
