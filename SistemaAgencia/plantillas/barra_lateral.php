@@ -281,6 +281,18 @@
                                 <p>Registro de Preguntas</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/Asesoria/ModificarAbiertas.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Modificar Preguntas Abiertas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/Asesoria/ModificarCerradas.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Modificar Preguntas Cerradas</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!--TERMINA ASESORIA MIGRATORIA MENU-->
