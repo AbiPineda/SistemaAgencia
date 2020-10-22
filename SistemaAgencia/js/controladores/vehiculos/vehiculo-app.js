@@ -6,34 +6,47 @@ $(document).ready(function () {
 
     // inicializarValidaciones();
     inicializarTabla();
-
-
     //BOTON MOSTRAR VEHICULO
     $(document).on('click', '.btn-group .btn-secondary', function () {
         console.log("MOSTRAR");
         $('#loadingActualizar').hide();
         idVehiculo = $(this).attr("name");
-        fila = $(this).closest("tr");
+        //LO COMENTADO ES COMO ESTABA, AHORA A VER OTRA MANERA 
+        // fila = $(this).closest("tr");
+        // placaSeleccionado = fila.find('td:eq(0)').text();
+        // anioSeleccionado = fila.find('td:eq(1)').text();
+        // precioSeleccionada = fila.find('td:eq(2)').text();
+        // combustibleSeleccionado = fila.find('td:eq(3)').text();
+        // categoriaSeleccionado = fila.find('td:eq(4)').text();
+        // marcaSeleccionado = fila.find('td:eq(5)').text();
 
+        // //MANDALOS LOS VALORES AL MODAL
+        // document.getElementById("placa").value = placaSeleccionado;
+        // document.getElementById("anio").value = anioSeleccionado;
+        // document.getElementById("precio_diario").value = precioSeleccionada;
+        // document.getElementById("tipoCombustible").value = combustibleSeleccionado;
+        // document.getElementById("marca").val = marcaSeleccionado;
 
-        placaSeleccionado = fila.find('td:eq(0)').text();
-        anioSeleccionado = fila.find('td:eq(1)').text();
-        precioSeleccionada = fila.find('td:eq(2)').text();
-        combustibleSeleccionado = fila.find('td:eq(3)').text();
-        categoriaSeleccionado = fila.find('td:eq(4)').text();
-        marcaSeleccionado = fila.find('td:eq(5)').text();
+        //OTRA FORMA DE HACERLO ES CON UNA PETICION AJAX :) (HICES UNAS MODIFICACIONES MINIMAS EN TU MODELO, PARA QUE BUSCARA POR PARAMETROS PARAMETROS)
+        $.ajax({
+            url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
+            method: "GET"
+        }).done(function (response) {
+            //MANDALOS LOS VALORES AL MODAL
+            document.getElementById("placa").value = response.autos[0].placa;
+            document.getElementById("anio").value = response.autos[0].anio;
+            document.getElementById("precio_diario").value = response.autos[0].precio_diario;
+            document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
+            document.getElementById("marca").val = response.autos[0].marca;
+            document.getElementById("color").val = response.autos[0].color;
 
+            $('#comboCategoria').val(response.autos[0].idcategoria);
+            $('#comboCategoria').trigger('change'); //
+        }).fail(function (response) {
 
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("placa").value = placaSeleccionado;
-        document.getElementById("anio").value = anioSeleccionado;
-        document.getElementById("precio_diario").value = precioSeleccionada;
-        document.getElementById("tipoCombustible").value = combustibleSeleccionado;
-        document.getElementById("idcategoria").val = categoriaSeleccionado;
-        document.getElementById("marca").val = marcaSeleccionado;
-
-        $('#modal-ver').modal('show');
-
+        }).always(function (xhr, opts) {
+            $('#modal-ver').modal('show');
+        });
     });
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
@@ -248,7 +261,6 @@ $(document).ready(function () {
         });
 
     }
-
     function actualizar() {
         $('#loadingActualizar').show();
         let data = {
@@ -292,7 +304,6 @@ $(document).ready(function () {
             $('#loadingActualizar').hide();
         });
     }
-
     function eliminar() {
         let data = {
             "idvehiculo": idVehiculo
