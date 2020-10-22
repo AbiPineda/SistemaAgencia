@@ -1,57 +1,35 @@
 $(document).ready(function () {
     let explorer = $("#kv-explorer");
-    let idVehiculo;
+    let ListaDatos;
+    let idSerevicio;
     let tabla;
-    inicializarComboCategoria();
-
-    // inicializarValidaciones();
+    inicializarValidaciones();
     inicializarTabla();
+    inicializarCombo();
 
-
-    //BOTON MOSTRAR VEHICULO
-    $(document).on('click', '.btn-group .btn-secondary', function () {
-        console.log("MOSTRAR");
-        $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
-        fila = $(this).closest("tr");
-
-
-        placaSeleccionado = fila.find('td:eq(0)').text();
-        anioSeleccionado = fila.find('td:eq(1)').text();
-        precioSeleccionada = fila.find('td:eq(2)').text();
-        combustibleSeleccionado = fila.find('td:eq(3)').text();
-        categoriaSeleccionado = fila.find('td:eq(4)').text();
-        marcaSeleccionado = fila.find('td:eq(5)').text();
-
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("placa").value = placaSeleccionado;
-        document.getElementById("anio").value = anioSeleccionado;
-        document.getElementById("precio_diario").value = precioSeleccionada;
-        document.getElementById("tipoCombustible").value = combustibleSeleccionado;
-        document.getElementById("idcategoria").val = categoriaSeleccionado;
-        document.getElementById("marca").val = marcaSeleccionado;
-
-        $('#modal-ver').modal('show');
-
-    });
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
         $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
+        idSerevicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
-        placaSeleccionado = fila.find('td:eq(0)').text();
-        anioSeleccionado = fila.find('td:eq(1)').text();
-        precioSeleccionada = fila.find('td:eq(2)').text();
-        combustibleSeleccionado = fila.find('td:eq(3)').text();
+
+        tipoSeleccionado = fila.find('td:eq(0)').text();
+        nombreSeleccionado = fila.find('td:eq(1)').text();
+        descripcionSeleccionada = fila.find('td:eq(2)').text();
+        costoSeleccionado = fila.find('td:eq(3)').text();
 
         //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("placa").value = placaSeleccionado;
-        document.getElementById("anio").value = anioSeleccionado;
-        document.getElementById("precio_diario").value = precioSeleccionada;
-        document.getElementById("tipoCombustible").value = combustibleSeleccionado;
-
+        document.getElementById("nombre").value = nombreSeleccionado;
+        document.getElementById("costos_defecto").value = costoSeleccionado;
+        document.getElementById("descripcion_servicio").value = descripcionSeleccionada;
+        for (let index = 0; index < ListaDatos.length; index++) {
+            if (ListaDatos[index].text == tipoSeleccionado) {
+                $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
+                $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
+                break;
+            }
+        }
         $('#modal-editar').modal('show');
 
     });
@@ -97,7 +75,7 @@ $(document).ready(function () {
     });
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idVehiculo = $(this).attr("name");
+        idSerevicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
         const Toast = Swal.mixin();
@@ -119,7 +97,7 @@ $(document).ready(function () {
     });
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
-        evento.preventDefault(); //para evitar que la pagina se recargue
+        evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
@@ -133,45 +111,41 @@ $(document).ready(function () {
     })
 
     function inicializarTabla() {
-        tabla = $("#tabla_vehiculos").DataTable({
+        tabla = $("#tabla_servicios").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "vehiculo/vehiculos",
+                "url": URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
                 "method": "GET",
                 "dataSrc": function (json) {
                     console.log(json);
-
-                    if (json.autos) {
-                        for (let i = 0, ien = json.autos.length; i < ien; i++) {
+                    //PARA CONPROVAR QUE EL SERVICIO EXISTE
+                    if (json.servicio) {
+                        for (let i = 0, ien = json.servicio.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-secondary" data-toggle="modal"';
-                            html += '            data-target="#modal-ver">';
-                            html += '            <i class="fas fa-car" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
-                            html += '            data-target="#modal-editar">';
+                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-primary" data-toggle="modal"';
+                            html += '            data-target="">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-warning" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-danger" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.servicio[i].id_servicios + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
                             html += '            <i class="fas fa-trash" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
-                            json.autos[i]["botones"] = html;
+                            json.servicio[i]["botones"] = html;
 
                         }
                         $('#loading').hide();
-                        return json.autos;
+                        return json.servicio;
                     } else {
                         $('#loading').hide();
                         return [];
@@ -179,57 +153,87 @@ $(document).ready(function () {
                 }
             },
             columns: [
-                { data: "placa" },
-                { data: "anio" },
-                { data: "precio_diario" },
-                { data: "tipoCombustible" },
+                { data: "tipo_servicio" },
+                { data: "nombre" },
+                { data: "descripcion_servicio" },
+                { data: "costos_defecto" },
                 { data: "botones" },
             ]
         });
 
     }
+    function inicializarCombo() {
+        //Initialize Select2 Elements
+        ListaDatos = [
+            {
+                "id": 1,
+                "text": "Vehiculo"
+            }, {
+                "id": 2,
+                "text": "Guia Turistico"
+            }, {
+                "id": 3,
+                "text": "Busero"
+            },
+            {
+                "id": 4,
+                "text": "Taxista"
+            },
+            {
+                "id": 5,
+                "text": "Cocinero"
+            },
+            {
+                "id": 6,
+                "text": "Payaso"
+            }
+        ];
+        $('#tipo_servicio').select2(
+            {
+                data: ListaDatos
+            }
+        );
+    }
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
-                placa: {
+                nombre: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
                 },
-                anio: {
+                costos_defecto: {
                     required: true,
                     number: true,
-                    min: 2010
+                    min: 0
                 },
-                tipoCombustible: {
+                informacion_contacto: {
                     required: true,
                     minlength: 10,
                 },
-                precio_diario: {
+                descripcion_servicio: {
                     required: true,
-                    number: true,
-                    min: 1
+                    minlength: 10,
                 }
             },
             messages: {
-                placa: {
+                nombre: {
                     required: "Ingrese un nombre",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                anio: {
+                costos_defecto: {
                     required: "Ingrese un numero",
                     number: "Ingrese un numero",
                     min: "Debe de ser mayor que 0"
                 },
-                tipoCombustible: {
+                informacion_contacto: {
                     required: "La informacion de contacto es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
                 },
-                precio_diario: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
+                descripcion_servicio: {
+                    required: "La descripcion del servico es necesaria",
+                    minlength: "Debe de tener una longitud minima de 10",
                 }
 
             },
@@ -248,20 +252,26 @@ $(document).ready(function () {
         });
 
     }
-
     function actualizar() {
         $('#loadingActualizar').show();
+        tipoSeleccionado = "";
+        tipo = document.getElementById("tipo_servicio").value;//esto captura el id, y lo que yo quiero guardar es el texto
+        for (let index = 0; index < ListaDatos.length; index++) {
+            if (tipo == ListaDatos[index].id) {
+                tipoSeleccionado = ListaDatos[index].text;
+            }
+        }
         let data = {
-            "idvehiculo": idVehiculo,
-            "placa": document.getElementById("placa").value,
-            "anio": document.getElementById("anio").value,
-            "precio_diario": document.getElementById("precio_diario").value,
-            "tipoCombustible": document.getElementById("tipoCombustible").value
+            "id_servicios": idSerevicio,
+            "nombre": document.getElementById("nombre").value,
+            "costos_defecto": document.getElementById("costos_defecto").value,
+            "descripcion_servicio": document.getElementById("descripcion_servicio").value,
+            "tipo_servicio": tipoSeleccionado
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/actualizarVehiculo",
+            url: URL_SERVIDOR + "ServiciosAdicionales/update",
             method: "PUT",
             timeout: 0,
             data: data
@@ -292,15 +302,14 @@ $(document).ready(function () {
             $('#loadingActualizar').hide();
         });
     }
-
     function eliminar() {
         let data = {
-            "idvehiculo": idVehiculo
+            "id_servicios": idSerevicio
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/eliminarVehiculo",
+            url: URL_SERVIDOR + "ServiciosAdicionales/elimination",
             method: "DELETE",
             timeout: 0,
             data: data
@@ -328,35 +337,6 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
-        });
-    }
-    function inicializarComboCategoria() {
-        //COMBO DE CONTACTOS
-        $.ajax({
-            url: "http://localhost/API-REST-PHP/index.php/categoriasAutos/categorias",
-            method: "GET"
-        }).done(function (response) {
-            //REST_Controller::HTTP_OK
-            let myData = [];
-            if (response.categorias) {
-                let lista = response.categorias;
-                for (let index = 0; index < lista.length; index++) {
-                    myData.push({
-                        id: lista[index].idcategoria,
-                        text: lista[index].nombre
-                    });
-                }
-                $('#comboCategoria').select2(
-                    { data: myData }
-                );
-            } else {
-                $('#comboCategoria').select2();
-            }
-        }).fail(function (response) {
-            $('#comboCategoria').select2();
-
-        }).always(function (xhr, opts) {
-            $('#loading').hide();
         });
     }
 });

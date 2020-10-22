@@ -120,7 +120,10 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Categoria</label>
                                         <div class="input-group">
-                                            <input id="idcategoria" name="idcategoria" type="text" class="form-control">
+                                            <select name="comboCategoria" id="comboCategoria"
+                                                class="select2 select2-hidden-accessible form-control"
+                                                data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                            </select>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -190,8 +193,8 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Transmision</label>
                                         <div class="input-group">
-                                            <input id="transmision" name="transmision" type="text"
-                                                class="form-control" disabled>
+                                            <input id="transmision" name="transmision" type="text" class="form-control"
+                                                disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>

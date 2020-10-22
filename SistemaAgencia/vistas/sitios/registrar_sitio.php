@@ -36,122 +36,132 @@
             <div class="row">
                 <!-- <div class="offset-md-1"></div> -->
                 <div class="col-md-12">
-                    <div class="timeline">
-                        <!-- timeline time label -->
-                        <div class="time-label">
-                            <span class="bg-red">Información</span>
-                        </div>
-                        <!-- /.timeline-label -->
-                        <!-- timeline item -->
-                        <div>
-                            <i class="fas fa-car bg-blue"></i>
-                            <div class="timeline-item">
+                    <div class="overlay-wrapper">
+                        <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-                                <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+                            <div class="text-bold pt-2">Cargando...
+                            </div>
+                        </div>s
+                        <div class="timeline">
+                            <!-- timeline time label -->
+                            <div class="time-label">
+                                <span class="bg-red">Información</span>
+                            </div>
+                            <!-- /.timeline-label -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-car bg-blue"></i>
+                                <div class="timeline-item">
 
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Nombre del sitio turístico</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="nombre" id="nombre">
+                                    <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Nombre del sitio turístico</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" name="nombre"
+                                                            id="nombre">
+                                                    </div>
+                                                    <!-- /.input group -->
                                                 </div>
-                                                <!-- /.input group -->
                                             </div>
-                                        </div>
 
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Tipo</label>
-                                                <select name="ComboTipo" id="ComboTipo"
-                                                    class="select2 select2-hidden-accessible form-control"
-                                                    data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-5">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Coordenadas</label>
-                                                <div class="input-group">
-                                                    <input disabled type="text" class="form-control" name="coordenadas"
-                                                        id="coordenadas">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <br>
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                                    style="margin-top: 10px; width: 100%;" id="btn-mapa">
-                                                    <i class="fas fa-globe" style="color: white"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group multiple-form-group input-group">
-                                                <label>Contacto</label>
-
-                                                <div class="input-group">
-                                                    <select name="contacto_servicio" id="contacto_servicio"
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Tipo</label>
+                                                    <select name="ComboTipo" id="ComboTipo"
                                                         class="select2 select2-hidden-accessible form-control"
                                                         data-placeholder="Seleccione el tipo" style="width: 100%;">
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-1">
-                                            <br>
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
-                                                    name="btn-nuevo" style="margin-top: 10px; width: 100%;">+</button>
-                                            </span>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Coordenadas</label>
+                                                    <div class="input-group">
+                                                        <input disabled type="text" class="form-control"
+                                                            name="coordenadas" id="coordenadas">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <br>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-success btn-add"
+                                                        name="btn-mapa" style="margin-top: 10px; width: 100%;"
+                                                        id="btn-mapa">
+                                                        <i class="fas fa-globe" style="color: white"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group multiple-form-group input-group">
+                                                    <label>Contacto</label>
+
+                                                    <div class="input-group">
+                                                        <select name="contacto_servicio" id="contacto_servicio"
+                                                            class="select2 select2-hidden-accessible form-control"
+                                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <br>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
+                                                        name="btn-nuevo"
+                                                        style="margin-top: 10px; width: 100%;">+</button>
+                                                </span>
+                                            </div>
+
                                         </div>
 
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
-                        <!-- END timeline item -->
-                        <!-- timeline item -->
-                        <div>
-                            <i class="fas fa-user bg-green"></i>
-                            <div class="timeline-item">
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-user bg-green"></i>
+                                <div class="timeline-item">
 
-                                <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Descripcion del Servicio</label>
-                                                <textarea name="descripcion" id="descripcion" class="form-control"
-                                                    rows="3" placeholder="Digitar aquí ..."></textarea>
+                                    <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Descripcion del Servicio</label>
+                                                    <textarea name="descripcion" id="descripcion" class="form-control"
+                                                        rows="3" placeholder="Digitar aquí ..."></textarea>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <i class="fas fa-image bg-green"></i>
-                            <div class="timeline-item">
+                            <div>
+                                <i class="fas fa-image bg-green"></i>
+                                <div class="timeline-item">
 
-                                <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
-                                <div class="timeline-body">
+                                    <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                                    <div class="timeline-body">
 
-                                    <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12">
 
-                                            <label>Seleccione Imagenes</label>
-                                            <div class="file-loading">
-                                                <input type="file" multiple name="fotos[]" id="fotos">
+                                                <label>Seleccione Imagenes</label>
+                                                <div class="file-loading">
+                                                    <input type="file" multiple name="fotos[]" id="fotos">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
