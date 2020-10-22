@@ -1,12 +1,8 @@
-<?php
-include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
+<?php include_once '../../config/parametros.php'; ?>
+<?php include_once '../../plantillas/cabecera.php'; ?>
+<!-- COLORAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-
 <style>
 .center {
     display: block;
@@ -15,6 +11,10 @@ include_once '../../plantillas/barra_lateral.php';
     width: 75%;
 }
 </style>
+<!-- CONTINUAMOS CON LA INICIALIZACION -->
+<?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
+
+
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -174,7 +174,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Color</label>
                                         <div class="input-group">
-                                            <input id="color" name="color" type="number" class="form-control" disabled>
+                                            <input id="color" name="color" type="text" class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -193,8 +193,8 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Transmision</label>
                                         <div class="input-group">
-                                            <input id="transmision" name="transmision" type="text" class="form-control"
-                                                disabled>
+                                            <input id="transmisionModal" name="transmisionModal" type="text"
+                                                class="form-control" disabled>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -529,25 +529,13 @@ include_once '../../plantillas/barra_lateral.php';
 <!-- /.Cierre de MODAL CATEGORIA -->
 
 
-<?php
-  include_once '../../plantillas/footer.php';
-?>
+<?php  include_once '../../plantillas/footer.php';?>
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
-
-<script>
-$(function() {
-    $("#tabla_vehiculos1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-
-});
-</script>
+<?php  include_once '../../plantillas/cierre.php';?>

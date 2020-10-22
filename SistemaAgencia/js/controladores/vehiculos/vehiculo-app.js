@@ -8,7 +8,7 @@ $(document).ready(function () {
     inicializarTabla();
     //BOTON MOSTRAR VEHICULO
     $(document).on('click', '.btn-group .btn-secondary', function () {
-        console.log("MOSTRAR");
+        
         $('#loadingActualizar').hide();
         idVehiculo = $(this).attr("name");
         //LO COMENTADO ES COMO ESTABA, AHORA A VER OTRA MANERA 
@@ -28,6 +28,7 @@ $(document).ready(function () {
         // document.getElementById("marca").val = marcaSeleccionado;
 
         //OTRA FORMA DE HACERLO ES CON UNA PETICION AJAX :) (HICES UNAS MODIFICACIONES MINIMAS EN TU MODELO, PARA QUE BUSCARA POR PARAMETROS PARAMETROS)
+        $('#loadingActualizar').show();
         $.ajax({
             url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
             method: "GET"
@@ -37,8 +38,10 @@ $(document).ready(function () {
             document.getElementById("anio").value = response.autos[0].anio;
             document.getElementById("precio_diario").value = response.autos[0].precio_diario;
             document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
-            document.getElementById("marca").val = response.autos[0].marca;
-            document.getElementById("color").val = response.autos[0].color;
+            document.getElementById("marca").value = response.autos[0].marca;
+            document.getElementById("color").value = response.autos[0].color;
+            document.getElementById("transmisionModal").value = response.autos[0].transmision;
+            
 
             $('#comboCategoria').val(response.autos[0].idcategoria);
             $('#comboCategoria').trigger('change'); //
@@ -46,6 +49,7 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $('#modal-ver').modal('show');
+            $('#loadingActualizar').hide();
         });
     });
     //BOTON DE EDITAR
@@ -154,7 +158,7 @@ $(document).ready(function () {
                 "url": URL_SERVIDOR + "vehiculo/vehiculos",
                 "method": "GET",
                 "dataSrc": function (json) {
-                    console.log(json);
+                    console.log(json.autos);
 
                     if (json.autos) {
                         for (let i = 0, ien = json.autos.length; i < ien; i++) {
