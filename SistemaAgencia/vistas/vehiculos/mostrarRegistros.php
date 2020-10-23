@@ -68,7 +68,7 @@
                                                 <th>Año</th>
                                                 <th>Precio</th>
                                                 <th>Combustible</th>
-                                               
+
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -343,6 +343,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <p>
                     <!-- Main content -->
@@ -356,31 +357,33 @@
                                     <div class="timeline-item">
 
                                         <h3 class="timeline-header"><a href="#">Registrar Modelo</a> </h3>
-
-                                        <div class="timeline-body">
-                                            <!-- INICIO de primera fila -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <!-- text input -->
-                                                    <div class="form-group">
-                                                        <label>Seleccione Marca</label>
-                                                        <select name="id_marca" id="marca" class="form-control"
-                                                            onchange="ShowSelected();">
-                                                            <option disabled="" selected="">Seleccione</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Nombre de Modelo</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite nombre de modelo">
+                                        <form id="register-form" name="register-form" onsubmit="return false">
+                                            <div class="timeline-body">
+                                                <!-- INICIO de primera fila -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Seleccione Marca</label>
+                                                            <select name="id_marca" id="comboMarca"
+                                                                class="form-control">
+                                                                <option disabled="" selected="">Seleccione</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Nombre de Modelo</label>
+                                                            <input type="text" class="form-control" name="modelo"
+                                                                id="modelo" placeholder="Digite nombre de modelo">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="timeline-footer" style="text-align: right;">
-                                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                        </div>
+                                            <div class="timeline-footer" style="text-align: right;">
+                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                                    id="btnModelo">Guardar</a>
+                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -407,47 +410,58 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p>
-                    <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="timeline">
+            <form id="register-form" name="register-form" onsubmit="return false">
 
-                                <div>
-                                    <i class="fas fa-car bg-blue"></i>
-                                    <div class="timeline-item">
+                <div class="modal-body">
+                    <p>
+                        <!-- Main content -->
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="timeline">
 
-                                        <h3 class="timeline-header"><a href="#">Registrar Categoria</a> </h3>
+                                    <div>
+                                        <i class="fas fa-car bg-blue"></i>
+                                        <div class="timeline-item">
 
-                                        <div class="timeline-body">
-                                            <!-- INICIO de primera fila -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <!-- text input -->
-                                                    <div class="form-group">
-                                                        <label>Nombre de Categoria</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Digite nombre de categoria">
+                                            <h3 class="timeline-header"><a href="#">Registrar Categoria</a> </h3>
+
+                                            <div class="timeline-body">
+                                                <!-- INICIO de primera fila -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Nombre de Categoria</label>
+                                                            <input type="text" class="form-control" name="nombre"
+                                                                placeholder="Digite nombre de categoria">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Descripción de Categoria</label>
+                                                            <input type="text" class="form-control" name="descripcion"
+                                                                placeholder="Digite nombre de categoria">
+                                                        </div>
                                                     </div>
                                                 </div>
+
+
                                             </div>
-
-
-                                        </div>
-                                        <div class="timeline-footer" style="text-align: right;">
-                                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            <div class="timeline-footer" style="text-align: right;">
+                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                                    id="btnCategoria">Guardar</a>
+                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <p>
-            </div>
+                    </section>
+                    <p>
+                </div>
 
         </div>
         <!-- /.modal-content -->
@@ -463,6 +477,8 @@
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/modelo-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/categoria-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 

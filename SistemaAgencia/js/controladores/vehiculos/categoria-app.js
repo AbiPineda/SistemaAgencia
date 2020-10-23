@@ -1,14 +1,14 @@
-$("#btnAgregar").on('click', function(e) {
+$("#btnCategoria").on('click', function(e) {
 
     e.preventDefault();
     $.ajax({
-        url: URL_SERVIDOR + "marcaVehiculo/marca",
+        url: URL_SERVIDOR + "categoriasAutos/categorias",
         method: 'POST',
         data: $("#register-form").serialize()
 
     }).done(function(response) {
 
-        $("#modal-marca").modal('toggle');
+        $("#modal-categoria").modal('toggle');
 
         document.getElementById("register-form").reset();
 

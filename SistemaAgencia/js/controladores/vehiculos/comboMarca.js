@@ -2,12 +2,12 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: URL_SERVIDOR+"marcaVehiculo/marca",//=http://localhost/API-REST-PHP/index.php/marcaVehiculo/marca
+        url: URL_SERVIDOR + "marcaVehiculo/marca",
         async: false,
         dataType: "json",
         success: function(data) {
 
-            var $select = $('#marca');
+            var $select = $('#comboMarca');
             $.each(data.marcas, function(i, name) {
                 $select.append('<option value=' + name.id_marca + '>' + name.marca +
                     '</option>');
@@ -19,7 +19,7 @@ $(document).ready(function() {
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text:'No hay Marcas para mostrar',
+                text: 'No hay Marcas para mostrar',
                 showConfirmButton: true,
             });
         }
