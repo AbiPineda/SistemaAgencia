@@ -1,79 +1,90 @@
-$(document).ready(function () {
+$(document).ready(function() {
     let explorer = $("#kv-explorer");
     let idVehiculo;
     let tabla;
-    inicializarComboCategoria();
+    //inicializarComboCategoria();
 
     // inicializarValidaciones();
     inicializarTabla();
     //BOTON MOSTRAR VEHICULO
-    $(document).on('click', '.btn-group .btn-secondary', function () {
-        
-        $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
-        //LO COMENTADO ES COMO ESTABA, AHORA A VER OTRA MANERA 
-        // fila = $(this).closest("tr");
-        // placaSeleccionado = fila.find('td:eq(0)').text();
-        // anioSeleccionado = fila.find('td:eq(1)').text();
-        // precioSeleccionada = fila.find('td:eq(2)').text();
-        // combustibleSeleccionado = fila.find('td:eq(3)').text();
-        // categoriaSeleccionado = fila.find('td:eq(4)').text();
-        // marcaSeleccionado = fila.find('td:eq(5)').text();
+    /*  $(document).on('click', '.btn-group .btn-secondary', function() {
 
-        // //MANDALOS LOS VALORES AL MODAL
-        // document.getElementById("placa").value = placaSeleccionado;
-        // document.getElementById("anio").value = anioSeleccionado;
-        // document.getElementById("precio_diario").value = precioSeleccionada;
-        // document.getElementById("tipoCombustible").value = combustibleSeleccionado;
-        // document.getElementById("marca").val = marcaSeleccionado;
+          $('#loadingActualizar').hide();
+          idVehiculo = $(this).attr("name");
+          //LO COMENTADO ES COMO ESTABA, AHORA A VER OTRA MANERA 
+          // fila = $(this).closest("tr");
+          // placaSeleccionado = fila.find('td:eq(0)').text();
+          // anioSeleccionado = fila.find('td:eq(1)').text();
+          // precioSeleccionada = fila.find('td:eq(2)').text();
+          // combustibleSeleccionado = fila.find('td:eq(3)').text();
+          // categoriaSeleccionado = fila.find('td:eq(4)').text();
+          // marcaSeleccionado = fila.find('td:eq(5)').text();
 
-        //OTRA FORMA DE HACERLO ES CON UNA PETICION AJAX :) (HICES UNAS MODIFICACIONES MINIMAS EN TU MODELO, PARA QUE BUSCARA POR PARAMETROS PARAMETROS)
-        $('#loadingActualizar').show();
-        $.ajax({
-            url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
-            method: "GET"
-        }).done(function (response) {
-            //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("placa").value = response.autos[0].placa;
-            document.getElementById("anio").value = response.autos[0].anio;
-            document.getElementById("precio_diario").value = response.autos[0].precio_diario;
-            document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
-            document.getElementById("marca").value = response.autos[0].marca;
-            document.getElementById("color").value = response.autos[0].color;
-            document.getElementById("transmisionModal").value = response.autos[0].transmision;
-            
+          // //MANDALOS LOS VALORES AL MODAL
+          // document.getElementById("placa").value = placaSeleccionado;
+          // document.getElementById("anio").value = anioSeleccionado;
+          // document.getElementById("precio_diario").value = precioSeleccionada;
+          // document.getElementById("tipoCombustible").value = combustibleSeleccionado;
+          // document.getElementById("marca").val = marcaSeleccionado;
 
-            $('#comboCategoria').val(response.autos[0].idcategoria);
-            $('#comboCategoria').trigger('change'); //
-        }).fail(function (response) {
+          //OTRA FORMA DE HACERLO ES CON UNA PETICION AJAX :) (HICES UNAS MODIFICACIONES MINIMAS EN TU MODELO, PARA QUE BUSCARA POR PARAMETROS PARAMETROS)
+          $('#loadingActualizar').show();
+          $.ajax({
+              url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
+              method: "GET"
+          }).done(function(response) {
+              //MANDALOS LOS VALORES AL MODAL
+              document.getElementById("placa").value = response.autos[0].placa;
+              document.getElementById("anio").value = response.autos[0].anio;
+              document.getElementById("precio_diario").value = response.autos[0].precio_diario;
+              document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
+              document.getElementById("marca").value = response.autos[0].marca;
+              document.getElementById("color").value = response.autos[0].color;
+              document.getElementById("transmisionModal").value = response.autos[0].transmision;
 
-        }).always(function (xhr, opts) {
-            $('#modal-ver').modal('show');
-            $('#loadingActualizar').hide();
-        });
-    });
+
+              $('#comboCategoria').val(response.autos[0].idcategoria);
+              $('#comboCategoria').trigger('change'); //
+          }).fail(function(response) {
+
+          }).always(function(xhr, opts) {
+              $('#modal-ver').modal('show');
+              $('#loadingActualizar').hide();
+          });
+      });*/
     //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function () {
+    $(document).on('click', '.btn-group .btn-primary', function() {
         $('#loadingActualizar').hide();
         idVehiculo = $(this).attr("name");
         fila = $(this).closest("tr");
 
-        placaSeleccionado = fila.find('td:eq(0)').text();
-        anioSeleccionado = fila.find('td:eq(1)').text();
-        precioSeleccionada = fila.find('td:eq(2)').text();
-        combustibleSeleccionado = fila.find('td:eq(3)').text();
+        mostrarCategoria = fila.find('td:eq(0)').text();
+        mostrarMarca = fila.find('td:eq(1)').text();
+        mostrarModelo = fila.find('td:eq(2)').text();
+        mostrarPlaca = fila.find('td:eq(3)').text();
+        mostrarAnio = fila.find('td:eq(4)').text();
+        mostrarColor = fila.find('td:eq(5)').text();
+        mostrarTransmision = fila.find('td:eq(6)').text();
+        mostrarPrecio = fila.find('td:eq(7)').text();
+        mostrarCombustible = fila.find('td:eq(8)').text();
+
 
         //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("placa").value = placaSeleccionado;
-        document.getElementById("anio").value = anioSeleccionado;
-        document.getElementById("precio_diario").value = precioSeleccionada;
-        document.getElementById("tipoCombustible").value = combustibleSeleccionado;
+        document.getElementById("nombre").value = mostrarCategoria;
+        document.getElementById("marca").value = mostrarMarca;
+        document.getElementById("modelo").value = mostrarModelo;
+        document.getElementById("placa").value = mostrarPlaca;
+        document.getElementById("anio").value = mostrarAnio;
+        document.getElementById("color").value = mostrarColor;
+        document.getElementById("transmision").value = mostrarTransmision;
+        document.getElementById("precio_diario").value = mostrarPrecio;
+        document.getElementById("tipoCombustible").value = mostrarCombustible;
 
         $('#modal-editar').modal('show');
 
     });
     //BOTON EDITAR LA FOTO
-    $(document).on('click', '.btn-group .btn-warning', function () {
+    $(document).on('click', '.btn-group .btn-warning', function() {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
         let nombreTabla = 'servicios_adicionales';
@@ -85,7 +96,7 @@ $(document).ready(function () {
             url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
             method: "GET",
 
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             response.forEach(element => {
                 let informacion = {
@@ -113,7 +124,7 @@ $(document).ready(function () {
         });
     });
     //BOTON PARA ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
+    $(document).on('click', '.btn-group .btn-danger', function(evento) {
         idVehiculo = $(this).attr("name");
         fila = $(this).closest("tr");
 
@@ -135,7 +146,7 @@ $(document).ready(function () {
         })
     });
     //BOTON PARA ACTUALIZAR
-    $(document).on('click', '#btnActualizar', function (evento) {
+    $(document).on('click', '#btnActualizar', function(evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
@@ -144,7 +155,7 @@ $(document).ready(function () {
         }
     });
     //CUANDO EL MODAL SE CIERRA
-    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
+    $('#modal-imagenes').on('hidden.bs.modal', function(e) {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
@@ -157,7 +168,7 @@ $(document).ready(function () {
             "ajax": {
                 "url": URL_SERVIDOR + "vehiculo/vehiculos",
                 "method": "GET",
-                "dataSrc": function (json) {
+                "dataSrc": function(json) {
                     console.log(json.autos);
 
                     if (json.autos) {
@@ -166,10 +177,6 @@ $(document).ready(function () {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-secondary" data-toggle="modal"';
-                            html += '            data-target="#modal-ver">';
-                            html += '            <i class="fas fa-car" style="color: white"></i>';
-                            html += '        </button>';
                             html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
@@ -196,6 +203,9 @@ $(document).ready(function () {
                 }
             },
             columns: [
+                { data: "nombre" },
+                { data: "marca" },
+                { data: "modelo" },
                 { data: "placa" },
                 { data: "anio" },
                 { data: "precio_diario" },
@@ -205,6 +215,7 @@ $(document).ready(function () {
         });
 
     }
+
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
@@ -251,20 +262,21 @@ $(document).ready(function () {
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
 
     }
+
     function actualizar() {
         $('#loadingActualizar').show();
         let data = {
@@ -281,7 +293,7 @@ $(document).ready(function () {
             method: "PUT",
             timeout: 0,
             data: data
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
@@ -293,7 +305,7 @@ $(document).ready(function () {
                 $('#modal-editar').modal('hide');;
                 tabla.ajax.reload(null, false);
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             console.log(response);
 
             const Toast = Swal.mixin();
@@ -304,10 +316,11 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loadingActualizar').hide();
         });
     }
+
     function eliminar() {
         let data = {
             "idvehiculo": idVehiculo
@@ -319,7 +332,7 @@ $(document).ready(function () {
             method: "DELETE",
             timeout: 0,
             data: data
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
@@ -330,7 +343,7 @@ $(document).ready(function () {
             }).then((result) => {
                 tabla.ajax.reload(null, false);
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
 
             console.log(response);
             const Toast = Swal.mixin();
@@ -341,16 +354,17 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loadingActualizar').hide();
         });
     }
+
     function inicializarComboCategoria() {
         //COMBO DE CONTACTOS
         $.ajax({
             url: "http://localhost/API-REST-PHP/index.php/categoriasAutos/categorias",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.categorias) {
@@ -361,16 +375,14 @@ $(document).ready(function () {
                         text: lista[index].nombre
                     });
                 }
-                $('#comboCategoria').select2(
-                    { data: myData }
-                );
+                $('#comboCategoria').select2({ data: myData });
             } else {
                 $('#comboCategoria').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#comboCategoria').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loading').hide();
         });
     }

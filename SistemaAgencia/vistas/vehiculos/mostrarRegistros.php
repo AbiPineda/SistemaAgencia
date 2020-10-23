@@ -61,6 +61,9 @@
                                     <table id="tabla_vehiculos" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
+                                                <th>Categoria</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
                                                 <th>Placa</th>
                                                 <th>Año</th>
                                                 <th>Precio</th>
@@ -95,131 +98,6 @@
         </div>
         <!-- /.row -->
     </section>
-    <form id="mostrar" name="mostrar" role="form">
-        <!-- Modal mostrar-->
-        <div class="modal fade" id="modal-ver">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="overlay-wrapper">
-                        <div id="loadingActualizar" class="overlay">
-                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                            <div class="text-bold pt-2">Cargando...
-                            </div>
-                        </div>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Detalle del Vehiculo</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Categoria</label>
-                                        <div class="input-group">
-                                            <select name="comboCategoria" id="comboCategoria"
-                                                class="select2 select2-hidden-accessible form-control"
-                                                data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                            </select>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Marca</label>
-                                        <div class="input-group">
-                                            <input id="marca" name="marca" type="text" class="form-control">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Modelo</label>
-                                        <div class="input-group">
-                                            <input id="modelo" name="modelo" type="text" class="form-control">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Numero de Placa</label>
-                                        <div class="input-group">
-                                            <input id="placa" name="placa" type="text" class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Año</label>
-                                        <div class="input-group">
-                                            <input id="anio" name="anio" type="number" class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Color</label>
-                                        <div class="input-group">
-                                            <input id="color" name="color" type="text" class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Combustible</label>
-                                        <div class="input-group">
-                                            <input id="tipoCombustible" name="tipoCombustible" type="text"
-                                                class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Transmision</label>
-                                        <div class="input-group">
-                                            <input id="transmisionModal" name="transmisionModal" type="text"
-                                                class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Precio Diario</label>
-                                        <div class="input-group">
-                                            <input id="precio_diario" name="precio_diario" type="text"
-                                                class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
 </div>
 <!-- End Modal Mostrar-->
 </form>
@@ -246,7 +124,36 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Categoria</label>
+                                    <div class="input-group">
+                                        <input id="nombre" name="nombre" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
 
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Marca</label>
+                                    <div class="input-group">
+                                        <input id="marca" name="marca" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Modelo</label>
+                                    <div class="input-group">
+                                        <input id="modelo" name="modelo" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Numero de Placa</label>
@@ -261,6 +168,24 @@
                                     <label>Año</label>
                                     <div class="input-group">
                                         <input id="anio" name="anio" type="number" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Color</label>
+                                    <div class="input-group">
+                                        <input id="color" name="color" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Transmision</label>
+                                    <div class="input-group">
+                                        <input id="transmision" name="transmision" type="text" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
