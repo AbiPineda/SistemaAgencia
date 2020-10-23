@@ -65,9 +65,8 @@ $(document).ready(function() {
         mostrarAnio = fila.find('td:eq(4)').text();
         mostrarColor = fila.find('td:eq(5)').text();
         mostrarTransmision = fila.find('td:eq(6)').text();
-        mostrarPrecio = fila.find('td:eq(7)').text();
-        mostrarCombustible = fila.find('td:eq(8)').text();
-
+        mostrarCombustible = fila.find('td:eq(7)').text();
+        mostrarPrecio = fila.find('td:eq(8)').text();
 
         //MANDALOS LOS VALORES AL MODAL
         document.getElementById("nombre").value = mostrarCategoria;
@@ -77,8 +76,8 @@ $(document).ready(function() {
         document.getElementById("anio").value = mostrarAnio;
         document.getElementById("color").value = mostrarColor;
         document.getElementById("transmision").value = mostrarTransmision;
-        document.getElementById("precio_diario").value = mostrarPrecio;
         document.getElementById("tipoCombustible").value = mostrarCombustible;
+        document.getElementById("precio_diario").value = mostrarPrecio;
 
         $('#modal-editar').modal('show');
 
