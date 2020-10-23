@@ -36,8 +36,8 @@
                                                 '<label for="cars">Más de una Respuesta</label>'+
                                                 '<select name="mas_respuestas" id="mas_respuestas" class="form-control">'+
                                                     '<option disabled selected >Seleccione</option>'+
-                                                    '<option value="1">Si</option>'+
-                                                    '<option value="0">No</option>'+
+                                                    '<option value="Si">Si</option>'+
+                                                    '<option value="No">No</option>'+
 
                                                 '</select></div></div>'+
 

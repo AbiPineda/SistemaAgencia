@@ -7,7 +7,7 @@ include_once '../../plantillas/barra_lateral.php';
 
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
- <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"type="text/css" />
+ <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

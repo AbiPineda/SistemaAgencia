@@ -1,10 +1,8 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
+include_once '../../plantillas/cabecera.php';?>
+<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 
 <style>
@@ -15,6 +13,11 @@ include_once '../../plantillas/barra_lateral.php';
     width: 75%;
 }
 </style>
+<?php 
+include_once  '../../plantillas/navbar.php';
+include_once '../../plantillas/barra_lateral.php';
+?>
+
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -42,20 +45,19 @@ include_once '../../plantillas/barra_lateral.php';
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Datos Generales</h3>
+                        <h3 class="card-title">Datos de las preguntas</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_vehiculos" class="table table-bordered table-striped">
+                                    <table id="tabla_abiertas" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
-                                                <th>Placa</th>
-                                                <th>Año</th>
-                                                <th>Precio</th>
-                                                <th>Combustible</th>
+                                                <th>Pregunta</th>
+                                                <th>Más de una respuesta</th>
+                                                 <th>Rama</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -87,9 +89,9 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.row -->
     </section>
 
-    <form id="mostrar" name="mostrar" role="form">
+    <form id="editar" name="editar" role="form">
         <!-- Modal mostrar-->
-        <div class="modal fade" id="modal-ver">
+        <div class="modal fade" id="modal-editar">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
@@ -100,22 +102,21 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                         </div>
                         <div class="modal-header">
-                            <h4 class="modal-title">Detalle del Vehiculo</h4>
+                            <h4 class="modal-title">Detalle de la Pregunta</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
-
-                                <div class="col-sm-3">
+                                    <div class="col-sm-2"></div>
+                                <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label>Categoria</label>
+                                        <label>Rama de la Pregunta</label>
                                         <div class="input-group">
-                                            <select name="comboCategoria" id="comboCategoria"
-                                                class="select2 select2-hidden-accessible form-control"
-                                                data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                            </select>
+                                        <select name="id_rama" id="id_rama" class="form-control">
+                                            <option disabled selected >Seleccione</option>
+                                                </select>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -123,87 +124,43 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label>Marca</label>
+                                        <label>Pregunta</label>
                                         <div class="input-group">
-                                            <input id="marca" name="marca" type="text" class="form-control">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Modelo</label>
-                                        <div class="input-group">
-                                            <input id="modelo" name="modelo" type="text" class="form-control">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Numero de Placa</label>
-                                        <div class="input-group">
-                                            <input id="placa" name="placa" type="text" class="form-control" disabled>
+                                            <input id="pregunta" name="pregunta" type="text" class="form-control" autocomplete="off">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-7">
                                     <div class="form-group">
-                                        <label>Año</label>
+                                        <label>Mas de una respuesta</label>
                                         <div class="input-group">
-                                            <input id="anio" name="anio" type="number" class="form-control" disabled>
+                                           <select name="mas_respuestas" id="mas_respuestas" class="form-control">
+                                            <option disabled selected >Seleccione</option>
+                                                    <option value=Si>Si</option>
+                                                    <option value=No>No</option>
+
+                                                </select>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Color</label>
-                                        <div class="input-group">
-                                            <input id="color" name="color" type="number" class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Combustible</label>
-                                        <div class="input-group">
-                                            <input id="tipoCombustible" name="tipoCombustible" type="text"
-                                                class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Transmision</label>
-                                        <div class="input-group">
-                                            <input id="transmision" name="transmision" type="text" class="form-control"
-                                                disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label>Precio Diario</label>
-                                        <div class="input-group">
-                                            <input id="precio_diario" name="precio_diario" type="text"
-                                                class="form-control" disabled>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
+                                
                             </div>
 
                         </div>
+
+                         <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                            style="color: white">Actualizar</button>
+                    </div>
 
                     </div>
 
@@ -220,14 +177,12 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
-
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/tabla-abierta.js"></script>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
-
 <script>
 $(function() {
     $("#tabla_vehiculos1").DataTable({
@@ -237,3 +192,5 @@ $(function() {
 
 });
 </script>
+<!-- CIERRE DE ETIQUETAS -->
+<?php include_once '../../plantillas/cierre.php'; ?>
