@@ -68,6 +68,7 @@
                                                 <th>Año</th>
                                                 <th>Precio</th>
                                                 <th>Combustible</th>
+                                               
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -172,6 +173,8 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Color</label>
