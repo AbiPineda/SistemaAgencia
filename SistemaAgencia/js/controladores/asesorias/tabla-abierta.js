@@ -28,7 +28,7 @@ $(document).ready(function () {
    
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idVehiculo = $(this).attr("name");
+        idpregunta = $(this).attr("name");
         fila = $(this).closest("tr");
 
         const Toast = Swal.mixin();
@@ -197,12 +197,10 @@ $(document).ready(function () {
     }
     function eliminar() {
         let data = {
-            "idvehiculo": idVehiculo
+            "id_pregunta": idpregunta
         };
-        ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
-
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/eliminarVehiculo",
+            url: URL_SERVIDOR + "Asesoria/deletePregunta",
             method: "DELETE",
             timeout: 0,
             data: data
