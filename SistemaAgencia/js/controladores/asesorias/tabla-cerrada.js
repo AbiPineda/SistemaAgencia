@@ -49,6 +49,7 @@ $(document).ready(function () {
         //MANDALOS LOS VALORES AL MODAL
         document.getElementById("pregunta").value =pregunta;
         document.getElementById("id_rama").value=id_ramas;
+        document.getElementById("id_pregunta").value=id_pregunta;
 
         $('#modal-editar').modal('show');
 
@@ -79,11 +80,8 @@ $(document).ready(function () {
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#editar");
-        form.validate();
-        if (form.valid()) {
+       
             actualizar();
-        }
     });
    
 
@@ -182,19 +180,11 @@ $(document).ready(function () {
     }
     function actualizar() {
         $('#loadingActualizar').show();
-        let data = {
-            "id_pregunta": id_pregunta,
-            "pregunta": document.getElementById("pregunta").value,
-            "mas_respuestas": document.getElementById("mas_respuestas").value,
-            "id_rama": document.getElementById("id_rama").value
-
-        };
-        ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/updatePregunta",
+            url: URL_SERVIDOR + "Asesoria/updateCerrada",
             method: "POST",
             timeout: 0,
-            data: data
+            data:$('#register-form').serialize()
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
@@ -222,6 +212,8 @@ $(document).ready(function () {
             $('#loadingActualizar').hide();
         });
     }
+
+
     function eliminar() {
         let data = {
             "id_pregunta": idpregunta

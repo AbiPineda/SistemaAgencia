@@ -101,7 +101,7 @@ include_once '../../plantillas/barra_lateral.php';
                 <div class="modal-header"> 
                     <h4 class="modal-tittle">Detalle de la Pregunta</h4> 
                 </div> 
-                <form class="form-horizontal" role="form" id="form-crear">
+                <form  id="register-form" name="register-form" onsubmit="return false">
                     <div class="modal-body">
 
                     	 <div class="row">
@@ -125,8 +125,10 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Pregunta</label>
                                         <div class="input-group">
-                                            <input id="pregunta" name="pregunta" type="text" class="form-control" autocomplete="off">
+                                            <input id="pregunta" name="pregunta" type="text" class="form-control" autocomplete="off"><br>
+                                           
                                         </div>
+                                         <input id="id_pregunta" name="id_pregunta" type="hidden">
                                         <!-- /.input group -->
                                     </div>
                                 </div>
