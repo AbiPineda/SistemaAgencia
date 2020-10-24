@@ -1,36 +1,46 @@
 $(document).ready(function () {
     let explorer = $("#kv-explorer");
     let ListaDatos;
-    let idSerevicio;
+    let idSeleccionado;
     let tabla;
     inicializarValidaciones();
     inicializarTabla();
-    inicializarCombo();
+    inicializarComboTipo();
+    inicializarComboContacto();
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
-        $('#loadingActualizar').hide();
-        idSerevicio = $(this).attr("name");
-        fila = $(this).closest("tr");
+        $('#loadingActualizar').show();
+        idSeleccionado = $(this).attr("name");
 
-
-        tipoSeleccionado = fila.find('td:eq(0)').text();
-        nombreSeleccionado = fila.find('td:eq(1)').text();
-        descripcionSeleccionada = fila.find('td:eq(2)').text();
-        costoSeleccionado = fila.find('td:eq(3)').text();
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("nombre").value = nombreSeleccionado;
-        document.getElementById("costos_defecto").value = costoSeleccionado;
-        document.getElementById("descripcion_servicio").value = descripcionSeleccionada;
-        for (let index = 0; index < ListaDatos.length; index++) {
-            if (ListaDatos[index].text == tipoSeleccionado) {
-                $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
-                $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
-                break;
+        $.ajax({
+            url: URL_SERVIDOR + "SitioTuristico/show?id_sitio_turistico=" + idSeleccionado,
+            method: "GET"
+        }).done(function (response) {
+            let lista = response.sitios;
+            if (lista) {
+                //MANDALOS LOS VALORES AL MODAL
+                document.getElementById("nombre").value = lista[0].nombre;
+                document.getElementById("precio_sitio").value = lista[0].precio_sitio;
+                document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
+                document.getElementById("descripcion").value = lista[0].descripcion;
+                document.getElementById("ComboTipo").value = response.sitios[0].tipo;
+                $('#ComboTipo').trigger('change');
+                document.getElementById("contacto_servicio").value = response.sitios[0].id_contacto;
+                $('#contacto_servicio').trigger('change');
             }
-        }
-        $('#modal-editar').modal('show');
+        }).fail(function (response) {
+            console.log(response);
+        }).always(function (xhr, opts) {
+            $('#modal-editar').modal('show');
+            $('#loadingActualizar').hide();
+        });;
+
+
+
+
+
+
 
     });
     //BOTON EDITAR LA FOTO
@@ -98,7 +108,7 @@ $(document).ready(function () {
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#miFormulario");
+        let form = $("#formularioEditar");
         form.validate();
         if (form.valid()) {
             actualizar();
@@ -109,6 +119,12 @@ $(document).ready(function () {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
+    //BOTON DE COORDENADAS
+    $(document).on('click', '#btn-mapa', function (evento) {
+        $('#coordenadas').val("13.645382, -88.870769");
+        $("#coordenadas-error").hide();
+        $("#coordenadas").removeClass("is-invalid");
+    });
 
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
@@ -119,7 +135,6 @@ $(document).ready(function () {
                 "url": URL_SERVIDOR + "SitioTuristico/show",
                 "method": "GET",
                 "dataSrc": function (json) {
-                    console.log(json);
                     //PARA CONPROVAR QUE EL SERVICIO EXISTE
                     if (json.sitios) {
                         for (let i = 0, ien = json.sitios.length; i < ien; i++) {
@@ -143,10 +158,18 @@ $(document).ready(function () {
                             html += '</td>';
                             json.sitios[i]["botones"] = html;
 
+                            let html2 = "";
+                            html2 += '<div> <a class="ocultar-imagen" href="#">' + json.sitios[i]["contactoN"] + '<img class="ocultar"';
+                            html2 += 'src="' + json.sitios[i]["url"] + '">';
+                            html2 += '</a>';
+                            html2 += '</div>';
+                            json.sitios[i]["contactoN"] = html2;
+
+
                         }
                         $('#loading').hide();
-                         return json.sitios;
-                   
+                        return json.sitios;
+
 
                     } else {
                         $('#loading').hide();
@@ -165,38 +188,6 @@ $(document).ready(function () {
             ]
         });
 
-    }
-    function inicializarCombo() {
-        //Initialize Select2 Elements
-        ListaDatos = [
-            {
-                "id": 1,
-                "text": "Vehiculo"
-            }, {
-                "id": 2,
-                "text": "Guia Turistico"
-            }, {
-                "id": 3,
-                "text": "Busero"
-            },
-            {
-                "id": 4,
-                "text": "Taxista"
-            },
-            {
-                "id": 5,
-                "text": "Cocinero"
-            },
-            {
-                "id": 6,
-                "text": "Payaso"
-            }
-        ];
-        $('#tipo_servicio').select2(
-            {
-                data: ListaDatos
-            }
-        );
     }
     function inicializarValidaciones() {
         $('#miFormulario').validate({
@@ -258,24 +249,23 @@ $(document).ready(function () {
     }
     function actualizar() {
         $('#loadingActualizar').show();
-        tipoSeleccionado = "";
-        tipo = document.getElementById("tipo_servicio").value;//esto captura el id, y lo que yo quiero guardar es el texto
-        for (let index = 0; index < ListaDatos.length; index++) {
-            if (tipo == ListaDatos[index].id) {
-                tipoSeleccionado = ListaDatos[index].text;
-            }
-        }
+        let myCoordnada = document.getElementById("coordenadas").value;
+        myCoordnada = myCoordnada.split(', ');
+
         let data = {
-            "id_servicios": idSerevicio,
+            "id_sitio_turistico": idSeleccionado,
             "nombre": document.getElementById("nombre").value,
-            "costos_defecto": document.getElementById("costos_defecto").value,
-            "descripcion_servicio": document.getElementById("descripcion_servicio").value,
-            "tipo_servicio": tipoSeleccionado
+            "longitud": myCoordnada[1],
+            "latitud": myCoordnada[0],
+            "descripcion": document.getElementById("descripcion").value,
+            "tipo": document.getElementById("ComboTipo").value,
+            "informacion_contacto": document.getElementById("contacto_servicio").value,
+            "precio_sitio": document.getElementById("precio_sitio").value,
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "ServiciosAdicionales/update",
+            url: URL_SERVIDOR + "SitioTuristico/update",
             method: "PUT",
             timeout: 0,
             data: data
@@ -289,7 +279,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 $('#modal-editar').modal('hide');;
-                tabla.ajax.reload(null, false);
+                //tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
             console.log(response);
@@ -303,7 +293,7 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $('#loadingActualizar').hide();
+          //  $('#loadingActualizar').hide();
         });
     }
     function eliminar() {
@@ -341,6 +331,49 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
+        });
+    }
+    function inicializarComboTipo() {
+        dataTipo = [
+            { id: 1, text: "Montaña" },
+            { id: 2, text: "Reserva Natural" },
+            { id: 3, text: "Parque Nacional" },
+            { id: 4, text: "Restaurante" },
+            { id: 5, text: "Shows Artitisticos" },
+            { id: 6, text: "Hotel" },
+            { id: 7, text: "Otros" },
+        ];
+        $('#ComboTipo').select2(
+            { data: dataTipo });
+
+    }
+    function inicializarComboContacto() {
+        //COMBO DE CONTACTOS
+        $.ajax({
+            url: URL_SERVIDOR + "Contacto/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.contactos) {
+                let lista = response.contactos;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_contacto,
+                        text: lista[index].nombre
+                    });
+                }
+                $('#contacto_servicio').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#contacto_servicio').select2();
+            }
+        }).fail(function (response) {
+            $('#contacto_servicio').select2();
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
         });
     }
 });

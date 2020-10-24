@@ -147,7 +147,6 @@
         <!-- End Modal EDITAR-->
     </form>
 
-
     <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
         <!-- Modal EDITAR-->
         <div class="modal fade" id="modal-imagenes">

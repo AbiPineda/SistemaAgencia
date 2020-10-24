@@ -174,8 +174,6 @@
             </div>
         </form>
     </section>
-
-
     <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
         <div class="modal fade" id="modal-agregar">
             <!-- Modal EDITAR-->

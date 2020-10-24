@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
+<link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -72,7 +74,7 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-    <form id="miFormulario" name="miFormulario" role="form">
+    <form id="formularioEditar" name="formularioEditar" role="form">
         <!-- Modal EDITAR-->
         <div class="modal fade" id="modal-editar">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -85,7 +87,7 @@
                             </div>
                         </div>
                         <div class="modal-header">
-                            <h4 class="modal-title">Modificar Servicio</h4>
+                            <h4 class="modal-title">Modificar Sitio</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -94,43 +96,76 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label>Tipo de Servicio</label>
-                                        <select name="tipo_servicio" id="tipo_servicio"
-                                            class="select2 select2-hidden-accessible form-control float-righ"
-                                            data-placeholder="Seleccione el tipo" style="width: 100%;"
-                                            data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                        </select>
+                                        <label>Nombre del sitio turístico</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="nombre" id="nombre">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Precio</label>
+                                        <div class="input-group">
+                                            <input type="number" min="0" class=" form-control" name="precio_sitio"
+                                                id="precio_sitio">
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label>Nombre de Servicio</label>
-                                        <div class="input-group">
-                                            <input id="nombre" name="nombre" type="text" class="form-control">
-                                        </div>
-                                        <!-- /.input group -->
+                                        <label>Tipo</label>
+                                        <select name="ComboTipo" id="ComboTipo"
+                                            class="select2 select2-hidden-accessible form-control"
+                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- text input -->
                                     <div class="form-group">
-                                        <label>Costo promedio</label>
+                                        <label>Coordenadas</label>
                                         <div class="input-group">
-                                            <input id="costos_defecto" name="costos_defecto" type="number"
-                                                class="form-control">
+                                            <input disabled type="text" class="form-control" name="coordenadas"
+                                                id="coordenadas">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
+                                <div class="col-sm-1">
+                                    <br>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-success btn-add" name="btn-mapa"
+                                            style="margin-top: 10px; width: 100%;" id="btn-mapa">
+                                            <i class="fas fa-globe" style="color: white"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group multiple-form-group input-group">
+                                        <label>Contacto</label>
+
+                                        <div class="input-group">
+                                            <select name="contacto_servicio" id="contacto_servicio"
+                                                class="select2 select2-hidden-accessible form-control"
+                                                data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <!-- text input -->
                                     <div class="form-group">
                                         <label>Descripcion del Servicio</label>
-                                        <textarea name="descripcion_servicio" id="descripcion_servicio"
-                                            class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
+                                        <textarea name="descripcion" id="descripcion" class="form-control" rows="3"
+                                            placeholder="Digitar aquí ..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +183,6 @@
         </div>
         <!-- End Modal EDITAR-->
     </form>
-
 
     <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
         <!-- Modal EDITAR-->
@@ -175,6 +209,10 @@
         </div>
         <!-- End Modal EDITAR-->
     </form>
+
+
+
+
 
 </div>
 
