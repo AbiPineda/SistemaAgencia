@@ -116,7 +116,7 @@ include_once '../../plantillas/barra_lateral.php';
 
     </section>
     <!-- /.content -->
-    <div class="modal fade" id="modal-editar">
+    <div class="modal fade" id="modal-opciones">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

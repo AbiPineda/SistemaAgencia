@@ -27,7 +27,7 @@
                                         
                                             '<div class="form-group">'+
                                                 '<label for="cars">Digite la Pregunta</label>'+
-                                                '<input id="input_abierta" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control">'+
+                                                '<input id="input_abierta" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control">'+
                                                  '<input id="rama" name="id_rama" type="hidden">'+
                                                  '<input  value="abierta" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-6">'+
@@ -71,7 +71,7 @@
                                          
                                         '<div class="col-lg-6">'+
                                             '<div class="form-group"><label for="cars">Digite la Pregunta</label>'+
-                                             '<input id="input_cerrada" name="pregunta" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
+                                             '<input id="input_cerrada" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
                                             '<input id="rama" name="id_rama" type="hidden">'+
                                             '<input  value="cerrada" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-4">'+
@@ -81,7 +81,7 @@
                                                     '<option>Si</option>'+
                                                     '<option>No</option>'+
                                                     '</select></div>'+
-                                                    '<button type="button" name="" class="btn btn-success" data-toggle="modal" data-target="#modal-editar">'+
+                                                    '<button type="button" name="" class="btn btn-success" data-toggle="modal" data-target="#modal-opciones">'+
                                                  '<i class="fas fa-edit" style="color: white"></i>'+
                                                 'Agregar opciones</button></div>'+
                                             '<div class="col-lg-1"></div></div></form></div></div>');

@@ -12,7 +12,7 @@ $(document).ready(function () {
     if ($('#opcion').val().length != 0) {
     var $seleccionadas = $("<option></option>").val(valor).text(valor); 
     $('#combo_cerrada').append($seleccionadas).trigger('change');
-    $('#opcion').val('')
+    //$('#opcion').val('')
     $('#modal-opciones').modal('hide');
   }else{
     const Toast = Swal.mixin();
