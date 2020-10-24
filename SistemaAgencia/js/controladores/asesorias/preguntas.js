@@ -8,18 +8,16 @@ $(document).ready(function() {
             success: function(data) {
 
                 for (let i = 0, ien = data.preguntas.length; i < ien+1; i++) {
-                    alert('paso');
+                   // alert('paso');
                     var $select = $('#custom-tabs-one-'+data.preguntas[i].num_rama);
                      $select.append('<div class="row">'+
+                                        '<div class="col-lg-6">'+
+                                             '<label>'+data.preguntas[i].pregunta+'</label>'+ 
+                                        '</div>'+
                                      '<div class="col-lg-6">'+
-                                        '<div class="form-group">'+
-                                        '<label>'+data.preguntas[i].pregunta+'</label>'+
-                                        '<input type="text"class="form-control">'+
-                                              '</div>'+
+                                        '<input type="text"class="form-control" placeholder="Digite su respuesta">'+
                                             '</div>'+
-                                        '</div');
-
-
+                                        '</div>');
                 }
             },
             error: function(err) {

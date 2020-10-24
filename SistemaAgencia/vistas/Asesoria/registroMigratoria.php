@@ -63,18 +63,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
-
-                                    
                                 </div><!--fin de una pestaña-->
-
-                                    
-                                             <!--<div style="text-align: right;width:577px;margin-top:-8px;">
-                                      <a class="btn btn-primary btn-sm" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-
-                                    </div>
-                                    </div>-->
-
                                 </div>
 
 
