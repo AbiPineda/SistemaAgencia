@@ -2,9 +2,10 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-    type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <style>
 .center {
     display: block;
@@ -88,26 +89,22 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.row -->
     </section>
 
-    <form id="editar" name="editar" role="form">
-        <!-- Modal mostrar-->
-        <div class="modal fade" id="modal-editar">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
 
-                    <div class="overlay-wrapper">
-                        <div id="loadingActualizar" class="overlay">
+    <div id="modal-editar" class="modal fade" role="dialog" style="overflow-y: scroll;"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+            	 <div id="loadingActualizar" class="overlay">
                             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
                             <div class="text-bold pt-2">Cargando...
                             </div>
-                        </div>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Detalle de la Pregunta</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
+                 </div>
+                <div class="modal-header"> 
+                    <h4 class="modal-tittle">Detalle de la Pregunta</h4> 
+                </div> 
+                <form class="form-horizontal" role="form" id="form-crear">
+                    <div class="modal-body">
+
+                    	 <div class="row">
                                     <div class="col-sm-2"></div>
                                 <div class="col-sm-7">
                                     <div class="form-group">
@@ -144,26 +141,63 @@ include_once '../../plantillas/barra_lateral.php';
                                                
                                            </select>
                                         </div>
+                                        <button type="button" name="" class="btn btn-success"id="add"><i class="fas fa-edit" style="color: white"></i>Agregar opciones</button>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
                                 
                             </div>
-
-                        </div>
-
-                         <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                         </div>
+                    <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                   <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
                             style="color: white">Actualizar</button>
                     </div>
-
-                    </div>
-
-                </div>
+                </form>
             </div>
-            <!-- /.modal-content -->
         </div>
+    </div>
+
+    <div id="modal-opciones" class="modal fade" role="dialog"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+            	<div class="modal-header"> 
+                    <h4 class="modal-tittle">Agregar opciones</h4> 
+                </div>
+
+                <div class="modal-body">
+                	<div class="row">
+                      <div class="col-sm-1"></div>
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label>Opciones de respuestas</label>
+                                        <div class="input-group">
+                                            <input id="opcion" name="opcion" type="text" class="form-control" autocomplete="off" placeholder="Digite la opción">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                      </div>
+                  </div>
+
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm"
+                            style="color: white">agregar</button>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).on('click', '#add', function() {
+        $('#modal-opciones').modal('show');
+    });
+    </script>
+
+
+    <!----/********************-->        
+</div>
         <!-- /.modal-dialog -->
 </div>
 <!-- End Modal Mostrar-->
@@ -175,6 +209,7 @@ include_once '../../plantillas/barra_lateral.php';
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/tabla-cerrada.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/agregar-opciones.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>

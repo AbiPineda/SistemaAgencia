@@ -13,7 +13,7 @@ $(document).ready(function () {
     var $seleccionadas = $("<option></option>").val(valor).text(valor); 
     $('#combo_cerrada').append($seleccionadas).trigger('change');
     $('#opcion').val('')
-    $('#modal-editar').modal('hide');
+    $('#modal-opciones').modal('hide');
   }else{
     const Toast = Swal.mixin();
             Toast.fire({

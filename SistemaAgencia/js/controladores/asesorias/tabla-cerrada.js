@@ -105,7 +105,7 @@ $(document).ready(function () {
                             html += '<td>';
                             html += '    <div class="btn-group">';
                             html += '        <button type="button" name="' + json.preguntas[i].id_pregunta+'" id="' + json.preguntas[i].id_rama+'" class="btn btn-primary" data-toggle="modal"';
-                            html += '            data-target="#modal-editar">';
+                            html += '         data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.preguntas[i].id_pregunta+ '" class="btn btn-danger" data-toggle="modal"';
