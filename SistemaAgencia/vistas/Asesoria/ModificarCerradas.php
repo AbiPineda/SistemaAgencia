@@ -53,7 +53,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_abiertas" class="table table-bordered table-striped">
+                                    <table id="tabla_cerrradas" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
                                                 <th>Pregunta</th>

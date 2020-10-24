@@ -20,7 +20,7 @@ $(document).ready(function () {
 
         //PETICION AJAX PARA EL COMBO
          //COMBO DE TIPOS 
-        //$('#combo_cerrada').empty();
+        $('#combo_cerrada').empty();
         //COMBO DE CONTACTOS
         $('#combo_cerrada').select2();
         $.ajax({
@@ -32,7 +32,7 @@ $(document).ready(function () {
             if (response.preguntas) {
                 let lista = response.preguntas;
                 for (let index = 0; index < lista.length; index++) {
-                var $seleccionadas = $("<option selected></option>").val(lista[index].id_pregunta).text(lista[index].opciones_respuestas); 
+                var $seleccionadas = $("<option selected></option>").val(lista[index].opciones_respuestas).text(lista[index].opciones_respuestas); 
                  $('#combo_cerrada').append($seleccionadas).trigger('change');
                //document.getElementById("combo_cerrada").value=lista[index].opciones_respuestas;
                 }
@@ -86,7 +86,7 @@ $(document).ready(function () {
    
 
     function inicializarTabla() {
-        tabla = $("#tabla_abiertas").DataTable({
+        tabla = $("#tabla_cerrradas").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
