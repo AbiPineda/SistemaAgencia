@@ -284,13 +284,13 @@
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/Asesoria/ModificarAbiertas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Modificar Preguntas Abiertas</p>
+                                <p>Preguntas Abiertas</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/Asesoria/ModificarCerradas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Modificar Preguntas Cerradas</p>
+                                <p>Preguntas Cerradas</p>
                             </a>
                         </li>
                     </ul>

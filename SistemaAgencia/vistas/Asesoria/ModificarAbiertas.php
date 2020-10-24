@@ -183,14 +183,5 @@ include_once '../../plantillas/barra_lateral.php';
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script>
-$(function() {
-    $("#tabla_vehiculos1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
-
-});
-</script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

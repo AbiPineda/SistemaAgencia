@@ -80,9 +80,10 @@
                                                 '<select class="select2" name="opcion_respuesta[]" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">'+
                                                     '<option>Si</option>'+
                                                     '<option>No</option>'+
-                                                    '<option>Tal Vez</option>'+
-                                                    '<option>Pueda ser</option>'+
-                                                    '<option>Lo pensare</option></select></div></div>'+
+                                                    '</select></div>'+
+                                                    '<button type="button" name="" class="btn btn-success" data-toggle="modal" data-target="#modal-editar">'+
+                                                 '<i class="fas fa-edit" style="color: white"></i>'+
+                                                'Agregar opciones</button></div>'+
                                             '<div class="col-lg-1"></div></div></form></div></div>');
 
             $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
@@ -99,7 +100,7 @@
                $('.select2').select2();
                $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-cerrada-app.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
-           }
+           }    $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/agregar-opciones.js">');
 
            if (selected=='Rama') {
 

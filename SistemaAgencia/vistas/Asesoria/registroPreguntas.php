@@ -116,6 +116,39 @@ include_once '../../plantillas/barra_lateral.php';
 
     </section>
     <!-- /.content -->
+    <div class="modal fade" id="modal-editar">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Agregar opciones</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-sm-1"></div>
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label>Opciones de respuestas</label>
+                                        <div class="input-group">
+                                            <input id="opcion" name="opcion" type="text" class="form-control" autocomplete="off" placeholder="Digite la opción">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm"
+                            style="color: white">agregar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
 </div>
 <!-- /.content-wrapper -->
 
