@@ -12,9 +12,8 @@
 }
 </style>
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
-<?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
-
-
+<?php include_once  '../../plantillas/navbar.php'; ?> 
+<?php include_once '../../plantillas/barra_lateral.php'; ?>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -50,6 +49,8 @@
                                 data-target="#modal-modelo">Nuevo Modelo</a>
                             <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
                                 data-target="#modal-categoria">Nueva Categoria</a>
+                            <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
+                                data-target="#modal-transmision">Nueva Transmisión</a>
 
                         </div>
                     </div>
@@ -68,7 +69,6 @@
                                                 <th>Año</th>
                                                 <th>Precio</th>
                                                 <th>Combustible</th>
-
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -259,7 +259,6 @@
 
 
 
-</div>
 
 
 
@@ -271,66 +270,7 @@
 
 
 
-<!-- /.MODALES DE BOTONES PARA INSERTAR -->
-<div class="modal fade" id="modal-marca">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form id="register-form" name="register-form" onsubmit="return false">
-                <div class="modal-body">
-                    <p>
-                        <!-- Main content -->
-                    <section class="content">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="timeline">
-
-                                    <div>
-                                        <i class="fas fa-car bg-blue"></i>
-                                        <div class="timeline-item">
-
-                                            <h3 class="timeline-header"><a href="#">Registrar Marca</a> </h3>
-
-                                            <div class="timeline-body">
-                                                <!-- INICIO de primera fila -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <!-- text input -->
-                                                        <div class="form-group">
-                                                            <label>Nombre de Marca</label>
-                                                            <input type="text" name="marca" class="form-control"
-                                                                placeholder="Digite nombre de marca">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="timeline-footer" style="text-align: right;">
-                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                                    id="btnAgregar">Guardar</a>
-                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <p>
-                </div>
-
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.Cierre de MODAL MARCA -->
 
 
 <!-- /.MODALES DE BOTONES PARA INSERTAR -->
@@ -462,7 +402,7 @@
                     </section>
                     <p>
                 </div>
-
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -471,6 +411,70 @@
 <!-- /.Cierre de MODAL CATEGORIA -->
 
 
+
+<div class="modal fade" id="modal-transmision">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="timeline">
+
+                                <div>
+                                    <i class="fas fa-car bg-blue"></i>
+                                    <div class="timeline-item">
+
+                                        <h3 class="timeline-header"><a href="#">Registrar Transmisión</a> </h3>
+                                        <form id="register-form" name="register-form" onsubmit="return false">
+
+                                            <div class="timeline-body">
+                                                <!-- INICIO de primera fila -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Nombre de Transmisión</label>
+                                                            <input type="text" class="form-control" name="transmision"
+                                                                placeholder="Digite nombre de transmisión">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="timeline-footer" style="text-align: right;">
+                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                                    id="btnTransmision">Guardar</a>
+                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <p>
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.Cierre de MODAL transmision -->
+<?php include_once './modal-marca.php';?>
 <?php  include_once '../../plantillas/footer.php';?>
 
 <!-- SCRIPT ADICIONALES -->
@@ -479,6 +483,7 @@
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/modelo-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/categoria-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/transmision-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
