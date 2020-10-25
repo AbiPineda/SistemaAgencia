@@ -1,5 +1,4 @@
-<!-- /.MODALES DE BOTONES PARA INSERTAR -->
-<div class="modal fade" id="modal-marca">
+<div class="modal fade" id="modal-modelo">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,7 +20,7 @@
                                     <i class="fas fa-car bg-blue"></i>
                                     <div class="timeline-item">
 
-                                        <h3 class="timeline-header"><a href="#">Registrar Marca</a> </h3>
+                                        <h3 class="timeline-header"><a href="#">Registrar Modelo</a> </h3>
                                         <form id="register-form" name="register-form" onsubmit="return false">
                                             <div class="timeline-body">
                                                 <!-- INICIO de primera fila -->
@@ -29,18 +28,23 @@
                                                     <div class="col-sm-12">
                                                         <!-- text input -->
                                                         <div class="form-group">
-                                                            <label>Nombre de Marca</label>
-                                                            <input type="text" name="marca" class="form-control"
-                                                                placeholder="Digite nombre de marca">
+                                                            <label>Seleccione Marca</label>
+                                                            <select name="id_marca" id="comboMarca"
+                                                                class="form-control">
+                                                                <option disabled="" selected="">Seleccione</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Nombre de Modelo</label>
+                                                            <input type="text" class="form-control" name="modelo"
+                                                                id="modelo" placeholder="Digite nombre de modelo">
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                             <div class="timeline-footer" style="text-align: right;">
                                                 <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                                    id="btnAgregar">Guardar</a>
+                                                    id="btnModelo">Guardar</a>
                                                 <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                             </div>
                                         </form>
@@ -58,5 +62,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.Cierre de MODAL MARCA -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+<!-- /.Cierre de MODAL MODELO -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/modelo-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
