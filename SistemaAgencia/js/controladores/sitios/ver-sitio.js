@@ -47,11 +47,11 @@ $(document).ready(function () {
     $(document).on('click', '.btn-group .btn-warning', function () {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
-        let nombreTabla = 'servicios_adicionales';
+        let nombreTabla = 'sitio_turistico';
         let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
         let urlFotos = [];
         let infoFotos = [];
-
+        console.log(identificador);
         $.ajax({
             url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
             method: "GET",
@@ -85,8 +85,7 @@ $(document).ready(function () {
     });
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idSerevicio = $(this).attr("name");
-        fila = $(this).closest("tr");
+        idSeleccionado = $(this).attr("name");
 
         const Toast = Swal.mixin();
         Swal.fire({
@@ -99,7 +98,6 @@ $(document).ready(function () {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Sí, eliminar!'
         }).then((result) => {
-            console.log(result);
             if (result.value) {
                 eliminar();
             }
@@ -279,7 +277,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 $('#modal-editar').modal('hide');;
-                //tabla.ajax.reload(null, false);
+                tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
             console.log(response);
@@ -293,17 +291,17 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-          //  $('#loadingActualizar').hide();
+            //  $('#loadingActualizar').hide();
         });
     }
     function eliminar() {
         let data = {
-            "id_servicios": idSerevicio
+            "id_sitio_turistico": idSeleccionado
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 
         $.ajax({
-            url: URL_SERVIDOR + "ServiciosAdicionales/elimination",
+            url: URL_SERVIDOR + "SitioTuristico/elimination",
             method: "DELETE",
             timeout: 0,
             data: data
