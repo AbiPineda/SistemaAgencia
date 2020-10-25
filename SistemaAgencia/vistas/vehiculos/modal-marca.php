@@ -1,3 +1,6 @@
+
+ <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+
 <!-- /.MODALES DE BOTONES PARA INSERTAR -->
 <div class="modal fade" id="modal-marca">
     <div class="modal-dialog">
@@ -59,4 +62,3 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.Cierre de MODAL MARCA -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
