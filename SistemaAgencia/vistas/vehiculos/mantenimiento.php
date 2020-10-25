@@ -38,12 +38,12 @@ include_once '../../plantillas/barra_lateral.php';
                     <div>
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 12:05</span>
-                            <h3 class="timeline-header"><a href="#">Datos Generales:</a> Vehiculos Registrados</h3>
+                            
+                            <h3 class="timeline-header"><a href="#">Datos Generales:</a> Registrado de Mantenimiento</h3>
 
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Vehiculo</label>
                                             <select class="form-control">
@@ -56,7 +56,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Numero de Placa</label>
                                             <select class="form-control">
@@ -68,19 +68,27 @@ include_once '../../plantillas/barra_lateral.php';
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Fecha</label>
                                             <input type="date" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-8">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Lugar</label>
                                             <input type="text" class="form-control"
-                                                placeholder="Digite nombre del Lugar">
+                                                placeholder="Digite nombre del lugar donde realizo el mantenimiento">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Precio de Mantenimiento</label>
+                                            <input type="number" class="form-control"
+                                                min="0">
                                         </div>
                                     </div>
                                 </div>
@@ -92,9 +100,9 @@ include_once '../../plantillas/barra_lateral.php';
                     <!-- END timeline item -->
                     <!-- timeline item -->
                     <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-wrench bg-green"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
+                          
                             <h3 class="timeline-header no-border"><a href="#">Servicios Realizados</a></h3>
                             <div class="timeline-body">
                                 <div class="row">
@@ -111,7 +119,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group clearfix">
                                             <div class="icheck-success d-inline">
                                                 <input type="checkbox" checked id="checkboxSuccess1">
-                                                <label for="checkboxSuccess1">Reemplazo de Llanta
+                                                <label for="checkboxSuccess1"> Limpieza de Filtros
                                                 </label>
                                             </div>
                                         </div>
@@ -120,7 +128,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group clearfix">
                                             <div class="icheck-danger d-inline">
                                                 <input type="checkbox" checked id="checkboxDanger1">
-                                                <label for="checkboxDanger1">Lavado
+                                                <label for="checkboxDanger1"> Lavado
                                                 </label>
                                             </div>
                                         </div>
@@ -130,11 +138,49 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                     </div>
                     <!-- END timeline item -->
+                    <div>
+                        <i class="fas fa-car-crash bg-red"></i>
+                        <div class="timeline-item">
+                          
+                            <h3 class="timeline-header no-border"><a href="#">Cambio de Piezas</a></h3>
+                            <div class="timeline-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary2" checked>
+                                                <label for="checkboxPrimary2"> Reemplazo de Llanta
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-success d-inline">
+                                                <input type="checkbox" checked id="checkboxSuccess2">
+                                                <label for="checkboxSuccess2"> Reemplazo de Frenos
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-danger d-inline">
+                                                <input type="checkbox" checked id="checkboxDanger2">
+                                                <label for="checkboxDanger2"> Reemplazo de Luces
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- timeline item -->
                     <div>
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
+                        
                             <h3 class="timeline-header"><a href="#">Comentarios</a> Incidentes que ocurren durante el
                                 mantenimiento</h3>
                             <div class="timeline-body">
@@ -142,7 +188,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <textarea class="form-control" rows="3"
-                                                placeholder="Describir insidentes"></textarea>
+                                                placeholder="Describir incidentes"></textarea>
                                         </div>
                                     </div>
                                 </div>
