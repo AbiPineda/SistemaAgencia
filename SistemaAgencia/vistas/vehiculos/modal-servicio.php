@@ -29,7 +29,7 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Nombre de Servicio</label>
-                                                            <input type="text" name="nombre_servicio"
+                                                            <input type="text" name="nombre_servicio" id="nombre_servicio"
                                                                 class="form-control"
                                                                 placeholder="Digite nombre de servicio">
                                                         </div>
@@ -38,7 +38,7 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Precio</label>
-                                                            <input type="text" name="precio"
+                                                            <input type="text" name="precio" id="precio"
                                                                 class="form-control"
                                                                 placeholder="Digite precio">
                                                         </div>
@@ -47,7 +47,7 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Descripción</label>
-                                                            <textarea class="form-control" rows="3" name="descripcion"
+                                                            <textarea class="form-control" rows="3" name="descripcion" id="descripcion"
                                                                 placeholder="Describir.."></textarea>
                                                         </div>
                                                     </div>
@@ -77,4 +77,3 @@
 
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarServicios.js"></script>
-<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
