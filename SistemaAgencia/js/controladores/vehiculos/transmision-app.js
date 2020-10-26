@@ -10,7 +10,7 @@ $("#btnGuardar").on('click', function(e) {
 
         $("#modal-transmision").modal('toggle');
 
-        document.getElementById("register-form").reset();
+      //  document.getElementById("register-form").reset();
 
         const Toast = Swal.mixin();
         Toast.fire({

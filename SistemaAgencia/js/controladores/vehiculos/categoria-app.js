@@ -1,16 +1,20 @@
 $("#btnCategoria").on('click', function(e) {
 
     e.preventDefault();
+    let myData = {
+        "nombre": document.getElementById("nombreCategoria").value,
+        "descripcion":document.getElementById("descripcionCategoria").value 
+    };
     $.ajax({
         url: URL_SERVIDOR + "categoriasAutos/categorias",
         method: 'POST',
-        data: $("#categoria").serialize()
+        data: myData
 
     }).done(function(response) {
 
         $("#modal-categoria").modal('toggle');
 
-        document.getElementById("register-form").reset();
+        //document.getElementById("register-form").reset();
 
         const Toast = Swal.mixin();
         Toast.fire({
