@@ -64,7 +64,9 @@ include_once '../../plantillas/barra_lateral.php';
                             <div class="card-body">
                                  <form class="form-inline" role="form">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
-                                        <!--<div class="form-group" id="1"> 
+                                       <!-- <div class="form-group" id="1"> 
+                                         <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
+                                         <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
                                          <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
                                           
@@ -72,27 +74,19 @@ include_once '../../plantillas/barra_lateral.php';
 
                                          <div class="form-group">
                                             <input type="hidden" class="form-control" id="mail">
-                                            <select class="form-control" style="margin-top: 20px">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
                                                 <option>¿Esta casado por que quiere o lo obligaron?</option>
+                                                <option>si</option>
+                                                <option>No</option>
                                                 
                                             </select>&nbsp&nbsp
                                             <input type="hidden" class="form-control" id="mail">
-                                            <select class="form-control" style="margin-top: 20px">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
                                                 <option>¿Esta casado?</option>
                                                 
                                             </select>&nbsp&nbsp
                                             <input type="hidden" class="form-control" id="mail">
-                                            <select class="form-control" style="margin-top: 20px">
-                                                <option>¿Esta casado?</option>
-                                                
-                                            </select>&nbsp&nbsp
-                                            <input type="hidden" class="form-control" id="mail">
-                                            <select class="form-control" style="margin-top: 20px">
-                                                <option>¿Esta casado?</option>
-                                                
-                                            </select>&nbsp&nbsp
-                                            <input type="hidden" class="form-control" id="mail">
-                                            <select class="form-control" style="margin-top: 20px">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
                                                 <option>¿Esta casado?</option>
                                                 
                                             </select>&nbsp&nbsp
