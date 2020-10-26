@@ -106,7 +106,7 @@
 
 
 
-<form id="miFormulario" name="miFormulario" role="form">
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
     <!-- Modal EDITAR-->
     <div class="modal fade" id="modal-editar">
         <div class="modal-dialog modal-lg modal-dialog-centered">

@@ -1,4 +1,4 @@
-<form id="form-modelo" name="form-modelo">
+<form id="form-modelo" name="form-modelo" onsubmit="return false">
     <div class="modal fade" id="modal-modelo">
         <div class="modal-dialog">
             <div class="modal-content">
