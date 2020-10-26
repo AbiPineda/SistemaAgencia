@@ -7,7 +7,7 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data) {
 
-            var $select = $('#comboMarca');
+            let $select = $('#id_marca');
             $.each(data.marcas, function(i, name) {
                 $select.append('<option value=' + name.id_marca + '>' + name.marca +
                     '</option>');

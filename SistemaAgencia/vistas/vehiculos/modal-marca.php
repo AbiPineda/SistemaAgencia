@@ -57,4 +57,4 @@
     <!-- /.modal-dialog -->
 </div>
 
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
+<!-- <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script> -->

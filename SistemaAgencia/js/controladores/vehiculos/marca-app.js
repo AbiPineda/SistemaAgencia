@@ -1,6 +1,6 @@
 $("#btnAgregar").on('click', function(e) {
 
-    e.preventDefault();
+       e.preventDefault();
     $.ajax({
         url: URL_SERVIDOR + "marcaVehiculo/marca",
         method: 'POST',
@@ -10,7 +10,7 @@ $("#btnAgregar").on('click', function(e) {
 
         $("#modal-marca").modal('toggle');
 
-        document.getElementById("register-form").reset();
+        document.getElementById("register-marca").reset();
 
         const Toast = Swal.mixin();
         Toast.fire({

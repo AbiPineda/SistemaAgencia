@@ -22,7 +22,8 @@
                                     <div class="timeline-item">
 
                                         <h3 class="timeline-header"><a href="#">Registrar Categoria</a> </h3>
-                                        <form id="categoria" name="register-form" onsubmit="return false">
+                                        <form id="formularioCategoria" name="formularioCategoria"
+                                            onsubmit="return false">
                                             <div class="timeline-body">
                                                 <!-- INICIO de primera fila -->
                                                 <div class="row">
@@ -30,7 +31,8 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Nombre de Categoria</label>
-                                                            <input type="text" class="form-control" name="nombre"
+                                                            <input type="text" class="form-control"
+                                                                name="nombreCategoria" id="nombreCategoria"
                                                                 placeholder="Digite nombre de categoria">
                                                         </div>
                                                     </div>
@@ -38,7 +40,8 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Descripción de Categoria</label>
-                                                            <input type="text" class="form-control" name="descripcion"
+                                                            <input type="text" class="form-control"
+                                                                name="descripcionCategoria" id="descripcionCategoria"
                                                                 placeholder="Digite descripcion">
                                                         </div>
                                                     </div>
