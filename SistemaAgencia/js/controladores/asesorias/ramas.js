@@ -16,7 +16,8 @@ $(document).ready(function() {
                      'id="custom-tabs-one-home-'+name.num_rama+'" data-toggle="pill"'+
                       'href="#custom-tabs-one-'+name.num_rama+'" role="tab" aria-controls="custom-tabs-one-home"'+ 
                       'aria-selected="true">'+name.categoria_rama+'</a></li>');
-                    $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-'+name.num_rama+'" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">');
+                    $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-'+name.num_rama+'" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">'+
+                        '<div class="form-group" id="'+name.num_rama+'"> </div></div>');
 
                     }else{
                         //alert(name.num_rama+"rama");
@@ -26,7 +27,8 @@ $(document).ready(function() {
                         'aria-selected="false">'+name.categoria_rama+'</a></li>');
 
                         $nuevo.append('<div class="tab-pane fade" id="custom-tabs-one-'+name.num_rama+'"'+
-                    'role="tabpanel" aria-labelledby="custom-tabs-one-'+name.num_rama+'-tab">')
+                    'role="tabpanel" aria-labelledby="custom-tabs-one-'+name.num_rama+'-tab">'+
+                    '<div class="form-group" id="'+name.num_rama+'"> </div></div>')
                     }
                    
                 });
