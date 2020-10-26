@@ -21,7 +21,7 @@
                                     <div class="timeline-item">
 
                                         <h3 class="timeline-header"><a href="#">Registrar Modelo</a> </h3>
-                                        <form id="register-form" name="register-form" onsubmit="return false">
+                                        <form id="register-modelo" name="register-form" onsubmit="return false">
                                             <div class="timeline-body">
                                                 <!-- INICIO de primera fila -->
                                                 <div class="row">

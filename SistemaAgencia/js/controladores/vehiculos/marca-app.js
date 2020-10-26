@@ -4,7 +4,7 @@ $("#btnAgregar").on('click', function(e) {
     $.ajax({
         url: URL_SERVIDOR + "marcaVehiculo/marca",
         method: 'POST',
-        data: $("#register-form").serialize()
+        data: $("#register-marca").serialize()
 
     }).done(function(response) {
 

@@ -4,7 +4,7 @@ $("#btnCategoria").on('click', function(e) {
     $.ajax({
         url: URL_SERVIDOR + "categoriasAutos/categorias",
         method: 'POST',
-        data: $("#register-form").serialize()
+        data: $("#categoria").serialize()
 
     }).done(function(response) {
 

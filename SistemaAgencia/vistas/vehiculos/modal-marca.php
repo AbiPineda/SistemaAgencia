@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="register-form" name="register-form" onsubmit="return false">
+            <form id="register-marca" name="register-form" onsubmit="return false">
                 <div class="modal-body">
                     <p>
                         <!-- Main content -->

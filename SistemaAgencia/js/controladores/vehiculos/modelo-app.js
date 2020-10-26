@@ -4,7 +4,7 @@ $("#btnModelo").on('click', function(e) {
     $.ajax({
         url: URL_SERVIDOR + "modeloVehiculo/modelo",
         method: 'POST',
-        data: $("#register-form").serialize()
+        data: $("#register-modelo").serialize()
 
     }).done(function(response) {
 

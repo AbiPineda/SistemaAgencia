@@ -4,7 +4,7 @@ $("#btnGuardar").on('click', function(e) {
     $.ajax({
         url: URL_SERVIDOR + "transmisionVehiculo/transmision",
         method: 'POST',
-        data: $("#register-form").serialize()
+        data: $("#register-transmision").serialize()
 
     }).done(function(response) {
 
