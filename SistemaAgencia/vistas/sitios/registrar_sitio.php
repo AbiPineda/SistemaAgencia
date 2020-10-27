@@ -41,7 +41,7 @@
 
                             <div class="text-bold pt-2">Cargando...
                             </div>
-                        </div>s
+                        </div>
                         <div class="timeline">
                             <!-- timeline time label -->
                             <div class="time-label">
@@ -82,7 +82,7 @@
                                                 <div class="form-group">
                                                     <label>Tipo</label>
                                                     <select name="ComboTipo" id="ComboTipo"
-                                                        class="select2 select2-hidden-accessible form-control"
+                                                        class="selectTipo select2 select2-hidden-accessible form-control"
                                                         data-placeholder="Seleccione el tipo" style="width: 100%;">
                                                     </select>
                                                 </div>
