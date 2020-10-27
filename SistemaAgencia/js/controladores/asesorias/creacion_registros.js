@@ -28,7 +28,7 @@
                                             '<div class="form-group">'+
                                                 '<label for="cars">Digite la Pregunta</label>'+
                                                 '<input id="input_abierta" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control">'+
-                                                 '<input id="rama" name="id_rama" type="hidden">'+
+                                                '<input id="rama" name="id_rama" type="hidden">'+
                                                  '<input  value="abierta" name="opcion" type="hidden">'+
                                             '</div></div><div class="col-lg-6">'+
 

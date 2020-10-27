@@ -64,11 +64,23 @@ include_once '../../plantillas/barra_lateral.php';
                             <div class="card-body">
                                  <form class="form-inline" role="form">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
-                                       <!-- <div class="form-group" id="1"> 
+                                       <!--<div class="form-group" id="1"> 
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
                                          <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
                                          <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
+                            <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="Digite el nombre" style="width: 368px; margin-top: 20px">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>
+                             </span>
+                             </div>&nbsp&nbsp
+                             <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="Digite el nombre" style="width: 368px; margin-top: 20px">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add1" id="btn-asistiran" style="margin-top:19px;">+</button>
+                             </span>
+                             </div>&nbsp&nbsp
                                           
                                          </div>
 
@@ -91,9 +103,9 @@ include_once '../../plantillas/barra_lateral.php';
                                                 
                                             </select>&nbsp&nbsp
                                              
-                                         </div>-->
+                                         </div>
                                            
-                                        </div>
+                                        </div>-->
 
                                       
                                    
@@ -120,6 +132,7 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 

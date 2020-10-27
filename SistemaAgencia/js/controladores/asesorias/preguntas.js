@@ -11,9 +11,9 @@ $(document).ready(function() {
                    // alert('paso');
                    if(data.preguntas[i].opcion=='cerrada'){
                      var $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" class="form-control" id="mail">'+
-                                     '<select class="form-control" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
-                                        '<option disabled selected>'+data.preguntas[i].pregunta+'</option>'+
+                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                                     '<select class="form-control" name="respuesta[]" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
+                                        '<option disabled selected>¿'+data.preguntas[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
                     //COMO YA CREE EL COMBO SELECCIONO EL ID Y CARGO EL COMBO
@@ -33,10 +33,23 @@ $(document).ready(function() {
                    
 
                    }else{
+                    if (data.preguntas[i].mas_respuestas=='Si') {
+                       // alert('entre');
+                    $select = $('#'+data.preguntas[i].num_rama);
+                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                                   '<div class="form-group multiple-form-group input-group">'+
+                              '<input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
+                              '<span class="input-group-btn">'+
+                              '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>'+
+                             '</span>'+
+                             '</div>&nbsp&nbsp');
+
+                    }else{
                     var $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" class="form-control">'+
-                                   '<input type="email" class="form-control" id="mail"'+
-                                   'placeholder="'+data.preguntas[i].pregunta+'" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
+                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                                   '<input type="text" name="respuesta[]" class="form-control"'+
+                                   'placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
+                    }
                    }
                 }
 
