@@ -1,27 +1,9 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
-<script>
-    $(function () {
-        $("#casado").change(function () {
-            // alert($(this).val());
-            if ($(this).val() === "si") {
-                $("#input_nombre_conyuge").prop("disabled", false);
-                $("#input_fecha_conyuge").prop("disabled", false);
-                $("#nacionalidad_conyuge").prop("disabled", false);
-            }
-
-            if ($(this).val() === "no") {
-                $("#input_nombre_conyuge").prop("disabled", true);
-                $("#input_fecha_conyuge").prop("disabled", true);
-                $("#nacionalidad_conyuge").prop("disabled", true);
-            }
-        });
-    });
-</script>
+include_once  '../../plantillas/navbar.php';?>
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+<?php include_once '../../plantillas/barra_lateral.php';?>
 
 <div class="wrapper">
 
@@ -62,7 +44,9 @@ include_once '../../plantillas/barra_lateral.php';
                                 </ul>
                             </div>
                             <div class="card-body">
-                                 <form class="form-inline" role="form">
+                                 <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                    <input type="hidden" name="id_cita" value="1" class="form-control">
+
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                        <!--<div class="form-group" id="1"> 
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
@@ -106,10 +90,13 @@ include_once '../../plantillas/barra_lateral.php';
                                          </div>
                                            
                                         </div>-->
-
+                   
                                       
                                    
                                 </div><!--fin de una pestaña-->
+                            </br>
+                                 <button type="button" id="btnFormulario" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Guardar</button>
+                                <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                 </form>
                                 </div>
 
@@ -130,11 +117,13 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-
+ <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-formulario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<?php include_once '../../plantillas/cierre.php'; ?>
 
 
 

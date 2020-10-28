@@ -36,9 +36,12 @@ $(document).ready(function() {
                     if (data.preguntas[i].mas_respuestas=='Si') {
                        // alert('entre');
                     $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                    $select.append(
                                    '<div class="form-group multiple-form-group input-group">'+
-                              '<input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
+                                '<select name="id_pregunta[]" style="height: 0px;width: 0px;visibility: hidden;">'+
+                                        '<option selected>'+data.preguntas[i].id_pregunta+'</option>'+
+                                     '</select>'+  
+                              '<input type="text" name="respuesta[]" value="" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
                               '<span class="input-group-btn">'+
                               '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>'+
                              '</span>'+
@@ -47,7 +50,7 @@ $(document).ready(function() {
                     }else{
                     var $select = $('#'+data.preguntas[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
-                                   '<input type="text" name="respuesta[]" class="form-control"'+
+                                   '<input type="text" name="respuesta[]" value="" class="form-control"'+
                                    'placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
                     }
                    }
