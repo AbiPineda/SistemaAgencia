@@ -20,7 +20,7 @@ $(document).ready(function () {
             let lista = response.sitios;
             if (lista) {
                 //MANDALOS LOS VALORES AL MODAL
-                document.getElementById("nombre").value = lista[0].nombre;
+                document.getElementById("nombre").value = lista[0].nombre_sitio;
                 document.getElementById("precio_sitio").value = lista[0].precio_sitio;
                 document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
                 document.getElementById("descripcion").value = lista[0].descripcion;
@@ -157,10 +157,40 @@ $(document).ready(function () {
                             json.sitios[i]["botones"] = html;
 
                             let html2 = "";
-                            html2 += '<div> <a class="ocultar-imagen" href="#">' + json.sitios[i]["contactoN"] + '<img class="ocultar"';
-                            html2 += 'src="' + json.sitios[i]["url"] + '">';
+                            html2 += '<a href="#">'+json.sitios[i].contactoN+'';
+                            html2 += '    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
+                            html2 += '        <div class="ocultar card bg-light">';
+                            html2 += '            <div class="card-body">';
+                            html2 += '                <div class="row">';
+                            html2 += '                    <div class="col-7">';
+                            html2 += '                        <p class="text-muted text-sm">';
+                            html2 += '                            <b>Nombre de Contacto</b>';
+                            html2 += '                            '+json.sitios[i].contactoN+'';
+                            html2 += '                        </p>';
+                            html2 += '                        <ul class="ml-4 mb-0 fa-ul text-muted">';
+                            html2 += '                            <li class="small">';
+                            html2 += '                                <span class="fa-li">';
+                            html2 += '                                    <i class="fas fa-lg fa-mail-bulk"> </i>';
+                            html2 += '                                </span> '+json.sitios[i].correo+'';
+                            html2 += '                            </li>';
+                            html2 += '                            <li class="small">';
+                            html2 += '                                <span class="fa-li">';
+                            html2 += '                                    <i class="fas fa-lg fa-phone"></i>';
+                            html2 += '                                </span> Teléfono #: '+json.sitios[i].telefono+'';
+                            html2 += '                            </li>';
+                            html2 += '                        </ul>';
+                            html2 += '                    </div>';
+                            html2 += '                    <div class="col-5 text-center">';
+                            html2 += '                        <img src="'+json.sitios[i].url+'" alt=""';
+                            html2 += '                            class="img-fluid">';
+                            html2 += '                    </div>';
+                            html2 += '                </div>';
+                            html2 += '            </div>';
+                            html2 += '            <div class="card-footer"></div>';
+                            html2 += '        </div>';
+                            html2 += '    </div>';
                             html2 += '</a>';
-                            html2 += '</div>';
+
                             json.sitios[i]["contactoN"] = html2;
 
 
@@ -176,9 +206,9 @@ $(document).ready(function () {
                 }
             },
             columns: [
-                { data: "nombre" },
+                { data: "nombre_sitio" },
                 { data: "precio_sitio" },
-                { data: "descripcion" },
+                { data: "descripcion_sitio" },
                 { data: "contactoN" },
                 { data: "telefono" },
                 { data: "correo" },
@@ -252,7 +282,7 @@ $(document).ready(function () {
 
         let data = {
             "id_sitio_turistico": idSeleccionado,
-            "nombre": document.getElementById("nombre").value,
+            "nombre_sitio": document.getElementById("nombre").value,
             "longitud": myCoordnada[1],
             "latitud": myCoordnada[0],
             "descripcion": document.getElementById("descripcion").value,
@@ -358,7 +388,7 @@ $(document).ready(function () {
                 for (let index = 0; index < lista.length; index++) {
                     myData.push({
                         id: lista[index].id_contacto,
-                        text: lista[index].nombre
+                        text: lista[index].nombre_contacto
                     });
                 }
                 $('#contacto_servicio').select2(

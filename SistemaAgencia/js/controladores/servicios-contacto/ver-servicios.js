@@ -143,6 +143,9 @@ $(document).ready(function () {
                             html += '</td>';
                             json.servicio[i]["botones"] = html;
 
+                            html2 = "";
+                            
+
                         }
                         $('#loading').hide();
                         return json.servicio;
@@ -154,7 +157,7 @@ $(document).ready(function () {
             },
             columns: [
                 { data: "tipo_servicio" },
-                { data: "nombre" },
+                { data: "nombre_servicio" },
                 { data: "descripcion_servicio" },
                 { data: "costos_defecto" },
                 { data: "botones" },
@@ -263,7 +266,7 @@ $(document).ready(function () {
         }
         let data = {
             "id_servicios": idSerevicio,
-            "nombre": document.getElementById("nombre").value,
+            "nombre_servicio": document.getElementById("nombre").value,
             "costos_defecto": document.getElementById("costos_defecto").value,
             "descripcion_servicio": document.getElementById("descripcion_servicio").value,
             "tipo_servicio": tipoSeleccionado

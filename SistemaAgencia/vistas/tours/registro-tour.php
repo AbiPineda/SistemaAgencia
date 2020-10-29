@@ -1,11 +1,18 @@
-<?php
-include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-  include_once '../../plantillas/barra_lateral.php';
-?>
-
-
+<!-- INICIALIZACION -->
+<?php include_once '../../config/parametros.php'; ?>
+<?php include_once '../../plantillas/cabecera.php'; ?>
+<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+    type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
+<link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+<!--COTINUANDO CON LA INICIALIZACION -->
+<?php include_once '../../plantillas/navbar.php'; ?>
+<?php include_once '../../plantillas/barra_lateral.php'; ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -26,339 +33,511 @@ include_once  '../../plantillas/navbar.php';
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="timeline">
-                    <!-- timeline time label -->
-                    <div class="time-label">
-                        <span class="bg-red">Información</span>
-                    </div>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-car bg-blue"></i>
-                        <div class="timeline-item">
+        <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+            <div class="row">
+                <!-- <div class="offset-md-1"></div> -->
+                <div class="col-md-12">
+                    <div class="overlay-wrapper">
+                        <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-                            <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
-
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Titulo del viaje</label>
-
-                                            <div class="input-group">
-                                                <!-- <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
-                                                </div>-->
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Fecha del viaje</label>
-
-                                            <div class="input-group">
-                                                <input type="text" class="form-control float-right" id="reservation">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Lugar de Salida</label>
-                                            <div class="input-group">
-                                                <!--<div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
-                                                </div>-->
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Precio Bebe (0 a 4 años)</label>
-                                            <div class="input-group">
-                                                <!--<div class="input-group-prepend">
-                                                <span class="input-group-text">$</span>
-                                                </div>-->
-                                                <input type="number" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-
-                                </div>
-                                
-                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Precio Niños (5 a 12 años)</label>
-
-                                            <div class="input-group">
-                                                <!-- <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
-                                                </div>-->
-                                                <input type="number" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Precio Adulto (+12 años)</label>
-
-                                            <div class="input-group">
-                                                <input type="number" class="form-control float-right" id="reservation">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Adulto Mayor (+60 años)</label>
-                                            <div class="input-group">
-                                                <!--<div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
-                                                </div>-->
-                                                <input type="number" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                   
-
-                                </div>
-
+                            <div class="text-bold pt-2">Cargando...
                             </div>
+                        </div>
+                        <div class="timeline">
+                            <!-- timeline time label -->
+                            <div class="time-label">
+                                <span class="bg-red">Información</span>
+                            </div>
+                            <!-- /.timeline-label -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-car bg-blue"></i>
+                                <div class="timeline-item">
+                                    <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Titulo del viaje</label>
+
+                                                    <div class="input-group">
+                                                        <!-- <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
+                                                </div>-->
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Fecha del viaje</label>
+
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control float-right"
+                                                            id="reservation1">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Lugar de Salida</label>
+                                                    <div class="input-group">
+                                                        <!--<div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
+                                                </div>-->
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Número de Pasajeros</label>
+                                                    <div class="input-group">
+                                                        <!--<div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
+                                                </div>-->
+                                                        <input type="number" min="1" value="1" class="form-control">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-user bg-green"></i>
+                                <div class="timeline-item">
+                                    <h3 class="timeline-header no-border"><a href="#">Sitios Turístico</a></h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group multiple-form-group input-group">
+                                                    <label>Seleccione los Sitios Turísticos</label>
+                                                    <div class="input-group">
+                                                        <select name="ComboTur" id="ComboTur"
+                                                            class="select2 select2-hidden-accessible form-control"
+                                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label>Precio</label>
+                                                    <div class="input-group">
+                                                        <input type="number" min="0" class=" form-control"
+                                                            name="precio_sitio" id="precio_sitio">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label>Contacto</label>
+                                                    <br>
+                                                    <a style="position:absolute; z-index:1;" href="#">
+                                                        <div id="namePreviewTur">Nombre de Contacto</div>
+                                                        <div
+                                                            class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                                            <div class="ocultar card bg-light">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-7">
+                                                                            <p id="nameContactoTur"
+                                                                                class="text-muted text-sm">
+                                                                                <b>Nombre de Contacto:</b>
+                                                                                Nombre de Contacto detallado
+                                                                            </p>
+                                                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                                                <li class="small">
+                                                                                    <span class="fa-li">
+                                                                                        <i
+                                                                                            class="fas fa-lg fa-mail-bulk">
+                                                                                        </i>
+                                                                                    </span>
+                                                                                    <div id="mailContactoTur">
+                                                                                        correo@correo.com
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="small">
+                                                                                    <span class="fa-li">
+                                                                                        <i
+                                                                                            class="fas fa-lg fa-phone"></i>
+                                                                                    </span>
+                                                                                    <div id="phoneContactoTur">
+                                                                                        Teléfono #: 1234-5678
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col-5 text-center">
+                                                                            <img id="imgContactoTur"
+                                                                                src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-footer"></div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <!-- radio -->
+                                                <label>Por Pasajero</label>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-success d-inline" style="margin-left: 40px;">
+                                                        <input type="radio" name="r3" id="radioSuccess1">
+                                                        <label for="radioSuccess1">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <!-- radio -->
+                                                <label>Por Viaje</label>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-success d-inline" style="margin-left: 30px;">
+                                                        <input type="radio" name="r3" checked="" id="radioSuccess2">
+                                                        <label for="radioSuccess2">
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-user bg-green"></i>
+                                <div class="timeline-item">
+                                    <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group multiple-form-group input-group">
+                                                    <label>Seleccione los Servicios Adicionales</label>
+                                                    <div class="input-group">
+                                                        <select name="ComboServicio" id="ComboServicio"
+                                                            class="select2 select2-hidden-accessible form-control"
+                                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label>Precio</label>
+                                                    <div class="input-group">
+                                                        <input type="number" min="0" class=" form-control"
+                                                            name="precio_servicio" id="precio_servicio">
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label>Contacto</label>
+                                                    <br>
+                                                    <a style="position:absolute; z-index:1;" href="#">
+                                                        <div id="namePreviewServicio">Nombre de Contacto</div>
+                                                        <div
+                                                            class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                                            <div class="ocultar card bg-light">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-7">
+                                                                            <p id="nameContactoServicio"
+                                                                                class="text-muted text-sm">
+                                                                                <b>Nombre de Contacto:</b>
+                                                                                Nombre de Contacto detallado
+                                                                            </p>
+                                                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                                                <li class="small">
+                                                                                    <span class="fa-li">
+                                                                                        <i
+                                                                                            class="fas fa-lg fa-mail-bulk">
+                                                                                        </i>
+                                                                                    </span>
+                                                                                    <div id="mailContactoServicio">
+                                                                                        correo@correo.com
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="small">
+                                                                                    <span class="fa-li">
+                                                                                        <i
+                                                                                            class="fas fa-lg fa-phone"></i>
+                                                                                    </span>
+                                                                                    <div id="phoneContactoServicio">
+                                                                                        Teléfono #: 1234-5678
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col-5 text-center">
+                                                                            <img id="imgContactoServicio"
+                                                                                src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-footer"></div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <!-- radio -->
+                                                <label>Por Pasajero</label>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-success d-inline" style="margin-left: 40px;">
+                                                        <input type="radio" checked="" name="servicioCheck"
+                                                            id="PasajeroServicio">
+                                                        <label for="PasajeroServicio">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <!-- radio -->
+                                                <label>Por Viaje</label>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-success d-inline" style="margin-left: 30px;">
+                                                        <input type="radio" name="servicioCheck" id="ViajeServicio">
+                                                        <label for="ViajeServicio">
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-user bg-green"></i>
+                                <div class="timeline-item">
+
+                                    <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>El viaje incluye</label>
+                                                    <textarea class="form-control" rows="3"
+                                                        placeholder="Digitar aquí ..."></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>El viaje no incluye</label>
+                                                    <textarea class="form-control" rows="3"
+                                                        placeholder="Digitar aquí..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Requisitos de viaje</label>
+                                                    <textarea class="form-control" rows="3"
+                                                        placeholder="Digitar aquí ..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Promociones especiales</label>
+                                                    <textarea class="form-control" rows="3"
+                                                        placeholder="Digitar aquí ..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Sitios turisticos</label>
+                                                    <select
+                                                        class="select2 select2-hidden-accessible form-control float-righ"
+                                                        multiple=""
+                                                        data-placeholder="Selececcione los sitios turisticos"
+                                                        style="width: 100%;" data-select2-id="7" tabindex="-1"
+                                                        aria-hidden="true">
+                                                        <option data-select2-id="46">SAN JOSÉ (Costa Rica)</option>
+                                                        <option data-select2-id="47">CARTAGO (Costa Rica)</option>
+                                                        <option data-select2-id="48">PARQUE LA SABANA (Costa Rica)
+                                                        </option>
+                                                        <option data-select2-id="49">ZARCERO (Costa Rica)</option>
+                                                        <option data-select2-id="50">TERMALES LA FORTUNA (Costa
+                                                            Rica)
+                                                        </option>
+                                                        <option data-select2-id="51">Washington (Costa Rica)
+                                                        </option>
+                                                        <option data-select2-id="61">SAN JUAN DEL SUR (Nicaragua)
+                                                        </option>
+                                                        <option data-select2-id="63">GRANADA (Nicaragua)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Hoteles</label>
+                                                    <div class="select2-blue">
+                                                        <select class="select2 select2-hidden-accessible" multiple=""
+                                                            data-placeholder="Seleccione los hoteles"
+                                                            data-dropdown-css-class="select2-blue" style="width: 100%;"
+                                                            data-select2-id="15" tabindex="-1" aria-hidden="true">
+                                                            <option data-select2-id="146">Hoteles(Costa Rica)
+                                                            </option>
+                                                            <option data-select2-id="147">Hilton (Costa Rica)
+                                                            </option>
+                                                            <option data-select2-id="148">Real Roma (Costa Rica)
+                                                            </option>
+                                                            <option data-select2-id="149">Presidencia (Costa Rica)
+                                                            </option>
+                                                            <option data-select2-id="161">Monterreal (Nicaragua)
+                                                            </option>
+                                                            <option data-select2-id="163">San Pedro (Nicaragua)
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
 
                         </div>
                     </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-user bg-green"></i>
-                        <div class="timeline-item">
-
-                            <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>El viaje incluye</label>
-                                            <textarea class="form-control" rows="3"
-                                                      placeholder="Digitar aquí ..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>El viaje no incluye</label>
-                                            <textarea class="form-control" rows="3"
-                                                      placeholder="Digitar aquí..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Requisitos de viaje</label>
-                                            <textarea class="form-control" rows="3"
-                                                      placeholder="Digitar aquí ..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Promociones especiales</label>
-                                            <textarea class="form-control" rows="3"
-                                                      placeholder="Digitar aquí ..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Sitios turisticos</label>
-                                            <select class="select2 select2-hidden-accessible form-control float-righ"
-                                                    multiple="" data-placeholder="Selececcione los sitios turisticos"
-                                                    style="width: 100%;" data-select2-id="7" tabindex="-1"
-                                                    aria-hidden="true">
-                                                <option data-select2-id="46">SAN JOSÉ (Costa Rica)</option>
-                                                <option data-select2-id="47">CARTAGO (Costa Rica)</option>
-                                                <option data-select2-id="48">PARQUE LA SABANA (Costa Rica)</option>
-                                                <option data-select2-id="49">ZARCERO (Costa Rica)</option>
-                                                <option data-select2-id="50">TERMALES LA FORTUNA (Costa Rica)</option>
-                                                <option data-select2-id="51">Washington (Costa Rica)</option>
-                                                <option data-select2-id="61">SAN JUAN DEL SUR (Nicaragua)</option>
-                                                <option data-select2-id="63">GRANADA (Nicaragua)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Hoteles</label>
-                                            <div class="select2-blue">
-                                                <select class="select2 select2-hidden-accessible" multiple=""
-                                                        data-placeholder="Seleccione los hoteles"
-                                                        data-dropdown-css-class="select2-blue" style="width: 100%;"
-                                                        data-select2-id="15" tabindex="-1" aria-hidden="true">
-                                                    <option data-select2-id="146">Hoteles(Costa Rica)</option>
-                                                    <option data-select2-id="147">Hilton (Costa Rica)</option>
-                                                    <option data-select2-id="148">Real Roma (Costa Rica)</option>
-                                                    <option data-select2-id="149">Presidencia (Costa Rica)</option>
-                                                    <option data-select2-id="161">Monterreal (Nicaragua)</option>
-                                                    <option data-select2-id="163">San Pedro (Nicaragua)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <label>Seleccione foto</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="files" name="foto" >
-                                            <label class="custom-file-label" for="files"></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <output id="list"></output>
-                                    </div>
-
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-danger btn-sm"style="color: white" >Cancelar</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="timeline-footer" style="text-align: right;">
+                        <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                        <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                     </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-
                 </div>
-                <!-- END timeline item -->
             </div>
-        </div>
+            <!-- END timeline item -->
+        </form>
     </section>
+
+    <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
+        <div class="modal fade" id="modal-agregar">
+            <!-- Modal EDITAR-->
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Contacto</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Nombre de Contacto</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="nombreContacto"
+                                                    id="nombreContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Telefono de Contactos</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="telefonoContacto"
+                                                    name="telefonoContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Correo Electronico</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="correoContacto"
+                                                    id="correoContacto">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <div class="kv-avatar">
+                                        <label>Foto de Contacto</label>
+                                        <div class="file-loading">
+                                            <input id="foto" name="foto" type="file">
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- End Modal EDITAR-->
+    </form>
 </div>
 
-<?php
-  include_once '../../plantillas/footer.php';
-?>
-
-    <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $('.select2').select2();
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            });
-
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', {
-                'placeholder': 'dd/mm/yyyy'
-            });
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', {
-                'placeholder': 'mm/dd/yyyy'
-            });
-            //Money Euro
-            $('[data-mask]').inputmask();
-
-            //Date range picker
-            $('#reservationdate').datetimepicker({
-                format: 'L'
-            });
-            ////CONFIGURACION DEL CALENDARIO
-            $('#reservation').daterangepicker({
-                locale: {
-                    format: 'DD/MM/YYYY',
-                    "separator": " - ",
-                    "applyLabel": "Aplicar",
-                    "cancelLabel": "Cancelar",
-                    "fromLabel": "De",
-                    "toLabel": "A",
-                    "customRangeLabel": "Custom",
-                    "daysOfWeek": [
-                        "Dom",
-                        "Lun",
-                        "Mar",
-                        "Mie",
-                        "Jue",
-                        "Vie",
-                        "Sab"
-                    ],
-                    "monthNames": [
-                        "Enero",
-                        "Febrero",
-                        "Marzo",
-                        "Abril",
-                        "Mayo",
-                        "Junio",
-                        "Julio",
-                        "Agosto",
-                        "Septiembre",
-                        "Octubre",
-                        "Noviembre",
-                        "Diciembre"
-                    ],
-                    "firstDay": 0
-                }
-            });
-
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                locale: {
-                    format: 'DD/MM/YYYY'
-                }
-            });
-            //Date range as a button
-            $('#daterange-btn').daterangepicker({
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
-                                .subtract(1, 'month').endOf('month')
-                    ]
-                },
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment()
-            },
-            function (start, end) {
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
-                        'MMMM D, YYYY'));
-            }
-            );
-
-            //Timepicker
-            $('#timepicker').datetimepicker({
-                format: 'LT'
-            });
-
-            //Bootstrap Duallistbox
-            $('.duallistbox').bootstrapDualListbox();
-
-            //Colorpicker
-          
-
-            $('.my-colorpicker2').on('colorpickerChange', function (event) {
-                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-            });
-
-            $("input[data-bootstrap-switch]").each(function () {
-                $(this).bootstrapSwitch('state', $(this).prop('checked'));
-            });
-
-        });
-    </script>
-
-    
+<?php include_once '../../plantillas/footer.php'; ?>
+<!-- PONER SCRIPT ADICIONALES ACA -->
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
+<!-- CIERRE DE ETIQUETAS -->
+<?php include_once '../../plantillas/cierre.php'; ?>

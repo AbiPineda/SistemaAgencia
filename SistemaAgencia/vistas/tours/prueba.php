@@ -12,28 +12,47 @@
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
-
-<div class="row">
-    <div class="col-md-2 col-md-offset-4"></div>
-
-    <div class="col-md-8" id="arregloTipos">
-
-        <label>¿Personas que asistirán ?</label>
-        <div class="form-group multiple-form-group input-group">
-            <select name="ComboTipo[]" class="select2 selectTipo" data-placeholder="Seleccione el tipo"
-                style="width: 90%;">
-            </select>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id="arregloTipos">
+            <label>¿Personas que asistirán ?</label>
+            <div class="form-group multiple-form-group input-group">
+                <select name="ComboTipo[]" class="select2 selectTipo" data-placeholder="Seleccione el tipo"
+                    style="width: 100%;">
+                </select>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <br>
             <span class="input-group-btn">
-                <button type="button" class="btn btn-success btn-add" style="margin-top:0px;">+</button>
+                <button type="button" class="btn btn-success btn-add" id="btn-nuevo" name="btn-nuevo"
+                    style="margin-top: 10px; width: 100%;">+</button>
             </span>
         </div>
-        <button type="button" id="agregar" class="btn btn-success">agregar</button>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>Precio(USD)</label>
+                <div class="input-group">
+                    <input type="number" min="0" class=" form-control" name="precio_sitio" id="precio_sitio">
+                </div>
+                <!-- /.input group -->
+            </div>
+        </div>
 
-
-
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>Por Pasajero</label>
+                <div class="input-group">
+                    <div class="icheck-success d-inline" style="text-align: center;">
+                        <input type="checkbox" id="checkboxSuccess1" checked="">
+                        <label for="checkboxSuccess1"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
+
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>

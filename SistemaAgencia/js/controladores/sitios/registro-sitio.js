@@ -93,7 +93,7 @@ $(document).ready(function () {
                 for (let index = 0; index < lista.length; index++) {
                     myData.push({
                         id: lista[index].id_contacto,
-                        text: lista[index].nombre
+                        text: lista[index].nombre_contacto
                     });
                 }
                 $('#contacto_servicio').select2(
@@ -229,7 +229,7 @@ $(document).ready(function () {
 
         let foto_perfil = document.getElementById("foto").files[0];
         form.append('foto', foto_perfil);
-        form.append("nombre", document.getElementById("nombreContacto").value);
+        form.append("nombre_contacto", document.getElementById("nombreContacto").value);
         form.append("telefono", document.getElementById("telefonoContacto").value);
         form.append("correo", document.getElementById("correoContacto").value);
         form.append("id_contacto", document.getElementById("contacto_servicio"));
@@ -246,7 +246,7 @@ $(document).ready(function () {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = JSON.parse(response);
             //AGREGAMOS RESPUESTA AL COMBO
-            let texto = respuestaDecodificada.contacto.nombre;
+            let texto = respuestaDecodificada.contacto.nombre_contacto;
             let id = respuestaDecodificada.id;
             let newOption = new Option(texto, id, false, false);
             $('#contacto_servicio').append(newOption).trigger('change');
@@ -266,6 +266,7 @@ $(document).ready(function () {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
             let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
+            const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
@@ -290,10 +291,10 @@ $(document).ready(function () {
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
-        form.append("nombre", document.getElementById("nombre").value);
+        form.append("nombre_sitio", document.getElementById("nombre").value);
         form.append("longitud", myCoordnada[0]);
         form.append("latitud", myCoordnada[1]);
-        form.append("descripcion", document.getElementById("descripcion").value);
+        form.append("descripcion_sitio", document.getElementById("descripcion").value);
         form.append("tipo", document.getElementById("ComboTipo").value);
         form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
         form.append("precio_sitio", document.getElementById("precio_sitio").value);
@@ -323,7 +324,7 @@ $(document).ready(function () {
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
-
+           
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
