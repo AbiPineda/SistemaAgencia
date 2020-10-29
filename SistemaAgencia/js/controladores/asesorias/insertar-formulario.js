@@ -1,8 +1,22 @@
- $("#btnFormulario").on('click', function(e) {
+$(document).ready(function () {
 
-        e.preventDefault();
-        // recolectarDatos();
-        $.ajax({
+    validaciones();
+ $(document).on('click', '#btnFormulario', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        let form = $("#migratorio-form");
+        form.validate();
+        if (form.valid()) {
+            insertarFormulario();
+        }
+    });
+
+
+
+
+
+
+function insertarFormulario(){
+      $.ajax({
             url: URL_SERVIDOR+"FormularioMigratorio/formulario",
             method: 'POST',
             data: $("#migratorio-form").serialize()
@@ -26,7 +40,7 @@
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            let respuestaDecodificada = JSON.parse(response.responseText);
+           /* let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
 
             if (respuestaDecodificada.errores) {
@@ -45,9 +59,33 @@
                 icon: 'error',
                 text: listaErrores,
                 showConfirmButton: true,
-            });
+            });*/
 
         })
+}
 
+function validaciones(){
+     $('#migratorio-form').validate({
+            rules: {
+               
+            },
+            messages: {
+             
+                    required: "Seleccione"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                //element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
 
-    });
+            }
+        });
+}
+
+});

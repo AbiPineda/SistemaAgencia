@@ -46,8 +46,8 @@ include_once  '../../plantillas/navbar.php';?>
                             <div class="card-body">
                             <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
                                 <div style="width: 200px;"></div>
-                               <select name="id_cliente" id="cliente" class="form-control" style="width: 400px; margin-top: 20px">
-                                    <option disabled="" selected="">Seleccione</option>
+
+                               <select name="id_cita" id="citas_dias" class="form-control" style="width: 400px; margin-top: 20px" required="true">
                                 </select>
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                        <!--<div class="form-group" id="1"> 
@@ -130,6 +130,8 @@ include_once  '../../plantillas/navbar.php';?>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-formulario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>
 
 

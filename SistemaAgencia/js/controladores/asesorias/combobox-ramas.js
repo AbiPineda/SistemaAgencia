@@ -15,13 +15,15 @@ $(document).ready(function() {
                 });
             },
             error: function(err) {
-               const Toast = Swal.mixin();
+                var $select = $('#combo_rama');
+                $select.append('<option disabled="" selected>Seleccione</option>');
+              /* const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
                 text:'No hay Ramas para mostrar',
                 showConfirmButton: true,
-            });
+            });*/
             }
         });
 
