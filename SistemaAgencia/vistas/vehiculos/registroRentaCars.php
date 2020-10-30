@@ -4,6 +4,11 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
+
+<!--ESTILOS ADICIONALES-->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet">
+
+
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -41,37 +46,48 @@ include_once '../../plantillas/barra_lateral.php';
 
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input type="text" class="form-control" placeholder="Nombre de Renta Cars">
+                                            <label>Seleccione Usuario</label>
+                                            <select name="id_usuario" id="id_usuario" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
+                                            </select>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Lugar</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Dirección de Ubicación">
+                                            <label>Nombre de Renta Cars</label>
+                                            <input type="text" class="form-control" placeholder="Nombre de Renta Cars"
+                                                name="rentaCar" id="rentaCar">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Telefono</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Numero de Telefono">
+                                            <input type="text" class="form-control" placeholder="Numero de Telefono"
+                                                name="telefono" id="telefono">
                                         </div>
                                     </div>
+                                    <div class="col-sm-8">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Lugar</label>
+                                            <input type="text" class="form-control" placeholder="Dirección de Ubicación"
+                                                name="lugar" id="lugar">
+                                        </div>
+                                    </div>
+
 
                                     <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea type="text" class="form-control"
-                                                placeholder="Introduzca descripción" rows="3"></textarea>
+                                            <textarea type="text" class="form-control" name="descripcion"
+                                                id="descripcion" placeholder="Introduzca descripción"
+                                                rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +96,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                         </div>
                     </div>
-                    
+
                     <div>
                         <i class="fas fa-comments bg-yellow"></i>
                         <div class="timeline-item">
@@ -98,7 +114,8 @@ include_once '../../plantillas/barra_lateral.php';
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                    <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                        id="btnGuardar">Guardar</a>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
 
@@ -110,12 +127,13 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
     </section>
 </div>
-<!-- END timeline item -->
+
 
 <?php
   include_once '../../plantillas/footer.php';
 ?>
 
 
-<!-- formulario mantenimiento -->
-<!-- /.card-header -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboUsuario.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
