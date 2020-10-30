@@ -3,6 +3,7 @@ include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+<link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <?php include_once '../../plantillas/barra_lateral.php';?>
 
 <div class="wrapper">
@@ -125,6 +126,7 @@ include_once  '../../plantillas/navbar.php';?>
   include_once '../../plantillas/footer.php';
 ?>
  <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+ <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>

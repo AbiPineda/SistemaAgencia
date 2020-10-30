@@ -7,6 +7,8 @@ $(document).ready(function () {
         form.validate();
         if (form.valid()) {
             insertarFormulario();
+        }else{
+            toastr.error('Verifique los campos de selección');
         }
     });
 
@@ -22,7 +24,7 @@ function insertarFormulario(){
             data: $("#migratorio-form").serialize()
 
         }).done(function (response) {
-          //document.getElementById("migratorio-form").reset();
+          document.getElementById("migratorio-form").reset();
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
@@ -65,6 +67,9 @@ function insertarFormulario(){
 }
 
 function validaciones(){
+    $.validator.setDefaults({
+        ignore:[],
+    });
      $('#migratorio-form').validate({
             rules: {
                

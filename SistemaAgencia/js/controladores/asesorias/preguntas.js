@@ -12,12 +12,13 @@ $(document).ready(function() {
                    if(data.preguntas[i].opcion=='cerrada'){
                      var $select = $('#'+data.preguntas[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
-                                     '<select class="form-control" name="respuesta[]" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px"  required="true">'+
+                                     '<select class="form-control" name="combo'+data.preguntas[i].id_pregunta+'" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px"  required="true">'+
                                         '<option value="">¿'+data.preguntas[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
                     //COMO YA CREE EL COMBO SELECCIONO EL ID Y CARGO EL COMBO
                      var $combo = $('#combo'+data.preguntas[i].id_pregunta);
+                     $combo.select();
 
                      //alert(data.preguntas[i].id_pregunta);
                      for (let j = 0, jen = data.opciones.length; j < jen; j++) {

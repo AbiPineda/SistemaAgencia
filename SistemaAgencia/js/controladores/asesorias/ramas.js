@@ -17,7 +17,7 @@ $(document).ready(function() {
                       'href="#custom-tabs-one-'+name.num_rama+'" role="tab" aria-controls="custom-tabs-one-home"'+ 
                       'aria-selected="true">'+name.categoria_rama+'</a></li>');
                     $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-'+name.num_rama+'" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">'+
-                        '<div class="form-group" id="'+name.num_rama+'"> </div></div>');
+                        '<div class="form-group" id="'+name.num_rama+'"></div></div>');
 
                     }else{
                         //alert(name.num_rama+"rama");
