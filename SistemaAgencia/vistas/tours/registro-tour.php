@@ -99,7 +99,8 @@
                                                         <!--<div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
                                                 </div>-->
-                                                        <input type="number" min="1" value="1" class="form-control">
+                                                        <input id="cantidad" type="number" min="1" value="1"
+                                                            class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -196,7 +197,8 @@
                                                 <label>Por Pasajero</label>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-success d-inline" style="margin-left: 40px;">
-                                                        <input type="radio" name="r3" id="radioSuccess1">
+                                                        <input type="radio" value="si" name="radioTur"
+                                                            id="radioSuccess1">
                                                         <label for="radioSuccess1">
                                                         </label>
                                                     </div>
@@ -207,7 +209,8 @@
                                                 <label>Por Viaje</label>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-success d-inline" style="margin-left: 30px;">
-                                                        <input type="radio" name="r3" checked="" id="radioSuccess2">
+                                                        <input type="radio" value="no" name="radioTur" checked=""
+                                                            id="radioSuccess2">
                                                         <label for="radioSuccess2">
                                                         </label>
                                                     </div>
@@ -217,7 +220,8 @@
                                         </div>
                                     </div>
                                     <div class="timeline-footer" style="text-align: right;">
-                                        <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+                                        <button id="btnAgregarTur" class="btn btn-info btn-sm"
+                                            style="color: white">Agregar</button>
 
                                     </div>
                                 </div>
@@ -342,6 +346,44 @@
                             <div>
                                 <i class="fas fa-user bg-green"></i>
                                 <div class="timeline-item">
+                                    <h3 class="timeline-header no-border"><a href="#">Producto(s) Seleccionado(s)</a>
+                                    </h3>
+                                    <div class="timeline-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="TablaCostos" class="table table-bordered table-hover">
+                                                    <thead>
+                                                        <tr style="text-align: center;">
+                                                            <th>Sitio Turisto/Servicio Adicional</th>
+                                                            <th>Costo</th>
+                                                            <th>Cantidad</th>
+                                                            <th>Sub Total</th>
+                                                            <th>Acción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align: center;">
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+
+                                            <div class=" col-sm-12">
+                                                <div style="text-align: right;width:475px;margin-top: 27px;">
+                                                    <label> Total de Encomienda: </label> <label> $84.09</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- timeline item -->
+                            <!-- END timeline item -->
+                            <div>
+                                <i class="fas fa-user bg-green"></i>
+                                <div class="timeline-item">
 
                                     <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
                                     <div class="timeline-body">
@@ -450,79 +492,6 @@
             <!-- END timeline item -->
         </form>
     </section>
-
-    <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
-        <div class="modal fade" id="modal-agregar">
-            <!-- Modal EDITAR-->
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Agregar Contacto</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Nombre de Contacto</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="nombreContacto"
-                                                    id="nombreContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Telefono de Contactos</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="telefonoContacto"
-                                                    name="telefonoContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Correo Electronico</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="correoContacto"
-                                                    id="correoContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <div class="form-group">
-                                    <div class="kv-avatar">
-                                        <label>Foto de Contacto</label>
-                                        <div class="file-loading">
-                                            <input id="foto" name="foto" type="file">
-                                        </div>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal EDITAR-->
-    </form>
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>

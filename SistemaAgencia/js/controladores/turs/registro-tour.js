@@ -1,18 +1,31 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
-   
+
     inicializarCalendario();
     inicializarComboTuristico();
     inicializarComboServicio();
 
     let DATA_TUR;
-    let DATA_SERVICIO ;
-    
+    let DATA_SERVICIO;
+    let tabla = $('#TablaCostos').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "pageLength": 3,
+        "responsive": true,
+        "columnDefs": [
+            { "className": "dt-center", "targets": "_all" }
+        ]
+    });
+
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
     $('#ComboTur').on('select2:select', function (e) {
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
-            DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
+        DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
         ///ENCONTRO EL TUR
         if (DATA_SELECCIONADA) {
             document.getElementById("precio_sitio").value = DATA_SELECCIONADA.precio_sitio;
@@ -24,11 +37,11 @@ $(document).ready(function () {
             ;
         }
     });
-     //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
-     $('#ComboServicio').on('select2:select', function (e) {
+    //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
+    $('#ComboServicio').on('select2:select', function (e) {
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
-            DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
+        DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
         ///ENCONTRO EL TUR
         if (DATA_SELECCIONADA) {
             console.log(DATA_SELECCIONADA);
@@ -41,7 +54,25 @@ $(document).ready(function () {
             ;
         }
     });
-   
+
+    $(document).on('click', '#btnAgregarTur', function (evento) {
+        evento.preventDefault();
+        let PorPasajero = $("input[name='radioTur']:checked").val();
+        let mytur = $('#ComboTur').select2('data');
+        let nombre = mytur[0].text;
+        let id = mytur[0].id;
+        ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
+        //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
+        console.log(PorPasajero);
+        let cantidad = PorPasajero == "si"? $("#cantidad").val(): 1;
+        let precio = $("#precio_sitio").val();
+        let subTotal = (cantidad * precio);
+        agregarFila([nombre, precio, cantidad, subTotal, "fa"]);
+        
+
+     
+
+    });
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
         $('#reservation1').daterangepicker({
@@ -142,9 +173,9 @@ $(document).ready(function () {
                 document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
                 document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
                 document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
-                document.getElementById("mailContactoServicio").innerHTML =  DATA_SERVICIO[0].correo;
-                document.getElementById("phoneContactoServicio").innerHTML =  DATA_SERVICIO[0].telefono;
-                document.getElementById("imgContactoServicio").src=DATA_SERVICIO[0].url;
+                document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
+                document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
+                document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
             } else {
                 $('#ComboServicio').select2();
             }
@@ -154,6 +185,9 @@ $(document).ready(function () {
         }).always(function (xhr, opts) {
             $('#loading').hide();
         });
+    }
+    function agregarFila(data) {
+          tabla.row.add(data).draw(false);     
     }
 
 
