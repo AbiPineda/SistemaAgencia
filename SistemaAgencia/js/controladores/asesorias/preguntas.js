@@ -11,7 +11,7 @@ $(document).ready(function() {
                    // alert('paso');
                    if(data.preguntas[i].opcion=='cerrada'){
                      var $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                    $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
                                      '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
                                         '<option value="">¿'+data.preguntas[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
@@ -39,10 +39,10 @@ $(document).ready(function() {
                     $select = $('#'+data.preguntas[i].num_rama);
                     $select.append(
                                    '<div class="form-group multiple-form-group input-group">'+
-                                '<select name="id_pregunta[]" style="height: 0px;width: 0px;visibility: hidden;">'+
+                                '<select name="id_pregunta_mas[]" style="height: 0px;width: 0px;visibility: hidden;">'+
                                         '<option selected>'+data.preguntas[i].id_pregunta+'</option>'+
                                      '</select>'+  
-                              '<input type="text" name="respuesta['+i+']" value="" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
+                              '<input type="text" name="respuesta_mas[]" value="" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
                               '<span class="input-group-btn">'+
                               '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>'+
                              '</span>'+
@@ -50,8 +50,8 @@ $(document).ready(function() {
 
                     }else{
                     var $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
-                                   '<input type="text" name="respuesta['+i+']" value="" class="form-control"'+
+                    $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                                   '<input type="text" name="respuesta1[]" value="" class="form-control"'+
                                    'placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
                     }
                    }
