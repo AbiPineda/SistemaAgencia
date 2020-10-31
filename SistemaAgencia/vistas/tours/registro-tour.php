@@ -56,7 +56,7 @@
                                     <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
                                     <div class="timeline-body">
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Titulo del viaje</label>
 
@@ -69,7 +69,7 @@
                                                     <!-- /.input group -->
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Fecha del viaje</label>
 
@@ -80,7 +80,7 @@
                                                     <!-- /.input group -->
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Lugar de Salida</label>
                                                     <div class="input-group">
@@ -302,7 +302,7 @@
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-success d-inline" style="margin-left: 40px;">
                                                         <input type="radio" checked="" name="servicioCheck"
-                                                            id="PasajeroServicio">
+                                                            id="PasajeroServicio" value="si">
                                                         <label for="PasajeroServicio">
                                                         </label>
                                                     </div>
@@ -313,7 +313,8 @@
                                                 <label>Por Viaje</label>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-success d-inline" style="margin-left: 30px;">
-                                                        <input type="radio" name="servicioCheck" id="ViajeServicio">
+                                                        <input type="radio" name="servicioCheck" id="ViajeServicio"
+                                                            value="no">
                                                         <label for="ViajeServicio">
                                                         </label>
                                                     </div>
@@ -323,7 +324,8 @@
                                         </div>
                                     </div>
                                     <div class="timeline-footer" style="text-align: right;">
-                                        <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+                                        <button id="btnAgregarSitio" class="btn btn-info btn-sm"
+                                            style="color: white">Agregar</button>
 
                                     </div>
                                 </div>

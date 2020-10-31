@@ -62,7 +62,7 @@ $(document).ready(function () {
             ;
         }
     });
-    //AGREGANDO LA INFORMACION DE UN TUR
+    //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#btnAgregarTur', function (evento) {
         evento.preventDefault();
         let PorPasajero = $("input[name='radioTur']:checked").val();
@@ -75,6 +75,23 @@ $(document).ready(function () {
         let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
         let precio = $("#precio_sitio").val();
         let tipo = "tur"
+        agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+        modificarIngresos();
+        modificarGanancias();
+    });
+    //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
+    $(document).on('click', '#btnAgregarSitio', function (evento) {
+        evento.preventDefault();
+        let PorPasajero = $("input[name='servicioCheck']:checked").val();
+        let myServicio = $('#ComboServicio').select2('data');
+        let nombre = myServicio[0].text;
+        let id = myServicio[0].id;
+        contadorTabla++;
+        ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
+        //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
+        let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
+        let precio = $("#precio_servicio").val();
+        let tipo = "servicio"
         agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
         modificarIngresos();
         modificarGanancias();
@@ -92,7 +109,13 @@ $(document).ready(function () {
     });
     //BOTON DE ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
+        let fila = tabla.row($(this).parents('tr')).data();
+        totalGastos -= parseFloat(fila[4]);
+        $('#totalGastos').text("$" + totalGastos);
+        modificarGanancias();
         tabla.row($(this).parents('tr')).remove().draw();
+        
+
     });
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
@@ -226,8 +249,7 @@ $(document).ready(function () {
 
     }
     function modificarTabla() {
-        // let fila = $(this).closest("tr");
-        // let data = $('#TablaCostos').DataTable().row(fila).data();
+        totalGastos = 0;
         tabla.rows().every(function (value, index) {
             let data = this.data();
             let porPasajero = data[3];
@@ -235,8 +257,10 @@ $(document).ready(function () {
                 data[2] = cantidad.value; //le asignamos un nuevoo valor a la columna cantidad
                 data[4] = (data[1] * data[2]).toFixed(2); // modificamos el sub total
             }
+            totalGastos += parseFloat(data[4]);
             this.data(data).draw(false);
         });
+        $('#totalGastos').text("$" + totalGastos);
     }
     function modificarIngresos() {
         totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
@@ -244,13 +268,13 @@ $(document).ready(function () {
     }
     function modificarGanancias() {
         ganancias = parseFloat(totalIngresos - totalGastos);
-        if (ganancias >0) {
+        if (ganancias > 0) {
             $("#labelGanancias").removeClass("text-warning");
             $("#labelGanancias").addClass("text-success");
 
             $("#ganancias").removeClass("text-warning");
             $("#ganancias").addClass("text-success");
-        }else{
+        } else {
             $("#labelGanancias").addClass("text-warning");
             $("#labelGanancias").removeClass("text-success");
 
