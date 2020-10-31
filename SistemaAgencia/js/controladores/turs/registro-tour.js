@@ -7,6 +7,8 @@ $(document).ready(function () {
 
     let DATA_TUR;
     let DATA_SERVICIO;
+    let contadorTabla  =0;
+    let cantidad = document.getElementById("cantidad");
     let tabla = $('#TablaCostos').DataTable({
         "paging": true,
         "lengthChange": false,
@@ -17,7 +19,10 @@ $(document).ready(function () {
         "pageLength": 3,
         "responsive": true,
         "columnDefs": [
-            { "className": "dt-center", "targets": "_all" }
+            { "className": "dt-center", "targets": "_all" },
+            { "targets": [6], "visible": false },
+            { "targets": [7], "visible": false },
+            { "targets": [8], "visible": false },
         ]
     });
 
@@ -54,23 +59,31 @@ $(document).ready(function () {
             ;
         }
     });
-
+    //AGREGANDO LA INFORMACION DE UN TUR
     $(document).on('click', '#btnAgregarTur', function (evento) {
         evento.preventDefault();
         let PorPasajero = $("input[name='radioTur']:checked").val();
         let mytur = $('#ComboTur').select2('data');
         let nombre = mytur[0].text;
         let id = mytur[0].id;
+        contadorTabla++;
         ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
         //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
-        console.log(PorPasajero);
-        let cantidad = PorPasajero == "si"? $("#cantidad").val(): 1;
+        let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
         let precio = $("#precio_sitio").val();
-        let subTotal = (cantidad * precio);
-        agregarFila([nombre, precio, cantidad, subTotal, "fa"]);
-        
+        let tipo = "tur"
+        agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+    });
+    //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
+    $(document).on('keyup mouseup', '#cantidad', function () {
+        modificarTabla();
+    });
+    //BOTON DE ELIMINAR
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
 
-     
+             tabla.row($(this).parents('tr')).remove().draw();
+
+
 
     });
     //INICIALIZANDO EL CALENDARIO
@@ -186,10 +199,31 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
-    function agregarFila(data) {
-          tabla.row.add(data).draw(false);     
+    function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
+        let subTotoal = precio * cantidad;
+        let html = "";
+        html += '<td>';
+        html += '    <div class="btn-group">';
+        html += '        <button type="button" name="" class="btn btn-danger" data-toggle="modal"';
+        html += '            data-target="#modal-eliminar">';
+        html += '            <i class="fas fa-trash" style="color: white"></i>';
+        html += '        </button>';
+        html += '    </div>';
+        html += '</td>';
+        tabla.row.add([nombre, precio, cantidad, PorPasajero, subTotoal, html, tipo, id, contadorTabla]).draw(false);
+        tabla.order([8, 'desc']).draw();
     }
-
-
-
+    function modificarTabla() {
+        // let fila = $(this).closest("tr");
+        // let data = $('#TablaCostos').DataTable().row(fila).data();
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+            let porPasajero = data[3];
+            if (porPasajero == "si") {
+                data[2] = cantidad.value; //le asignamos un nuevoo valor a la columna cantidad
+                data[4] = (data[1] * data[2]).toFixed(2); // modificamos el sub total
+            }
+            this.data(data).draw(false);
+        });
+    }
 });

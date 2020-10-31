@@ -92,19 +92,6 @@
                                                     <!-- /.input group -->
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label>Número de Pasajeros</label>
-                                                    <div class="input-group">
-                                                        <!--<div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
-                                                </div>-->
-                                                        <input id="cantidad" type="number" min="1" value="1"
-                                                            class="form-control">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -352,13 +339,37 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <table id="TablaCostos" class="table table-bordered table-hover">
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <div class="form-group">
+                                                                <label>Número de Pasajeros</label>
+                                                                <div class="input-group">
+                                                                    <input id="cantidad" type="number" min="1" value="1"
+                                                                        class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="form-group">
+                                                                <label>Costo del Pasaje($)</label>
+                                                                <div class="input-group">
+                                                                    <input id="CostoPasaje" type="number" min="1"
+                                                                        value="1" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <thead>
                                                         <tr style="text-align: center;">
                                                             <th>Sitio Turisto/Servicio Adicional</th>
                                                             <th>Costo</th>
                                                             <th>Cantidad</th>
+                                                            <th>por pasajero</th>
                                                             <th>Sub Total</th>
                                                             <th>Acción</th>
+                                                            <th>tipo</th>
+                                                            <th>id</th>
+                                                            <th>contador</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody style="text-align: center;">
@@ -367,13 +378,27 @@
 
                                                 </table>
                                             </div>
-
-                                            <div class=" col-sm-12">
-                                                <div style="text-align: right;width:475px;margin-top: 27px;">
-                                                    <label> Total de Encomienda: </label> <label> $84.09</label>
-                                                </div>
+                                            <div class="col-md-1 col-md-offset-1"></div>
+                                            <div class="col-md-2">
+                                                <label class="text-primary"> Total de Gastos: </label>
                                             </div>
-
+                                            <div class="col-md-9">
+                                                <label class="text-primary">$84.09</label>
+                                            </div>
+                                            <div class="col-md-1 col-md-offset-1"></div>
+                                            <div class="col-md-2">
+                                                <label class="text-danger"> Total de Ingresos: </label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label class="text-danger">$84.09</label>
+                                            </div>
+                                            <div class="col-md-1 col-md-offset-1"></div>
+                                            <div class="col-md-2">
+                                                <label class="text-warning"> Ganancias: </label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label class="text-warning"> $84.09</label>
+                                            </div>
                                         </div>
                                     </div>
 
