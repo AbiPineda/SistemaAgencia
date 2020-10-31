@@ -378,26 +378,27 @@
 
                                                 </table>
                                             </div>
+
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label class="text-primary"> Total de Gastos: </label>
+                                                <label class="text-primary"> Total de Ingresos: </label>
                                             </div>
                                             <div class="col-md-9">
-                                                <label class="text-primary">$84.09</label>
-                                            </div>
-                                            <div class="col-md-1 col-md-offset-1"></div>
-                                            <div class="col-md-2">
-                                                <label class="text-danger"> Total de Ingresos: </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <label class="text-danger">$84.09</label>
+                                                <label id="totalIngresos" class="text-primary">$0</label>
                                             </div>
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label class="text-warning"> Ganancias: </label>
+                                                <label class="text-danger"> Total de Gastos: </label>
                                             </div>
                                             <div class="col-md-9">
-                                                <label class="text-warning"> $84.09</label>
+                                                <label id="totalGastos" class="text-danger">$0</label>
+                                            </div>
+                                            <div class="col-md-1 col-md-offset-1"></div>
+                                            <div class="col-md-2">
+                                                <label id="labelGanancias" class="text-warning"> Ganancias: </label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label id="ganancias" class="text-warning"> $0</label>
                                             </div>
                                         </div>
                                     </div>

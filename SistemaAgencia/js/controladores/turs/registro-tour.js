@@ -7,7 +7,10 @@ $(document).ready(function () {
 
     let DATA_TUR;
     let DATA_SERVICIO;
-    let contadorTabla  =0;
+    let contadorTabla = 0;
+    let totalGastos = 0;
+    let totalIngresos = 0;
+    let ganancias = 0;
     let cantidad = document.getElementById("cantidad");
     let tabla = $('#TablaCostos').DataTable({
         "paging": true,
@@ -73,18 +76,23 @@ $(document).ready(function () {
         let precio = $("#precio_sitio").val();
         let tipo = "tur"
         agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+        modificarIngresos();
+        modificarGanancias();
     });
     //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
     $(document).on('keyup mouseup', '#cantidad', function () {
         modificarTabla();
+        modificarIngresos();
+        modificarGanancias();
+    });
+    //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE COSTO DE PASAJE
+    $(document).on('keyup mouseup', '#CostoPasaje', function () {
+        modificarIngresos();
+        modificarGanancias();
     });
     //BOTON DE ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
-
-             tabla.row($(this).parents('tr')).remove().draw();
-
-
-
+        tabla.row($(this).parents('tr')).remove().draw();
     });
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
@@ -200,7 +208,7 @@ $(document).ready(function () {
         });
     }
     function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
-        let subTotoal = precio * cantidad;
+        let subTotoal = (precio * cantidad).toFixed(2);
         let html = "";
         html += '<td>';
         html += '    <div class="btn-group">';
@@ -212,6 +220,10 @@ $(document).ready(function () {
         html += '</td>';
         tabla.row.add([nombre, precio, cantidad, PorPasajero, subTotoal, html, tipo, id, contadorTabla]).draw(false);
         tabla.order([8, 'desc']).draw();
+        subTotoal = (parseFloat(subTotoal));
+        totalGastos += subTotoal
+        $('#totalGastos').text("$" + totalGastos);
+
     }
     function modificarTabla() {
         // let fila = $(this).closest("tr");
@@ -226,4 +238,26 @@ $(document).ready(function () {
             this.data(data).draw(false);
         });
     }
+    function modificarIngresos() {
+        totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
+        $('#totalIngresos').text("$" + totalIngresos);
+    }
+    function modificarGanancias() {
+        ganancias = parseFloat(totalIngresos - totalGastos);
+        if (ganancias >0) {
+            $("#labelGanancias").removeClass("text-warning");
+            $("#labelGanancias").addClass("text-success");
+
+            $("#ganancias").removeClass("text-warning");
+            $("#ganancias").addClass("text-success");
+        }else{
+            $("#labelGanancias").addClass("text-warning");
+            $("#labelGanancias").removeClass("text-success");
+
+            $("#ganancias").addClass("text-warning");
+            $("#ganancias").removeClass("text-success");
+        }
+        $('#ganancias').text("$" + ganancias);
+    }
 });
+
