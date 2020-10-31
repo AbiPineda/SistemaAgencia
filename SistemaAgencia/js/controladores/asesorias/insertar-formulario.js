@@ -24,7 +24,7 @@ function insertarFormulario(){
             data: $("#migratorio-form").serialize()
 
         }).done(function (response) {
-          document.getElementById("migratorio-form").reset();
+         // document.getElementById("migratorio-form").reset();
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
@@ -67,7 +67,44 @@ function insertarFormulario(){
 }
 
 function validaciones(){
+
+
+$(document).ready(function () {
     $.validator.setDefaults({
+        ignore:[],
+    });
+
+    $('#migratorio-form').validate({
+       rules: {
+               
+            },
+            messages: {
+             
+                    required: "Seleccione"
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                //element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+    });
+
+    // must be called after validate()
+    $('select.respuesta').each(function () {
+        $(this).rules('add', {
+            required: true
+        });
+    });
+
+});
+    /*$.validator.setDefaults({
         ignore:[],
     });
      $('#migratorio-form').validate({
@@ -90,7 +127,7 @@ function validaciones(){
                 $(element).removeClass('is-invalid');
 
             }
-        });
+        });*/
 }
 
 });
