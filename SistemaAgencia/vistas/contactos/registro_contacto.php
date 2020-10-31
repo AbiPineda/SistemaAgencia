@@ -73,22 +73,25 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-5">
                                                 <div class="form-group">
-                                                    <label>Contacto</label>
+                                                    <label>Tipo de Servicio</label>
                                                     <select name="tipo_servicio" id="tipo_servicio"
                                                         class="select2 select2-hidden-accessible form-control float-righ"
                                                         data-placeholder="Seleccione el tipo" style="width: 100%;"
-                                                        data-select2-id="7" tabindex="-1" aria-hidden="true">
-                                                        <option data-select2-id="47">Vehiculo</option>
-                                                        <option data-select2-id="46">Guia Turistico</option>
-                                                        <option data-select2-id="47">Busero</option>
-                                                        <option data-select2-id="48">Taxista</option>
-                                                        <option data-select2-id="428">Cocinero</option>
-                                                        <option data-select2-id="418">Payaso</option>
+                                                        aria-hidden="true">
+
 
                                                     </select>
                                                 </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <br>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-success btn-add"
+                                                        id="btn-nuevoTipo" name="btn-nuevoTipo"
+                                                        style="margin-top: 10px; width: 100%;">+</button>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -246,6 +249,42 @@
         </div>
         <!-- End Modal EDITAR-->
     </form>
+    <form id="formularioAgregarTipo" name="formularioAgregarTipo">
+        <div class="modal fade" id="modal-agregarTipo">
+            <!-- Modal EDITAR-->
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Tipo de Sericio Adicional</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Tipo de Servicio</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="nombreTipo" id="nombreTipo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnAgregarTipo" id="btnAgregarTipo" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- End Modal EDITAR-->
+    </form>
+
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>

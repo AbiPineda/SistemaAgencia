@@ -3,7 +3,8 @@ $(document).ready(function () {
     inicializarGaleria();
     inicializarFoto();
     inicializarValidaciones();
-    inicializarCombo();
+    inicializarComboContacto();
+    inicializarComboTipo();
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
@@ -24,9 +25,22 @@ $(document).ready(function () {
             guardarContacto();
         }
     });
+    //BOTON PARA AGREGAR UN NUEVO TIPO 
+    $(document).on('click', '#btnAgregarTipo', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+        let form = $("#formularioAgregarTipo");
+        form.validate();
+        if (form.valid()) {
+            guardarTipo();
+        }
+    });
     //BOTON DE NUEVO
     $(document).on('click', '#btn-nuevo', function (evento) {
         $('#modal-agregar').modal('show');
+    });
+    //BOTON DE NUEVO TIPO
+    $(document).on('click', '#btn-nuevoTipo', function (evento) {
+        $('#modal-agregarTipo').modal('show');
     });
 
     function guardar() {
@@ -42,7 +56,7 @@ $(document).ready(function () {
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
-     
+
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "ServiciosAdicionales/save",
@@ -138,6 +152,57 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
+    function guardarTipo() {
+        $('#loading').show();
+        let myData = {
+            tipo_servicio : document.getElementById("nombreTipo").value
+        }
+       console.log(myData);
+        $.ajax({
+            url: URL_SERVIDOR + "TipoServicio/save",
+            method: "POST",
+            data: {"tipo_servicio" :"213123123"},
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let respuestaDecodificada = JSON.parse(response);
+            //AGREGAMOS RESPUESTA AL COMBO
+            let texto = respuestaDecodificada.tipo.tipo_servicio;
+            let id = respuestaDecodificada.id;
+            let newOption = new Option(texto, id, false, false);
+            $('#tipo_servicio').append(newOption).trigger('change');
+            //mandamos un mensaje al usuario
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: respuestaDecodificada.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                $("#formularioAgregarTipo").trigger("reset");
+                $('#modal-agregarTipo').modal('hide');
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+            let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $("#formularioAgregarTipo").trigger("reset");
+            $('#modal-agregarTipo').modal('hide');
+            $('#loading').hide();
+        });
+    }
     function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
@@ -176,7 +241,7 @@ $(document).ready(function () {
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
     }
-    function inicializarCombo() {
+    function inicializarComboContacto() {
         //COMBO DE TIPOS 
         $('#tipo_servicio').select2();
         //COMBO DE CONTACTOS
@@ -202,6 +267,35 @@ $(document).ready(function () {
             }
         }).fail(function (response) {
             $('#contacto_servicio').select2();
+
+        }).always(function (xhr, opts) {
+            //  $('#loading').hide();
+        });
+    }
+    function inicializarComboTipo() {
+
+        $.ajax({
+            url: URL_SERVIDOR + "TipoServicio/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.tipo) {
+                let lista = response.tipo;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_tipo_servicio,
+                        text: lista[index].tipo_servicio
+                    });
+                }
+                $('#tipo_servicio').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#tipo_servicio').select2();
+            }
+        }).fail(function (response) {
+            $('#tipo_servicio').select2();
 
         }).always(function (xhr, opts) {
             $('#loading').hide();
@@ -258,7 +352,6 @@ $(document).ready(function () {
             }
         });
 
-
         $('#formularioAgregar').validate({
             rules: {
                 correoContacto: {
@@ -274,6 +367,33 @@ $(document).ready(function () {
                     email: "Ingrese un correo electrónico válido"
                 },
                 nombreContacto: {
+                    required: "Es necesario un nombre",
+                    minlength: "Debe de tener una longitud minima de 3"
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+        $('#formularioAgregarTipo').validate({
+            rules: {
+                nombreTipo: {
+                    required: true,
+                    minlength: 3,
+                }
+            },
+            messages: {
+                nombreTipo: {
                     required: "Es necesario un nombre",
                     minlength: "Debe de tener una longitud minima de 3"
                 }
