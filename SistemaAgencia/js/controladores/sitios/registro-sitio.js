@@ -7,16 +7,18 @@ $(document).ready(function () {
     inicializarValidaciones();
     inicializarGaleria();
     inicializarFoto();
-
+    initMap();
     //BOTON DE NUEVO
     $(document).on('click', '#btn-nuevo', function (evento) {
         $('#modal-agregar').modal('show');
     });
     //BOTON DE COORDENADAS
     $(document).on('click', '#btn-mapa', function (evento) {
-        $('#coordenadas').val("13.645382, -88.870769");
+        $('#coordenadas').val("13.643448351332022 -88.78414715642167");
         $("#coordenadas-error").hide();
         $("#coordenadas").removeClass("is-invalid");
+        $('#modal-mapa').modal('show');
+        
     });
     //BOTON PARA AGREGAR UN NUEVO CONTACTO 
     $(document).on('click', '#btnAgregar', function (evento) {
@@ -89,7 +91,7 @@ $(document).ready(function () {
             $('#ComboTipo').select2();
 
         }).always(function (xhr, opts) {
-             $('#loading').hide();
+            $('#loading').hide();
         });
 
     }
@@ -396,15 +398,15 @@ $(document).ready(function () {
     function guardarTipo() {
         $('#loading').show();
         let myData = {
-            tipo_sitio : document.getElementById("nombreTipo").value
+            tipo_sitio: document.getElementById("nombreTipo").value
         }
-       console.log(myData);
+        console.log(myData);
         $.ajax({
             url: URL_SERVIDOR + "TipoSitio/save",
             method: "POST",
             data: myData,
             timeout: 0,
-       
+
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = response;
@@ -442,6 +444,35 @@ $(document).ready(function () {
             $('#modal-agregarTipo').modal('hide');
             $('#loading').hide();
         });
+    }
+    function initMap() {
+        let latitud = 13.643448351332022;
+        let longitud = -88.78414715642167;
+            let coordenadas = {
+            lng: longitud,
+            lat: latitud
+        };
+        generarMapa(coordenadas);
+    }
+    function generarMapa(coordenadas) {
+        let mapa = new google.maps.Map(document.getElementById("mapa"),
+            {
+                zoom: 12,
+                center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+            });
+        let marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+        marcador.addListener("dragend", function (event) {
+            document.getElementById("coordenadas").value = `${this.position.lat()} ${this.position.lng()}`;
+            //console.log(this);
+        });
+        //PARA GOOGLE PLACES
+        // let input = document.getElementById("lugares");
+        // const search =new google.maps.places.Autocomplete(input);
+        //  search.bindTo("bounds", mapa);
     }
 
 });

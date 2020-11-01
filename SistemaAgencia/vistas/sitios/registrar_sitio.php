@@ -198,6 +198,8 @@
                 </div>
                 <!-- END timeline item -->
             </form>
+
+
         </section>
 
         <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
@@ -307,7 +309,40 @@
             </div>
             <!-- End Modal EDITAR-->
         </form>
+        <div class="modal fade" id="modal-mapa">
+            <!-- Modal EDITAR-->
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Selecciona la ubicación</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="mapa" style="width: 100%; height: 500px">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer justify-content-end">
+
+                        <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
     </div>
+
+
 
     <?php include_once '../../plantillas/footer.php'; ?>
     <!-- PONER SCRIPT ADICIONALES ACA -->
@@ -320,6 +355,10 @@
     <!-- jquery-validation -->
     <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+    <!-- GOOGLE MAPS -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
+    </script>
+    <!-- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E&libraries=places&callback=initMap"> -->
     <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
     <script src="<?= $base_url ?>js/controladores/conf.js"></script>
     <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
