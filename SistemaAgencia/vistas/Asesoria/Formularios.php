@@ -25,12 +25,12 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Preguntas Abiertas Registradas</h1>
+                    <h1>Formularios Migratorios</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Preguntas Abiertas</li>
+                        <li class="breadcrumb-item active">Formularios</li>
                     </ol>
                 </div>
             </div>
@@ -45,19 +45,19 @@ include_once '../../plantillas/barra_lateral.php';
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Datos de las preguntas</h3>
+                        <h3 class="card-title">Citas atendidas</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_abiertas" class="table table-bordered table-striped">
+                                    <table id="formularios" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
-                                                <th>Pregunta</th>
-                                                <th>Más de una respuesta</th>
-                                                 <th>Rama</th>
+                                                <th>Cliente</th>
+                                                <th>Fecha</th>
+                                                 <th>Hora</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -108,51 +108,45 @@ include_once '../../plantillas/barra_lateral.php';
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
-                                    <div class="col-sm-2"></div>
-                                <div class="col-sm-7">
-                                    <div class="form-group">
-                                        <label>Rama de la Pregunta</label>
-                                        <div class="input-group">
-                                        <select name="id_rama" id="id_rama" class="form-control">
-                                            <option disabled selected >Seleccione</option>
-                                                </select>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-7">
-                                    <div class="form-group">
-                                        <label>Pregunta</label>
-                                        <div class="input-group">
-                                            <input id="pregunta" name="pregunta" type="text" class="form-control" autocomplete="off">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-1"></div>
+                    <div class="col-12 col-sm-10">
+                        <div class="card card-primary card-tabs">
+                            <div class="card-header p-0 pt-1">
+                                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                   
+                                   
+                                </ul>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-7">
-                                    <div class="form-group">
-                                        <label>Mas de una respuesta</label>
-                                        <div class="input-group">
-                                           <select name="mas_respuestas" id="mas_respuestas" class="form-control">
-                                            <option disabled selected >Seleccione</option>
-                                                    <option value=Si>Si</option>
-                                                    <option value=No>No</option>
+                        <div class="card-body">
+                            <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                                <div style="width: 200px;"></div>
 
-                                                </select>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
+                               <select name="id_cita" id="citas_dias" class="form-control" style="width: 400px; margin-top: 20px" required="true">
+                                </select>
+                                <div class="tab-content" id="custom-tabs-one-tabContent">
+                                      
+                            
+                                </div><!--fin de una pestaña-->
+                                   </br>
+                            <div style="width: 400px;"></div>
+                             <div style="width: 400px;">
+                                 <button type="button" id="btnFormulario" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Guardar</button>
+                                <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
+                                 
+                             </div>
                                 
+                        </form>
+                                </div>
+
+
                             </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                            
 
                         </div>
 
@@ -178,7 +172,8 @@ include_once '../../plantillas/barra_lateral.php';
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/tabla-abierta.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/formularios-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
