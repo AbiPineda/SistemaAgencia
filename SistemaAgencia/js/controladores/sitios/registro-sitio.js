@@ -2,11 +2,12 @@
 $(document).ready(function () {
     let dataTipo;
 
-    inicializarComboTipo();
     inicializarComboContacto();
+    inicializarComboTipo();
     inicializarValidaciones();
     inicializarGaleria();
     inicializarFoto();
+
     //BOTON DE NUEVO
     $(document).on('click', '#btn-nuevo', function (evento) {
         $('#modal-agregar').modal('show');
@@ -26,6 +27,19 @@ $(document).ready(function () {
 
             guardarContacto();
         }
+    });
+    //BOTON PARA AGREGAR UN NUEVO TIPO 
+    $(document).on('click', '#btnAgregarTipo', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+        let form = $("#formularioAgregarTipo");
+        form.validate();
+        if (form.valid()) {
+            guardarTipo();
+        }
+    });
+    //BOTON DE NUEVO TIPO
+    $(document).on('click', '#btn-nuevoTipo', function (evento) {
+        $('#modal-agregarTipo').modal('show');
     });
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
@@ -51,17 +65,32 @@ $(document).ready(function () {
     });
 
     function inicializarComboTipo() {
-        dataTipo = [
-            { id: 1, text: "Montaña" },
-            { id: 2, text: "Reserva Natural" },
-            { id: 3, text: "Parque Nacional" },
-            { id: 4, text: "Restaurante" },
-            { id: 5, text: "Shows Artitisticos" },
-            { id: 6, text: "Hotel" },
-            { id: 7, text: "Otros" },
-        ];
-        $('#ComboTipo').select2(
-            { data: dataTipo });
+        $.ajax({
+            url: URL_SERVIDOR + "TipoSitio/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.tipo) {
+                let lista = response.tipo;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_tipo_sitio,
+                        text: lista[index].tipo_sitio
+                    });
+                }
+                $('#ComboTipo').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#ComboTipo').select2();
+            }
+        }).fail(function (response) {
+            $('#ComboTipo').select2();
+
+        }).always(function (xhr, opts) {
+             $('#loading').hide();
+        });
 
     }
     function inicializarGaleria() {
@@ -106,7 +135,7 @@ $(document).ready(function () {
             $('#contacto_servicio').select2();
 
         }).always(function (xhr, opts) {
-            $('#loading').hide();
+            // $('#loading').hide();
         });
     }
     function inicializarFoto() {
@@ -149,7 +178,7 @@ $(document).ready(function () {
                     required: true
                 }, precio_sitio: {
                     required: true,
-                    min :0
+                    min: 0
                 }
             },
             messages: {
@@ -169,7 +198,7 @@ $(document).ready(function () {
                     required: "Suba por lo menos 1 foto"
                 }, precio_sitio: {
                     required: "El precio es necesario",
-                    min :"Debe de ser mayor que 0"
+                    min: "Debe de ser mayor que 0"
                 }
 
             },
@@ -187,7 +216,6 @@ $(document).ready(function () {
             }
         });
 
-
         $('#formularioAgregar').validate({
             rules: {
                 correoContacto: {
@@ -203,6 +231,34 @@ $(document).ready(function () {
                     email: "Ingrese un correo electrónico válido"
                 },
                 nombreContacto: {
+                    required: "Es necesario un nombre",
+                    minlength: "Debe de tener una longitud minima de 3"
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+        $('#formularioAgregarTipo').validate({
+            rules: {
+                nombreTipo: {
+                    required: true,
+                    minlength: 3,
+                }
+            },
+            messages: {
+                nombreTipo: {
                     required: "Es necesario un nombre",
                     minlength: "Debe de tener una longitud minima de 3"
                 }
@@ -324,7 +380,7 @@ $(document).ready(function () {
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
-           
+
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
@@ -337,4 +393,55 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
+    function guardarTipo() {
+        $('#loading').show();
+        let myData = {
+            tipo_sitio : document.getElementById("nombreTipo").value
+        }
+       console.log(myData);
+        $.ajax({
+            url: URL_SERVIDOR + "TipoSitio/save",
+            method: "POST",
+            data: myData,
+            timeout: 0,
+       
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let respuestaDecodificada = response;
+            //AGREGAMOS RESPUESTA AL COMBO
+            let texto = respuestaDecodificada.tipo.tipo_sitio;
+            let id = respuestaDecodificada.id;
+            let newOption = new Option(texto, id, false, false);
+            $('#ComboTipo').append(newOption).trigger('change');
+            //mandamos un mensaje al usuario
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: respuestaDecodificada.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                $("#formularioAgregarTipo").trigger("reset");
+                $('#modal-agregarTipo').modal('hide');
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+            let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $("#formularioAgregarTipo").trigger("reset");
+            $('#modal-agregarTipo').modal('hide');
+            $('#loading').hide();
+        });
+    }
+
 });

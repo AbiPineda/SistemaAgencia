@@ -161,13 +161,12 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "TipoServicio/save",
             method: "POST",
-            data: {"tipo_servicio" :"213123123"},
+            data: myData,
             timeout: 0,
-            processData: false,
-            contentType: false,
+         
         }).done(function (response) {
             //REST_Controller::HTTP_OK
-            let respuestaDecodificada = JSON.parse(response);
+            let respuestaDecodificada = response;
             //AGREGAMOS RESPUESTA AL COMBO
             let texto = respuestaDecodificada.tipo.tipo_servicio;
             let id = respuestaDecodificada.id;
