@@ -1,0 +1,66 @@
+$(document).ready(function() {
+
+    $("#btnGuardar").on('click', function(e) {
+
+
+        e.preventDefault();
+        let myData = {
+
+            "usuario": document.getElementById("nombreUsuario").value,
+            "contrasena": document.getElementById("pass").value,
+            "rentaCar": document.getElementById("rentaCar").value,
+            "telefono": document.getElementById("telefono").value,
+            "lugar": document.getElementById("lugar").value,
+            "descripcion": document.getElementById("descripcion").value
+        }
+
+        $.ajax({
+            url: URL_SERVIDOR + "rentacars/renta",
+            method: 'POST',
+            data: myData
+
+        }).done(function(response) {
+
+            //$("#datosGenerales").serialize();
+            // data: $("#migratorio-form").serialize()
+
+            document.getElementById("datosGenerales").serialize();
+
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                location.reload();
+            });
+        }).fail(function(response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "";
+
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                    //toastr.error(erroresEnvioDatos[mensaje]);
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
+            }
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
+
+        })
+
+
+    });
+});

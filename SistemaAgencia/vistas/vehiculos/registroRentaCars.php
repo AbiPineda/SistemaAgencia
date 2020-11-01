@@ -42,20 +42,27 @@ include_once '../../plantillas/barra_lateral.php';
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
 
-                            <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
+                            <h3 class="timeline-header"><a href="">Datos Generales</a></h3>
 
                             <div class="timeline-body">
-                                <div class="row">
+                                <div class="row" id="datosGenerales">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Seleccione Usuario</label>
-                                            <select name="id_usuario" id="id_usuario" class="form-control">
-                                                <option disabled="" selected="">Seleccione</option>
-                                            </select>
+                                            <label>Usuario</label>
+                                            <input type="text" class="form-control" placeholder="Nombre del Usuario"
+                                                name="nombreUsuario" id="nombreUsuario">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input type="password" class="form-control" placeholder="Digite Contraseña"
+                                                name="pass" id="pass">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nombre de Renta Cars</label>
@@ -63,7 +70,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 name="rentaCar" id="rentaCar">
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Telefono</label>
@@ -71,7 +78,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 name="telefono" id="telefono">
                                         </div>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Lugar</label>
@@ -136,4 +143,5 @@ include_once '../../plantillas/barra_lateral.php';
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboUsuario.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarRentacars.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
