@@ -1,71 +1,146 @@
-<!-- INICIALIZACION -->
-<?php include_once '../../config/parametros.php'; ?>
-<?php include_once '../../plantillas/cabecera.php'; ?>
-<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
-<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-    type="text/css" />
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
-    type="text/css" />
-<!--COTINUANDO CON LA INICIALIZACION -->
-<?php include_once '../../plantillas/navbar.php'; ?>
-<?php include_once '../../plantillas/barra_lateral.php'; ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4" id="arregloTipos">
-            <label>¿Personas que asistirán ?</label>
-            <div class="form-group multiple-form-group input-group">
-                <select name="ComboTipo[]" class="select2 selectTipo" data-placeholder="Seleccione el tipo"
-                    style="width: 100%;">
-                </select>
-            </div>
-        </div>
-        <div class="col-md-1">
-            <br>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-success btn-add" id="btn-nuevo" name="btn-nuevo"
-                    style="margin-top: 10px; width: 100%;">+</button>
-            </span>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label>Precio(USD)</label>
-                <div class="input-group">
-                    <input type="number" min="0" class=" form-control" name="precio_sitio" id="precio_sitio">
-                </div>
-                <!-- /.input group -->
-            </div>
-        </div>
+<html>
 
-        <div class="col-md-2">
-            <div class="form-group">
-                <label>Por Pasajero</label>
-                <div class="input-group">
-                    <div class="icheck-success d-inline" style="text-align: center;">
-                        <input type="checkbox" id="checkboxSuccess1" checked="">
-                        <label for="checkboxSuccess1"></label>
-                    </div>
-                </div>
+<head>
+    <title>JSC Demo</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://jsc.mm-lamp.com/jQuery-Seat-Charts/jquery.seat-charts.css">
+    <link rel=" stylesheet" type="text/css" href="https://jsc.mm-lamp.com/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div id="seat-map">
+                <div class="front-indicator">Front</div>
+
+            </div>
+            <div class="booking-details">
+                <h2>Booking Details</h2>
+
+                <h3> Selected Seats (<span id="counter">0</span>):</h3>
+                <ul id="selected-seats"></ul>
+
+                Total: <b>$<span id="total">0</span></b>
+
+                <button class="checkout-button">Checkout &raquo;</button>
+
+                <div id="legend"></div>
             </div>
         </div>
     </div>
-</div>
 
-<?php include_once '../../plantillas/footer.php'; ?>
-<!-- PONER SCRIPT ADICIONALES ACA -->
-<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-<!-- jquery-validation -->
-<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
-<!-- CIERRE DE ETIQUETAS -->
-<?php include_once '../../plantillas/cierre.php'; ?>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://jsc.mm-lamp.com/jQuery-Seat-Charts/jquery.seat-charts.js"></script>
+
+    <script>
+    var firstSeatLabel = 1;
+
+    $(document).ready(function() {
+        var $cart = $('#selected-seats'),
+            $counter = $('#counter'),
+            $total = $('#total'),
+            sc = $('#seat-map').seatCharts({
+                map: [
+                    'ef_ff',
+                    'ff_ff',
+                    'ee_ee',
+                    'ee_ee',
+                    'ee___',
+                    'ee_ee',
+                    'ee_ee',
+                    'ee_ee',
+                    'eeeee',
+                ],
+                seats: {
+                    f: {
+                        price: 100,
+                        classes: 'first-class', //your custom CSS class
+                        category: 'First Class'
+                    },
+                    e: {
+                        price: 40,
+                        classes: 'economy-class', //your custom CSS class
+                        category: 'Economy Class'
+                    }
+
+                },
+                naming: {
+                    top: false,
+                    getLabel: function(character, row, column) {
+                        return firstSeatLabel++;
+                    },
+                },
+                legend: {
+                    node: $('#legend'),
+                    items: [
+                        ['f', 'available', 'First Class'],
+                        ['e', 'available', 'Economy Class'],
+                        ['f', 'unavailable', 'Already Booked']
+                    ]
+                },
+                click: function() {
+                    if (this.status() == 'available') {
+                        //let's create a new <li> which we'll add to the cart items
+                        $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' +
+                                this.data().price +
+                                '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                            .attr('id', 'cart-item-' + this.settings.id)
+                            .data('seatId', this.settings.id)
+                            .appendTo($cart);
+
+                        /*
+                         * Lets update the counter and total
+                         *
+                         * .find function will not find the current seat, because it will change its stauts only after return
+                         * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+                         */
+                        $counter.text(sc.find('selected').length + 1);
+                        $total.text(recalculateTotal(sc) + this.data().price);
+
+                        return 'selected';
+                    } else if (this.status() == 'selected') {
+                        //update the counter
+                        $counter.text(sc.find('selected').length - 1);
+                        //and total
+                        $total.text(recalculateTotal(sc) - this.data().price);
+
+                        //remove the item from our cart
+                        $('#cart-item-' + this.settings.id).remove();
+
+                        //seat has been vacated
+                        return 'available';
+                    } else if (this.status() == 'unavailable') {
+                        //seat has been already booked
+                        return 'unavailable';
+                    } else {
+                        return this.style();
+                    }
+                }
+            });
+
+        //this will handle "[cancel]" link clicks
+        $('#selected-seats').on('click', '.cancel-cart-item', function() {
+            //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
+            sc.get($(this).parents('li:first').data('seatId')).click();
+        });
+
+        //let's pretend some seats have already been booked
+        sc.get(['1_2', '5_3', '7_1', '7_2']).status('unavailable');
+
+    });
+
+    function recalculateTotal(sc) {
+        var total = 0;
+
+        //basically find every selected seat and sum its price
+        sc.find('selected').each(function() {
+            total += this.data().price;
+        });
+
+        return total;
+    }
+    </script>
+</body>
+
+</html>
