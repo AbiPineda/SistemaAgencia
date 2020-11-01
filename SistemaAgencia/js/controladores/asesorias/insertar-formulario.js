@@ -24,7 +24,7 @@ function insertarFormulario(){
             data: $("#migratorio-form").serialize()
 
         }).done(function (response) {
-         // document.getElementById("migratorio-form").reset();
+         document.getElementById("migratorio-form").reset();
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
