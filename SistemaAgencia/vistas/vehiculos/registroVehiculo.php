@@ -103,9 +103,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="form-group">
                                             <label>Color</label>
                                             <br>
-                                            <input type="color" class="form-control" name="colorAuto"
-                                                id="colorAuto">
-                                            
+                                            <input type="color" class="form-control" name="colorAuto" id="colorAuto">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -161,9 +159,9 @@ include_once '../../plantillas/cabecera.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Servicios Opcionales</label>
-                                            <select class="select2" multiple="multiple"
-                                                data-placeholder="Seleccione" style="width: 100%;" name="id_servicios" id="id_servicios">
-                                                
+                                            <select class="select2" multiple="multiple" data-placeholder="Seleccione"
+                                                style="width: 100%;" name="id_servicios" id="id_servicios">
+
                                             </select>
                                         </div>
                                     </div>
@@ -262,9 +260,9 @@ include_once '../../plantillas/cabecera.php';
 $(function() {
     $('.select2').select2()
 
-     //Initialize Select2 Elements
-     $('.select2bs4').select2({
-      theme: 'bootstrap4'
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+        theme: 'bootstrap4'
     })
 
     $('.my-colorpicker1').colorpicker()
