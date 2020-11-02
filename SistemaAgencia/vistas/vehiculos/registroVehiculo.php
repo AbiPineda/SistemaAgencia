@@ -102,8 +102,10 @@ include_once '../../plantillas/cabecera.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Color</label>
-                                            <input type="text" class="form-control my-colorpicker1" name="colorAuto"
+                                            <br>
+                                            <input type="color" class="form-control" name="colorAuto"
                                                 id="colorAuto">
+                                            
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
