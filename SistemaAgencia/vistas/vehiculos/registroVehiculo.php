@@ -71,7 +71,7 @@ include_once '../../plantillas/cabecera.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
@@ -219,7 +219,8 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary1" checked name="aire" id="aire">
+                                                    <input type="checkbox" id="checkboxPrimary1" checked name="aire"
+                                                        id="aire">
                                                     <label for="checkboxPrimary1"> Aire Acondicionado
                                                     </label>
                                                 </div>
@@ -228,7 +229,8 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-success d-inline">
-                                                    <input type="checkbox" checked id="checkboxSuccess1" name="wifi" id="wifi">
+                                                    <input type="checkbox" checked id="checkboxSuccess1" name="wifi"
+                                                        id="wifi">
                                                     <label for="checkboxSuccess1">WiFi
                                                     </label>
                                                 </div>
@@ -237,7 +239,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-danger d-inline">
-                                                    <input type="checkbox" checked id="checkboxDanger1" name="sonido" id="sonido">
+                                                    <input type="checkbox" checked name="sonido" id="sonido">
                                                     <label for="checkboxDanger1">Equipo de Sonido
                                                     </label>
                                                 </div>
@@ -353,6 +355,9 @@ $(function() {
 
 })
 </script>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboRentaCars.js"></script>
@@ -372,7 +377,3 @@ $(function() {
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
-
-<!-- jquery-validation -->
-<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
