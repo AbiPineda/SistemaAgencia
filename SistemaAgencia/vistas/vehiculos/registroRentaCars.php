@@ -142,6 +142,5 @@ include_once '../../plantillas/barra_lateral.php';
 
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarRentacars.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>

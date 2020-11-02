@@ -1,9 +1,21 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
 ?>
+
+<!-- COLORAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
+<link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
+<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+
+<!-- CONTINUAMOS CON LA INICIALIZACION -->
+<?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
+
+
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -42,16 +54,13 @@ include_once '../../plantillas/barra_lateral.php';
                             <div class="timeline-body">
                                 <div class="row">
 
+
                                     <div class="col-sm-3">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Marca</label>
-                                            <select class="form-control">
-                                                <option>Toyota</option>
-                                                <option>Nissan</option>
-                                                <option>Kia</option>
-                                                <option>Hyundai</option>
-                                                <option>Honda</option>
+                                            <label>Renta Cars</label>
+                                            <select name="id_modelo" id="id_modelo" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
                                             </select>
                                         </div>
                                     </div>
@@ -59,73 +68,81 @@ include_once '../../plantillas/barra_lateral.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Modelo</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca modelo">
+                                            <select name="id_modelo" id="id_modelo" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Año</label>
-                                            <input type="number" class="form-control" min=2010 max=2020>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Placa</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca placa">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <!-- select -->
-                                        <div class="form-group">
-                                            <label>Combustible:</label>
-                                            <select class="form-control">
-                                                <option>Gasolina</option>
-                                                <option>Diesel</option>
-                                            </select>
+                                            <input type="number" class="form-control" min=2010
+                                                max=<?php echo date("Y"); ?> name="anio" id="anio" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <!-- text input -->
                                         <div class="form-group">
+                                            <label>Placa</label>
+                                            <input type="text" class="form-control" placeholder="Introduzca placa"
+                                                name="placa" id="placa" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Combustible</label>
+                                            <select class="form-control" name="comboCombustible" id="comboCombustible">
+                                                <option>Gasolina</option>
+                                                <option>Diesel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <!-- text input -->
+                                        <div class="form-group">
                                             <label>Color</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca color">
+                                            <input type="text" class="form-control my-colorpicker1" name="colorAuto"
+                                                id="colorAuto">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Kilometraje</label>
-                                            <input type="number" class="form-control" min=1>
+                                            <input type="number" class="form-control" min=1 name="kilometraje"
+                                                id="kilometraje" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Transmición</label>
-                                            <select class="form-control">
-                                                <option>Manual</option>
-                                                <option>Automatico</option>
+                                            <select name="id_transmision" id="id_transmision" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Precio</label>
-                                            <input type="number" class="form-control" min=1>
+                                            <label>Precio Diario</label>
+                                            <input type="number" class="form-control" min=1 name="precio" id="precio"
+                                                autocomplete="off">
                                         </div>
                                     </div>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Pasajeros</label>
-                                            <input type="number" class="form-control" min=1 max=20>
+                                            <input type="number" class="form-control" min=1 max=60 name="pasajero"
+                                                id="pasajero" autocomplete="off">
                                         </div>
                                     </div>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Puertas</label>
-                                            <input type="number" class="form-control" min=1 max=5>
+                                            <input type="number" class="form-control" min=1 max=5 name="puertas"
+                                                id="puertas" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -133,16 +150,22 @@ include_once '../../plantillas/barra_lateral.php';
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Categoría</label>
-                                            <select class="form-control">
-                                                <option>Económicos</option>
-                                                <option>Sedan</option>
-                                                <option>Compactos</option>
-                                                <option>Microbuses</option>
-                                                <option>Pickup</option>
+                                            <select name="id_categoria" id="id_categoria" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Servicios Opcionales</label>
+                                            <select class="select2" multiple="multiple"
+                                                data-placeholder="Seleccione" style="width: 100%;" name="id_servicios" id="id_servicios">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
                                         <label>Seleccione foto</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="files" name="foto">
@@ -233,6 +256,31 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 
+<script>
+$(function() {
+    $('.select2').select2()
 
-<!-- formulario mantenimiento -->
-<!-- /.card-header -->
+     //Initialize Select2 Elements
+     $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+
+    $("input[data-bootstrap-switch]").each(function() {
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+})
+</script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboTransmision.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboCategoria.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboServicio.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+
+<script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>

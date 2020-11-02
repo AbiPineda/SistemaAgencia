@@ -21,9 +21,6 @@ $(document).ready(function() {
 
         }).done(function(response) {
 
-            //$("#datosGenerales").serialize();
-            // data: $("#migratorio-form").serialize()
-
             document.getElementById("datosGenerales").serialize();
 
             const Toast = Swal.mixin();
