@@ -372,3 +372,7 @@ $(function() {
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>

@@ -23,7 +23,7 @@ $(document).ready(function() {
             form.append('fotos[]', galeria[i]);
         }
         form.append("id_rentaCarFK", document.getElementById("id_renta").value);
-        form.append("modelo", document.getElementById("id_modelo").value);
+        form.append("idmodelo", document.getElementById("id_modelo").value);
         form.append("id_transmicionFK", document.getElementById("id_transmision").value);
         form.append("idcategoria", document.getElementById("id_categoria").value);
         form.append("idservicios_opc", document.getElementById("id_servicios").value);
