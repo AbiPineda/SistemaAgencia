@@ -119,26 +119,28 @@ include_once '../../plantillas/barra_lateral.php';
                                    
                                 </ul>
                             </div>
-                        <div class="card-body">
-                            <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                               <div class="card-body">
+                        <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
                                 <div style="width: 200px;"></div>
+                                <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
+                                <input type="text" id="usuario" value="" class="form-control" disabled="true" style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
 
-                               <select name="id_cita" id="citas_dias" class="form-control" style="width: 400px; margin-top: 20px" required="true">
-                                </select>
+                               
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                       
                             
                                 </div><!--fin de una pestaña-->
                                    </br>
                             <div style="width: 400px;"></div>
-                             <div style="width: 400px;">
+                            <div style="width: 400px;">
                                  <button type="button" id="btnFormulario" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Guardar</button>
                                 <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                  
-                             </div>
+                            </div>
                                 
                         </form>
-                                </div>
+                        
+                               </div>
 
 
                             </div>

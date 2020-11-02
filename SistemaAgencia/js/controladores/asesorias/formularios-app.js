@@ -10,6 +10,11 @@ $(document).ready(function () {
     $(document).on('click', '.btn-group .btn-primary', function () {
         $('#loadingActualizar').hide();
         id = $(this).attr("name");
+         fila = $(this).closest("tr");
+         usuario= fila.find('td:eq(0)').text();
+        document.getElementById("id_cita").value =id;
+        document.getElementById("usuario").value =usuario;
+
 
          $.ajax({
             type: "GET",
@@ -23,7 +28,8 @@ $(document).ready(function () {
                    if(data.formulario[i].opcion=='cerrada'){
                      var $select = $('#'+data.formulario[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
-                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
+                                    '<label style="width: 400px;margin-left: 98px; margin-top:-15px;">¿'+data.formulario[i].pregunta+'?</label>'+
+                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;">'+
                                         '<option value="">¿'+data.formulario[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
@@ -47,23 +53,17 @@ $(document).ready(function () {
                    }else{
                     if (data.formulario[i].mas_respuestas=='Si') {
                        // alert('entre');
-                    $select = $('#'+data.formulario[i].num_rama);
-                    $select.append(
-                                   '<div class="form-group multiple-form-group input-group">'+
-                                '<select name="id_pregunta_mas[]" style="height: 0px;width: 0px;visibility: hidden;">'+
-                                        '<option selected>'+data.formulario[i].id_pregunta+'</option>'+
-                                     '</select>'+  
-                              '<input type="text" name="respuesta_mas[]" value="" id="asistiran" class="form-control" placeholder="¿'+data.formulario[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
-                              '<span class="input-group-btn">'+
-                              '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>'+
-                             '</span>'+
-                             '</div>&nbsp&nbsp');
+                        $select = $('#'+data.formulario[i].num_rama);
+                         $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
+                                   '<input type="text" name="respuesta1[]" value="'+data.formulario[i].respuesta+'" class="form-control"'+
+                                   'style="width:400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp');
 
                     }else{
                     var $select = $('#'+data.formulario[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
                                    '<input type="text" name="respuesta1[]" value="" class="form-control"'+
-                                   'placeholder="¿'+data.formulario[i].pregunta+'?" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
+                                   'placeholder="¿'+data.formulario[i].pregunta+'?"'+
+                                    'style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp');
                     }
                    }
                 }
