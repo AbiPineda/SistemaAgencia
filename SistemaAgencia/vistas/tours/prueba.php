@@ -25,6 +25,13 @@
             <input id="asientos_izquierdo" name="asientos_izquierdo" type="number" min="2" value="2" step="1"
                 class="form-control">
         </div>
+        <input type="checkbox" id="checkTrasero" value="second_checkbox"> <label for="checkTrasero">Agregar fila
+            trasera</label>
+        <div>
+            <label for="asientos_traseros">numero de asientos traseros</label>
+            <input id="asientos_traseros" name="asientos_traseros" type="number" step="1" class="form-control">
+        </div>
+
         <div class="container">
             <div id="seat-map">
                 <div class="front-indicator">Front</div>

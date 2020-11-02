@@ -9,6 +9,7 @@ $(document).ready(function () {
     let numero_filas = 2;
     let asientos_derecho = 2
     let asientos_izquierdo = 2
+    let asientos_traseros = 5;
 
     let miMapa = [
         'ee_ee',
@@ -34,15 +35,31 @@ $(document).ready(function () {
         dibujarAsientos();
 
     });
+    //CUANDO HAY CAMBIOS EN EL NUMERO DE ASIENTOS IZQUIERDO
     $(document).on('keyup mouseup', '#asientos_izquierdo', function () {
         miMapa = [];
-
         crearStrFila();
         borrarTodo();
         crearFilas();
         dibujarAsientos();;
 
     });
+    //PARA DETECTAR LOS CAMBIOS EN EL CHECKBOX
+    $('#checkTrasero').change(function () {
+        if( $('#checkTrasero').prop('checked') ) {
+            console.log('Seleccionado');
+          
+            $("#asientos_traseros").attr({
+                "max" : 10,
+                "min" : asientos_derecho + asientos_izquierdo +1,
+                "value" : asientos_derecho + asientos_izquierdo +1
+             });
+        }else{
+            console.log("no");
+        }
+
+    });
+
     //this will handle "[cancel]" link clicks
     $('#selected-seats').on('click', '.cancel-cart-item', function () {
         //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
@@ -158,11 +175,14 @@ $(document).ready(function () {
         console.log(strFila);
 
     }
-    function crearFilas(params) {
+    function crearFilas() {
         numero_filas = parseInt($("#numero_filas").val());
         for (let index = 0; index < numero_filas; index++) {
             miMapa.push(strFila);
         }
-        console.log(miMapa);
+    
+    }
+    function crearStrFilaTrasera() {
+
     }
 });
