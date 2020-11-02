@@ -55,9 +55,16 @@ $(document).ready(function () {
                     if (data.formulario[i].mas_respuestas=='Si') {
                        // alert('entre');
                         $select = $('#'+data.formulario[i].num_rama);
-                         $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
-                                   '<input type="text" name="respuesta1[]" value="'+data.formulario[i].respuesta+'" class="form-control"'+
-                                   'style="width:400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp');
+                        $select.append('<div class="form-group multiple-form-group input-group">'+
+                                '<select name="id_pregunta_mas[]" style="height: 0px;width: 0px;visibility: hidden;">'+
+                                        '<option selected>'+data.formulario[i].id_pregunta+'</option>'+
+                                     '</select>'+  
+                              '<input type="text" name="respuesta_mas[]" value="'+data.formulario[i].respuesta+'" id="asistiran" class="form-control" placeholder="¿'+data.formulario[i].pregunta+'?"'+
+                              'style="width: 368px;margin-left: 98px; margin-top:-15px;">'+
+                              '<span class="input-group-btn">'+
+                              '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:-22px;margin-right:55px;">+</button>'+
+                             '</span>'+
+                             '</div>&nbsp&nbsp');
 
                     }else{
                     var $select = $('#'+data.formulario[i].num_rama);

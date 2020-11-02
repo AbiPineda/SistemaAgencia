@@ -176,6 +176,7 @@ include_once '../../plantillas/barra_lateral.php';
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/formularios-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
