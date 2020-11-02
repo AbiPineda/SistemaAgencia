@@ -102,7 +102,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                         </div>
                         <div class="modal-header">
-                            <h4 class="modal-title">Detalle de la Pregunta</h4>
+                            <h4 class="modal-title">Detalle del formulario</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

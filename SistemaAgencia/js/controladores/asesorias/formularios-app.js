@@ -30,24 +30,25 @@ $(document).ready(function () {
                     $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
                                     '<label style="width: 400px;margin-left: 98px; margin-top:-15px;">¿'+data.formulario[i].pregunta+'?</label>'+
                                      '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;margin-left: 98px; margin-top:-6px;">'+
-                                        '<option value="">¿'+data.formulario[i].pregunta+'?</option>'+
+                                        '<option disabled>¿'+data.formulario[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
                     //COMO YA CREE EL COMBO SELECCIONO EL ID Y CARGO EL COMBO
-                    /* var $combo = $('#combo'+data.formulario[i].id_pregunta);
+                    var $combo = $('#combo'+data.formulario[i].id_pregunta);
                      $combo.select();
 
                      //alert(data.preguntas[i].id_pregunta);
                      for (let j = 0, jen = data.opciones.length; j < jen; j++) {
                         //SOLO VA HA LLENAR EL COMBO CUANDO EL ID DE LA PREGUNTA SEA = AL ID 
                         //DE LA PREGUNTA DE LAS OPCIONES RESPUESTAS
-                        if (data.preguntas[i].id_pregunta==data.opciones[j].id_pregunta) {
+                        if (data.formulario[i].id_pregunta==data.opciones[j].id_pregunta) {
                            
                          $combo.append('<option value=' +data.opciones[j].opciones_respuestas+ '>'+data.opciones[j].opciones_respuestas+
                         '</option>'); 
+                          document.getElementById("combo"+data.formulario[i].id_pregunta).value=data.formulario[i].respuesta;
 
                         }    
-                     }*/
+                     }
                    
 
                    }else{
