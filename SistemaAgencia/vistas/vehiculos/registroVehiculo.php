@@ -59,7 +59,7 @@ include_once '../../plantillas/cabecera.php';
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Renta Cars</label>
-                                            <select name="id_modelo" id="id_modelo" class="form-control">
+                                            <select name="id_renta" id="id_renta" class="form-control">
                                                 <option disabled="" selected="">Seleccione</option>
                                             </select>
                                         </div>
@@ -275,6 +275,7 @@ $(function() {
 })
 </script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboRentaCars.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboTransmision.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboCategoria.js"></script>
