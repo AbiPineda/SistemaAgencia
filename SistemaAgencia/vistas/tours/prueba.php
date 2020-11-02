@@ -3,9 +3,10 @@
 <head>
     <title>JSC Demo</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="https://jsc.mm-lamp.com/jQuery-Seat-Charts/jquery.seat-charts.css">
-    <link rel=" stylesheet" type="text/css" href="https://jsc.mm-lamp.com/style.css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
+
+    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/jquery.seat-charts.css">
+    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/myStyle.css">
 </head>
 
 <body>
@@ -30,8 +31,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://jsc.mm-lamp.com/jQuery-Seat-Charts/jquery.seat-charts.js"></script>
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 
     <script>
     var firstSeatLabel = 1;
@@ -42,15 +43,15 @@
             $total = $('#total'),
             sc = $('#seat-map').seatCharts({
                 map: [
-                    'ef_ff',
-                    'ff_ff',
-                    'ee_ee',
-                    'ee_ee',
-                    'ee___',
-                    'ee_ee',
-                    'ee_ee',
-                    'ee_ee',
-                    'eeeee',
+                    'eef_ff',
+                    'eff_ff',
+                    'eee_ee',
+                    'eeeree',
+                    'eee___',
+                    'eee_ee',
+                    'eee_ee',
+                    'eee_ee',
+                    'eeeeee',
                 ],
                 seats: {
                     f: {
