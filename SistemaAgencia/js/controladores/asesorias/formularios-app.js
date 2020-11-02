@@ -29,7 +29,7 @@ $(document).ready(function () {
                      var $select = $('#'+data.formulario[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
                                     '<label style="width: 400px;margin-left: 98px; margin-top:-15px;">¿'+data.formulario[i].pregunta+'?</label>'+
-                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;">'+
+                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;margin-left: 98px; margin-top:-6px;">'+
                                         '<option value="">¿'+data.formulario[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
