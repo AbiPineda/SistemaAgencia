@@ -220,7 +220,7 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group clearfix">
                                                 <div class="icheck-primary d-inline">
                                                     <input type="checkbox" id="checkboxPrimary1" checked name="aire"
-                                                        id="aire">
+                                                       >
                                                     <label for="checkboxPrimary1"> Aire Acondicionado
                                                     </label>
                                                 </div>
@@ -230,7 +230,7 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group clearfix">
                                                 <div class="icheck-success d-inline">
                                                     <input type="checkbox" checked id="checkboxSuccess1" name="wifi"
-                                                        id="wifi">
+                                                        >
                                                     <label for="checkboxSuccess1">WiFi
                                                     </label>
                                                 </div>
@@ -239,7 +239,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-danger d-inline">
-                                                    <input type="checkbox" checked name="sonido" id="sonido">
+                                                    <input type="checkbox" checked name="sonido" id="checkboxDanger1">
                                                     <label for="checkboxDanger1">Equipo de Sonido
                                                     </label>
                                                 </div>

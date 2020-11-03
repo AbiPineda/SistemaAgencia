@@ -35,9 +35,9 @@ $(document).ready(function() {
         form.append("precio_diario", document.getElementById("precio").value);
         form.append("descripcion", document.getElementById("descripcion").value);
         form.append("detalles", document.getElementById("detalle").value);
-        form.append("sonido", document.getElementById("sonido").value);
-        form.append("wifi", document.getElementById("wifi").value);
-        form.append("aireAcondicionado", document.getElementById("aire").value);
+        form.append("sonido", document.getElementById("checkboxDanger1").value);
+        form.append("wifi", document.getElementById("checkboxSuccess1").value);
+        form.append("aireAcondicionado", document.getElementById("checkboxPrimary1").value);
         form.append("kilometraje", document.getElementById("kilometraje").value);
         form.append("tipoCombustible", document.getElementById("comboCombustible").value);
 

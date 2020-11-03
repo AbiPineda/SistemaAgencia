@@ -7,7 +7,7 @@ $(document).ready(function() {
     // inicializarValidaciones();
     inicializarTabla();
     //BOTON MOSTRAR VEHICULO
-    +
+
     $(document).on('click', '.btn-group .btn-primary', function() {
 
         //$('#loadingActualizar').hide();
@@ -65,47 +65,8 @@ $(document).ready(function() {
         $('#modal-editar').modal('show');
 
     });*/
-    //BOTON EDITAR LA FOTO
-    $(document).on('click', '.btn-group .btn-warning', function() {
-        $('#modal-imagenes').modal('show');
-        let identificador = $(this).attr("name");
-        let nombreTabla = 'servicios_adicionales';
-        let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
-        let urlFotos = [];
-        let infoFotos = [];
 
-        $.ajax({
-            url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
-            method: "GET",
-
-        }).done(function(response) {
-            //REST_Controller::HTTP_OK
-            response.forEach(element => {
-                let informacion = {
-                    url: URL_SERVIDOR + "Imagen/delete",
-                    key: element.id_foto
-                };
-                infoFotos.push(informacion);
-                urlFotos.push(element.foto_path);
-            });
-            explorer.fileinput({
-                theme: 'fas',
-                language: 'es',
-                uploadUrl: URL_SERVIDOR + '/Imagen/save',
-                uploadExtraData: informacionAdicional,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: urlFotos,
-                initialPreviewConfig: infoFotos,
-                required: true,
-                maxFileSize: 2000,
-                maxFilesNum: 10,
-                allowedFileExtensions: ["jpg", "png", "gif"]
-
-            });
-        });
-    });
-    //BOTON PARA ELIMINAR
+    //Boton Eliminar
     $(document).on('click', '.btn-group .btn-danger', function(evento) {
         idVehiculo = $(this).attr("name");
         fila = $(this).closest("tr");

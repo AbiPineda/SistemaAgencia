@@ -41,6 +41,7 @@ $(document).ready(function() {
             document.getElementById("precio_diario").value = response.autos[0].precio_diario;
             document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
             document.getElementById("marca").value = response.autos[0].marca;
+            document.getElementById("modelo").value = response.autos[0].modelo;
             document.getElementById("color").value = response.autos[0].color;
             document.getElementById("transmision").value = response.autos[0].transmision;
 
