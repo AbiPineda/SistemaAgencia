@@ -45,60 +45,61 @@ include_once '../../plantillas/barra_lateral.php';
                             <h3 class="timeline-header"><a href="">Datos Generales</a></h3>
 
                             <div class="timeline-body">
-                                <div class="row" id="datosGenerales">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Usuario</label>
-                                            <input type="text" class="form-control" placeholder="Nombre del Usuario"
-                                                name="nombreUsuario" id="nombreUsuario">
+                                <form id="register-renta" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="text" class="form-control" placeholder="Nombre del Usuario"
+                                                    name="nombreUsuario" id="nombreUsuario">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Contraseña</label>
-                                            <input type="password" class="form-control" placeholder="Digite Contraseña"
-                                                name="pass" id="pass">
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <input type="password" class="form-control"
+                                                    placeholder="Digite Contraseña" name="pass" id="pass">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Nombre de Renta Cars</label>
-                                            <input type="text" class="form-control" placeholder="Nombre de Renta Cars"
-                                                name="rentaCar" id="rentaCar">
+                                        <div class="col-sm-3">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nombre de Renta Cars</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Nombre de Renta Cars" name="rentaCar" id="rentaCar">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Telefono</label>
-                                            <input type="text" class="form-control" placeholder="Numero de Telefono"
-                                                name="telefono" id="telefono">
+                                        <div class="col-sm-3">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Telefono</label>
+                                                <input type="text" class="form-control" placeholder="Numero de Telefono"
+                                                    name="telefono" id="telefono">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Lugar</label>
-                                            <input type="text" class="form-control" placeholder="Dirección de Ubicación"
-                                                name="lugar" id="lugar">
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Lugar</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Dirección de Ubicación" name="lugar" id="lugar">
+                                            </div>
                                         </div>
-                                    </div>
 
 
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Descripción</label>
-                                            <textarea type="text" class="form-control" name="descripcion"
-                                                id="descripcion" placeholder="Introduzca descripción"
-                                                rows="3"></textarea>
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <textarea type="text" class="form-control" name="descripcion"
+                                                    id="descripcion" placeholder="Introduzca descripción"
+                                                    rows="3"></textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
+                                </form>
                             </div>
 
                         </div>

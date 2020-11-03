@@ -21,7 +21,7 @@ $(document).ready(function() {
 
         }).done(function(response) {
 
-            document.getElementById("datosGenerales").serialize();
+            document.getElementById("register-renta").reset();
 
             const Toast = Swal.mixin();
             Toast.fire({
