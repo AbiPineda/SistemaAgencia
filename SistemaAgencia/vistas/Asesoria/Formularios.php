@@ -89,7 +89,6 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.row -->
     </section>
 
-    <form id="editar" name="editar" role="form">
         <!-- Modal mostrar-->
         <div class="modal fade" id="modal-editar">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -120,7 +119,7 @@ include_once '../../plantillas/barra_lateral.php';
                                 </ul>
                             </div>
                                <div class="card-body">
-                        <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                        <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
                                 <div style="width: 200px;"></div>
                                 <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
                                 <input type="text" id="usuario" value="" class="form-control" disabled="true" style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
@@ -133,7 +132,7 @@ include_once '../../plantillas/barra_lateral.php';
                                    </br>
                             <div style="width: 400px;"></div>
                             <div style="width: 400px;">
-                                 <button type="button" id="btnFormulario" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Guardar</button>
+                                 <button type="button" id="btnActualizar" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Actualizar</button>
                                 <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                  
                             </div>
@@ -151,13 +150,6 @@ include_once '../../plantillas/barra_lateral.php';
                             
 
                         </div>
-
-                         <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
-                            style="color: white">Actualizar</button>
-                    </div>
-
                     </div>
 
                 </div>
@@ -167,7 +159,6 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.modal-dialog -->
 </div>
 <!-- End Modal Mostrar-->
-</form>
 <?php
   include_once '../../plantillas/footer.php';
 ?>

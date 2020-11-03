@@ -22,14 +22,32 @@ $(document).ready(function () {
             async: false,
             dataType: "json",
             success: function(data) {
+
+                //vacias los elementos
+                for (let i = 0, ien = data.formulario.length; i < ien; i++) {
+                   // alert('paso');
+                   if(data.formulario[i].opcion=='cerrada'){
+                   $('#'+data.formulario[i].num_rama).empty();
+                   }else{
+                    if (data.formulario[i].mas_respuestas=='Si') {
+                       // alert('entre');
+                    $('#'+data.formulario[i].num_rama).empty();
+                        
+
+                    }else{
+                     $('#'+data.formulario[i].num_rama).empty();
+                    }
+                   }
+                }
+                //*******************
                 
                 for (let i = 0, ien = data.formulario.length; i < ien; i++) {
                    // alert('paso');
                    if(data.formulario[i].opcion=='cerrada'){
                      var $select = $('#'+data.formulario[i].num_rama);
-                    $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
-                                    '<label style="width: 400px;margin-left: 98px; margin-top:-15px;">¿'+data.formulario[i].pregunta+'?</label>'+
-                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;margin-left: 98px; margin-top:-6px;">'+
+                    $select.append('<input type="hidden" name="id_pregunta[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
+                                    '<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿'+data.formulario[i].pregunta+'?</label>'+
+                                     '<select class="form-control respuesta" name="respuesta[]" id="combo'+data.formulario[i].id_pregunta+'" style="width: 400px;margin-left: 98px; margin-top:2px;">'+
                                         '<option disabled>¿'+data.formulario[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
@@ -60,9 +78,9 @@ $(document).ready(function () {
                                         '<option selected>'+data.formulario[i].id_pregunta+'</option>'+
                                      '</select>'+  
                               '<input type="text" name="respuesta_mas[]" value="'+data.formulario[i].respuesta+'" id="asistiran" class="form-control" placeholder="¿'+data.formulario[i].pregunta+'?"'+
-                              'style="width: 368px;margin-left: 98px; margin-top:-15px;">'+
+                              'style="width: 368px;margin-left: 98px; margin-top:6px;">'+
                               '<span class="input-group-btn">'+
-                              '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:-22px;margin-right:55px;">+</button>'+
+                              '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:2px;margin-right:55px;">+</button>'+
                              '</span>'+
                              '</div>&nbsp&nbsp');
 
@@ -71,7 +89,7 @@ $(document).ready(function () {
                     $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
                                    '<input type="text" name="respuesta1[]" value="" class="form-control"'+
                                    'placeholder="¿'+data.formulario[i].pregunta+'?"'+
-                                    'style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp');
+                                    'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp');
                     }
                    }
                 }
@@ -117,11 +135,11 @@ $(document).ready(function () {
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#editar");
-        form.validate();
-        if (form.valid()) {
+       // let form = $("#editar");
+       // form.validate();
+        //if (form.valid()) {
             actualizar();
-        }
+        //}
     });
    
 
@@ -221,19 +239,12 @@ $(document).ready(function () {
     }
     function actualizar() {
         $('#loadingActualizar').show();
-        let data = {
-            "id_pregunta": id_pregunta,
-            "pregunta": document.getElementById("pregunta").value,
-            "mas_respuestas": document.getElementById("mas_respuestas").value,
-            "id_rama": document.getElementById("id_rama").value
-
-        };
+        
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/updatePregunta",
-            method: "POST",
-            timeout: 0,
-            data: data
+             url: URL_SERVIDOR+"FormularioMigratorio/updateFormulario",
+            method: 'POST',
+            data: $("#editar-form").serialize()
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
