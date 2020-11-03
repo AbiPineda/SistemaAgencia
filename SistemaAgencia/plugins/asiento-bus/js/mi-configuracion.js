@@ -20,6 +20,7 @@ $(document).ready(function () {
     $(document).on('keyup mouseup', '#numero_filas', function () {
 
         miMapa = [];
+        numero_filas = parseInt($("#numero_filas").val());
         borrarTodo();
         crearFilas();
         dibujarAsientos();
@@ -41,21 +42,30 @@ $(document).ready(function () {
         crearStrFila();
         borrarTodo();
         crearFilas();
-        dibujarAsientos();;
+        dibujarAsientos();
 
     });
     //PARA DETECTAR LOS CAMBIOS EN EL CHECKBOX
     $('#checkTrasero').change(function () {
-        if( $('#checkTrasero').prop('checked') ) {
+        if ($('#checkTrasero').prop('checked')) {
             console.log('Seleccionado');
-          
+
             $("#asientos_traseros").attr({
-                "max" : 10,
-                "min" : asientos_derecho + asientos_izquierdo +1,
-                "value" : asientos_derecho + asientos_izquierdo +1
-             });
-        }else{
-            console.log("no");
+                "max": 10,
+                "min": asientos_derecho + asientos_izquierdo + 1,
+                "value": asientos_derecho + asientos_izquierdo + 1
+            });
+            miMapa = [];
+            borrarTodo();
+            crearStrFila();
+            crearFilas();
+            dibujarAsientos()
+        } else {
+            miMapa = [];
+            borrarTodo();
+            crearStrFila();
+            crearFilas();
+            dibujarAsientos()
         }
 
     });
@@ -165,24 +175,45 @@ $(document).ready(function () {
         strFila = "";
         asientos_derecho = parseInt($("#asientos_derecho").val());
         asientos_izquierdo = parseInt($("#asientos_izquierdo").val());
+        asientos_traseros = parseInt($("#asientos_traseros").val());
+        //LOS ASIENTOS DEL LADO DERECHO
         for (let index = 0; index < asientos_derecho; index++) {
             strFila += "e"
         }
+        //LOS ESPACIOS QUE SE VAN A COLOCAR ENTRE ASIENTOS DERECHOS E IZQUIERDOS
+
         strFila += "_"
+
+
+        //ASIENTOS DEL LADO IZQUIERDO
         for (let index = 0; index < asientos_izquierdo; index++) {
             strFila += "e"
         }
-        console.log(strFila);
 
     }
     function crearFilas() {
-        numero_filas = parseInt($("#numero_filas").val());
+        let strTrasero = "";
+        let strEspacio = "";
         for (let index = 0; index < numero_filas; index++) {
+            console.log(numero_filas);
             miMapa.push(strFila);
         }
-    
-    }
-    function crearStrFilaTrasera() {
+        asientos_traseros = parseInt($("#asientos_traseros").val());
+        if ($('#checkTrasero').prop('checked')) {
+            asientos_traseros = asientos_derecho + asientos_izquierdo +1;
+
+            
+
+            for (let index = 0; index < asientos_traseros; index++) {
+                strEspacio += "_";
+                strTrasero += "e";
+
+            }
+            miMapa.push(strEspacio);
+            miMapa.push(strTrasero);
+        }
+
 
     }
+
 });
