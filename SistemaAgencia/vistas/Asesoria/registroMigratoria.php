@@ -125,8 +125,10 @@ include_once  '../../plantillas/navbar.php';?>
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<div id="script"></div>
  <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
  <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
+ <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combo_formulario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>

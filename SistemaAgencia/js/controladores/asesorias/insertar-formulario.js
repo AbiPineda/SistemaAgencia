@@ -25,6 +25,9 @@ function insertarFormulario(){
 
         }).done(function (response) {
          document.getElementById("migratorio-form").reset();
+         //para no recargar la pagina
+         $('#citas_dias').empty();
+         $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combo_formulario.js">');
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
