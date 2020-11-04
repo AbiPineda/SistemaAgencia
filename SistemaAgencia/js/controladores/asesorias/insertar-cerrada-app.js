@@ -1,7 +1,90 @@
- $("#btn-cerrada").on('click', function(e) {
+$(document).ready(function (){
 
-        e.preventDefault();
-        // recolectarDatos();
+    inicializarValidaciones();
+  
+    //BOTON PARA AGREGAR
+    $(document).on('click', '#btn-cerrada', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        let form = $("#register-form");
+        let form1 = $("#recargar-form");
+        form1.validate();
+        form.validate();
+        if (form1.valid()) {
+          if (form.valid()) {
+            add_cerrada();
+        }  
+        }
+        
+    });
+
+function inicializarValidaciones() {
+    $('#recargar-form').validate({
+
+            rules: {
+                combo_rama: {
+                   required: true
+                }
+            },
+            messages: {
+                combo_rama: {
+                    required: "Seleccione la rama"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+        $('#register-form').validate({
+
+            rules: {
+                combo_rama: {
+                   required: true
+                },
+                pregunta: {
+                    minlength: 10
+                },
+                "opcion_respuesta[]": {
+                   required: true
+                }
+            },
+            messages: {
+                combo_rama: {
+                    required: "Seleccione la rama"
+                },
+                 pregunta:{
+                    minlength: "Debe de tener una longitud minima de 10"
+                },
+                "opcion_respuesta[]": {
+                    required: "Seleccione las opciones de respuestas, puede agregar más, pulse el botón agregar más"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
+    function add_cerrada() {
+
         $.ajax({
             url: URL_SERVIDOR+"Asesoria/cerrada",
             method: 'POST',
@@ -50,7 +133,9 @@
                 showConfirmButton: true,
             });
 
-        })
+        });
 
 
-    });
+    }
+   
+});
