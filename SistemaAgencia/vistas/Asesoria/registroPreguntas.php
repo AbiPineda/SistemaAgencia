@@ -170,5 +170,7 @@ include_once '../../plantillas/barra_lateral.php';
 <!--<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>-->
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
- <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 

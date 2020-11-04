@@ -1,7 +1,48 @@
- $("#btn-rama").on('click', function(e) {
+$(document).ready(function (){
 
-        e.preventDefault();
-        // recolectarDatos();
+    inicializarValidaciones();
+  
+    //BOTON PARA AGREGAR
+    $(document).on('click', '#btn-rama', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        let form = $("#register-form");
+        form.validate();
+        if (form.valid()) {
+            add_rama();
+        }
+    });
+
+function inicializarValidaciones() {
+
+        $('#register-form').validate({
+
+            rules: {
+                categoria_rama: {
+                    minlength: 10
+                }
+            },
+            messages: {
+                 categoria_rama:{
+                    minlength: "Debe de tener una longitud minima de 10"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
+    function add_rama() {
+
         $.ajax({
             url: URL_SERVIDOR+"Asesoria/ramitas",
             method: 'POST',
@@ -49,7 +90,8 @@
                 showConfirmButton: true,
             });
 
-        })
+        });
 
-
-    });
+    }
+   
+});
