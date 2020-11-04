@@ -165,6 +165,7 @@ include_once '../../plantillas/barra_lateral.php';
 <div id="script"></div>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-pregunta-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas_automaticas.js"></script>
 <!--<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>-->
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
