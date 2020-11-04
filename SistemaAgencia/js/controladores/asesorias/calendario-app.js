@@ -111,6 +111,18 @@
             },
             editable: true,
             eventDrop: function(calEvent) {
+              if(calEvent.estado_cita==0){
+
+              $('#calendar').fullCalendar('refetchEvents');
+              const Toast = Swal.mixin();
+              Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: 'Esta cita ya fue atendida',
+                showConfirmButton: true,
+              });
+
+              }else{
               const fechaComoCadena =calEvent.start.format();
               var fechaHora=calEvent.start.format().split("T");
                 const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado',
@@ -202,6 +214,7 @@
 
     }
 
+    }//fin else estado==0
       
       }//eventDrop
 
