@@ -130,7 +130,7 @@
                                 <div class="form-group">
                                     <label>Categoria</label>
                                     <div class="input-group">
-                                        <input id="nombre" name="nombre" type="text" class="form-control">
+                                        <input id="nombre" name="nombre" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -142,7 +142,7 @@
                                 <div class="form-group">
                                     <label>Marca</label>
                                     <div class="input-group">
-                                        <input id="marca" name="marca" type="text" class="form-control">
+                                        <input id="marca" name="marca" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -151,7 +151,7 @@
                                 <div class="form-group">
                                     <label>Modelo</label>
                                     <div class="input-group">
-                                        <input id="modelo" name="modelo" type="text" class="form-control">
+                                        <input id="modelo" name="modelo" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -160,7 +160,7 @@
                                 <div class="form-group">
                                     <label>Numero de Placa</label>
                                     <div class="input-group">
-                                        <input id="placa" name="placa" type="text" class="form-control">
+                                        <input id="placa" name="placa" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -169,7 +169,7 @@
                                 <div class="form-group">
                                     <label>Año</label>
                                     <div class="input-group">
-                                        <input id="anio" name="anio" type="number" class="form-control">
+                                        <input id="anio" name="anio" type="number" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -180,7 +180,7 @@
                                 <div class="form-group">
                                     <label>Color</label>
                                     <div class="input-group">
-                                        <input id="color" name="color" type="text" class="form-control">
+                                        <input id="color" name="color" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -189,7 +189,8 @@
                                 <div class="form-group">
                                     <label>Transmision</label>
                                     <div class="input-group">
-                                        <input id="transmision" name="transmision" type="text" class="form-control">
+                                        <input id="transmision" name="transmision" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -199,7 +200,7 @@
                                     <label>Combustible</label>
                                     <div class="input-group">
                                         <input id="tipoCombustible" name="tipoCombustible" type="text"
-                                            class="form-control">
+                                            class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -208,7 +209,10 @@
                                 <div class="form-group">
                                     <label>Precio Diario</label>
                                     <div class="input-group">
-                                        <input id="precio_diario" name="precio_diario" type="text" class="form-control">
+                                        <input id="precio_diario" name="precio_diario" type="text" value=""
+                                            maxlength="9"
+                                            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                            class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
