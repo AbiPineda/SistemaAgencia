@@ -51,7 +51,7 @@ $(document).ready(function () {
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
-        form.append("tipo_servicio", document.getElementById("tipo_servicio").value);
+        form.append("id_tipo_servicio", document.getElementById("tipo_servicio").value);
         form.append("nombre_servicio", document.getElementById("nombre").value);
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);

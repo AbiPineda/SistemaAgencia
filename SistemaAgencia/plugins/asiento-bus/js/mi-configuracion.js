@@ -69,7 +69,45 @@ $(document).ready(function () {
         }
 
     });
+    //PAR EL BOTON GUARAR 
+    $('#guarar').on('click', function () {
+        console.log(sc.find('e.selected').seatIds);
+        console.log(miMapa);
 
+        let form = new FormData();
+        form.append("nombre_servicio", "Cocinero Experto");
+        form.append("descripcion_servicio", "Es un guia turistico de san salvador");
+        form.append("id_tipo_servicio", 1);
+        form.append("costos_defecto", 100);
+        form.append("id_contacto", 1);
+        form.append("mapa", miMapa);
+        form.append("asiento_deshabilitado", sc.find('e.selected').seatIds);
+
+
+
+        $.ajax({
+            url: "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let respuestaDecodificada = JSON.parse(response);
+            console.log(respuestaDecodificada.mensaje);
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+
+
+        });
+
+
+
+    });
     //this will handle "[cancel]" link clicks
     $('#selected-seats').on('click', '.cancel-cart-item', function () {
         //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
@@ -195,14 +233,13 @@ $(document).ready(function () {
         let strTrasero = "";
         let strEspacio = "";
         for (let index = 0; index < numero_filas; index++) {
-            console.log(numero_filas);
             miMapa.push(strFila);
         }
         asientos_traseros = parseInt($("#asientos_traseros").val());
         if ($('#checkTrasero').prop('checked')) {
-            asientos_traseros = asientos_derecho + asientos_izquierdo +1;
+            asientos_traseros = asientos_derecho + asientos_izquierdo + 1;
 
-            
+
 
             for (let index = 0; index < asientos_traseros; index++) {
                 strEspacio += "_";

@@ -31,6 +31,10 @@
             <label for="asientos_traseros">numero de asientos traseros</label>
             <input id="asientos_traseros" name="asientos_traseros" type="number" step="1" class="form-control">
         </div>
+        <div>
+
+            <button id="guarar" class="form-control">guarddar</button>
+        </div>
 
         <div class="container">
             <div id="seat-map">
