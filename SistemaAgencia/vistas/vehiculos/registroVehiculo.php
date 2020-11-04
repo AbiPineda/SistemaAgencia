@@ -166,17 +166,7 @@ include_once '../../plantillas/cabecera.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Servicios Opcionales</label>
-                                                <select class="select2" multiple="multiple"
-                                                    data-placeholder="Seleccione" style="width: 100%;"
-                                                    name="id_servicios" id="id_servicios">
 
-                                                </select>
-                                            </div>
-                                        </div>
 
 
                                     </div>
@@ -219,8 +209,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary1" checked name="aire"
-                                                       >
+                                                    <input type="checkbox" id="checkboxPrimary1" checked name="aire">
                                                     <label for="checkboxPrimary1"> Aire Acondicionado
                                                     </label>
                                                 </div>
@@ -229,8 +218,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-4">
                                             <div class="form-group clearfix">
                                                 <div class="icheck-success d-inline">
-                                                    <input type="checkbox" checked id="checkboxSuccess1" name="wifi"
-                                                        >
+                                                    <input type="checkbox" checked id="checkboxSuccess1" name="wifi">
                                                     <label for="checkboxSuccess1">WiFi
                                                     </label>
                                                 </div>
@@ -364,7 +352,6 @@ $(function() {
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboTransmision.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboCategoria.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboServicio.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>

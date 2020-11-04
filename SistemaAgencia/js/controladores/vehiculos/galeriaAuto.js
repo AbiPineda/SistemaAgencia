@@ -26,7 +26,6 @@ $(document).ready(function() {
         form.append("idmodelo", document.getElementById("id_modelo").value);
         form.append("id_transmicionFK", document.getElementById("id_transmision").value);
         form.append("idcategoria", document.getElementById("id_categoria").value);
-        form.append("idservicios_opc", document.getElementById("id_servicios").value);
         form.append("placa", document.getElementById("placa").value);
         form.append("anio", document.getElementById("anio").value);
         form.append("color", document.getElementById("colorAuto").value);
