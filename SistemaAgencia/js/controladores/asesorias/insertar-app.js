@@ -1,9 +1,64 @@
- $("#btnAgregar").on('click', function(e) {
+$(document).ready(function (){
 
-        e.preventDefault();
-        // recolectarDatos();
+    inicializarValidaciones();
+  
+    //BOTON PARA AGREGAR
+    $(document).on('click', '#btnAgregar', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        let form = $("#register-form");
+        form.validate();
+        if (form.valid()) {
+            add();
+        }
+    });
+
+function inicializarValidaciones() {
+
+        $('#register-form').validate({
+            rules: {
+                id_cliente: {
+                    required: true
+                },
+                asistencia: {
+                    required: true
+                },
+                "asistiran[]": {
+                    minlength: 10
+                }
+            },
+            messages: {
+                id_cliente:{
+                    required: "Seleccione el Cliente"
+                },
+                asistencia:{
+                    required: "Seleccione si asistirá solo"
+                   
+                },
+                "asistiran[]": {
+                    minlength: "Debe de tener una longitud minima de 10"
+                    
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
+    function add() {
+
         $.ajax({
-            url: "http://localhost/API-REST-PHP/index.php/Cita/citas",
+            url: URL_SERVIDOR+"Cita/citas",
             method: 'POST',
             data: $("#register-form").serialize()
 
@@ -50,7 +105,8 @@
                 showConfirmButton: true,
             });
 
-        })
+        });
 
-
-    });
+    }
+   
+});

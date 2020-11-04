@@ -13,7 +13,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="register-form" name="register-form" onsubmit="return false">
+                <form id="register-form" name="register-form" onsubmit="return false" role="form">
                 <div class="modal-body">
                         <div class="form-row">
                              <div class="form-group col-md-8">

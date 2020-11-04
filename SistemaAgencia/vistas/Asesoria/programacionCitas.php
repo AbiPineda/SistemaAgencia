@@ -82,6 +82,8 @@
     <script src="<?= $base_url ?>js/mdtimepicker.js"></script>
     <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
+    <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
     <script>
      $(document).ready(function(){
       $('#timepicker').mdtimepicker(); //Initializes the time picker
