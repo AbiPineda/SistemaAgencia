@@ -87,7 +87,7 @@ $(document).ready(function () {
                     }else{
                     var $select = $('#'+data.formulario[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.formulario[i].id_pregunta+'" class="form-control">'+
-                                   '<input type="text" name="respuesta1[]" value="" class="form-control"'+
+                                   '<input type="text" name="respuesta1[]" value="'+data.formulario[i].respuesta+'" class="form-control"'+
                                    'placeholder="¿'+data.formulario[i].pregunta+'?"'+
                                     'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp');
                     }
