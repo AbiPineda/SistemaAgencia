@@ -47,9 +47,6 @@ function inicializarValidaciones() {
         $('#register-form').validate({
 
             rules: {
-                combo_rama: {
-                   required: true
-                },
                 pregunta: {
                     minlength: 10
                 },
@@ -58,9 +55,6 @@ function inicializarValidaciones() {
                 }
             },
             messages: {
-                combo_rama: {
-                    required: "Seleccione la rama"
-                },
                  pregunta:{
                     minlength: "Debe de tener una longitud minima de 10"
                 },
