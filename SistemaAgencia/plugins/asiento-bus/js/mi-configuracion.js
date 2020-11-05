@@ -29,7 +29,6 @@ $(document).ready(function () {
     //CUANDO HAY CAMBIOS EN EL NUMERO DE ASIENTOS DERECHOS
     $(document).on('keyup mouseup', '#asientos_derecho', function () {
         miMapa = [];
-
         crearStrFila();
         borrarTodo();
         crearFilas();
@@ -50,11 +49,7 @@ $(document).ready(function () {
         if ($('#checkTrasero').prop('checked')) {
             console.log('Seleccionado');
 
-            $("#asientos_traseros").attr({
-                "max": 10,
-                "min": asientos_derecho + asientos_izquierdo + 1,
-                "value": asientos_derecho + asientos_izquierdo + 1
-            });
+
             miMapa = [];
             borrarTodo();
             crearStrFila();
@@ -71,8 +66,6 @@ $(document).ready(function () {
     });
     //PAR EL BOTON GUARAR 
     $('#guarar').on('click', function () {
-        console.log(sc.find('e.selected').seatIds);
-        console.log(miMapa);
 
         let form = new FormData();
         form.append("nombre_servicio", "Cocinero Experto");
@@ -82,9 +75,19 @@ $(document).ready(function () {
         form.append("id_contacto", 1);
         form.append("mapa", miMapa);
         form.append("asiento_deshabilitado", sc.find('e.selected').seatIds);
+        console.log(sc.find('e.selected').seatIds);
+     
+        let totalAsientos = numero_filas * (asientos_derecho + asientos_izquierdo);
+       
+        
+        if ($('#checkTrasero').prop('checked')) {
+            totalAsientos += asientos_derecho + asientos_izquierdo + 1;
+        }
+        console.log("total de asientos");
+        totalAsientos -= sc.find('e.selected').seatIds.length;
+        console.log(totalAsientos);
 
-
-
+        return;
         $.ajax({
             url: "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
             method: "POST",
@@ -140,7 +143,7 @@ $(document).ready(function () {
             },
             naming: {
                 top: false,
-                left :false,
+                left: false,
                 getLabel: function (character, row, column) {
                     return firstSeatLabel++;
                 },
@@ -190,6 +193,17 @@ $(document).ready(function () {
                 } else {
                     return this.style();
                 }
+            },
+            focus: function () {
+
+                if (this.status() == 'available') {
+                    return 'focused';
+                } else {
+                    return this.style();
+                }
+            },
+            blur: function () {
+                return this.status();
             }
         });
 
@@ -214,7 +228,7 @@ $(document).ready(function () {
         strFila = "";
         asientos_derecho = parseInt($("#asientos_derecho").val());
         asientos_izquierdo = parseInt($("#asientos_izquierdo").val());
-        asientos_traseros = parseInt($("#asientos_traseros").val());
+        asientos_traseros = asientos_derecho + asientos_izquierdo + 1;
         //LOS ASIENTOS DEL LADO DERECHO
         for (let index = 0; index < asientos_derecho; index++) {
             strFila += "e"
@@ -236,12 +250,8 @@ $(document).ready(function () {
         for (let index = 0; index < numero_filas; index++) {
             miMapa.push(strFila);
         }
-        asientos_traseros = parseInt($("#asientos_traseros").val());
         if ($('#checkTrasero').prop('checked')) {
             asientos_traseros = asientos_derecho + asientos_izquierdo + 1;
-
-
-
             for (let index = 0; index < asientos_traseros; index++) {
                 strEspacio += "_";
                 strTrasero += "e";

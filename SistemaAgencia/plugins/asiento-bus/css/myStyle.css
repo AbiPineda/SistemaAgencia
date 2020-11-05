@@ -53,8 +53,9 @@ div.seatCharts-row {
 	height: 35px;
 }
 div.seatCharts-seat.available {
-/* background-color: #B9DEA0; */
-background-color: #61c31f;
+background-color: #B9DEA0;
+	/* background-color: #76B474; */
+
 
 }
 div.seatCharts-seat.available.first-class {
@@ -62,7 +63,8 @@ div.seatCharts-seat.available.first-class {
 	background-color: #3a78c3;
 }
 div.seatCharts-seat.focused {
-	background-color: #76B474;
+	/* background-color: #76B474; */
+	background-color: #61c31f;
 }
 div.seatCharts-seat.selected {
 	/* background-color: #E6CAC4; */
