@@ -67,6 +67,15 @@ $(document).ready(function () {
     //PAR EL BOTON GUARAR 
     $('#guarar').on('click', function () {
 
+        let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
+        if ($('#checkTrasero').prop('checked')) {
+            asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
+        }
+        asientos_disponibles -= sc.find('e.selected').seatIds.length;
+
+
+
+        console.log(asientos_disponibles);
         let form = new FormData();
         form.append("nombre_servicio", "Cocinero Experto");
         form.append("descripcion_servicio", "Es un guia turistico de san salvador");
@@ -74,20 +83,9 @@ $(document).ready(function () {
         form.append("costos_defecto", 100);
         form.append("id_contacto", 1);
         form.append("mapa", miMapa);
-        form.append("asiento_deshabilitado", sc.find('e.selected').seatIds);
-        console.log(sc.find('e.selected').seatIds);
-     
-        let totalAsientos = numero_filas * (asientos_derecho + asientos_izquierdo);
-       
-        
-        if ($('#checkTrasero').prop('checked')) {
-            totalAsientos += asientos_derecho + asientos_izquierdo + 1;
-        }
-        console.log("total de asientos");
-        totalAsientos -= sc.find('e.selected').seatIds.length;
-        console.log(totalAsientos);
+        form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
+        form.append("asientos_dispobibles", asientos_disponibles);
 
-        return;
         $.ajax({
             url: "http://localhost/API-REST-PHP/ServiciosAdicionales/save",
             method: "POST",
