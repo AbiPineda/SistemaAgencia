@@ -38,23 +38,23 @@
 
         <div class="container">
             <div id="seat-map">
-                <div class="front-indicator">Front</div>
-
-            </div>
-
-
-            <div class="booking-details">
-                <h2>Booking Details</h2>
-
-                <h3> Selected Seats (<span id="counter">0</span>):</h3>
-                <ul id="selected-seats"></ul>
-
-                Total: <b>$<span id="total">0</span></b>
-
-                <button class="checkout-button">Checkout &raquo;</button>
+                <div class="front-indicator">Frontal</div>
 
                 <div id="legend"></div>
             </div>
+
+
+            <!-- <div class="booking-details"> -->
+            <!-- <h2>Booking Details</h2> -->
+
+            <!-- <h3> Selected Seats (<span id="counter">0</span>):</h3> -->
+            <!-- <ul id="selected-seats"></ul> -->
+
+            <!-- Total: <b>$<span id="total">0</span></b> -->
+
+            <!-- <button class="checkout-button">Checkout &raquo;</button> -->
+
+            <!-- </div> -->
         </div>
     </div>
 

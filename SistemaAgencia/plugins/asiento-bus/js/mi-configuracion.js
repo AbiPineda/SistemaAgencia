@@ -140,6 +140,7 @@ $(document).ready(function () {
             },
             naming: {
                 top: false,
+                left :false,
                 getLabel: function (character, row, column) {
                     return firstSeatLabel++;
                 },
@@ -147,9 +148,9 @@ $(document).ready(function () {
             legend: {
                 node: $('#legend'),
                 items: [
-                    ['f', 'available', 'First Class'],
-                    ['e', 'available', 'Economy Class'],
-                    ['f', 'unavailable', 'Already Booked']
+                    ['e', 'available', 'Asientos Libres'],
+                    ['f', 'selected', 'Asientos no Disponibles'],
+                    // ['f', 'unavailable', 'Already Booked']
                 ]
             },
             click: function () {
