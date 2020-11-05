@@ -1053,7 +1053,7 @@
     if ('MutationObserver' in window) {
       // #1699
       var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
-      var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) + parseInt(window.getComputedStyle(getPopup()).paddingRight);
+      var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) ; 
 
       var outputsize = function outputsize() {
         var contentWidth = textarea.offsetWidth + popupPadding;
@@ -1353,7 +1353,7 @@
 
     applyNumericalStyle(popup, 'width', params.width); // Padding
 
-    applyNumericalStyle(popup, 'padding', params.padding); // Background
+    // applyNumericalStyle(popup, 'padding', params.padding); // Background
 
     if (params.background) {
       popup.style.background = params.background;
@@ -1664,7 +1664,7 @@
     onClose: undefined,
     onAfterClose: undefined,
     onDestroy: undefined,
-    scrollbarPadding: true
+    scrollbarPadding: false
   };
   var updatableParams = ['title', 'titleText', 'text', 'html', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep'];
   var deprecatedParams = {
@@ -1826,12 +1826,12 @@
     if (document.body.scrollHeight > window.innerHeight) {
       // add padding so the content doesn't shift after removal of scrollbar
       states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
+      // document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
     }
   };
   var undoScrollbar = function undoScrollbar() {
     if (states.previousBodyPadding !== null) {
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
+      // document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
       states.previousBodyPadding = null;
     }
   };
@@ -2088,7 +2088,7 @@
     setInnerHtml(domCache.validationMessage, error);
     var popupComputedStyle = window.getComputedStyle(domCache.popup);
     domCache.validationMessage.style.marginLeft = "-".concat(popupComputedStyle.getPropertyValue('padding-left'));
-    domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
+    // domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
     show(domCache.validationMessage);
     var input = this.getInput();
 
