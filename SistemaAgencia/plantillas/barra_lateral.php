@@ -141,14 +141,14 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        
+
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Disponibilidad de Reserva</p>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <!--INCIA CARGO EXPRES MENU-->
@@ -356,19 +356,14 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?=$base_url?>vistas/contactos/registro_contacto.php" class="nav-link">
+                            <a href="<?=$base_url?>vistas/servicios/registro_servicio.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Servicios</p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="<?=$base_url?>vistas/contactos/ver_contactos.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Ver Contactos</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/contactos/ver_servicios.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Ver Servicios</p>
                             </a>
