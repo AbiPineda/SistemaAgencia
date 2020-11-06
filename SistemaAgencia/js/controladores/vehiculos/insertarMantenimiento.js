@@ -2,6 +2,15 @@ $(document).ready(function() {
 
     $("#btnGuardar").on('click', function(e) {
 
+        var mantenimientos = document.getElementById("mantenimiento_realizado");
+        var grupos = [];
+
+        for (var i = 0; i < mantenimientos.options.length; i++) {
+            if (mantenimientos.options[i].selected == true) {
+                grupos.push(mantenimientos.options[i].value);
+
+            }
+        }
 
         e.preventDefault();
         let myData = {
@@ -14,6 +23,8 @@ $(document).ready(function() {
             "comentariosIncidentes": document.getElementById("comentarios").value,
             "costoMantenimiento": document.getElementById("precio").value
         }
+
+
 
         $.ajax({
             url: URL_SERVIDOR + "mantenimientoVehiculo/mantenimiento",
