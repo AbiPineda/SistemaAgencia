@@ -6,7 +6,7 @@
     <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
 
     <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/jquery.seat-charts.css">
-    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/myStyle.css">
+    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/styleAdmin.css">
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <script src="../../plugins/asiento-bus/js/jquery.seat-charts.js"></script>
-    <script src="../../plugins/asiento-bus/js/mi-configuracion.js"></script>
+    <script src="../../plugins/asiento-bus/js/admin-configuracion.js"></script>
 
 
 </body>

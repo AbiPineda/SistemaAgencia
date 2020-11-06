@@ -7,8 +7,10 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet"
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet"
     type="text/css" />
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/jquery.seat-charts.css">
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/styleAdmin.css">
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -90,7 +92,7 @@
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-success btn-add"
                                                         id="btn-nuevoTipo" name="btn-nuevoTipo"
-                                                        style="margin-top: 10px; width: 100%;">+</button>
+                                                        style="margin-top: 7px; width: 100%;">+</button>
                                                 </span>
                                             </div>
                                         </div>
@@ -117,14 +119,70 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm-1">
                                                 <br>
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
-                                                        name="btn-nuevo" style="margin-top: 10px; width: 100%;"
+                                                        name="btn-nuevo" style="margin-top: 7px; width: 100%;"
                                                         id="btn-asistiran">+</button>
                                                 </span>
                                             </div>
+                                        </div>
+                                        <div class="row" id="configuracionAsientos">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>numero de filas </label>
+                                                    <div class="input-group">
+                                                        <input id="numero_filas" name="numero_filas" type="number"
+                                                            min="2" value="2" step="1" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Asientos lado derecho</label>
+                                                    <div class="input-group">
+                                                        <input id="asientos_derecho" name="asientos_derecho"
+                                                            type="number" min="2" value="2" step="1"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Asientos lado izquierdo</label>
+                                                    <div class="input-group">
+                                                        <input id="asientos_izquierdo" name="asientos_izquierdo"
+                                                            type="number" min="2" value="2" step="1"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <!-- radio -->
+                                                <label>Agregar fila trasera</label>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-success d-inline" style="margin-left: 70px;">
+                                                        <input type="checkbox" value="si" id="checkTrasero">
+                                                        <label for="checkTrasero">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row" id="dibujoAsientos">
+                                            <div class="offset-md-1"></div>
+                                            <div class="col-sm-7">
+                                                <div id="seat-map">
+                                                    <div class="front-indicator">Frontal</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
+                                                <div id="legend"></div>
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
@@ -289,16 +347,16 @@
 
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-<!-- jquery-validation -->
-<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
+<script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
+<script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios-contacto/servicio-contacto.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

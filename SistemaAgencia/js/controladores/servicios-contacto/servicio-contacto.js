@@ -1,5 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
+    $('#configuracionAsientos').hide();
+    $('#dibujoAsientos').hide();
     inicializarGaleria();
     inicializarFoto();
     inicializarValidaciones();
@@ -42,7 +44,19 @@ $(document).ready(function () {
     $(document).on('click', '#btn-nuevoTipo', function (evento) {
         $('#modal-agregarTipo').modal('show');
     });
+    //CAMBIO EN EL COMBO TIPO PARA MOSTRAR EL DIBUJO DEL TRANSPORTE
+    $('#tipo_servicio').on('select2:select', function (e) {
+        let data = e.params.data;
+        if (data.text === "Transporte") {
+            $('#configuracionAsientos').show();
+            $('#dibujoAsientos').show();
 
+        } else {
+            $('#configuracionAsientos').hide();
+            $('#dibujoAsientos').hide();
+        }
+
+    });
     function guardar() {
         $('#loading').show();
         let form = new FormData();
@@ -155,15 +169,15 @@ $(document).ready(function () {
     function guardarTipo() {
         $('#loading').show();
         let myData = {
-            tipo_servicio : document.getElementById("nombreTipo").value
+            tipo_servicio: document.getElementById("nombreTipo").value
         }
-       console.log(myData);
+        console.log(myData);
         $.ajax({
             url: URL_SERVIDOR + "TipoServicio/save",
             method: "POST",
             data: myData,
             timeout: 0,
-         
+
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = response;
