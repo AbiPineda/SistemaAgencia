@@ -57,6 +57,7 @@ $(document).ready(function () {
         }
 
     });
+
     function guardar() {
         $('#loading').show();
         let form = new FormData();
@@ -70,6 +71,18 @@ $(document).ready(function () {
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
+        
+        let tipoServicio = $('#tipo_servicio').select2("data");
+        if (tipoServicio[0].text === "Transporte") {
+            let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
+            if ($('#checkTrasero').prop('checked')) {
+                asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
+            }
+            asientos_disponibles -= sc.find('e.selected').seatIds.length;
+            form.append("mapa", miMapa);
+            form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
+            form.append("asientos_dispobibles", asientos_disponibles);
+        }
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({

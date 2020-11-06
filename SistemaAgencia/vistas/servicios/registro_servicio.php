@@ -173,9 +173,9 @@
 
                                         </div>
                                         <div class="row" id="dibujoAsientos">
-                                            <div class="offset-md-1"></div>
+                                            <!-- <div class="offset-md-1"></div> -->
                                             <div class="col-sm-7">
-                                                <div id="seat-map">
+                                                <div id="seat-map" class="float-right">
                                                     <div class="front-indicator">Frontal</div>
                                                 </div>
                                             </div>
@@ -187,7 +187,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <!-- text input -->
-                                                <div class="form-group">
+                                                <div class="form    -group">
                                                     <label>Descripcion del Servicio</label>
                                                     <textarea name="descripcion_servicio" id="descripcion_servicio"
                                                         class="form-control" rows="3"
