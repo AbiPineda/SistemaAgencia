@@ -6,13 +6,15 @@ $(document).ready(function() {
             async: false,
             dataType: "json",
             success: function(data) {
+
+                var contador=0;
                 
                 for (let i = 0, ien = data.preguntas.length; i < ien; i++) {
                    // alert('paso');
                    if(data.preguntas[i].opcion=='cerrada'){
                      var $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append('<input type="hidden" name="id_pregunta['+i+']" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
-                                     '<select class="form-control respuesta" name="respuesta['+i+']" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
+                    $select.append('<input type="hidden" name="id_pregunta['+contador+']" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+
+                                     '<select class="form-control respuesta" name="respuesta['+contador+']" id="combo'+data.preguntas[i].id_pregunta+'" style="width: 400px;margin-top: 20px">'+
                                         '<option value="">¿'+data.preguntas[i].pregunta+'?</option>'+
                                      '</select>&nbsp&nbsp');
 
@@ -32,7 +34,7 @@ $(document).ready(function() {
                         }    
                      }
                    
-
+                     contador++;
                    }else{
                     if (data.preguntas[i].mas_respuestas=='Si') {
                        // alert('entre');
@@ -55,6 +57,8 @@ $(document).ready(function() {
                                    'placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 400px; margin-top: 20px">&nbsp&nbsp');
                     }
                    }
+
+
                 }
 
             },
