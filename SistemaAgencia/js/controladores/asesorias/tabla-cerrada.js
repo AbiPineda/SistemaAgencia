@@ -2,7 +2,7 @@ $(document).ready(function () {
     let id_pregunta;
     let tabla;
 
-    //inicializarValidaciones();
+    inicializarValidaciones();
    // inicializarCombo()
     inicializarComboRama();
     inicializarTabla();
@@ -80,8 +80,11 @@ $(document).ready(function () {
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-       
+        let form = $("#register-form");
+        form.validate();
+          if (form.valid()) {
             actualizar();
+        }
     });
    
 
@@ -132,36 +135,29 @@ $(document).ready(function () {
 
     }
     function inicializarValidaciones() {
-        $('#editar').validate({
+        $('#register-form').validate({
+
             rules: {
-                id_rama: {
-                    required: true,
-                    number:true
+                id_rama:{
+                    required: true
                 },
                 pregunta: {
-                    required: true,
-                    minlength: 10,
-                    maxlength: 40
+                    minlength: 10
                 },
-                mas_respuestas: {
-                    required: true,
-                    minlength: 2,
+                "opcion_respuesta[]": {
+                   required: true
                 }
             },
             messages: {
-                id_rama: {
-                    required: "Seleccione la rama de la pregunta",
+                id_rama:{
+                    required:"Seleccione una rama"
                 },
-                pregunta: {
-                    required: "Ingrese la pregunta",
-                    minlength: "Debe de tener una longitud minima de 10",
-                    maxlength: "Debe de tener una longitud maxima de 40"
+                 pregunta:{
+                    minlength: "Lapregunta debe de tener una longitud minima de 10"
                 },
-                mas_respuestas: {
-                    required: "Seleccione si va a contener mas respuestas",
-                   
+                "opcion_respuesta[]": {
+                    required: "Seleccione las opciones de respuestas, puede agregar más, pulse el botón agregar más"
                 }
-
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
