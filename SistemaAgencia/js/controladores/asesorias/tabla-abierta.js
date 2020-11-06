@@ -2,7 +2,7 @@ $(document).ready(function () {
     let id_regunta;
     let tabla;
 
-    //inicializarValidaciones();
+    inicializarValidaciones();
      inicializarComboRama();
     inicializarTabla();
   
@@ -107,36 +107,30 @@ $(document).ready(function () {
 
     }
     function inicializarValidaciones() {
+        
         $('#editar').validate({
+
             rules: {
-                id_rama: {
-                    required: true,
-                    number:true
+                id_rama:{
+                    required:true
                 },
                 pregunta: {
-                    required: true,
-                    minlength: 10,
-                    maxlength: 40
+                    minlength: 10
                 },
                 mas_respuestas: {
-                    required: true,
-                    minlength: 2,
+                   required: true
                 }
             },
             messages: {
-                id_rama: {
-                    required: "Seleccione la rama de la pregunta",
+                mas_respuestas: {
+                    required: "Seleccione la rama"
                 },
-                pregunta: {
-                    required: "Ingrese la pregunta",
-                    minlength: "Debe de tener una longitud minima de 10",
-                    maxlength: "Debe de tener una longitud maxima de 40"
+                 pregunta:{
+                    minlength: "Debe de tener una longitud minima de 10"
                 },
                 mas_respuestas: {
-                    required: "Seleccione si va a contener mas respuestas",
-                   
+                    required: "Seleccione si la pregunta tendra más de una respuestas"
                 }
-
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
