@@ -74,8 +74,10 @@ $(document).ready(function () {
         asientos_disponibles -= sc.find('e.selected').seatIds.length;
 
 
-
-        console.log(asientos_disponibles);
+        console.log(miMapa);
+        console.log(asien);
+        console.log(sc.find('e.selected').seatIds);
+        return;
         let form = new FormData();
         form.append("nombre_servicio", "Cocinero Experto");
         form.append("descripcion_servicio", "Es un guia turistico de san salvador");

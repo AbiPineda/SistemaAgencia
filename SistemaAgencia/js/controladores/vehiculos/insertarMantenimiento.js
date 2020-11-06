@@ -1,37 +1,46 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $("#btnGuardar").on('click', function(e) {
-
-        var mantenimientos = document.getElementById("mantenimiento_realizado");
-        var grupos = [];
-
-        for (var i = 0; i < mantenimientos.options.length; i++) {
-            if (mantenimientos.options[i].selected == true) {
-                grupos.push(mantenimientos.options[i].value);
-
-            }
-        }
+    $("#btnGuardar").on('click', function (e) {
 
         e.preventDefault();
-        let myData = {
 
-            "id_vehiculoFK": document.getElementById("id_placa").value,
-            "fecha": document.getElementById("fecha").value,
-            "lugar": document.getElementById("lugar").value,
-            "mantenimiento_realizado": document.getElementById("mantenimiento_realizado").value,
-            "piezas_cambiadas": document.getElementById("piezas_cambiadas").value,
-            "comentariosIncidentes": document.getElementById("comentarios").value,
-            "costoMantenimiento": document.getElementById("precio").value
+        let comboMabtenimiento = $("#mantenimiento_realizado").select2('data');
+        let comboPiezas = $("#piezas_cambiadas").select2('data');
+        let arregloMantimiento = [];
+        let arregloPiezas = [];
+
+        for (let index = 0; index < comboMabtenimiento.length; index++) {
+            arregloMantimiento.push(comboMabtenimiento[index].text);
         }
+        for (let index = 0; index < comboPiezas.length; index++) {
+            arregloPiezas.push(comboPiezas[index].text);
+        }
+        console.log(arregloMantimiento);
+        console.log(arregloPiezas);
+      
+        let form = new FormData();
+
+       
+        form.append("id_vehiculoFK", document.getElementById("id_placa").value);
+        form.append("fecha", document.getElementById("fecha").value);
+        form.append("lugar", document.getElementById("lugar").value);
+        form.append("mantenimiento_realizado", arregloMantimiento);
+        form.append("piezas_cambiadas", arregloPiezas);
+        form.append("comentariosIncidentes", document.getElementById("comentarios").value);
+        form.append("costoMantenimiento", document.getElementById("precio").value); 
+
 
 
 
         $.ajax({
             url: URL_SERVIDOR + "mantenimientoVehiculo/mantenimiento",
             method: 'POST',
-            data: myData
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
 
-        }).done(function(response) {
+        }).done(function (response) {
 
             document.getElementById("register-mantenimiento").reset();
 
@@ -45,7 +54,7 @@ $(document).ready(function() {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 location.reload();
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
