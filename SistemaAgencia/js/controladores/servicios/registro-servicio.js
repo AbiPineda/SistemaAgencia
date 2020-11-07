@@ -71,7 +71,7 @@ $(document).ready(function () {
         form.append("costos_defecto", document.getElementById("costos_defecto").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
-        
+
         let tipoServicio = $('#tipo_servicio').select2("data");
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
@@ -103,8 +103,18 @@ $(document).ready(function () {
                 text: respuestaDecodificada.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //TODO BIEN Y RECARGAMOS LA PAGINA
+
+                $("#tipo_servicio").val('1').trigger('change');
+                $('#configuracionAsientos').hide();
+                $('#dibujoAsientos').hide();
                 $("#miFormulario").trigger("reset");
+                miMapa = [];
+                numero_filas = 2;
+                crearStrFila();
+                borrarTodo();
+                crearFilas();
+                dibujarAsientos();
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

@@ -171,7 +171,7 @@ $(document).ready(function () {
                 for (let index = 0; index < DATA_TUR.length; index++) {
                     myData.push({
                         id: DATA_TUR[index].id_sitio_turistico,
-                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo})`
+                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`
                     });
                 }
                 ///LE CARGAMOS LA DATA 

@@ -342,7 +342,7 @@ $(document).ready(function () {
         $('#loading').show();
         let form = new FormData();
         let myCoordnada = document.getElementById("coordenadas").value;
-        myCoordnada = myCoordnada.split(', ');
+        myCoordnada = myCoordnada.split(' ');
 
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
@@ -353,7 +353,7 @@ $(document).ready(function () {
         form.append("longitud", myCoordnada[0]);
         form.append("latitud", myCoordnada[1]);
         form.append("descripcion_sitio", document.getElementById("descripcion").value);
-        form.append("tipo", document.getElementById("ComboTipo").value);
+        form.append("id_tipo_sitio", document.getElementById("ComboTipo").value);
         form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
         form.append("precio_sitio", document.getElementById("precio_sitio").value);
 

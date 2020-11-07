@@ -1,4 +1,3 @@
-
 let $cart = $('#selected-seats');
 let $counter = $('#counter');
 let $total = $('#total');
