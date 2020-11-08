@@ -64,7 +64,7 @@
                                                         <!-- <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa fa-bookmark"></i></span>
                                                 </div>-->
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id="nombreTours">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -75,7 +75,7 @@
 
                                                     <div class="input-group">
                                                         <input type="text" class="form-control float-right"
-                                                            id="reservation1">
+                                                            id="fecha_salida">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -87,7 +87,7 @@
                                                         <!--<div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
                                                 </div>-->
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" id="lugar_salida" class="form-control">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -347,7 +347,7 @@
                                                                 <label>Número de Pasajeros</label>
                                                                 <div class="input-group">
                                                                     <input id="cantidad" type="number" min="1" value="1"
-                                                                        class="form-control">
+                                                                        class="form-control" id="cupos_disponibles">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -356,7 +356,7 @@
                                                                 <label>Costo del Pasaje($)</label>
                                                                 <div class="input-group">
                                                                     <input id="CostoPasaje" type="number" min="1"
-                                                                        value="1" class="form-control">
+                                                                        value="1" class="form-control" id="precio">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -368,7 +368,7 @@
                                                             <th>Cantidad</th>
                                                             <th>por pasajero</th>
                                                             <th>Sub Total</th>
-                                                            <th>Acción</th>
+                                                            <th>Eliminar</th>
                                                             <th>tipo</th>
                                                             <th>id</th>
                                                             <th>contador</th>
@@ -382,22 +382,23 @@
                                             </div>
 
                                             <div class="col-md-1 col-md-offset-1"></div>
-                                            <div class="col-md-2">
-                                                <label class="text-primary"> Total de Ingresos: </label>
+                                            <div class="col-md-2 ">
+                                                <label class="text-primary float-right"> Total de Ingresos: </label>
                                             </div>
                                             <div class="col-md-9">
                                                 <label id="totalIngresos" class="text-primary">$0</label>
                                             </div>
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label class="text-danger"> Total de Gastos: </label>
+                                                <label class="text-danger float-right"> Total de Gastos: </label>
                                             </div>
                                             <div class="col-md-9">
                                                 <label id="totalGastos" class="text-danger">$0</label>
                                             </div>
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label id="labelGanancias" class="text-warning"> Ganancias: </label>
+                                                <label id="labelGanancias" class="text-warning float-right"> Ganancias:
+                                                </label>
                                             </div>
                                             <div class="col-md-9">
                                                 <label id="ganancias" class="text-warning"> $0</label>
@@ -413,108 +414,72 @@
                                 <i class="fas fa-user bg-green"></i>
                                 <div class="timeline-item">
 
-                                    <h3 class="timeline-header no-border"><a href="#">Servicios Adicionales</a></h3>
+                                    <h3 class="timeline-header no-border"><a href="#">Otras opciones</a></h3>
                                     <div class="timeline-body">
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <!-- text input -->
                                                 <div class="form-group">
-                                                    <label>El viaje incluye</label>
-                                                    <textarea class="form-control" rows="3"
+                                                    <label>Descripcion del viaje</label>
+                                                    <textarea class="form-control" id="descripcion_tur" rows="5"
                                                         placeholder="Digitar aquí ..."></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <!-- text input -->
                                                 <div class="form-group">
                                                     <label>El viaje no incluye</label>
-                                                    <textarea class="form-control" rows="3"
+                                                    <textarea class="form-control" id="no_incluye" rows="5"
+                                                        placeholder="Digitar aquí..."></textarea>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Requisitos</label>
+                                                    <textarea class="form-control" id="requisitos" rows="5"
                                                         placeholder="Digitar aquí..."></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Requisitos de viaje</label>
-                                                    <textarea class="form-control" rows="3"
-                                                        placeholder="Digitar aquí ..."></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Promociones especiales</label>
-                                                    <textarea class="form-control" rows="3"
-                                                        placeholder="Digitar aquí ..."></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Sitios turisticos</label>
-                                                    <select
-                                                        class="select2 select2-hidden-accessible form-control float-righ"
-                                                        multiple=""
-                                                        data-placeholder="Selececcione los sitios turisticos"
-                                                        style="width: 100%;" data-select2-id="7" tabindex="-1"
-                                                        aria-hidden="true">
-                                                        <option data-select2-id="46">SAN JOSÉ (Costa Rica)</option>
-                                                        <option data-select2-id="47">CARTAGO (Costa Rica)</option>
-                                                        <option data-select2-id="48">PARQUE LA SABANA (Costa Rica)
-                                                        </option>
-                                                        <option data-select2-id="49">ZARCERO (Costa Rica)</option>
-                                                        <option data-select2-id="50">TERMALES LA FORTUNA (Costa
-                                                            Rica)
-                                                        </option>
-                                                        <option data-select2-id="51">Washington (Costa Rica)
-                                                        </option>
-                                                        <option data-select2-id="61">SAN JUAN DEL SUR (Nicaragua)
-                                                        </option>
-                                                        <option data-select2-id="63">GRANADA (Nicaragua)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Hoteles</label>
-                                                    <div class="select2-blue">
-                                                        <select class="select2 select2-hidden-accessible" multiple=""
-                                                            data-placeholder="Seleccione los hoteles"
-                                                            data-dropdown-css-class="select2-blue" style="width: 100%;"
-                                                            data-select2-id="15" tabindex="-1" aria-hidden="true">
-                                                            <option data-select2-id="146">Hoteles(Costa Rica)
-                                                            </option>
-                                                            <option data-select2-id="147">Hilton (Costa Rica)
-                                                            </option>
-                                                            <option data-select2-id="148">Real Roma (Costa Rica)
-                                                            </option>
-                                                            <option data-select2-id="149">Presidencia (Costa Rica)
-                                                            </option>
-                                                            <option data-select2-id="161">Monterreal (Nicaragua)
-                                                            </option>
-                                                            <option data-select2-id="163">San Pedro (Nicaragua)
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                             <!-- END timeline item -->
                             <!-- timeline item -->
+                            <div>
+                                <i class="fas fa-image bg-green"></i>
+                                <div class="timeline-item">
+
+                                    <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                                    <div class="timeline-body">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                <label>Seleccione Imagenes</label>
+                                                <div class="file-loading">
+                                                    <input type="file" multiple name="fotos[]" id="fotos">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br> <br>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                                            style="color: white">Guardar</button>
+                                        <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END timeline item -->
 
                         </div>
                     </div>
-                    <div class="timeline-footer" style="text-align: right;">
-                        <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                        <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                    </div>
+
                 </div>
             </div>
             <!-- END timeline item -->

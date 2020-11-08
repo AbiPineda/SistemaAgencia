@@ -4,6 +4,7 @@ $(document).ready(function () {
     inicializarCalendario();
     inicializarComboTuristico();
     inicializarComboServicio();
+    inicializarGaleria();
 
     let DATA_TUR;
     let DATA_SERVICIO;
@@ -52,7 +53,6 @@ $(document).ready(function () {
         DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
         ///ENCONTRO EL TUR
         if (DATA_SELECCIONADA) {
-            console.log(DATA_SELECCIONADA);
             document.getElementById("precio_servicio").value = DATA_SELECCIONADA.costos_defecto;
             document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SELECCIONADA.nombre_contacto}`;
             document.getElementById("namePreviewServicio").innerHTML = DATA_SELECCIONADA.nombre_contacto;
@@ -114,12 +114,17 @@ $(document).ready(function () {
         $('#totalGastos').text("$" + totalGastos);
         modificarGanancias();
         tabla.row($(this).parents('tr')).remove().draw();
-        
+
 
     });
+    //BOTON DE GUARDAR 
+    $(document).on('click', '#btnguardar', function (evento) {
+        guardar();
+    });
+
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
-        $('#reservation1').daterangepicker({
+        $('#fecha_salida').daterangepicker({
             locale: {
                 format: 'DD/MM/YYYY',
                 "separator": " - ",
@@ -206,10 +211,19 @@ $(document).ready(function () {
             if (response.servicio) {
                 DATA_SERVICIO = response.servicio;
                 for (let index = 0; index < DATA_SERVICIO.length; index++) {
-                    myData.push({
-                        id: DATA_SERVICIO[index].id_servicios,
-                        text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio})`
-                    });
+                    if (DATA_SERVICIO[index].tipo_servicio === "Transporte") {
+                        myData.push({
+                            id: DATA_SERVICIO[index].id_servicios,
+                            text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio}, ${DATA_SERVICIO[index].asientos_dispobibles} Asientos)`
+                        });
+                    } else {
+
+                        myData.push({
+                            id: DATA_SERVICIO[index].id_servicios,
+                            text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio})`
+                        });
+                    }
+
                 }
                 ///LE CARGAMOS LA DATA 
                 $('#ComboServicio').select2({ data: myData });
@@ -282,6 +296,86 @@ $(document).ready(function () {
             $("#ganancias").removeClass("text-success");
         }
         $('#ganancias').text("$" + ganancias);
+    }
+    function inicializarGaleria() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
+        $('#fotos').fileinput({
+            theme: 'fas',
+            language: 'es',
+            //uploadUrl: '#',
+            showUpload: false,
+            //showCaption: false,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            required: true,
+            uploadAsync: false,
+            showClose: false,
+        });
+    }
+    function guardar() {
+        $('#loading').show();
+        let form = new FormData();
+        // let myCoordnada = document.getElementById("coordenadas").value;
+        // myCoordnada = myCoordnada.split(' ');
+
+        //ESTO ES PARA L A GALERIA 
+        let galeria = document.getElementById("fotos").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
+        form.append("nombreTours", document.getElementById("nombreTours").value);
+        form.append("fecha_salida", document.getElementById("fecha_salida").value);
+        form.append("lugar_salida", document.getElementById("lugar_salida").value);
+        form.append("precio", document.getElementById("CostoPasaje").value);
+        form.append("no_incluye", document.getElementById("no_incluye").value);
+        form.append("requisitos", document.getElementById("requisitos").value);
+        form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
+        form.append("cupos_disponibles", document.getElementById("cantidad").value);
+        form.append("estado", true);
+        form.append("aprobado", true);
+        form.append("tipo", "TUR");
+        console.log(document.getElementById("fecha_salida").value);
+        console.log(form);
+        return;
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "TurPaquete/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let respuestaDecodificada = JSON.parse(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: respuestaDecodificada.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                $("#miFormulario").trigger("reset");
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
     }
 });
 
