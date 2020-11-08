@@ -195,6 +195,8 @@ $(function() {
 
 })
 </script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboPlaca.js"></script>
