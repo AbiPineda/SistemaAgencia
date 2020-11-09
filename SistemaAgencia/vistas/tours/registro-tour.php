@@ -74,8 +74,9 @@
                                                     <label>Fecha del viaje</label>
 
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control float-right"
-                                                            id="fecha_salida">
+
+                                                        <input type="date" placeholder="dd-mm-yyyy"
+                                                            class=" form-control" name="fecha" id="fecha_salida">
                                                     </div>
                                                     <!-- /.input group -->
                                                 </div>
@@ -383,21 +384,21 @@
 
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2 ">
-                                                <label class="text-primary float-right"> Total de Ingresos: </label>
+                                                <label class="text-primary "> Total de Ingresos: </label>
                                             </div>
                                             <div class="col-md-9">
                                                 <label id="totalIngresos" class="text-primary">$0</label>
                                             </div>
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label class="text-danger float-right"> Total de Gastos: </label>
+                                                <label class="text-danger "> Total de Gastos: </label>
                                             </div>
                                             <div class="col-md-9">
                                                 <label id="totalGastos" class="text-danger">$0</label>
                                             </div>
                                             <div class="col-md-1 col-md-offset-1"></div>
                                             <div class="col-md-2">
-                                                <label id="labelGanancias" class="text-warning float-right"> Ganancias:
+                                                <label id="labelGanancias" class="text-warning "> Ganancias:
                                                 </label>
                                             </div>
                                             <div class="col-md-9">

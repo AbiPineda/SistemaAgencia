@@ -1,7 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
 
-    inicializarCalendario();
+    // inicializarCalendario();
     inicializarComboTuristico();
     inicializarComboServicio();
     inicializarGaleria();
@@ -22,12 +22,12 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
-        "columnDefs": [
-            { "className": "dt-center", "targets": "_all" },
-            { "targets": [6], "visible": false },
-            { "targets": [7], "visible": false },
-            { "targets": [8], "visible": false },
-        ]
+        // "columnDefs": [
+        //     { "className": "dt-center", "targets": "_all" },
+        //     { "targets": [6], "visible": false },
+        //     { "targets": [7], "visible": false },
+        //     { "targets": [8], "visible": false },
+        // ]
     });
 
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
@@ -119,9 +119,8 @@ $(document).ready(function () {
     });
     //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
-        guardar();
+        guardarDetalle();
     });
-
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
@@ -256,6 +255,7 @@ $(document).ready(function () {
         html += '    </div>';
         html += '</td>';
         tabla.row.add([nombre, precio, cantidad, PorPasajero, subTotoal, html, tipo, id, contadorTabla]).draw(false);
+        //PARA ORDENAR LA TABLA
         tabla.order([8, 'desc']).draw();
         subTotoal = (parseFloat(subTotoal));
         totalGastos += subTotoal
@@ -314,11 +314,9 @@ $(document).ready(function () {
         });
     }
     function guardar() {
+
         $('#loading').show();
         let form = new FormData();
-        // let myCoordnada = document.getElementById("coordenadas").value;
-        // myCoordnada = myCoordnada.split(' ');
-
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
@@ -332,12 +330,9 @@ $(document).ready(function () {
         form.append("requisitos", document.getElementById("requisitos").value);
         form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
         form.append("cupos_disponibles", document.getElementById("cantidad").value);
-        form.append("estado", true);
-        form.append("aprobado", true);
+        form.append("estado", 1);
+        form.append("aprobado", 1);
         form.append("tipo", "TUR");
-        console.log(document.getElementById("fecha_salida").value);
-        console.log(form);
-        return;
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -376,6 +371,62 @@ $(document).ready(function () {
         }).always(function (xhr, opts) {
             $('#loading').hide();
         });
+    }
+    function guardarDetalle() {
+        let form = new FormData();
+        let serviciosAdicionales = [];
+        let sistiosTuristicos = [];
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+            let tipo = data[6];
+            let id = data[7];
+            let costo = data[1];
+            if (tipo == "servicio") {
+                serviciosAdicionales.push({
+                    "id_tours" : "0",
+                    "id_servicios": id,
+                    "costo": costo,
+                    "nuemo_veces": "1",
+                    "por_usuario": true
+                });
+            } else {
+                sistiosTuristicos.push(id);
+            }
+        });
+        // console.log(sistiosTuristicos);
+        // console.log(serviciosAdicionales);
+        let jsonString = JSON.stringify(serviciosAdicionales);
+        form.append("servil", jsonString);
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "DetalleServicio/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response);
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            // $('#loading').hide();
+        });
+
+
+
     }
 });
 
