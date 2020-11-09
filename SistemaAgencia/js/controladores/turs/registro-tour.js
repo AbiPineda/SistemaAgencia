@@ -119,7 +119,7 @@ $(document).ready(function () {
     });
     //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
-        guardarDetalle();
+        guardar();
     });
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
@@ -314,14 +314,35 @@ $(document).ready(function () {
         });
     }
     function guardar() {
-
         $('#loading').show();
         let form = new FormData();
+        let serviciosAdicionales = [];
+        let sistiosTuristicos = [];
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+            let tipo = data[6];
+            let id = data[7];
+            let costo = data[1];
+            if (tipo == "servicio") {
+                serviciosAdicionales.push({
+                    "id_tours" : "0",
+                    "id_servicios": id,
+                    "costo": costo,
+                    "nuemo_veces": "1",
+                    "por_usuario": true
+                });
+            } else {
+                sistiosTuristicos.push(id);
+            }
+        });
+      
+        let jsonString = JSON.stringify(serviciosAdicionales);
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
+        form.append("servicios", jsonString);
         form.append("nombreTours", document.getElementById("nombreTours").value);
         form.append("fecha_salida", document.getElementById("fecha_salida").value);
         form.append("lugar_salida", document.getElementById("lugar_salida").value);
@@ -393,10 +414,9 @@ $(document).ready(function () {
                 sistiosTuristicos.push(id);
             }
         });
-        // console.log(sistiosTuristicos);
-        // console.log(serviciosAdicionales);
+      
         let jsonString = JSON.stringify(serviciosAdicionales);
-        form.append("servil", jsonString);
+        form.append("servicios", jsonString);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
