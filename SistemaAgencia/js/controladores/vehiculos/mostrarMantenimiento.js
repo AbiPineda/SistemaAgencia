@@ -1,111 +1,37 @@
 $(document).ready(function() {
     let explorer = $("#kv-explorer");
-    let idVehiculo;
+    let idMantenimiento;
     let tabla;
 
 
     // inicializarValidaciones();
     inicializarTabla();
-    //BOTON MOSTRAR VEHICULO
+
+    //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function() {
 
-        //$('#loadingActualizar').hide();
+        idMantenimiento = $(this).attr("name");
 
-        idVehiculo = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
+            url: "http://localhost/API-REST-PHP/mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre").value = response.autos[0].nombre;
-            document.getElementById("placa").value = response.autos[0].placa;
-            document.getElementById("anio").value = response.autos[0].anio;
-            document.getElementById("precio_diario").value = response.autos[0].precio_diario;
-            document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
-            document.getElementById("marca").value = response.autos[0].marca;
-            document.getElementById("modelo").value = response.autos[0].modelo;
-            document.getElementById("color").value = response.autos[0].color;
-            document.getElementById("transmision").value = response.autos[0].transmision;
+            document.getElementById("fecha").value = response.mantenimiento[0].fecha;
+
+            document.getElementById("lugar").value = response.mantenimiento[0].lugar;
+
 
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
-            $('#modal-ver').modal('show');
+            $('#modal-editar').modal('show');
             $('#loadingActualizar').hide();
         });
     });
-    /*
-    //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function() {
-        $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
-        fila = $(this).closest("tr");
 
-        mostrarCategoria = fila.find('td:eq(0)').text();
-        mostrarMarca = fila.find('td:eq(1)').text();
-        mostrarModelo = fila.find('td:eq(2)').text();
-        mostrarPlaca = fila.find('td:eq(3)').text();
-        mostrarAnio = fila.find('td:eq(4)').text();
-        //mostrarColor = fila.find('td:eq(7)').text();
-        //mostrarTransmision = fila.find('td:eq(8)').text();
-        mostrarCombustible = fila.find('td:eq(6)').text();
-        mostrarPrecio = fila.find('td:eq(5)').text();
 
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("nombre").value = mostrarCategoria;
-        document.getElementById("marca").value = mostrarMarca;
-        document.getElementById("modelo").value = mostrarModelo;
-        document.getElementById("placa").value = mostrarPlaca;
-        document.getElementById("anio").value = mostrarAnio;
-        document.getElementById("color").value = response.autos[0].color;
-        document.getElementById("transmision").value = mostrarTransmision;
-        document.getElementById("tipoCombustible").value = mostrarCombustible;
-        document.getElementById("precio_diario").value = mostrarPrecio;
-
-        $('#modal-editar').modal('show');
-
-    });*/
-    //BOTON EDITAR LA FOTO
-    $(document).on('click', '.btn-group .btn-warning', function() {
-        $('#modal-imagenes').modal('show');
-        let identificador = $(this).attr("name");
-        let nombreTabla = 'servicios_adicionales';
-        let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
-        let urlFotos = [];
-        let infoFotos = [];
-
-        $.ajax({
-            url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
-            method: "GET",
-
-        }).done(function(response) {
-            //REST_Controller::HTTP_OK
-            response.forEach(element => {
-                let informacion = {
-                    url: URL_SERVIDOR + "Imagen/delete",
-                    key: element.id_foto
-                };
-                infoFotos.push(informacion);
-                urlFotos.push(element.foto_path);
-            });
-            explorer.fileinput({
-                theme: 'fas',
-                language: 'es',
-                uploadUrl: URL_SERVIDOR + '/Imagen/save',
-                uploadExtraData: informacionAdicional,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: urlFotos,
-                initialPreviewConfig: infoFotos,
-                required: true,
-                maxFileSize: 2000,
-                maxFilesNum: 10,
-                allowedFileExtensions: ["jpg", "png", "gif"]
-
-            });
-        });
-    });
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function(evento) {
         idVehiculo = $(this).attr("name");
@@ -144,41 +70,37 @@ $(document).ready(function() {
     })
 
     function inicializarTabla() {
-        tabla = $("#tabla_vehiculos").DataTable({
+        tabla = $("#tabla_mantenimientos").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "vehiculo/vehiculos",
+                "url": URL_SERVIDOR + "mantenimientoVehiculo/mantenimiento",
                 "method": "GET",
                 "dataSrc": function(json) {
-                    console.log(json.autos);
+                    console.log(json.mantenimiento);
 
-                    if (json.autos) {
-                        for (let i = 0, ien = json.autos.length; i < ien; i++) {
+                    if (json.mantenimiento) {
+                        for (let i = 0, ien = json.mantenimiento.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.mantenimiento[i].id_mantenimiento + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-warning" data-toggle="modal"';
-                            html += '            data-target="#modal-galeria">';
-                            html += '            <i class="fas fa-image" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.autos[i].idvehiculo + '" class="btn btn-danger" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.mantenimiento[i].id_mantenimiento + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
                             html += '            <i class="fas fa-trash" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
-                            json.autos[i]["botones"] = html;
+                            json.mantenimiento[i]["botones"] = html;
 
                         }
                         $('#loading').hide();
-                        return json.autos;
+                        return json.mantenimiento;
                     } else {
                         $('#loading').hide();
                         return [];
@@ -186,13 +108,11 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "nombre" },
-                { data: "marca" },
-                { data: "modelo" },
-                { data: "placa" },
-                { data: "anio" },
-                { data: "precio_diario" },
-                { data: "tipoCombustible" },
+                { data: "id_vehiculoFK" },
+                { data: "fecha" },
+                { data: "lugar" },
+                { data: "costoMantenimiento" },
+                { data: "comentariosIncidentes" },
                 { data: "botones" },
             ]
         });
@@ -263,16 +183,14 @@ $(document).ready(function() {
     function actualizar() {
         $('#loadingActualizar').show();
         let data = {
-            "idvehiculo": idVehiculo,
-            "placa": document.getElementById("placa").value,
-            "anio": document.getElementById("anio").value,
-            "precio_diario": document.getElementById("precio_diario").value,
-            "tipoCombustible": document.getElementById("tipoCombustible").value
+            "id_mantenimiento": idMantenimiento,
+            "fecha": document.getElementById("fecha").value,
+            "lugar": document.getElementById("lugar").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/actualizarVehiculo",
+            url: URL_SERVIDOR + "mantenimientoVehiculo/actualizarMantenimiento",
             method: "PUT",
             timeout: 0,
             data: data
