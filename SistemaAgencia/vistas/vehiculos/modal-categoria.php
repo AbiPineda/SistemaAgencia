@@ -15,51 +15,38 @@
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="timeline">
 
-                                <div>
-                                    <i class="fas fa-car bg-blue"></i>
-                                    <div class="timeline-item">
+                            <form id="formularioCategoria" name="formularioCategoria" onsubmit="return false">
 
-                                        <h3 class="timeline-header"><a href="#">Registrar Categoria</a> </h3>
-                                        <form id="formularioCategoria" name="formularioCategoria"
-                                            onsubmit="return false">
-                                            <div class="timeline-body">
-                                                <!-- INICIO de primera fila -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <!-- text input -->
-                                                        <div class="form-group">
-                                                            <label>Nombre de Categoria</label>
-                                                            <input type="text" class="form-control"
-                                                                name="nombreCategoria" id="nombreCategoria"
-                                                                placeholder="Digite nombre de categoria">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <!-- text input -->
-                                                        <div class="form-group">
-                                                            <label>Descripción de Categoria</label>
-                                                            <input type="text" class="form-control"
-                                                                name="descripcionCategoria" id="descripcionCategoria"
-                                                                placeholder="Digite descripcion">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="timeline-footer" style="text-align: right;">
-                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                                    id="btnCategoria">Guardar</a>
-                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                            </div>
-                                        </form>
+                                <!-- INICIO de primera fila -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Nombre de Categoria</label>
+                                            <input type="text" class="form-control" name="nombreCategoria"
+                                                id="nombreCategoria" placeholder="Digite nombre de categoria">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Descripción de Categoria</label>
+                                            <input type="text" class="form-control" name="descripcionCategoria"
+                                                id="descripcionCategoria" placeholder="Digite descripcion">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                        id="btnCategoria">Guardar</a>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
+
                 </section>
                 <p>
             </div>

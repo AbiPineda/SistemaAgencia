@@ -15,41 +15,28 @@
                     <section class="content">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="timeline">
-
-                                    <div>
-                                        <i class="fas fa-car bg-blue"></i>
-                                        <div class="timeline-item">
-
-                                            <h3 class="timeline-header"><a href="#">Registrar Modelo</a> </h3>
-
-                                            <div class="timeline-body">
-                                                <!-- INICIO de primera fila -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <!-- text input -->
-                                                        <div class="form-group">
-                                                            <label>Seleccione Marca</label>
-                                                            <select name="id_marca" id="id_marca" class="form-control">
-                                                                <option disabled="" selected="">Seleccione</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Nombre de Modelo</label>
-                                                            <input type="text" class="form-control" name="modeloCarro"
-                                                                id="modeloCarro" placeholder="Digite nombre de modelo">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-footer" style="text-align: right;">
-                                                <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                                    id="btnModelo">Guardar</a>
-                                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                            </div>
-
+                                <!-- INICIO de primera fila -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Seleccione Marca</label>
+                                            <select name="id_marca" id="id_marca" class="form-control">
+                                                <option disabled="" selected="">Seleccione</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nombre de Modelo</label>
+                                            <input type="text" class="form-control" name="modeloCarro" id="modeloCarro"
+                                                placeholder="Digite nombre de modelo">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                        id="btnModelo">Guardar</a>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
                             </div>
                         </div>

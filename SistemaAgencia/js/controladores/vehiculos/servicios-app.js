@@ -3,72 +3,37 @@ $(document).ready(function() {
     let idServicio;
     let tabla;
 
-
-    // inicializarValidaciones();
+    inicializarValidaciones();
     inicializarTabla();
-    //BOTON MOSTRAR VEHICULO
 
+    //BOTON MOSTRAR VEHICULO
     $(document).on('click', '.btn-group .btn-primary', function() {
 
         //$('#loadingActualizar').hide();
         idVehiculo = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idServicio,
+            url: "http://localhost/API-REST-PHP/serviciosVehiculo/servicios?idservicios_opc=" + idServicio,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre").value = response.autos[0].nombre;
-            document.getElementById("placa").value = response.autos[0].placa;
-            document.getElementById("anio").value = response.autos[0].anio;
-            document.getElementById("precio_diario").value = response.autos[0].precio_diario;
-            document.getElementById("tipoCombustible").value = response.autos[0].tipoCombustible;
-            document.getElementById("marca").value = response.autos[0].marca;
-            document.getElementById("color").value = response.autos[0].color;
-            document.getElementById("transmision").value = response.autos[0].transmision;
+            document.getElementById("nombre_servicio").value = response.Servicios[0].nombre_servicio;
+            document.getElementById("precio").value = response.Servicios[0].precio;
+            document.getElementById("descripcion").value = response.Servicios[0].descripcion;
+
 
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
-            $('#modal-ver').modal('show');
+            $('#modal-editar').modal('show');
             $('#loadingActualizar').hide();
         });
     });
-    /*
-    //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function() {
-        $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
-        fila = $(this).closest("tr");
 
-        mostrarCategoria = fila.find('td:eq(0)').text();
-        mostrarMarca = fila.find('td:eq(1)').text();
-        mostrarModelo = fila.find('td:eq(2)').text();
-        mostrarPlaca = fila.find('td:eq(3)').text();
-        mostrarAnio = fila.find('td:eq(4)').text();
-        //mostrarColor = fila.find('td:eq(7)').text();
-        //mostrarTransmision = fila.find('td:eq(8)').text();
-        mostrarCombustible = fila.find('td:eq(6)').text();
-        mostrarPrecio = fila.find('td:eq(5)').text();
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("nombre").value = mostrarCategoria;
-        document.getElementById("marca").value = mostrarMarca;
-        document.getElementById("modelo").value = mostrarModelo;
-        document.getElementById("placa").value = mostrarPlaca;
-        document.getElementById("anio").value = mostrarAnio;
-        document.getElementById("color").value = response.autos[0].color;
-        document.getElementById("transmision").value = mostrarTransmision;
-        document.getElementById("tipoCombustible").value = mostrarCombustible;
-        document.getElementById("precio_diario").value = mostrarPrecio;
-
-        $('#modal-editar').modal('show');
-
-    });*/
 
     //Boton Eliminar
     $(document).on('click', '.btn-group .btn-danger', function(evento) {
-        idVehiculo = $(this).attr("name");
+        idServicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
         const Toast = Swal.mixin();
@@ -97,11 +62,7 @@ $(document).ready(function() {
             actualizar();
         }
     });
-    //CUANDO EL MODAL SE CIERRA
-    $('#modal-imagenes').on('hidden.bs.modal', function(e) {
-        console.log("cerrando modal")
-        explorer.fileinput('destroy');
-    })
+
 
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
@@ -123,10 +84,6 @@ $(document).ready(function() {
                             html += '        <button type="button" name="' + json.Servicios[i].idservicios_opc + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.Servicios[i].idservicios_opc + '" class="btn btn-warning" data-toggle="modal"';
-                            html += '            data-target="#modal-galeria">';
-                            html += '            <i class="fas fa-image" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.Servicios[i].idservicios_opc + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
@@ -158,42 +115,34 @@ $(document).ready(function() {
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
-                placa: {
+                nombre_servicio: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
                 },
-                anio: {
+                descripcion: {
                     required: true,
-                    number: true,
-                    min: 2010
+                    minlength: 3,
+                    maxlength: 100
                 },
-                tipoCombustible: {
-                    required: true,
-                    minlength: 10,
-                },
-                precio_diario: {
+                precio: {
                     required: true,
                     number: true,
                     min: 1
                 }
             },
             messages: {
-                placa: {
-                    required: "Ingrese un nombre",
+                nombre_servicio: {
+                    required: "Ingrese el nombre del Servicio",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                anio: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
+                descripcion: {
+                    required: "Ingrese en que consiste el Servicio",
+                    minlength: "Logitud del nombre debe ser mayor a 3",
+                    maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                tipoCombustible: {
-                    required: "La informacion de contacto es necesaria",
-                    minlength: "Debe de tener una longitud minima de 10",
-                },
-                precio_diario: {
+                precio: {
                     required: "Ingrese un numero",
                     number: "Ingrese un numero",
                     min: "Debe de ser mayor que 0"
@@ -219,16 +168,15 @@ $(document).ready(function() {
     function actualizar() {
         $('#loadingActualizar').show();
         let data = {
-            "idvehiculo": idVehiculo,
-            "placa": document.getElementById("placa").value,
-            "anio": document.getElementById("anio").value,
-            "precio_diario": document.getElementById("precio_diario").value,
-            "tipoCombustible": document.getElementById("tipoCombustible").value
+            "idservicios_opc": idServicio,
+            "nombre_servicio": document.getElementById("nombre_servicio").value,
+            "descripcion": document.getElementById("descripcion").value,
+            "precio": document.getElementById("precio").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/actualizarVehiculo",
+            url: URL_SERVIDOR + "serviciosVehiculo/actualizarServicios",
             method: "PUT",
             timeout: 0,
             data: data
@@ -262,12 +210,12 @@ $(document).ready(function() {
 
     function eliminar() {
         let data = {
-            "idvehiculo": idVehiculo
+            "idservicios_opc": idServicio
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/eliminarVehiculo",
+            url: URL_SERVIDOR + "serviciosVehiculo/eliminarServicios",
             method: "DELETE",
             timeout: 0,
             data: data
