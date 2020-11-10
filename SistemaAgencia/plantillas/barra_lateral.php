@@ -156,31 +156,37 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-mail-bulk"></i>
                         <p>
-                            Cargo Expreso
+                            Encomiendas
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/registroEncomienda.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/encomiendas/empresa.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Registro de Empresa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/encomiendas/registroEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/verEncomienda.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/encomiendas/verEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Modificación Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/calculoEncomienda.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/encomiendas/calculoEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Calculo Encomienda</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/cargoExpress/actualizacionEnvio.php" class="nav-link">
+                            <a href="<?= $base_url ?>vistas/encomiendas/actualizacionEnvio.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Actualizacion de Envio</p>
                             </a>
@@ -196,19 +202,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/producto.php" class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/encomiendas/producto.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Productos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/categoria.php" class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/encomiendas/categoria.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Categoria</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/cargoExpress/reglas.php" class="nav-link">
+                                    <a href="<?= $base_url ?>vistas/encomiendas/reglas.php" class="nav-link">
                                         <i class="fas fa-paste"></i>
                                         <p>Reglas</p>
                                     </a>

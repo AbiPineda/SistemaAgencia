@@ -73,7 +73,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <td>
                                                     <div class="btn-group">
                                                          <a type="button" class="btn btn-primary" 
-                                                            onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/cargoExpress/modificarEncomienda.php')"   >
+                                                            onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/encomiendas/modificarEncomienda.php')"   >
                                                             <i class="fas fa-edit" style="color: white"></i>
                                                         </a>
                                                         <button type="button" class="btn btn-danger"><i
@@ -90,7 +90,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <td>
                                                     <div class="btn-group">
                                                         <a type="button" class="btn btn-primary" 
-                                                           href="<?= $base_url ?>vistas/cargoExpress/modificarEncomienda.php"   >
+                                                           href="<?= $base_url ?>vistas/encomiendas/modificarEncomienda.php"   >
                                                             <i class="fas fa-edit" style="color: white"></i>
                                                         </a>
                                                         <button type="button" class="btn btn-danger"><i

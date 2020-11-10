@@ -70,7 +70,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <td><div class="btn-group">
                                                                 
                                                         <a type="button" class="btn btn-success" 
-                                                           href="<?= $base_url ?>vistas/cargoExpress/actualizacionRegistro.php"   >
+                                                           href="<?= $base_url ?>vistas/encomiendas/actualizacionRegistro.php"   >
                                                             <i class="fas fa-car" style="color: white"></i>
                                                         </a>
                                                        
