@@ -135,8 +135,7 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+
 
                             <div class="col-sm-3">
                                 <div class="form-group">
@@ -174,8 +173,8 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+
+
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Color</label>
@@ -217,7 +216,36 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label># Puertas</label>
+                                    <div class="input-group">
+                                        <input id="puertas" name="puertas" type="number" min=1 max=4
+                                            class="form-control" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label># Pasajeros</label>
+                                    <div class="input-group">
+                                        <input id="pasajeros" name="pasajeros" type="number" min=1 max=60
+                                            class="form-control" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Kilometraje</label>
+                                    <div class="input-group">
+                                        <input id="kilometraje" name="kilometraje" type="number" min=1
+                                            class="form-control" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
 
                         </div>
 
@@ -271,7 +299,8 @@ include_once '../../plantillas/footer.php';?>
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
-
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculo-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>

@@ -3,8 +3,7 @@ $(document).ready(function() {
     let idVehiculo;
     let tabla;
 
-
-    // inicializarValidaciones();
+    inicializarValidaciones();
     inicializarTabla();
     //BOTON MOSTRAR VEHICULO
     $(document).on('click', '.btn-group .btn-primary', function() {
@@ -27,45 +26,17 @@ $(document).ready(function() {
             document.getElementById("modelo").value = response.autos[0].modelo;
             document.getElementById("color").value = response.autos[0].color;
             document.getElementById("transmision").value = response.autos[0].transmision;
-
+            document.getElementById("puertas").value = response.autos[0].puertas;
+            document.getElementById("pasajeros").value = response.autos[0].pasajeros;
+            document.getElementById("kilometraje").value = response.autos[0].kilometraje;
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
-            $('#modal-ver').modal('show');
+            $('#modal-editar').modal('show');
             $('#loadingActualizar').hide();
         });
     });
-    /*
-    //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function() {
-        $('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
-        fila = $(this).closest("tr");
 
-        mostrarCategoria = fila.find('td:eq(0)').text();
-        mostrarMarca = fila.find('td:eq(1)').text();
-        mostrarModelo = fila.find('td:eq(2)').text();
-        mostrarPlaca = fila.find('td:eq(3)').text();
-        mostrarAnio = fila.find('td:eq(4)').text();
-        //mostrarColor = fila.find('td:eq(7)').text();
-        //mostrarTransmision = fila.find('td:eq(8)').text();
-        mostrarCombustible = fila.find('td:eq(6)').text();
-        mostrarPrecio = fila.find('td:eq(5)').text();
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("nombre").value = mostrarCategoria;
-        document.getElementById("marca").value = mostrarMarca;
-        document.getElementById("modelo").value = mostrarModelo;
-        document.getElementById("placa").value = mostrarPlaca;
-        document.getElementById("anio").value = mostrarAnio;
-        document.getElementById("color").value = response.autos[0].color;
-        document.getElementById("transmision").value = mostrarTransmision;
-        document.getElementById("tipoCombustible").value = mostrarCombustible;
-        document.getElementById("precio_diario").value = mostrarPrecio;
-
-        $('#modal-editar').modal('show');
-
-    });*/
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function() {
         $('#modal-imagenes').modal('show');
@@ -264,10 +235,7 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "idvehiculo": idVehiculo,
-            "placa": document.getElementById("placa").value,
-            "anio": document.getElementById("anio").value,
-            "precio_diario": document.getElementById("precio_diario").value,
-            "tipoCombustible": document.getElementById("tipoCombustible").value
+            "precio_diario": document.getElementById("precio_diario").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
