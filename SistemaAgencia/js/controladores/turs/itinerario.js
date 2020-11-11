@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     /* INICIALIZANDO LOS EVENTOS EXTERNOS
-        -----------------------------------------------------------------*/
+        ---------------------------------*/
     ini_events($('#external-events div.external-event'));
     function ini_events(ele) {
         ele.each(function () {
@@ -23,14 +23,9 @@ $(document).ready(function () {
 
         });
     }
+    cargarEventosSinFecha();
 
-    /* INICIALIZANDO EL CALENDARIO
-     -----------------------------------------------------------------*/
-    //Date for the calendar events (dummy data)
-    let date = new Date();
-    let d = date.getDate(),
-        m = date.getMonth(),
-        y = date.getFullYear();
+
     //INICIALIZAN
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
@@ -38,7 +33,6 @@ $(document).ready(function () {
     let containerEl = document.getElementById('external-events');
     let checkbox = document.getElementById('drop-remove');
     let calendarEl = document.getElementById('calendar');
-    console.log(calendarEl);
 
     // initialize the external events
     // -----------------------------------------------------------------
@@ -46,8 +40,6 @@ $(document).ready(function () {
     new Draggable(containerEl, {
         itemSelector: '.external-event',
         eventData: function (eventEl) {
-            console.log("DRAGGABLE");
-            console.log(eventEl);
             //AQUI TAMBIEN TENDRIA QUE RETORNAR UN ID
             return {
                 title: eventEl.innerText,
@@ -124,6 +116,7 @@ $(document).ready(function () {
             'border-color': currColor
         })
     })
+    //BOTON DE AGREGAR EVENTO
     $('#add-new-event').click(function (e) {
         e.preventDefault()
         //Get value and make sure it is not null
@@ -148,13 +141,46 @@ $(document).ready(function () {
         //Remove event from text input
         $('#new-event').val('')
     });
+    //BOTON DE GUARDAR
     $('#btnGuardar').click(function (e) {
-    let todos = (calendar.getEvents());
-    todos.forEach(element => {
-        console.log(element.start);
-        console.log(element.id);
+        let todos = (calendar.getEvents());
+        todos.forEach(element => {
+            console.log(element.start);
+            console.log(element.id);
+        });
     });
-    });
+
+    function cargarEventosSinFecha() {
+
+        $.ajax({
+            url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=24",
+            method: "GET"
+        }).done(function (response) {
+            console.log(response);
+            response.forEach(SitioTuristico => {
+
+                //Create events
+                let event = $('<div />');
+                event.css({
+                    'background-color': "red",
+                    'border-color': "red",
+                    'color': '#fff'
+                }).addClass('external-event');
+                event.html(SitioTuristico.nombre_sitio);
+                event.attr("id", SitioTuristico.id);
+
+                $('#external-events').prepend(event)
+
+                //Add draggable funtionality
+                ini_events(event)
+            });
+        }).fail(function (response) {
+            console.log(response);
+
+        }).always(function (xhr, opts) {
+            // $('#loading').hide();
+        });
+    }
 
 
 })

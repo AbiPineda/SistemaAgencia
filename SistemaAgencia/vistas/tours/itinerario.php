@@ -65,7 +65,8 @@ a.text-success:hover {
 
                                         <div class="checkbox">
                                             <label for="drop-remove">
-                                                <input type="checkbox" id="drop-remove" checked="checked" style="">
+                                                <input type="checkbox" id="drop-remove" checked="checked"
+                                                    style="display: none;">
                                                 <!--remove external-eventsafter drop-->
                                             </label>
                                         </div>
