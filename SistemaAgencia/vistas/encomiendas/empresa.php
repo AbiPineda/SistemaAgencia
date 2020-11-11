@@ -84,8 +84,8 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             <select name="forma_operacion" class="form-control">
                                                 <option value="">Seleccione</option>
-                                                <option value="estandar">Estandar</option>
-                                                <option value="personalizado">Personalizado</option>
+                                                <option value="Estándar">Estandar</option>
+                                                <option value="Personalizado">Personalizado</option>
                                             </select>
                                         </div>
                                     </div>

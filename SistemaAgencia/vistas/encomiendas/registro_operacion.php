@@ -47,7 +47,7 @@ include_once '../../plantillas/barra_lateral.php';
                                 <h3 class="timeline-header"><a href="#">Empresas Registradas</a></h3>
                                 <div class="timeline-body" style="margin-top: -9px;">
                                     <!--Una fila para jugar-->
-                            <form id="recargar-form" name="recargar-form" onsubmit="return false">
+                          
                                     <div class="row">
                                  
                                     
@@ -57,7 +57,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             <div class="form-group">
                                                 <label for="cars">Seleccione la empresa a configurar</label>
-                                                <select name='empresa' id='id_empresa' class="form-control">
+                                                <select name='empresa' id='empresa' class="form-control">
                                                     <option selected="">Seleccione</option>
                                                 </select>
 
@@ -68,7 +68,6 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-lg-1"></div>
                                     </div>
-                                     </form>
                                     <!--fin de Una fila para jugar-->
                                 </div>
                             </div>
@@ -76,9 +75,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <!-- END timeline item -->
                        
                         <!-- timeline item -->
-                        <div id="mostrar">
-
-                        </div>
+                        <div id="formulario"></div>
                         <!-- END timeline item -->
                         <!-- timeline item -->
                         <div id="botones"></div>
@@ -146,7 +143,7 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 <div id="script"></div>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-empresa.js"></script>
-
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/creacion_formulario.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
