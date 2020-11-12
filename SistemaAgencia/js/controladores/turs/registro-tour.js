@@ -331,7 +331,6 @@ $(document).ready(function () {
             let costo = data[1];
             if (tipo == "servicio") {
                 serviciosAdicionales.push({
-                    // "id_tours": "0",
                     "id_servicios": id,
                     "costo": costo,
                     "por_usuario": true,
@@ -341,7 +340,8 @@ $(document).ready(function () {
                 sistiosTuristicos.push({
                     "id_sitio_turistico": id,
                     "costo": costo,
-                    "por_usuario": true
+                    "por_usuario": true,
+                    "backgroundColor" : "#28a745"
                 });
             }
         });

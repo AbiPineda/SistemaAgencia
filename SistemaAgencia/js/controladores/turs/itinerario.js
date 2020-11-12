@@ -6,6 +6,7 @@ $(document).ready(function () {
     ini_events($('#external-events div.external-event'));
     function ini_events(ele) {
         ele.each(function () {
+
             // CREANDO UN OBJETO DE TIPO EVENTO (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
             // it doesn't need to have a start or end
             let eventObject = {
@@ -24,7 +25,6 @@ $(document).ready(function () {
         });
     }
     cargarEventosSinFecha();
-
 
     //INICIALIZAN
     let Calendar = FullCalendar.Calendar;
@@ -69,24 +69,39 @@ $(document).ready(function () {
                 buttonText: '4 day'
             }
         },
-        // events: 'http://localhost/API-REST-PHP/Itinerario/show',
-        //Random default events
         eventSources: [
-
-            // your event source
             {
-                url: 'http://localhost/API-REST-PHP/Itinerario/calendar',
-                extraParams: {
-                    id_tours: '24',
-
-                },
-                textColor: 'black'  // an option!
-                // color: 'yellow',    // an option!
+                url: `${URL_SERVIDOR}Itinerario/calendar`,
+                extraParams: { id_tours: '24' },
             }
-
-            // any other sources...
-
         ],
+        eventClick: function (info) {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                        left top
+                        no-repeat`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    info.event.remove();
+                    Toast.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+
+        },
         editable: true,
         droppable: true, // this allows things to be dropped onto the calendar !!!
         drop: function (info) {
@@ -101,15 +116,13 @@ $(document).ready(function () {
     calendar.render();
 
     /* PARA CREAR UN NUEVO EVENTO EVENTS */
-    let currColor = '#3c8dbc' //Red by default
+    let currColor = '#007bff' //Red by default
     //Color chooser button
     let colorChooser = $('#color-chooser-btn')
     $('#color-chooser > li > a').click(function (e) {
         e.preventDefault()
         //Save color
         currColor = $(this).css('color')
-        console.log(currColor);
-        console.log("dfadsfafad");
         //Add color effect to button
         $('#add-new-event').css({
             'background-color': currColor,
@@ -150,10 +163,14 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '#external-events div.external-event', function (evento) {
+        console.log("eliminar");
+
+    });
     function cargarEventosSinFecha() {
 
         $.ajax({
-            url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=24",
+            url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=28",
             method: "GET"
         }).done(function (response) {
             console.log(response);
@@ -162,8 +179,7 @@ $(document).ready(function () {
                 //Create events
                 let event = $('<div />');
                 event.css({
-                    'background-color': "red",
-                    'border-color': "red",
+                    'background-color': SitioTuristico.backgroundColor,
                     'color': '#fff'
                 }).addClass('external-event');
                 event.html(SitioTuristico.nombre_sitio);
