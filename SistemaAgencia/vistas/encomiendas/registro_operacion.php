@@ -75,7 +75,9 @@ include_once '../../plantillas/barra_lateral.php';
                         <!-- END timeline item -->
                        
                         <!-- timeline item -->
-                        <div id="formulario"></div>
+                        <div id="formulario">
+                         
+                        </div>
                         <!-- END timeline item -->
                         <!-- timeline item -->
                         <div id="botones"></div>
