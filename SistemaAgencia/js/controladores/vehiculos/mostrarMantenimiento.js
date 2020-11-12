@@ -18,9 +18,16 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("fecha").value = response.mantenimiento[0].fecha;
+            for (let i = 0, ien = response.mantenimiento.length; i < ien; i++) {
 
-            document.getElementById("lugar").value = response.mantenimiento[0].lugar;
+                document.getElementById("fecha").value = response.mantenimiento[i].fecha;
+                document.getElementById("lugar").value = response.mantenimiento[i].lugar;
+                document.getElementById("vehiculo").value = response.mantenimiento[i].modelo;
+                document.getElementById("mantenimientos").value = response.mantenimiento[i].mantenimiento_realizado;
+
+            }
+
+
 
 
         }).fail(function(response) {
@@ -108,11 +115,11 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "id_vehiculoFK" },
+                { data: "modelo" },
                 { data: "fecha" },
                 { data: "lugar" },
                 { data: "costoMantenimiento" },
-                { data: "comentariosIncidentes" },
+                { data: "mantenimiento_realizado" },
                 { data: "botones" },
             ]
         });

@@ -93,7 +93,7 @@
     </section>
 </div>
 <!-- End Modal Mostrar-->
-</form>
+
 
 
 
@@ -122,7 +122,8 @@
                                 <div class="form-group">
                                     <label>Nombre de Servicio</label>
                                     <div class="input-group">
-                                        <input id="nombre_servicio" name="nombre_servicio" type="text" class="form-control">
+                                        <input id="nombre_servicio" name="nombre_servicio" type="text"
+                                            class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -146,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <div class="modal-footer justify-content-between">
@@ -162,7 +163,7 @@
     </div>
     <!-- End Modal EDITAR-->
 </form>
-</div>
+
 
 
 

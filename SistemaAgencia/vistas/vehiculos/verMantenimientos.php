@@ -56,7 +56,7 @@
                                                 <th>Fecha</th>
                                                 <th>Lugar</th>
                                                 <th>Precio</th>
-                                                <th>Comentarios</th>
+                                                <th>Manteniento Realizado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
