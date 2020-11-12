@@ -5,7 +5,7 @@ include_once '../../plantillas/cabecera.php';
 
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-    type="text/css" />
+  type="text/css" />
 <!-- iCheck for checkboxes -->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- Select2 -->
@@ -18,162 +18,161 @@ include_once '../../plantillas/cabecera.php';
 
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Mantenimiento de Vehiculos</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Mantenimiento</li>
-                    </ol>
-                </div>
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Mantenimiento de Vehiculos</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active">Mantenimiento</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <form id="register-mantenimiento" name="register-form" onsubmit="return false">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="timeline">
+            <!-- timeline time label -->
+            <div class="time-label">
+              <span class="bg-red">Información</span>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div>
+              <i class="fas fa-car bg-blue"></i>
+              <div class="timeline-item">
 
-    <!-- Main content -->
-    <section class="content">
-        <form id="register-mantenimiento" name="register-form" onsubmit="return false">
+                <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="timeline">
-                        <!-- timeline time label -->
-                        <div class="time-label">
-                            <span class="bg-red">Información</span>
-                        </div>
-                        <!-- /.timeline-label -->
-                        <!-- timeline item -->
-                        <div>
-                            <i class="fas fa-car bg-blue"></i>
-                            <div class="timeline-item">
-
-                                <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
-
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <label>Vehiculo</label>
-                                                <select name="id_placa" id="id_placa" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-sm-4">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Fecha</label>
-                                                <input type="date" class="form-control" name="fecha" id="fecha">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Lugar</label>
-                                                <input type="text" class="form-control" name="lugar" id="lugar"
-                                                    placeholder="Digite nombre del lugar donde realizo el mantenimiento">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Precio de Mantenimiento</label>
-                                                <input type="number" class="form-control" min="0" name="precio"
-                                                    id="precio">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- END timeline item -->
-                        <!-- timeline item -->
-                        <div>
-                            <i class="fas fa-wrench bg-green"></i>
-                            <div class="timeline-item">
-
-                                <h3 class="timeline-header no-border"><a href="#">Adicional</a></h3>
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Servicios Realizados</label>
-                                                <div class="select2-purple">
-                                                    <select class="select2" multiple="multiple"
-                                                        name="mantenimiento_realizado" id="mantenimiento_realizado"
-                                                        data-placeholder="Seleccione"
-                                                        data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                                        <option>Cambio de Aceite </option>
-                                                        <option>Limpieza de Filtros </option>
-                                                        <option>Lavado </option>
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Cambio de Piezas</label>
-                                                <div class="select2-danger">
-                                                    <select class="select2" multiple="multiple" name="piezas_cambiadas"
-                                                        id="piezas_cambiadas" data-placeholder="Seleccione"
-                                                        data-dropdown-css-class="select2-danger" style="width: 100%;">
-                                                        <option>Reemplazo de Llanta </option>
-                                                        <option>Reemplazo de Frenos </option>
-                                                        <option>Reemplazo de Luces </option>
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END timeline item -->
-
-                        <!-- timeline item -->
-                        <div>
-                            <i class="fas fa-comments bg-yellow"></i>
-                            <div class="timeline-item">
-
-                                <h3 class="timeline-header"><a href="#">Comentarios</a> Incidentes que ocurren durante
-                                    el
-                                    mantenimiento</h3>
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <textarea class="form-control" rows="3" id="comentarios"
-                                                    name="comentarios" placeholder="Describir incidentes"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-footer" style="text-align: right;">
-                                        <button name="btnGuardar" id="btnGuardar" class="btn btn-info btn-sm"
-                                            style="color: white">Guardar</button>
-                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <label>Vehiculo</label>
+                        <select name="id_placa" id="id_placa" class="form-control">
+                          <option disabled="" selected="">Seleccione</option>
+                        </select>
+                      </div>
                     </div>
-                    <!-- END timeline item -->
+
+
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" class="form-control" name="fecha" id="fecha">
+                      </div>
+                    </div>
+                    <div class="col-sm-8">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Lugar</label>
+                        <input type="text" class="form-control" name="lugar" id="lugar"
+                          placeholder="Digite nombre del lugar donde realizo el mantenimiento">
+                      </div>
+                    </div>
+
+
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Precio de Mantenimiento</label>
+                        <input type="number" class="form-control" min="0" name="precio" id="precio">
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
+
+              </div>
             </div>
-        </form>
-    </section>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <div>
+              <i class="fas fa-wrench bg-green"></i>
+              <div class="timeline-item">
+
+                <h3 class="timeline-header no-border"><a href="#">Adicional</a></h3>
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Servicios Realizados</label>
+                        <div class="select2-purple">
+                          <select class="select2" multiple="multiple" name="mantenimiento_realizado"
+                            id="mantenimiento_realizado" data-placeholder="Seleccione"
+                            data-dropdown-css-class="select2-purple" style="width: 100%;">
+                            <option>Cambio de Aceite </option>
+                            <option>Limpieza de Filtros </option>
+                            <option>Lavado </option>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Cambio de Piezas</label>
+                        <div class="select2-danger">
+                          <select class="select2" multiple="multiple" name="piezas_cambiadas" id="piezas_cambiadas"
+                            data-placeholder="Seleccione" data-dropdown-css-class="select2-danger" style="width: 100%;">
+                            <option>Reemplazo de Llanta </option>
+                            <option>Reemplazo de Frenos </option>
+                            <option>Reemplazo de Luces </option>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END timeline item -->
+
+            <!-- timeline item -->
+            <div>
+              <i class="fas fa-comments bg-yellow"></i>
+              <div class="timeline-item">
+
+                <h3 class="timeline-header"><a href="#">Comentarios</a> Incidentes que ocurren durante
+                  el
+                  mantenimiento</h3>
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea class="form-control" rows="3" id="comentarios" name="comentarios"
+                          placeholder="Describir incidentes"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-footer" style="text-align: right;">
+                    <button name="btnGuardar" id="btnGuardar" class="btn btn-info btn-sm"
+                      style="color: white">Guardar</button>
+                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END timeline item -->
+        </div>
+      </div>
+    </form>
+  </section>
 </div>
 
 <?php
@@ -182,16 +181,16 @@ include_once '../../plantillas/cabecera.php';
 
 <script>
 $(function() {
-    $('.select2').select2()
+  $('.select2').select2()
 
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-        theme: 'bootstrap4'
-    })
+  //Initialize Select2 Elements
+  $('.select2bs4').select2({
+    theme: 'bootstrap4'
+  })
 
-    $("input[data-bootstrap-switch]").each(function() {
-        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });
+  $("input[data-bootstrap-switch]").each(function() {
+    $(this).bootstrapSwitch('state', $(this).prop('checked'));
+  });
 
 })
 </script>

@@ -1,6 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
-
+    inicializarComboTuristico();
+    cargarEventosSinFecha();
     /* INICIALIZANDO LOS EVENTOS EXTERNOS
         ---------------------------------*/
     ini_events($('#external-events div.external-event'));
@@ -24,7 +25,6 @@ $(document).ready(function () {
 
         });
     }
-    cargarEventosSinFecha();
 
     //INICIALIZAN
     let Calendar = FullCalendar.Calendar;
@@ -76,30 +76,7 @@ $(document).ready(function () {
             }
         ],
         eventClick: function (info) {
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                backdrop: `
-                        rgba(0,0,123,0.4)
-                        url("https://sweetalert2.github.io/images/nyan-cat.gif")
-                        left top
-                        no-repeat`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    info.event.remove();
-                    Toast.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            })
+            eliminar(info);
 
         },
         editable: true,
@@ -162,39 +139,106 @@ $(document).ready(function () {
             console.log(element.id);
         });
     });
+    $('#add-new-sitio').click(function (evento) {
+        evento.preventDefault();
+        let mytur = $('#ComboTur').select2('data');
+        let nombre_sitio = mytur[0].text;
+        let id = mytur[0].id;
+        let backgroundColor = "#28a745"
+        crearEventoConId({nombre_sitio,id,backgroundColor});
+
+    });
 
     $(document).on('click', '#external-events div.external-event', function (evento) {
         console.log("eliminar");
 
     });
     function cargarEventosSinFecha() {
-
         $.ajax({
             url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=28",
             method: "GET"
         }).done(function (response) {
             console.log(response);
             response.forEach(SitioTuristico => {
-
-                //Create events
-                let event = $('<div />');
-                event.css({
-                    'background-color': SitioTuristico.backgroundColor,
-                    'color': '#fff'
-                }).addClass('external-event');
-                event.html(SitioTuristico.nombre_sitio);
-                event.attr("id", SitioTuristico.id);
-
-                $('#external-events').prepend(event)
-
-                //Add draggable funtionality
-                ini_events(event)
+                crearEventoConId(SitioTuristico);
             });
         }).fail(function (response) {
             console.log(response);
 
         }).always(function (xhr, opts) {
-            // $('#loading').hide();
+            $('#loading').hide();
+        });
+    }
+    function crearEventoConId(SitioTuristico) {
+        let event = $('<div />');
+        event.css({
+            'background-color': SitioTuristico.backgroundColor,
+            'color': '#fff'
+        }).addClass('external-event');
+        event.html(SitioTuristico.nombre_sitio);
+        event.attr("id", SitioTuristico.id);
+
+        $('#external-events').prepend(event)
+
+        //Add draggable funtionality
+        ini_events(event)
+    }
+    function eliminar(info) {
+        const Toast = Swal.mixin();
+        Toast.fire({
+            title: '¿Desea Eliminar?',
+            text: "Se eiminara el Sitio turistico del itinerario",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, Eliminar!',
+            cancelButtonText: "Cancelar",
+            backdrop: `rgba(0,0,123,0.4)
+                       url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                       left top
+                       no-repeat`
+        }).then((result) => {
+            if (result.value) {
+                Toast.fire({
+                    title: 'Eliminado Correctamente',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    backdrop: `rgba(0,0,123,0.4)
+                       url("https://i.imgur.com/UGw1mKB.gif")
+                       left top
+                       no-repeat`
+                }).then((result) => {
+                    info.event.remove();
+                });
+            }
+        });
+    }
+    function inicializarComboTuristico() {
+        //COMBO DE TIPOS 
+        $('#ComboTur').select2();
+        //COMBO DE CONTACTOS
+        $.ajax({
+            url: URL_SERVIDOR + "SitioTuristico/show",
+            method: "GET"
+        }).done(function (response) {
+            let myData = [];
+            if (response.sitios) {
+                let DATA_TUR = response.sitios;
+                for (let index = 0; index < DATA_TUR.length; index++) {
+                    myData.push({
+                        id: DATA_TUR[index].id_sitio_turistico,
+                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`
+                    });
+                }
+                ///LE CARGAMOS LA DATA 
+                $('#ComboTur').select2({ data: myData });
+            } else {
+                $('#ComboTur').select2();
+            }
+        }).fail(function (response) {
+            $('#ComboTur').select2();
+
         });
     }
 
