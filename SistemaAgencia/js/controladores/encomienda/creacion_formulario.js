@@ -65,6 +65,7 @@ $(function () {
                                  '<a class="btn btn-primary btn-sm" id="btn-preguntas" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
                }
 
                if (cod=='Personalizada') {
@@ -140,6 +141,9 @@ $(function () {
                                  '<a class="btn btn-primary btn-sm" id="btn-preguntas" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
+
+                 $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
+              
                }
 
           
