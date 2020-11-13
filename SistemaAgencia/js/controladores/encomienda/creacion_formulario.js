@@ -2,6 +2,9 @@
 $(function () {
         $("#empresa").change(function () {
            var cod = document.getElementById("empresa").value;
+
+            var combo = document.getElementById("empresa");
+           var empre = combo.options[combo.selectedIndex].text;
            //alert(cod);
            var $mostrar=$('#formulario');
            var $botones=$('#botones');
@@ -21,7 +24,8 @@ $(function () {
                                     '<div class="col-sm-4">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Forma de operar</label>'+
-                                        '<input name="nombre_empresa" value="" id="forma" type="text" class="form-control" disabled="true">'+
+                                        '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
+                                        '<input name="nombre_empresa" value="" id="nombre_empresa" type="text">'+
                                         '</div></div>'+
                                     '<div class="col-sm-8">'+
                                         '<div class="form-group">'+
@@ -53,6 +57,7 @@ $(function () {
                                             '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div></div></div></form></div></div>');
                 $('#forma').val(cod);
+                $('#nombre_empresa').val(empre);
 
                 $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
                             '<div class="timeline-item">'+
@@ -62,10 +67,11 @@ $(function () {
                                         '<div class="col-lg-1"></div><div class="col-lg-10"></div>'+
                                           '<div class="col-lg-1"></div>'+
                                         '<div style="text-align: right;width:577px;margin-top:-8px;">'+
-                                 '<a class="btn btn-primary btn-sm" id="btn-preguntas" style="color: white">Guardar</a>'+
+                                 '<a class="btn btn-primary btn-sm" id="btn-estandar" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
                 $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
+               $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/insertar-estandar.js">');
                }
 
                if (cod=='Personalizada') {
@@ -79,7 +85,8 @@ $(function () {
                                     '<div class="col-sm-4">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Forma de operar</label>'+
-                                        '<input name="nombre_empresa" value="" id="forma" type="text" class="form-control" disabled="true">'+
+                                        '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
+                                         '<input name="nombre_empresa" value="" id="nombre_empresa" type="text">'+
                                         '</div></div>'+
                                     '<div class="col-sm-8">'+
                                         '<div class="form-group">'+
@@ -129,6 +136,7 @@ $(function () {
                                     '</div>'+
                                 '</div></form></div></div>');
                 $('#forma').val(cod);
+                $('#nombre_empresa').val(empre);
 
                 $botones.append(' <i class="fas fa-save bg-green"></i>'+
                             '<div class="timeline-item">'+
