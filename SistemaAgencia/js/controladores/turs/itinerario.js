@@ -1,57 +1,18 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
-    inicializarComboTuristico();
-    cargarEventosSinFecha();
-    /* INICIALIZANDO LOS EVENTOS EXTERNOS
-        ---------------------------------*/
-    ini_events($('#external-events div.external-event'));
-    function ini_events(ele) {
-        ele.each(function () {
-
-            // CREANDO UN OBJETO DE TIPO EVENTO (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-            // it doesn't need to have a start or end
-            let eventObject = {
-                title: $.trim($(this).text()) // use the element's text as the event title
-            };
-            // store the Event Object in the DOM element so we can get to it later
-            $(this).data('eventObject', eventObject);
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 1070,
-                revert: true, // will cause the event to go back to its
-                revertDuration: 0 //  original position after the drag
-            });
-
-        });
-    }
-
     //INICIALIZAN
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
-
     let containerEl = document.getElementById('external-events');
     let checkbox = document.getElementById('drop-remove');
     let calendarEl = document.getElementById('calendar');
+    /* PARA CREAR UN NUEVO EVENTO EVENTS */
+    let currColor = '#007bff' //Red by default
+    inicializarComboTuristico();
+    cargarEventosSinFecha();
+    /* INICIALIZANDO LOS EVENTOS EXTERNOS ---------------------------------*/
+    ini_events($('#external-events div.external-event'));
 
-    // initialize the external events
-    // -----------------------------------------------------------------
-    //ESTA PARTE ES PARA INICIALIZAR LA PARTE ARRASTRAR Y SOLTAR 
-    new Draggable(containerEl, {
-        itemSelector: '.external-event',
-        eventData: function (eventEl) {
-            //AQUI TAMBIEN TENDRIA QUE RETORNAR UN ID
-            return {
-                title: eventEl.innerText,
-                id: eventEl.id,
-                backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
-                    'background-color'),
-                borderColor: window.getComputedStyle(eventEl, null).getPropertyValue(
-                    'background-color'),
-                textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
-            };
-        }
-    });
     //INICIALIZANDO EL CALENDARIO
     let calendar = new Calendar(calendarEl, {
         locale: 'es',
@@ -72,7 +33,7 @@ $(document).ready(function () {
         eventSources: [
             {
                 url: `${URL_SERVIDOR}Itinerario/calendar`,
-                extraParams: { id_tours: '24' },
+                extraParams: { id_tours: '28' },
             }
         ],
         eventClick: function (info) {
@@ -89,13 +50,46 @@ $(document).ready(function () {
             }
         }
     });
-
     calendar.render();
+    function ini_events(ele) {
+        ele.each(function () {
 
-    /* PARA CREAR UN NUEVO EVENTO EVENTS */
-    let currColor = '#007bff' //Red by default
-    //Color chooser button
-    let colorChooser = $('#color-chooser-btn')
+            // CREANDO UN OBJETO DE TIPO EVENTO (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+            // it doesn't need to have a start or end
+            let eventObject = {
+                title: $.trim($(this).text())// use the element's text as the event title
+            };
+            // store the Event Object in the DOM element so we can get to it later
+            $(this).data('eventObject', eventObject);
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 1070,
+                revert: true, // will cause the event to go back to its
+                revertDuration: 0 //  original position after the drag
+            });
+
+        });
+    }
+    // initialize the external events
+    // -----------------------------------------------------------------
+    //ESTA PARTE ES PARA INICIALIZAR LA PARTE ARRASTRAR Y SOLTAR 
+    new Draggable(containerEl, {
+        itemSelector: '.external-event',
+        eventData: function (eventEl) {
+            return {
+                title: eventEl.innerText,
+                id: eventEl.id,
+                groupId: eventEl.getAttribute("groupId"),
+                backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
+                    'background-color'),
+                borderColor: window.getComputedStyle(eventEl, null).getPropertyValue(
+                    'background-color'),
+                textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
+            };
+        }
+    });
+
     $('#color-chooser > li > a').click(function (e) {
         e.preventDefault()
         //Save color
@@ -106,7 +100,7 @@ $(document).ready(function () {
             'border-color': currColor
         })
     })
-    //BOTON DE AGREGAR EVENTO
+    //BOTON DE AGREGAR EVENTO (SIN ID)
     $('#add-new-event').click(function (e) {
         e.preventDefault()
         //Get value and make sure it is not null
@@ -121,10 +115,10 @@ $(document).ready(function () {
             'background-color': currColor,
             'border-color': currColor,
             'color': '#fff'
-        }).addClass('external-event')
-        event.html(val)
+        }).addClass('external-event');
+        event.attr("groupId", "GUARDAR_EVENTO");
+        event.html(val);
         $('#external-events').prepend(event)
-
         //Add draggable funtionality
         ini_events(event)
 
@@ -133,35 +127,107 @@ $(document).ready(function () {
     });
     //BOTON DE GUARDAR
     $('#btnGuardar').click(function (e) {
-        let todos = (calendar.getEvents());
+        let form = new FormData();
+        let todos = calendar.getEvents();
+        let eventos = [];
+        let sitiosNew = [];
+        let sitiosOld = []
         todos.forEach(element => {
-            console.log(element.start);
-            console.log(element.id);
+            //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
+
+            if (element.groupId === "ACTUALIZAR_SITIO") {
+                sitiosOld.push(
+                    {
+                        start: element.start,
+                        end: (element.end == null) ? element.start : element.end,
+                        id_itinerario: element.id
+                    });
+            }
+            if (element.groupId === "GUARDAR_SITIO") {
+                sitiosNew.push(
+                    {
+                        start: element.start,
+                        end: (element.end == null) ? element.start : element.end,
+                        id_sitio_turistico: element.id,
+                        title: element.title,
+                        backgroundColor: element.backgroundColor,
+                        borderColor: element.borderColor,
+                        textColor: "#fff"
+                    });
+            }
+            if (element.groupId === "GUARDAR_EVENTO") {
+                eventos.push(
+                    {
+                        start: element.start,
+                        end: (element.end == null) ? element.start : element.end,
+                        backgroundColor: element.backgroundColor,
+                        title: element.title,
+                        borderColor: element.borderColor,
+                        textColor: "#fff"
+                    });
+            }
         });
+
+        form.append("eventos", JSON.stringify(eventos));
+        form.append("sitiosNew", JSON.stringify(sitiosNew));
+        form.append("sitiosOld", JSON.stringify(sitiosOld));
+        form.append("id_tours", "28");
+
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "Itinerario/calendarSave",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response);
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+        });
+
     });
+    //BOTON DE AGREGAR UN NUEVO SITIO TURISTICO
     $('#add-new-sitio').click(function (evento) {
         evento.preventDefault();
         let mytur = $('#ComboTur').select2('data');
-        let nombre_sitio = mytur[0].text;
-        let id = mytur[0].id;
+        let title = mytur[0].text;
+        let id_itinerario = mytur[0].id; //DICE ID ITINERARIO, PERO ES EL ID DEL TUR
         let backgroundColor = "#28a745"
-        crearEventoConId({nombre_sitio,id,backgroundColor});
+        let textColor = "#fff"
+        console.log(mytur);
+        crearEventoConId({ title, id_itinerario, backgroundColor, textColor }, "GUARDAR_SITIO");
 
     });
-
+    //PARA ELIMINAR LOS EVENTOS QUE NO ESTAN EL CALENDARIO 
     $(document).on('click', '#external-events div.external-event', function (evento) {
         console.log("eliminar");
 
     });
+
     function cargarEventosSinFecha() {
+        const Toast = Swal.mixin();
         $.ajax({
             url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=28",
             method: "GET"
         }).done(function (response) {
             console.log(response);
-            response.forEach(SitioTuristico => {
-                crearEventoConId(SitioTuristico);
-            });
+            if (!response.err) {
+                response.forEach(itinerario => {
+                    crearEventoConId(itinerario, "ACTUALIZAR_SITIO");
+                });
+            } else {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No hay sitios turísticos',
+
+                });
+            }
         }).fail(function (response) {
             console.log(response);
 
@@ -169,17 +235,17 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
-    function crearEventoConId(SitioTuristico) {
+    function crearEventoConId(itinerario, groupId) {
+
         let event = $('<div />');
         event.css({
-            'background-color': SitioTuristico.backgroundColor,
-            'color': '#fff'
+            'background-color': itinerario.backgroundColor,
+            'color': itinerario.textColor
         }).addClass('external-event');
-        event.html(SitioTuristico.nombre_sitio);
-        event.attr("id", SitioTuristico.id);
-
+        event.html(itinerario.title);
+        event.attr("id", itinerario.id_itinerario);
+        event.attr("groupId", groupId);
         $('#external-events').prepend(event)
-
         //Add draggable funtionality
         ini_events(event)
     }
@@ -241,6 +307,4 @@ $(document).ready(function () {
 
         });
     }
-
-
-})
+});

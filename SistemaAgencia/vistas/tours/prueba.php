@@ -1,65 +1,74 @@
-<html>
+"
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>JSC Demo</title>
+  <meta charset="utf-8">
+  <title>Database Error</title>
+  <style type="text/css">
+  ::selection {
+    background-color: #E13300;
+    color: white;
+  }
 
-    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
+  ::-moz-selection {
+    background-color: #E13300;
+    color: white;
+  }
 
-    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/jquery.seat-charts.css">
-    <link rel=" stylesheet" type="text/css" href="../../plugins/asiento-bus/css/styleAdmin.css">
+  body {
+    background-color: #fff;
+    margin: 40px;
+    font: 13px/20px normal Helvetica, Arial, sans-serif;
+    color: #4F5155;
+  }
+
+  a {
+    color: #003399;
+    background-color: transparent;
+    font-weight: normal;
+  }
+
+  h1 {
+    color: #444;
+    background-color: transparent;
+    border-bottom: 1px solid #D0D0D0;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+  }
+
+  code {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    margin: 14px 0 14px 0;
+    padding: 12px 10px 12px 10px;
+  }
+
+  #container {
+    margin: 10px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #D0D0D0;
+  }
+
+  p {
+    margin: 12px 15px 12px 15px;
+  }
+  </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div>
-            <label for="numero_filas">numero de filas</label>
-            <input id="numero_filas" name="numero_filas" type="number" min="2" value="2" step="1" class="form-control">
-        </div>
-        <div>
-            <label for="asientos_derecho">numero de asientos lado derecho</label>
-            <input id="asientos_derecho" name="asientos_derecho" type="number" min="2" value="2" step="1"
-                class="form-control">
-        </div>
-        <div>
-            <label for="asientos_izquierdo">numero de asientos lado izquierdo</label>
-            <input id="asientos_izquierdo" name="asientos_izquierdo" type="number" min="2" value="2" step="1"
-                class="form-control">
-        </div>
-        <input type="checkbox" id="checkTrasero" value="second_checkbox"> <label for="checkTrasero">Agregar fila
-            trasera</label>
-
-        <div>
-
-            <button id="guarar" class="form-control">guarddar</button>
-        </div>
-
-        <div class="container">
-            <div id="seat-map">
-                <div class="front-indicator">Frontal</div>
-
-                <div id="legend"></div>
-            </div>
-
-
-            <!-- <div class="booking-details"> -->
-            <!-- <h2>Booking Details</h2> -->
-
-            <!-- <h3> Selected Seats (<span id="counter">0</span>):</h3> -->
-            <!-- <ul id="selected-seats"></ul> -->
-
-            <!-- Total: <b>$<span id="total">0</span></b> -->
-
-            <!-- <button class="checkout-button">Checkout &raquo;</button> -->
-
-            <!-- </div> -->
-        </div>
-    </div>
-
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <script src="../../plugins/asiento-bus/js/jquery.seat-charts.js"></script>
-    <script src="../../plugins/asiento-bus/js/admin-configuracion.js"></script>
-
-
+  <div id="container">
+    <h1>Se produjo un error en la base de datos</h1>
+    <p>Una o más filas enviadas al proceso por lotes de actualización no se encuentra el índice especificado.</p>
+    <p>Filename: C:/wamp64/www/API-REST-PHP/system/database/DB_query_builder.php</p>
+    <p>Line Number: 2028</p>
+  </div>
 </body>
 
-</html>
+</html>"

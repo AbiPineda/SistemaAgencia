@@ -326,9 +326,10 @@ $(document).ready(function () {
         }
         tabla.rows().every(function (value, index) {
             let data = this.data();
+            let title = data[0];
+            let costo = data[1];
             let tipo = data[6];
             let id = data[7];
-            let costo = data[1];
             if (tipo == "servicio") {
                 serviciosAdicionales.push({
                     "id_servicios": id,
@@ -339,9 +340,12 @@ $(document).ready(function () {
             } else {
                 sistiosTuristicos.push({
                     "id_sitio_turistico": id,
+                    "title" : title,
                     "costo": costo,
                     "por_usuario": true,
-                    "backgroundColor" : "#28a745"
+                    "backgroundColor" : "#28a745",
+                    "borderColor" : "#28a745",
+                    "textColor" :"#fff"
                 });
             }
         });
