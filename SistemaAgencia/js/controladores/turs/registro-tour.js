@@ -342,8 +342,7 @@ $(document).ready(function () {
                     "id_sitio_turistico": id,
                     "title" : title,
                     "costo": costo,
-                    "por_usuario": true,
-                    "allDay": 1,
+                    "por_usuario": true,           
                     "backgroundColor" : "#28a745",
                     "borderColor" : "#28a745",
                     "textColor" :"#fff"

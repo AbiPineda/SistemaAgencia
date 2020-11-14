@@ -135,7 +135,7 @@ $(document).ready(function () {
         let sitiosOld = []
         todos.forEach(element => {
             //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
-                
+
             if (element.extendedProps.tipo === "GUARDAR_SITIO") {
                 sitiosNew.push(
                     {
@@ -145,7 +145,7 @@ $(document).ready(function () {
                         title: element.title,
                         backgroundColor: element.backgroundColor,
                         borderColor: element.borderColor,
-                        allDay : (element.start == element.end)? true:false,
+
                         textColor: "#fff"
                     });
             } else if (element.extendedProps.tipo === "GUARDAR_EVENTO") {
@@ -163,14 +163,15 @@ $(document).ready(function () {
                     {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
-                        id_itinerario: element.id
+                        id_itinerario: element.id,
                     });
             } else {
                 sitiosOld.push(
                     {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
-                        id_itinerario: element.id
+                        id_itinerario: element.id,
+                        allDay: (element.start == element.end) ? null : 1,
                     });
             }
         });
@@ -274,7 +275,9 @@ $(document).ready(function () {
                        left top
                        no-repeat`
         }).then((result) => {
-            eliminar(info);
+            if (result.value) {
+                eliminar(info);
+            }
         });
     }
     function eliminar(info) {
