@@ -343,6 +343,7 @@ $(document).ready(function () {
                     "title" : title,
                     "costo": costo,
                     "por_usuario": true,
+                    "allDay": 1,
                     "backgroundColor" : "#28a745",
                     "borderColor" : "#28a745",
                     "textColor" :"#fff"

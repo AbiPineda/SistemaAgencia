@@ -37,7 +37,7 @@ $(document).ready(function () {
             }
         ],
         eventClick: function (info) {
-            eliminar(info);
+            VentanaEliminar(info);
 
         },
         editable: true,
@@ -135,14 +135,6 @@ $(document).ready(function () {
         todos.forEach(element => {
             //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
 
-            if (element.groupId === "ACTUALIZAR_SITIO") {
-                sitiosOld.push(
-                    {
-                        start: element.start,
-                        end: (element.end == null) ? element.start : element.end,
-                        id_itinerario: element.id
-                    });
-            }
             if (element.groupId === "GUARDAR_SITIO") {
                 sitiosNew.push(
                     {
@@ -154,8 +146,7 @@ $(document).ready(function () {
                         borderColor: element.borderColor,
                         textColor: "#fff"
                     });
-            }
-            if (element.groupId === "GUARDAR_EVENTO") {
+            } else if (element.groupId === "GUARDAR_EVENTO") {
                 eventos.push(
                     {
                         start: element.start,
@@ -165,16 +156,27 @@ $(document).ready(function () {
                         borderColor: element.borderColor,
                         textColor: "#fff"
                     });
+            } else if (element.groupId === "ACTUALIZAR_SITIO") {
+                sitiosOld.push(
+                    {
+                        start: element.start,
+                        end: (element.end == null) ? element.start : element.end,
+                        id_itinerario: element.id
+                    });
+            } else {
+                sitiosOld.push(
+                    {
+                        start: element.start,
+                        end: (element.end == null) ? element.start : element.end,
+                        id_itinerario: element.id
+                    });
             }
         });
-
         form.append("eventos", JSON.stringify(eventos));
         form.append("sitiosNew", JSON.stringify(sitiosNew));
         form.append("sitiosOld", JSON.stringify(sitiosOld));
         form.append("id_tours", "28");
 
-
-        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "Itinerario/calendarSave",
             method: "POST",
@@ -184,7 +186,12 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
-            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Itinerario Actualizado',
+                icon: 'success',
+                confirmButtonColor: '#3085d6'
+            });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
@@ -249,7 +256,7 @@ $(document).ready(function () {
         //Add draggable funtionality
         ini_events(event)
     }
-    function eliminar(info) {
+    function VentanaEliminar(info) {
         const Toast = Swal.mixin();
         Toast.fire({
             title: '¿Desea Eliminar?',
@@ -265,21 +272,37 @@ $(document).ready(function () {
                        left top
                        no-repeat`
         }).then((result) => {
-            if (result.value) {
-                Toast.fire({
-                    title: 'Eliminado Correctamente',
-                    icon: 'success',
-                    confirmButtonColor: '#3085d6',
-                    backdrop: `rgba(0,0,123,0.4)
-                       url("https://i.imgur.com/UGw1mKB.gif")
-                       left top
-                       no-repeat`
-                }).then((result) => {
-                    info.event.remove();
-                });
-            }
+            eliminar(info);
         });
     }
+    function eliminar(info) {
+
+        const Toast = Swal.mixin();
+        $.ajax({
+            url: URL_SERVIDOR + "Itinerario/elimination",
+            method: "DELETE",
+            mimeType: "multipart/form-data",
+            data: { "id_itinerario": info.event.id },
+            timeout: 0,
+
+        }).done(function (response) {
+            Toast.fire({
+                title: 'Eliminado Correctamente',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                backdrop: `rgba(0,0,123,0.4)
+                   url("https://i.imgur.com/UGw1mKB.gif")
+                   left top
+                   no-repeat`
+            }).then((result) => {
+                info.event.remove();
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+        });
+    }
+
     function inicializarComboTuristico() {
         //COMBO DE TIPOS 
         $('#ComboTur').select2();
