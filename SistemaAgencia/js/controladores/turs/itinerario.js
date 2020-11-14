@@ -145,7 +145,7 @@ $(document).ready(function () {
                         title: element.title,
                         backgroundColor: element.backgroundColor,
                         borderColor: element.borderColor,
-
+                        allDay : null,
                         textColor: "#fff"
                     });
             } else if (element.extendedProps.tipo === "GUARDAR_EVENTO") {
@@ -156,6 +156,7 @@ $(document).ready(function () {
                         backgroundColor: element.backgroundColor,
                         title: element.title,
                         borderColor: element.borderColor,
+                        allDay : null,
                         textColor: "#fff"
                     });
             } else if (element.extendedProps.tipo === "ACTUALIZAR_SITIO") {
@@ -164,6 +165,7 @@ $(document).ready(function () {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
+                      
                     });
             } else {
                 sitiosOld.push(
@@ -171,7 +173,8 @@ $(document).ready(function () {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
-                        allDay: (element.start == element.end) ? null : 1,
+                        // allDay: (element.start == element.end) ? null : 1,
+                   
                     });
             }
         });
@@ -189,6 +192,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Itinerario Actualizado',
