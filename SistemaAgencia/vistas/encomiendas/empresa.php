@@ -4,6 +4,22 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
 <!--aquie los scrip-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+<script>
+    $(function () {
+        $("#forma").change(function () {
+            // alert($(this).val());
+
+            if ($(this).val() === "Personalizado") {
+                $("#unidad").prop("disabled", false);
+            }
+
+
+            if ($(this).val() === "Estándar") {
+                $("#unidad").prop("disabled", true);
+            }
+        });
+    });
+</script>
 
 <?php
 include_once '../../plantillas/barra_lateral.php';
@@ -76,18 +92,30 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4"></div>
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
+                                    <div class="col-sm-4">
+                                         <div class="form-group">
                                             <label for="cars">Seleccione la forma de operar</label>
 
-                                            <select name="forma_operacion" class="form-control">
+                                            <select name="forma_operacion" id="forma" class="form-control">
                                                 <option value="">Seleccione</option>
                                                 <option value="Estándar">Estandar</option>
                                                 <option value="Personalizado">Personalizado</option>
                                             </select>
                                         </div>
+                                        
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                        <label for="cars">Seleccione libras o unidad</label>
+
+                                            <select name="unidad" id="unidad" class="form-control" disabled="true">
+                                                <option value="">Seleccione</option>
+                                                <option value="lb">Libras</option>
+                                                <option value="unidad">Unidad</option>
+                                            </select>
+                                        </div>
+                                       
                                     </div>
                                     
                                 </div>
