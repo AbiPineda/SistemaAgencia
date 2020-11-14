@@ -80,7 +80,8 @@ $(document).ready(function () {
             return {
                 title: eventEl.innerText,
                 id: eventEl.id,
-                groupId: eventEl.getAttribute("groupId"),
+                tipo: eventEl.getAttribute("tipo"),
+                allDay: true,
                 backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
                     'background-color'),
                 borderColor: window.getComputedStyle(eventEl, null).getPropertyValue(
@@ -116,7 +117,7 @@ $(document).ready(function () {
             'border-color': currColor,
             'color': '#fff'
         }).addClass('external-event');
-        event.attr("groupId", "GUARDAR_EVENTO");
+        event.attr("tipo", "GUARDAR_EVENTO");
         event.html(val);
         $('#external-events').prepend(event)
         //Add draggable funtionality
@@ -134,40 +135,41 @@ $(document).ready(function () {
         let sitiosOld = []
         todos.forEach(element => {
             //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
-
-            if (element.groupId === "GUARDAR_SITIO") {
+                
+            if (element.extendedProps.tipo === "GUARDAR_SITIO") {
                 sitiosNew.push(
                     {
-                        start: element.start,
-                        end: (element.end == null) ? element.start : element.end,
+                        start: crearFecha(new Date(element.start)),
+                        end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_sitio_turistico: element.id,
                         title: element.title,
                         backgroundColor: element.backgroundColor,
                         borderColor: element.borderColor,
+                        allDay : (element.start == element.end)? true:false,
                         textColor: "#fff"
                     });
-            } else if (element.groupId === "GUARDAR_EVENTO") {
+            } else if (element.extendedProps.tipo === "GUARDAR_EVENTO") {
                 eventos.push(
                     {
-                        start: element.start,
-                        end: (element.end == null) ? element.start : element.end,
+                        start: crearFecha(new Date(element.start)),
+                        end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         backgroundColor: element.backgroundColor,
                         title: element.title,
                         borderColor: element.borderColor,
                         textColor: "#fff"
                     });
-            } else if (element.groupId === "ACTUALIZAR_SITIO") {
+            } else if (element.extendedProps.tipo === "ACTUALIZAR_SITIO") {
                 sitiosOld.push(
                     {
-                        start: element.start,
-                        end: (element.end == null) ? element.start : element.end,
+                        start: crearFecha(new Date(element.start)),
+                        end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id
                     });
             } else {
                 sitiosOld.push(
                     {
-                        start: element.start,
-                        end: (element.end == null) ? element.start : element.end,
+                        start: crearFecha(new Date(element.start)),
+                        end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id
                     });
             }
@@ -242,7 +244,7 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
-    function crearEventoConId(itinerario, groupId) {
+    function crearEventoConId(itinerario, tipo) {
 
         let event = $('<div />');
         event.css({
@@ -251,7 +253,7 @@ $(document).ready(function () {
         }).addClass('external-event');
         event.html(itinerario.title);
         event.attr("id", itinerario.id_itinerario);
-        event.attr("groupId", groupId);
+        event.attr("tipo", tipo);
         $('#external-events').prepend(event)
         //Add draggable funtionality
         ini_events(event)
@@ -329,5 +331,8 @@ $(document).ready(function () {
             $('#ComboTur').select2();
 
         });
+    }
+    function crearFecha(date) {
+        return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
     }
 });
