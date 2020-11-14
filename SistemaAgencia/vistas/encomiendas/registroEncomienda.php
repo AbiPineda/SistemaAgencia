@@ -33,6 +33,42 @@ include_once '../../plantillas/barra_lateral.php';
                     </div>
                     <!-- /.timeline-label -->
                     <!-- timeline item -->
+                        <div>
+                            <i class="fas fa-comments bg-gradient-blue"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-address-book">Empresas</i></span>
+                                <h3 class="timeline-header"><a href="#">Datos de Empresa y Cliente</a></h3>
+                                <div class="timeline-body" style="margin-top: -9px;">
+                                    <!--Una fila para jugar-->
+                          
+                                    <div class="row">
+                                       <div class="col-lg-1"></div>
+                                        <div class="col-lg-5">
+                                            <div class="form-group">
+                                                <label for="cars">Seleccione la Empresa</label>
+                                                <select name='empresa' id='empresa' class="form-control">
+                                                    <option value="">Seleccione</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label for="cars">Seleccione el Cliente:</label>
+
+                                            <select name="id_cliente" id="id_cliente" class="form-control">
+                                                 <option value="">Seleccione</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!--fin de Una fila para jugar-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END timeline item -->
+
+                    <!-- timeline item -->
                     <div>
                         <i class="fas fa-users bg-blue"></i>
                         <div class="timeline-item">
@@ -41,18 +77,6 @@ include_once '../../plantillas/barra_lateral.php';
 
                             <div class="timeline-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="cars">Seleccione el Cliente:</label>
-
-                                            <select id="categoria" class="form-control">
-                                                <option value="permitido">Jessenia Corinca</option>
-                                                <option value="no">Jenny Orellana</option>
-                                                <option value="no">Judith Hernández</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="cars">Seleccione el Producto:</label>

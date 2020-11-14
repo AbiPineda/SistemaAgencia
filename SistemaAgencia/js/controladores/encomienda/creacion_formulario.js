@@ -21,21 +21,11 @@ $(function () {
                             '<div class="timeline-body">'+
                             '<form id="register-form" name="register-form" onsubmit="return false">'+
                                 '<div class="row">'+
-                                    '<div class="col-sm-4">'+
+                                    '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Forma de operar</label>'+
                                         '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
                                         '<input name="nombre_empresa" value="" id="nombre_empresa" type="hidden">'+
-                                        '</div></div>'+
-                                    '<div class="col-sm-8">'+
-                                        '<div class="form-group">'+
-                                            '<label>Dirección</label>'+
-                                            '<input name="direccion" type="text" class="form-control" placeholder="Introduzca la dirección" autocomplete="off">'+
-                                        '</div></div>'+
-                                    '<div class="col-sm-6">'+
-                                        '<div class="form-group">'+
-                                            '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
                                         '</div></div>'+
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
@@ -51,6 +41,11 @@ $(function () {
                                                 '<option value="">Seleccione</option>'+
                                             '</select></div>'+
                                     '</div>'+
+                                    '<div class="col-sm-6">'+
+                                        '<div class="form-group">'+
+                                            '<label>Punto de referencia</label>'+
+                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
+                                        '</div></div>'+
                                     '<div class="col-sm-6">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el costo</label>'+
@@ -104,26 +99,16 @@ $(function () {
                             '<div class="timeline-body">'+
                             '<form id="register-form" name="register-form" onsubmit="return false">'+
                                 '<div class="row">'+
-                                    '<div class="col-sm-5">'+
+                                    '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Forma de operar</label>'+
                                         '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
                                          '<input name="nombre_empresa" value="" id="nombre_empresa" type="hidden">'+
                                         '</div></div>'+
-                                        '<div class="col-sm-5">'+
+                                        '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Libras o por unidad</label>'+
                                         '<input name="unidad" value="" id="unidad" type="text" class="form-control" disabled="true">'+
-                                        '</div></div>'+
-                                    '<div class="col-sm-7">'+
-                                        '<div class="form-group">'+
-                                            '<label>Dirección</label>'+
-                                            '<input name="direccion" type="text" class="form-control" placeholder="Introduzca la dirección" autocomplete="off">'+
-                                        '</div></div>'+
-                                    '<div class="col-sm-5">'+
-                                        '<div class="form-group">'+
-                                            '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
                                         '</div></div>'+
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
@@ -139,6 +124,11 @@ $(function () {
                                                 '<option value="">Seleccione</option>'+
                                             '</select></div>'+
                                     '</div>'+
+                                    '<div class="col-sm-6">'+
+                                        '<div class="form-group">'+
+                                            '<label>Punto de referencia</label>'+
+                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
+                                        '</div></div>'+
                                     '<div class="col-sm-4">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el producto</label>'+
