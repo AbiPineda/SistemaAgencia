@@ -22,6 +22,15 @@ $(document).ready(function() {
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
+
+        let comboOpciones = $("#opc_avanzadas").select2('data');
+        let arregloOpciones = [];
+
+        for (let index = 0; index < comboOpciones.length; index++) {
+            arregloOpciones.push(comboOpciones[index].text);
+        }
+        console.log(arregloOpciones);
+
         form.append("id_rentaCarFK", document.getElementById("id_renta").value);
         form.append("idmodelo", document.getElementById("id_modelo").value);
         form.append("id_transmicionFK", document.getElementById("id_transmision").value);
