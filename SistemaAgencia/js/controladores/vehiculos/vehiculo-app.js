@@ -29,6 +29,7 @@ $(document).ready(function() {
             document.getElementById("puertas").value = response.autos[0].puertas;
             document.getElementById("pasajeros").value = response.autos[0].pasajeros;
             document.getElementById("kilometraje").value = response.autos[0].kilometraje;
+            document.getElementById("opc_avanzadas").value = response.autos[0].opc_avanzadas;
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {

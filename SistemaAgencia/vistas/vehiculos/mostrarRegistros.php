@@ -246,6 +246,16 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Opciones Avanzadas</label>
+                                    <div class="input-group">
+                                        <input id="opc_avanzadas" name="opc_avanzadas" type="text"
+                                            class="form-control" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
 
                         </div>
 

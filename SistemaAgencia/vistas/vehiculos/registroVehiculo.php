@@ -108,7 +108,7 @@ include_once '../../plantillas/cabecera.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Color</label>
@@ -117,7 +117,7 @@ include_once '../../plantillas/cabecera.php';
                                                     id="colorAuto">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Kilometraje</label>
@@ -157,7 +157,7 @@ include_once '../../plantillas/cabecera.php';
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <!-- select -->
                                             <div class="form-group">
                                                 <label>Categoría</label>
