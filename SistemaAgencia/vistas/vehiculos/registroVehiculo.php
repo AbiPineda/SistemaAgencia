@@ -206,33 +206,23 @@ include_once '../../plantillas/cabecera.php';
                                 <h3 class="timeline-header no-border"><a href="#">Opciones Avanzadas</a></h3>
                                 <div class="timeline-body">
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group clearfix">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary1" checked name="aire">
-                                                    <label for="checkboxPrimary1"> Aire Acondicionado
-                                                    </label>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Opciones Avanzadas</label>
+                                                <div class="select2-danger">
+                                                    <select class="select2" multiple="multiple" name="opc_avanzadas"
+                                                        id="opc_avanzadas" data-placeholder="Seleccione"
+                                                        data-dropdown-css-class="select2-danger" style="width: 100%;">
+                                                        <option>Aire Acondicionado </option>
+                                                        <option>Wifi </option>
+                                                        <option>Equipo de Sonido </option>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group clearfix">
-                                                <div class="icheck-success d-inline">
-                                                    <input type="checkbox" checked id="checkboxSuccess1" name="wifi">
-                                                    <label for="checkboxSuccess1">WiFi
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group clearfix">
-                                                <div class="icheck-danger d-inline">
-                                                    <input type="checkbox" checked name="sonido" id="checkboxDanger1">
-                                                    <label for="checkboxDanger1">Equipo de Sonido
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +350,7 @@ $(function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 
-<script src="<?= $base_url ?>js/controladores/vehiculos/galeriaAuto.js"></script>
+<script src="<?= $base_url ?>js/controladores/vehiculos/insertarVehiculo.js"></script>
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
