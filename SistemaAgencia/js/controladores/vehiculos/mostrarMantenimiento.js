@@ -23,6 +23,7 @@ $(document).ready(function() {
                 document.getElementById("fecha").value = response.mantenimiento[i].fecha;
                 document.getElementById("lugar").value = response.mantenimiento[i].lugar;
                 document.getElementById("vehiculo").value = response.mantenimiento[i].modelo;
+                document.getElementById("anio").value = response.mantenimiento[i].anio;
                 document.getElementById("mantenimientos").value = response.mantenimiento[i].mantenimiento_realizado;
 
             }
@@ -115,12 +116,12 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "modelo" },
                 { data: "fecha" },
+                { data: "modelo" },
+                { data: "anio" },
                 { data: "lugar" },
                 { data: "costoMantenimiento" },
-                { data: "mantenimiento_realizado" },
-                { data: "botones" },
+                { data: "botones" }
             ]
         });
 
@@ -266,6 +267,7 @@ $(document).ready(function() {
             $('#loadingActualizar').hide();
         });
     }
+
 
 
 });

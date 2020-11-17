@@ -52,11 +52,11 @@
                                     <table id="tabla_mantenimientos" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
-                                                <th>Vehiculo</th>
                                                 <th>Fecha</th>
+                                                <th>Vehiculo</th>
+                                                <th>Año</th>
                                                 <th>Lugar</th>
                                                 <th>Precio</th>
-                                                <th>Manteniento Realizado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -128,7 +128,16 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-9">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Año</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="anio" name="anio"  disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Lugar donde se realizo mantenimiento</label>
                                     <div class="input-group">
