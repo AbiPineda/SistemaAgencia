@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     // inicializarCalendario();
+    inicializarValidaciones();
     inicializarComboTuristico();
     inicializarComboServicio();
     inicializarGaleria();
@@ -22,12 +23,12 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
-        // "columnDefs": [
-        //     { "className": "dt-center", "targets": "_all" },
-        //     { "targets": [6], "visible": false },
-        //     { "targets": [7], "visible": false },
-        //     { "targets": [8], "visible": false },
-        // ]
+        "columnDefs": [
+            { "className": "dt-center", "targets": "_all" },
+            { "targets": [6], "visible": false },
+            { "targets": [7], "visible": false },
+            { "targets": [8], "visible": false },
+        ]
     });
 
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
@@ -119,7 +120,20 @@ $(document).ready(function () {
     });
     //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
-        guardar();
+        evento.preventDefault();//para evitar que la pagina se recargue
+        let form = $("#miFormulario");
+        form.validate();
+        if (form.valid()) {
+            guardar();
+        } else {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'error',
+                text: "Complete los campos",
+                showConfirmButton: true,
+            });
+        }
     });
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
@@ -340,12 +354,12 @@ $(document).ready(function () {
             } else {
                 sistiosTuristicos.push({
                     "id_sitio_turistico": id,
-                    "title" : title,
+                    "title": title,
                     "costo": costo,
-                    "por_usuario": true,           
-                    "backgroundColor" : "#28a745",
-                    "borderColor" : "#28a745",
-                    "textColor" :"#fff"
+                    "por_usuario": true,
+                    "backgroundColor": "#28a745",
+                    "borderColor": "#28a745",
+                    "textColor": "#fff"
                 });
             }
         });
@@ -386,6 +400,7 @@ $(document).ready(function () {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
+                resetMiTable();
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -457,6 +472,126 @@ $(document).ready(function () {
 
 
 
+    }
+    function inicializarValidaciones() {
+        $('#miFormulario').validate({
+            rules: {
+                nombreTours: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 40
+                },
+                fecha_salida: {
+                    required: true,
+                },
+                lugar_salida: {
+                    required: true,
+                    minlength: 3,
+                }, cantidad: {
+                    required: true,
+                    digits: true,
+                    min: 1
+                },
+                CostoPasaje: {
+                    required: true,
+                    number: true,
+                    min: 0
+                },
+                precio_sitio: {
+                    required: true,
+                    number: true,
+                    min: 0
+                },
+                precio_servicio: {
+                    required: true,
+                    number: true,
+                    min: 0
+                },
+                descripcion_tur: {
+                    required: true,
+                    minlength: 5
+                },
+                requisitos: {
+                    required: true,
+                    minlength: 5
+                },
+                no_incluye: {
+                    required: true,
+                    minlength: 5
+                },
+
+            },
+            messages: {
+                nombreTours: {
+                    required: "Digite titulo",
+                    minlength: "Longitud debe ser mayor a 3",
+                    maxlength: "Longitud debe ser menor a 40"
+                },
+                fecha_salida: {
+                    required: "Es necesaria la fecha de salida",
+                },
+                lugar_salida: {
+                    required: "Digite el luegar de salida",
+                    minlength: "Longitud debe ser mayor a 3",
+                }, cantidad: {
+                    required: "Digite el numero de pasajeros",
+                    digits: "Solo numeros enteros",
+                    min: "Debe de ser mayor a 0"
+                },
+                CostoPasaje: {
+                    required: "Digite costo del pasaje",
+                    number: "Solo numero",
+                    min: "Debe ser mayor o igual a 0"
+                },
+                precio_sitio: {
+                    required: "Digite precio",
+                    number: "Solo numero",
+                    min: "Debe ser mayor o igual a 0"
+                },
+                precio_servicio: {
+                    required: "Digite precio",
+                    number: "Solo numero",
+                    min: "Debe ser mayor o igual a 0"
+                },
+                no_incluye: {
+                    required: "Este campo es requierido",
+                    minlength: "debe de tener una longitud mayor a 4 "
+                },
+                descripcion_tur: {
+                    required: "Este campo es requierido",
+                    minlength: "debe de tener una longitud mayor a 4 "
+                },
+                requisitos: {
+                    required: "Este campo es requierido",
+                    minlength: "debe de tener una longitud mayor a 4 "
+                },
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+
+    }
+    function resetMiTable() {
+        contadorTabla = 0;
+        totalGastos = 0;
+        totalIngresos = 0;
+        ganancias = 0;
+        tabla.clear().draw();
+        $('#totalIngresos').text("$0");
+        $('#ganancias').text("$0");
+        $('#totalGastos').text("$0");
     }
 });
 
