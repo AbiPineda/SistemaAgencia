@@ -5,170 +5,177 @@
 <style>
 a.text-danger:focus,
 a.text-danger:hover {
-  /* ROJO */
-  color: #dc3545 !important;
+   /* ROJO */
+   color: #dc3545 !important;
 }
 
 a.text-primary:focus,
 a.text-primary:hover {
-  /* AZUUL */
-  color: #007bff !important;
+   /* AZUUL */
+   color: #007bff !important;
 }
 
 a.text-warning:focus,
 a.text-warning:hover {
-  /* AMARILLO */
-  color: #ffc107 !important;
+   /* AMARILLO */
+   color: #ffc107 !important;
 }
 
 a.text-success:focus,
 a.text-success:hover {
-  /* VERDE */
-  color: #28a745 !important;
+   /* VERDE */
+   color: #28a745 !important;
 }
 </style>
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
 <div class="wrapper">
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Calendar</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a>
-              </li>
-              <li class="breadcrumb-item active">Calendar</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="overlay-wrapper">
-          <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
-            <div class="text-bold pt-2">Cargando...
+   <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+         <div class="container-fluid">
+            <div class="row mb-2">
+               <div class="col-sm-6">
+                  <h1>Calendar</h1>
+               </div>
+               <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                     <li class="breadcrumb-item"><a href="#">Home</a>
+                     </li>
+                     <li class="breadcrumb-item active">Calendar</li>
+                  </ol>
+               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3" style="position: sticky;">
-              <div class="sticky-top mb-3">
-
-                <!-- .card -->
-                <div class="card">
-                  <div class="card-header">
-                    <h4 class="card-title">
-                      Actividades</h4>
+         </div><!-- /.container-fluid -->
+      </section>
+      <!-- Main content -->
+      <section class="content">
+         <div class="container-fluid">
+            <div class="overlay-wrapper">
+               <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                  <div class="text-bold pt-2">Cargando...
                   </div>
-                  <div class="card-body">
-                    <!-- the events -->
-                    <div id="external-events">
+               </div>
+               <div class="row">
+                  <div class="col-md-3" style="position: sticky;">
+                     <div class="sticky-top mb-3">
 
-                      <div class="checkbox">
-                        <label for="drop-remove">
-                          <input type="checkbox" id="drop-remove" checked="checked" style="display: none;">
-                          <!--remove external-eventsafter drop-->
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
+                        <!-- .card -->
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">
+                                 Actividades</h4>
+                           </div>
+                           <div class="card-body">
+                              <!-- the events -->
+                              <div id="external-events">
 
-                <!-- /.card -->
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Nueva Sitio Turistico</h3>
-                  </div>
-                  <div class="card-body">
-                    <div class="input-group">
-                      <div class="input-group">
-                        <select name="ComboTur" id="ComboTur"
-                          class="select2 select2-success  select2-hidden-accessible form-control"
-                          data-placeholder="Seleccione el tipo" data-dropdown-css-class="select2-success"
-                          style="width: 70%;">
-                        </select>
-                        <div class="input-group-append">
-                          <button id="add-new-sitio" type="button" class="btn btn-success">Agregar</button>
+                                 <div class="checkbox">
+                                    <label for="drop-remove">
+                                       <input type="checkbox" id="drop-remove" checked="checked" style="display: none;">
+                                       <!--remove external-eventsafter drop-->
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- /.card-body -->
                         </div>
-                      </div>
-                      <!-- /btn-group -->
-                    </div>
-                    <!-- /input-group -->
+
+                        <!-- /.card -->
+                        <div class="card">
+                           <div class="card-header">
+                              <h3 class="card-title">Nuevo Sitio Turistico</h3>
+                           </div>
+                           <div class="card-body">
+                              <div class="input-group">
+                                 <div class="input-group">
+                                    <select name="ComboTur" id="ComboTur"
+                                       class="select2 select2-success  select2-hidden-accessible form-control"
+                                       data-placeholder="Seleccione el tipo" data-dropdown-css-class="select2-success"
+                                       style="width: 100%;">
+                                    </select>
+
+                                 </div>
+                                 <div class="input-group" style="padding-top: 5px;">
+                                    <input id="precio" name="precio" type="number" min="1" class="form-control"
+                                       placeholder="Precio">
+                                    <div class="input-group-append">
+                                       <button id="add-new-sitio" type="button" class="btn btn-success">Agregar</button>
+                                    </div>
+                                 </div>
+                                 <!-- /btn-group -->
+                              </div>
+                              <!-- /input-group -->
+                           </div>
+                        </div>
+                        <!-- /.card -->
+                        <!-- /.card -->
+                        <div class="card">
+                           <div class="card-header">
+                              <h3 class="card-title">Otras Actividades</h3>
+                           </div>
+                           <div class="card-body">
+                              <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                                 <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                                 <ul class="fc-color-picker" id="color-chooser">
+                                    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a>
+                                    </li>
+                                    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a>
+                                    </li>
+                                    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <!-- /btn-group -->
+                              <div class="input-group">
+                                 <input id="new-event" type="text" class="form-control"
+                                    placeholder="Nombre de la actividad">
+
+                                 <div class="input-group-append">
+                                    <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
+                                 </div>
+                                 <!-- /btn-group -->
+                              </div>
+                              <!-- /input-group -->
+                              <br>
+                              <div class="btn-group" style="width: 100%;">
+
+                                 <button style="margin: 5px" type="submit"
+                                    class="btn btn-danger float-right">Cancelar</button>
+                                 <button style="margin: 5px" id="btnGuardar" type="submit"
+                                    class="btn btn-info float-left">Guardar</button>
+
+
+                              </div>
+                              <!-- /btn-group -->
+                           </div>
+                        </div>
+                        <!-- /.card -->
+
+                     </div>
                   </div>
-                </div>
-                <!-- /.card -->
-                <!-- /.card -->
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Otras Actividades</h3>
+                  <!-- /.col -->
+                  <div class="col-md-9">
+                     <div class="card card-primary">
+                        <div class="card-body p-0">
+                           <!-- THE CALENDAR -->
+                           <div id="calendar"></div>
+                        </div>
+                        <!-- /.card-body -->
+                     </div>
+                     <!-- /.card -->
                   </div>
-                  <div class="card-body">
-                    <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                      <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                      <ul class="fc-color-picker" id="color-chooser">
-                        <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a>
-                        </li>
-                        <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a>
-                        </li>
-                        <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a>
-                        </li>
-                      </ul>
-                    </div>
-                    <!-- /btn-group -->
-                    <div class="input-group">
-                      <input id="new-event" type="text" class="form-control" placeholder="Nombre de la actividad">
-
-                      <div class="input-group-append">
-                        <button id="add-new-event" type="button" class="btn btn-primary">Agregar</button>
-                      </div>
-                      <!-- /btn-group -->
-                    </div>
-                    <!-- /input-group -->
-                    <br>
-                    <div class="btn-group" style="width: 100%;">
-
-                      <button style="margin: 5px" type="submit" class="btn btn-danger float-right">Cancelar</button>
-                      <button style="margin: 5px" id="btnGuardar" type="submit"
-                        class="btn btn-info float-left">Guardar</button>
-
-
-                    </div>
-                    <!-- /btn-group -->
-                  </div>
-                </div>
-                <!-- /.card -->
-
-              </div>
-            </div>
-            <!-- /.col -->
-            <div class="col-md-9">
-              <div class="card card-primary">
-                <div class="card-body p-0">
-                  <!-- THE CALENDAR -->
-                  <div id="calendar"></div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div><!-- /overlay-wrapper -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+                  <!-- /.col -->
+               </div>
+               <!-- /.row -->
+            </div><!-- /overlay-wrapper -->
+         </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+   </div>
+   <!-- /.content-wrapper -->
 
 </div>
 <!-- ./wrapper -->

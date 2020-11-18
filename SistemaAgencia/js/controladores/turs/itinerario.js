@@ -1,6 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
     //INICIALIZAN
+    let DATA_TUR;
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
     let containerEl = document.getElementById('external-events');
@@ -77,10 +78,12 @@ $(document).ready(function () {
     new Draggable(containerEl, {
         itemSelector: '.external-event',
         eventData: function (eventEl) {
+            console.log(eventEl);
             return {
                 title: eventEl.innerText,
                 id: eventEl.id,
                 tipo: eventEl.getAttribute("tipo"),
+                precio: eventEl.getAttribute("precio"),
                 allDay: true,
                 backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
                     'background-color'),
@@ -135,7 +138,7 @@ $(document).ready(function () {
         let sitiosOld = []
         todos.forEach(element => {
             //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
-
+            console.log(element.extendedProps.precio);
             if (element.extendedProps.tipo === "GUARDAR_SITIO") {
                 sitiosNew.push(
                     {
@@ -145,8 +148,9 @@ $(document).ready(function () {
                         title: element.title,
                         backgroundColor: element.backgroundColor,
                         borderColor: element.borderColor,
-                        allDay : null,
-                        textColor: "#fff"
+                        allDay: null,
+                        textColor: "#fff",
+                        costo: element.extendedProps.precio
                     });
             } else if (element.extendedProps.tipo === "GUARDAR_EVENTO") {
                 eventos.push(
@@ -156,7 +160,7 @@ $(document).ready(function () {
                         backgroundColor: element.backgroundColor,
                         title: element.title,
                         borderColor: element.borderColor,
-                        allDay : null,
+                        allDay: null,
                         textColor: "#fff"
                     });
             } else if (element.extendedProps.tipo === "ACTUALIZAR_SITIO") {
@@ -165,7 +169,7 @@ $(document).ready(function () {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
-                      
+
                     });
             } else {
                 sitiosOld.push(
@@ -174,7 +178,7 @@ $(document).ready(function () {
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
                         // allDay: (element.start == element.end) ? null : 1,
-                   
+
                     });
             }
         });
@@ -213,14 +217,19 @@ $(document).ready(function () {
         let id_itinerario = mytur[0].id; //DICE ID ITINERARIO, PERO ES EL ID DEL TUR
         let backgroundColor = "#28a745"
         let textColor = "#fff"
-        console.log(mytur);
-        crearEventoConId({ title, id_itinerario, backgroundColor, textColor }, "GUARDAR_SITIO");
+        let precio = $('#precio').val();
+        crearEventoConId({ title, id_itinerario, backgroundColor, textColor,precio }, "GUARDAR_SITIO");
 
     });
     //PARA ELIMINAR LOS EVENTOS QUE NO ESTAN EL CALENDARIO 
     $(document).on('click', '#external-events div.external-event', function (evento) {
         console.log("eliminar");
 
+    });
+    //CAMBIOS EN EL COMBO
+    $('#ComboTur').on('select2:select', function (e) {
+        let precio = e.params.data.precio;
+        document.getElementById("precio").value = precio;
     });
 
     function cargarEventosSinFecha() {
@@ -229,7 +238,6 @@ $(document).ready(function () {
             url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=28",
             method: "GET"
         }).done(function (response) {
-            console.log(response);
             if (!response.err) {
                 response.forEach(itinerario => {
                     crearEventoConId(itinerario, "ACTUALIZAR_SITIO");
@@ -250,6 +258,7 @@ $(document).ready(function () {
         });
     }
     function crearEventoConId(itinerario, tipo) {
+        console.log(itinerario);
 
         let event = $('<div />');
         event.css({
@@ -259,6 +268,7 @@ $(document).ready(function () {
         event.html(itinerario.title);
         event.attr("id", itinerario.id_itinerario);
         event.attr("tipo", tipo);
+        event.attr('precio', itinerario.precio);
         $('#external-events').prepend(event)
         //Add draggable funtionality
         ini_events(event)
@@ -322,15 +332,17 @@ $(document).ready(function () {
         }).done(function (response) {
             let myData = [];
             if (response.sitios) {
-                let DATA_TUR = response.sitios;
+                DATA_TUR = response.sitios;
                 for (let index = 0; index < DATA_TUR.length; index++) {
                     myData.push({
                         id: DATA_TUR[index].id_sitio_turistico,
-                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`
+                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`,
+                        precio: DATA_TUR[index].precio_sitio
                     });
                 }
                 ///LE CARGAMOS LA DATA 
                 $('#ComboTur').select2({ data: myData });
+                document.getElementById("precio").value = DATA_TUR[0].precio_sitio;
             } else {
                 $('#ComboTur').select2();
             }

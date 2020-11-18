@@ -69,21 +69,17 @@
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group">
-                                       <label>Fecha
-                                          del
-                                          viaje</label>
+                                       <label>Fecha del viaje</label>
+                                       <!-- placeholder="dd-mm-yyyy"  type="date"  -->
                                        <div class="input-group">
-                                          <input type="date" placeholder="dd-mm-yyyy" class=" form-control"
-                                             name="fecha_salida" id="fecha_salida">
+                                          <input class=" form-control" name="fecha_salida" id="fecha_salida">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group">
-                                       <label>Lugar
-                                          de
-                                          Salida</label>
+                                       <label>Lugar de Salida</label>
                                        <div class="input-group">
                                           <input type="text" id="lugar_salida" name="lugar_salida" class="form-control">
                                        </div>

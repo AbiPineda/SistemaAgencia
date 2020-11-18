@@ -1,7 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
 
-    // inicializarCalendario();
+    inicializarCalendario();
     inicializarValidaciones();
     inicializarComboTuristico();
     inicializarComboServicio();
@@ -66,36 +66,51 @@ $(document).ready(function () {
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#btnAgregarTur', function (evento) {
         evento.preventDefault();
-        let PorPasajero = $("input[name='radioTur']:checked").val();
-        let mytur = $('#ComboTur').select2('data');
-        let nombre = mytur[0].text;
-        let id = mytur[0].id;
-        contadorTabla++;
-        ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
-        //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
-        let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
-        let precio = $("#precio_sitio").val();
-        let tipo = "tur"
-        agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
-        modificarIngresos();
-        modificarGanancias();
+        //verifiacando que existe un precio
+        let precio_sitio = $('#precio_sitio').val();
+        if (!precio_sitio) {
+            errors = { precio_sitio: "Digite precio" };
+            $("#miFormulario").validate().showErrors(errors);
+        } else {
+            let PorPasajero = $("input[name='radioTur']:checked").val();
+            let mytur = $('#ComboTur').select2('data');
+            let nombre = mytur[0].text;
+            let id = mytur[0].id;
+            contadorTabla++;
+            ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
+            //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
+            let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
+            let precio = $("#precio_sitio").val();
+            let tipo = "tur"
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            modificarIngresos();
+            modificarGanancias();
+        }
     });
     //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
     $(document).on('click', '#btnAgregarSitio', function (evento) {
         evento.preventDefault();
-        let PorPasajero = $("input[name='servicioCheck']:checked").val();
-        let myServicio = $('#ComboServicio').select2('data');
-        let nombre = myServicio[0].text;
-        let id = myServicio[0].id;
-        contadorTabla++;
-        ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
-        //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
-        let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
-        let precio = $("#precio_servicio").val();
-        let tipo = "servicio"
-        agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
-        modificarIngresos();
-        modificarGanancias();
+
+        //verifiacando que existe un precio
+        let precio_servicio = $('#precio_servicio').val();
+        if (!precio_servicio) {
+            errors = { precio_servicio: "Digite precio" };
+            $("#miFormulario").validate().showErrors(errors);
+        } else {
+            let PorPasajero = $("input[name='servicioCheck']:checked").val();
+            let myServicio = $('#ComboServicio').select2('data');
+            let nombre = myServicio[0].text;
+            let id = myServicio[0].id;
+            contadorTabla++;
+            ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
+            //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
+            let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
+            let precio = $("#precio_servicio").val();
+            let tipo = "servicio"
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            modificarIngresos();
+            modificarGanancias();
+        }
     });
     //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
     $(document).on('keyup mouseup', '#cantidad', function () {
@@ -139,7 +154,7 @@ $(document).ready(function () {
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
             locale: {
-                format: 'DD/MM/YYYY',
+                format: 'YYYY/MM/DD',
                 "separator": " - ",
                 "applyLabel": "Aplicar",
                 "cancelLabel": "Cancelar",
@@ -200,7 +215,7 @@ $(document).ready(function () {
                 document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
                 document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
                 document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-                document.getElementById("imgContactoTur").src = DATA_TUR[0].url;;
+                document.getElementById("imgContactoTur").src = DATA_TUR[0].url
             } else {
                 $('#ComboTur').select2();
             }
@@ -363,13 +378,19 @@ $(document).ready(function () {
                 });
             }
         });
+        let valor = document.getElementById("fecha_salida").value;
+        let fecha = valor.split(" - ");
+        let start = fecha[0]
+        let end = fecha[1]
         let servicios = JSON.stringify(serviciosAdicionales);
         let sitios = JSON.stringify(sistiosTuristicos);
+
 
         form.append("sitios", sitios);
         form.append("servicios", servicios);
         form.append("nombreTours", document.getElementById("nombreTours").value);
-        form.append("fecha_salida", document.getElementById("fecha_salida").value);
+        form.append("start", start);
+        form.append("end", end);
         form.append("lugar_salida", document.getElementById("lugar_salida").value);
         form.append("precio", document.getElementById("CostoPasaje").value);
         form.append("no_incluye", document.getElementById("no_incluye").value);
@@ -390,6 +411,8 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
+            // console.log(response);
+            // return;
             let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
             Toast.fire({
@@ -400,7 +423,9 @@ $(document).ready(function () {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
+                restaurarContactos();
                 resetMiTable();
+
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -592,6 +617,22 @@ $(document).ready(function () {
         $('#totalIngresos').text("$0");
         $('#ganancias').text("$0");
         $('#totalGastos').text("$0");
+    }
+    function restaurarContactos() {
+
+        document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
+        document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
+        document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
+        document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
+        document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
+        document.getElementById("imgContactoTur").src = DATA_TUR[0].url
+
+        document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
+        document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
+        document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
+        document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
+        document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
+        document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
     }
 });
 
