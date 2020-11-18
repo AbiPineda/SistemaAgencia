@@ -1,8 +1,7 @@
-
-$(document).ready(function () {
+$(document).ready(function() {
     inicializarValidaciones();
 
-    $("#btnGuardar").on('click', function (e) {
+    $("#btnGuardar").on('click', function(e) {
         e.preventDefault();
         let form = $("#register-mantenimiento");
         form.validate();
@@ -44,7 +43,7 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
 
-            }).done(function (response) {
+            }).done(function(response) {
 
                 document.getElementById("register-mantenimiento").reset();
 
@@ -58,7 +57,7 @@ $(document).ready(function () {
                     //TODO BIEN Y RECARGAMOS LA PAGINA 
                     location.reload();
                 });
-            }).fail(function (response) {
+            }).fail(function(response) {
                 //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
                 let respuestaDecodificada = JSON.parse(response.responseText);
                 let listaErrores = "";
@@ -99,7 +98,8 @@ $(document).ready(function () {
                 lugar: {
                     required: true,
                     minlength: 10,
-                }, precio: {
+                },
+                precio: {
                     required: true,
                     number: true
                 }
@@ -109,32 +109,33 @@ $(document).ready(function () {
                     required: "Seleccione un vehiculo",
                 },
                 fecha: {
-                    required: "Debe de proporfinar la fecha",
+                    required: "Debe de proporcionar la fecha",
 
                 },
                 lugar: {
                     required: "el lugar es necesario",
                     minlength: "Debe de tener una longitud minima de 10",
-                }, precio: {
+                },
+                precio: {
                     required: "Ingrese un precio",
                     number: "Debe de ser un un numero"
                 }
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
 
-     
+
     }
 });

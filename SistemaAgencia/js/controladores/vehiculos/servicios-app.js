@@ -1,26 +1,28 @@
 $(document).ready(function() {
-    let explorer = $("#kv-explorer");
+
     let idServicio;
     let tabla;
 
     inicializarValidaciones();
     inicializarTabla();
 
-    //BOTON MOSTRAR VEHICULO
+    //BOTON MOSTRAR 
     $(document).on('click', '.btn-group .btn-primary', function() {
 
-        //$('#loadingActualizar').hide();
-        idVehiculo = $(this).attr("name");
+        idServicio = $(this).attr("name");
+
         $('#loadingActualizar').show();
         $.ajax({
             url: "http://localhost/API-REST-PHP/serviciosVehiculo/servicios?idservicios_opc=" + idServicio,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre_servicio").value = response.Servicios[0].nombre_servicio;
-            document.getElementById("precio").value = response.Servicios[0].precio;
-            document.getElementById("descripcion").value = response.Servicios[0].descripcion;
+            for (let i = 0, ien = response.Servicios.length; i < ien; i++) {
 
+                document.getElementById("nombre_servicio").value = response.Servicios[i].nombre_servicio;
+                document.getElementById("descripcion").value = response.Servicios[i].descripcion;
+                document.getElementById("precio").value = response.Servicios[i].precio;
+            }
 
         }).fail(function(response) {
 
@@ -245,6 +247,7 @@ $(document).ready(function() {
             $('#loadingActualizar').hide();
         });
     }
+
 
 
 });
