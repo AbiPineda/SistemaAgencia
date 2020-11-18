@@ -52,7 +52,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Usuario</label>
                                                 <input type="text" class="form-control" placeholder="Nombre del Usuario"
-                                                    name="nombreUsuario" id="nombreUsuario">
+                                                    name="nombreUsuario" id="nombreUsuario" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -60,7 +60,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Contraseña</label>
                                                 <input type="password" class="form-control"
-                                                    placeholder="Digite Contraseña" name="pass" id="pass">
+                                                    placeholder="Digite Contraseña" name="pass" id="pass" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -68,15 +68,15 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Nombre de Renta Cars</label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="Nombre de Renta Cars" name="rentaCar" id="rentaCar">
+                                                    placeholder="Nombre de Renta Cars" name="rentaCar" id="rentaCar" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Telefono</label>
-                                                <input type="text" class="form-control" placeholder="Numero de Telefono"
-                                                    name="telefono" id="telefono">
+                                                <input type="tel" class="form-control" placeholder="Numero de Telefono"
+                                                name="telefono" id="telefono" autocomplete="off" pattern="^\d{3}-\d{4}-\d{4}$" required >
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -84,7 +84,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Lugar</label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="Dirección de Ubicación" name="lugar" id="lugar">
+                                                    placeholder="Dirección de Ubicación" name="lugar" id="lugar" autocomplete="off">
                                             </div>
                                         </div>
 
@@ -94,7 +94,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Descripción</label>
                                                 <textarea type="text" class="form-control" name="descripcion"
-                                                    id="descripcion" placeholder="Introduzca descripción"
+                                                    id="descripcion" placeholder="Introduzca descripción" autocomplete="off"
                                                     rows="3"></textarea>
                                             </div>
                                         </div>
@@ -141,7 +141,9 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 
-
+<script>
+$("#telefono").mask("999-999-999");
+</script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarRentacars.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
