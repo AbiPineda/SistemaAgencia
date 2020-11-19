@@ -82,9 +82,16 @@ function add_personalizada() {
             data: $("#register-form").serialize()
 
         }).done(function (response) {
+            
+        $("#depto").val('');
+        $("#id_municipios").val('');
+        $("#referencia").val('');
+        $("#costo").val('');
+        $("#producto").val('');
+        $("#caja").val('');
           //document.getElementById("register-form").reset();
-         // $('#mostrar').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
-         // $('#botones').empty();
+         //$('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
+          //$('#botones').empty();
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina

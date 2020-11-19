@@ -1,13 +1,15 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
-
+include_once  '../../plantillas/navbar.php';?>
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
  <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+
+<?php
+include_once '../../plantillas/barra_lateral.php';
+?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -150,4 +152,4 @@ include_once '../../plantillas/barra_lateral.php';
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-
+<?php include_once '../../plantillas/cierre.php'; ?>

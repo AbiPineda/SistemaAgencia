@@ -26,30 +26,6 @@ $(document).ready(function() {
         });
 
         //********para el combo de los departamentos
-
-         $.ajax({
-            type: "GET",
-            url: URL_SERVIDOR+"Empresa/deptos",
-            async: false,
-            dataType: "json",
-            success: function(data) {
-
-                var $select = $('#depto');
-                $.each(data.deptos, function(i, name) {
-                    $select.append('<option value=' + name.id_departamentos+ '>' + name.nombre_deptos+
-                        '</option>');
-                });
-            },
-            error: function(err) {
-                var $select = $('#depto');
-              /* const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Oops...',
-                icon: 'error',
-                text:'No hay Ramas para mostrar',
-                showConfirmButton: true,
-            });*/
-            }
-        });
+        
 
     });

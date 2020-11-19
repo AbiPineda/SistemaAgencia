@@ -82,9 +82,17 @@ function add_estandar() {
             data: $("#register-form").serialize()
 
         }).done(function (response) {
-          document.getElementById("register-form").reset();
-         // $('#mostrar').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
-         // $('#botones').empty();
+         // document.getElementById("register-form").reset();
+        $("#depto").val('');
+        $("#id_municipios").val('');
+        $("#referencia").val('');
+        $("#costo").val('');
+        // $("#formulario").empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
+        // $("#botones").empty();
+
+         //alert('hola');
+
+         
           
 
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
@@ -101,6 +109,7 @@ function add_estandar() {
                 //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
             });
         }).fail(function (response) {
+             //alert('hola');
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";

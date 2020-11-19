@@ -5,12 +5,12 @@ $(function () {
 
             var combo = document.getElementById("empresa");
            var empre = combo.options[combo.selectedIndex].text;
-           //alert(cod);
+           alert(cod);
            var $mostrar=$('#formulario');
            var $botones=$('#botones');
 
-          $("#formulario").empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
-          $("#botones").empty();
+          $('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
+          $('#botones').empty();
 
         if(cod=='Estándar'){
 
@@ -24,7 +24,7 @@ $(function () {
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                         '<label for="cars">Forma de operar</label>'+
-                                        '<input value="" id="forma" type="text" class="form-control" disabled="true">'+
+                                        '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
                                         '<input name="nombre_empresa" value="" id="nombre_empresa" type="hidden">'+
                                         '</div></div>'+
                                     '<div class="col-sm-6">'+
@@ -44,38 +44,14 @@ $(function () {
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                             '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" id="referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
+                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
                                         '</div></div>'+
                                     '<div class="col-sm-6">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el costo</label>'+
-                                            '<input name="costo" id="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
+                                            '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div></div></div></form></div></div>');
-                //**********
-                 $.ajax({
-            type: "GET",
-            url: URL_SERVIDOR+"Empresa/empresas?nombre_empresa="+empre,
-            async: false,
-            dataType: "json",
-            success: function(data) {
-
-               
-                $.each(data.empresa, function(i, index) {
-                    $('#forma').val(index.forma_operacion);
-                    $('#nombre_empresa').val(index.nombre_empresa);
-                });
-            },
-            error: function(err) {
-              /* const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Oops...',
-                icon: 'error',
-                text:'No hay Ramas para mostrar',
-                showConfirmButton: true,
-            });*/
-            }
-        });
-                //**********
+           
 
                 $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
                             '<div class="timeline-item">'+
@@ -90,7 +66,8 @@ $(function () {
                                 '</div></div></div></div>');
                 $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/insertar-estandar.js">');
-               // $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/operaciones-es.js">');
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/operaciones-es.js">');
+               
                }
 
                if (cod=='Personalizado') {
@@ -129,12 +106,12 @@ $(function () {
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                             '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" id="referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
+                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
                                         '</div></div>'+
                                     '<div class="col-sm-4">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el producto</label>'+
-                                            '<input name="nombre_producto" id="producto" type="text" class="form-control" placeholder="Introduzca el producto">'+
+                                            '<input name="nombre_producto" type="text" class="form-control" placeholder="Introduzca el producto">'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="col-sm-4">'+
@@ -150,7 +127,7 @@ $(function () {
                                     '<div class="col-sm-4">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el costo</label>'+
-                                            '<input name="costo" id="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
+                                            '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div>'+
                                     '</div>'+
                                 '</div></form></div></div>');
