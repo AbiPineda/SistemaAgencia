@@ -75,152 +75,20 @@ include_once '../../plantillas/barra_lateral.php';
                          
                         </div>
                         <!-- END timeline item -->
+                         <!-- timeline item -->
+                        <div id="tabla">
+                         
+                        </div>
+                        <!-- END timeline item -->
                         <!-- timeline item -->
                         <div id="botones"></div>
                         <!-- END timeline item -->
 
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-users bg-blue"></i>
-                        <div class="timeline-item">
-
-                            <h3 class="timeline-header"><a href="#">Datos de encomienda</a></h3>
-
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="cars">Seleccione el Producto:</label>
-
-                                            <select id="categoria" class="form-control">
-                                                <option value="permitido">Acetaminofén</option>
-                                                <option value="no">Jeringas</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Dirección</label>
-                                            <input type="text" class="form-control"
-                                                   placeholder="Introduzca la dirección">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Destino Final</label>
-                                            <input type="text" class="form-control"
-                                                   placeholder="Introduzca el destino final">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Costo</label>
-                                            <input type="number" class="form-control" placeholder="Calculado...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Cantidad</label>
-                                            <input type="number" class="form-control" placeholder="Depende el producto">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Estado</label>
-                                            <select id="categoria" class="form-control">
-                                                <option value="permitido">Enviado</option>
-                                                <option value="no">Otros </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Fecha</label>
-                                            <input type="date" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
-
-                                </div>
-                            </div>
-
+                        <!-- timeline time label -->
+                        <div class="time-label">
+                            <span class="bg-green">Encomiendas</span>
                         </div>
-                    </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-user bg-green"></i>
-                        <div class="timeline-item">
-
-                            <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-
-                                        <table id="example2" class="table table-bordered table-hover">
-                                            <thead>
-                                                <tr style="text-align: center;">
-                                                    <th>Producto</th>
-                                                    <th>Costo</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="text-align: center;">
-                                                    <td>Acetaminofén</td>
-                                                    <td>$48.20</td>
-                                                    <td>2 Lbs</td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr style="text-align: center;">
-                                                    <td>Jeringas</td>
-                                                    <td>$35.89</td>
-                                                    <td>15 Jerigas</td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div style="text-align: right;width:475px;margin-top: 27px;">
-                                            <label> Total de Encomienda: </label> <label> $84.09</label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-
+                        <!-- /.timeline-label -->
                 </div>
                 <!-- END timeline item -->
             </div>

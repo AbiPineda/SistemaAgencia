@@ -16,7 +16,7 @@ $(function () {
 
                 $mostrar.append(' <i class="fas fa-box-open bg-blue"></i>'+
                         '<div class="timeline-item">'+
-                         '<h3 class="timeline-header"><a href="#">Ingrese su configuracion estándar</a></h3>'+
+                         '<h3 class="timeline-header"><a href="#">Ingrese su configuración estándar</a></h3>'+
                           
                             '<div class="timeline-body">'+
                             '<form id="register-form" name="register-form" onsubmit="return false">'+
@@ -96,7 +96,7 @@ $(function () {
                if (cod=='Personalizado') {
                	   $mostrar.append('   <i class="fas fa-box-open bg-green"></i>'+
                         '<div class="timeline-item">'+
-                         '<h3 class="timeline-header"><a href="#">Ingrese su configuracion estándar</a></h3>'+
+                         '<h3 class="timeline-header"><a href="#">Ingrese su configuración Personalizada</a></h3>'+
                           
                             '<div class="timeline-body">'+
                             '<form id="register-form" name="register-form" onsubmit="return false">'+
