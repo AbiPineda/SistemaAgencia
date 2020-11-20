@@ -5,7 +5,7 @@ $(function () {
 
             var combo = document.getElementById("empresa");
            var empre = combo.options[combo.selectedIndex].text;
-           alert(cod);
+           //alert(cod);
            var $mostrar=$('#formulario');
            var $botones=$('#botones');
 
@@ -16,17 +16,11 @@ $(function () {
 
                 $mostrar.append(' <i class="fas fa-box-open bg-blue"></i>'+
                         '<div class="timeline-item">'+
-                         '<h3 class="timeline-header"><a href="#">Ingrese su configuracion estándar</a></h3>'+
+                         '<h3 class="timeline-header"><a href="#">Registro de encomienda, configuración estándar</a></h3>'+
                           
                             '<div class="timeline-body">'+
                             '<form id="register-form" name="register-form" onsubmit="return false">'+
                                 '<div class="row">'+
-                                    '<div class="col-sm-6">'+
-                                        '<div class="form-group">'+
-                                        '<label for="cars">Forma de operar</label>'+
-                                        '<input name="forma" value="" id="forma" type="text" class="form-control" disabled="true">'+
-                                        '<input name="nombre_empresa" value="" id="nombre_empresa" type="hidden">'+
-                                        '</div></div>'+
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                            '<label for="cars">Seleccione el departamento</label>'+
@@ -44,12 +38,14 @@ $(function () {
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                             '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
-                                        '</div></div>'+
+                                            '<select name="punto" id="id_punto" class="form-control">'+
+                                                '<option value="">Seleccione</option>'+
+                                            '</select>'+
+                                            '</div></div>'+
                                     '<div class="col-sm-6">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el costo</label>'+
-                                            '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
+                                            '<input name="costo" id="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div></div></div></form></div></div>');
            
 
@@ -64,9 +60,8 @@ $(function () {
                                  '<a class="btn btn-primary btn-sm" id="btn-estandar" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
-                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos-enco.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/insertar-estandar.js">');
-                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/operaciones-es.js">');
                
                }
 

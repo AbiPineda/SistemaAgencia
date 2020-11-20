@@ -58,7 +58,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="form-group">
                                             <label for="cars">Seleccione el Cliente:</label>
 
-                                            <select name="id_cliente" id="id_cliente" class="form-control">
+                                            <select name="id_cliente" id="cliente" class="form-control">
                                                  <option value="">Seleccione</option>
                                             </select>
                                         </div>
@@ -233,6 +233,7 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 <div id="script"></div>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-empresa.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/creacion-encomienda.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
