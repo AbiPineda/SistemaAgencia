@@ -391,31 +391,46 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/registroRentaCars.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro de Renta Cars</p>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>
+                                    Registros
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php" class="nav-link">
+                                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                                        <p>Registro de Vehiculo</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/registroRentaCars.php" class="nav-link">
+                                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                                        <p>Registro de Renta Cars</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/mantenimiento.php" class="nav-link">
+                                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                                        <p>Registrar Mantenimiento</p>
+                                    </a>
+                                </li>
+                            </ul>
+
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro de Vehiculo</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vehiculos/mostrarRegistros.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Mostrar Registros</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/mantenimiento.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registrar Mantenimiento</p>
+                                <p>Mostrar Registros de Flota</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -430,6 +445,7 @@
                                 <p>Servicios Adicionales</p>
                             </a>
                         </li>
+
 
                     </ul>
                 </li>
