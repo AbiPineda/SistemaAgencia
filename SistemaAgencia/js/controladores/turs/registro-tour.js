@@ -504,14 +504,14 @@ $(document).ready(function () {
                 nombreTours: {
                     required: true,
                     minlength: 3,
-                    maxlength: 40
+                    maxlength: 150
                 },
                 fecha_salida: {
                     required: true,
                 },
                 lugar_salida: {
                     required: true,
-                    minlength: 3,
+                    minlength: 3
                 }, cantidad: {
                     required: true,
                     digits: true,
@@ -550,7 +550,7 @@ $(document).ready(function () {
                 nombreTours: {
                     required: "Digite titulo",
                     minlength: "Longitud debe ser mayor a 3",
-                    maxlength: "Longitud debe ser menor a 40"
+                    maxlength: "Longitud debe ser menor a 150"
                 },
                 fecha_salida: {
                     required: "Es necesaria la fecha de salida",

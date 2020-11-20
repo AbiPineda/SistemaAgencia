@@ -79,9 +79,10 @@
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group">
-                                       <label>Lugar de Salida</label>
+                                       <label>Descripción del Viaje</label>
                                        <div class="input-group">
-                                          <input type="text" id="lugar_salida" name="lugar_salida" class="form-control">
+                                          <input type="text" id="descripcion_tur" name="descripcion_tur"
+                                             class="form-control">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -454,9 +455,9 @@
                                  <div class="col-sm-4">
                                     <!-- text input -->
                                     <div class="form-group">
-                                       <label>Descripcion del viaje</label>
-                                       <textarea class="form-control" id="descripcion_tur" name="descripcion_tur"
-                                          rows="5" placeholder="Digitar aquí ..."></textarea>
+                                       <label>Lugar(es) de Salida</label>
+                                       <textarea class="form-control" id="lugar_salida" name="lugar_salida" rows="5"
+                                          placeholder="Digitar aquí ..."></textarea>
                                     </div>
                                  </div>
 
