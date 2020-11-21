@@ -452,32 +452,76 @@
                            </h3>
                            <div class="timeline-body">
                               <div class="row">
-                                 <div class="col-sm-4">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                       <label>Lugar(es) de Salida</label>
-                                       <textarea class="form-control" id="lugar_salida" name="lugar_salida" rows="5"
-                                          placeholder="Digitar aquí ..."></textarea>
+                                 <div class="col-sm-3">
+                                    <label>Lugar(es) de Salida</label>
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" name="lugar_salida[]" class="form-control"
+                                          placeholder="Digite el lugar">
+                                       <span class="input-group-btn">
+                                          <button type="button" class="btn btn-success btn-add"
+                                             style="margin-top:0px;">+</button>
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-3">
+                                    <label>El viaje incluye</label>
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" name="incluye[]" class="form-control"
+                                          placeholder="¿Qué incluye el viaje?">
+                                       <span class="input-group-btn">
+                                          <button type="button" class="btn btn-success btn-add"
+                                             style="margin-top:0px;">+</button>
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-3">
+                                    <label>El viaje no incluye</label>
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" name="no_incluye[]" class="form-control"
+                                          placeholder="¿Qué incluye no incluye viaje?">
+                                       <span class="input-group-btn">
+                                          <button type="button" class="btn btn-success btn-add"
+                                             style="margin-top:0px;">+</button>
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-3">
+                                    <label>Requisitos</label>
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" name="requisitos[]" class="form-control"
+                                          placeholder="Digite los requisitos">
+                                       <span class="input-group-btn">
+                                          <button type="button" class="btn btn-success btn-add"
+                                             style="margin-top:0px;">+</button>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- END timeline item -->
+                     <!-- END timeline item -->
+                     <div>
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+                           <h3 class="timeline-header no-border">
+                              <a href="#">Otras opciones</a>
+                           </h3>
+                           <div class="timeline-body">
+                              <div class="row">
+                                 <div class="col-sm-3">
+                                    <label>Promociones Especiales</label>
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" name="requisitos[]" class="form-control"
+                                          placeholder="Digite los requisitos">
+                                       <span class="input-group-btn">
+                                          <button type="button" class="btn btn-success btn-add"
+                                             style="margin-top:0px;">+</button>
+                                       </span>
                                     </div>
                                  </div>
 
-                                 <div class="col-sm-4">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                       <label>El viaje no incluye</label>
-                                       <textarea class="form-control" id="no_incluye" name="no_incluye" rows="5"
-                                          placeholder="Digitar aquí..."></textarea>
-                                    </div>
-
-                                 </div>
-                                 <div class="col-sm-4">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                       <label>Requisitos</label>
-                                       <textarea class="form-control" name="requisitos" id="requisitos" rows="5"
-                                          placeholder="Digitar aquí..."></textarea>
-                                    </div>
-                                 </div>
                               </div>
                            </div>
                         </div>

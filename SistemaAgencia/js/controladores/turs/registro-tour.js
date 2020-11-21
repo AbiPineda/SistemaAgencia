@@ -150,6 +150,11 @@ $(document).ready(function () {
             });
         }
     });
+    //BOTON DE AGREGAR INCLUYE
+    $(document).on('click', '.btn-add', addFormGroup);
+    //BOTON DE ELIMINAR INCLUYE
+    $(document).on('click', '.btn-remove', removeFormGroup);
+    
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
@@ -605,8 +610,6 @@ $(document).ready(function () {
 
             }
         });
-
-
     }
     function resetMiTable() {
         contadorTabla = 0;
@@ -634,5 +637,23 @@ $(document).ready(function () {
         document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
         document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
     }
+    function addFormGroup(event) {
+        event.preventDefault();
+        let $formGroup = $(this).closest('.form-group');
+        let $formGroupClone = $formGroup.clone();
+        $formGroupClone.find('input').val('');
+        $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+        $formGroupClone.insertAfter($formGroup);
+    };
+     function removeFormGroup (event) {
+        event.preventDefault();
+        let $formGroup = $(this).closest('.form-group');
+        $formGroup.remove();
+    };
+      
+    
+ 
+
 });
+
 
