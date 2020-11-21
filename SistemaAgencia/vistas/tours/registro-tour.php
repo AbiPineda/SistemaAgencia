@@ -506,22 +506,41 @@
                         <i class="fas fa-user bg-green"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
-                              <a href="#">Otras opciones</a>
+                              <a href="#">Promociones Especiales</a>
                            </h3>
                            <div class="timeline-body">
                               <div class="row">
-                                 <div class="col-sm-3">
-                                    <label>Promociones Especiales</label>
+                                 <div class="col-sm-4">
+                                    <label>Titulo de la Promocion</label>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <label>Número de Asientos</label>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <label>Costo del Pasaje($)</label>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-sm-4">
                                     <div class="form-group multiple-form-group input-group">
-                                       <input type="text" name="requisitos[]" class="form-control"
-                                          placeholder="Digite los requisitos">
+                                       <input type="text" class="form-control"
+                                          placeholder="Ej: Niños Menores de 5 años">
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="number" min="1" class="form-control" placeholder="1">
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <div class="form-group multiple-form-group input-group">
+                                       <input type="text" min="1" class="form-control" placeholder="10">
                                        <span class="input-group-btn">
-                                          <button type="button" class="btn btn-success btn-add"
+                                          <button type="button" class="btn btn-success btn-addRow"
                                              style="margin-top:0px;">+</button>
                                        </span>
                                     </div>
                                  </div>
-
                               </div>
                            </div>
                         </div>

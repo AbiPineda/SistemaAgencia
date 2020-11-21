@@ -30,7 +30,6 @@ $(document).ready(function () {
             { "targets": [8], "visible": false },
         ]
     });
-
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
     $('#ComboTur').on('select2:select', function (e) {
         let DATA_SELECCIONADA;
@@ -136,6 +135,12 @@ $(document).ready(function () {
     //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
+
+        let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
+        console.log(salida);
+
+
+        return;
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
@@ -150,11 +155,15 @@ $(document).ready(function () {
             });
         }
     });
-    //BOTON DE AGREGAR INCLUYE
+    //BOTON DE AGREGAR INPUT
     $(document).on('click', '.btn-add', addFormGroup);
-    //BOTON DE ELIMINAR INCLUYE
+    //BOTON DE ELIMINAR INPUT
     $(document).on('click', '.btn-remove', removeFormGroup);
-    
+    //BOTON DE AGREGAR FILA
+    $(document).on('click', '.btn-addRow', addRow);
+    //BOTON DE ELIMINAR FILA
+    $(document).on('click', '.btn-removeRow', removeRow);
+
     //INICIALIZANDO EL CALENDARIO
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
@@ -448,61 +457,6 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
-    function guardarDetalle() {
-        let form = new FormData();
-        let serviciosAdicionales = [];
-        let sistiosTuristicos = [];
-        tabla.rows().every(function (value, index) {
-            let data = this.data();
-            let tipo = data[6];
-            let id = data[7];
-            let costo = data[1];
-            if (tipo == "servicio") {
-                serviciosAdicionales.push({
-                    "id_tours": "0",
-                    "id_servicios": id,
-                    "costo": costo,
-                    "nuemo_veces": "1",
-                    "por_usuario": true
-                });
-            } else {
-                sistiosTuristicos.push(id);
-            }
-        });
-
-        let jsonString = JSON.stringify(serviciosAdicionales);
-        form.append("servicios", jsonString);
-
-        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-        $.ajax({
-            url: URL_SERVIDOR + "DetalleServicio/save",
-            method: "POST",
-            mimeType: "multipart/form-data",
-            data: form,
-            timeout: 0,
-            processData: false,
-            contentType: false,
-        }).done(function (response) {
-            console.log(response);
-        }).fail(function (response) {
-            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            console.log(response);
-
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Oops...',
-                icon: 'error',
-                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
-                showConfirmButton: true,
-            });
-
-        }).always(function (xhr, opts) {
-            // $('#loading').hide();
-        });
-
-
-
-    }
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
@@ -645,14 +599,26 @@ $(document).ready(function () {
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         $formGroupClone.insertAfter($formGroup);
     };
-     function removeFormGroup (event) {
+    function removeFormGroup(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.form-group');
         $formGroup.remove();
     };
-      
-    
- 
+    function addRow(event) {
+        event.preventDefault();
+        let $formGroup = $(this).closest('.row');
+        let $formGroupClone = $formGroup.clone();
+        $formGroupClone.find('input').val('');
+        $(this).toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
+        $formGroupClone.insertAfter($formGroup);
+    };
+    function removeRow(event) {
+        event.preventDefault();
+        let $formGroup = $(this).closest('.row');
+        $formGroup.remove();
+    };
+
+
 
 });
 
