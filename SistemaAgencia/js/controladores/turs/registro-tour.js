@@ -136,12 +136,9 @@ $(document).ready(function () {
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
 
-        let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
-        console.log(salida);
-
-
-        return;
-        let form = $("#miFormulario");
+        
+  
+let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
             guardar();
@@ -358,63 +355,8 @@ $(document).ready(function () {
     }
     function guardar() {
         $('#loading').show();
-        let form = new FormData();
-        let serviciosAdicionales = [];
-        let sistiosTuristicos = [];
-
-        //ESTO ES PARA L A GALERIA 
-        let galeria = document.getElementById("fotos").files;
-        for (let i = 0; i < galeria.length; i++) {
-            form.append('fotos[]', galeria[i]);
-        }
-        tabla.rows().every(function (value, index) {
-            let data = this.data();
-            let title = data[0];
-            let costo = data[1];
-            let tipo = data[6];
-            let id = data[7];
-            if (tipo == "servicio") {
-                serviciosAdicionales.push({
-                    "id_servicios": id,
-                    "costo": costo,
-                    "por_usuario": true,
-                    "nuemo_veces": "1"
-                });
-            } else {
-                sistiosTuristicos.push({
-                    "id_sitio_turistico": id,
-                    "title": title,
-                    "costo": costo,
-                    "por_usuario": true,
-                    "backgroundColor": "#28a745",
-                    "borderColor": "#28a745",
-                    "textColor": "#fff"
-                });
-            }
-        });
-        let valor = document.getElementById("fecha_salida").value;
-        let fecha = valor.split(" - ");
-        let start = fecha[0]
-        let end = fecha[1]
-        let servicios = JSON.stringify(serviciosAdicionales);
-        let sitios = JSON.stringify(sistiosTuristicos);
-
-
-        form.append("sitios", sitios);
-        form.append("servicios", servicios);
-        form.append("nombreTours", document.getElementById("nombreTours").value);
-        form.append("start", start);
-        form.append("end", end);
-        form.append("lugar_salida", document.getElementById("lugar_salida").value);
-        form.append("precio", document.getElementById("CostoPasaje").value);
-        form.append("no_incluye", document.getElementById("no_incluye").value);
-        form.append("requisitos", document.getElementById("requisitos").value);
-        form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
-        form.append("cupos_disponibles", document.getElementById("cantidad").value);
-        form.append("estado", 1);
-        form.append("aprobado", 1);
-        form.append("tipo", "TUR");
-
+        let form = obtenerData();
+       
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "TurPaquete/save",
@@ -436,9 +378,9 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#miFormulario").trigger("reset");
-                restaurarContactos();
-                resetMiTable();
+                // $("#miFormulario").trigger("reset");
+                // restaurarContactos();
+                // resetMiTable();
 
             });
         }).fail(function (response) {
@@ -468,7 +410,7 @@ $(document).ready(function () {
                 fecha_salida: {
                     required: true,
                 },
-                lugar_salida: {
+                "lugar_salida[]": {
                     required: true,
                     minlength: 3
                 }, cantidad: {
@@ -514,7 +456,7 @@ $(document).ready(function () {
                 fecha_salida: {
                     required: "Es necesaria la fecha de salida",
                 },
-                lugar_salida: {
+                "lugar_salida[]": {
                     required: "Digite el luegar de salida",
                     minlength: "Longitud debe ser mayor a 3",
                 }, cantidad: {
@@ -595,9 +537,12 @@ $(document).ready(function () {
         event.preventDefault();
         let $formGroup = $(this).closest('.form-group');
         let $formGroupClone = $formGroup.clone();
-        $formGroupClone.find('input').val('');
-        $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-        $formGroupClone.insertAfter($formGroup);
+        
+        if (!$formGroupClone.find('input').val() == "") {
+            $formGroupClone.find('input').val('');
+            $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+            $formGroupClone.insertAfter($formGroup);
+        }
     };
     function removeFormGroup(event) {
         event.preventDefault();
@@ -608,16 +553,94 @@ $(document).ready(function () {
         event.preventDefault();
         let $formGroup = $(this).closest('.row');
         let $formGroupClone = $formGroup.clone();
-        $formGroupClone.find('input').val('');
-        $(this).toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
-        $formGroupClone.insertAfter($formGroup);
+
+        if (!$formGroupClone.find('input').val() == "") {
+            $formGroupClone.find('input').val('');
+            $(this).toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
+            $formGroupClone.insertAfter($formGroup);
+        }
     };
     function removeRow(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.row');
         $formGroup.remove();
     };
+    function obtenerData() {
+        let form = new FormData();
+        let serviciosAdicionales = [];
+        let sistiosTuristicos = [];
+        let promocion =[];
 
+        //ESTO ES PARA L A GALERIA 
+        let galeria = document.getElementById("fotos").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+            let title = data[0];
+            let costo = data[1];
+            let tipo = data[6];
+            let id = data[7];
+            if (tipo == "servicio") {
+                serviciosAdicionales.push({
+                    "id_servicios": id,
+                    "costo": costo,
+                    "por_usuario": true,
+                    "nuemo_veces": "1"
+                });
+            } else {
+                sistiosTuristicos.push({
+                    "id_sitio_turistico": id,
+                    "title": title,
+                    "costo": costo,
+                    "por_usuario": true,
+                    "backgroundColor": "#28a745",
+                    "borderColor": "#28a745",
+                    "textColor": "#fff"
+                });
+            }
+        });
+
+        let salida     = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
+        let incluye    = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
+        let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
+        let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
+
+        let pasajes    = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
+        let asientos   = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
+        let titulos    = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
+      
+        for (let index = 0; index < titulos.length; index++) {
+            promocion.push({"pasaje": pasajes[index], 'asiento': asientos[index], 'titulo' : titulos[index]});
+            
+        }
+        let valor = document.getElementById("fecha_salida").value;
+        let fecha = valor.split(" - ");
+        let start = fecha[0]
+        let end = fecha[1]
+     
+    
+        form.append("sitios",            JSON.stringify(sistiosTuristicos));
+        form.append("servicios",         JSON.stringify(serviciosAdicionales));
+        form.append("promociones",       JSON.stringify(promocion));
+        form.append("nombreTours",       document.getElementById("nombreTours").value);
+        form.append("precio",            document.getElementById("CostoPasaje").value);
+        form.append("descripcion_tur",   document.getElementById("descripcion_tur").value);
+        form.append("cupos_disponibles", document.getElementById("cantidad").value);
+        form.append("no_incluye",        no_incluye);
+        form.append("requisitos",        requisitos);
+        form.append("incluye",           incluye);
+        form.append("lugar_salida",      salida);
+        form.append("start",             start);
+        form.append("end",               end);
+        form.append("estado",            1);
+        form.append("aprobado",          1);
+        form.append("tipo",              "TUR");
+
+        return form;
+
+    }
 
 
 });

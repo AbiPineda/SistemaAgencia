@@ -523,18 +523,18 @@
                               <div class="row">
                                  <div class="col-sm-4">
                                     <div class="form-group multiple-form-group input-group">
-                                       <input type="text" class="form-control"
+                                       <input type="text" class="form-control" name="titulos[]"
                                           placeholder="Ej: Niños Menores de 5 años">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group multiple-form-group input-group">
-                                       <input type="number" min="1" class="form-control" placeholder="1">
+                                       <input type="number" name="asientos[]" min="1" class="form-control">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group multiple-form-group input-group">
-                                       <input type="text" min="1" class="form-control" placeholder="10">
+                                       <input type="number" name="pasajes[]" min="1" class="form-control">
                                        <span class="input-group-btn">
                                           <button type="button" class="btn btn-success btn-addRow"
                                              style="margin-top:0px;">+</button>
