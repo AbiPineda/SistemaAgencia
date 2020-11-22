@@ -10,17 +10,20 @@ $(document).ready(function() {
 
         //$('#loadingActualizar').hide();
 
-        idVehiculo = $(this).attr("name");
+        idAerolineas = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
             url: "http://localhost/API-REST-PHP/aerolinea/aerolinea?idaerolinea=" + idAerolineas,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre_aerolinea").value = response.aerolineas[0].nombre_aerolinea;
-            document.getElementById("idalianza").value = response.aerolineas[0].idalianza;
-            document.getElementById("sitioWeb").value = response.aerolineas[0].sitioWeb;
-            document.getElementById("telefonoContacto").value = response.aerolineas[0].telefonoContacto;
+            for (let i = 0, ien = response.aerolineas.length; i < ien; i++) {
+
+                document.getElementById("nombre_aerolinea").value = response.aerolineas[i].nombre_aerolinea;
+                document.getElementById("nombre_alianza").value = response.aerolineas[i].nombre_alianza;
+                document.getElementById("sitioWeb").value = response.aerolineas[i].sitioWeb;
+                document.getElementById("telefonoContacto").value = response.aerolineas[i].telefonoContacto;
+            }
 
         }).fail(function(response) {
 
@@ -116,45 +119,29 @@ $(document).ready(function() {
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
-                placa: {
+                sitioWeb: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
                 },
-                anio: {
+
+                telefonoContacto: {
                     required: true,
-                    number: true,
-                    min: 2010
-                },
-                tipoCombustible: {
-                    required: true,
-                    minlength: 10,
-                },
-                precio_diario: {
-                    required: true,
-                    number: true,
-                    min: 1
+                    minlength: 8,
+                    maxlength: 10
                 }
             },
             messages: {
-                placa: {
-                    required: "Ingrese un nombre",
+                sitioWeb: {
+                    required: "Ingrese la url del sitio web",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                anio: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
-                },
-                tipoCombustible: {
-                    required: "La informacion de contacto es necesaria",
-                    minlength: "Debe de tener una longitud minima de 10",
-                },
-                precio_diario: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
+
+                telefonoContacto: {
+                    required: "Ingrese el numero de telefono",
+                    minlength: "Logitud del nombre debe ser mayor a 8",
+                    maxlength: "Logitud del nombre no debe exceder a 10",
                 }
 
             },
@@ -178,7 +165,7 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "idaerolinea": idAerolineas,
-            "sitioWeb": document.getElementById("sitioWeb").value,
+            "sitioWeb": document.getElementById("url").value,
             "telefonoContacto": document.getElementById("telefonoContacto").value
 
         };

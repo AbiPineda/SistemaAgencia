@@ -99,11 +99,7 @@
             <div class="modal-content">
 
                 <div class="overlay-wrapper">
-                    <div id="loadingActualizar" class="overlay">
-                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                        <div class="text-bold pt-2">Cargando...
-                        </div>
-                    </div>
+                    
                     <div class="modal-header">
                         <h4 class="modal-title">Modificar Aerolinea</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -136,7 +132,7 @@
                                 <div class="form-group">
                                     <label>Sitio Web</label>
                                     <div class="input-group">
-                                        <input id="sitioWeb" name="sitioWeb" type="text" class="form-control" disabled>
+                                        <input id="url" name="url" type="text" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
