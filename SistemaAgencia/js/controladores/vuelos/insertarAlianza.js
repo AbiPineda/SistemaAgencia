@@ -1,16 +1,23 @@
 $("#btnAgregar").on('click', function(e) {
 
     e.preventDefault();
+
+    let myData = {
+        "nombre_alianza": document.getElementById("nombreAlianza").value,
+        "sitioWeb": document.getElementById("sitio").value,
+        "telefonoContacto": document.getElementById("telef").value
+    }
+
     $.ajax({
         url: URL_SERVIDOR + "alianzas/alianzas",
         method: 'POST',
-        data: $("#register-alianza").serialize()
+        data: myData
 
     }).done(function(response) {
 
         $("#modal-alianza").modal('toggle');
 
-        document.getElementById("register-alianza").reset();
+        document.getElementById("registro-alianza").reset();
 
         const Toast = Swal.mixin();
         Toast.fire({

@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="register-alianza" name="register-form" onsubmit="return false">
+            <form id="registro-alianza" name="register-form" onsubmit="return false">
                 <div class="modal-body">
                     <p>
                         <!-- Main content -->
@@ -21,18 +21,18 @@
 
                                         <div class="form-group">
                                             <label>Nombre de Alianza</label>
-                                            <input type="text" class="form-control" name="alianza" id="alianza"
+                                            <input type="text" class="form-control" name="nombreAlianza" id="nombreAlianza"
                                                 placeholder="Digite nombre de alianza">
                                         </div>
                                         <div class="form-group">
                                             <label>URL de Sitio Web</label>
-                                            <input type="text" class="form-control" name="url" id="url"
+                                            <input type="text" class="form-control" name="sitio" id="sitio"
                                                 placeholder="Digite nombre de sitio Web">
                                         </div>
 
                                         <div class="form-group">
                                             <label>Telefono de Contacto</label>
-                                            <input type="text" class="form-control" name="tel" id="tel"
+                                            <input type="text" class="form-control" name="telef" id="telef"
                                                 placeholder="Digite nombre telefono de contacto">
                                         </div>
                                     </div>

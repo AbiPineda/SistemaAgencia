@@ -173,8 +173,8 @@
 
 
 <?php  
-include_once './modal-aerolinea.php';
 include_once './modal-alianza.php';
+include_once './modal-aerolinea.php';
 
 include_once '../../plantillas/footer.php';?>
 
