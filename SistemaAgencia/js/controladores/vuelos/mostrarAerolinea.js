@@ -104,7 +104,7 @@ $(document).ready(function() {
             },
             columns: [
                 { data: "nombre_aerolinea" },
-                { data: "idalianza" },
+                { data: "nombre_alianza" },
                 { data: "sitioWeb" },
                 { data: "telefonoContacto" },
                 { data: "botones" },

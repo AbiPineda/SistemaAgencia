@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#btnAgregar").on('click', function(e) {
+    $("#btnAerolinea").on('click', function(e) {
 
 
         e.preventDefault();
