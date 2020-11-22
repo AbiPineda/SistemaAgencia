@@ -136,9 +136,9 @@ $(document).ready(function () {
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
 
-        
-  
-let form = $("#miFormulario");
+
+
+        let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
             guardar();
@@ -356,7 +356,7 @@ let form = $("#miFormulario");
     function guardar() {
         $('#loading').show();
         let form = obtenerData();
-       
+
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "TurPaquete/save",
@@ -367,14 +367,12 @@ let form = $("#miFormulario");
             processData: false,
             contentType: false,
         }).done(function (response) {
-            // console.log(response);
-            // return;
-            let respuestaDecodificada = JSON.parse(response);
+             console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: respuestaDecodificada.mensaje,
+                text: "Viaje Guardado Exitosamente",
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
@@ -410,10 +408,7 @@ let form = $("#miFormulario");
                 fecha_salida: {
                     required: true,
                 },
-                "lugar_salida[]": {
-                    required: true,
-                    minlength: 3
-                }, cantidad: {
+                cantidad: {
                     required: true,
                     digits: true,
                     min: 1
@@ -437,13 +432,21 @@ let form = $("#miFormulario");
                     required: true,
                     minlength: 5
                 },
-                requisitos: {
+                "requisitos[]": {
                     required: true,
                     minlength: 5
                 },
-                no_incluye: {
+                "no_incluye[]": {
                     required: true,
                     minlength: 5
+                },
+                "incluye[]": {
+                    required: true,
+                    minlength: 5
+                },
+                "lugar_salida[]": {
+                    required: true,
+                    minlength: 3
                 },
 
             },
@@ -456,10 +459,7 @@ let form = $("#miFormulario");
                 fecha_salida: {
                     required: "Es necesaria la fecha de salida",
                 },
-                "lugar_salida[]": {
-                    required: "Digite el luegar de salida",
-                    minlength: "Longitud debe ser mayor a 3",
-                }, cantidad: {
+                cantidad: {
                     required: "Digite el numero de pasajeros",
                     digits: "Solo numeros enteros",
                     min: "Debe de ser mayor a 0"
@@ -479,19 +479,27 @@ let form = $("#miFormulario");
                     number: "Solo numero",
                     min: "Debe ser mayor o igual a 0"
                 },
-                no_incluye: {
-                    required: "Este campo es requierido",
-                    minlength: "debe de tener una longitud mayor a 4 "
-                },
                 descripcion_tur: {
                     required: "Este campo es requierido",
                     minlength: "debe de tener una longitud mayor a 4 "
                 },
-                requisitos: {
+                "lugar_salida[]": {
+                    required: "Digite el luegar de salida",
+                    minlength: "Longitud debe ser mayor a 3",
+                },
+                "incluye[]": {
+                    required: "Este campo es requierido",
+                    minlength: "debe de tener una longitud mayor a 4 "
+                },
+                "no_incluye[]": {
                     required: "Este campo es requierido",
                     minlength: "debe de tener una longitud mayor a 4 "
                 },
 
+                "requisitos[]": {
+                    required: "Este campo es requierido",
+                    minlength: "debe de tener una longitud mayor a 4 "
+                },
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
@@ -537,7 +545,7 @@ let form = $("#miFormulario");
         event.preventDefault();
         let $formGroup = $(this).closest('.form-group');
         let $formGroupClone = $formGroup.clone();
-        
+
         if (!$formGroupClone.find('input').val() == "") {
             $formGroupClone.find('input').val('');
             $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
@@ -569,7 +577,7 @@ let form = $("#miFormulario");
         let form = new FormData();
         let serviciosAdicionales = [];
         let sistiosTuristicos = [];
-        let promocion =[];
+        let promocion = [];
 
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
@@ -602,41 +610,42 @@ let form = $("#miFormulario");
             }
         });
 
-        let salida     = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
-        let incluye    = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
+        let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
+        let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
         let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
         let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
 
-        let pasajes    = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
-        let asientos   = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
-        let titulos    = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
-      
+        let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
+        let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
+        let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
+
         for (let index = 0; index < titulos.length; index++) {
-            promocion.push({"pasaje": pasajes[index], 'asiento': asientos[index], 'titulo' : titulos[index]});
-            
+            if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
+                promocion.push({ 'titulo': titulos[index], 'asiento': asientos[index], "pasaje": pasajes[index] });
+            }
+
         }
         let valor = document.getElementById("fecha_salida").value;
         let fecha = valor.split(" - ");
         let start = fecha[0]
         let end = fecha[1]
-     
-    
-        form.append("sitios",            JSON.stringify(sistiosTuristicos));
-        form.append("servicios",         JSON.stringify(serviciosAdicionales));
-        form.append("promociones",       JSON.stringify(promocion));
-        form.append("nombreTours",       document.getElementById("nombreTours").value);
-        form.append("precio",            document.getElementById("CostoPasaje").value);
-        form.append("descripcion_tur",   document.getElementById("descripcion_tur").value);
+
+        form.append("sitios", JSON.stringify(sistiosTuristicos));
+        form.append("servicios", JSON.stringify(serviciosAdicionales));
+        form.append("promociones", JSON.stringify(promocion));
+        form.append("nombreTours", document.getElementById("nombreTours").value);
+        form.append("precio", document.getElementById("CostoPasaje").value);
+        form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
         form.append("cupos_disponibles", document.getElementById("cantidad").value);
-        form.append("no_incluye",        no_incluye);
-        form.append("requisitos",        requisitos);
-        form.append("incluye",           incluye);
-        form.append("lugar_salida",      salida);
-        form.append("start",             start);
-        form.append("end",               end);
-        form.append("estado",            1);
-        form.append("aprobado",          1);
-        form.append("tipo",              "TUR");
+        form.append("no_incluye", no_incluye);
+        form.append("requisitos", requisitos);
+        form.append("incluye", incluye);
+        form.append("lugar_salida", salida);
+        form.append("start", start);
+        form.append("end", end);
+        form.append("estado", 1);
+        form.append("aprobado", 1);
+        form.append("tipo", "TUR");
 
         return form;
 
