@@ -66,6 +66,7 @@ $(document).ready(function() {
     });
 
 
+
     function inicializarTabla() {
         tabla = $("#tabla_aerolinea").DataTable({
             "responsive": true,
@@ -165,7 +166,7 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "idaerolinea": idAerolineas,
-            "sitioWeb": document.getElementById("url").value,
+            "sitioWeb": document.getElementById("sitioWeb").value,
             "telefonoContacto": document.getElementById("telefonoContacto").value
 
         };
