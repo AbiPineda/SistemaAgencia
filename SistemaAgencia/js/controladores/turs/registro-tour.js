@@ -9,11 +9,15 @@ $(document).ready(function () {
 
     let DATA_TUR;
     let DATA_SERVICIO;
-    let contadorTabla = 0;
-    let totalGastos = 0;
-    let totalIngresos = 0;
-    let ganancias = 0;
+    let contadorTabla = 0.0;
+    let totalGastos = 0.0;
+    let totalIngresos = 0.0;
+    let ganancias = 0.0;
     let cantidad = document.getElementById("cantidad");
+    const htmlOtrasOpciones = $('#otras_opciones').clone();
+    const htmlPromociones = $('#promocione_especiales').clone();
+
+
     let tabla = $('#TablaCostos').DataTable({
         "paging": true,
         "lengthChange": false,
@@ -32,6 +36,7 @@ $(document).ready(function () {
     });
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
     $('#ComboTur').on('select2:select', function (e) {
+        $('#btnAgregarTur').attr("disabled", false);
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
         DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
@@ -48,6 +53,7 @@ $(document).ready(function () {
     });
     //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
     $('#ComboServicio').on('select2:select', function (e) {
+        $('#btnAgregarSitio').attr("disabled", false);
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
         DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -64,7 +70,9 @@ $(document).ready(function () {
     });
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#btnAgregarTur', function (evento) {
+
         evento.preventDefault();
+        $('#btnAgregarTur').attr("disabled", true);
         //verifiacando que existe un precio
         let precio_sitio = $('#precio_sitio').val();
         if (!precio_sitio) {
@@ -89,7 +97,7 @@ $(document).ready(function () {
     //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
     $(document).on('click', '#btnAgregarSitio', function (evento) {
         evento.preventDefault();
-
+        $('#btnAgregarSitio').attr("disabled", true);
         //verifiacando que existe un precio
         let precio_servicio = $('#precio_servicio').val();
         if (!precio_servicio) {
@@ -335,7 +343,7 @@ $(document).ready(function () {
             $("#ganancias").addClass("text-warning");
             $("#ganancias").removeClass("text-success");
         }
-        $('#ganancias').text("$" + ganancias);
+        $('#ganancias').text("$" + ganancias.toFixed(2));
     }
     function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
@@ -367,7 +375,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
-             console.log(response);
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -376,9 +384,11 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                // $("#miFormulario").trigger("reset");
-                // restaurarContactos();
-                // resetMiTable();
+                $("#miFormulario").trigger("reset");
+                restaurarContactos();
+                resetMiTable();
+                restOtrasOpciones();
+                resetPromociones();
 
             });
         }).fail(function (response) {
@@ -649,6 +659,15 @@ $(document).ready(function () {
 
         return form;
 
+    }
+    function restOtrasOpciones() {
+
+        $("#contenedor_opcions").empty();
+        $("#contenedor_opcions").html(htmlOtrasOpciones);
+    }
+    function resetPromociones() {
+        $("#contenedorPromociones").empty();
+        $("#contenedorPromociones").html(htmlPromociones);
     }
 
 
