@@ -10,31 +10,10 @@ $(document).ready(function () {
 
    //BOTON DE EDITAR
    $(document).on('click', '.btn-group .btn-primary', function () {
-      $('#loadingActualizar').show();
-      idSeleccionado = $(this).attr("name");
+      let idSeleccionado = $(this).attr("name");
+      window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/editar_tour.php?tur=${idSeleccionado}`;
 
-      $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/show?id_sitio_turistico=" + idSeleccionado,
-         method: "GET"
-      }).done(function (response) {
-         let lista = response.sitios;
-         if (lista) {
-            //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre").value = lista[0].nombre_sitio;
-            document.getElementById("precio_sitio").value = lista[0].precio_sitio;
-            document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
-            document.getElementById("descripcion").value = lista[0].descripcion;
-            document.getElementById("ComboTipo").value = response.sitios[0].tipo;
-            $('#ComboTipo').trigger('change');
-            document.getElementById("contacto_servicio").value = response.sitios[0].id_contacto;
-            $('#contacto_servicio').trigger('change');
-         }
-      }).fail(function (response) {
-         console.log(response);
-      }).always(function (xhr, opts) {
-         $('#modal-editar').modal('show');
-         $('#loadingActualizar').hide();
-      });;
+
    });
    //BOTON EDITAR LA FOTO
    $(document).on('click', '.btn-group .btn-warning', function () {

@@ -66,9 +66,11 @@
    <div id="container">
       <h1>Se produjo un error en la base de datos</h1>
       <p>Error Number: 1054</p>
-      <p>Unknown column 'activo' in 'field list'</p>
-      <p>UPDATE `tours_paquete` SET `id_tours` = '8', `activo` = '0'
-         WHERE `id_tours` = '8'</p>
+      <p>Unknown column 'id_tours10' in 'where clause'</p>
+      <p>SELECT *
+         FROM `detalle_servicio`
+         JOIN `servicios_adicionales` USING (`id_servicios`)
+         WHERE `id_tours10` = ''</p>
       <p>Filename: C:/wamp64/www/API-REST-PHP/system/database/DB_driver.php</p>
       <p>Line Number: 691</p>
    </div>
