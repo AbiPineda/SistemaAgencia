@@ -19,12 +19,13 @@ $(document).ready(function () {
         }).done(function (response) {
             let lista = response.sitios;
             if (lista) {
+                console.log(lista);
                 //MANDALOS LOS VALORES AL MODAL
                 document.getElementById("nombre").value = lista[0].nombre_sitio;
                 document.getElementById("precio_sitio").value = lista[0].precio_sitio;
                 document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
-                document.getElementById("descripcion").value = lista[0].descripcion;
-                document.getElementById("ComboTipo").value = response.sitios[0].tipo;
+                document.getElementById("descripcion").value = lista[0].descripcion_sitio;
+                document.getElementById("ComboTipo").value = response.sitios[0].id_tipo_sitio;
                 $('#ComboTipo').trigger('change');
                 document.getElementById("contacto_servicio").value = response.sitios[0].id_contacto;
                 $('#contacto_servicio').trigger('change');
@@ -101,7 +102,7 @@ $(document).ready(function () {
             if (result.value) {
                 eliminar();
             }
-        })
+        });
     });
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function (evento) {
@@ -208,10 +209,8 @@ $(document).ready(function () {
             columns: [
                 { data: "nombre_sitio" },
                 { data: "precio_sitio" },
-                { data: "descripcion_sitio" },
                 { data: "contactoN" },
-                { data: "telefono" },
-                { data: "correo" },
+                { data: "descripcion_sitio" },
                 { data: "botones" },
             ]
         });

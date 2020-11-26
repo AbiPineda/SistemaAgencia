@@ -143,7 +143,42 @@ $(document).ready(function () {
                             html += '</td>';
                             json.servicio[i]["botones"] = html;
 
-                            html2 = "";
+                            let html2 = "";
+                            html2 += '<a href="#">'+json.servicio[i].nombre_contacto+'';
+                            html2 += '    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
+                            html2 += '        <div class="ocultar card bg-light">';
+                            html2 += '            <div class="card-body">';
+                            html2 += '                <div class="row">';
+                            html2 += '                    <div class="col-7">';
+                            html2 += '                        <p class="text-muted text-sm">';
+                            html2 += '                            <b>Nombre de Contacto</b>';
+                            html2 += '                            '+json.servicio[i].nombre_contacto+'';
+                            html2 += '                        </p>';
+                            html2 += '                        <ul class="ml-4 mb-0 fa-ul text-muted">';
+                            html2 += '                            <li class="small">';
+                            html2 += '                                <span class="fa-li">';
+                            html2 += '                                    <i class="fas fa-lg fa-mail-bulk"> </i>';
+                            html2 += '                                </span> '+json.servicio[i].correo+'';
+                            html2 += '                            </li>';
+                            html2 += '                            <li class="small">';
+                            html2 += '                                <span class="fa-li">';
+                            html2 += '                                    <i class="fas fa-lg fa-phone"></i>';
+                            html2 += '                                </span> Teléfono #: '+json.servicio[i].telefono+'';
+                            html2 += '                            </li>';
+                            html2 += '                        </ul>';
+                            html2 += '                    </div>';
+                            html2 += '                    <div class="col-5 text-center">';
+                            html2 += '                        <img src="'+json.servicio[i].url+'" alt=""';
+                            html2 += '                            class="img-fluid">';
+                            html2 += '                    </div>';
+                            html2 += '                </div>';
+                            html2 += '            </div>';
+                            html2 += '            <div class="card-footer"></div>';
+                            html2 += '        </div>';
+                            html2 += '    </div>';
+                            html2 += '</a>';
+
+                            json.servicio[i]["contacto"] = html2;
                             
 
                         }
@@ -158,8 +193,9 @@ $(document).ready(function () {
             columns: [
                 { data: "tipo_servicio" },
                 { data: "nombre_servicio" },
-                { data: "descripcion_servicio" },
                 { data: "costos_defecto" },
+                { data: "contacto" },
+                { data: "descripcion_servicio" },
                 { data: "botones" },
             ]
         });

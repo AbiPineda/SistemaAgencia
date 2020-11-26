@@ -1,12 +1,15 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
     //INICIALIZAN
-    let DATA_TUR;
+   let DATA_TUR;
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
     let containerEl = document.getElementById('external-events');
     let checkbox = document.getElementById('drop-remove');
     let calendarEl = document.getElementById('calendar');
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    let ID_TUR = urlParams.get('tur');
     /* PARA CREAR UN NUEVO EVENTO EVENTS */
     let currColor = '#007bff' //Red by default
     inicializarComboTuristico();
@@ -34,7 +37,7 @@ $(document).ready(function () {
         eventSources: [
             {
                 url: `${URL_SERVIDOR}Itinerario/calendar`,
-                extraParams: { id_tours: '28' },
+                extraParams: { id_tours: ID_TUR },
             }
         ],
         eventClick: function (info) {
@@ -185,7 +188,7 @@ $(document).ready(function () {
         form.append("eventos", JSON.stringify(eventos));
         form.append("sitiosNew", JSON.stringify(sitiosNew));
         form.append("sitiosOld", JSON.stringify(sitiosOld));
-        form.append("id_tours", "28");
+        form.append("id_tours", ID_TUR);
 
         $.ajax({
             url: URL_SERVIDOR + "Itinerario/calendarSave",
@@ -224,7 +227,6 @@ $(document).ready(function () {
     //PARA ELIMINAR LOS EVENTOS QUE NO ESTAN EL CALENDARIO 
     $(document).on('click', '#external-events div.external-event', function (evento) {
         console.log("eliminar");
-
     });
     //CAMBIOS EN EL COMBO
     $('#ComboTur').on('select2:select', function (e) {
@@ -235,7 +237,7 @@ $(document).ready(function () {
     function cargarEventosSinFecha() {
         const Toast = Swal.mixin();
         $.ajax({
-            url: URL_SERVIDOR + "Itinerario/showNull/?id_tours=28",
+            url: URL_SERVIDOR + `Itinerario/showNull/?id_tours=${ID_TUR}`,
             method: "GET"
         }).done(function (response) {
             if (!response.err) {
@@ -310,7 +312,7 @@ $(document).ready(function () {
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 backdrop: `rgba(0,0,123,0.4)
-                   url("https://i.imgur.com/UGw1mKB.gif")
+                   url("https://sweetalert2.github.io/images/nyan-cat.gif")
                    left top
                    no-repeat`
             }).then((result) => {

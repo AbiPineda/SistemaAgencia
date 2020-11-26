@@ -27,6 +27,7 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
+
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
             { "targets": [6], "visible": false },
@@ -143,9 +144,6 @@ $(document).ready(function () {
     //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-
-
-
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
@@ -376,6 +374,7 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             console.log(response);
+            let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -389,6 +388,21 @@ $(document).ready(function () {
                 resetMiTable();
                 restOtrasOpciones();
                 resetPromociones();
+                Toast.fire({
+                    title: '¿Desea Editar el itinerario ahora?',
+                    text: "Puedes Editarlo más tarde si quieres",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, Quiero editarlo ahora!',
+                    cancelButtonText: "No, en otro momento",
+
+                }).then((result) => {
+                    if (result.value) {
+                        window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+                    }
+                });
 
             });
         }).fail(function (response) {
@@ -444,7 +458,8 @@ $(document).ready(function () {
                 },
                 "requisitos[]": {
                     required: true,
-                    minlength: 5
+                    minlength: 5,
+
                 },
                 "no_incluye[]": {
                     required: true,
@@ -640,22 +655,22 @@ $(document).ready(function () {
         let start = fecha[0]
         let end = fecha[1]
 
-        form.append("sitios", JSON.stringify(sistiosTuristicos));
-        form.append("servicios", JSON.stringify(serviciosAdicionales));
-        form.append("promociones", JSON.stringify(promocion));
-        form.append("nombreTours", document.getElementById("nombreTours").value);
-        form.append("precio", document.getElementById("CostoPasaje").value);
-        form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
-        form.append("cupos_disponibles", document.getElementById("cantidad").value);
-        form.append("no_incluye", no_incluye);
-        form.append("requisitos", requisitos);
-        form.append("incluye", incluye);
-        form.append("lugar_salida", salida);
-        form.append("start", start);
-        form.append("end", end);
-        form.append("estado", 1);
-        form.append("aprobado", 1);
-        form.append("tipo", "TUR");
+        form.append("sitios",           JSON.stringify(sistiosTuristicos));
+        form.append("servicios",        JSON.stringify(serviciosAdicionales));
+        form.append("promociones",      JSON.stringify(promocion));
+        form.append("no_incluye",       JSON.stringify(no_incluye));
+        form.append("requisitos",       JSON.stringify(requisitos));
+        form.append("incluye",          JSON.stringify(incluye));
+        form.append("lugar_salida",     JSON.stringify(salida));
+        form.append("nombreTours",      document.getElementById("nombreTours").value);
+        form.append("precio",           document.getElementById("CostoPasaje").value);
+        form.append("descripcion_tur",  document.getElementById("descripcion_tur").value);
+        form.append("cupos_disponibles",document.getElementById("cantidad").value);
+        form.append("start",            start); 
+        form.append("end",              end);
+        form.append("estado",           1);
+        form.append("aprobado",         1);
+        form.append("tipo",             "TUR");
 
         return form;
 

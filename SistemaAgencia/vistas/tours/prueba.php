@@ -66,10 +66,9 @@
    <div id="container">
       <h1>Se produjo un error en la base de datos</h1>
       <p>Error Number: 1054</p>
-      <p>Unknown column 'textColor' in 'field list'</p>
-      <p>INSERT INTO `itinerario` (`backgroundColor`, `borderColor`, `costo`, `id_sitio_turistico`, `id_tours`,
-         `por_usuario`, `textColor`, `title`) VALUES ('#28a745','#28a745','123','1','29',1,'#fff','Rome Cavalieri
-         Waldorf Astoria Hotel (Hotel)')</p>
+      <p>Unknown column 'activo' in 'field list'</p>
+      <p>UPDATE `tours_paquete` SET `id_tours` = '8', `activo` = '0'
+         WHERE `id_tours` = '8'</p>
       <p>Filename: C:/wamp64/www/API-REST-PHP/system/database/DB_driver.php</p>
       <p>Line Number: 691</p>
    </div>
