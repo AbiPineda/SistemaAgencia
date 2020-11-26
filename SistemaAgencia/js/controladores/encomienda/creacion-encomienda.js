@@ -68,7 +68,7 @@ if(cod=='Estándar'){
                                  '<a class="btn btn-primary btn-sm" id="btn-estandar" style="color: white">Guardar</a>'+
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
-                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos-enco.js">');
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos-estandar.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/insertar-estandar.js">');
                
 }
@@ -98,23 +98,27 @@ if(cod=='Estándar'){
                                     '<div class="col-sm-6">'+
                                         '<div class="form-group">'+
                                             '<label>Punto de referencia</label>'+
-                                            '<input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">'+
-                                        '</div></div>'+
+                                            '<select name="punto" id="id_punto" class="form-control">'+
+                                                '<option value="">Seleccione</option>'+
+                                            '</select>'+
+                                           '</div></div>'+
                                     '<div class="col-sm-6">'+
                                        '<div class="form-group">'+
-                                            '<label for="cars">Ingrese el producto</label>'+
-                                            '<input name="nombre_producto" type="text" class="form-control" placeholder="Introduzca el producto">'+
-                                        '</div>'+
+                                            '<label for="cars">Seleccione el Producto</label>'+
+                                           '<select name="producto" id="id_producto" class="form-control">'+
+                                                '<option value="">Seleccione</option>'+
+                                            '</select>'+ 
+                                             '</div>'+
                                     '</div>'+
                                     '<div class="col-sm-4">'+
                                         '<div class="form-group">'+
                                            '<label for="cars">Caja o bolsa</label>'+
-                                              '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
+                                              '<input name="envoltura" id="envoltura" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div></div>'+
                                     '<div class="col-sm-4">'+
                                        '<div class="form-group">'+
                                             '<label for="cars">Ingrese el costo</label>'+
-                                            '<input name="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
+                                            '<input name="costo" id="costo" type="text" class="form-control" placeholder="Introduzca el costo">'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="col-sm-4">'+
@@ -133,7 +137,7 @@ if(cod=='Estándar'){
                                 '<div class="row">'+
                                     '<div class="col-sm-12">'+
 
-                                       '<table id="example2" class="table table-bordered table-hover">'+
+                                       '<table id="add-tabla" class="table table-bordered table-hover">'+
                                             '<thead>'+
                                                 '<tr style="text-align: center;">'+
                                                     '<th>Producto</th>'+
@@ -212,24 +216,14 @@ if(cod=='Estándar'){
                                 '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
                                 '</div></div></div></div>');
 
-                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos.js">');
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/deptos-per.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/insertar-personalizada.js">');
-               
-                $(function () {
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
+               // $('#script').html('<script src="../../plugins/jquery/jquery.min.js"></script>');
+                //$('#script').html('<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>');
+                //$('#script').html('<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>');
+                //$('#script').html('<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>'); 
+                $('#script').html('<script type="text/javascript" src="../../js/controladores/encomienda/tablas-add.js">');
+        
                }
 
           

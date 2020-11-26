@@ -108,12 +108,8 @@ include_once '../../plantillas/barra_lateral.php';
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script>
-    $(function () {
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
+          /* $(function () {
+        $('#add-tabla').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,
@@ -122,7 +118,7 @@ include_once '../../plantillas/barra_lateral.php';
             "autoWidth": false,
             "responsive": true,
         });
-    });
+    });*/
 </script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

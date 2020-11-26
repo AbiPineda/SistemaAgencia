@@ -197,37 +197,12 @@
                                 <p>Actualizacion de Envio</p>
                             </a>
                         </li>
-                        <!--****para Registro de producto*****-->
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-file-alt"></i>
-                                <p>
-                                    Registro de Producto
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/encomiendas/producto.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Registro de producto</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/encomiendas/producto.php" class="nav-link">
-                                        <i class="fas fa-paste"></i>
-                                        <p>Productos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/encomiendas/categoria.php" class="nav-link">
-                                        <i class="fas fa-paste"></i>
-                                        <p>Categoria</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= $base_url ?>vistas/encomiendas/reglas.php" class="nav-link">
-                                        <i class="fas fa-paste"></i>
-                                        <p>Reglas</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <!--*******************-->
                     </ul>
                 </li>
                 <ul class="sub-menu children dropdown-menu">

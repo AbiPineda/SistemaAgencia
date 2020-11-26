@@ -45,19 +45,21 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input type="text" class="form-control" placeholder="Introduzca el nombre">
+                                            <input name="nombre_producto" type="text" class="form-control" placeholder="Introduzca el nombre" autocomplete="off">
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="cars">Seleccione la Categoría:</label>
+                                           <label>Tarifa</label>
+                                            <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
+                                        </div>
+                                    </div>
 
-                                            <select id="categoria" class="form-control">
-                                                <option value="permitido">Alimentos</option>
-                                                <option value="no">Licores y Tabaco</option>
-                                                <option value="no">Medicamentos</option>
-                                            </select>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                           <label>Comisión</label>
+                                            <input name="comision" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -71,6 +73,12 @@ include_once '../../plantillas/barra_lateral.php';
 
                         </div>
                     </div>
+
+                    <!-- timeline time label -->
+                        <div class="time-label">
+                            <span class="bg-green">Encomiendas</span>
+                        </div>
+                        <!-- /.timeline-label -->
                 </div>
             </div>
         </div>
