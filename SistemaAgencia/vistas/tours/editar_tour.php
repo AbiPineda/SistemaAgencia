@@ -424,7 +424,7 @@
                               <div id="contenedor_opcions">
                                  <div class="row" id="otras_opciones">
                                     <div class="col-sm-3" id="contenedor_lugar">
-                                       <label>Lugar(es) de Salida</label>
+                                       <label id="labelLugar">Lugar(es) de Salida</label>
                                        <div class="form-group multiple-form-group input-group" name="grupo_lugar">
                                           <input type="text" name="lugar_salida[]" class="form-control"
                                              placeholder="Digite el lugar">

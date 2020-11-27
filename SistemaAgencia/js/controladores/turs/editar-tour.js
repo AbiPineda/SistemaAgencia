@@ -20,7 +20,6 @@ $(document).ready(function () {
    let cantidad = document.getElementById("cantidad");
    const htmlOtrasOpciones = $('#otras_opciones').clone();
    const htmlPromociones = $('#promocione_especiales').clone();
-   const $contenedorLugar = $("#contenedor_lugar");
    const $grupoLugar = $("[name='grupo_lugar']").clone();
 
 
@@ -705,17 +704,18 @@ $(document).ready(function () {
          document.getElementById("cantidad").value = response.cupos;
          $('#fecha_salida').daterangepicker({ startDate: moment(response.start), endDate: moment(response.end) });
          for (let index = 0; index < response.no_incluye.length; index++) {
+            let label = $('#labelLugar');
             
             if(index ==0){
+               ///si es el primero solo lo insertamos 
               let $original  = $("[name='grupo_lugar']");
-              console.log( response.no_incluye[index]);
-
-              $original.find('input').val(response.no_incluye[index]);
+               $original.find('input').val(response.no_incluye[index]);
+              //verificamos si no hay mas elementos 
             }else{
                let $copia = $grupoLugar.clone();
                $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
                $copia.find('input').val(response.no_incluye[index]);
-               $copia.appendTo($contenedorLugar);
+               $copia.insertAfter(label);
             }
 
          }
