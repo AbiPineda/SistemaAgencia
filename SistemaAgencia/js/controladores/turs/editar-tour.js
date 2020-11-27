@@ -20,6 +20,8 @@ $(document).ready(function () {
    let cantidad = document.getElementById("cantidad");
    const htmlOtrasOpciones = $('#otras_opciones').clone();
    const htmlPromociones = $('#promocione_especiales').clone();
+   const $contenedorLugar = $("#contenedor_lugar");
+   const $grupoLugar = $("[name='grupo_lugar']").clone();
 
 
    let tabla = $('#TablaCostos').DataTable({
@@ -34,9 +36,9 @@ $(document).ready(function () {
 
       "columnDefs": [
          { "className": "dt-center", "targets": "_all" },
-         { "targets": [6], "visible": false },
-         { "targets": [7], "visible": false },
-         { "targets": [8], "visible": false },
+         // { "targets": [6], "visible": false },
+         // { "targets": [7], "visible": false },
+         // { "targets": [8], "visible": false },
       ]
    });
    //CUANDO HAY CAMBIOS EN EL COMBO TUR
@@ -695,16 +697,30 @@ $(document).ready(function () {
          method: "GET"
       }).done(function (response) {
          console.log(response);
-      
+
          // //CARGAMOS EL COSTO AL INPUT
-         // document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-         // document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-         // document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-         // document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-         // document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-         // document.getElementById("imgContactoTur").src = DATA_TUR[0].url
+         document.getElementById("nombreTours").value = response.nombre;
+         document.getElementById("descripcion_tur").value = response.descripcion_tur;
+         document.getElementById("CostoPasaje").value = response.precio;
+         document.getElementById("cantidad").value = response.cupos;
+         $('#fecha_salida').daterangepicker({ startDate: moment(response.start), endDate: moment(response.end) });
+         for (let index = 0; index < response.no_incluye.length; index++) {
+            
+            if(index ==0){
+              let $original  = $("[name='grupo_lugar']");
+              console.log( response.no_incluye[index]);
+
+              $original.find('input').val(response.no_incluye[index]);
+            }else{
+               let $copia = $grupoLugar.clone();
+               $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+               $copia.find('input').val(response.no_incluye[index]);
+               $copia.appendTo($contenedorLugar);
+            }
+
+         }
       }).fail(function (response) {
-        console.log(response);
+         console.log(response);
 
       }).always(function (xhr, opts) {
          // $('#loading').hide();
