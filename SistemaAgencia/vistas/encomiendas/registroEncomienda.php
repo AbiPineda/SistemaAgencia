@@ -44,16 +44,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <!--Una fila para jugar-->
                           
                                     <div class="row">
-                                       <div class="col-lg-1"></div>
-                                        <div class="col-lg-5">
-                                            <div class="form-group">
-                                                <label for="cars">Seleccione la Empresa</label>
-                                                <select name='empresa' id='empresa' class="form-control">
-                                                    <option value="">Seleccione</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
+                                       <div class="col-lg-3"></div>
                                         <div class="col-sm-5">
                                         <div class="form-group">
                                             <label for="cars">Seleccione el Cliente:</label>
@@ -72,16 +63,128 @@ include_once '../../plantillas/barra_lateral.php';
 
                          <!-- timeline item -->
                         <div id="formulario">
+                            <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                         <h3 class="timeline-header"><a href="#">Registro de encomienda</a></h3>
+                          
+                            <div class="timeline-body">
+                            <form id="register-form" name="register-form" onsubmit="return false">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                           <label for="cars">Seleccione el departamento</label>
+                                              <select name="depto" id="depto" class="form-control">
+                                                <option value="">Seleccione</option>
+                                            </select>
+                                        </div></div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="cars">Seleccione el municipio</label>
+                                              <select name="id_municipios" id="id_municipios" class="form-control">
+                                                <option value="">Seleccione</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Punto de referencia</label>
+                                             <input name="punto_referencia" type="text" class="form-control" placeholder="Introduzca el punto de referencia">
+                                          </div></div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                             <input name="direccion" type="text" class="form-control" placeholder="Introduzca la Dirección">
+                                          </div></div>
+                                    <div class="col-sm-6">
+                                       <div class="form-group">
+                                            <label for="cars">Seleccione el Producto</label>
+                                           <select name="producto" id="id_producto" class="form-control">
+                                                <option value="">Seleccione</option>
+                                            </select> 
+                                             </div>
+                                    </div>
+                                   
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                            <label for="cars">Costo</label>
+                                            <input name="costo" id="costo" type="text" class="form-control" placeholder="Costo">
+                                       </div>
+                                  </div>
+                                   <div class="col-sm-3">
+                                       <div class="form-group">
+                                        <label for="cars">Ingrese la Cantidad</label>
+                                          <input name="antidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad">
+                                          </div></div>
+                               </div>
+                               <div class="timeline-footer" style="text-align: right;">
+                                <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+                                </div>
+                               </form></div></div>
                          
                         </div>
                         <!-- END timeline item -->
                          <!-- timeline item -->
                         <div id="tabla">
+                     <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+                          <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
+                            <div class="timeline-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                       <table id="add-tabla" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr style="text-align: center;">
+                                                    <th>Producto</th>
+                                                    <th>Costo</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="text-align: center;">
+                                                   <td>Acetaminofén</td>
+                                                    <td>$48.20</td>
+                                                    <td>2 Lbs</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                       </table>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                    <div style="text-align: right;width:475px;margin-top: 27px;">
+                                        <label> Total de Encomienda: </label> <label> $84.09</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                          
                         </div>
                         <!-- END timeline item -->
                         <!-- timeline item -->
-                        <div id="botones"></div>
+                        <div id="botones">
+                            <i class="fas fa-save bg-green"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-save"></i>Guardar</span>
+                               <h3 class="timeline-header"><a href="#">Guardar Información</a></h3>
+                                <div class="timeline-body">
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-10"></div>
+                                          <div class="col-lg-1"></div>
+                                        <div style="text-align: right;width:577px;margin-top:-8px;">
+                                 <a class="btn btn-primary btn-sm" id="btn-perso" style="color: white">Guardar</a>
+                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                </div></div></div></div>
+                        </div>
                         <!-- END timeline item -->
 
                         <!-- timeline time label -->
@@ -100,15 +203,15 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 <div id="script"></div>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-empresa.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/deptos.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/producto.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/creacion-encomienda.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script>
-          /* $(function () {
+$(function () {
         $('#add-tabla').DataTable({
             "paging": true,
             "lengthChange": false,
@@ -118,7 +221,7 @@ include_once '../../plantillas/barra_lateral.php';
             "autoWidth": false,
             "responsive": true,
         });
-    });*/
+    });
 </script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

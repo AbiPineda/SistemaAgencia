@@ -162,18 +162,6 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/encomiendas/empresa.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro de Empresa</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/encomiendas/registro_operacion.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Registro operación</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/encomiendas/registroEncomienda.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registro Encomienda</p>
