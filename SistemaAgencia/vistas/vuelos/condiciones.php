@@ -1,9 +1,8 @@
-<?php
-include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
+<?php include_once '../../config/parametros.php'; ?>
+<?php include_once '../../plantillas/cabecera.php'; ?>
+<!-- COLORAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
 <style>
 .center {
     display: block;
@@ -12,6 +11,11 @@ include_once '../../plantillas/barra_lateral.php';
     width: 75%;
 }
 </style>
+<!-- CONTINUAMOS CON LA INICIALIZACION -->
+<?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
+
+
+
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -41,82 +45,37 @@ include_once '../../plantillas/barra_lateral.php';
                         <h3 class="card-title">Condiciones para Cotización de Vuelos</h3>
                         <div class="timeline-footer" style="text-align: right;">
                             <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
-                                data-target="#modal-clase">Nueva Condición</a>
+                                data-target="#modal-condiciones">Nueva Condición</a>
+
+
                         </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div id="tabla_vehiculos1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_vehiculos1"
-                                        class="table table-bordered table-striped dataTable dtr-inline" role="grid"
-                                        aria-describedby="tabla_vehiculos1_info">
-                                        <thead>
-                                            <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Rendering engine: activate to sort column descending">
-                                                    Identificador</th>
-                                                <th class="sorting" tabindex="0" aria-controls="tabla_vehiculos1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Browser: activate to sort column ascending">
-                                                    Condición</th>
-
+                                    <table id="tabla_condiciones" class="table table-bordered table-striped">
+                                        <thead style="text-align: center;">
+                                            <tr>
+                                                <th>Identificador</th>
+                                                <th>Condición</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr role="row" class="odd" style="text-align: left;">
-                                                <td tabindex="0" class="sorting_1">1</td>
-                                                <td tabindex="0" class="sorting_1">
-                                                    Verificar documentación en orden, pasaporte valido para 6 meses,
-                                                    cartas de invitación cuando sean requeridas, permisos o actas
-                                                    notables de acuerdo a la Ley Lepina para menores de 18 años.
-                                                </td>
+                                        <!-- /.inicio de loading -->
+                                        <div class="overlay-wrapper">
+                                            <div id="loading" class="overlay"><i
+                                                    class="fas fa-3x fa-sync-alt fa-spin"></i>
 
+                                                <div class="text-bold pt-2">Cargando...
+                                                </div>
+                                            </div>
+                                            <tbody id="tableBody" style="text-align: center;">
+                                            </tbody>
+                                        </div>
+                                        <!-- /.fin de loading -->
 
-                                                <td>
-                                                    <div class="btn-group">
-
-                                                        <button type="button" class="btn btn-primary"><i
-                                                                class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                        <button type="button" class="btn btn-warning"><i
-                                                                class="fas fa-long-arrow-alt-down"
-                                                                style="color: white"></i></button>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr role="row" class="odd" style="text-align: left;">
-                                                <td tabindex="0" class="sorting_1">2</td>
-                                                <td tabindex="0" class="sorting_1">
-                                                    Boletos aereos no reembolsables, no endosables y no transferibles.
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group">
-
-                                                        <button type="button" class="btn btn-primary"><i
-                                                                class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                        <button type="button" class="btn btn-warning"><i
-                                                                class="fas fa-long-arrow-alt-down"
-                                                                style="color: white"></i></button>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr style="text-align: center;">
-                                                <th rowspan="1" colspan="1">Identificador</th>
-                                                <th rowspan="1" colspan="1">Condición</th>
-
-
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -131,79 +90,74 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
         <!-- /.row -->
     </section>
-    <!-- /.content -->
 </div>
-<div class="modal fade" id="modal-clase">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="timeline">
-
-                                <div>
-                                    <i class="fas fa-plane bg-blue"></i>
-                                    <div class="timeline-item">
-
-                                        <h3 class="timeline-header"><a href="#">Registrar Condición</a> </h3>
-
-                                        <div class="timeline-body">
-                                            <!-- INICIO de primera fila -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <label>Descripción</label>
-                                                        <textarea class="form-control" rows="6"
-                                                            placeholder="Digitar aqui en que consiste la Condición..."></textarea>
-                                                    </div>
-
-                                                </div>
-                                            </div>
+<!-- End Modal Mostrar-->
 
 
-                                        </div>
-                                        <div class="timeline-footer" style="text-align: right;">
-                                            <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                            <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                        </div>
-                                    </div>
+
+
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-editar">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modificar Condición</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Condición</label>
+                                    <textarea class="form-control" rows="3" name="condiciones" id="condiciones"
+                                        placeholder="Describir en que consiste la condición.."></textarea>
                                 </div>
                             </div>
+
+                            
                         </div>
+
                     </div>
-                </section>
-                <p>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                            style="color: white">Actualizar</button>
+                    </div>
+                </div>
             </div>
-
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+    <!-- End Modal EDITAR-->
+</form>
 
 
 
-<?php
-  include_once '../../plantillas/footer.php';
-?>
+
+<!-- /.MODALES DE BOTONES PARA INSERTAR -->
+
+<!-- /.Cierre de MODAL MARCA -->
 
 
-<script>
-$(function() {
-    $("#tabla_vehiculos1").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-    });
+<?php 
+ include_once './modal-condicion.php';
+ include_once '../../plantillas/footer.php';?>
 
-});
-</script>
+<!-- SCRIPT ADICIONALES -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/condiciones-app.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+<?php  include_once '../../plantillas/cierre.php';?>
