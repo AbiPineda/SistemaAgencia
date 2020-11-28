@@ -3,7 +3,7 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Usuario/obtenerUsuario?nivel=CLIENTE",
-            async: false,
+          
             dataType: "json",
             success: function(data) {
         
