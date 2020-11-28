@@ -105,18 +105,18 @@ include_once '../../plantillas/barra_lateral.php';
                                    
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                            <label for="cars">Costo</label>
+                                            <label for="cars">Costo($)</label>
                                             <input name="costo" id="costo" type="text" class="form-control" placeholder="Costo">
                                        </div>
                                   </div>
                                    <div class="col-sm-3">
                                        <div class="form-group">
-                                        <label for="cars">Ingrese la Cantidad</label>
-                                          <input name="antidad" id="cantidad" type="text" class="form-control" placeholder="Cantidad">
+                                        <label for="cars">Ingrese la Cantidad(Lbs)</label>
+                                          <input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Lbs">
                                           </div></div>
                                </div>
                                <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" style="color: white">Agregar</a>
+                                <a class="btn btn-info btn-sm" id="agregarTabla" style="color: white">Agregar</a>
                                 </div>
                                </form></div></div>
                          
@@ -137,21 +137,14 @@ include_once '../../plantillas/barra_lateral.php';
                                                     <th>Producto</th>
                                                     <th>Costo</th>
                                                     <th>Cantidad</th>
+                                                    <th>Sub Total</th>
                                                     <th>Acción</th>
+                                                    <th>id</th>
+                                                    <th>contador</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr style="text-align: center;">
-                                                   <td>Acetaminofén</td>
-                                                    <td>$48.20</td>
-                                                    <td>2 Lbs</td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                               
                                             </tbody>
 
                                        </table>
@@ -159,7 +152,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                     <div class="col-sm-12">
                                     <div style="text-align: right;width:475px;margin-top: 27px;">
-                                        <label> Total de Encomienda: </label> <label> $84.09</label>
+                                        <label> Total de Encomienda: </label> <label id="total"></label>
                                         </div>
                                     </div>
 
@@ -202,26 +195,12 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<div id="script"></div>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/deptos.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/producto.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/creacion-encomienda.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<script>
-$(function () {
-        $('#add-tabla').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/deptos.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/producto.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tablas-add.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

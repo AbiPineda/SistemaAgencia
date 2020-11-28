@@ -28,7 +28,7 @@ $(document).ready(function() {
         $(function () {
         $("#id_producto").change(function () {
            var indicador = document.getElementById("id_producto").value;
-           alert(indicador);
+           //alert(indicador);
            $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Tarifa/tarifas?id_producto="+indicador,
