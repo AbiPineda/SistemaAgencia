@@ -21,6 +21,10 @@ $(document).ready(function () {
    const htmlOtrasOpciones = $('#otras_opciones').clone();
    const htmlPromociones = $('#promocione_especiales').clone();
    const $grupoLugar = $("[name='grupo_lugar']").clone();
+   const $grupo_incluye = $("[name='grupo_incluye']").clone();
+   const $grupo_noIncluye = $("[name='grupo_noIncluye']").clone();
+   const $grupo_requisitos = $("[name='grupo_requisitos']").clone();
+   const $grupo_promociones = $('#promocione_especiales').clone();
 
 
    let tabla = $('#TablaCostos').DataTable({
@@ -690,43 +694,62 @@ $(document).ready(function () {
       $("#contenedorPromociones").html(htmlPromociones);
    }
    function setDatos() {
-
       $.ajax({
          url: URL_SERVIDOR + "TurPaquete/showEdit?id_tours=" + ID_TUR,
          method: "GET"
       }).done(function (response) {
-         console.log(response);
-
          // //CARGAMOS EL COSTO AL INPUT
          document.getElementById("nombreTours").value = response.nombre;
          document.getElementById("descripcion_tur").value = response.descripcion_tur;
          document.getElementById("CostoPasaje").value = response.precio;
          document.getElementById("cantidad").value = response.cupos;
          $('#fecha_salida').daterangepicker({ startDate: moment(response.start), endDate: moment(response.end) });
-         for (let index = 0; index < response.no_incluye.length; index++) {
-            let label = $('#labelLugar');
-            
-            if(index ==0){
-               ///si es el primero solo lo insertamos 
-              let $original  = $("[name='grupo_lugar']");
-               $original.find('input').val(response.no_incluye[index]);
-              //verificamos si no hay mas elementos 
-            }else{
-               let $copia = $grupoLugar.clone();
-               $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-               $copia.find('input').val(response.no_incluye[index]);
-               $copia.insertAfter(label);
-            }
 
-         }
+         AgregarItems(response.lugar_salidas, $('#labelLugar'), $("[name='grupo_lugar']"), $grupoLugar);
+         AgregarItems(response.incluye, $('#labelIncluye'), $("[name='grupo_incluye']"), $grupo_incluye);
+         AgregarItems(response.no_incluye, $('#labelNoIncluye'), $("[name='grupo_noIncluye']"), $grupo_noIncluye);
+         AgregarItems(response.requisitos, $('#labelRequisito'), $("[name='grupo_requisitos']"), $grupo_requisitos);
+         AgregarItemPromociones(response.promociones, $('#labelPromociones'), $('#promocione_especiales'), $grupo_promociones);
+
       }).fail(function (response) {
          console.log(response);
 
-      }).always(function (xhr, opts) {
-         // $('#loading').hide();
       });
    }
+   function AgregarItems(arreglo, label, $original, $grupo) {
+      for (let index = 0; index < arreglo.length; index++) {
+         if (index == 0) {
+            $original.find('input').val(arreglo[index]);
+            //verificamos si no hay mas elementos 
+         } else {
+            let $copia = $grupo.clone();
+            $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+            $copia.find('input').val(arreglo[index]);
+            $copia.insertAfter(label);
+         }
+      }
+   }
 
+   function AgregarItemPromociones(arreglo, label, $original, $grupo) {
+      console.log(arreglo);
+      for (let index = 0; index < arreglo.length; index++) {
+         
+         if (index == 0) {
+            $original.find('[name ="titulos[]"]').val(arreglo[index].titulo);
+            $original.find('[name ="asientos[]"]').val(arreglo[index].asiento);
+            $original.find('[name ="pasajes[]"]').val(arreglo[index].pasaje);
+         } else {
+            
+            let $copia = $grupo.clone();
+            $copia.find('button').toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
+            $copia.find('[name ="titulos[]"]').val(arreglo[index].titulo);
+            $copia.find('[name ="asientos[]"]').val(arreglo[index].asiento);
+            $copia.find('[name ="pasajes[]"]').val(arreglo[index].pasaje);
+            $copia.insertAfter(label);
+         }
+
+      }
+   }
 
 });
 

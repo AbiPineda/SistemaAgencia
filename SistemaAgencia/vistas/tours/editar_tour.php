@@ -435,8 +435,8 @@
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
-                                       <label>El viaje incluye</label>
-                                       <div class="form-group multiple-form-group input-group">
+                                       <label id="labelIncluye">El viaje incluye</label>
+                                       <div class="form-group multiple-form-group input-group" name="grupo_incluye">
                                           <input type="text" name="incluye[]" class="form-control"
                                              placeholder="¿Qué incluye el viaje?">
                                           <span class="input-group-btn">
@@ -446,8 +446,8 @@
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
-                                       <label>El viaje no incluye</label>
-                                       <div class="form-group multiple-form-group input-group">
+                                       <label id="labelNoIncluye">El viaje no incluye</label>
+                                       <div class="form-group multiple-form-group input-group" name='grupo_noIncluye'>
                                           <input type="text" name="no_incluye[]" class="form-control"
                                              placeholder="¿Qué incluye no incluye viaje?">
                                           <span class="input-group-btn">
@@ -457,8 +457,8 @@
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
-                                       <label>Requisitos</label>
-                                       <div class="form-group multiple-form-group input-group">
+                                       <label id="labelRequisito">Requisitos</label>
+                                       <div class="form-group multiple-form-group input-group" name="grupo_requisitos">
                                           <input type="text" name="requisitos[]" class="form-control"
                                              placeholder="Digite los requisitos">
                                           <span class="input-group-btn">
@@ -493,6 +493,8 @@
                                  </div>
                               </div>
                               <div id="contenedorPromociones">
+                                 <div id="labelPromociones"> </div>
+
                                  <div class="row" id="promocione_especiales">
                                     <div class="col-sm-4">
                                        <div class="form-group multiple-form-group input-group">
@@ -517,42 +519,16 @@
                                  </div>
                               </div>
                            </div>
-                        </div>
-                     </div>
-                     <!-- END timeline item -->
-                     <!-- timeline item -->
-                     <div>
-                        <i class="fas fa-image bg-green"></i>
-                        <div class="timeline-item">
-
-                           <h3 class="timeline-header no-border">
-                              <a href="#">Galería
-                                 de
-                                 Imagenes</a>
-                           </h3>
-                           <div class="timeline-body">
-
-                              <div class="row">
-                                 <div class="col-sm-12">
-
-                                    <label>Seleccione
-                                       Imagenes</label>
-                                    <div class="file-loading">
-                                       <input type="file" multiple name="fotos[]" id="fotos">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
                               <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
                                  style="color: white">Guardar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>
-
                         </div>
                      </div>
                      <!-- END timeline item -->
+
 
                   </div>
                </div>
