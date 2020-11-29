@@ -93,7 +93,7 @@ $(document).ready(function () {
          let mytur = $('#ComboTur').select2('data');
          let nombre = mytur[0].text;
          let id = mytur[0].id;
-         contadorTabla++;
+
          ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
          //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
          let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
@@ -299,6 +299,7 @@ $(document).ready(function () {
       });
    }
    function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
+      contadorTabla++;
       let subTotoal = (precio * cantidad).toFixed(2);
       let html = "";
       html += '<td>';
@@ -699,6 +700,7 @@ $(document).ready(function () {
          method: "GET"
       }).done(function (response) {
          // //CARGAMOS EL COSTO AL INPUT
+         console.log(response);
          document.getElementById("nombreTours").value = response.nombre;
          document.getElementById("descripcion_tur").value = response.descripcion_tur;
          document.getElementById("CostoPasaje").value = response.precio;
@@ -710,7 +712,9 @@ $(document).ready(function () {
          AgregarItems(response.no_incluye, $('#labelNoIncluye'), $("[name='grupo_noIncluye']"), $grupo_noIncluye);
          AgregarItems(response.requisitos, $('#labelRequisito'), $("[name='grupo_requisitos']"), $grupo_requisitos);
          AgregarItemPromociones(response.promociones, $('#labelPromociones'), $('#promocione_especiales'), $grupo_promociones);
-
+         AgregarFilaServicio(response.servicios, response.cupos);
+         AgregarFilaSitios(response.turs, response.cupos);
+        
       }).fail(function (response) {
          console.log(response);
 
@@ -731,15 +735,14 @@ $(document).ready(function () {
    }
 
    function AgregarItemPromociones(arreglo, label, $original, $grupo) {
-      console.log(arreglo);
       for (let index = 0; index < arreglo.length; index++) {
-         
+
          if (index == 0) {
             $original.find('[name ="titulos[]"]').val(arreglo[index].titulo);
             $original.find('[name ="asientos[]"]').val(arreglo[index].asiento);
             $original.find('[name ="pasajes[]"]').val(arreglo[index].pasaje);
          } else {
-            
+
             let $copia = $grupo.clone();
             $copia.find('button').toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
             $copia.find('[name ="titulos[]"]').val(arreglo[index].titulo);
@@ -750,6 +753,34 @@ $(document).ready(function () {
 
       }
    }
+   function AgregarFilaServicio(arreglo, cantidad) {
+      arreglo.forEach(element => {
+         let porPasajero = 'si';
+         if (element.por_usuario == '0') {
+            porPasajero = 'no';
+            cantidad = 1;
+         }
+         agregarFila(element.nombre_servicio, element.costo, cantidad, porPasajero, 'servicio', element.id_servicios);
+
+      });
+      modificarIngresos();
+      modificarGanancias();
+   }
+   function AgregarFilaSitios(arreglo, cantidad) {
+      arreglo.forEach(element => {
+         let porPasajero = 'si';
+         if (element.por_usuario == '0') {
+            porPasajero = 'no';
+            cantidad = 1;
+         }
+         agregarFila(element.nombre_sitio, element.costo, cantidad, porPasajero, 'tur', element.id_sitio_turistico);
+
+      });
+      modificarIngresos();
+      modificarGanancias();
+   }
+
+
 
 });
 
