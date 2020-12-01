@@ -11,9 +11,9 @@ include_once '../../plantillas/cabecera.php';
 <link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 
+<link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
@@ -62,8 +62,8 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Ciudad de Partida</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Digite nombre del Lugar">
+                                                <input type="text" class="form-control" name="ciudad_partida"
+                                                    id="ciudad_partida" placeholder="Digite nombre del Lugar">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -74,43 +74,21 @@ include_once '../../plantillas/cabecera.php';
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <label>Hora</label>
-                                                <select class="form-control">
-                                                    <option>00:00</option>
-                                                    <option>01:00</option>
-                                                    <option>02:00</option>
-                                                    <option>03:00</option>
-                                                    <option>04:00</option>
-                                                    <option>05:00</option>
-                                                    <option>06:00</option>
-                                                    <option>07:00</option>
-                                                    <option>08:00</option>
-                                                    <option>08:00</option>
-                                                    <option>10:00</option>
-                                                    <option>11:00</option>
-                                                    <option>12:00</option>
-                                                    <option>13:00</option>
-                                                    <option>14:00</option>
-                                                    <option>15:00</option>
-                                                    <option>16:00</option>
-                                                    <option>17:00</option>
-                                                    <option>18:00</option>
-                                                    <option>19:00</option>
-                                                    <option>20:00</option>
-                                                    <option>21:00</option>
-                                                    <option>22:00</option>
-                                                    <option>23:00</option>
-                                                </select>
+                                            <label>Hora de Llegada</label>
+                                            <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" id="timepicker" name="start" class="form-control"
+                                                    value="08:00" />
+
                                             </div>
+
                                         </div>
 
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Ciudad de Llegada</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Digite nombre del Lugar">
+                                                <input type="text" class="form-control" name="ciudad_llegada"
+                                                    id="ciudad_llegada" placeholder="Digite nombre del Lugar">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -121,35 +99,13 @@ include_once '../../plantillas/cabecera.php';
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <label>Hora</label>
-                                                <select class="form-control">
-                                                    <option>00:00</option>
-                                                    <option>01:00</option>
-                                                    <option>02:00</option>
-                                                    <option>03:00</option>
-                                                    <option>04:00</option>
-                                                    <option>05:00</option>
-                                                    <option>06:00</option>
-                                                    <option>07:00</option>
-                                                    <option>08:00</option>
-                                                    <option>08:00</option>
-                                                    <option>10:00</option>
-                                                    <option>11:00</option>
-                                                    <option>12:00</option>
-                                                    <option>13:00</option>
-                                                    <option>14:00</option>
-                                                    <option>15:00</option>
-                                                    <option>16:00</option>
-                                                    <option>17:00</option>
-                                                    <option>18:00</option>
-                                                    <option>19:00</option>
-                                                    <option>20:00</option>
-                                                    <option>21:00</option>
-                                                    <option>22:00</option>
-                                                    <option>23:00</option>
-                                                </select>
+                                            <label>Hora de Llegada</label>
+                                            <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" id="timepicker2" name="start" class="form-control"
+                                                    value="08:00" />
+
                                             </div>
+
                                         </div>
                                     </div>
 
@@ -157,25 +113,29 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Adultos (+12 años)</label>
-                                                <input type="number" class="form-control" min="1" max="100">
+                                                <input type="number" class="form-control" min="1" max="100"
+                                                    name="adultos" id="adultos">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Niños (5 a 11 años)</label>
-                                                <input type="number" class="form-control" min="1" max="10">
+                                                <input type="number" class="form-control" min="1" max="10" name="ninos"
+                                                    id="ninos">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Bebés (0 a 4 años)</label>
-                                                <input type="number" class="form-control" min="1" max="3">
+                                                <input type="number" class="form-control" min="1" max="3" name="bebes"
+                                                    id="bebes">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Cantidad de Maletas</label>
-                                                <input type="number" class="form-control" min="1" max="3">
+                                                <input type="number" class="form-control" min="1" max="3" name="maletas"
+                                                    id="maletas">
                                             </div>
                                         </div>
                                     </div>
@@ -247,30 +207,31 @@ include_once '../../plantillas/cabecera.php';
                         <!-- END timeline item -->
                         <!-- timeline item -->
                         <div>
-                        <i class="fas fa-comments bg-yellow"></i>
-                        <div class="timeline-item">
+                            <i class="fas fa-comments bg-yellow"></i>
+                            <div class="timeline-item">
 
-                            <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
-                                                cartas de invitación cuando sean requeridas, permisos o actas notables
-                                                de acuerdo a la Ley Lepina para menores de 18 años.</label>
-                                            <label>*Boletos aereos no reembolsables, no endosables y no
-                                                transferibles.</label>
+                                <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
+                                <div class="timeline-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
+                                                    cartas de invitación cuando sean requeridas, permisos o actas
+                                                    notables
+                                                    de acuerdo a la Ley Lepina para menores de 18 años.</label>
+                                                <label>*Boletos aereos no reembolsables, no endosables y no
+                                                    transferibles.</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                </div>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -298,9 +259,24 @@ $(function() {
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
 
+    $(document).ready(function() {
+        $('#timepicker').mdtimepicker(); //Initializes the time picker
+    });
+
+    $(document).ready(function() {
+        $('#timepicker2').mdtimepicker(); //Initializes the time picker
+    });
+
 })
 </script>
+
+
+
+
 <!-- jquery-validation -->
+
+<script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
+
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
