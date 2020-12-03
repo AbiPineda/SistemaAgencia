@@ -40,7 +40,7 @@ include_once '../../plantillas/cabecera.php';
 
     <!-- Main content -->
     <section class="content">
-        <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+    <form id="register-cotizarv" name="register-form" onsubmit="return false">
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
@@ -58,6 +58,7 @@ include_once '../../plantillas/cabecera.php';
 
                                 <div class="timeline-body">
                                     <div class="row">
+                                    
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
@@ -70,7 +71,7 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Fecha</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" name="fechaPartida" id="fechaPartida">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -95,7 +96,7 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Fecha</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" name="fechaLlegada" id="fechaLlegada">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -225,7 +226,8 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                     </div>
                                     <div class="timeline-footer" style="text-align: right;">
-                                        <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
+                                        <button name="btnGuardarCotizacion" id="btnGuardarCotizacion"
+                                            class="btn btn-info btn-sm" style="color: white">Guardar</button>
                                         <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                     </div>
 
