@@ -526,17 +526,14 @@
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border">
-                              <a href="#">Galería
-                                 de
-                                 Imagenes</a>
+                              <a href="#">Galería de Imagenes</a>
                            </h3>
                            <div class="timeline-body">
 
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione
-                                       Imagenes</label>
+                                    <label>Seleccione Imagenes</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotos[]" id="fotos">
                                     </div>

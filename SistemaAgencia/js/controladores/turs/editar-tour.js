@@ -733,7 +733,6 @@ $(document).ready(function () {
          }
       }
    }
-
    function AgregarItemPromociones(arreglo, label, $original, $grupo) {
       for (let index = 0; index < arreglo.length; index++) {
 
