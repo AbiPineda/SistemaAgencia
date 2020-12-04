@@ -37,36 +37,9 @@ $(document).ready(function () {
             let id = document.getElementById("id_producto").value;
             let combo = document.getElementById("id_producto");
             let nombre = combo.options[combo.selectedIndex].text;
-
-            
-
-            if (contadorTabla) {
-                console.log("if 1");
-         tabla.rows().every(function (value, index) {
-            let data = this.data();
-             if(data[5]== id){
-                 data[2]+= cantidad;
-                 modificarTotal();
-
-            
-            }else{
-                 contadorTabla++;
                    
             agregarFila(nombre,costo, cantidad, id);   
-            }
-          });     
-        }else{
-             console.log("else 1")
-
-             contadorTabla++;
-                   
-            agregarFila(nombre,costo, cantidad, id);
-
-        }
-                    
-           
-
-           
+                  
           
         }
     });
