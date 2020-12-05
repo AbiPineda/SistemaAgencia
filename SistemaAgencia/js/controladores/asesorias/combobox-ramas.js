@@ -3,7 +3,6 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Asesoria/ramita",
-            async: false,
             dataType: "json",
             success: function(data) {
 

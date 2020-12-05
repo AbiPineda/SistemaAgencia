@@ -52,17 +52,21 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                            <label>Tarifa</label>
                                             <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
-                                           <label>Comisión</label>
-                                            <input name="comision" type="text" class="form-control" placeholder="Introduzca la comisión" autocomplete="off">
+                                           <label>Unidad de medida</label>
+                                           <select class="form-control" name="unidades_medidas">
+                                                <option value="">Seleccione</option>
+                                               <option value="lbs">Libras</option>
+                                               <option value="unidad">Unidades</option>
+                                           </select>
                                         </div>
                                     </div>
 

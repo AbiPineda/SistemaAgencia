@@ -4,7 +4,6 @@ $(document).ready(function() {
          $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Empresa/deptos",
-            async: false,
             dataType: "json",
             success: function(data) {
 

@@ -110,10 +110,10 @@ include_once '../../plantillas/barra_lateral.php';
                                        </div>
                                   </div>
                                    <div class="col-sm-3">
-                                       <div class="form-group">
-                                        <label for="cars">Ingrese la Cantidad(Lbs)</label>
-                                          <input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Lbs">
-                                          </div></div>
+                                       <div class="form-group" id="mostrar">
+                                        
+                                          </div>
+                                      </div>
                                </div>
                                <div class="timeline-footer" style="text-align: right;">
                                 <a class="btn btn-info btn-sm" id="agregarTabla" style="color: white">Agregar</a>

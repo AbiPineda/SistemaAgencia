@@ -3,7 +3,6 @@ $(document).ready(function() {
     $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Producto/productos",
-            async: false,
             dataType: "json",
             success: function(data) {
 
@@ -32,12 +31,24 @@ $(document).ready(function() {
            $.ajax({
             type: "GET",
             url: URL_SERVIDOR+"Tarifa/tarifas?id_producto="+indicador,
-            async: false,
             dataType: "json",
             success: function(data) {
 
+                let select=$('#mostrar');
+                select.empty();
                 $.each(data.tarifas, function(i,index) {
                     $('#costo').val(index.tarifa);
+
+                    if (index.unidades_medidas=='lbs') {
+                    select.append('<label for="cars">Ingrese la Cantidad(Lbs)</label>'+
+                    '<input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Lbs">');
+                    }
+                    if (index.unidades_medidas=='unidad') {
+                    select.append('<label for="cars">Ingrese la Cantidad(Unidades)</label>'+
+                    '<input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Unidades">');
+                    
+                    }
+                    
 
                 });
             },
