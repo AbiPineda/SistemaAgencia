@@ -6,339 +6,333 @@
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-    type="text/css" />
+   type="text/css" />
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet"
-    type="text/css" />
+   type="text/css" />
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
 <div class="content-wrapper" style="min-height: 1185.73px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Registrar Sitio Turísticos</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>
-                    </ol>
-                </div>
+   <!-- Content Header (Page header) -->
+   <section class="content-header">
+      <div class="container-fluid">
+         <div class="row mb-2">
+            <div class="col-sm-6">
+               <h1>Registrar Sitio Turísticos</h1>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
-            <div class="row">
-                <!-- <div class="offset-md-1"></div> -->
-                <div class="col-md-12">
-                    <div class="overlay-wrapper">
-                        <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
-
-                            <div class="text-bold pt-2">Cargando...
-                            </div>
-                        </div>
-                        <div class="timeline">
-                            <!-- timeline time label -->
-                            <div class="time-label">
-                                <span class="bg-red">Información</span>
-                            </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <i class="fas fa-car bg-blue"></i>
-                                <div class="timeline-item">
-
-                                    <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
-
-                                    <div class="timeline-body">
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <label>Nombre del sitio turístico</label>
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" name="nombre"
-                                                            id="nombre">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <div class="form-group">
-                                                    <label>Precio</label>
-                                                    <div class="input-group">
-                                                        <input type="number" min="0" class=" form-control"
-                                                            name="precio_sitio" id="precio_sitio">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <label>Tipo</label>
-                                                    <select name="ComboTipo" id="ComboTipo"
-                                                        class="select2 select2-hidden-accessible form-control"
-                                                        data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <br>
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-success btn-add"
-                                                        id="btn-nuevoTipo" name="btn-nuevoTipo"
-                                                        style="margin-top: 10px; width: 100%;">+</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Coordenadas</label>
-                                                    <div class="input-group">
-                                                        <input disabled type="text" class="form-control"
-                                                            name="coordenadas" id="coordenadas">
-                                                    </div>
-                                                    <!-- /.input group -->
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <br>
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-success btn-add"
-                                                        name="btn-mapa" style="margin-top: 10px; width: 100%;"
-                                                        id="btn-mapa">
-                                                        <i class="fas fa-globe" style="color: white"></i>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <div class="form-group multiple-form-group input-group">
-                                                    <label>Contacto</label>
-
-                                                    <div class="input-group">
-                                                        <select name="contacto_servicio" id="contacto_servicio"
-                                                            class="select2 select2-hidden-accessible form-control"
-                                                            data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <br>
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
-                                                        name="btn-nuevo"
-                                                        style="margin-top: 10px; width: 100%;">+</button>
-                                                </span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
-                            <div>
-                                <i class="fas fa-user bg-green"></i>
-                                <div class="timeline-item">
-
-                                    <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
-                                    <div class="timeline-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Descripcion del Servicio</label>
-                                                    <textarea name="descripcion" id="descripcion" class="form-control"
-                                                        rows="3" placeholder="Digitar aquí ..."></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div>
-                                <i class="fas fa-image bg-green"></i>
-                                <div class="timeline-item">
-
-                                    <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
-                                    <div class="timeline-body">
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-
-                                                <label>Seleccione Imagenes</label>
-                                                <div class="file-loading">
-                                                    <input type="file" multiple name="fotos[]" id="fotos">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-footer" style="text-align: right;">
-                        <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                        <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                    </div>
-                </div>
+            <div class="col-sm-6">
+               <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                  <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>
+               </ol>
             </div>
-            <!-- END timeline item -->
-        </form>
+         </div>
+      </div><!-- /.container-fluid -->
+   </section>
 
+   <!-- Main content -->
+   <section class="content">
+      <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+         <div class="row">
+            <!-- <div class="offset-md-1"></div> -->
+            <div class="col-md-12">
+               <div class="overlay-wrapper">
+                  <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-    </section>
+                     <div class="text-bold pt-2">Cargando...
+                     </div>
+                  </div>
+                  <div class="timeline">
+                     <!-- timeline time label -->
+                     <div class="time-label">
+                        <span class="bg-red">Información</span>
+                     </div>
+                     <!-- /.timeline-label -->
+                     <!-- timeline item -->
+                     <div>
+                        <i class="fas fa-car bg-blue"></i>
+                        <div class="timeline-item">
 
-    <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
-        <div class="modal fade" id="modal-agregar">
-            <!-- Modal EDITAR-->
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Agregar Contacto</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Nombre de Contacto</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="nombreContacto"
-                                                    id="nombreContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
+                           <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+
+                           <div class="timeline-body">
+                              <div class="row">
+                                 <div class="col-sm-5">
+                                    <div class="form-group">
+                                       <label>Nombre del sitio turístico</label>
+                                       <div class="input-group">
+                                          <input type="text" class="form-control" name="nombre" id="nombre">
+                                       </div>
+                                       <!-- /.input group -->
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Telefono de Contactos</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="telefonoContacto"
-                                                    name="telefonoContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
+                                 </div>
+                                 <div class="col-sm-1">
+                                    <div class="form-group">
+                                       <label>Precio</label>
+                                       <div class="input-group">
+                                          <input type="number" min="0" class=" form-control" name="precio_sitio"
+                                             id="precio_sitio">
+                                       </div>
+                                       <!-- /.input group -->
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Correo Electronico</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="correoContacto"
-                                                    id="correoContacto">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
+                                 </div>
+
+                                 <div class="col-sm-5">
+                                    <div class="form-group">
+                                       <label>Tipo</label>
+                                       <select name="ComboTipo" id="ComboTipo"
+                                          class="select2 select2-hidden-accessible form-control"
+                                          data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                       </select>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <div class="form-group">
-                                    <div class="kv-avatar">
-                                        <label>Foto de Contacto</label>
-                                        <div class="file-loading">
-                                            <input id="foto" name="foto" type="file">
-                                        </div>
+                                 </div>
+                                 <div class="col-sm-1">
+                                    <br>
+                                    <span class="input-group-btn">
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipo"
+                                          name="btn-nuevoTipo" style="margin-top: 10px; width: 100%;">+</button>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-sm-5">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                       <label>Coordenadas</label>
+                                       <div class="input-group">
+                                          <input disabled type="text" class="form-control" name="coordenadas"
+                                             id="coordenadas">
+                                       </div>
+                                       <!-- /.input group -->
                                     </div>
-                                    <!-- /.input group -->
-                                </div>
-                            </div>
+                                 </div>
+                                 <div class="col-sm-1">
+                                    <br>
+                                    <span class="input-group-btn">
+                                       <button type="button" class="btn btn-success btn-add" name="btn-mapa"
+                                          style="margin-top: 10px; width: 100%;" id="btn-mapa">
+                                          <i class="fas fa-globe" style="color: white"></i>
+                                       </button>
+                                    </span>
+                                 </div>
+                                 <div class="col-sm-5">
+                                    <div class="form-group multiple-form-group input-group">
+                                       <label>Contacto</label>
+
+                                       <div class="input-group">
+                                          <select name="contacto_servicio" id="contacto_servicio"
+                                             class="select2 select2-hidden-accessible form-control"
+                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-1">
+                                    <br>
+                                    <span class="input-group-btn">
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
+                                          name="btn-nuevo" style="margin-top: 10px; width: 100%;">+</button>
+                                    </span>
+                                 </div>
+
+                              </div>
+
+                           </div>
+
                         </div>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal EDITAR-->
-    </form>
-    <form id="formularioAgregarTipo" name="formularioAgregarTipo">
-        <div class="modal fade" id="modal-agregarTipo">
-            <!-- Modal EDITAR-->
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Agregar Tipo de Sitio Turistico</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Tipo de Sitio Turistico</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="nombreTipo" id="nombreTipo">
+                     </div>
+                     <!-- END timeline item -->
+                     <!-- timeline item -->
+                     <div>
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+
+                           <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
+                           <div class="timeline-body">
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    <div class="form-group">
+                                       <label>Descripcion del Servicio</label>
+                                       <textarea name="descripcion" id="descripcion" class="form-control" rows="3"
+                                          placeholder="Digitar aquí ..."></textarea>
                                     </div>
-                                </div>
-                            </div>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnAgregarTipo" id="btnAgregarTipo" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
+                     </div>
+
+
+                     <div>
+                        <i class="fas fa-image bg-green"></i>
+                        <div class="timeline-item">
+
+                           <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                           <div class="timeline-body">
+
+                              <div class="row">
+                                 <div class="col-sm-12">
+
+                                    <label>Seleccione Imagenes</label>
+                                    <div class="file-loading">
+                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="timeline-footer" style="text-align: right;">
+                  <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                     style="color: white">Guardar</button>
+                  <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+               </div>
             </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal EDITAR-->
-    </form>
-    <div class="modal fade" id="modal-mapa">
-        <!-- Modal EDITAR-->
-        <div class="modal-dialog modal-lg">
+         </div>
+         <!-- END timeline item -->
+      </form>
+
+
+   </section>
+
+   <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
+      <div class="modal fade" id="modal-agregar">
+         <!-- Modal EDITAR-->
+         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Selecciona la ubicación</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="mapa" style="width: 100%; height: 500px">
-
-                            </div>
+               <div class="modal-header">
+                  <h4 class="modal-title">Agregar Contacto</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-7">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <label>Nombre de Contacto</label>
+                                 <div class="input-group">
+                                    <input type="text" class="form-control" name="nombreContacto" id="nombreContacto">
+                                 </div>
+                                 <!-- /.input group -->
+                              </div>
+                           </div>
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <label>Telefono de Contactos</label>
+                                 <div class="input-group">
+                                    <input type="text" class="form-control" id="telefonoContacto"
+                                       name="telefonoContacto">
+                                 </div>
+                                 <!-- /.input group -->
+                              </div>
+                           </div>
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <label>Correo Electronico</label>
+                                 <div class="input-group">
+                                    <input type="text" class="form-control" name="correoContacto" id="correoContacto">
+                                 </div>
+                                 <!-- /.input group -->
+                              </div>
+                           </div>
                         </div>
-
-                    </div>
-
-                </div>
-                <div class="modal-footer justify-content-end">
-
-                    <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
-                </div>
+                     </div>
+                     <div class="col-sm-5">
+                        <div class="form-group">
+                           <div class="kv-avatar">
+                              <label>Foto de Contacto</label>
+                              <div class="file-loading">
+                                 <input id="foto" name="foto" type="file">
+                              </div>
+                           </div>
+                           <!-- /.input group -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                     style="color: white">Guardar</button>
+               </div>
             </div>
             <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- End Modal EDITAR-->
+   </form>
+   <form id="formularioAgregarTipo" name="formularioAgregarTipo">
+      <div class="modal fade" id="modal-agregarTipo">
+         <!-- Modal EDITAR-->
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title">Agregar Tipo de Sitio Turistico</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <div class="form-group">
+                           <label>Tipo de Sitio Turistico</label>
+                           <div class="input-group">
+                              <input type="text" class="form-control" name="nombreTipo" id="nombreTipo">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button name="btnAgregarTipo" id="btnAgregarTipo" class="btn btn-info btn-sm"
+                     style="color: white">Guardar</button>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- End Modal EDITAR-->
+   </form>
+   <div class="modal fade" id="modal-mapa">
+      <!-- Modal EDITAR-->
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Selecciona la ubicación</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <div id="mapa" style="width: 100%; height: 500px">
+
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+            <div class="modal-footer justify-content-end">
+
+               <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
+            </div>
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
 </div>
 
 
@@ -359,5 +353,6 @@
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
+<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
