@@ -73,6 +73,37 @@ function inicializarValidaciones() {
         });
 
     }
+
+function llenarCombo(){
+
+    $.ajax({
+            type: "GET",
+            url: URL_SERVIDOR+"Producto/productos",
+            dataType: "json",
+            success: function(data) {
+
+                var $select = $('#id_producto');
+                 $select.append('<option value="">Seleccione</option>');
+                $.each(data.product, function(i,index) {
+                    $select.append('<option value=' +index.id_producto+ '>' +index.nombre_producto+
+                        '</option>');
+                });
+            },
+            error: function(err) {
+                $select.append('<option value="">Seleccione</option>');
+                var $select = $('#id_producto');
+              /* const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text:'No hay Ramas para mostrar',
+                showConfirmButton: true,
+            });*/
+            }
+        });
+
+}
+
     
 function add_producto() {
 
@@ -83,6 +114,9 @@ function add_producto() {
 
         }).done(function (response) {
         document.getElementById("register-form").reset();
+        $('#id_producto').empty();
+        llenarCombo();
+         $('#add-producto').modal('hide');
         
         //$('#id_producto').load('#id_producto');
          //$('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO

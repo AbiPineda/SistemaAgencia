@@ -38,8 +38,8 @@ include_once '../../plantillas/barra_lateral.php';
                         <div>
                             <i class="fas fa-comments bg-gradient-blue"></i>
                             <div class="timeline-item">
-                                <span class="time"><i class="fas fa-address-book">Empresas</i></span>
-                                <h3 class="timeline-header"><a href="#">Datos de Empresa y Cliente</a></h3>
+                                <span class="time"><i class="fas fa-address-book">Cliente</i></span>
+                                <h3 class="timeline-header"><a href="#">Datos del Cliente</a></h3>
                                 <div class="timeline-body" style="margin-top: -9px;">
                                     <!--Una fila para jugar-->
                           
@@ -68,7 +68,7 @@ include_once '../../plantillas/barra_lateral.php';
                          <h3 class="timeline-header"><a href="#">Registro de encomienda</a></h3>
                           
                             <div class="timeline-body">
-                            <form id="register-form" name="register-form" onsubmit="return false">
+                            <form id="encomienda-form" name="register-form" onsubmit="return false">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -98,7 +98,7 @@ include_once '../../plantillas/barra_lateral.php';
                                        <div class="form-group">
                                             <label for="cars">Seleccione el Producto</label>
                                            <select name="producto" id="id_producto" class="form-control">
-                                                <option value="">Seleccione</option>
+                                                
                                             </select> 
                                              </div>
                                     </div>
@@ -116,7 +116,8 @@ include_once '../../plantillas/barra_lateral.php';
                                       </div>
                                </div>
                                <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" id="agregarTabla" style="color: white">Agregar</a>
+                            <a class="btn btn-info btn-sm" id="agregarTabla" style="color: white">Agregar</a>
+                            <a class="btn btn-success btn-sm" id="producto-add" style="color: white">Agregar Producto</a>
                                 </div>
                                </form></div></div>
                          
@@ -190,17 +191,89 @@ include_once '../../plantillas/barra_lateral.php';
             </div>
         </div>
     </section>
+     <!-- Modal mostrar-->
+        <div class="modal fade" id="add-producto">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="overlay-wrapper">
+                        <div id="loadingActualizar" class="overlay">
+                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                            <div class="text-bold pt-2">Cargando...
+                            </div>
+                        </div>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Nuevo Producto</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           <form id="register-form" name="register-form" onsubmit="return false">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input name="nombre_producto" type="text" class="form-control" placeholder="Introduzca el nombre" autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                           <label>Tarifa</label>
+                                            <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                           <label>Unidad de medida</label>
+                                           <select class="form-control" name="unidades_medidas">
+                                                <option value="">Seleccione</option>
+                                               <option value="lbs">Libras</option>
+                                               <option value="unidad">Unidades</option>
+                                           </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </form> 
+
+                        </div>
+
+                         <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+
 </div>
 
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+ <script type="text/javascript">
+    $(document).on('click', '#producto-add', function() {
+        $('#add-producto').modal('show');
+        $('#loadingActualizar').hide();
+    });
+    </script>
+
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/deptos.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/producto.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tablas-add.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

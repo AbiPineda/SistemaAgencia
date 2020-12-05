@@ -7,12 +7,14 @@ $(document).ready(function() {
             success: function(data) {
 
                 var $select = $('#id_producto');
+                 $select.append('<option value="">Seleccione</option>');
                 $.each(data.product, function(i,index) {
                     $select.append('<option value=' +index.id_producto+ '>' +index.nombre_producto+
                         '</option>');
                 });
             },
             error: function(err) {
+                $select.append('<option value="">Seleccione</option>');
                 var $select = $('#id_producto');
               /* const Toast = Swal.mixin();
             Toast.fire({
