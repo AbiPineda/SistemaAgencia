@@ -101,9 +101,19 @@ $(document).ready(function () {
         $('#totalCliente').empty();
         $('#totalCliente').text("$" + (TOTAL + COMISION));
     }
+    //BOTON DE ELIMINAR
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
 
-
-
+        tabla.row($(this).parents('tr')).remove().draw();
+        modificarTotal();
+        modificarComision();
+        modificarTotalCliente();
+    });
+    //CAMBIOS EN EL INPUT DE PORCENTAJE
+    $(document).on('keyup mouseup', '#porcenaje', function () {
+        modificarComision();
+        modificarTotalCliente();
+    });
 
 
 });
