@@ -323,7 +323,7 @@ $(document).ready(function () {
         $('#totalGastos').text("$" + totalGastos);
     }
     function modificarIngresos() {
-        totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
+        let totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
         $('#totalIngresos').text("$" + totalIngresos);
     }
     function modificarGanancias() {

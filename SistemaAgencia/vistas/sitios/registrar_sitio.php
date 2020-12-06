@@ -110,7 +110,7 @@
                                     <br>
                                     <span class="input-group-btn">
                                        <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                          style="margin-top: 10px; width: 100%;" id="btn-mapa">
+                                          style="margin-top: 8px; width: 100%; height: 37px;" id="btn-mapa">
                                           <i class="fas fa-globe" style="color: white"></i>
                                        </button>
                                     </span>
