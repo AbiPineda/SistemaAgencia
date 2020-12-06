@@ -17,7 +17,7 @@ $(document).ready(function() {
             console.log(arregloOpciones);
             let form = new FormData();
 
-
+            form.append("id_cliente", document.getElementById("id_cliente").value);
             form.append("ciudad_partida", document.getElementById("ciudad_partida").value);
             form.append("fechaPartida", document.getElementById("fechaPartida").value);
             form.append("HoraPartida", document.getElementById("timepicker").value);

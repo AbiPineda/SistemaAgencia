@@ -40,7 +40,7 @@ include_once '../../plantillas/cabecera.php';
 
     <!-- Main content -->
     <section class="content">
-    <form id="register-cotizarv" name="register-form" onsubmit="return false">
+        <form id="register-cotizarv" name="register-form" onsubmit="return false">
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
@@ -58,7 +58,16 @@ include_once '../../plantillas/cabecera.php';
 
                                 <div class="timeline-body">
                                     <div class="row">
-                                    
+
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nombre del Cliente</label>
+                                                <select name="id_cliente" id="id_cliente" class="form-control">
+                                                    <option disabled="" selected="">Seleccione</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
@@ -71,7 +80,8 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Fecha</label>
-                                                <input type="date" class="form-control" name="fechaPartida" id="fechaPartida">
+                                                <input type="date" class="form-control" name="fechaPartida"
+                                                    id="fechaPartida">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -96,7 +106,8 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Fecha</label>
-                                                <input type="date" class="form-control" name="fechaLlegada" id="fechaLlegada">
+                                                <input type="date" class="form-control" name="fechaLlegada"
+                                                    id="fechaLlegada">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -216,12 +227,9 @@ include_once '../../plantillas/cabecera.php';
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>*Verificar documentación en orden, pasaporte valido para 6 meses,
-                                                    cartas de invitación cuando sean requeridas, permisos o actas
-                                                    notables
-                                                    de acuerdo a la Ley Lepina para menores de 18 años.</label>
-                                                <label>*Boletos aereos no reembolsables, no endosables y no
-                                                    transferibles.</label>
+                                                <p>
+                                                <label name="condiciones" id="condiciones"></label>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -283,9 +291,11 @@ $(function() {
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboAerolinea.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboClase.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboViaje.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/mostrarCondiciones.js"></script>
 
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
