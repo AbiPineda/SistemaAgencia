@@ -20,7 +20,7 @@ $(document).ready(function() {
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: 'No hay Usuarios para mostrar',
+                text: 'No hay Condiciones para mostrar',
                 showConfirmButton: true,
             });
         }
