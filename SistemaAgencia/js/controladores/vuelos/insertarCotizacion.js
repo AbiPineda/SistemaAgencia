@@ -101,6 +101,22 @@ $(document).ready(function() {
                 },
                 idclase: {
                     required: true
+                },
+                adultos: {
+                    required: true,
+                    number: true
+                },
+                ninos: {
+                    required: true,
+                    number: true
+                },
+                bebes: {
+                    required: true,
+                    number: true
+                },
+                maletas: {
+                    required: true,
+                    number: true
                 }
             },
             messages: {
@@ -117,6 +133,18 @@ $(document).ready(function() {
                 },
                 idclase: {
                     required: "Seleccione el tipo de clase"
+                },
+                adultos: {
+                    required: "Ingrese solo numeros"
+                },
+                ninos: {
+                    required: "Ingrese solo numeros"
+                },
+                bebes: {
+                    required: "Ingrese solo numeros"
+                },
+                maletas: {
+                    required: "Ingrese solo numeros"
                 }
 
             },

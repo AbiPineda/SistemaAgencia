@@ -21,8 +21,13 @@ include_once '../../plantillas/cabecera.php';
 
 <style>
 #desborde {
-    overflow: hidden;
+    width:100%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word; 
 }
+
 </style>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -130,28 +135,28 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Adultos (+12 años)</label>
-                                                <input type="number" class="form-control" min="1" max="100"
+                                                <input type="number" class="form-control" min="0" max="100"
                                                     name="adultos" id="adultos">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Niños (5 a 11 años)</label>
-                                                <input type="number" class="form-control" min="1" max="10" name="ninos"
+                                                <input type="number" class="form-control" min="0" max="10" name="ninos"
                                                     id="ninos">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Bebés (0 a 4 años)</label>
-                                                <input type="number" class="form-control" min="1" max="3" name="bebes"
+                                                <input type="number" class="form-control" min="0" max="3" name="bebes"
                                                     id="bebes">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Cantidad de Maletas</label>
-                                                <input type="number" class="form-control" min="1" max="3" name="maletas"
+                                                <input type="number" class="form-control" min="0" max="3" name="maletas"
                                                     id="maletas">
                                             </div>
                                         </div>

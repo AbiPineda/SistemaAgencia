@@ -258,6 +258,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarCotizaciones.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Mostrar Cotizaciones</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vuelos/mostrarAerolineas.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Información de Aerolineas</p>
