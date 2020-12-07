@@ -18,7 +18,7 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Registrar Sitio Turísticos</h1>
+               <h1>Registrar Cliente</h1>
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
@@ -106,7 +106,7 @@
                                     <div class="row">
                                        <div class="col-sm-6">
                                           <div class="form-group">
-                                             <label>Dui</label>
+                                             <label>Dui (opcional)</label>
                                              <div class="input-group">
                                                 <input type="text" class="form-control" id="dui" name="dui">
                                              </div>
@@ -115,7 +115,7 @@
                                        </div>
                                        <div class="col-sm-6">
                                           <div class="form-group">
-                                             <label>Celular</label>
+                                             <label>Célular (opcional)</label>
                                              <div class="input-group">
                                                 <input type="text" class="form-control" id="celular" name="celular">
                                              </div>
@@ -128,7 +128,7 @@
                                  <div class="col-sm-3">
                                     <div class="form-group">
                                        <div class="kv-avatar">
-                                          <label>Foto de Contacto</label>
+                                          <label>Foto de Perfil (opcional)</label>
                                           <div class="file-loading">
                                              <input id="foto" name="foto" type="file">
                                           </div>
@@ -139,12 +139,36 @@
                               </div>
 
                            </div>
+                        </div>
+                     </div>
+                     <!-- END timeline item -->
+                     <!-- timeline item -->
+                     <div>
+                        <i class="fas fa-image bg-green"></i>
+                        <div class="timeline-item">
+
+                           <h3 class="timeline-header no-border">
+                              <a href="#">Documentos Personales</a>
+                           </h3>
+                           <div class="timeline-body">
+
+                              <div class="row">
+                                 <div class="col-sm-12">
+
+                                    <label>Subir imagenes del Dui</label>
+                                    <div class="file-loading">
+                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
                               <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
                                  style="color: white">Guardar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>
+
                         </div>
                      </div>
                      <!-- END timeline item -->

@@ -8,22 +8,12 @@ $(document).ready(function () {
    inicializarMascara();
    $('#loading').hide();
 
-   //BOTON PARA AGREGAR UN NUEVO CONTACTO 
-   $(document).on('click', '#btnAgregar', function (evento) {
-      evento.preventDefault();//para evitar que la pagina se recargue
-      let form = $("#formularioAgregar");
-      form.validate();
-      if (form.valid()) {
-         guardarContacto();
-      }
-   });
    //BOTON DE GUARDAR
    $(document).on('click', '#btnguardar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
       let form = $("#miFormulario");
-      let coordenadas = $('#coordenadas').val();
       form.validate();
-      if (form.valid() && coordenadas) {
+      if (form.valid()) {
          // guardar();
       } else {
          const Toast = Swal.mixin();
@@ -84,18 +74,18 @@ $(document).ready(function () {
                email: true,
                maxlength: 50
             },
-            correo:{
-               required : true,
-               email :true
+            correo: {
+               required: true,
+               email: true
             },
-            password1 : {
-               required : true,
-					minlength : 8
-				},
-				password2 : {
-               required : true,
-					equalTo : "#password1"
-				}
+            password1: {
+               required: true,
+               minlength: 8
+            },
+            password2: {
+               required: true,
+               equalTo: "#password1"
+            }
          },
          messages: {
             nombreCliente: {
@@ -103,18 +93,18 @@ $(document).ready(function () {
                minlength: "Logitud del nombre debe ser mayor a 3",
                maxlength: "Logitud del nombre no debe exceder a 50",
             },
-            correo:{
-               required : "Ingrese el correo",
-               email :"Ingrese un correo valido"
+            correo: {
+               required: "Ingrese el correo",
+               email: "Ingrese un correo valido"
             },
-            password1 : {
-               required : "Ingrese la contraseña",
-					minlength : "Debe tener una longitud minima de 8"
-				},
-				password2 : {
-               required : "Repita la contraseña",
-					equalTo : "Contraseñas no coinciden"
-				}
+            password1: {
+               required: "Ingrese la contraseña",
+               minlength: "Debe tener una longitud minima de 8"
+            },
+            password2: {
+               required: "Repita la contraseña",
+               equalTo: "Contraseñas no coinciden"
+            }
          },
          errorElement: 'span',
          errorPlacement: function (error, element) {
@@ -130,85 +120,28 @@ $(document).ready(function () {
          }
       });
    }
-   function guardarContacto() {
-      $('#loading').show();
-      let form = new FormData();
-
-      let foto_perfil = document.getElementById("foto").files[0];
-      form.append('foto', foto_perfil);
-      form.append("nombre_contacto", document.getElementById("nombreContacto").value);
-      form.append("telefono", document.getElementById("telefonoContacto").value);
-      form.append("correo", document.getElementById("correoContacto").value);
-      form.append("id_contacto", document.getElementById("contacto_servicio"));
-      //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-      $.ajax({
-         url: URL_SERVIDOR + "Contacto/save",
-         method: "POST",
-         mimeType: "multipart/form-data",
-         data: form,
-         timeout: 0,
-         processData: false,
-         contentType: false,
-      }).done(function (response) {
-         //REST_Controller::HTTP_OK
-         let respuestaDecodificada = JSON.parse(response);
-         //AGREGAMOS RESPUESTA AL COMBO
-         let texto = respuestaDecodificada.contacto.nombre_contacto;
-         let id = respuestaDecodificada.id;
-         let newOption = new Option(texto, id, false, false);
-         $('#contacto_servicio').append(newOption).trigger('change');
-         //mandamos un mensaje al usuario
-         const Toast = Swal.mixin();
-         Toast.fire({
-            title: 'Exito...',
-            icon: 'success',
-            text: respuestaDecodificada.mensaje,
-            showConfirmButton: true,
-         }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#formularioAgregar").trigger("reset");
-            $('#modal-agregar').modal('hide');
-         });
-      }).fail(function (response) {
-         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-         console.log(response);
-         let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
-         const Toast = Swal.mixin();
-         Toast.fire({
-            title: 'Oops...',
-            icon: 'error',
-            text: listaErrores,
-            showConfirmButton: true,
-         });
-
-      }).always(function (xhr, opts) {
-         $("#formularioAgregar").trigger("reset");
-         $('#modal-agregar').modal('hide');
-         $('#loading').hide();
-      });
-   }
    function guardar() {
       $('#loading').show();
       let form = new FormData();
-      let myCoordnada = document.getElementById("coordenadas").value;
-      myCoordnada = myCoordnada.split(' ');
+      //ESTO ES PARA LA FOTO DE PERFIL
+      let foto_perfil = document.getElementById("foto").files[0];
+      form.append('foto', foto_perfil);
 
       //ESTO ES PARA L A GALERIA 
       let galeria = document.getElementById("fotos").files;
       for (let i = 0; i < galeria.length; i++) {
          form.append('fotos[]', galeria[i]);
       }
-      form.append("nombre_sitio", document.getElementById("nombre").value);
-      form.append("longitud", myCoordnada[0]);
-      form.append("latitud", myCoordnada[1]);
-      form.append("descripcion_sitio", document.getElementById("descripcion").value);
-      form.append("id_tipo_sitio", document.getElementById("ComboTipo").value);
-      form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
-      form.append("precio_sitio", document.getElementById("precio_sitio").value);
+      form.append("nombre", document.getElementById("nombreCliente").value);
+      form.append("correo", document.getElementById("correo").value);
+      form.append("password", document.getElementById("password2").value);
+      form.append("dui", document.getElementById("dui").value);
+      form.append("celular", document.getElementById("celular").value);
+      form.append("nivel", 'cliente');
 
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/save",
+         url: URL_SERVIDOR + "Usuario/registroUser",
          method: "POST",
          mimeType: "multipart/form-data",
          data: form,
@@ -250,7 +183,6 @@ $(document).ready(function () {
       dui.inputmask("99999999-9");  //static mask
       dui.inputmask({ "mask": "99999999-9" }); //specifying options
       // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
-
    }
 
 });
