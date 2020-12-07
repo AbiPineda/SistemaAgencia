@@ -19,6 +19,11 @@ include_once '../../plantillas/cabecera.php';
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
+<style>
+#desborde {
+    overflow: hidden;
+}
+</style>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
     <!-- Content Header (Page header) -->
@@ -226,27 +231,30 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="timeline-body">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="desborde">
                                                 <p>
-                                                <label name="condiciones" id="condiciones"></label>
+                                                    <!-- <pre> --><label name="condiciones" id="condiciones"></label>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-footer" style="text-align: right;">
-                                        <button name="btnGuardarCotizacion" id="btnGuardarCotizacion"
-                                            class="btn btn-info btn-sm" style="color: white">Guardar</button>
-                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                    </div>
-
                                 </div>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <button name="btnGuardarCotizacion" id="btnGuardarCotizacion"
+                                        class="btn btn-info btn-sm" style="color: white">Guardar</button>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
     </section>
 </div>
+
+
 <!-- END timeline item -->
 
 <?php
