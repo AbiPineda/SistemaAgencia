@@ -180,7 +180,7 @@ include_once '../../plantillas/cabecera.php';
                                     </div>
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <button name="btnGuardarCotizacionV" id="btnGuardarCotizacion"
+                                    <button name="btnGuardarCotizacionV" id="btnGuardarCotizacionV"
                                         class="btn btn-info btn-sm" style="color: white">Guardar</button>
                                     <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
@@ -244,7 +244,7 @@ $(function() {
 
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script src="<?= $base_url ?>js/controladores/vuelos/insertarCotizacion.js"></script>
+<script src="<?= $base_url ?>js/controladores/vehiculos/insertarCotizacionAuto.js"></script>
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
