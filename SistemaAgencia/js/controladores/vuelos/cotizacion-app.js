@@ -61,7 +61,7 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.informacion.length; i < ien; i++) {
 
-                document.getElementById("nombre").value = response.informacion[i].nombre;
+                document.getElementById("nombreCliente").value = response.informacion[i].nombre;
                 document.getElementById("ciudad_partida").value = response.informacion[i].ciudad_partida;
 
 
@@ -100,12 +100,15 @@ $(document).ready(function() {
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnActualizar', function(evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#miFormulario");
+        let form = $("#formularioEditar");
         form.validate();
         if (form.valid()) {
             actualizar();
         }
     });
+
+
+
 
 
     function inicializarTabla() {

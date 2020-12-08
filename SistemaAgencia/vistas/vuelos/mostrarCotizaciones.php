@@ -118,8 +118,7 @@
                                 <div class="form-group">
                                     <label>Cliente</label>
                                     <div class="input-group">
-                                        <input id="nombre" name="nombre" type="text"
-                                            class="form-control" disabled>
+                                        <input id="nombre" name="nombre" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -128,8 +127,7 @@
                                 <div class="form-group">
                                     <label>Telefono</label>
                                     <div class="input-group">
-                                        <input id="celular" name="celular" type="text"
-                                            class="form-control" disabled>
+                                        <input id="celular" name="celular" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -138,8 +136,7 @@
                                 <div class="form-group">
                                     <label>Correo Electronico</label>
                                     <div class="input-group">
-                                        <input id="correo" name="correo" type="text"
-                                            class="form-control" disabled>
+                                        <input id="correo" name="correo" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -158,8 +155,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaPartida" name="fechaPartida" type="text"
-                                            class="form-control" disabled>
+                                        <input id="fechaPartida" name="fechaPartida" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -168,8 +165,8 @@
                                 <div class="form-group">
                                     <label>Hora</label>
                                     <div class="input-group">
-                                        <input id="HoraPartida" name="HoraPartida" type="text"
-                                            class="form-control" disabled>
+                                        <input id="HoraPartida" name="HoraPartida" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -188,8 +185,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaLlegada" name="fechaLlegada" type="text"
-                                            class="form-control" disabled>
+                                        <input id="fechaLlegada" name="fechaLlegada" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -198,8 +195,8 @@
                                 <div class="form-group">
                                     <label>Hora</label>
                                     <div class="input-group">
-                                        <input id="HoraLlegada" name="HoraLlegada" type="text"
-                                            class="form-control" disabled>
+                                        <input id="HoraLlegada" name="HoraLlegada" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -208,8 +205,7 @@
                                 <div class="form-group">
                                     <label>Adultos</label>
                                     <div class="input-group">
-                                        <input id="adultos" name="adultos" type="text"
-                                            class="form-control" disabled>
+                                        <input id="adultos" name="adultos" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -218,8 +214,7 @@
                                 <div class="form-group">
                                     <label>Niños</label>
                                     <div class="input-group">
-                                        <input id="ninos" name="ninos" type="text"
-                                            class="form-control" disabled>
+                                        <input id="ninos" name="ninos" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -228,8 +223,7 @@
                                 <div class="form-group">
                                     <label>Bebes</label>
                                     <div class="input-group">
-                                        <input id="bebes" name="bebes" type="text"
-                                            class="form-control" disabled>
+                                        <input id="bebes" name="bebes" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -238,8 +232,7 @@
                                 <div class="form-group">
                                     <label>Maletas</label>
                                     <div class="input-group">
-                                        <input id="maletas" name="maletas" type="text"
-                                            class="form-control" disabled>
+                                        <input id="maletas" name="maletas" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -258,8 +251,8 @@
                                 <div class="form-group">
                                     <label>Tipo de Clase</label>
                                     <div class="input-group">
-                                        <input id="nombre_clase" name="nombre_clase" type="text"
-                                            class="form-control" disabled>
+                                        <input id="nombre_clase" name="nombre_clase" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -278,8 +271,8 @@
                                 <div class="form-group">
                                     <label>Opciones Avanzadas</label>
                                     <div class="input-group">
-                                        <input id="opc_avanzadas" name="opc_avanzadas" type="text"
-                                            class="form-control" disabled>
+                                        <input id="opc_avanzadas" name="opc_avanzadas" type="text" class="form-control"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -288,8 +281,7 @@
                                 <div class="form-group">
                                     <label>Descuentos</label>
                                     <div class="input-group">
-                                        <input id="descuentos" name="descuentos" type="text"
-                                            class="form-control" >
+                                        <input id="descuentos" name="descuentos" type="text" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -298,13 +290,12 @@
                                 <div class="form-group">
                                     <label>Total</label>
                                     <div class="input-group">
-                                        <input id="total" name="total" type="text"
-                                            class="form-control">
+                                        <input id="total" name="total" type="text" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
@@ -368,8 +359,9 @@
                                                     <div class="col-sm-4 invoice-col">
                                                         <br>
                                                         <address>
+
                                                             <strong>Cliente:</strong><br>
-                                                            <label name="nombre" id="nombre"></label>
+                                                            <label name="nombreCliente" id="nombreCliente"></label>
 
                                                             <strong>Email:</strong><br>
                                                             <label name="correo" id="correo"></label>
@@ -379,7 +371,6 @@
                                                         </address>
                                                     </div>
                                                     <!-- /.col -->
-
                                                     <!-- /.col -->
                                                 </div>
                                                 <!-- /.row -->
@@ -401,10 +392,7 @@
                                                                     <td>San Vicente</td>
                                                                     <td>07-12-2020</td>
                                                                     <td>08:00:00</td>
-
                                                                 </tr>
-
-
                                                             </tbody>
                                                         </table>
                                                     </div>
