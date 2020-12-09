@@ -116,7 +116,7 @@ include_once '../../plantillas/barra_lateral.php';
                               <div class="col-sm-4">
                                  <div class="form-group">
                                     <label>Dirección</label>
-                                    <input name="direccion" type="text" class="form-control"
+                                    <input name="direccion" id="direccion" type="text" class="form-control"
                                        placeholder="Introduzca la Dirección">
                                  </div>
                               </div>
@@ -141,13 +141,7 @@ include_once '../../plantillas/barra_lateral.php';
                                        placeholder="Costo">
                                  </div>
                               </div>
-                              <div class="col-sm-4">
-                                 <div class="form-group">
-                                    <label for="cantidad">Cantidad(unidades)</label>
-                                    <input name="cantidad" id="cantidad" type="number" min="1" class="form-control"
-                                       placeholder="unidades">
-                                 </div>
-                              </div>
+                              
                               <div class="col-sm-3">
                                  <div class="form-group" id="mostrar">
 

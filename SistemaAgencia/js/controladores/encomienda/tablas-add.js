@@ -115,5 +115,111 @@ $(document).ready(function () {
         modificarTotalCliente();
     });
 
+ //BOTON DE GUARDAR 
+    $(document).on('click', '#btnguardar', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+       // let form = $("#miFormulario");
+       // form.validate();
+        //if (form.valid()) {
+            guardar();
+       /* } else {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'error',
+                text: "Complete los campos",
+                showConfirmButton: true,
+            });
+        }*/
+    });
 
+    function guardar() {
+        $('#loading').show();
+        let form = obtenerData();
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "Encomienda/encomiendas",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response);
+            let respuestaDecodificada = JSON.parse(response);
+           /* const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: "Viaje Guardado Exitosamente",
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                $("#miFormulario").trigger("reset");
+                restaurarContactos();
+                resetMiTable();
+                restOtrasOpciones();
+                resetPromociones();
+                Toast.fire({
+                    title: '¿Desea Editar el itinerario ahora?',
+                    text: "Puedes Editarlo más tarde si quieres",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, Quiero editarlo ahora!',
+                    cancelButtonText: "No, en otro momento",
+
+                }).then((result) => {
+                    if (result.value) {
+                        window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+                    }
+                });
+
+
+            });
+            */
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            /*const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });*/
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
+    }
+
+     function obtenerData() {
+        let form = new FormData();
+         let detalle_encomienda = [];
+        
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+           
+            let id_producto = data[5];
+            let cantidad = data[2];
+                 
+                detalle_encomienda.push({
+                    "id_producto": id_producto,
+                    "cantidad": cantidad
+                });
+            
+        });
+       
+        form.append("direccion",          document.getElementById("direccion").value);
+        form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
+       
+
+        return form;
+
+    }
 });
