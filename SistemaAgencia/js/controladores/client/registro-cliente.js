@@ -14,7 +14,7 @@ $(document).ready(function () {
       let form = $("#miFormulario");
       form.validate();
       if (form.valid()) {
-         // guardar();
+         guardar();
       } else {
          const Toast = Swal.mixin();
          Toast.fire({
@@ -71,7 +71,6 @@ $(document).ready(function () {
          rules: {
             nombreCliente: {
                required: true,
-               email: true,
                maxlength: 50
             },
             correo: {
