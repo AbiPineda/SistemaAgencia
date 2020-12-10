@@ -148,39 +148,25 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             console.log(response);
-            let respuestaDecodificada = JSON.parse(response);
-           /* const Toast = Swal.mixin();
+            
+           const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: "Viaje Guardado Exitosamente",
+                text: "Registro Guardado",
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
-                restaurarContactos();
-                resetMiTable();
-                restOtrasOpciones();
-                resetPromociones();
-                Toast.fire({
-                    title: '¿Desea Editar el itinerario ahora?',
-                    text: "Puedes Editarlo más tarde si quieres",
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, Quiero editarlo ahora!',
-                    cancelButtonText: "No, en otro momento",
-
-                }).then((result) => {
-                    if (result.value) {
-                        window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
-                    }
-                });
+               // restaurarContactos();
+                //resetMiTable();
+                //restOtrasOpciones();
+                //resetPromociones();
+                
 
 
             });
-            */
+            
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
@@ -216,6 +202,12 @@ $(document).ready(function () {
         });
        
         form.append("direccion",          document.getElementById("direccion").value);
+        form.append("punto_referencia",   document.getElementById("punto_referencia").value);
+        form.append("fecha",              document.getElementById("fecha").value);
+        form.append("total_encomienda",   TOTAL);
+        form.append("total_comision",     COMISION);
+        form.append("total_cliente",     (TOTAL+COMISION));
+        form.append("id_usuario",          document.getElementById("cliente").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
        
 

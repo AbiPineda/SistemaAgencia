@@ -8,7 +8,7 @@ $(document).ready(function() {
             success: function(data) {
         
                 var $select = $('#cliente');
-                $.each(data.usuario, function(i, name) {
+                $.each(data.usuarios, function(i, name) {
                     $select.append('<option value=' + name.id_cliente + '>' + name.nombre +
                         '</option>');
                 });

@@ -87,7 +87,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     </select>
                                  </div>
                               </div>
-                              <div class="col-sm-3">
+                              <div class="col-sm-5">
                                  <div class="form-group">
                                     <label>Coordenadas</label>
                                     <div class="input-group">
@@ -106,18 +106,26 @@ include_once '../../plantillas/barra_lateral.php';
                                     </button>
                                  </span>
                               </div>
-                              <div class="col-sm-4">
-                                 <div class="form-group">
-                                    <label>Punto de referencia</label>
-                                    <input name="punto_referencia" type="text" class="form-control"
-                                       placeholder="Introduzca el punto de referencia">
-                                 </div>
-                              </div>
-                              <div class="col-sm-4">
+                              
+                              <div class="col-sm-6">
                                  <div class="form-group">
                                     <label>Dirección</label>
                                     <input name="direccion" id="direccion" type="text" class="form-control"
                                        placeholder="Introduzca la Dirección">
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                    <label>Punto de referencia</label>
+                                    <input name="punto_referencia" id="punto_referencia" type="text" class="form-control"
+                                       placeholder="Introduzca el punto de referencia">
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                    <label>Fecha</label>
+                                    <input name="punto_referencia" id="fecha" type="date" class="form-control"
+                                       placeholder="Introduzca el punto de referencia">
                                  </div>
                               </div>
                               <div class="col-sm-3">
@@ -380,6 +388,7 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/deptos.js"></script>
+<script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
