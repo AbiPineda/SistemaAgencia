@@ -42,7 +42,7 @@ $(document).ready(function() {
     $(document).on('click', '.btn-group .btn-warning', function() {
         $('#modal-imagenes').modal('show');
         let identificador = $(this).attr("name");
-        let nombreTabla = 'servicios_adicionales';
+        let nombreTabla = 'vehiculo';
         let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
         let urlFotos = [];
         let infoFotos = [];
@@ -53,6 +53,7 @@ $(document).ready(function() {
 
         }).done(function(response) {
             //REST_Controller::HTTP_OK
+            console.log(URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador);
             response.forEach(element => {
                 let informacion = {
                     url: URL_SERVIDOR + "Imagen/delete",
