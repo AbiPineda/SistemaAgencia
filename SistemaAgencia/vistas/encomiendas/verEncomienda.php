@@ -1,6 +1,9 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
+include_once '../../plantillas/cabecera.php';?>
+<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+<?php
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 
@@ -36,79 +39,32 @@ include_once '../../plantillas/barra_lateral.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                          <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla-encomienda" class="table table-bordered table-striped dataTable dtr-inline"
-                                           role="grid" aria-describedby="example1_info">
-                                        <thead>
-                                            <tr role="row" style="text-align: center;">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Rendering engine: activate to sort column descending">
-                                                    Nombre</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1" aria-label="Browser: activate to sort column ascending">
-                                                    Apellidos</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="Platform(s): activate to sort column ascending">
-                                                    Dirección</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="Engine version: activate to sort column ascending">
-                                                    Destino Final</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="CSS grade: activate to sort column ascending">Acciones
-                                                </th>
+                                    <table id="tabla_encomienda" class="table table-bordered table-striped">
+                                        <thead style="text-align: center;">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Dirección</th>
+                                                <th>Punto Referencia</th>
+                                                <th>Fecha</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr role="row" class="odd" style="text-align: center;">
-                                                <td tabindex="0" class="sorting_1">Jeronimo</td>
-                                                <td>Lovato Villatoro</td>
-                                                <td>San Vicente</td>
-                                                <td>Chalatenango</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                         <a type="button" class="btn btn-primary" 
-                                                            onclick="cargar_contenido('contenido_principal', '<?= $base_url ?>vistas/encomiendas/modificarEncomienda.php')"   >
-                                                            <i class="fas fa-edit" style="color: white"></i>
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <!-- /.inicio de loading -->
+                                        <div class="overlay-wrapper">
+                                            <div id="loading" class="overlay"><i
+                                                    class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-                                            <tr role="row" class="even" style="text-align: center;">
-                                                <td tabindex="0" class="sorting_1">Elias Eliseo</td>
-                                                <td>Herrera Henriquez</td>
-                                                <td>Ilopango</td>
-                                                <td>San Vicente</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a type="button" class="btn btn-primary" 
-                                                           href="<?= $base_url ?>vistas/encomiendas/modificarEncomienda.php"   >
-                                                            <i class="fas fa-edit" style="color: white"></i>
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fas fa-trash-alt"></i></button>
+                                                <div class="text-bold pt-2">Cargando...
+                                                </div>
+                                            </div>
+                                            <tbody id="tableBody" style="text-align: center;">
+                                            </tbody>
+                                        </div>
+                                        <!-- /.fin de loading -->
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr style="text-align: center;">
-                                                <th rowspan="1" colspan="1">Nombre</th>
-                                                <th rowspan="1" colspan="1">Apellidos</th>
-                                                <th rowspan="1" colspan="1">Dirección</th>
-                                                <th rowspan="1" colspan="1">Destino Final</th>
-                                                <th rowspan="1" colspan="1">Acciones</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -130,42 +86,14 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<!-- SCRIPT ADICIONALES -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-modificar.js"></script>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script>
-                                                    $(function () {
-                                                        $('#tabla-encomienda').DataTable({
-                                                            "paging": true,
-                                                            "lengthChange": true,
-                                                            "searching": true,
-                                                            "ordering": true,
-                                                            "info": true,
-                                                            "autoWidth": false,
-                                                            "pageLength": 3,
-                                                            "responsive": true,
-                                                            "oLanguage": {
-                                                                "sZeroRecords": "No se encontraron resultados",
-                                                                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                                                                "sInfo": "Mostrando del (_START_ al _END_) de _TOTAL_ registros",
-                                                                "sInfoEmpty": "Mostrando del 0 al 0  de 0 registros",
-                                                                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                                                "sInfoPostFix": "",
-                                                                "sSearch": "Buscar:",
-                                                                "sLengthMenu": "Mostrar _MENU_ Entradas",
-                                                                "sUrl": "",
-                                                                "sInfoThousands": ",",
-                                                                "sLoadingRecords": "Por favor espere - cargando...",
-                                                                "oPaginate": {
-                                                                    "sFirst": "Primero",
-                                                                    "sLast": "Último",
-                                                                    "sNext": "Siguiente",
-                                                                    "sPrevious": "Anterior"
-                                                                },
-                                                                "oAria": {
-                                                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                                                }
-                                                            }
-                                                        });
-                                                    });
 
-</script>
+<!-- CIERRE DE ETIQUETAS -->
+<?php include_once '../../plantillas/cierre.php'; ?>
