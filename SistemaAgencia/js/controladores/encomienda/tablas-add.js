@@ -157,14 +157,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#miFormulario").trigger("reset");
-               // restaurarContactos();
-                //resetMiTable();
-                //restOtrasOpciones();
-                //resetPromociones();
-                
-
-
+                $("#encomienda-form").trigger("reset");
+                resetMiTable();
             });
             
         }).fail(function (response) {
@@ -213,5 +207,16 @@ $(document).ready(function () {
 
         return form;
 
+    }
+
+     function resetMiTable() {
+        contadorTabla = 0;
+        TOTAL = 0.0;
+        COMISION = 0.0;
+        TOTALCLIENTE = 0.0;
+        tabla.clear().draw();
+        $('#total').text("$0");
+        $('#comision').text("$0");
+        $('#totalCliente').text("$0");
     }
 });
