@@ -361,17 +361,32 @@ $(document).ready(function () {
         });
     }
     function inicializarComboTipo() {
-        dataTipo = [
-            { id: 1, text: "Montaña" },
-            { id: 2, text: "Reserva Natural" },
-            { id: 3, text: "Parque Nacional" },
-            { id: 4, text: "Restaurante" },
-            { id: 5, text: "Shows Artitisticos" },
-            { id: 6, text: "Hotel" },
-            { id: 7, text: "Otros" },
-        ];
-        $('#ComboTipo').select2(
-            { data: dataTipo });
+        $.ajax({
+            url: URL_SERVIDOR + "TipoSitio/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.tipo) {
+                let lista = response.tipo;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_tipo_sitio,
+                        text: lista[index].tipo_sitio
+                    });
+                }
+                $('#ComboTipo').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#ComboTipo').select2();
+            }
+        }).fail(function (response) {
+            $('#ComboTipo').select2();
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
 
     }
     function inicializarComboContacto() {

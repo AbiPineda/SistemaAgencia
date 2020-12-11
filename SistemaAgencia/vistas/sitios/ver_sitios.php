@@ -205,6 +205,38 @@
       </div>
       <!-- End Modal EDITAR-->
    </form>
+   <!-- MODAL DEL MAPA -->
+   <div class="modal fade" id="modal-mapa">
+      <!-- Modal EDITAR-->
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Selecciona la ubicación</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <div id="mapa" style="width: 100%; height: 500px">
+
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+            <div class="modal-footer justify-content-end">
+
+               <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
+            </div>
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
 
 
 
@@ -224,6 +256,10 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
+</script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/ver-sitio.js"></script>
+<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
+<!-- CIERRE DE ETIQUETAS  -->
 <?php include_once '../../plantillas/cierre.php'; ?>
