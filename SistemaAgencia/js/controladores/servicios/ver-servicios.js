@@ -10,26 +10,25 @@ $(document).ready(function () {
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
         $('#loadingActualizar').hide();
+        let fila = $(this).closest("tr");
+        let data = tabla.row(fila).data();
         idSerevicio = $(this).attr("name");
-        fila = $(this).closest("tr");
 
+        console.log(data);
 
-        tipoSeleccionado = fila.find('td:eq(0)').text();
-        nombreSeleccionado = fila.find('td:eq(1)').text();
-        descripcionSeleccionada = fila.find('td:eq(2)').text();
-        costoSeleccionado = fila.find('td:eq(3)').text();
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("nombre").value = nombreSeleccionado;
-        document.getElementById("costos_defecto").value = costoSeleccionado;
-        document.getElementById("descripcion_servicio").value = descripcionSeleccionada;
-        for (let index = 0; index < ListaDatos.length; index++) {
-            if (ListaDatos[index].text == tipoSeleccionado) {
-                $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
-                $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
-                break;
-            }
-        }
+        // //MANDALOS LOS VALORES AL MODAL
+        document.getElementById("nombre").value = data.nombre_servicio;
+        document.getElementById("costos_defecto").value = data.costos_defecto;
+        document.getElementById("descripcion_servicio").value = data.descripcion_servicio;
+        $('#tipo_servicio').val(data.id_tipo_servicio);
+        $('#tipo_servicio').trigger('change');
+        // for (let index = 0; index < ListaDatos.length; index++) {
+        //     if (ListaDatos[index].text == tipoSeleccionado) {
+        //         $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
+        //         $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
+        //         break;
+        //     }
+        // }
         $('#modal-editar').modal('show');
 
     });
@@ -144,7 +143,7 @@ $(document).ready(function () {
                             json.servicio[i]["botones"] = html;
 
                             let html2 = "";
-                            html2 += '<a href="#">'+json.servicio[i].nombre_contacto+'';
+                            html2 += '<a href="#">' + json.servicio[i].nombre_contacto + '';
                             html2 += '    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
                             html2 += '        <div class="ocultar card bg-light">';
                             html2 += '            <div class="card-body">';
@@ -152,23 +151,23 @@ $(document).ready(function () {
                             html2 += '                    <div class="col-7">';
                             html2 += '                        <p class="text-muted text-sm">';
                             html2 += '                            <b>Nombre de Contacto</b>';
-                            html2 += '                            '+json.servicio[i].nombre_contacto+'';
+                            html2 += '                            ' + json.servicio[i].nombre_contacto + '';
                             html2 += '                        </p>';
                             html2 += '                        <ul class="ml-4 mb-0 fa-ul text-muted">';
                             html2 += '                            <li class="small">';
                             html2 += '                                <span class="fa-li">';
                             html2 += '                                    <i class="fas fa-lg fa-mail-bulk"> </i>';
-                            html2 += '                                </span> '+json.servicio[i].correo+'';
+                            html2 += '                                </span> ' + json.servicio[i].correo + '';
                             html2 += '                            </li>';
                             html2 += '                            <li class="small">';
                             html2 += '                                <span class="fa-li">';
                             html2 += '                                    <i class="fas fa-lg fa-phone"></i>';
-                            html2 += '                                </span> Teléfono #: '+json.servicio[i].telefono+'';
+                            html2 += '                                </span> Teléfono #: ' + json.servicio[i].telefono + '';
                             html2 += '                            </li>';
                             html2 += '                        </ul>';
                             html2 += '                    </div>';
                             html2 += '                    <div class="col-5 text-center">';
-                            html2 += '                        <img src="'+json.servicio[i].url+'" alt=""';
+                            html2 += '                        <img src="' + json.servicio[i].url + '" alt=""';
                             html2 += '                            class="img-fluid">';
                             html2 += '                    </div>';
                             html2 += '                </div>';
@@ -179,7 +178,7 @@ $(document).ready(function () {
                             html2 += '</a>';
 
                             json.servicio[i]["contacto"] = html2;
-                            
+
 
                         }
                         $('#loading').hide();
@@ -202,36 +201,32 @@ $(document).ready(function () {
 
     }
     function inicializarCombo() {
-        //Initialize Select2 Elements
-        ListaDatos = [
-            {
-                "id": 1,
-                "text": "Vehiculo"
-            }, {
-                "id": 2,
-                "text": "Guia Turistico"
-            }, {
-                "id": 3,
-                "text": "Busero"
-            },
-            {
-                "id": 4,
-                "text": "Taxista"
-            },
-            {
-                "id": 5,
-                "text": "Cocinero"
-            },
-            {
-                "id": 6,
-                "text": "Payaso"
+        $.ajax({
+            url: URL_SERVIDOR + "TipoServicio/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.tipo) {
+                let lista = response.tipo;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_tipo_servicio,
+                        text: lista[index].tipo_servicio
+                    });
+                }
+                $('#tipo_servicio').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#tipo_servicio').select2();
             }
-        ];
-        $('#tipo_servicio').select2(
-            {
-                data: ListaDatos
-            }
-        );
+        }).fail(function (response) {
+            $('#tipo_servicio').select2();
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
     }
     function inicializarValidaciones() {
         $('#miFormulario').validate({

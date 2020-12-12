@@ -36,11 +36,13 @@
                   <table id="tabla_cliente" class="table table-bordered table-striped">
                      <thead style="text-align: center;">
                         <tr>
+                           <th>Foto de Perfil</th>
                            <th>Nombre</th>
                            <th>Correo</th>
                            <th>Célular</th>
                            <th>DUI</th>
                            <th>Acciones</th>
+                           <th>URL Foto</th>
                         </tr>
                      </thead>
                      <div class="overlay-wrapper">
@@ -76,84 +78,71 @@
                      </div>
                   </div>
                   <div class="modal-header">
-                     <h4 class="modal-title">Modificar Sitio</h4>
+                     <h4 class="modal-title">Modificar Datos</h4>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                      </button>
                   </div>
                   <div class="modal-body">
                      <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                            <div class="form-group">
-                              <label>Nombre del sitio turístico</label>
+                              <label>Nombre de Cliente</label>
                               <div class="input-group">
-                                 <input type="text" class="form-control" name="nombre" id="nombre">
+                                 <input type="text" class="form-control" name="nombreCliente" id="nombreCliente">
                               </div>
                               <!-- /.input group -->
                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                           <div class="form-group">
-                              <label>Precio</label>
-                              <div class="input-group">
-                                 <input type="number" min="0" class=" form-control" name="precio_sitio"
-                                    id="precio_sitio">
-                              </div>
-                              <!-- /.input group -->
-                           </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                           <div class="form-group">
-                              <label>Tipo</label>
-                              <select name="ComboTipo" id="ComboTipo"
-                                 class="select2 select2-hidden-accessible form-control"
-                                 data-placeholder="Seleccione el tipo" style="width: 100%;">
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-sm-5">
-                           <!-- text input -->
-                           <div class="form-group">
-                              <label>Coordenadas</label>
-                              <div class="input-group">
-                                 <input disabled type="text" class="form-control" name="coordenadas" id="coordenadas">
-                              </div>
-                              <!-- /.input group -->
-                           </div>
-                        </div>
-                        <div class="col-sm-1">
-                           <br>
-                           <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                 style="margin-top: 10px; width: 100%;" id="btn-mapa">
-                                 <i class="fas fa-globe" style="color: white"></i>
-                              </button>
-                           </span>
                         </div>
                         <div class="col-sm-6">
-                           <div class="form-group multiple-form-group input-group">
-                              <label>Contacto</label>
-
+                           <div class="form-group">
+                              <label>Correo Electronico</label>
                               <div class="input-group">
-                                 <select name="contacto_servicio" id="contacto_servicio"
-                                    class="select2 select2-hidden-accessible form-control"
-                                    data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                 </select>
+                                 <input type="text" class="form-control" name="correo" id="correo">
                               </div>
+                              <!-- /.input group -->
                            </div>
                         </div>
 
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label>Dui</label>
+                              <div class="input-group">
+                                 <input type="text" class="form-control" id="dui" name="dui">
+                              </div>
+                              <!-- /.input group -->
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label>Célular</label>
+                              <div class="input-group">
+                                 <input type="text" class="form-control" id="celular" name="celular">
+                              </div>
+                              <!-- /.input group -->
+                           </div>
+                        </div>
 
                      </div>
                      <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                            <div class="form-group">
-                              <label>Descripcion del Servicio</label>
-                              <textarea name="descripcion" id="descripcion" class="form-control" rows="3"
-                                 placeholder="Digitar aquí ..."></textarea>
+                              <label>Contraseña</label>
+                              <div class="input-group">
+                                 <input type="password" class="form-control" name="password1" id="password1">
+                              </div>
+                              <!-- /.input group -->
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label>Repetir Contraseña</label>
+                              <div class="input-group">
+                                 <input type="password" class="form-control" name="password2" id="password2">
+                              </div>
+                              <!-- /.input group -->
                            </div>
                         </div>
                      </div>

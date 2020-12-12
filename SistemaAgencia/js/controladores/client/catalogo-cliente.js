@@ -1,47 +1,30 @@
 $(document).ready(function () {
    let explorer = $("#kv-explorer");
-   let ListaDatos;
    let idSeleccionado;
    let tabla;
    inicializarValidaciones();
    inicializarTabla();
-   inicializarComboTipo();
-   inicializarComboContacto();
+   inicializarMascara();
 
    //BOTON DE EDITAR
    $(document).on('click', '.btn-group .btn-primary', function () {
-      $('#loadingActualizar').show();
-      idSeleccionado = $(this).attr("name");
+      $('#loadingActualizar').hide();
+      $('#modal-editar').modal('show');
+      let fila = $(this).closest("tr");
+      let data = tabla.row(fila).data();
+      console.log(data);
+      $('#nombreCliente').val(data.nombre);
+      $('#correo').val(data.correo);
+      $('#celular').val(data.celular);
+      $('#dui').val(data.dui);
+      idSeleccionado = data.id_cliente;
 
-      $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/show?id_sitio_turistico=" + idSeleccionado,
-         method: "GET"
-      }).done(function (response) {
-         let lista = response.sitios;
-         if (lista) {
-            console.log(lista);
-            //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre").value = lista[0].nombre_sitio;
-            document.getElementById("precio_sitio").value = lista[0].precio_sitio;
-            document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
-            document.getElementById("descripcion").value = lista[0].descripcion_sitio;
-            document.getElementById("ComboTipo").value = response.sitios[0].id_tipo_sitio;
-            $('#ComboTipo').trigger('change');
-            document.getElementById("contacto_servicio").value = response.sitios[0].id_contacto;
-            $('#contacto_servicio').trigger('change');
-         }
-      }).fail(function (response) {
-         console.log(response);
-      }).always(function (xhr, opts) {
-         $('#modal-editar').modal('show');
-         $('#loadingActualizar').hide();
-      });;
    });
    //BOTON EDITAR LA FOTO
    $(document).on('click', '.btn-group .btn-warning', function () {
       $('#modal-imagenes').modal('show');
       let identificador = $(this).attr("name");
-      let nombreTabla = 'sitio_turistico';
+      let nombreTabla = 'usuario_documentos';
       let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
       let urlFotos = [];
       let infoFotos = [];
@@ -69,7 +52,6 @@ $(document).ready(function () {
             initialPreviewAsData: true,
             initialPreview: urlFotos,
             initialPreviewConfig: infoFotos,
-            required: true,
             maxFileSize: 2000,
             maxFilesNum: 10,
             allowedFileExtensions: ["jpg", "png", "gif"]
@@ -117,6 +99,12 @@ $(document).ready(function () {
          "responsive": true,
          "autoWidth": false,
          "deferRender": true,
+         "columnDefs": [
+            // { "className": "dt-center", "targets": "_all" },
+            { "targets": [0], width: "20%" },
+            { "targets": [6], visible: false },
+
+         ],
          "ajax": {
             "url": URL_SERVIDOR + "Usuario/obtenerUsuario",
             "method": "GET",
@@ -143,6 +131,12 @@ $(document).ready(function () {
                      html += '    </div>';
                      html += '</td>';
                      json.usuarios[i]["botones"] = html;
+
+
+                     let html2 = `<img src="${json.usuarios[i].foto}" height="auto" width="70%">`;
+
+                     json.usuarios[i]["image"] = html2;
+
                   }
                   $('#loading').hide();
                   return json.usuarios;
@@ -153,58 +147,53 @@ $(document).ready(function () {
             }
          },
          columns: [
+
+            { data: "image" },
             { data: "nombre" },
             { data: "correo" },
             { data: "celular" },
             { data: "dui" },
             { data: "botones" },
+            { data: "foto" },
          ]
       });
 
    }
    //INICIALIZANDO VALIDACIONES
    function inicializarValidaciones() {
-      $('#miFormulario').validate({
+      $('#formularioEditar').validate({
          rules: {
-            nombre: {
+            nombreCliente: {
                required: true,
-               minlength: 3,
-               maxlength: 40
+               maxlength: 50
             },
-            costos_defecto: {
+            correo: {
                required: true,
-               number: true,
-               min: 0
+               email: true
             },
-            informacion_contacto: {
-               required: true,
-               minlength: 10,
+            password1: {
+               minlength: 8
             },
-            descripcion_servicio: {
-               required: true,
-               minlength: 10,
+            password2: {
+               equalTo: "#password1"
             }
          },
          messages: {
-            nombre: {
+            nombreCliente: {
                required: "Ingrese un nombre",
                minlength: "Logitud del nombre debe ser mayor a 3",
-               maxlength: "Logitud del nombre no debe exceder a 40",
+               maxlength: "Logitud del nombre no debe exceder a 50",
             },
-            costos_defecto: {
-               required: "Ingrese un numero",
-               number: "Ingrese un numero",
-               min: "Debe de ser mayor que 0"
+            correo: {
+               required: "Ingrese el correo",
+               email: "Ingrese un correo valido"
             },
-            informacion_contacto: {
-               required: "La informacion de contacto es necesaria",
-               minlength: "Debe de tener una longitud minima de 10",
+            password1: {
+               minlength: "Debe tener una longitud minima de 8"
             },
-            descripcion_servicio: {
-               required: "La descripcion del servico es necesaria",
-               minlength: "Debe de tener una longitud minima de 10",
+            password2: {
+               equalTo: "Contraseñas no coinciden"
             }
-
          },
          errorElement: 'span',
          errorPlacement: function (error, element) {
@@ -219,32 +208,33 @@ $(document).ready(function () {
 
          }
       });
-
    }
    function actualizar() {
       $('#loadingActualizar').show();
-      let myCoordnada = document.getElementById("coordenadas").value;
-      myCoordnada = myCoordnada.split(', ');
-
       let data = {
-         "id_sitio_turistico": idSeleccionado,
-         "nombre_sitio": document.getElementById("nombre").value,
-         "longitud": myCoordnada[1],
-         "latitud": myCoordnada[0],
-         "descripcion": document.getElementById("descripcion").value,
-         "tipo": document.getElementById("ComboTipo").value,
-         "informacion_contacto": document.getElementById("contacto_servicio").value,
-         "precio_sitio": document.getElementById("precio_sitio").value,
 
+         "id_cliente": idSeleccionado,
+         "nombre": document.getElementById("nombreCliente").value,
+         "correo": document.getElementById("correo").value,
       };
+      if (document.getElementById("password2").value) {
+         data.password2 = document.getElementById("password2").value;
+      }
+      if (document.getElementById("dui").value) {
+         data.dui = document.getElementById("dui").value;
+      }
+      if (document.getElementById("celular").value) {
+         data.celular = document.getElementById("celular").value;
+      }
       ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
       $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/update",
+         url: URL_SERVIDOR + "Usuario/update",
          method: "PUT",
          timeout: 0,
          data: data
       }).done(function (response) {
          //REST_Controller::HTTP_OK
+         console.log(response);
          const Toast = Swal.mixin();
          Toast.fire({
             title: 'Exito...',
@@ -306,5 +296,11 @@ $(document).ready(function () {
       }).always(function (xhr, opts) {
          $('#loadingActualizar').hide();
       });
+   }
+   function inicializarMascara() {
+      let dui = $("#dui");
+      dui.inputmask("99999999-9");  //static mask
+      dui.inputmask({ "mask": "99999999-9" }); //specifying options
+      // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
    }
 });
