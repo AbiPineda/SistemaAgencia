@@ -98,7 +98,7 @@
                            <div class="form-group">
                               <label>Correo Electronico</label>
                               <div class="input-group">
-                                 <input type="text" class="form-control" name="correo" id="correo">
+                                 <input type="text" class="form-control" name="correo" id="correo" disabled>
                               </div>
                               <!-- /.input group -->
                            </div>
@@ -167,7 +167,7 @@
          <div class="modal-dialog modal-xl">
             <div class="modal-content">
                <div class="modal-header">
-                  <h4 class="modal-title">Editar Imagenes</h4>
+                  <h4 class="modal-title">Documentos Personales</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                   </button>
@@ -199,7 +199,7 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/catalogo-cliente.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

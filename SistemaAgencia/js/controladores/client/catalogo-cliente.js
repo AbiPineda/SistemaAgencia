@@ -12,7 +12,6 @@ $(document).ready(function () {
       $('#modal-editar').modal('show');
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
-      console.log(data);
       $('#nombreCliente').val(data.nombre);
       $('#correo').val(data.correo);
       $('#celular').val(data.celular);
@@ -218,7 +217,7 @@ $(document).ready(function () {
          "correo": document.getElementById("correo").value,
       };
       if (document.getElementById("password2").value) {
-         data.password2 = document.getElementById("password2").value;
+         data.password = document.getElementById("password2").value;
       }
       if (document.getElementById("dui").value) {
          data.dui = document.getElementById("dui").value;
@@ -242,6 +241,7 @@ $(document).ready(function () {
             text: response.mensaje,
             showConfirmButton: true,
          }).then((result) => {
+            $("#formularioEditar").trigger("reset");
             $('#modal-editar').modal('hide');;
             tabla.ajax.reload(null, false);
          });
