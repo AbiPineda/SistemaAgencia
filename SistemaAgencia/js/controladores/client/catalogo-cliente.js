@@ -22,10 +22,10 @@ $(document).ready(function () {
    });
    //BOTON EDITAR FOTO PERFIL 
    $(document).on('click', 'a[name ="camara"]', function () {
+      inicializarFoto();
       $('#modal-perfil').modal('show');
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
-
       let $avatar = $('.file-default-preview');
       console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
       console.log(data);
@@ -114,11 +114,19 @@ $(document).ready(function () {
          });
       }
    });
-   //CUANDO EL MODAL SE CIERRA
+   //CUANDO EL MODAL SE CIERRA DE LOS DOCUUMENTOS
    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
       console.log("cerrando modal")
       explorer.fileinput('destroy');
+   });
+   //CUANDO EL MODAL DE LA FOTOGRAFIA 
+   $('#modal-perfil').on('hidden.bs.modal', function (e) {
+      console.log("DESTRUYENDO DE NUEVO");
+      $("#foto").fileinput('destroy');
+      $("#formulario_perfil").trigger("reset");
+     
    })
+
    //INICIALIZANDO LA TABLA
    function inicializarTabla() {
       tabla = $("#tabla_cliente").DataTable({
@@ -393,6 +401,7 @@ $(document).ready(function () {
       }).done(function (response) {
          //REST_Controller::HTTP_OK
          console.log(response);
+         tabla.ajax.reload(null, false);
          const Toast = Swal.mixin();
          Toast.fire({
             title: 'Exito...',
@@ -401,7 +410,9 @@ $(document).ready(function () {
             showConfirmButton: true,
          }).then((result) => {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
+
             $("#miFormulario").trigger("reset");
+            $('#modal-perfil').modal('hide');
          });
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
