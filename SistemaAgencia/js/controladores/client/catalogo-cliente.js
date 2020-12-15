@@ -5,6 +5,7 @@ $(document).ready(function () {
    inicializarValidaciones();
    inicializarTabla();
    inicializarMascara();
+   inicializarFoto();
 
    //BOTON DE EDITAR
    $(document).on('click', '.btn-group .btn-primary', function () {
@@ -19,7 +20,17 @@ $(document).ready(function () {
       idSeleccionado = data.id_cliente;
 
    });
-   //BOTON EDITAR LA FOTO
+   //BOTON EDITAR FOTO PERFIL 
+   $(document).on('click', 'a[name ="camara"]', function () {
+      $('#modal-perfil').modal('show');
+      let fila = $(this).closest("tr");
+      let data = tabla.row(fila).data();
+
+      let $avatar = $('.file-default-preview');
+      console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
+      console.log(data);
+   });
+   //BOTON EDITAR DOCUMENTOS
    $(document).on('click', '.btn-group .btn-warning', function () {
       $('#modal-imagenes').modal('show');
       let identificador = $(this).attr("name");
@@ -87,6 +98,22 @@ $(document).ready(function () {
          actualizar();
       }
    });
+   //BOTON DEL MODAL PARA ACTUALIZA LA FOTO DE PERFIL
+   $(document).on('click', '#actualizarFotoPerfil', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      //PARA SABER SI SE HA SELECCIONADO UNA FOTO 
+      if (document.getElementById("foto").files[0]) {
+         ActualizarFotoPerfil();
+      } else {
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'error',
+            text: "Seleccione una Imagen",
+            showConfirmButton: true,
+         });
+      }
+   });
    //CUANDO EL MODAL SE CIERRA
    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
       console.log("cerrando modal")
@@ -100,7 +127,7 @@ $(document).ready(function () {
          "deferRender": true,
          "columnDefs": [
             // { "className": "dt-center", "targets": "_all" },
-            { "targets": [0], width: "20%" },
+            { "targets": [0], width: "13%" },
             { "targets": [6], visible: false },
 
          ],
@@ -132,7 +159,26 @@ $(document).ready(function () {
                      json.usuarios[i]["botones"] = html;
 
 
-                     let html2 = `<img src="${json.usuarios[i].foto}" height="auto" width="70%">`;
+                     // let html2 = `<img src="${json.usuarios[i].foto}" class="rounded" height="auto" width="70%">`;
+                     // html2 += '<button type="button " name="" class="btn btn-primary  btn-block center" style="width: 70%;">';
+                     // html2 += '   <i class="fas fa-camera" style="color: white"></i>';
+                     // html2 += '</button>';
+
+                     let html2 = "";
+                     html2 += '      <div class="hovereffect">   ';
+                     html2 += '         <img class="img-responsive rounded"';
+                     html2 += `            src="${json.usuarios[i].foto}" `;
+                     html2 += '            alt="" >';
+                     html2 += '            <div class="my-overlay">';
+                     html2 += '               <p>';
+                     html2 += '                  <a name="camara" href="#">';
+                     html2 += '                     <i class="fas fa-camera" style="color: white;"></i>';
+                     html2 += '                  </a>';
+                     html2 += '               </p>';
+                     html2 += '            </div>';
+                     html2 += '      </div>';
+
+
 
                      json.usuarios[i]["image"] = html2;
 
@@ -207,6 +253,7 @@ $(document).ready(function () {
 
          }
       });
+
    }
    function actualizar() {
       $('#loadingActualizar').show();
@@ -301,6 +348,76 @@ $(document).ready(function () {
       let dui = $("#dui");
       dui.inputmask("99999999-9");  //static mask
       dui.inputmask({ "mask": "99999999-9" }); //specifying options
-      // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
+      // $("#dui").inputmask("9-a{1, 3}9{1, 3}"); //mask with dynamic syntax
    }
+   function inicializarFoto() {
+      // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
+      $('#foto').fileinput({
+         theme: 'fas',
+         language: 'es',
+         required: true,
+         maxFileSize: 2000,
+         maxFilesNum: 10,
+         showUpload: false,
+         showClose: false,
+         showCaption: true,
+         browseLabel: '',
+         removeLabel: '',
+         //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+         removeTitle: 'Cancel or reset changes',
+         elErrorContainer: '#kv-avatar-errors-1',
+         msgErrorClass: 'alert alert-block alert-danger',
+         defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
+         layoutTemplates: { main2: '{preview} {remove} {browse}' },
+         allowedFileExtensions: ["jpg", "png", "gif"]
+      });
+   }
+   function ActualizarFotoPerfil() {
+      $('#loading').show();
+      let form = new FormData();
+      //ESTO ES PARA LA FOTO DE PERFIL
+      let foto_perfil = document.getElementById("foto").files[0];
+      form.append('foto', foto_perfil);
+      form.append('tipo', 'usuario_perfil');
+      form.append('identificador', '2');
+
+      //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+      $.ajax({
+         url: URL_SERVIDOR + "Imagen/apdate",
+         method: "POST",
+         mimeType: "multipart/form-data",
+         data: form,
+         timeout: 0,
+         processData: false,
+         contentType: false,
+      }).done(function (response) {
+         //REST_Controller::HTTP_OK
+         console.log(response);
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: "FOTO ACTUALIZADA",
+            showConfirmButton: true,
+         }).then((result) => {
+            //TODO BIEN Y RECARGAMOS LA PAGINA 
+            $("#miFormulario").trigger("reset");
+         });
+      }).fail(function (response) {
+         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+         console.log(response);
+
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+            showConfirmButton: true,
+         });
+
+      }).always(function (xhr, opts) {
+         $('#loading').hide();
+      });
+   }
+
 });

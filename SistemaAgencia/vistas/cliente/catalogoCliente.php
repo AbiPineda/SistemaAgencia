@@ -8,6 +8,8 @@
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
    type="text/css" />
 <link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+<!-- PARA HACER EL HOVER DE LA FOTO DE PERFIL -->
+<link href="<?= $base_url ?>css/hover.css" media="all" rel="stylesheet" type="text/css" />
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -23,6 +25,7 @@
       </div><!-- /.container-fluid -->
    </section>
 
+
    <!-- Main content -->
    <section class="content">
       <div class="row">
@@ -32,6 +35,7 @@
                   <h3 class="card-title">Clientes</h3>
                </div>
                <!-- /.card-header -->
+
                <div class="card-body">
                   <table id="tabla_cliente" class="table table-bordered table-striped">
                      <thead style="text-align: center;">
@@ -179,6 +183,47 @@
                </div>
 
 
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- End Modal EDITAR-->
+   </form>
+
+   <form id="formulario_perfil" name="formulario_perfil" enctype="multipart/form-data">
+      <div class="modal fade" id="modal-perfil">
+         <!-- Modal EDITAR-->
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title">Selecciona una Foto</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-3">
+
+                     </div>
+                     <div class="col-sm-9">
+                        <div class="form-group">
+                           <div class="kv-avatar">
+                              <div class="file-loading">
+                                 <input id="foto" name="foto" type="file">
+                              </div>
+                           </div>
+                           <!-- /.input group -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button name="actualizarFotoPerfil" id="actualizarFotoPerfil" class="btn btn-info btn-sm"
+                     style="color: white">Actualizar</button>
+               </div>
             </div>
             <!-- /.modal-content -->
          </div>
