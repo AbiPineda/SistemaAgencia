@@ -124,6 +124,16 @@ $(document).ready(function () {
         $("#coordenadas-error").hide();
         $("#coordenadas").removeClass("is-invalid");
     });
+    //CLICK EN EL LINK DEL CONTACTO
+    $(document).on('click', '.info_contacto', function () {
+        $('#modal_ver_contacto').modal('show');
+        let fila = $(this).closest("tr");
+        let data = tabla.row(fila).data();
+        $("#spanCorreo").html(data.correo);
+        $("#spanTelefono").html(data.telefono);
+        $("#spanNombre").html(data.nombreContacto);
+        $("#imgContacto").attr("src", data.url);
+    });
 
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
@@ -158,7 +168,7 @@ $(document).ready(function () {
                             json.sitios[i]["botones"] = html;
 
                             let html2 = "";
-                            html2 += '<a href="#">'+json.sitios[i].contactoN+'';
+                            html2 += '<a class="info_contacto" href="#">' + json.sitios[i].contactoN + '';
                             html2 += '    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
                             html2 += '        <div class="ocultar card bg-light">';
                             html2 += '            <div class="card-body">';
@@ -166,23 +176,23 @@ $(document).ready(function () {
                             html2 += '                    <div class="col-7">';
                             html2 += '                        <p class="text-muted text-sm">';
                             html2 += '                            <b>Nombre de Contacto</b>';
-                            html2 += '                            '+json.sitios[i].contactoN+'';
+                            html2 += '                            ' + json.sitios[i].contactoN + '';
                             html2 += '                        </p>';
                             html2 += '                        <ul class="ml-4 mb-0 fa-ul text-muted">';
                             html2 += '                            <li class="small">';
                             html2 += '                                <span class="fa-li">';
                             html2 += '                                    <i class="fas fa-lg fa-mail-bulk"> </i>';
-                            html2 += '                                </span> '+json.sitios[i].correo+'';
+                            html2 += '                                </span> ' + json.sitios[i].correo + '';
                             html2 += '                            </li>';
                             html2 += '                            <li class="small">';
                             html2 += '                                <span class="fa-li">';
                             html2 += '                                    <i class="fas fa-lg fa-phone"></i>';
-                            html2 += '                                </span> Teléfono #: '+json.sitios[i].telefono+'';
+                            html2 += '                                </span> Teléfono #: ' + json.sitios[i].telefono + '';
                             html2 += '                            </li>';
                             html2 += '                        </ul>';
                             html2 += '                    </div>';
                             html2 += '                    <div class="col-5 text-center">';
-                            html2 += '                        <img src="'+json.sitios[i].url+'" alt=""';
+                            html2 += '                        <img src="' + json.sitios[i].url + '" alt=""';
                             html2 += '                            class="img-fluid">';
                             html2 += '                    </div>';
                             html2 += '                </div>';
@@ -191,7 +201,7 @@ $(document).ready(function () {
                             html2 += '        </div>';
                             html2 += '    </div>';
                             html2 += '</a>';
-
+                            json.sitios[i]["nombreContacto"] = json.sitios[i].contactoN;
                             json.sitios[i]["contactoN"] = html2;
 
 

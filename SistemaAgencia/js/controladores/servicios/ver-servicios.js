@@ -108,6 +108,18 @@ $(document).ready(function () {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
+      //CLICK EN EL LINK DEL CONTACTO
+      $(document).on('click', '.info_contacto', function () {
+        $('#modal_ver_contacto').modal('show');
+        let fila = $(this).closest("tr");
+        let data = tabla.row(fila).data();
+        console.log(data);
+
+        $("#spanCorreo").html(data.correo);
+        $("#spanTelefono").html(data.telefono);
+        $("#spanNombre").html(data.nombre_contacto);
+        $("#imgContacto").attr("src", data.url);
+    });
 
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
@@ -143,7 +155,7 @@ $(document).ready(function () {
                             json.servicio[i]["botones"] = html;
 
                             let html2 = "";
-                            html2 += '<a href="#">' + json.servicio[i].nombre_contacto + '';
+                            html2 += '<a class="info_contacto" href="#">' + json.servicio[i].nombre_contacto + '';
                             html2 += '    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
                             html2 += '        <div class="ocultar card bg-light">';
                             html2 += '            <div class="card-body">';

@@ -22,13 +22,19 @@ $(document).ready(function () {
    });
    //BOTON EDITAR FOTO PERFIL 
    $(document).on('click', 'a[name ="camara"]', function () {
+      //inicializamos nuevamente el input de foto
       inicializarFoto();
+      ///abrimos el modal
       $('#modal-perfil').modal('show');
+      //recuperamos la informacion
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
+      ///le enviamos la imagen del cliente al avatar
       let $avatar = $('.file-default-preview');
       console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
       console.log(data);
+      ///le damos el valor al id seleccionado
+      idSeleccionado = data.id_cliente;
    });
    //BOTON EDITAR DOCUMENTOS
    $(document).on('click', '.btn-group .btn-warning', function () {
@@ -162,6 +168,15 @@ $(document).ready(function () {
                      html += '            data-target="#modal-eliminar">';
                      html += '            <i class="fas fa-trash" style="color: white"></i>';
                      html += '        </button>';
+                     html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success" data-toggle="modal"';
+                     html += '            data-target="">';
+                     html += '            <i class="fab fa-telegram-plane" style="color: white"></i>';
+                     html += '        </button>';
+                     html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '"  class="btn btn-info" data-toggle="modal"';
+                     html += '            data-target="">';
+                     html += '            <i class="fa fa-signal" style="color: white"></i>';
+                     html += '        </button>';
+                     
                      html += '    </div>';
                      html += '</td>';
                      json.usuarios[i]["botones"] = html;
@@ -387,7 +402,7 @@ $(document).ready(function () {
       let foto_perfil = document.getElementById("foto").files[0];
       form.append('foto', foto_perfil);
       form.append('tipo', 'usuario_perfil');
-      form.append('identificador', '2');
+      form.append('identificador', idSeleccionado);
 
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
