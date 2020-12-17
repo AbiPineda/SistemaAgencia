@@ -61,8 +61,9 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.informacion.length; i < ien; i++) {
 
-                document.getElementById("nombreCliente").value = response.informacion[i].nombre;
-                document.getElementById("ciudad_partida").value = response.informacion[i].ciudad_partida;
+                $('#nombreCliente').text(response.informacion[i].nombre);
+                $('#ciudadP').text(response.informacion[i].ciudad_partida);
+
 
 
             }

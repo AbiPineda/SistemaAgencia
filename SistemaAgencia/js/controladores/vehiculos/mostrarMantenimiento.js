@@ -24,6 +24,7 @@ $(document).ready(function() {
                 document.getElementById("lugar").value = response.mantenimiento[i].lugar;
                 document.getElementById("vehiculo").value = response.mantenimiento[i].modelo;
                 document.getElementById("anio").value = response.mantenimiento[i].anio;
+                document.getElementById("placa").value = response.mantenimiento[i].placa;
                 document.getElementById("mantenimientos").value = response.mantenimiento[i].mantenimiento_realizado;
 
             }

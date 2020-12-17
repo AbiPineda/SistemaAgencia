@@ -360,13 +360,13 @@
                                                         <br>
                                                         <address>
 
-                                                            <strong>Cliente:</strong><br>
+                                                            <strong>Cliente:</strong>
                                                             <label name="nombreCliente" id="nombreCliente"></label>
-
-                                                            <strong>Email:</strong><br>
+                                                            <br>
+                                                            <strong>Email:</strong>
                                                             <label name="correo" id="correo"></label>
-
-                                                            <strong>Telefono:</strong><br>
+                                                            <br>
+                                                            <strong>Telefono:</strong>
                                                             <label name="celular" id="celular"></label>
                                                         </address>
                                                     </div>
@@ -389,7 +389,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>San Vicente</td>
+                                                                    <td><label name="ciudadP" id="ciudadP"></label></td>
                                                                     <td>07-12-2020</td>
                                                                     <td>08:00:00</td>
                                                                 </tr>

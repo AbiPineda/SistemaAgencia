@@ -128,7 +128,7 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <div class="form-group">
                                     <label>Año</label>
                                     <div class="input-group">
@@ -137,7 +137,16 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label>Placa</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="placa" name="placa"  disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
                                 <div class="form-group">
                                     <label>Lugar donde se realizo mantenimiento</label>
                                     <div class="input-group">
