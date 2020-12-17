@@ -62,8 +62,27 @@ $(document).ready(function() {
             for (let i = 0, ien = response.informacion.length; i < ien; i++) {
 
                 $('#nombreCliente').text(response.informacion[i].nombre);
-                $('#ciudadP').text(response.informacion[i].ciudad_partida);
+                $('#email').text(response.informacion[i].correo);
+                $('#telefono').text(response.informacion[i].celular);
 
+
+                $('#ciudadP').text(response.informacion[i].ciudad_partida);
+                $('#fechaP').text(response.informacion[i].fechaPartida);
+                $('#horaP').text(response.informacion[i].HoraPartida);
+
+                $('#ciudadL').text(response.informacion[i].ciudad_llegada);
+                $('#fechaL').text(response.informacion[i].fechaLlegada);
+                $('#horaL').text(response.informacion[i].HoraLlegada);
+
+                $('#aerolinea').text(response.informacion[i].nombre_aerolinea);
+                $('#clase').text(response.informacion[i].nombre_clase);
+                $('#tipoviaje').text(response.informacion[i].nombre_tipoviaje);
+                $('#opc').text(response.informacion[i].opc_avanzadas);
+
+                $('#adult').text(response.informacion[i].adultos);
+                $('#nino').text(response.informacion[i].ninos);
+                $('#bb').text(response.informacion[i].bebes);
+                $('#malet').text(response.informacion[i].maletas);
 
 
             }

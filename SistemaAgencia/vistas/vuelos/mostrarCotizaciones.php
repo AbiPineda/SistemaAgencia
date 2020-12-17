@@ -364,10 +364,10 @@
                                                             <label name="nombreCliente" id="nombreCliente"></label>
                                                             <br>
                                                             <strong>Email:</strong>
-                                                            <label name="correo" id="correo"></label>
+                                                            <label name="email" id="email"></label>
                                                             <br>
                                                             <strong>Telefono:</strong>
-                                                            <label name="celular" id="celular"></label>
+                                                            <label name="telefono" id="telefono"></label>
                                                         </address>
                                                     </div>
                                                     <!-- /.col -->
@@ -390,8 +390,8 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td><label name="ciudadP" id="ciudadP"></label></td>
-                                                                    <td>07-12-2020</td>
-                                                                    <td>08:00:00</td>
+                                                                    <td><label name="fechaP" id="fechaP"></label></td>
+                                                                    <td><label name="horaP" id="horaP"></label></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -413,9 +413,9 @@
                                                             <tbody>
                                                                 <tr>
 
-                                                                    <td>New York</td>
-                                                                    <td>08-12-2020</td>
-                                                                    <td>08:00:00</td>
+                                                                    <td><label name="ciudadL" id="ciudadL"></label></td>
+                                                                    <td><label name="fechaL" id="fechaL"></label></td>
+                                                                    <td><label name="horaL" id="horaL"></label></td>
                                                                 </tr>
 
 
@@ -439,11 +439,11 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>Avianca</td>
-                                                                    <td>Ejecutiva</td>
-                                                                    <td>Vacaciones Familiares</td>
-                                                                    <td>Vuelo sin escalas, Equipaje Extra, misma
-                                                                        aerolinea</td>
+                                                                    <td><label name="aerolinea" id="aerolinea"></label></td>
+                                                                    <td><label name="clase" id="clase"></label></td>
+                                                                    <td><label name="tipoviaje" id="tipoviaje"></label></td>
+                                                                    <td><label name="opc" id="opc"></label></td>
+                                                                   
 
                                                                 </tr>
 
@@ -464,19 +464,19 @@
                                                             <table class="table">
                                                                 <tr>
                                                                     <th style="width:50%">Cantidad de Adultos</th>
-                                                                    <td>5</td>
+                                                                    <td><label name="adult" id="adult"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Niños</th>
-                                                                    <td>2</td>
+                                                                    <td><label name="nino" id="nino"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Bebes</th>
-                                                                    <td>0</td>
+                                                                    <td><label name="bb" id="bb"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Maletas</th>
-                                                                    <td>8</td>
+                                                                    <td><label name="malet" id="malet"></label></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
