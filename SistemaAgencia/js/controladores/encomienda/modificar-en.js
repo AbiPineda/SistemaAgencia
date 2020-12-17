@@ -167,7 +167,8 @@ $(document).ready(function () {
         TOTAL = 0.0;
         tabla.rows().every(function (value, index) {
             let data = this.data();
-            TOTAL += parseFloat(data.subTotoal);
+            //console.log(data);
+            TOTAL += parseFloat(data.sub_total);
         });
         $('#total').empty();
         $('#total').text("$" + TOTAL);
