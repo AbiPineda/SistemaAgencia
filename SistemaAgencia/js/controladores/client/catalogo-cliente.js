@@ -181,12 +181,6 @@ $(document).ready(function () {
                      html += '</td>';
                      json.usuarios[i]["botones"] = html;
 
-
-                     // let html2 = `<img src="${json.usuarios[i].foto}" class="rounded" height="auto" width="70%">`;
-                     // html2 += '<button type="button " name="" class="btn btn-primary  btn-block center" style="width: 70%;">';
-                     // html2 += '   <i class="fas fa-camera" style="color: white"></i>';
-                     // html2 += '</button>';
-
                      let html2 = "";
                      html2 += '      <div class="hovereffect">   ';
                      html2 += '         <img class="img-responsive rounded"';
@@ -200,11 +194,7 @@ $(document).ready(function () {
                      html2 += '               </p>';
                      html2 += '            </div>';
                      html2 += '      </div>';
-
-
-
                      json.usuarios[i]["image"] = html2;
-
                   }
                   $('#loading').hide();
                   return json.usuarios;

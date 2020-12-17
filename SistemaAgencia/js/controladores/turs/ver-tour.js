@@ -108,6 +108,12 @@ $(document).ready(function () {
          "autoWidth": false,
          "deferRender": true,
          "order": [[4, "desc"]],
+         "columnDefs": [
+            { "className": "dt-center", "targets": "_all" },
+            { "targets": [4], "visible": false },
+            { "targets": [3], width: "13%" },
+           
+        ],
          "ajax": {
             "url": URL_SERVIDOR + "TurPaquete/show?estado=1",
             "method": "GET",

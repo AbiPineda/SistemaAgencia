@@ -14,21 +14,16 @@ $(document).ready(function () {
         let data = tabla.row(fila).data();
         idSerevicio = $(this).attr("name");
 
-        console.log(data);
-
         // //MANDALOS LOS VALORES AL MODAL
         document.getElementById("nombre").value = data.nombre_servicio;
         document.getElementById("costos_defecto").value = data.costos_defecto;
         document.getElementById("descripcion_servicio").value = data.descripcion_servicio;
         $('#tipo_servicio').val(data.id_tipo_servicio);
         $('#tipo_servicio').trigger('change');
-        // for (let index = 0; index < ListaDatos.length; index++) {
-        //     if (ListaDatos[index].text == tipoSeleccionado) {
-        //         $('#tipo_servicio').val(ListaDatos[index].id); // Select the option with a value of '1'
-        //         $('#tipo_servicio').trigger('change'); // Notify any JS components that the value changed
-        //         break;
-        //     }
-        // }
+
+        if (data.mapa.length > 0) {
+            console.log("existe el mapa");
+        }
         $('#modal-editar').modal('show');
 
     });
@@ -108,8 +103,8 @@ $(document).ready(function () {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
-      //CLICK EN EL LINK DEL CONTACTO
-      $(document).on('click', '.info_contacto', function () {
+    //CLICK EN EL LINK DEL CONTACTO
+    $(document).on('click', '.info_contacto', function () {
         $('#modal_ver_contacto').modal('show');
         let fila = $(this).closest("tr");
         let data = tabla.row(fila).data();

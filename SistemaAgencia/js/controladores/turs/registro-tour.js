@@ -19,6 +19,7 @@ $(document).ready(function () {
 
 
     let tabla = $('#TablaCostos').DataTable({
+        "responsive": true,
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -26,7 +27,6 @@ $(document).ready(function () {
         "info": true,
         "autoWidth": false,
         "pageLength": 3,
-        "responsive": true,
 
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
