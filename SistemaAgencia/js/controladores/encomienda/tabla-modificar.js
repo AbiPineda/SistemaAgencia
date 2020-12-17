@@ -10,49 +10,11 @@ $(document).ready(function () {
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
         $('#loadingActualizar').hide();
-        id_pregunta = $(this).attr("name");
-        id_ramas= $(this).attr("id");
+        id_encomienda = $(this).attr("name");
 
-        fila = $(this).closest("tr");
-
-        pregunta = fila.find('td:eq(0)').text();
-        mas_respuestas = fila.find('td:eq(1)').text();
-
-        //PETICION AJAX PARA EL COMBO
-         //COMBO DE TIPOS 
-        $('#combo_cerrada').empty();
-        //COMBO DE CONTACTOS
-        $('#combo_cerrada').select2();
-        $.ajax({
-            url: URL_SERVIDOR + "Asesoria/opcionesCerradas/"+id_pregunta,
-            method: "GET"
-        }).done(function (response) {
-            //REST_Controller::HTTP_OK
-            let myData = [];
-            if (response.preguntas) {
-                let lista = response.preguntas;
-                for (let index = 0; index < lista.length; index++) {
-                var $seleccionadas = $("<option selected></option>").val(lista[index].opciones_respuestas).text(lista[index].opciones_respuestas); 
-                 $('#combo_cerrada').append($seleccionadas).trigger('change');
-               //document.getElementById("combo_cerrada").value=lista[index].opciones_respuestas;
-                }
-                //$('#combo_cerrada').select2();
-            }else{
-                $('#combo_cerrada').select2();
-            }
-        }).fail(function (response) {
-            $('#combo_cerrada').select2();
-
-        });
-        //************************
-
-        //MANDALOS LOS VALORES AL MODAL
-        document.getElementById("pregunta").value =pregunta;
-        document.getElementById("id_rama").value=id_ramas;
-        document.getElementById("id_pregunta").value=id_pregunta;
-
-        $('#modal-editar').modal('show');
-
+    window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/modificarEncomienda.php?en=`+id_encomienda;
+                    
+    
     });
    
     //BOTON PARA ELIMINAR
