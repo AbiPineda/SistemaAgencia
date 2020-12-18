@@ -49,7 +49,10 @@ include_once '../../plantillas/barra_lateral.php';
                            <div class="col-sm-5">
                               <div class="form-group">
                                  <label for="cars">Cliente:</label>
-                                 <input type="text" class="form-control" name="cliente" id="cliente" disabled="true">
+                                 <input type="text" class="form-control" name="cliente" id="nombre_cliente" disabled="true">
+                                 <input type="hidden" class="form-control" name="cliente" id="cliente">
+                                 <input type="hidden" class="form-control" name="id_encomienda" id="id_encomienda">
+                              
                               </div>
                            </div>
                         </div>
@@ -234,8 +237,8 @@ include_once '../../plantillas/barra_lateral.php';
                      </div>
                      <br> <br>
                      <div class="timeline-footer" style="text-align: right;">
-                        <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                           style="color: white">Guardar</button>
+                        <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
+                           style="color: white">Actualizar</button>
                         <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                      </div>
                   </div>

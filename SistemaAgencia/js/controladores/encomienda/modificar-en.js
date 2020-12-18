@@ -46,13 +46,18 @@ $(document).ready(function () {
             method: "GET"
         }).done(function (response) {
             $.each(response.Encomiendas, function (i, index) {
-                $('#cliente').val(index.nombre);
+                $('#nombre_cliente').val(index.nombre);
+                $('#cliente').val(index.id_usuario);
                 $('#direccion').val(index.direccion);
                 $('#punto_referencia').val(index.punto_referencia);
                 $('#fecha').val(index.fecha);
                 $('#total').text(index.total_encomienda);
                 $('#comision').text(index.total_comision);
                 $('#totalCliente').text(index.total_cliente);
+                $('#id_encomienda').val(ID_ENCOMIENDA);
+                TOTAL= index.total_encomienda;
+                COMISION = index.total_comision;
+                TOTALCLIENTE = index.total_cliente;
             });
 
         }).fail(function (response) {
@@ -197,5 +202,103 @@ $(document).ready(function () {
         modificarComision();
         modificarTotalCliente();
     });
+
+    //BOTON DE ACTUALIZAR 
+    $(document).on('click', '#btnActualizar', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+       // let form = $("#miFormulario");
+       // form.validate();
+        //if (form.valid()) {
+            guardar();
+       /* } else {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'error',
+                text: "Complete los campos",
+                showConfirmButton: true,
+            });
+        }*/
+    });
+
+    function guardar() {
+        $('#loading').show();
+        let form = obtenerData();
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        $.ajax({
+            url: URL_SERVIDOR + "Encomienda/updateEncomienda",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response);
+            
+           const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: "Registro Guardado",
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+               
+            });
+            
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            /*const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });*/
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
+    }
+
+     function obtenerData() {
+        let form = new FormData();
+         let detalle_encomienda = [];
+        
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+           
+            let id_producto = data.id_producto;
+            let cantidad = data.cantidad;
+            let sub_total = data.sub_total;
+           
+                 
+                detalle_encomienda.push({
+                    "id_producto": id_producto,
+                    "cantidad": cantidad,
+                    "sub_total": sub_total
+                });
+            
+        });
+       
+        form.append("direccion",          document.getElementById("direccion").value);
+        form.append("punto_referencia",   document.getElementById("punto_referencia").value);
+        form.append("fecha",              document.getElementById("fecha").value);
+        form.append("id_encomienda",      document.getElementById("id_encomienda").value);
+
+        form.append("total_encomienda",   TOTAL);
+        form.append("total_comision",     COMISION);
+        form.append("total_cliente",     (TOTAL+COMISION));
+        form.append("id_usuario",          document.getElementById("cliente").value);
+        form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
+       
+
+        return form;
+
+    }
 
 });
