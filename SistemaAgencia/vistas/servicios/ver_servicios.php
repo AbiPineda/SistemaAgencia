@@ -75,7 +75,7 @@
    <form id="miFormulario" name="miFormulario" role="form">
       <!-- Modal EDITAR-->
       <div class="modal fade" id="modal-editar">
-         <div class="modal-dialog modal-lg modal-dialog-centered">
+         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
 
                <div class="overlay-wrapper">

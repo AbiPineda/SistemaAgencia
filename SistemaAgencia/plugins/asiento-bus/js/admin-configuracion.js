@@ -4,8 +4,8 @@ let $total = $('#total');
 let strFila = "ee_ee";
 let sc;
 let numero_filas = 2;
-let asientos_derecho = 2
-let asientos_izquierdo = 2
+let asientos_derecho = 2;
+let asientos_izquierdo = 2;
 let asientos_traseros = 5;
 
 let miMapa = [

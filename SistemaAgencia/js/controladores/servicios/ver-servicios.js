@@ -21,8 +21,34 @@ $(document).ready(function () {
         $('#tipo_servicio').val(data.id_tipo_servicio);
         $('#tipo_servicio').trigger('change');
 
+        $('#numero_filas').val(data.filas);
+        $('#asientos_derecho').val(data.asiento_derecho);
+        $('#asientos_izquierdo').val(data.asiento_izquierdo);
+
+
+
         if (data.mapa.length > 0) {
-            console.log("existe el mapa");
+            console.log(data);
+            $('#configuracionAsientos').show();
+            $('#dibujoAsientos').show();
+            //LA VARIABLE MAPA Y METODOS ESTAN DEFINIDOS EN asiento-bus/js/admin-configuracion.js
+            numero_filas = data.filas;
+            asientos_derecho = data.asiento_derecho;
+            asientos_izquierdo = data.asiento_izquierdo;
+            if (data.fila_trasera == "1") {
+                $('#checkTrasero').prop('checked', true);
+            }else{
+                $('#checkTrasero').prop('checked', false);
+            }
+            miMapa = [];
+            borrarTodo();
+            crearStrFila();
+            crearFilas();
+            dibujarAsientos();
+
+        } else {
+            $('#configuracionAsientos').hide();
+            $('#dibujoAsientos').hide();
         }
         $('#modal-editar').modal('show');
 
@@ -125,7 +151,6 @@ $(document).ready(function () {
                 "url": URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
                 "method": "GET",
                 "dataSrc": function (json) {
-                    console.log(json);
                     //PARA CONPROVAR QUE EL SERVICIO EXISTE
                     if (json.servicio) {
                         for (let i = 0, ien = json.servicio.length; i < ien; i++) {
