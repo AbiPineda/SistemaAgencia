@@ -187,10 +187,12 @@ $(document).ready(function () {
            
             let id_producto = data[5];
             let cantidad = data[2];
+            let sub_total = data[3];
                  
                 detalle_encomienda.push({
                     "id_producto": id_producto,
-                    "cantidad": cantidad
+                    "cantidad": cantidad,
+                    "sub_total": sub_total
                 });
             
         });
@@ -198,6 +200,7 @@ $(document).ready(function () {
         form.append("direccion",          document.getElementById("direccion").value);
         form.append("punto_referencia",   document.getElementById("punto_referencia").value);
         form.append("fecha",              document.getElementById("fecha").value);
+        form.append("estado",              document.getElementById("estado").value);
         form.append("total_encomienda",   TOTAL);
         form.append("total_comision",     COMISION);
         form.append("total_cliente",     (TOTAL+COMISION));

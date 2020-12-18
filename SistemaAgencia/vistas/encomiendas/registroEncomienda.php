@@ -53,6 +53,7 @@ include_once '../../plantillas/barra_lateral.php';
                                  <select name="id_cliente" id="cliente" class="form-control">
                                     <option value="">Seleccione</option>
                                  </select>
+                                 <input type="text" name="estado" id="estado" value="Enviado">
                               </div>
                            </div>
                         </div>
