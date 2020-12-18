@@ -209,7 +209,7 @@ $(document).ready(function () {
        // let form = $("#miFormulario");
        // form.validate();
         //if (form.valid()) {
-            guardar();
+            modificar();
        /* } else {
             const Toast = Swal.mixin();
             Toast.fire({
@@ -221,7 +221,7 @@ $(document).ready(function () {
         }*/
     });
 
-    function guardar() {
+    function modificar() {
         $('#loading').show();
         let form = obtenerData();
 
@@ -241,10 +241,11 @@ $(document).ready(function () {
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: "Registro Guardado",
+                text: "Registro Actualizado correctamente",
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //TODO BIEN Y RECARGAMOS LA PAGINA
+                 window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/verEncomienda.php` 
                
             });
             
