@@ -49,35 +49,28 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-lg-2"></div>
                                         <div class="col-lg-8">
                                      <div class="form-group">
-                                      <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
+                                <table id="tabla_actualizacion" class="table table-bordered table-striped">
+                                        <thead style="text-align: center;">
                                             <tr>
-                                                 <th>Cliente</th>
-                                                <th>Encomienda</th>
+                                                <th>Nombre</th>
+                                                <th>Dirección</th>
+                                                <th>Punto Referencia</th>
                                                 <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Lugar</th>
-                                                <th>Acción</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Juan Alfaro</td>
-                                                <td>Pastillas</td>
-                                                <td>24/03/2020</td>
-                                                <td>8:00pm</td>
-                                                <td>San Vicente</td>
-                                                <td><div class="btn-group">
-                                                                
-                                                        <a type="button" class="btn btn-success" 
-                                                           href="<?= $base_url ?>vistas/encomiendas/actualizacionRegistro.php"   >
-                                                            <i class="fas fa-car" style="color: white"></i>
-                                                        </a>
-                                                       
-                                                    </div></td>
+                                        <!-- /.inicio de loading -->
+                                        <div class="overlay-wrapper">
+                                            <div id="loading" class="overlay"><i
+                                                    class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-                                            </tr>
-                                        </tbody>
+                                                <div class="text-bold pt-2">Cargando...
+                                                </div>
+                                            </div>
+                                            <tbody id="tableBody" style="text-align: center;">
+                                            </tbody>
+                                        </div>
+                                        <!-- /.fin de loading -->
 
                                     </table>    
                                      </div>
