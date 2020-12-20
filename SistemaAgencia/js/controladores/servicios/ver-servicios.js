@@ -4,6 +4,7 @@ $(document).ready(function () {
     let idSerevicio;
     let tabla;
     inicializarValidaciones();
+    inicializarComboContacto();
     inicializarTabla();
     inicializarCombo();
 
@@ -18,16 +19,18 @@ $(document).ready(function () {
         document.getElementById("nombre").value = data.nombre_servicio;
         document.getElementById("costos_defecto").value = data.costos_defecto;
         document.getElementById("descripcion_servicio").value = data.descripcion_servicio;
+
         $('#tipo_servicio').val(data.id_tipo_servicio);
         $('#tipo_servicio').trigger('change');
+
+        $('#contacto_servicio').val(data.id_contacto);
+        $('#contacto_servicio').trigger('change');
 
         $('#numero_filas').val(data.filas);
         $('#asientos_derecho').val(data.asiento_derecho);
         $('#asientos_izquierdo').val(data.asiento_izquierdo);
 
-
-
-        if (data.mapa.length > 0) {
+        if (data.filas) {
             console.log(data);
             $('#configuracionAsientos').show();
             $('#dibujoAsientos').show();
@@ -37,7 +40,7 @@ $(document).ready(function () {
             asientos_izquierdo = data.asiento_izquierdo;
             if (data.fila_trasera == "1") {
                 $('#checkTrasero').prop('checked', true);
-            }else{
+            } else {
                 $('#checkTrasero').prop('checked', false);
             }
             miMapa = [];
@@ -45,6 +48,8 @@ $(document).ready(function () {
             crearStrFila();
             crearFilas();
             dibujarAsientos();
+            //PARA LOS HACIENTOS QUE HAN SIDO DESHABILITADOS
+            sc.get(data.asientos_deshabilitados).status('selected');
 
         } else {
             $('#configuracionAsientos').hide();
@@ -122,6 +127,14 @@ $(document).ready(function () {
         form.validate();
         if (form.valid()) {
             actualizar();
+        } else {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'error',
+                text: "Complete los campos",
+                showConfirmButton: true,
+            });
         }
     });
     //CUANDO EL MODAL SE CIERRA
@@ -280,6 +293,21 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: true,
                     minlength: 10,
+                },
+                numero_filas: {
+                    required: true,
+                    min: 2,
+                    max: 30
+                },
+                asientos_derecho: {
+                    required: true,
+                    min: 2,
+                    max: 7
+                },
+                asientos_izquierdo: {
+                    required: true,
+                    min: 2,
+                    max: 7
                 }
             },
             messages: {
@@ -300,6 +328,21 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: "La descripcion del servico es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
+                },
+                numero_filas: {
+                    required: "Ingrese el valor",
+                    min: "El valor minimo es 2",
+                    max: "El valor maximo es 30"
+                },
+                asientos_derecho: {
+                    required: "Ingrese el valor",
+                    min: "El valor minimo es 2",
+                    max: "El valor maximo es 7"
+                },
+                asientos_izquierdo: {
+                    required: "Ingrese el valor",
+                    min: "El valor minimo es 2",
+                    max: "El valor maximo es 7"
                 }
 
             },
@@ -320,29 +363,46 @@ $(document).ready(function () {
     }
     function actualizar() {
         $('#loadingActualizar').show();
-        tipoSeleccionado = "";
-        tipo = document.getElementById("tipo_servicio").value;//esto captura el id, y lo que yo quiero guardar es el texto
-        for (let index = 0; index < ListaDatos.length; index++) {
-            if (tipo == ListaDatos[index].id) {
-                tipoSeleccionado = ListaDatos[index].text;
-            }
-        }
-        let data = {
-            "id_servicios": idSerevicio,
-            "nombre_servicio": document.getElementById("nombre").value,
-            "costos_defecto": document.getElementById("costos_defecto").value,
-            "descripcion_servicio": document.getElementById("descripcion_servicio").value,
-            "tipo_servicio": tipoSeleccionado
+        let form = new FormData();
 
-        };
-        ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
+        form.append("id_servicios", idSerevicio);
+        form.append("id_tipo_servicio", document.getElementById("tipo_servicio").value);
+        form.append("nombre_servicio", document.getElementById("nombre").value);
+        form.append("costos_defecto", document.getElementById("costos_defecto").value);
+        form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
+        form.append("id_contacto", document.getElementById("contacto_servicio").value);
+
+        let tipoServicio = $('#tipo_servicio').select2("data");
+        if (tipoServicio[0].text === "Transporte") {
+            let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
+            if ($('#checkTrasero').prop('checked')) {
+                asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
+            }
+            //LE RESTAMOS LOS ASIENTOS QUE HAN SIDO INAVILITADOS
+            asientos_disponibles -= sc.find('e.selected').seatIds.length;
+
+            form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
+            form.append("filas", $('#numero_filas').val());
+            form.append("asiento_derecho", $('#asientos_derecho').val());
+            form.append("asiento_izquierdo", $('#asientos_izquierdo').val());
+            form.append("fila_trasera", $('#checkTrasero').val());
+            form.append("asientos_dispobibles", asientos_disponibles);
+        } else {
+
+        }
+
+        //OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
             url: URL_SERVIDOR + "ServiciosAdicionales/update",
-            method: "PUT",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
             timeout: 0,
-            data: data
+            processData: false,
+            contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -403,6 +463,37 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
+        });
+    }
+    function inicializarComboContacto() {
+        //COMBO DE TIPOS 
+        $('#tipo_servicio').select2();
+        //COMBO DE CONTACTOS
+        $.ajax({
+            url: URL_SERVIDOR + "Contacto/show",
+            method: "GET"
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            let myData = [];
+            if (response.contactos) {
+                let lista = response.contactos;
+                for (let index = 0; index < lista.length; index++) {
+                    myData.push({
+                        id: lista[index].id_contacto,
+                        text: lista[index].nombre_contacto
+                    });
+                }
+                $('#contacto_servicio').select2(
+                    { data: myData }
+                );
+            } else {
+                $('#contacto_servicio').select2();
+            }
+        }).fail(function (response) {
+            $('#contacto_servicio').select2();
+
+        }).always(function (xhr, opts) {
+            //  $('#loading').hide();
         });
     }
 });

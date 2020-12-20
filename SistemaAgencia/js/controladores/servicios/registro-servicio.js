@@ -79,7 +79,6 @@ $(document).ready(function () {
                 asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
             }
             asientos_disponibles -= sc.find('e.selected').seatIds.length;
-            form.append("mapa", miMapa);
             form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
             form.append("asientos_dispobibles", asientos_disponibles);
         }

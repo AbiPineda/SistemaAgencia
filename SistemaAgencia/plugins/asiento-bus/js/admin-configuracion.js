@@ -154,7 +154,7 @@ function dibujarAsientos() {
         },
         blur: function () {
             return this.status();
-        }
+        }   
     });
 
 }

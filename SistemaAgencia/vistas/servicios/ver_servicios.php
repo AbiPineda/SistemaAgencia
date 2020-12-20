@@ -92,7 +92,25 @@
                   </div>
                   <div class="modal-body">
                      <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <label>Nombre de Servicio</label>
+                              <div class="input-group">
+                                 <input id="nombre" name="nombre" type="text" class="form-control">
+                              </div>
+                              <!-- /.input group -->
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <label>Costo promedio</label>
+                              <div class="input-group">
+                                 <input id="costos_defecto" name="costos_defecto" type="number" class="form-control">
+                              </div>
+                              <!-- /.input group -->
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
                            <div class="form-group">
                               <label>Tipo de Servicio</label>
                               <select name="tipo_servicio" id="tipo_servicio"
@@ -102,23 +120,16 @@
                               </select>
                            </div>
                         </div>
+                        <div class="col-sm-3">
+                           <div class="form-group multiple-form-group input-group">
+                              <label>Contacto</label>
 
-                        <div class="col-sm-4">
-                           <div class="form-group">
-                              <label>Nombre de Servicio</label>
                               <div class="input-group">
-                                 <input id="nombre" name="nombre" type="text" class="form-control">
+                                 <select name="contacto_servicio" id="contacto_servicio"
+                                    class="select2 select2-hidden-accessible form-control"
+                                    data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                 </select>
                               </div>
-                              <!-- /.input group -->
-                           </div>
-                        </div>
-                        <div class="col-sm-4">
-                           <div class="form-group">
-                              <label>Costo promedio</label>
-                              <div class="input-group">
-                                 <input id="costos_defecto" name="costos_defecto" type="number" class="form-control">
-                              </div>
-                              <!-- /.input group -->
                            </div>
                         </div>
 
@@ -139,7 +150,7 @@
                               <label>numero de filas </label>
                               <div class="input-group">
                                  <input id="numero_filas" name="numero_filas" type="number" min="2" value="2" step="1"
-                                    class="form-control">
+                                    max="30" class="form-control">
                               </div>
                            </div>
                         </div>
@@ -147,8 +158,8 @@
                            <div class="form-group">
                               <label>Asientos lado derecho</label>
                               <div class="input-group">
-                                 <input id="asientos_derecho" name="asientos_derecho" type="number" min="2" value="2"
-                                    step="1" class="form-control">
+                                 <input id="asientos_derecho" name="asientos_derecho" type="number" min="2" max="7"
+                                    value="2" step="1" class="form-control">
                               </div>
                            </div>
                         </div>
@@ -156,7 +167,7 @@
                            <div class="form-group">
                               <label>Asientos lado izquierdo</label>
                               <div class="input-group">
-                                 <input id="asientos_izquierdo" name="asientos_izquierdo" type="number" min="2"
+                                 <input id="asientos_izquierdo" name="asientos_izquierdo" type="number" min="2" max="7"
                                     value="2" step="1" class="form-control">
                               </div>
                            </div>
@@ -217,8 +228,6 @@
                      <input id="kv-explorer" name="foto" type="file" multiple>
                   </div>
                </div>
-
-
             </div>
             <!-- /.modal-content -->
          </div>
