@@ -98,6 +98,63 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
         <!-- /.timeline -->
 
+      <!--modal alternativo para los eventos-->
+    <div class="modal fade" id="registro-actualizacion" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Registro de cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="register-form" name="register-form" onsubmit="return false" role="form">
+                <div class="modal-body">
+               <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <form id="task-form">
+                                                    <div class="form-group">
+                                                        <label>Encomienda</label>
+                                                         <input type="text" id="id_encomienda" class="form-control">
+                                                        <input type="text" id="name" placeholder="Encomienda" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Fecha</label>
+                                                        <input type="date" id="name" placeholder="Encomienda" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Lugar</label>
+                                                        <input type="date" id="name" placeholder="Lugar" class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Descripción</label>
+                                                        <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
+                                                    </div>
+
+                                                   
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2"></div>
+                                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnAgregar" class="btn btn-primary btn-sm" style="color: white">Agregar</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin de modal de enventos-->
+
+
     </section>
     <!-- /.content -->
 </div>
@@ -106,6 +163,10 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<script type="text/javascript">
+
+   $('#loadingActualizar').hide();
+</script>
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-actualizacion.js"></script>

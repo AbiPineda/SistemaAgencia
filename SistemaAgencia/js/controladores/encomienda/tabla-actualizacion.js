@@ -8,13 +8,12 @@ $(document).ready(function () {
     inicializarTabla();
   
     //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function () {
+    $(document).on('click', '.btn-group .btn-success', function () {
         $('#loadingActualizar').hide();
-        id_encomienda = $(this).attr("name");
-
-    window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/modificarEncomienda.php?en=`+id_encomienda;
-                    
-    
+        id_encomienda = $(this).attr("name"); 
+        $('#id_encomienda').val(id_encomienda);
+       $('#registro-actualizacion').modal('show');
+       $('#loadingActualizar').hide();
     });
    
     //BOTON PARA ELIMINAR
@@ -56,7 +55,7 @@ $(document).ready(function () {
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "Encomienda/encomienda",
+                "url": URL_SERVIDOR + "Encomienda/encomiendaActualizar",
                 "method": "GET",
                 "dataSrc": function (json) {
                     //console.log(json.preguntas);
@@ -67,13 +66,13 @@ $(document).ready(function () {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-primary" data-toggle="modal"';
-                            html += '         data-target="#modal-editar">';
-                            html += '            <i class="fas fa-edit" style="color: white"></i>';
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-success" data-toggle="modal"';
+                            html += '         data-target="#registro-actualizacion">';
+                            html += '            <i class="fas fa-car" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-danger" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
+                            html += '            <i class="fas fa-eye" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
