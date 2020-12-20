@@ -1,7 +1,10 @@
 <!--para las tablas que cargan en este archivo-->
 <?php
 include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
+include_once '../../plantillas/cabecera.php';?>
+<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+<?php
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
 ?>
@@ -42,7 +45,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <div>
                             <i class="fas fa-comments bg-gradient-blue"></i>
                             <div class="timeline-item">
-                                <span class="time"><i class="fas fa-address-book"></i>Encomiemda a Buscar</span>
+                                <span class="time"><i class="fas fa-address-book"></i>Encomienda a Buscar</span>
                                 <h3 class="timeline-header"><a href="#">Encomienda a Buscar</a></h3>
                                 <div class="timeline-body" style="margin-top: 15px;">
                                      <div class="row">
@@ -66,7 +69,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                                 <div class="text-bold pt-2">Cargando...
                                                 </div>
-                                            </div>
+                                        </div>
                                             <tbody id="tableBody" style="text-align: center;">
                                             </tbody>
                                         </div>
@@ -103,46 +106,14 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-
-<script>
-    $(function () {
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "pageLength": 5,
-            "responsive": true,
-            "oLanguage": {
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                "sInfo": "Mostrando del (_START_ al _END_) de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando del 0 al 0  de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Por favor espere - cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
-            }
-        });
-    });
-</script>
-
-<!-- /.content-wrapper -->
-<!--para la paginacion de las tablas-->
+<!-- SCRIPT ADICIONALES -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-actualizacion.js"></script>
+<!-- jquery-validation -->
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
-<!--fin de la paginacion de las tablas-->
+<!-- CIERRE DE ETIQUETAS -->
+<?php include_once '../../plantillas/cierre.php'; ?>
