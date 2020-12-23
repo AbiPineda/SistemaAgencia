@@ -117,6 +117,11 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             console.log(response);
+            $('#registro-actualizacion').modal('toggle');
+
+            $('#fecha').val('');
+            $('#coordenadas').val('');
+            $('#descripcion').val('');
             
            const Toast = Swal.mixin();
             Toast.fire({

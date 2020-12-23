@@ -152,7 +152,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Agregar</button>
+                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Guargar</button>
                     <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
