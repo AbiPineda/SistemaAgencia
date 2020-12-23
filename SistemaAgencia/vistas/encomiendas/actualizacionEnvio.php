@@ -104,7 +104,7 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="">Registro de cita</h5>
+                    <h5 class="modal-title" id="">Registro de Envio</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -112,22 +112,29 @@ include_once '../../plantillas/barra_lateral.php';
                 <form id="register-form" name="register-form" onsubmit="return false" role="form">
                 <div class="modal-body">
                <div class="row">
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-9">
                                             <div class="form-group">
                                                 <form id="task-form">
                                                     <div class="form-group">
-                                                        <label>Encomienda</label>
-                                                         <input type="text" id="id_encomienda" class="form-control">
-                                                        <input type="text" id="name" placeholder="Encomienda" class="form-control">
+                                                        <label>Cliente</label>
+                                                         <input type="hidden" name="id_encomienda" id="id_encomienda" class="form-control">
+                                                        <input type="text" name="cliente" id="cliente" placeholder="Encomienda" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Fecha</label>
-                                                        <input type="date" id="name" placeholder="Encomienda" class="form-control">
+                                                        <input type="date" id="fecha" placeholder="Encomienda" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Lugar</label>
-                                                        <input type="date" id="name" placeholder="Lugar" class="form-control">
+                                                       <input disabled type="text" class="form-control" name="coordenadas"
+                                                       id="coordenadas" style="width: 89%;">
+
+                                                       <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success btn-add" name="btn-mapa"style="margin-top:-38px; width: 11%; height: 37px; margin-left: 416px;" id="btn-mapa">
+                                       <i class="fas fa-globe" style="color: white"></i>
+                                    </button>
+                                 </span>
                                                     </div>
 
                                                     <div class="form-group">

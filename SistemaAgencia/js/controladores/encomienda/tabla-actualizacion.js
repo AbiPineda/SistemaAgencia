@@ -10,8 +10,10 @@ $(document).ready(function () {
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-success', function () {
         $('#loadingActualizar').hide();
-        id_encomienda = $(this).attr("name"); 
+        id_encomienda = $(this).attr("name");
+        cliente = $(this).attr("id");  
         $('#id_encomienda').val(id_encomienda);
+        $('#cliente').val(cliente);
        $('#registro-actualizacion').modal('show');
        $('#loadingActualizar').hide();
     });
@@ -66,7 +68,7 @@ $(document).ready(function () {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-success" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" id="'+json.Encomiendas[i].nombre+'" class="btn btn-success" data-toggle="modal"';
                             html += '         data-target="#registro-actualizacion">';
                             html += '            <i class="fas fa-car" style="color: white"></i>';
                             html += '        </button>';
