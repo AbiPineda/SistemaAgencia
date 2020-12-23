@@ -73,13 +73,19 @@ $(document).ready(function () {
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
 
         let tipoServicio = $('#tipo_servicio').select2("data");
+        let fila_trasera  = $('#checkTrasero').prop('checked');
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
-            if ($('#checkTrasero').prop('checked')) {
+            if (fila_trasera) {
                 asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
             }
             asientos_disponibles -= sc.find('e.selected').seatIds.length;
+            
             form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
+            form.append("filas", $('#numero_filas').val());
+            form.append("asiento_derecho", $('#asientos_derecho').val());
+            form.append("asiento_izquierdo", $('#asientos_izquierdo').val());
+            form.append("fila_trasera", fila_trasera);
             form.append("asientos_dispobibles", asientos_disponibles);
         }
 
@@ -94,12 +100,12 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
-            let respuestaDecodificada = JSON.parse(response);
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: respuestaDecodificada.mensaje,
+                text: "Servicio Guardado Exitosamente",
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA

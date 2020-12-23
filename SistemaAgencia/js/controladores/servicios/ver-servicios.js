@@ -373,9 +373,10 @@ $(document).ready(function () {
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
 
         let tipoServicio = $('#tipo_servicio').select2("data");
+        let fila_trasera  = $('#checkTrasero').prop('checked');
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
-            if ($('#checkTrasero').prop('checked')) {
+            if (fila_trasera) {
                 asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
             }
             //LE RESTAMOS LOS ASIENTOS QUE HAN SIDO INAVILITADOS
@@ -385,11 +386,9 @@ $(document).ready(function () {
             form.append("filas", $('#numero_filas').val());
             form.append("asiento_derecho", $('#asientos_derecho').val());
             form.append("asiento_izquierdo", $('#asientos_izquierdo').val());
-            form.append("fila_trasera", $('#checkTrasero').val());
+            form.append("fila_trasera", fila_trasera);
             form.append("asientos_dispobibles", asientos_disponibles);
-        } else {
-
-        }
+        } 
 
         //OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
