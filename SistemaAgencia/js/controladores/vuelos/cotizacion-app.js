@@ -84,6 +84,9 @@ $(document).ready(function() {
                 $('#bb').text(response.informacion[i].bebes);
                 $('#malet').text(response.informacion[i].maletas);
 
+                $('#descuent').text(response.informacion[i].descuentos);
+                $('#tot').text(response.informacion[i].total);
+
 
             }
 

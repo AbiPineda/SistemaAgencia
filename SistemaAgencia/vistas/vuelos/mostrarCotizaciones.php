@@ -3,6 +3,9 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+
 <style>
 .center {
     display: block;
@@ -351,13 +354,16 @@
                                                         <br>
                                                         <address>
                                                             <label>Cliente:</label>
-                                                            <label name="nombreCliente" id="nombreCliente" style="font-weight: normal;"></label>
+                                                            <label name="nombreCliente" id="nombreCliente"
+                                                                style="font-weight: normal;"></label>
                                                             <br>
                                                             <label>Email:</label>
-                                                            <label name="email" id="email" style="font-weight: normal;"></label>
+                                                            <label name="email" id="email"
+                                                                style="font-weight: normal;"></label>
                                                             <br>
                                                             <label>Telefono:</label>
-                                                            <label name="telefono" id="telefono" style="font-weight: normal;"></label>
+                                                            <label name="telefono" id="telefono"
+                                                                style="font-weight: normal;"></label>
                                                         </address>
                                                     </div>
                                                     <!-- /.col -->
@@ -378,9 +384,12 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><label name="ciudadP" id="ciudadP" style="font-weight: normal;"></label></td>
-                                                                    <td><label name="fechaP" id="fechaP" style="font-weight: normal;"></label></td>
-                                                                    <td><label name="horaP" id="horaP" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="ciudadP" id="ciudadP"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                    <td><label name="fechaP" id="fechaP"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                    <td><label name="horaP" id="horaP"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -399,9 +408,12 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><label name="ciudadL" id="ciudadL" style="font-weight: normal;"></label></td>
-                                                                    <td><label name="fechaL" id="fechaL" style="font-weight: normal;"></label></td>
-                                                                    <td><label name="horaL" id="horaL" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="ciudadL" id="ciudadL"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                    <td><label name="fechaL" id="fechaL"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                    <td><label name="horaL" id="horaL"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -422,12 +434,16 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><label name="aerolinea" id="aerolinea" style="font-weight: normal;"></label>
+                                                                    <td><label name="aerolinea" id="aerolinea"
+                                                                            style="font-weight: normal;"></label>
                                                                     </td>
-                                                                    <td><label name="clase" id="clase" style="font-weight: normal;"></label></td>
-                                                                    <td><label name="tipoviaje" id="tipoviaje" style="font-weight: normal;"></label>
+                                                                    <td><label name="clase" id="clase"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                    <td><label name="tipoviaje" id="tipoviaje"
+                                                                            style="font-weight: normal;"></label>
                                                                     </td>
-                                                                    <td><label name="opc" id="opc" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="opc" id="opc"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -444,20 +460,35 @@
                                                             <table class="table">
                                                                 <tr>
                                                                     <th style="width:50%">Cantidad de Adultos</th>
-                                                                    <td><label name="adult" id="adult" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="adult" id="adult"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Niños</th>
-                                                                    <td><label name="nino" id="nino" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="nino" id="nino"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Bebes</th>
-                                                                    <td><label name="bb" id="bb" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="bb" id="bb"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Cantidad de Maletas</th>
-                                                                    <td><label name="malet" id="malet" style="font-weight: normal;"></label></td>
+                                                                    <td><label name="malet" id="malet"
+                                                                            style="font-weight: normal;"></label></td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <th>Descuentos (%)</th>
+                                                                    <td><label name="descuent" id="descuent"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total ($)</th>
+                                                                    <td><label name="tot" id="tot"
+                                                                            style="font-weight: normal;"></label></td>
+                                                                </tr>
+
                                                             </table>
                                                         </div>
                                                     </div>
@@ -473,8 +504,9 @@
                                                                 class="fas fa-print"></i>
                                                             Imprimir</button>
 
-
-                                                        <button type="button" class="btn btn-primary float-right"
+                                                        <div id="editor"></div>
+                                                        <button id="convertirPDF" type="button"
+                                                            class="btn btn-primary float-right"
                                                             style="margin-right: 5px;">
                                                             <i class="fas fa-download"></i> Generar PDF
                                                         </button>
@@ -514,6 +546,23 @@ document.getElementById("doPrint").addEventListener("click", function() {
 });
 </script>
 
+<script>
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function(element, renderer) {
+        return true;
+    }
+};
+
+$('#convertirPDF').click(function() {
+    doc.fromHTML($('#printDiv').html(), 15, 15, {
+        'width': 170,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+});
+</script>
+
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
@@ -522,5 +571,7 @@ document.getElementById("doPrint").addEventListener("click", function() {
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/cotizacion-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+
 
 <?php  include_once '../../plantillas/cierre.php';?>
