@@ -41,13 +41,13 @@ $(document).ready(function () {
         })
     });
     //BOTON PARA ACTUALIZAR
-    $(document).on('click', '#btnActualizar', function (evento) {
+    $(document).on('click', '#btnEnvio', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#register-form");
-        form.validate();
-          if (form.valid()) {
-            actualizar();
-        }
+        //form.validate();
+         // if (form.valid()) {
+            guardar();
+        //}
     });
    
 
@@ -99,6 +99,52 @@ $(document).ready(function () {
         });
 
     }
+
+     function guardar() {
+       let form = new FormData();
+       form.append("id_encomienda",          document.getElementById("id_encomienda").value);
+       form.append("fecha",                  document.getElementById("fecha").value);
+       form.append("lugar",                  document.getElementById("coordenadas").value);
+        form.append("descripcion",           document.getElementById("descripcion").value);
+        
+        $.ajax({
+            url: URL_SERVIDOR + "Detalle_envio/detalleEnvios",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response);
+            
+           const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: "Registro Guardado",
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+            });
+            
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            /*const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });*/
+
+        }).always(function (xhr, opts) {
+            $('#loading').hide();
+        });
+    }
+
     function inicializarValidaciones() {
         $('#register-form').validate({
 

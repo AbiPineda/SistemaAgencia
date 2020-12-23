@@ -131,7 +131,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                        id="coordenadas" style="width: 89%;">
 
                                                        <span class="input-group-btn">
-                                    <button type="button" class="btn btn-success btn-add" name="btn-mapa"style="margin-top:-38px; width: 11%; height: 37px; margin-left: 416px;" id="btn-mapa">
+                                    <button type="button" class="btn btn-success btn-add" name="btn-mapa"style="margin-top:-38px; width: 11%; height: 37px; margin-left:308px;" id="btn-mapa">
                                        <i class="fas fa-globe" style="color: white"></i>
                                     </button>
                                  </span>
@@ -139,7 +139,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                                     <div class="form-group">
                                                         <label>Descripción</label>
-                                                        <textarea id="description" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
+                                                        <textarea id="descripcion" cols="10" rows="3" class="form-control" placeholder="Escriba la Descripción"></textarea>
                                                     </div>
 
                                                    
@@ -152,7 +152,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnAgregar" class="btn btn-primary btn-sm" style="color: white">Agregar</button>
+                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Agregar</button>
                     <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
@@ -161,6 +161,34 @@ include_once '../../plantillas/barra_lateral.php';
     </div>
     <!--fin de modal de enventos-->
 
+      <!-- /.modal-del mapa -->
+   <div class="modal fade" id="modal-mapa">
+      <!-- Modal EDITAR-->
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Selecciona la ubicación</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <div id="mapa" style="width: 100%; height: 500px"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+               <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
+            </div>
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+<!-- /.modal-del mapa -->
 
     </section>
     <!-- /.content -->
