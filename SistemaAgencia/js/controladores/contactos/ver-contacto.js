@@ -172,7 +172,7 @@ $(document).ready(function () {
    }
    //INICIALIZANDO VALIDACIONES
    function inicializarValidaciones() {
-     formularioEditar =  $('#formularioEditar').validate({
+      formularioEditar = $('#formularioEditar').validate({
          rules: {
             correoContacto: {
                email: true
@@ -215,15 +215,6 @@ $(document).ready(function () {
          "nombre": document.getElementById("nombreCliente").value,
          "correo": document.getElementById("correo").value,
       };
-      if (document.getElementById("password2").value) {
-         data.password = document.getElementById("password2").value;
-      }
-      if (document.getElementById("dui").value) {
-         data.dui = document.getElementById("dui").value;
-      }
-      if (document.getElementById("celular").value) {
-         data.celular = document.getElementById("celular").value;
-      }
       ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
       $.ajax({
          url: URL_SERVIDOR + "Usuario/update",
