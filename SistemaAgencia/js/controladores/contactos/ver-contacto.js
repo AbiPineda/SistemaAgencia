@@ -63,7 +63,7 @@ $(document).ready(function () {
       let form = $("#formularioEditar");
       form.validate();
       if (form.valid()) {
-         // actualizar();
+          actualizar();
       }
    });
    //BOTON DEL MODAL PARA ACTUALIZA LA FOTO DE PERFIL
@@ -211,13 +211,14 @@ $(document).ready(function () {
       $('#loadingActualizar').show();
       let data = {
 
-         "id_cliente": idSeleccionado,
-         "nombre": document.getElementById("nombreCliente").value,
-         "correo": document.getElementById("correo").value,
+         "correo": document.getElementById("correoContacto").value,
+         "telefono": document.getElementById("telefonoContacto").value,
+         "id_contacto": idSeleccionado,
+         "nombre_contacto": document.getElementById("nombreContacto").value,
       };
       ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
       $.ajax({
-         url: URL_SERVIDOR + "Usuario/update",
+         url: URL_SERVIDOR + "Contacto/update",
          method: "PUT",
          timeout: 0,
          data: data
@@ -252,12 +253,12 @@ $(document).ready(function () {
    }
    function eliminar() {
       let data = {
-         "id_sitio_turistico": idSeleccionado
+         "id_contacto": idSeleccionado
       };
       ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 
       $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/elimination",
+         url: URL_SERVIDOR + "Contacto/elimination",
          method: "DELETE",
          timeout: 0,
          data: data

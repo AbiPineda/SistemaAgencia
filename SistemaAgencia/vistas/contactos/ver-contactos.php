@@ -114,7 +114,7 @@
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                  <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
                      style="color: white">Actualizar</button>
                </div>
             </div>
