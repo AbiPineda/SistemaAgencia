@@ -39,14 +39,13 @@ $(document).ready(function () {
 
       "columnDefs": [
          { "className": "dt-center", "targets": "_all" },
-         // { "targets": [6], "visible": false },
-         // { "targets": [7], "visible": false },
-         // { "targets": [8], "visible": false },
+         { "targets": [6], "visible": false },
+         { "targets": [7], "visible": false },
+         { "targets": [8], "visible": false },
       ]
    });
    //CUANDO HAY CAMBIOS EN EL COMBO TUR
    $('#ComboTur').on('select2:select', function (e) {
-      $('#btnAgregarTur').attr("disabled", false);
       let DATA_SELECCIONADA;
       let id = e.params.data.id;
       DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
@@ -63,7 +62,6 @@ $(document).ready(function () {
    });
    //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
    $('#ComboServicio').on('select2:select', function (e) {
-      $('#btnAgregarSitio').attr("disabled", false);
       let DATA_SELECCIONADA;
       let id = e.params.data.id;
       DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -82,7 +80,6 @@ $(document).ready(function () {
    $(document).on('click', '#btnAgregarTur', function (evento) {
 
       evento.preventDefault();
-      $('#btnAgregarTur').attr("disabled", true);
       //verifiacando que existe un precio
       let precio_sitio = $('#precio_sitio').val();
       if (!precio_sitio) {
@@ -99,15 +96,17 @@ $(document).ready(function () {
          let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
          let precio = $("#precio_sitio").val();
          let tipo = "tur"
-         agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+         if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+         }
          modificarIngresos();
+         modificarTabla();
          modificarGanancias();
       }
    });
    //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
    $(document).on('click', '#btnAgregarSitio', function (evento) {
       evento.preventDefault();
-      $('#btnAgregarSitio').attr("disabled", true);
       //verifiacando que existe un precio
       let precio_servicio = $('#precio_servicio').val();
       if (!precio_servicio) {
@@ -124,8 +123,11 @@ $(document).ready(function () {
          let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
          let precio = $("#precio_servicio").val();
          let tipo = "servicio"
-         agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+         if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+         }
          modificarIngresos();
+         modificarTabla();
          modificarGanancias();
       }
    });
@@ -714,7 +716,7 @@ $(document).ready(function () {
          AgregarItemPromociones(response.promociones, $('#labelPromociones'), $('#promocione_especiales'), $grupo_promociones);
          AgregarFilaServicio(response.servicios, response.cupos);
          AgregarFilaSitios(response.turs, response.cupos);
-        
+
       }).fail(function (response) {
          console.log(response);
 
@@ -777,6 +779,22 @@ $(document).ready(function () {
       });
       modificarIngresos();
       modificarGanancias();
+   }
+   function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
+      let encontrado = false;
+      tabla.rows().every(function (value, index) {
+         let data = this.data();
+         if (id == data[7] && tipo == data[6]) {
+            let subTotoal = (costo * cantidad).toFixed(2);
+            data[2] = cantidad;
+            data[3] = PorPasajero;
+            data[4] = subTotoal;
+            encontrado = true;
+            this.data(data).draw(false);
+         }
+      });
+
+      return encontrado;
    }
 
 

@@ -702,8 +702,6 @@ $(document).ready(function () {
         });
 
         return encontrado;
-
-
     }
 
 });
