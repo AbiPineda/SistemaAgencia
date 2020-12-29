@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
     $('#ComboTur').on('select2:select', function (e) {
-        $('#btnAgregarTur').attr("disabled", false);
+
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
         DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
@@ -54,7 +54,6 @@ $(document).ready(function () {
     });
     //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
     $('#ComboServicio').on('select2:select', function (e) {
-        $('#btnAgregarSitio').attr("disabled", false);
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
         DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -71,9 +70,7 @@ $(document).ready(function () {
     });
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#btnAgregarTur', function (evento) {
-
         evento.preventDefault();
-        $('#btnAgregarTur').attr("disabled", true);
         //verifiacando que existe un precio
         let precio_sitio = $('#precio_sitio').val();
         if (!precio_sitio) {
@@ -89,16 +86,18 @@ $(document).ready(function () {
             //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
             let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
             let precio = $("#precio_sitio").val();
-            let tipo = "tur"
-            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            let tipo = "tur";
+            if (!ExisteFila(id, cantidad, precio, tipo,PorPasajero)) {
+                agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            }
             modificarIngresos();
+            modificarTabla();
             modificarGanancias();
         }
     });
     //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
     $(document).on('click', '#btnAgregarSitio', function (evento) {
         evento.preventDefault();
-        $('#btnAgregarSitio').attr("disabled", true);
         //verifiacando que existe un precio
         let precio_servicio = $('#precio_servicio').val();
         if (!precio_servicio) {
@@ -115,8 +114,11 @@ $(document).ready(function () {
             let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
             let precio = $("#precio_servicio").val();
             let tipo = "servicio"
-            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            if (!ExisteFila(id, cantidad, precio, tipo,PorPasajero)) {
+                agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+            }
             modificarIngresos();
+            modificarTabla();
             modificarGanancias();
         }
     });
@@ -323,7 +325,7 @@ $(document).ready(function () {
         $('#totalGastos').text("$" + totalGastos);
     }
     function modificarIngresos() {
-        let totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
+         totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
         $('#totalIngresos').text("$" + totalIngresos);
     }
     function modificarGanancias() {
@@ -628,7 +630,7 @@ $(document).ready(function () {
                     "id_sitio_turistico": id,
                     "title": title,
                     "costo": costo,
-                    "por_usuario":  por_pasajero == 'si',
+                    "por_usuario": por_pasajero == 'si',
                     "backgroundColor": "#28a745",
                     "borderColor": "#28a745",
                     "textColor": "#fff"
@@ -656,22 +658,22 @@ $(document).ready(function () {
         let start = fecha[0]
         let end = fecha[1]
 
-        form.append("sitios",           JSON.stringify(sistiosTuristicos));
-        form.append("servicios",        JSON.stringify(serviciosAdicionales));
-        form.append("promociones",      JSON.stringify(promocion));
-        form.append("no_incluye",       JSON.stringify(no_incluye));
-        form.append("requisitos",       JSON.stringify(requisitos));
-        form.append("incluye",          JSON.stringify(incluye));
-        form.append("lugar_salida",     JSON.stringify(salida));
-        form.append("nombreTours",      document.getElementById("nombreTours").value);
-        form.append("precio",           document.getElementById("CostoPasaje").value);
-        form.append("descripcion_tur",  document.getElementById("descripcion_tur").value);
-        form.append("cupos_disponibles",document.getElementById("cantidad").value);
-        form.append("start",            start); 
-        form.append("end",              end);
-        form.append("estado",           1);
-        form.append("aprobado",         1);
-        form.append("tipo",             "TUR");
+        form.append("sitios", JSON.stringify(sistiosTuristicos));
+        form.append("servicios", JSON.stringify(serviciosAdicionales));
+        form.append("promociones", JSON.stringify(promocion));
+        form.append("no_incluye", JSON.stringify(no_incluye));
+        form.append("requisitos", JSON.stringify(requisitos));
+        form.append("incluye", JSON.stringify(incluye));
+        form.append("lugar_salida", JSON.stringify(salida));
+        form.append("nombreTours", document.getElementById("nombreTours").value);
+        form.append("precio", document.getElementById("CostoPasaje").value);
+        form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
+        form.append("cupos_disponibles", document.getElementById("cantidad").value);
+        form.append("start", start);
+        form.append("end", end);
+        form.append("estado", 1);
+        form.append("aprobado", 1);
+        form.append("tipo", "TUR");
 
         return form;
 
@@ -685,7 +687,24 @@ $(document).ready(function () {
         $("#contenedorPromociones").empty();
         $("#contenedorPromociones").html(htmlPromociones);
     }
+    function ExisteFila(id, cantidad, costo, tipo,PorPasajero) {
+        let encontrado = false;
+        tabla.rows().every(function (value, index) {
+            let data = this.data();
+            if (id == data[7] && tipo == data[6]) {
+                let subTotoal = (costo * cantidad).toFixed(2);
+                data[2] = cantidad;
+                data[3] = PorPasajero;
+                data[4] = subTotoal;
+                encontrado = true;
+                this.data(data).draw(false);
+            }
+        });
 
+        return encontrado;
+
+
+    }
 
 });
 
