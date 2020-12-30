@@ -5,7 +5,6 @@ $(document).ready(function () {
    let ID_TUR = urlParams.get('tur');
 
    setDatos();
-   inicializarCalendario();
    inicializarValidaciones();
    inicializarComboTuristico();
    inicializarComboServicio();
@@ -17,6 +16,7 @@ $(document).ready(function () {
    let totalGastos = 0.0;
    let totalIngresos = 0.0;
    let ganancias = 0.0;
+   let fechasalida ;
    let cantidad = document.getElementById("cantidad");
    const htmlOtrasOpciones = $('#otras_opciones').clone();
    const htmlPromociones = $('#promocione_especiales').clone();
@@ -179,10 +179,10 @@ $(document).ready(function () {
    $(document).on('click', '.btn-removeRow', removeRow);
 
    //INICIALIZANDO EL CALENDARIO
-   function inicializarCalendario() {
+   function inicializarCalendario(start, end) {
       $('#fecha_salida').daterangepicker({
          locale: {
-            format: 'YYYY/MM/DD',
+            format: 'DD/MM/YYYY',
             "separator": " - ",
             "applyLabel": "Aplicar",
             "cancelLabel": "Cancelar",
@@ -213,7 +213,9 @@ $(document).ready(function () {
                "Diciembre"
             ],
             "firstDay": 0
-         }
+         },
+         startDate :  moment (start),
+         endDate : moment (end)
       });
 
    }
@@ -377,7 +379,7 @@ $(document).ready(function () {
 
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
-         url: URL_SERVIDOR + "TurPaquete/save",
+         url: URL_SERVIDOR + "TurPaquete/update",
          method: "POST",
          mimeType: "multipart/form-data",
          data: form,
@@ -386,7 +388,7 @@ $(document).ready(function () {
          contentType: false,
       }).done(function (response) {
          console.log(response);
-         let respuestaDecodificada = JSON.parse(response);
+         // let respuestaDecodificada = JSON.parse(response);
          const Toast = Swal.mixin();
          Toast.fire({
             title: 'Exito...',
@@ -412,7 +414,7 @@ $(document).ready(function () {
 
             }).then((result) => {
                if (result.value) {
-                  window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+                  // window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
                }
             });
 
@@ -616,11 +618,6 @@ $(document).ready(function () {
       let sistiosTuristicos = [];
       let promocion = [];
 
-      //ESTO ES PARA L A GALERIA 
-      let galeria = document.getElementById("fotos").files;
-      for (let i = 0; i < galeria.length; i++) {
-         form.append('fotos[]', galeria[i]);
-      }
       tabla.rows().every(function (value, index) {
          let data = this.data();
          let title = data[0];
@@ -667,6 +664,7 @@ $(document).ready(function () {
       let start = fecha[0]
       let end = fecha[1]
 
+      form.append("id_tours", ID_TUR);
       form.append("sitios", JSON.stringify(sistiosTuristicos));
       form.append("servicios", JSON.stringify(serviciosAdicionales));
       form.append("promociones", JSON.stringify(promocion));
@@ -707,7 +705,8 @@ $(document).ready(function () {
          document.getElementById("descripcion_tur").value = response.descripcion_tur;
          document.getElementById("CostoPasaje").value = response.precio;
          document.getElementById("cantidad").value = response.cupos;
-         $('#fecha_salida').daterangepicker({ startDate: moment(response.start), endDate: moment(response.end) });
+         inicializarCalendario(response.start, response.end);
+      
 
          AgregarItems(response.lugar_salidas, $('#labelLugar'), $("[name='grupo_lugar']"), $grupoLugar);
          AgregarItems(response.incluye, $('#labelIncluye'), $("[name='grupo_incluye']"), $grupo_incluye);

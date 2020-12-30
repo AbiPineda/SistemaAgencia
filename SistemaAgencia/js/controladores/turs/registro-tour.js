@@ -173,7 +173,7 @@ $(document).ready(function () {
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
             locale: {
-                format: 'YYYY/MM/DD',
+                format: 'DD/MM/YYYY',
                 "separator": " - ",
                 "applyLabel": "Aplicar",
                 "cancelLabel": "Cancelar",
