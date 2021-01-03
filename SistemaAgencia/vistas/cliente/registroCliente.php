@@ -32,7 +32,7 @@
 
    <!-- Main content -->
    <section class="content">
-      <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+      <form id="miFormularioCliente" enctype="multipart/form-data" name="miFormularioCliente" role="form">
          <div class="row">
             <!-- <div class="offset-md-1"></div> -->
             <div class="col-md-12">
@@ -164,7 +164,7 @@
                            </div>
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
-                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                              <button name="btnguardarCliente" id="btnguardarCliente" class="btn btn-info btn-sm"
                                  style="color: white">Guardar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>

@@ -397,8 +397,7 @@ $(document).ready(function () {
             text: "Viaje Actualizado Exitosamente",
             showConfirmButton: true,
          }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-             
+            //TODO BIEN Y RECARGAMOS LA PAGINA              
             Toast.fire({
                title: '¿Desea Editar el itinerario ahora?',
                text: "Puedes Editarlo más tarde si quieres",

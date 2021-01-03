@@ -1,7 +1,6 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
    let dataTipo;
-
    inicializarValidaciones();
    inicializarGaleria();
    inicializarFoto();
@@ -9,12 +8,12 @@ $(document).ready(function () {
    $('#loading').hide();
 
    //BOTON DE GUARDAR
-   $(document).on('click', '#btnguardar', function (evento) {
+   $(document).on('click', '#btnguardarCliente', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
-      let form = $("#miFormulario");
+      let form = $("#miFormularioCliente");
       form.validate();
       if (form.valid()) {
-         guardar();
+         guardarCliente();
       } else {
          const Toast = Swal.mixin();
          Toast.fire({
@@ -25,8 +24,6 @@ $(document).ready(function () {
          });
       }
    });
-
-
    function inicializarGaleria() {
       // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
       $('#fotos').fileinput({
@@ -67,7 +64,7 @@ $(document).ready(function () {
       });
    }
    function inicializarValidaciones() {
-      $('#miFormulario').validate({
+      $('#miFormularioCliente').validate({
          rules: {
             nombreCliente: {
                required: true,
@@ -119,7 +116,7 @@ $(document).ready(function () {
          }
       });
    }
-   function guardar() {
+   function guardarCliente() {
       $('#loading').show();
       let form = new FormData();
       //ESTO ES PARA LA FOTO DE PERFIL
@@ -158,7 +155,7 @@ $(document).ready(function () {
             showConfirmButton: true,
          }).then((result) => {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#miFormulario").trigger("reset");
+            $("#miFormularioCliente").trigger("reset");
          });
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
