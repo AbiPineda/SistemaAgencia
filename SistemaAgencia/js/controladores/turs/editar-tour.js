@@ -373,6 +373,7 @@ $(document).ready(function () {
          showClose: false,
       });
    }
+   //EN REALIDAD ES EL ACTUALIZAR
    function guardar() {
       $('#loading').show();
       let form = obtenerData();
@@ -387,21 +388,17 @@ $(document).ready(function () {
          processData: false,
          contentType: false,
       }).done(function (response) {
-         console.log(response);
-         // let respuestaDecodificada = JSON.parse(response);
+         // console.log(response);
+         let respuestaDecodificada = JSON.parse(response);
          const Toast = Swal.mixin();
          Toast.fire({
             title: 'Exito...',
             icon: 'success',
-            text: "Viaje Guardado Exitosamente",
+            text: "Viaje Actualizado Exitosamente",
             showConfirmButton: true,
          }).then((result) => {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#miFormulario").trigger("reset");
-            restaurarContactos();
-            resetMiTable();
-            restOtrasOpciones();
-            resetPromociones();
+             
             Toast.fire({
                title: '¿Desea Editar el itinerario ahora?',
                text: "Puedes Editarlo más tarde si quieres",
@@ -414,7 +411,7 @@ $(document).ready(function () {
 
             }).then((result) => {
                if (result.value) {
-                  // window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+                  window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.viaje.id_tours}`;
                }
             });
 
@@ -554,32 +551,6 @@ $(document).ready(function () {
          }
       });
    }
-   function resetMiTable() {
-      contadorTabla = 0;
-      totalGastos = 0;
-      totalIngresos = 0;
-      ganancias = 0;
-      tabla.clear().draw();
-      $('#totalIngresos').text("$0");
-      $('#ganancias').text("$0");
-      $('#totalGastos').text("$0");
-   }
-   function restaurarContactos() {
-
-      document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-      document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-      document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-      document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-      document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-      document.getElementById("imgContactoTur").src = DATA_TUR[0].url
-
-      document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
-      document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
-      document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
-      document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
-      document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
-      document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
-   }
    function addFormGroup(event) {
       event.preventDefault();
       let $formGroup = $(this).closest('.form-group');
@@ -684,15 +655,6 @@ $(document).ready(function () {
 
       return form;
 
-   }
-   function restOtrasOpciones() {
-
-      $("#contenedor_opcions").empty();
-      $("#contenedor_opcions").html(htmlOtrasOpciones);
-   }
-   function resetPromociones() {
-      $("#contenedorPromociones").empty();
-      $("#contenedorPromociones").html(htmlPromociones);
    }
    function setDatos() {
       $.ajax({

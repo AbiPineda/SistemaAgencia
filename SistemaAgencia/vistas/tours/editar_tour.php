@@ -522,7 +522,7 @@
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
                               <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                                 style="color: white">Guardar</button>
+                                 style="color: white">Actualizar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>
                         </div>
