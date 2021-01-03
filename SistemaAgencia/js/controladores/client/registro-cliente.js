@@ -5,7 +5,7 @@ $(document).ready(function () {
    inicializarGaleria();
    inicializarFoto();
    inicializarMascara();
-   $('#loading').hide();
+   $('#loadingCliente').hide();
 
    //BOTON DE GUARDAR
    $(document).on('click', '#btnguardarCliente', function (evento) {
@@ -117,7 +117,7 @@ $(document).ready(function () {
       });
    }
    function guardarCliente() {
-      $('#loading').show();
+      $('#loadingCliente').show();
       let form = new FormData();
       //ESTO ES PARA LA FOTO DE PERFIL
       let foto_perfil = document.getElementById("foto").files[0];
@@ -170,7 +170,7 @@ $(document).ready(function () {
          });
 
       }).always(function (xhr, opts) {
-         $('#loading').hide();
+         $('#loadingCliente').hide();
       });
    }
 

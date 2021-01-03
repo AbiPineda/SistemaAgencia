@@ -37,7 +37,7 @@
             <!-- <div class="offset-md-1"></div> -->
             <div class="col-md-12">
                <div class="overlay-wrapper">
-                  <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                  <div id="loadingCliente" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
                      <div class="text-bold pt-2">Cargando...
                      </div>
@@ -122,7 +122,6 @@
                                              <!-- /.input group -->
                                           </div>
                                        </div>
-
                                     </div>
                                  </div>
                                  <div class="col-sm-3">
