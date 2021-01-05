@@ -18,28 +18,16 @@ $(document).ready(function () {
        $('#loadingActualizar').hide();
     });
    
-    //BOTON PARA ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idpregunta = $(this).attr("name");
-        fila = $(this).closest("tr");
+    //BOTON VER ACTUALIZACIONES
+    $(document).on('click', '.btn-group .btn-primary', function () {
+        $('#loadingActualizar').hide();
+        id_encomienda = $(this).attr("name");
 
-        const Toast = Swal.mixin();
-        Swal.fire({
-            title: '¿Estas seguro?',
-            text: "Se Eliminará este registro!",
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: "Cancelar",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminar!'
-        }).then((result) => {
-            console.log(result);
-            if (result.value) {
-                eliminar();
-            }
-        })
+    window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/verActualizacion.php?ac=`+id_encomienda;
+                    
+    
     });
+   
     //BOTON PARA ACTUALIZAR
     $(document).on('click', '#btnEnvio', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
