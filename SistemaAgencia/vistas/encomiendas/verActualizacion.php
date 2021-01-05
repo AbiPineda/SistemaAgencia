@@ -84,7 +84,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-lg-2"></div>
                                         <div class="col-lg-8">
                                      <div class="form-group">
-                                <table id="tabla_verActu" class="table table-bordered table-striped">
+                                <table id="tabla_ver" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
                                                 <th>Fecha</th>
