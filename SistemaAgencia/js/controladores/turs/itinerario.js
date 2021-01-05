@@ -1,7 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
     //INICIALIZAN
-   let DATA_TUR;
+    let DATA_TUR;
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
     let containerEl = document.getElementById('external-events');
@@ -221,7 +221,7 @@ $(document).ready(function () {
         let backgroundColor = "#28a745"
         let textColor = "#fff"
         let precio = $('#precio').val();
-        crearEventoConId({ title, id_itinerario, backgroundColor, textColor,precio }, "GUARDAR_SITIO");
+        crearEventoConId({ title, id_itinerario, backgroundColor, textColor, precio }, "GUARDAR_SITIO");
 
     });
     //PARA ELIMINAR LOS EVENTOS QUE NO ESTAN EL CALENDARIO 

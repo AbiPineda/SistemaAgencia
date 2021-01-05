@@ -38,7 +38,6 @@
             <div class="col-md-12">
                <div class="overlay-wrapper">
                   <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
-
                      <div class="text-bold pt-2">Cargando...
                      </div>
                   </div>

@@ -1,18 +1,19 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
 
+   const valores = window.location.search;
+   const urlParams = new URLSearchParams(valores);
+   const ID_TUR = urlParams.get('tur');
+
    inicializarComboUsuario();
-   inicializarComboTur();
-   // inicializarValidaciones();
-   // inicializarGaleria();
-   // inicializarFoto();
+   obtenerData(ID_TUR);
+
    // //BOTON PARA AGREGAR UN NUEVO CONTACTO 
    $(document).on('click', '#btnAgregar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
       let form = $("#formularioAgregar");
       form.validate();
       if (form.valid()) {
-
          guardarContacto();
       }
    });
@@ -28,7 +29,6 @@ $(document).ready(function () {
    //BOTON DE NUEVO CLIENTE
    $(document).on('click', '#btnNuevoCliente', function (evento) {
       $('#modalAgregarCliente').modal('show');
-
    });
    //BOTON DE GUARDAR
    $(document).on('click', '#btnguardar', function (evento) {
@@ -80,37 +80,24 @@ $(document).ready(function () {
          $('#comboUsuario').select2();
 
       }).always(function (xhr, opts) {
-         $('#loading').hide();
+         $('#loadingReservaTur').hide();
       });
 
    }
-   function inicializarComboTur() {
+   function obtenerData(idTour) {
       $.ajax({
-         url: URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=tur",
+         url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
          method: "GET"
       }).done(function (response) {
          //REST_Controller::HTTP_OK
-         let myData = [];
-         let lista = response;
-         for (let index = 0; index < lista.length; index++) {
-
-            myData.push({
-               id: lista[index].id_tours,
-               text: lista[index].nombreTours
-            });
-         }
-         $('#comboTur').select2(
-            { data: myData }
-         );
-
+         console.log(response)
       }).fail(function (response) {
-         $('#comboTur').select2();
+        console.log("Error");
+        console.log(response);
 
-      }).always(function (xhr, opts) {
-         $('#loading').hide();
       });
-
    }
+
    function inicializarGaleria() {
       // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
       $('#fotos').fileinput({
@@ -153,7 +140,7 @@ $(document).ready(function () {
          $('#contacto_servicio').select2();
 
       }).always(function (xhr, opts) {
-         // $('#loading').hide();
+         // $('#loadingReservaTur').hide();
       });
    }
    function inicializarFoto() {
@@ -297,65 +284,9 @@ $(document).ready(function () {
       });
 
    }
-   function guardarContacto() {
-      $('#loading').show();
-      let form = new FormData();
-
-      let foto_perfil = document.getElementById("foto").files[0];
-      form.append('foto', foto_perfil);
-      form.append("nombre_contacto", document.getElementById("nombreContacto").value);
-      form.append("telefono", document.getElementById("telefonoContacto").value);
-      form.append("correo", document.getElementById("correoContacto").value);
-      form.append("id_contacto", document.getElementById("contacto_servicio"));
-      //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-      $.ajax({
-         url: URL_SERVIDOR + "Contacto/save",
-         method: "POST",
-         mimeType: "multipart/form-data",
-         data: form,
-         timeout: 0,
-         processData: false,
-         contentType: false,
-      }).done(function (response) {
-         //REST_Controller::HTTP_OK
-         let respuestaDecodificada = JSON.parse(response);
-         //AGREGAMOS RESPUESTA AL COMBO
-         let texto = respuestaDecodificada.contacto.nombre_contacto;
-         let id = respuestaDecodificada.id;
-         let newOption = new Option(texto, id, false, false);
-         $('#contacto_servicio').append(newOption).trigger('change');
-         //mandamos un mensaje al usuario
-         const Toast = Swal.mixin();
-         Toast.fire({
-            title: 'Exito...',
-            icon: 'success',
-            text: respuestaDecodificada.mensaje,
-            showConfirmButton: true,
-         }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#formularioAgregar").trigger("reset");
-            $('#modal-agregar').modal('hide');
-         });
-      }).fail(function (response) {
-         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-         console.log(response);
-         let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
-         const Toast = Swal.mixin();
-         Toast.fire({
-            title: 'Oops...',
-            icon: 'error',
-            text: listaErrores,
-            showConfirmButton: true,
-         });
-
-      }).always(function (xhr, opts) {
-         $("#formularioAgregar").trigger("reset");
-         $('#modal-agregar').modal('hide');
-         $('#loading').hide();
-      });
-   }
+ 
    function guardar() {
-      $('#loading').show();
+      $('#loadingReservaTur').show();
       let form = new FormData();
       let myCoordnada = document.getElementById("coordenadas").value;
       myCoordnada = myCoordnada.split(' ');
@@ -408,11 +339,11 @@ $(document).ready(function () {
          });
 
       }).always(function (xhr, opts) {
-         $('#loading').hide();
+         $('#loadingReservaTur').hide();
       });
    }
 
-   
+
 
 
 });
