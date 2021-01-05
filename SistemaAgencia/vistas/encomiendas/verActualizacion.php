@@ -84,14 +84,13 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-lg-2"></div>
                                         <div class="col-lg-8">
                                      <div class="form-group">
-                                <table id="tabla_actualizacion" class="table table-bordered table-striped">
+                                <table id="tabla_verActu" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Dirección</th>
-                                                <th>Punto Referencia</th>
                                                 <th>Fecha</th>
-                                                <th>Acciones</th>
+                                                <th>Hora</th>
+                                                <th>lugar</th>
+                                                <th>Descripción</th>
                                             </tr>
                                         </thead>
                                         <!-- /.inicio de loading -->
@@ -117,8 +116,11 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                         <!-- END timeline item -->
 
-
-
+                        <!-- timeline time label -->
+                        <div class="time-label">
+                            <span class="bg-green">Actualizaciones de Envió</span>
+                        </div>
+                        <!-- /.timeline-label -->
                         </div>
                         </div>
                         <!-- END timeline item -->
@@ -126,11 +128,7 @@ include_once '../../plantillas/barra_lateral.php';
                        
                         
                         
-                        <!-- timeline time label -->
-                        <div class="time-label">
-                            <span class="bg-green">Actualizaciones de Envió</span>
-                        </div>
-                        <!-- /.timeline-label -->
+                       
                     </div>
                 </div>
                 <!-- /.col -->
