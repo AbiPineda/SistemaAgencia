@@ -51,15 +51,15 @@ include_once '../../plantillas/barra_lateral.php';
                                   <div class="row">
                                     <div class="col-lg-4">
                                         <label>Cliente</label>
-                                        <input type="text" name="cliente" class="form-control">
+                                        <input type="text" name="cliente" id="cliente" class="form-control" disabled="true">
                                       </div>
                                         <div class="col-lg-4">
                                           <label>fecha de envío</label>
-                                          <input type="text" name="fecha" class="form-control">
+                                          <input type="text" name="fecha" id="fecha" class="form-control" disabled="true">
                                         </div>
                                         <div class="col-lg-4">
                                           <label>Estado</label>
-                                          <input type="text" name="estado" class="form-control">
+                                          <input type="text" name="estado" id="estado" class="form-control" disabled="true">
                                         </div>
                                     
                                     
@@ -149,7 +149,7 @@ include_once '../../plantillas/barra_lateral.php';
 </script>
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-actualizacion.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/verEnvio.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
