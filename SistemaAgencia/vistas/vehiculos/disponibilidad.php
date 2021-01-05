@@ -31,75 +31,24 @@ include_once '../../plantillas/barra_lateral.php';
     </section>
 
     <section class="content">
-
-        <div class="container">
-            <div class="row">
-                <!-- Hover-Fall Efecto-->
-                <div class="col-xs-6 col-sm-3">
-                    <div class="fall-item fall-effect">
-                        <img src="<?= $base_url ?>img/vehiculos/kia.jpg" width="500" height="500" />
-                        <div class="mask">
-                            <h2>Hover Fall</h2>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                                spring which I enjoy with my whole heart.</p>
-                            <a href="#" class="btn btn-default">Read More</a>
+        <form id="flotaAutos" name="flotaAutos" role="form" onsubmit="return false">
+            <div class="container">
+                <div class="row" id="contenedorAutos">
+                    <!-- Hover-Fall Efecto-->
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="fall-item fall-effect">
+                            <img src="<?= $base_url ?>img/vehiculos/kia.jpg" />
+                            <div class="mask">
+                                <h2 id="nombre_auto" name="nombre_auto">nombre auto</h2>
+                                <p>precio diario</p>
+                                <a href="#" class="btn btn-default">Reservar</a>
+                            </div>
                         </div>
+                        <h4 class="text-center"></h4>
                     </div>
-                    <h4 class="text-center"></h4>
                 </div>
-
-                <div class="col-xs-6 col-sm-3">
-                    <div class="fall-item fall-effect">
-                        <img src="http://placeimg.com/260/260/nature/8/" />
-                        <div class="mask">
-                            <h2>Hover Fall</h2>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                                spring which I enjoy with my whole heart.</p>
-                            <a href="#" class="btn btn-default">Read More</a>
-                        </div>
-                    </div>
-                    <h4 class="text-center"></h4>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <div class="fall-item fall-effect">
-                        <img src="http://placeimg.com/260/260/nature/8/" />
-                        <div class="mask">
-                            <h2>Hover Fall</h2>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                                spring which I enjoy with my whole heart.</p>
-                            <a href="#" class="btn btn-default">Read More</a>
-                        </div>
-                    </div>
-                    <h4 class="text-center"></h4>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <div class="fall-item fall-effect">
-                        <img src="http://placeimg.com/260/260/nature/8/" />
-                        <div class="mask">
-                            <h2>Hover Fall</h2>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                                spring which I enjoy with my whole heart.</p>
-                            <a href="#" class="btn btn-default">Read More</a>
-                        </div>
-                    </div>
-                    <h4 class="text-center"></h4>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                    <div class="fall-item fall-effect">
-                        <img src="http://placeimg.com/260/260/nature/8/" />
-                        <div class="mask">
-                            <h2>Hover Fall</h2>
-                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of
-                                spring which I enjoy with my whole heart.</p>
-                            <a href="#" class="btn btn-default">Read More</a>
-                        </div>
-                    </div>
-                    <h4 class="text-center"></h4>
-                </div>
-
             </div>
-        </div>
-
+        </form>
     </section>
 
 </div>
@@ -108,5 +57,13 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<!-- SCRIPT ADICIONALES -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/flota-app.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+<?php  include_once '../../plantillas/cierre.php';?>
