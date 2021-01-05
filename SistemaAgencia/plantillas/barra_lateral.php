@@ -198,6 +198,12 @@
                         <p>Registro de producto</p>
                      </a>
                   </li>
+                  <li class="nav-item">
+                     <a href="<?= $base_url ?>vistas/encomiendas/verProducto.php" class="nav-link">
+                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                        <p>Ver productos</p>
+                     </a>
+                  </li>
                </ul>
             </li>
             <ul class="sub-menu children dropdown-menu">
