@@ -15,12 +15,12 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Modificar Encomienda</h1>
+                    <h1>Modificar Producto</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Modificación de Encomienda</li>
+                        <li class="breadcrumb-item active">Modificación de producto</li>
                     </ol>
                 </div>
             </div>
@@ -35,20 +35,19 @@ include_once '../../plantillas/barra_lateral.php';
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Datos de la Encomienda</h3>
+                        <h3 class="card-title">Datos de los productos</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                           <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_encomienda" class="table table-bordered table-striped">
+                                    <table id="tabla_productosMo" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Dirección</th>
-                                                <th>Punto Referencia</th>
-                                                <th>Fecha</th>
+                                                <th>Producto</th>
+                                                <th>Tarifa</th>
+                                                <th>Unidad de medida</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -88,7 +87,7 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-modificar.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-product.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
