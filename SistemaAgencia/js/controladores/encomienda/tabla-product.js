@@ -9,11 +9,20 @@ $(document).ready(function () {
   
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
-        $('#loadingActualizar').hide();
         id_encomienda = $(this).attr("name");
 
-    window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/modificarEncomienda.php?en=`+id_encomienda;
-                    
+         fila = $(this).closest("tr");
+
+        producto         = fila.find('td:eq(0)').text();
+        tarifa           = fila.find('td:eq(1)').text();
+        unidades_medidas = fila.find('td:eq(2)').text();
+
+        document.getElementById("producto").value = producto;
+        document.getElementById("tarifa").value   = tarifa;
+        document.getElementById("unidades").value = unidades_medidas;
+
+        $('#modificacion-producto').modal('show');
+       $('#loadingActualizar').hide(); 
     
     });
    

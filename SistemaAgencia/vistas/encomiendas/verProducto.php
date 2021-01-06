@@ -77,6 +77,59 @@ include_once '../../plantillas/barra_lateral.php';
             <!-- /.col -->
         </div>
         <!-- /.row -->
+
+            <!--modal alternativo para modificar producto-->
+    <div class="modal fade" id="modificacion-producto" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Modificar producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="register-form" name="register-form" onsubmit="return false" role="form">
+                <div class="modal-body">
+               <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-9">
+                                            <div class="form-group">
+                                                <form id="task-form">
+                                                    <div class="form-group">
+                                                        <label>Nombre Producto</label>
+                                                        <input type="text" name="producto" id="producto" placeholder="Producto" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Tarifa</label>
+                                                        <input type="text" id="tarifa" placeholder="tarifa" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label>Unidad de medida</label>
+                                                    <select class="form-control" name="unidades_medidas" id="unidades">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="lbs">Libras</option>
+                                                    <option value="unidad">Unidades</option>
+                                                      </select>
+                                                        
+                                                    </div>
+                                                   
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2"></div>
+                                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Actualizar</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin de modal de enventos-->
+
     </section>
     <!-- /.content -->
 </div>

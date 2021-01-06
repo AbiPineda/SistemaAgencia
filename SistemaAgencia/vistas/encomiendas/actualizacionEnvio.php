@@ -104,7 +104,7 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="">Registro de Envio</h5>
+                    <h5 class="modal-title" id="">Registro de Envío</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -152,7 +152,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Guargar</button>
+                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Guardar</button>
                     <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
