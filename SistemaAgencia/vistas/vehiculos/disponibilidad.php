@@ -35,17 +35,7 @@ include_once '../../plantillas/barra_lateral.php';
             <div class="container">
                 <div class="row" id="contenedorAutos">
                     <!-- Hover-Fall Efecto-->
-                    <div class="col-xs-6 col-sm-3">
-                        <div class="fall-item fall-effect">
-                            <img src="<?= $base_url ?>img/vehiculos/kia.jpg" />
-                            <div class="mask">
-                                <h2 id="nombre_auto" name="nombre_auto">nombre auto</h2>
-                                <p>precio diario</p>
-                                <a href="#" class="btn btn-default">Reservar</a>
-                            </div>
-                        </div>
-                        <h4 class="text-center"></h4>
-                    </div>
+                   
                 </div>
             </div>
         </form>

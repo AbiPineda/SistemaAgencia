@@ -2,9 +2,9 @@ $(document).ready(function() {
     let explorer = $("#kv-explorer");
     let idVehiculo;
 
-    inicializarComboTuristico();
+    inicializarFlota();
 
-    function inicializarComboTuristico() {
+    function inicializarFlota() {
 
 
         $.ajax({
@@ -21,10 +21,13 @@ $(document).ready(function() {
                     let html = "";
                     html += '<div class="col-xs-6 col-sm-3">';
                     html += '    <div class="fall-item fall-effect">';
-                    html += '        <img src="' + lista[index].foto + '" />';
+                    html += '        <img style="width:500px; height:250px;" src="' + lista[index].foto + '" />';
                     html += '        <div class="mask">';
-                    html += '            <h2 id="nombre_auto" name="nombre_auto">nombre auto</h2>';
-                    html += '            <p>precio diario</p>';
+                    html += '            <h2 id="">' + lista[index].modelo + '</h2>';
+                    html += '            <br>';
+                    html += '            <div> Categoria: ' + lista[index].nombre + '</div>';
+                    html += '            <div> Año: ' + lista[index].anio + '</div>';
+                    html += '            <p> Precio Diario: $' + lista[index].precio_diario + '</p>';
                     html += '            <a href="#" class="btn btn-default">Reservar</a>';
                     html += '        </div>';
                     html += '    </div>';
