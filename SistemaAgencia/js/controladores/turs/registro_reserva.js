@@ -4,9 +4,21 @@ $(document).ready(function () {
    const valores = window.location.search;
    const urlParams = new URLSearchParams(valores);
    const ID_TUR = urlParams.get('tur');
-
+   const costoPasaje = $('#costoPasaje');
+   const cantidadAsientos = $('#cantidadAsientos');
+   let DATA_ASIENTOS = [];
+   let tablaReserva;
+   let total  = 0;
    inicializarComboUsuario();
    obtenerData(ID_TUR);
+   inicializarTabla();
+
+   //CUANDO HAY CAMBIOS EN EL COMBO DE ASIENTOS
+   $('#comboAsiento').on('select2:select', function (e) {
+      let id = e.params.data.id;
+      let asiento = buscar(id);
+      costoPasaje.val(asiento.pasaje);
+   });
 
    // //BOTON PARA AGREGAR UN NUEVO CONTACTO 
    $(document).on('click', '#btnAgregar', function (evento) {
@@ -52,7 +64,24 @@ $(document).ready(function () {
          });
       }
    });
+   //AGREGAR A LA TABLA
+   $(document).on('click', '#btnAgregarAsiento', function () {
+      let cantidad = $('#cantidadAsientos').val();
+      if (cantidad) {
+         let id = $('#comboAsiento').val();
+         let asiento = buscar(id);
+         if (!existeFila(asiento, cantidad)) {
+            agregarFilaReservaViaje(asiento, cantidad);
+         }
+      }
+   });
 
+   $(document).on('click', '.btn-group .btn-danger', function (evento) {
+
+      tablaReserva.row($(this).parents('tr')).remove().draw();
+       modificarTotal();
+ 
+  });
    function inicializarComboUsuario() {
       $.ajax({
          url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE",
@@ -89,82 +118,34 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
          method: "GET"
       }).done(function (response) {
-         //REST_Controller::HTTP_OK
+         //AGREGAMOS EL COSTO BASE
          console.log(response)
-      }).fail(function (response) {
-        console.log("Error");
-        console.log(response);
-
-      });
-   }
-
-   function inicializarGaleria() {
-      // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-      $('#fotos').fileinput({
-         theme: 'fas',
-         language: 'es',
-         //uploadUrl: '#',
-         showUpload: false,
-         //showCaption: false,
-         maxFileSize: 2000,
-         maxFilesNum: 10,
-         allowedFileExtensions: ['jpg', 'png', 'gif'],
-         required: true,
-         uploadAsync: false,
-         showClose: false,
-      });
-   }
-   function inicializarComboContacto() {
-      //COMBO DE CONTACTOS
-      $.ajax({
-         url: URL_SERVIDOR + "Contacto/show",
-         method: "GET"
-      }).done(function (response) {
-         //REST_Controller::HTTP_OK
-         let myData = [];
-         if (response.contactos) {
-            let lista = response.contactos;
-            for (let index = 0; index < lista.length; index++) {
-               myData.push({
-                  id: lista[index].id_contacto,
-                  text: lista[index].nombre_contacto
-               });
-            }
-            $('#contacto_servicio').select2(
-               { data: myData }
-            );
-         } else {
-            $('#contacto_servicio').select2();
+         DATA_ASIENTOS.push({
+            asiento: "1",
+            id: 0,
+            pasaje: response.precio,
+            titulo: "asiento normal",
+         });
+         let lista = response.promociones;
+         for (let index = 0; index < lista.length; index++) {
+            DATA_ASIENTOS.push({
+               asiento: lista[index].asiento,
+               id: index + 1,
+               pasaje: lista[index].pasaje,
+               titulo: lista[index].titulo,
+            });
          }
-      }).fail(function (response) {
-         $('#contacto_servicio').select2();
+         costoPasaje.val(response.precio);
+         inicialComboAsientos();
 
-      }).always(function (xhr, opts) {
-         // $('#loadingReservaTur').hide();
+      }).fail(function (response) {
+         console.log("Error");
+         console.log(response);
+
+
       });
    }
-   function inicializarFoto() {
-      // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-      $('#foto').fileinput({
-         theme: 'fas',
-         language: 'es',
-         required: true,
-         maxFileSize: 2000,
-         maxFilesNum: 10,
-         showUpload: false,
-         showClose: false,
-         showCaption: true,
-         browseLabel: '',
-         removeLabel: '',
-         //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-         removeTitle: 'Cancel or reset changes',
-         elErrorContainer: '#kv-avatar-errors-1',
-         msgErrorClass: 'alert alert-block alert-danger',
-         defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
-         layoutTemplates: { main2: '{preview} {remove} {browse}' },
-         allowedFileExtensions: ["jpg", "png", "gif"]
-      });
-   }
+
    function inicializarValidaciones() {
       $('#miFormulario').validate({
          rules: {
@@ -284,7 +265,6 @@ $(document).ready(function () {
       });
 
    }
- 
    function guardar() {
       $('#loadingReservaTur').show();
       let form = new FormData();
@@ -342,7 +322,80 @@ $(document).ready(function () {
          $('#loadingReservaTur').hide();
       });
    }
+   function inicialComboAsientos() {
+      let myData = [];
+      for (let index = 0; index < DATA_ASIENTOS.length; index++) {
+         myData.push({
+            id: DATA_ASIENTOS[index].id,
+            text: DATA_ASIENTOS[index].titulo
+         });
+      }
+      ///LE CARGAMOS LA DATA 
+      $('#comboAsiento').select2({ data: myData });
+   }
+   function buscar(idBuscado) {
+      return DATA_ASIENTOS.find(asientos => asientos.id == idBuscado);
+   }
+   function inicializarTabla() {
+      tablaReserva = $("#tablaAsientos").DataTable({
+         responsive: true,
+         autoWidth: false,
+         deferRender: true,
+         columns: [
+            { data: "id" },
+            { data: "tipo" },
+            { data: "costo" },
+            { data: "cantidad" },
+            { data: "subTotal" },
+            { data: "eliminar" },
+         ]
+      });
 
+   }
+   function agregarFilaReservaViaje(asiento, cantidad) {
+
+      let subTotal = (asiento.pasaje * cantidad).toFixed(2);
+      let html = "";
+      html += '<td>';
+      html += '    <div class="btn-group">';
+      html += '        <button type="button" name="" class="btn btn-danger" data-toggle="modal"';
+      html += '            data-target="#modal-eliminar">';
+      html += '            <i class="fas fa-trash" style="color: white"></i>';
+      html += '        </button>';
+      html += '    </div>';
+      html += '</td>';
+      tablaReserva.row.add(
+         {
+            id: asiento.id,
+            tipo: asiento.titulo,
+            costo: asiento.pasaje,
+            cantidad: cantidad,
+            subTotal: subTotal,
+            eliminar: html,
+
+         }).draw(false);
+      //PARA ORDENAR LA TABLA
+      //tabla.order([6, 'desc']).draw();
+
+   }
+   function existeFila(asiento, cantidad) {
+      let encontrado = false;
+      tablaReserva.rows().every(function (value, index) {
+         let data = this.data();
+         if (asiento.id == data.id) {
+            let subTotal = (asiento.pasaje * cantidad).toFixed(2);
+            data.cantidad = cantidad;
+            data.subTotal = subTotal;
+            encontrado = true;
+            this.data(data).draw(false);
+         }
+      });
+      return encontrado;
+
+   }
+   function modificarTotal() {
+      
+   }
 
 
 

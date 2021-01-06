@@ -41,7 +41,7 @@
                <div class="timeline">
                   <!-- timeline time label -->
                   <div class="time-label">
-                     <span class="bg-red">Información</span>
+                     <span class="bg-red">Registrar Reserva</span>
                   </div>
                   <!-- /.timeline-label -->
                   <!-- timeline item -->
@@ -81,10 +81,47 @@
                      <i class="fas fa-user bg-green"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
-                        <h3 class="timeline-header no-border"><a href="#">Numero de asientos</a></h3>
+                        <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
                         <div class="timeline-body">
                            <div class="row">
+                              <div class="col-sm-4">
+                                 <div class="form-group multiple-form-group input-group">
+                                    <label>Seleccione su asiento</label>
+                                    <div class="input-group">
+                                       <select id="comboAsiento" name="comboAsiento"
+                                          class="select2 select2-hidden-accessible form-control"
+                                          data-placeholder="Seleccione su Asiento" style="width: 100%;">
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="form-group">
+                                    <label>Precio</label>
+                                    <div class="input-group">
+                                       <input type="number" min="0" class=" form-control" disabled="true"
+                                          name="costoPasaje" id="costoPasaje">
+                                    </div>
+                                    <!-- /.input group -->
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="form-group">
+                                    <label>Cantidad</label>
+                                    <div class="input-group">
+                                       <input type="number" min="0" class=" form-control" value="1"
+                                          name="cantidadAsientos" id="cantidadAsientos">
+                                    </div>
+                                    <!-- /.input group -->
+                                 </div>
+                              </div>
+
                            </div>
+                        </div>
+                        <div class="timeline-footer" style="text-align: right;">
+                           <button id="btnAgregarAsiento" class="btn btn-info btn-sm"
+                              style="color: white">Agregar</button>
+
                         </div>
                      </div>
                   </div>
@@ -94,11 +131,30 @@
                      <i class="fas fa-list bg-yellow"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>-->
-                        <h3 class="timeline-header"><a href="#">Costo total del tour</a>
+                        <h3 class="timeline-header"><a href="#">Detalle</a>
                         </h3>
                         <div class="timeline-body">
                            <div class="row">
+                              <div class="col-sm-12">
+                                 <table id="tablaAsientos" class="table table-bordered table-hover">
 
+                                    <thead>
+                                       <tr style="text-align: center;">
+                                          <th>id</th>
+                                          <th>Tipo de Asiento</th>
+                                          <th>Costo</th>
+                                          <th>Cantidad</th>
+                                          <th>SubTotal</th>
+                                          <th>Eliminar</th>
+
+                                       </tr>
+                                    </thead>
+                                    <tbody style="text-align: center;">
+
+                                    </tbody>
+
+                                 </table>
+                              </div>
                            </div>
                            <div class="timeline-footer" style="text-align: right;">
                               <a class="btn btn-info btn-sm" style="color: white">Guardar</a>

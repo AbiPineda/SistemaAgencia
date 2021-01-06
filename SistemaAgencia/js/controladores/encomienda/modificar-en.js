@@ -16,8 +16,6 @@ $(document).ready(function () {
 
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#agregarTabla', function (evento) {
-
-
         evento.preventDefault();
         $('#agregarTabla').attr("disabled", true);
         //verifiacando que existe un precio
