@@ -5,10 +5,10 @@ $(document).ready(function () {
    const urlParams = new URLSearchParams(valores);
    const ID_TUR = urlParams.get('tur');
    const costoPasaje = $('#costoPasaje');
-   const cantidadAsientos = $('#cantidadAsientos');
    let DATA_ASIENTOS = [];
    let tablaReserva;
-   let total  = 0;
+   let total = 0;
+   let ASIENTOS_SELECCIONADOS = [];
    inicializarComboUsuario();
    obtenerData(ID_TUR);
    inicializarTabla();
@@ -19,7 +19,6 @@ $(document).ready(function () {
       let asiento = buscar(id);
       costoPasaje.val(asiento.pasaje);
    });
-
    // //BOTON PARA AGREGAR UN NUEVO CONTACTO 
    $(document).on('click', '#btnAgregar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
@@ -73,15 +72,17 @@ $(document).ready(function () {
          if (!existeFila(asiento, cantidad)) {
             agregarFilaReservaViaje(asiento, cantidad);
          }
+         console.log(ASIENTOS_SELECCIONADOS);
       }
    });
-
+   //BOTON DE ELIMINAR DE LA TABLA
    $(document).on('click', '.btn-group .btn-danger', function (evento) {
-
-      tablaReserva.row($(this).parents('tr')).remove().draw();
-       modificarTotal();
- 
-  });
+      let fila = $(this).closest("tr");
+      let data = tablaReserva.row(fila).data();
+      tablaReserva.row(fila).remove().draw();
+      eliminarDeLista(data.id);
+      modificarTotal();
+   });
    function inicializarComboUsuario() {
       $.ajax({
          url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE",
@@ -119,7 +120,6 @@ $(document).ready(function () {
          method: "GET"
       }).done(function (response) {
          //AGREGAMOS EL COSTO BASE
-         console.log(response)
          DATA_ASIENTOS.push({
             asiento: "1",
             id: 0,
@@ -145,7 +145,6 @@ $(document).ready(function () {
 
       });
    }
-
    function inicializarValidaciones() {
       $('#miFormulario').validate({
          rules: {
@@ -364,19 +363,18 @@ $(document).ready(function () {
       html += '        </button>';
       html += '    </div>';
       html += '</td>';
-      tablaReserva.row.add(
-         {
-            id: asiento.id,
-            tipo: asiento.titulo,
-            costo: asiento.pasaje,
-            cantidad: cantidad,
-            subTotal: subTotal,
-            eliminar: html,
-
-         }).draw(false);
+      let nuevoAsiento = {
+         id: asiento.id,
+         tipo: asiento.titulo,
+         costo: asiento.pasaje,
+         cantidad: cantidad,
+         subTotal: subTotal,
+         eliminar: html,
+      };
+      ASIENTOS_SELECCIONADOS = [...ASIENTOS_SELECCIONADOS, nuevoAsiento];
+      tablaReserva.row.add(nuevoAsiento).draw(false);
       //PARA ORDENAR LA TABLA
       //tabla.order([6, 'desc']).draw();
-
    }
    function existeFila(asiento, cantidad) {
       let encontrado = false;
@@ -388,15 +386,21 @@ $(document).ready(function () {
             data.subTotal = subTotal;
             encontrado = true;
             this.data(data).draw(false);
+            let asientoEncontrado = buscar(asiento.id);
+            asientoEncontrado.cantidad = cantidad;
          }
       });
+
       return encontrado;
 
    }
    function modificarTotal() {
-      
    }
+   function eliminarDeLista(id) {
+      ASIENTOS_SELECCIONADOS = ASIENTOS_SELECCIONADOS.filter((item) => {
 
+         return item.id !== id
+      });
 
-
+   }
 });
