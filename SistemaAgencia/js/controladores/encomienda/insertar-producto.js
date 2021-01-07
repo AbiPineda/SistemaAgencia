@@ -1,61 +1,43 @@
 $(document).ready(function (){
 
-    //inicializarValidaciones();
+    inicializarValidaciones();
   
     //BOTON PARA AGREGAR
     $(document).on('click', '#btn-producto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#register-form");  
-       // form.validate();
-         // if (form.valid()) {
+       form.validate();
+         if (form.valid()) {
             add_producto();
-        //}  
+        }  
         
     });
 
-function inicializarValidaciones() {
-    $('#recargar-form').validate({
-
-            rules: {
-                combo_rama: {
-                   required: true
-                }
-            },
-            messages: {
-                combo_rama: {
-                    required: "Seleccione la rama"
-                }
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-
-            }
-        });
-
+  function inicializarValidaciones() {
         $('#register-form').validate({
 
             rules: {
-                pregunta: {
-                    minlength: 10
+                nombre_producto:{
+                    required: true,
+                    minlength: 7
                 },
-                "opcion_respuesta[]": {
+                tarifa: {
+                    required: true
+                },
+                unidades_medidas: {
                    required: true
                 }
             },
             messages: {
-                 pregunta:{
-                    minlength: "Debe de tener una longitud minima de 10"
+                nombre_producto:{
+                    required:"Digite el nombre del producto",
+                    minlength:"El nombre producto debe tener una longitud minima de 7"
                 },
-                "opcion_respuesta[]": {
-                    required: "Seleccione las opciones de respuestas, puede agregar más, pulse el botón agregar más"
+                 tarifa:{
+                    required:"Digite la tarifa del producto"
+                },
+                unidades_medidas: {
+                    required: "Seleccione una unidad de medida"
                 }
             },
             errorElement: 'span',
