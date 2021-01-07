@@ -44,6 +44,8 @@ include_once '../../plantillas/barra_lateral.php';
                      <div class="timeline-body" style="margin-top: -9px;">
                         <!--Una fila para jugar-->
 
+                        <form id="cliente-form" name="recargar-form" onsubmit="return false">
+
                         <div class="row">
                            <div class="col-lg-3"></div>
                            <div class="col-sm-5">
@@ -57,6 +59,7 @@ include_once '../../plantillas/barra_lateral.php';
                               </div>
                            </div>
                         </div>
+                     </form>
                         <!--fin de Una fila para jugar-->
                      </div>
                   </div>
@@ -125,7 +128,7 @@ include_once '../../plantillas/barra_lateral.php';
                               <div class="col-sm-6">
                                  <div class="form-group">
                                     <label>Fecha</label>
-                                    <input name="punto_referencia" id="fecha" type="date" class="form-control"
+                                    <input name="fecha" id="fecha" type="date" class="form-control"
                                        placeholder="Introduzca el punto de referencia">
                                  </div>
                               </div>
@@ -246,31 +249,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                </div>
                <!-- END timeline item -->
-               <!-- timeline item -->
-               <!-- <div id="botones">
-                  <i class="fas fa-save bg-green"></i>
-                  <div class="timeline-item">
-                     <span class="time"><i class="fas fa-save"></i>Guardar</span>
-                     <h3 class="timeline-header"><a href="#">Guardar Información</a></h3>
-                     <div class="timeline-body">
-                        <div class="row">
-                           <div class="col-lg-1"></div>
-                           <div class="col-lg-10"></div>
-                           <div class="col-lg-1"></div>
-                           <div style="text-align: right;width:577px;margin-top:-8px;">
-                              <a class="btn btn-primary btn-sm" id="btn-perso" style="color: white">Guardar</a>
-                              <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div> -->
-               <!-- END timeline item -->
-
-               <!-- timeline time label -->
-               <!-- <div class="time-label">
-                  <span class="bg-green">Encomiendas</span>
-               </div> -->
+              
                <!-- /.timeline-label -->
             </div>
             <!-- END timeline item -->
