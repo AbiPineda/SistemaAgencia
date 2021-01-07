@@ -163,7 +163,7 @@ $(document).ready(function () {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                $('#modal-editar').modal('hide');;
+                $('#modificacion-producto').modal('hide');;
                 tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
