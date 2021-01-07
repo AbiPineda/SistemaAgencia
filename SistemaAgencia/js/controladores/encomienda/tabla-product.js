@@ -2,7 +2,7 @@ $(document).ready(function () {
     let id_pregunta;
     let tabla;
 
-    //inicializarValidaciones();
+   inicializarValidaciones();
    // inicializarCombo()
    // inicializarComboRama();
     inicializarTabla();
@@ -143,25 +143,27 @@ $(document).ready(function () {
         $('#register-form').validate({
 
             rules: {
-                id_rama:{
+                nombre_producto:{
+                    required: true,
+                    minlength: 7
+                },
+                tarifa: {
                     required: true
                 },
-                pregunta: {
-                    minlength: 10
-                },
-                "opcion_respuesta[]": {
+                unidades_medidas: {
                    required: true
                 }
             },
             messages: {
-                id_rama:{
-                    required:"Seleccione una rama"
+                nombre_producto:{
+                    required:"Digite el nombre del producto",
+                    minlength:"El nombre producto debe tener una longitud minima de 7"
                 },
-                 pregunta:{
-                    minlength: "Lapregunta debe de tener una longitud minima de 10"
+                 tarifa:{
+                    required:"Digite la tarifa del producto"
                 },
-                "opcion_respuesta[]": {
-                    required: "Seleccione las opciones de respuestas, puede agregar más, pulse el botón agregar más"
+                unidades_medidas: {
+                    required: "Seleccione una unidad de medida"
                 }
             },
             errorElement: 'span',
