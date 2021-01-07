@@ -9,7 +9,7 @@ $(document).ready(function () {
   
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
-        id_encomienda = $(this).attr("name");
+        id_producto = $(this).attr("name");
 
          fila = $(this).closest("tr");
 
@@ -20,6 +20,7 @@ $(document).ready(function () {
         document.getElementById("producto").value = producto;
         document.getElementById("tarifa").value   = tarifa;
         document.getElementById("unidades").value = unidades_medidas;
+         document.getElementById("id_producto").value = id_producto;
 
         $('#modificacion-producto').modal('show');
        $('#loadingActualizar').hide(); 
@@ -49,7 +50,7 @@ $(document).ready(function () {
         })
     });
     //BOTON PARA ACTUALIZAR
-    $(document).on('click', '#btnActualizar', function (evento) {
+    $(document).on('click', '#btnActualizarProducto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#register-form");
         form.validate();
@@ -149,7 +150,7 @@ $(document).ready(function () {
     function actualizar() {
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/updateCerrada",
+            url: URL_SERVIDOR + "Producto/updateProducto",
             method: "POST",
             timeout: 0,
             data:$('#register-form').serialize()

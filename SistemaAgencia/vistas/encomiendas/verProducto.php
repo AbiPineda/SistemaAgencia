@@ -46,7 +46,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <thead style="text-align: center;">
                                             <tr>
                                                 <th>Producto</th>
-                                                <th>Tarifa</th>
+                                                <th>Tarifa($)</th>
                                                 <th>Unidad de medida</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -98,11 +98,12 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <form id="task-form">
                                                     <div class="form-group">
                                                         <label>Nombre Producto</label>
-                                                        <input type="text" name="producto" id="producto" placeholder="Producto" class="form-control">
+                                                        <input type="text" name="nombre_producto" id="producto" placeholder="Producto" class="form-control">
+                                                        <input type="hidden" name="id_producto" id="id_producto">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tarifa</label>
-                                                        <input type="text" id="tarifa" placeholder="tarifa" class="form-control">
+                                                        <input type="text" name="tarifa" id="tarifa" placeholder="tarifa" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                     <label>Unidad de medida</label>
@@ -121,7 +122,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnEnvio" class="btn btn-primary btn-sm" style="color: white">Actualizar</button>
+                    <button type="button" id="btnActualizarProducto" class="btn btn-primary btn-sm" style="color: white">Actualizar</button>
                     <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
