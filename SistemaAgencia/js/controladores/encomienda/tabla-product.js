@@ -29,7 +29,7 @@ $(document).ready(function () {
    
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idpregunta = $(this).attr("name");
+        idproducto = $(this).attr("name");
         fila = $(this).closest("tr");
 
         const Toast = Swal.mixin();
@@ -185,10 +185,10 @@ $(document).ready(function () {
 
     function eliminar() {
         let data = {
-            "id_pregunta": idpregunta
+            "id_producto": idproducto
         };
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/deletePregunta",
+            url: URL_SERVIDOR + "Producto/deleteProducto",
             method: "DELETE",
             timeout: 0,
             data: data
@@ -210,7 +210,7 @@ $(document).ready(function () {
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: "ERROR EN EL ENVIO DE INFORMACION",
+                text:response.mensaje,
                 showConfirmButton: true,
             });
 
