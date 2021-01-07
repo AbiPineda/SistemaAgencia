@@ -26,8 +26,31 @@ $(document).ready(function () {
        $('#loadingActualizar').hide(); 
     
     });
+
+    //BOTON PARA DAR DE ALTA EL PRODUCTO
+    $(document).on('click', '.btn-group .btn-success', function (evento) {
+        idproducto = $(this).attr("name");
+        fila = $(this).closest("tr");
+
+        const Toast = Swal.mixin();
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Se dara de alta este producto!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí!'
+        }).then((result) => {
+            console.log(result);
+            if (result.value) {
+                alta();
+            }
+        })
+    });
    
-    //BOTON PARA ELIMINAR
+    //BOTON PARA DAR DE BAJA EL PRODUCTO
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idproducto = $(this).attr("name");
         fila = $(this).closest("tr");
@@ -35,17 +58,17 @@ $(document).ready(function () {
         const Toast = Swal.mixin();
         Swal.fire({
             title: '¿Estas seguro?',
-            text: "Se Eliminará este registro!",
+            text: "Se dara de baja este producto!",
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminar!'
+            confirmButtonText: 'Sí!'
         }).then((result) => {
             console.log(result);
             if (result.value) {
-                eliminar();
+                baja();
             }
         })
     });
@@ -66,7 +89,7 @@ $(document).ready(function () {
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "Producto/productos",
+                "url": URL_SERVIDOR + "Producto/productosTabla",
                 "method": "GET",
                 "dataSrc": function (json) {
                     //console.log(json.preguntas);
@@ -81,10 +104,19 @@ $(document).ready(function () {
                             html += '         data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.product[i].id_producto+ '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
+                            if (json.product[i].estado_producto ==1) {
+
+                            html += '        <button type="button" name="' + json.product[i].id_producto+ '" class="btn btn-danger">';
+                            html += '            <i class="fas fa-arrow-down" style="color: white"></i>';
                             html += '        </button>';
+
+                            }else{
+
+                            html += '        <button type="button" name="' + json.product[i].id_producto+ '" class="btn btn-success">';
+                            html += '            <i class="fas fa-arrow-up" style="color: white"></i>';
+                            html += '        </button>';
+                           
+                            }
                             html += '    </div>';
                             html += '</td>';
                             json.product[i]["botones"] = html;
@@ -183,7 +215,44 @@ $(document).ready(function () {
     }
 
 
-    function eliminar() {
+     function alta() {
+        let data = {
+            "id_producto": idproducto
+        };
+        $.ajax({
+            url: URL_SERVIDOR + "Producto/altaProducto",
+            method: "DELETE",
+            timeout: 0,
+            data: data
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                tabla.ajax.reload(null, false);
+            });
+        }).fail(function (response) {
+
+            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text:response.mensaje,
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $('#loadingActualizar').hide();
+        });
+    }
+
+
+    function baja() {
         let data = {
             "id_producto": idproducto
         };
