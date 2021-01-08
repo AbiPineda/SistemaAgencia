@@ -44,6 +44,8 @@
 						return 'selected';
 					} else if (this.status() == 'selected') {
 						return 'available';
+					} else if (this.status() == 'ocupado') {
+						return 'ocupado';
 					} else {
 						return this.style();
 					}

@@ -31,24 +31,26 @@ $(document).ready(function () {
    //BOTON DE GUARDAR
    $(document).on('click', '#btnguardar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
-      let form = $("#miFormulario");
-      let coordenadas = $('#coordenadas').val();
-      form.validate();
-      if (form.valid() && coordenadas) {
-         guardar();
-      } else {
-         if (!coordenadas) {
-            errors = { coordenadas: "No ha seleccionada las coordenadas" };
-            $("#miFormulario").validate().showErrors(errors);
-         }
-         const Toast = Swal.mixin();
-         Toast.fire({
-            title: 'Exito...',
-            icon: 'error',
-            text: "Complete los campos",
-            showConfirmButton: true,
-         });
-      }
+      let seleccionados =  seat_charts.find('e.unavailable').seatIds;
+      console.log(seleccionados);
+      // let form = $("#miFormulario");
+      // let coordenadas = $('#coordenadas').val();
+      // form.validate();
+      // if (form.valid() && coordenadas) {
+      //    guardar();
+      // } else {
+      //    if (!coordenadas) {
+      //       errors = { coordenadas: "No ha seleccionada las coordenadas" };
+      //       $("#miFormulario").validate().showErrors(errors);
+      //    }
+      //    const Toast = Swal.mixin();
+      //    Toast.fire({
+      //       title: 'Exito...',
+      //       icon: 'error',
+      //       text: "Complete los campos",
+      //       showConfirmButton: true,
+      //    });
+      // }
    });
    //AGREGAR A LA TABLA
    $(document).on('click', '#btnAgregarAsiento', function () {
@@ -125,6 +127,7 @@ $(document).ready(function () {
                titulo: lista[index].titulo,
             });
          }
+         inicialComboAsientos();
          if (response.transporte) {
             // let derecho = response.transporte.filas;
             let derecho = response.transporte.asiento_derecho;
@@ -135,7 +138,9 @@ $(document).ready(function () {
             let strFila = crearStrFila(derecho, izquierdo);
             let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
             dibujarAsientos(mapa);
-            bloquearAsientos(deshabilitados);
+            bloquearAsientosInavilitados(deshabilitados);
+            bloquearAsientosOcupados();
+
 
          }
       }).fail(function (response) {
@@ -438,9 +443,10 @@ $(document).ready(function () {
          legend: {
             node: $('#legend'),
             items: [
-               ['e', 'available', 'Asientos Libres'],
-               ['f', 'selected', 'Asientos no Disponibles'],
-               // ['f', 'unavailable', 'Already Booked']
+               ['e', 'unavailable', 'Asientos no Disponibles'],
+               ['e', 'ocupado', 'Asientos ya ocupados'],
+               ['e', 'selected', 'Asientos seleccionados'],
+               ['e', 'available', 'Asientos Disponibles'],
             ]
          },
          click: function () {
@@ -546,12 +552,11 @@ $(document).ready(function () {
       return miMapa;
 
    }
-   function bloquearAsientos(asientosBloqueados) {
+   function bloquearAsientosInavilitados(asientosBloqueados) {
       let arreglo = asientosBloqueados.split(",");
-      seat_charts.get(arreglo).status('unavailable');      
-  }
-  function asietosReservadps(asientosReservados) {
-   let arreglo = asientosBloqueados.split(",");
-   seat_charts.get(arreglo).status('unavailable');      
-}
+      seat_charts.get(arreglo).status('unavailable');
+   }
+   function bloquearAsientosOcupados() {
+      seat_charts.get(["1_2"]).status('ocupado');
+   }
 });

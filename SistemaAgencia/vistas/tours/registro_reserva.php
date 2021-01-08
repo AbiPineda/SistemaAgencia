@@ -167,10 +167,6 @@
                                  <label id="totalPago" class="text-primary "> $0</label>
                               </div>
                            </div>
-                           <div class="timeline-footer" style="text-align: right;">
-                              <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
-                              <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                           </div>
 
                         </div>
                      </div>
@@ -185,7 +181,7 @@
                         <div class="timeline-body">
                            <div class="row" id="dibujoAsientos">
                               <!-- <div class="offset-md-1"></div> -->
-                              <div class="col-sm-7">
+                              <div class="col-sm-6">
                                  <div id="seat-map" class="float-right">
                                     <div class="front-indicator">Frontal</div>
                                  </div>
@@ -193,8 +189,12 @@
                               <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
                                  <div id="legend"></div>
                               </div>
-
                            </div>
+                        </div>
+                        <div class="timeline-footer" style="text-align: right;">
+                           <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                              style="color: white">Guardar</button>
+                           <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                         </div>
                      </div>
                   </div>
