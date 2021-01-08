@@ -4,6 +4,32 @@ $(document).ready(function() {
 
     inicializarFlota();
 
+    //BOTON DE MOSTRAR CARACTERISTICAS
+    $(document).on('click', '.btn-primary', function() {
+
+        idVehiculo = $(this).attr("name");
+
+        $('#loadingActualizar').show();
+        $.ajax({
+            url: "http://localhost/API-REST-PHP/vehiculo/Flota?idvehiculo=" + idVehiculo,
+            method: "GET"
+        }).done(function(response) {
+            //MANDALOS LOS VALORES AL MODAL
+            for (let i = 0, ien = response.autos.length; i < ien; i++) {
+                $('#mode1').text(response.autos[i].modelo);
+                $('#precio').text(response.autos[i].precio_diario);
+                $('#detalles').text(response.autos[i].detalles);
+                $('#descripcion').text(response.autos[i].descripcion);
+            }
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-editar').modal('show');
+            $('#loadingActualizar').hide();
+        });
+    });
+
+
     function inicializarFlota() {
 
 
@@ -28,7 +54,8 @@ $(document).ready(function() {
                     html += '            <div> Categoria: ' + lista[index].nombre + '</div>';
                     html += '            <div> Año: ' + lista[index].anio + '</div>';
                     html += '            <p> Precio Diario: $' + lista[index].precio_diario + '</p>';
-                    html += '            <a href="#" class="btn btn-default">Reservar</a>';
+                    html += '           <button type="button" name="' + lista[index].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
+                    html += '            data-target="#modal-editar">Detalles</button>';
                     html += '        </div>';
                     html += '    </div>';
                     html += '    <h4 class="text-center"></h4>';
@@ -42,6 +69,8 @@ $(document).ready(function() {
 
         });
     }
+
+
 
 
 
