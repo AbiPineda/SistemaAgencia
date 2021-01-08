@@ -6,17 +6,13 @@ $(document).ready(function () {
    const ID_TUR = urlParams.get('tur');
    const costoPasaje = $('#costoPasaje');
    let $cart = $('#selected-seats');
-   let strFila = "";
+   let $counter = $('#counter');
+   let $total = $('#total');
    let DATA_ASIENTOS = [];
    let ASIENTOS_SELECCIONADOS = [];
    let tablaReserva;
    let totalReserva = 0;
-   let sc;
-   let numero_filas;
-   let asientos_derecho;
-   let asientos_izquierdo;
-   let asientos_traseros;
-   let miMapa = [];
+   let seat_charts;
 
    inicializarComboUsuario();
    obtenerData(ID_TUR);
@@ -111,6 +107,7 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
          method: "GET"
       }).done(function (response) {
+         console.log(response)
          costoPasaje.val(response.precio);
          //AGREGAMOS EL COSTO BASE
          DATA_ASIENTOS.push({
@@ -133,17 +130,14 @@ $(document).ready(function () {
             let derecho = response.transporte.asiento_derecho;
             let izquierdo = response.transporte.asiento_izquierdo;
             let numero_filas = response.transporte.filas;
+            let deshabilitados = response.transporte.asientos_deshabilitados;
 
             let strFila = crearStrFila(derecho, izquierdo);
-            let mapa = crearFilas(strFila, numero_filas,true);
-            console.log(mapa)
+            let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
             dibujarAsientos(mapa);
+            bloquearAsientos(deshabilitados);
 
          }
-        
-
-
-
       }).fail(function (response) {
          console.log("Error");
          console.log(response);
@@ -419,7 +413,7 @@ $(document).ready(function () {
    function dibujarAsientos(miMapa) {
       let firstSeatLabel = 1;
       //inicializacmos el sc
-      sc = $('#seat-map').seatCharts({
+      seat_charts = $('#seat-map').seatCharts({
          map: miMapa,
          seats: {
             f: {
@@ -465,15 +459,15 @@ $(document).ready(function () {
                 * .find function will not find the current seat, because it will change its stauts only after return
                 * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
                 */
-               $counter.text(sc.find('selected').length + 1);
-               $total.text(recalculateTotal(sc) + this.data().price);
+               $counter.text(seat_charts.find('selected').length + 1);
+               $total.text(recalculateTotal(seat_charts) + this.data().price);
 
                return 'selected';
             } else if (this.status() == 'selected') {
                //update the counter
-               $counter.text(sc.find('selected').length - 1);
+               $counter.text(seat_charts.find('selected').length - 1);
                //and total
-               $total.text(recalculateTotal(sc) - this.data().price);
+               $total.text(recalculateTotal(seat_charts) - this.data().price);
 
                //remove the item from our cart
                $('#cart-item-' + this.settings.id).remove();
@@ -532,7 +526,7 @@ $(document).ready(function () {
       return strFila;
 
    }
-   function crearFilas(strFila,numero_filas, filaTrasera) {
+   function crearFilas(strFila, asientos_derecho, asientos_izquierdo, numero_filas, filaTrasera) {
       let strTrasero = "";
       let strEspacio = "";
       let asientos_traseros;
@@ -541,11 +535,10 @@ $(document).ready(function () {
          miMapa.push(strFila);
       }
       if (filaTrasera) {
-         asientos_traseros = asientos_derecho + asientos_izquierdo + 1;
+         asientos_traseros = parseInt(asientos_derecho) + parseInt(asientos_izquierdo) + 1;
          for (let index = 0; index < asientos_traseros; index++) {
             strEspacio += "_";
             strTrasero += "e";
-
          }
          miMapa.push(strEspacio);
          miMapa.push(strTrasero);
@@ -553,4 +546,12 @@ $(document).ready(function () {
       return miMapa;
 
    }
+   function bloquearAsientos(asientosBloqueados) {
+      let arreglo = asientosBloqueados.split(",");
+      seat_charts.get(arreglo).status('unavailable');      
+  }
+  function asietosReservadps(asientosReservados) {
+   let arreglo = asientosBloqueados.split(",");
+   seat_charts.get(arreglo).status('unavailable');      
+}
 });
