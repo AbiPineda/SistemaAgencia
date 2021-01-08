@@ -5,10 +5,19 @@ $(document).ready(function () {
    const urlParams = new URLSearchParams(valores);
    const ID_TUR = urlParams.get('tur');
    const costoPasaje = $('#costoPasaje');
+   let $cart = $('#selected-seats');
+   let strFila = "";
    let DATA_ASIENTOS = [];
-   let tablaReserva;
-   let total = 0;
    let ASIENTOS_SELECCIONADOS = [];
+   let tablaReserva;
+   let totalReserva = 0;
+   let sc;
+   let numero_filas;
+   let asientos_derecho;
+   let asientos_izquierdo;
+   let asientos_traseros;
+   let miMapa = [];
+
    inicializarComboUsuario();
    obtenerData(ID_TUR);
    inicializarTabla();
@@ -18,24 +27,6 @@ $(document).ready(function () {
       let id = e.params.data.id;
       let asiento = buscar(id);
       costoPasaje.val(asiento.pasaje);
-   });
-   // //BOTON PARA AGREGAR UN NUEVO CONTACTO 
-   $(document).on('click', '#btnAgregar', function (evento) {
-      evento.preventDefault();//para evitar que la pagina se recargue
-      let form = $("#formularioAgregar");
-      form.validate();
-      if (form.valid()) {
-         guardarContacto();
-      }
-   });
-   //BOTON PARA AGREGAR UN NUEVO TIPO 
-   $(document).on('click', '#btnAgregarTipo', function (evento) {
-      evento.preventDefault();//para evitar que la pagina se recargue
-      let form = $("#formularioAgregarTipo");
-      form.validate();
-      if (form.valid()) {
-         guardarTipo();
-      }
    });
    //BOTON DE NUEVO CLIENTE
    $(document).on('click', '#btnNuevoCliente', function (evento) {
@@ -72,8 +63,9 @@ $(document).ready(function () {
          if (!existeFila(asiento, cantidad)) {
             agregarFilaReservaViaje(asiento, cantidad);
          }
-         console.log(ASIENTOS_SELECCIONADOS);
+         modificarTotal();
       }
+
    });
    //BOTON DE ELIMINAR DE LA TABLA
    $(document).on('click', '.btn-group .btn-danger', function (evento) {
@@ -119,9 +111,10 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
          method: "GET"
       }).done(function (response) {
+         costoPasaje.val(response.precio);
          //AGREGAMOS EL COSTO BASE
          DATA_ASIENTOS.push({
-            asiento: "1",
+            seleccionables: "1",
             id: 0,
             pasaje: response.precio,
             titulo: "asiento normal",
@@ -129,14 +122,27 @@ $(document).ready(function () {
          let lista = response.promociones;
          for (let index = 0; index < lista.length; index++) {
             DATA_ASIENTOS.push({
-               asiento: lista[index].asiento,
+               seleccionables: lista[index].asiento,
                id: index + 1,
                pasaje: lista[index].pasaje,
                titulo: lista[index].titulo,
             });
          }
-         costoPasaje.val(response.precio);
-         inicialComboAsientos();
+         if (response.transporte) {
+            // let derecho = response.transporte.filas;
+            let derecho = response.transporte.asiento_derecho;
+            let izquierdo = response.transporte.asiento_izquierdo;
+            let numero_filas = response.transporte.filas;
+
+            let strFila = crearStrFila(derecho, izquierdo);
+            let mapa = crearFilas(strFila, numero_filas,true);
+            console.log(mapa)
+            dibujarAsientos(mapa);
+
+         }
+        
+
+
 
       }).fail(function (response) {
          console.log("Error");
@@ -352,7 +358,6 @@ $(document).ready(function () {
 
    }
    function agregarFilaReservaViaje(asiento, cantidad) {
-
       let subTotal = (asiento.pasaje * cantidad).toFixed(2);
       let html = "";
       html += '<td>';
@@ -370,6 +375,7 @@ $(document).ready(function () {
          cantidad: cantidad,
          subTotal: subTotal,
          eliminar: html,
+         seleccionables: asiento.seleccionables
       };
       ASIENTOS_SELECCIONADOS = [...ASIENTOS_SELECCIONADOS, nuevoAsiento];
       tablaReserva.row.add(nuevoAsiento).draw(false);
@@ -395,12 +401,156 @@ $(document).ready(function () {
 
    }
    function modificarTotal() {
+      totalReserva = 0.0;
+      ASIENTOS_SELECCIONADOS.forEach((element) => {
+         totalReserva += parseFloat(element.subTotal);
+      });
+      $('#totalPago').html('$' + totalReserva);
+
+
+
    }
    function eliminarDeLista(id) {
       ASIENTOS_SELECCIONADOS = ASIENTOS_SELECCIONADOS.filter((item) => {
-
          return item.id !== id
       });
+
+   }
+   function dibujarAsientos(miMapa) {
+      let firstSeatLabel = 1;
+      //inicializacmos el sc
+      sc = $('#seat-map').seatCharts({
+         map: miMapa,
+         seats: {
+            f: {
+               price: 100,
+               classes: 'first-class', //your custom CSS class
+               category: 'First Class'
+            },
+            e: {
+               price: 40,
+               classes: 'economy-class', //your custom CSS class
+               category: 'Economy Class'
+            }
+
+         },
+         naming: {
+            top: false,
+            left: false,
+            getLabel: function (character, row, column) {
+               return firstSeatLabel++;
+            },
+         },
+         legend: {
+            node: $('#legend'),
+            items: [
+               ['e', 'available', 'Asientos Libres'],
+               ['f', 'selected', 'Asientos no Disponibles'],
+               // ['f', 'unavailable', 'Already Booked']
+            ]
+         },
+         click: function () {
+            if (this.status() == 'available') {
+               //let's create a new <li> which we'll add to the cart items
+               $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' +
+                  this.data().price +
+                  '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                  .attr('id', 'cart-item-' + this.settings.id)
+                  .data('seatId', this.settings.id)
+                  .appendTo($cart);
+
+               /*
+                * Lets update the counter and total
+                *
+                * .find function will not find the current seat, because it will change its stauts only after return
+                * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+                */
+               $counter.text(sc.find('selected').length + 1);
+               $total.text(recalculateTotal(sc) + this.data().price);
+
+               return 'selected';
+            } else if (this.status() == 'selected') {
+               //update the counter
+               $counter.text(sc.find('selected').length - 1);
+               //and total
+               $total.text(recalculateTotal(sc) - this.data().price);
+
+               //remove the item from our cart
+               $('#cart-item-' + this.settings.id).remove();
+
+               //seat has been vacated
+               return 'available';
+            } else if (this.status() == 'unavailable') {
+               //seat has been already booked
+               return 'unavailable';
+            } else {
+               return this.style();
+            }
+         },
+         focus: function () {
+
+            if (this.status() == 'available') {
+               return 'focused';
+            } else {
+               return this.style();
+            }
+         },
+         blur: function () {
+            return this.status();
+         }
+      });
+
+   }
+   function borrarTodo() {
+      $('.seatCharts-row').remove();
+      $('.seatCharts-legendItem').remove();
+      $('#seat-map,#seat-map *').unbind().removeData();
+
+   }
+   function recalculateTotal(sc) {
+      var total = 0;
+
+      //basically find every selected seat and sum its price
+      sc.find('selected').each(function () {
+         total += this.data().price;
+      });
+
+      return total;
+   }
+   function crearStrFila(asientos_derecho, asientos_izquierdo) {
+      let strFila = "";
+      //LOS ASIENTOS DEL LADO DERECHO
+      for (let index = 0; index < asientos_derecho; index++) {
+         strFila += "e"
+      }
+      //LOS ESPACIOS QUE SE VAN A COLOCAR ENTRE ASIENTOS DERECHOS E IZQUIERDOS
+      strFila += "_"
+      //ASIENTOS DEL LADO IZQUIERDO
+      for (let index = 0; index < asientos_izquierdo; index++) {
+         strFila += "e"
+      }
+      return strFila;
+
+   }
+   function crearFilas(strFila,numero_filas, filaTrasera) {
+      let strTrasero = "";
+      let strEspacio = "";
+      let asientos_traseros;
+      let miMapa = [];
+      for (let index = 0; index < numero_filas; index++) {
+         miMapa.push(strFila);
+      }
+      if (filaTrasera) {
+         asientos_traseros = asientos_derecho + asientos_izquierdo + 1;
+         for (let index = 0; index < asientos_traseros; index++) {
+            strEspacio += "_";
+            strTrasero += "e";
+
+         }
+         miMapa.push(strEspacio);
+         miMapa.push(strTrasero);
+      }
+      return miMapa;
 
    }
 });

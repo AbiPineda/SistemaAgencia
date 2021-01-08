@@ -9,6 +9,8 @@
    type="text/css" />
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet"
    type="text/css" />
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/jquery.seat-charts.css">
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/reserva.css">
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -156,6 +158,15 @@
                                  </table>
                               </div>
                            </div>
+                           <div class="row">
+                              <div class="col-md-1 col-md-offset-1"> </div>
+                              <div class="col-md-3  ">
+                                 <label class="text-primary "> Total de Reserva: </label>
+                              </div>
+                              <div class="col-md-3  ">
+                                 <label id="totalPago" class="text-primary "> $0</label>
+                              </div>
+                           </div>
                            <div class="timeline-footer" style="text-align: right;">
                               <a class="btn btn-info btn-sm" style="color: white">Guardar</a>
                               <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
@@ -164,8 +175,31 @@
                         </div>
                      </div>
                   </div>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <div>
+                     <i class="fas fa-user bg-green"></i>
+                     <div class="timeline-item">
+                        <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
+                        <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
+                        <div class="timeline-body">
+                           <div class="row" id="dibujoAsientos">
+                              <!-- <div class="offset-md-1"></div> -->
+                              <div class="col-sm-7">
+                                 <div id="seat-map" class="float-right">
+                                    <div class="front-indicator">Frontal</div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
+                                 <div id="legend"></div>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- END timeline item -->
                </div>
-               <!-- END timeline item -->
             </div>
          </div>
       </div>
@@ -291,6 +325,7 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/registro_reserva.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 
