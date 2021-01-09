@@ -11,7 +11,7 @@ $(document).ready(function () {
     let ID_ENCOMIENDA = urlParams.get('en');
     let tabla;
 
-
+    inicializarValidaciones();
     mostrarDatos();
     inicializarTabla();
 
@@ -224,6 +224,52 @@ $(document).ready(function () {
             });
         }*/
     });
+
+     function inicializarValidaciones() {
+
+        $('#encomienda-form').validate({
+
+            rules: {
+                direccion: {
+                    required:true,
+                    minlength: 10
+                },
+                punto_referencia: {
+                    required:true,
+                    minlength: 10
+                },
+                fecha: {
+                   required: true
+                }
+            },
+            messages: {
+                direccion:{
+                    required:"Digite la dirección",
+                    minlength: "La dirección debe de tener una longitud minima de 10"
+                },
+                punto_referencia:{
+                    required:"Digite el punto de referencia",
+                    minlength: "El punto referencia debe de tener una longitud minima de 10"
+                },
+                fecha: {
+                    required: "Digite la fecha"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
 
     function modificar() {
         $('#loading').show();
