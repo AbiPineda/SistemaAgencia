@@ -23,9 +23,9 @@ $(document).ready(function () {
         let costo = $('#costo').val();
         let cantidad = $('#cantidad').val();
         //alert(cantidad);
-        if (!costo) {
-            //     errors = { precio_sitio: "Digite precio" };
-            //$("#miFormulario").validate().showErrors(errors);
+        if (!cantidad) {
+               errors = { cantidad: "Digite la cantidad" };
+            $("#encomienda-form").validate().showErrors(errors);
         } else {
 
             let id = document.getElementById("id_producto").value;
