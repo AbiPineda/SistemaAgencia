@@ -16,6 +16,11 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
+        "columnDefs":[
+        {"className":"dt-center","targets":"_all"},
+        {"targets":[5], "visible":false},
+        {"targets":[6], "visible":false},
+        ]
 
     });
 
