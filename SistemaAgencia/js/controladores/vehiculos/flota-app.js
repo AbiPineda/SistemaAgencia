@@ -18,9 +18,15 @@ $(document).ready(function() {
             for (let i = 0, ien = response.autos.length; i < ien; i++) {
                 $('#mode1').text(response.autos[i].modelo);
                 $('#precio').text(response.autos[i].precio_diario);
+                $('#categoria').text(response.autos[i].nombre);
                 $('#detalles').text(response.autos[i].detalles);
                 $('#descripcion').text(response.autos[i].descripcion);
+                $('#puerta').text(response.autos[i].puertas);
+                $('#pasajero').text(response.autos[i].pasajeros);
+                $('#kilometraje').text(response.autos[i].kilometraje);
+                $('#combustible').text(response.autos[i].tipoCombustible);
             }
+
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
