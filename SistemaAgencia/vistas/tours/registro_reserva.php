@@ -167,13 +167,22 @@
                                  <label id="totalPago" class="text-primary "> $0</label>
                               </div>
                            </div>
+                           <div class="row">
+                              <div class="col-md-1 col-md-offset-1"> </div>
+                              <div class="col-md-3  ">
+                                 <label class="text-danger "> Asientos a reservar</label>
+                              </div>
+                              <div class="col-md-3  ">
+                                 <label id="asientosAReservar" class="text-danger"> 0</label>
+                              </div>
+                           </div>
 
                         </div>
                      </div>
                   </div>
                   <!-- END timeline item -->
                   <!-- timeline item -->
-                  <div>
+                  <div id="item_asiento">
                      <i class="fas fa-user bg-green"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
@@ -192,7 +201,7 @@
                            </div>
                         </div>
                         <div class="timeline-footer" style="text-align: right;">
-                           <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                           <button name="btnguardarReserva" id="btnguardarReserva" class="btn btn-info btn-sm"
                               style="color: white">Guardar</button>
                            <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                         </div>
