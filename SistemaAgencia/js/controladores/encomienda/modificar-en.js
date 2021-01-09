@@ -11,6 +11,7 @@ $(document).ready(function () {
     let ID_ENCOMIENDA = urlParams.get('en');
     let tabla;
 
+
     mostrarDatos();
     inicializarTabla();
 
@@ -70,6 +71,11 @@ $(document).ready(function () {
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
+            "columnDefs":[
+            {"className":"dt-center","targets":"_all"},
+            {"targets":[5], "visible":false},
+            {"targets":[6], "visible":false},
+            ],
             "ajax": {
                 "url": URL_SERVIDOR + "Detalle_Encomienda/detalles?id_encomienda=" + ID_ENCOMIENDA,
                 "method": "GET",
