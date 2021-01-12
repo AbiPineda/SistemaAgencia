@@ -17,6 +17,7 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.autos.length; i < ien; i++) {
                 $('#mode1').text(response.autos[i].modelo);
+                $('#marca').text(response.autos[i].marca);
                 $('#precio').text(response.autos[i].precio_diario);
                 $('#categoria').text(response.autos[i].nombre);
                 $('#detalles').text(response.autos[i].detalles);
@@ -27,6 +28,8 @@ $(document).ready(function() {
                 $('#combustible').text(response.autos[i].tipoCombustible);
                 $('#transmision').text(response.autos[i].transmision);
                 $('#placa').text(response.autos[i].placa);
+                $('#anio').text(response.autos[i].anio);
+                $('#opcA').text(response.autos[i].opc_avanzadas);
             }
 
         }).fail(function(response) {
@@ -55,7 +58,7 @@ $(document).ready(function() {
                     let html = "";
                     html += '<div class="col-xs-6 col-sm-3">';
                     html += '    <div class="fall-item fall-effect">';
-                    html += '        <img style="width:500px; height:250px;" src="' + lista[index].foto + '" />';
+                    html += '        <img style="width: auto; height: auto; max-width: 550px; max-height: 240px" src="' + lista[index].foto + '" />';
                     html += '        <div class="mask">';
                     html += '            <h2 id="">' + lista[index].modelo + '</h2>';
                     html += '            <br>';

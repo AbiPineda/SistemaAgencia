@@ -14,8 +14,8 @@ h6 {
 }
 
 .centrar {
-  
-  text-align: center;
+
+    text-align: center;
 }
 </style>
 
@@ -84,7 +84,9 @@ h6 {
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
+                                    <h3 name="marca" id="marca"></h3>
                                     <h3 class="my-3" name="mode1" id="mode1"></h3>
+                                    <h3 name="anio" id="anio"></h3>
                                     <br>
                                     <h6>Categoria del Vehiculo: </h6>
                                     <h6 name="categoria" id="categoria"></h6>
@@ -105,6 +107,7 @@ h6 {
                                         </div>
                                         <div class="card-body p-0">
                                             <ul class="nav nav-pills flex-column">
+
                                                 <li class="nav-item active">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-inbox"></i> Puertas
@@ -151,14 +154,14 @@ h6 {
                                         </div>
                                     </div>
                                     <div class="bg-gray py-2 px-3 mt-4">
-                                    <div class="centrar">
-                                        <h3>Precio: $</h3>
-                                        <h3 class="mb-0" name="precio" id="precio" style="align:center"></h3>
-                                    </div>
+                                        <div class="centrar">
+                                            <h3>Precio: $</h3>
+                                            <h3 class="mb-0" name="precio" id="precio" style="align:center"></h3>
+                                        </div>
                                     </div>
                                     <div class="mt-4">
-                                        <div class="btn btn-primary btn-lg btn-flat style='padding: 0.5rem 7.2rem'">
-                                            <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                        <div class="btn btn-block btn-primary btn-flat">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
                                             Reservar Vehiculo
                                         </div>
                                     </div>
@@ -173,6 +176,10 @@ h6 {
                                         <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab"
                                             href="#product-comments" role="tab" aria-controls="product-comments"
                                             aria-selected="false">Descripción</a>
+                                        <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab"
+                                            href="#product-rating" role="tab" aria-controls="product-rating"
+                                            aria-selected="false">Opciones Avanzadas</a>
+
                                     </div>
                                 </nav>
                                 <div class="tab-content p-3" id="nav-tabContent">
@@ -181,12 +188,19 @@ h6 {
                                         <p name="detalles" id="detalles"></p>
                                     </div>
                                     <div class="tab-pane fade" id="product-comments" role="tabpanel"
-                                        aria-labelledby="product-comments-tab" name="descripcion" id="descripcion">
+                                        aria-labelledby="product-comments-tab">
                                         <p name="descripcion" id="descripcion"></p>
                                     </div>
+                                    <div class="tab-pane fade" id="product-rating" role="tabpanel"
+                                        aria-labelledby="product-rating-tab">
+                                        <p name="opcA" id="opcA"></p>
+                                    </div>
+
                                 </div>
+
                             </div>
                         </div>
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
