@@ -25,6 +25,8 @@ $(document).ready(function() {
                 $('#pasajero').text(response.autos[i].pasajeros);
                 $('#kilometraje').text(response.autos[i].kilometraje);
                 $('#combustible').text(response.autos[i].tipoCombustible);
+                $('#transmision').text(response.autos[i].transmision);
+                $('#placa').text(response.autos[i].placa);
             }
 
         }).fail(function(response) {

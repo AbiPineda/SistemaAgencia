@@ -7,9 +7,20 @@ include_once '../../plantillas/barra_lateral.php';
 
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/disponibilidad.css">
 
-<style>
+<style type="text/css" media="all">
+h3,
+h6 {
+    display: inline;
+}
 
+.centrar {
+  
+  text-align: center;
+}
 </style>
+
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -74,15 +85,17 @@ include_once '../../plantillas/barra_lateral.php';
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <h3 class="my-3" name="mode1" id="mode1"></h3>
-                                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
-                                        stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu
-                                        banh mi, qui irure terr.</p>
+                                    <br>
+                                    <h6>Categoria del Vehiculo: </h6>
+                                    <h6 name="categoria" id="categoria"></h6>
                                     <hr>
-                                    <a class="btn btn-primary btn-block mb-3" >Categoría: Sedan</a>
+                                    <button class="btn btn-primary btn-block mb-3">
+                                        <h1 name="placa" id="placa"></h1>
+                                    </button>
 
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3 class="card-title">Caracteristicas</h3>
+                                            <h3 class="card-title">Caracteristicas:</h3>
 
                                             <div class="card-tools">
                                                 <button type="button" class="btn btn-tool"
@@ -95,31 +108,42 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <li class="nav-item active">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-inbox"></i> Puertas
-                                                        <span class="badge bg-primary float-right"><h7 name="puerta" id="puerta"></h7></span>
+                                                        <span class="badge bg-primary float-right">
+                                                            <h7 name="puerta" id="puerta"></h7>
+                                                        </span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-user-friends"></i> Pasajeros
-                                                        <span class="badge bg-primary float-right"><h7 name="pasajero" id="pasajero"></h7></span>
+                                                        <span class="badge bg-Secondary float-right">
+                                                            <h7 name="pasajero" id="pasajero"></h7>
+                                                        </span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-tachometer-alt"></i> Kilometraje
-                                                        <span class="badge bg-warning float-right"><p name="kilometraje" id="kilometraje"></p></span>
-                                                       
+                                                        <span class="badge bg-warning float-right">
+                                                            <h7 name="kilometraje" id="kilometraje"></h7>
+                                                        </span>
+
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-gas-pump"></i> Tipo de Combustible
-                                                        <span class="badge bg-warning float-right"><p name="combustible" id="combustible"></p></span>
+                                                        <span class="badge bg-info float-right">
+                                                            <h7 name="combustible" id="combustible"></h7>
+                                                        </span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" class="nav-link">
                                                         <i class="fas fa-car"></i> Transmisión
+                                                        <span class="badge bg-Success float-right">
+                                                            <h7 name="transmision" id="transmision"></h7>
+                                                        </span>
                                                     </a>
                                                 </li>
 
@@ -127,7 +151,10 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                     </div>
                                     <div class="bg-gray py-2 px-3 mt-4">
-                                        <h2 class="mb-0" name="precio" id="precio"></h2>
+                                    <div class="centrar">
+                                        <h3>Precio: $</h3>
+                                        <h3 class="mb-0" name="precio" id="precio" style="align:center"></h3>
+                                    </div>
                                     </div>
                                     <div class="mt-4">
                                         <div class="btn btn-primary btn-lg btn-flat style='padding: 0.5rem 7.2rem'">
