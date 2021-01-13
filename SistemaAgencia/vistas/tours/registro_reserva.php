@@ -119,10 +119,22 @@
                               </div>
 
                            </div>
+
                         </div>
-                        <div class="timeline-footer" style="text-align: right;">
-                           <button id="btnAgregarAsiento" class="btn btn-info btn-sm"
-                              style="color: white">Agregar</button>
+                        <div class="timeline-footer">
+                           <div class="row">
+                              <div class="col-md-1 col-md-offset-1"> </div>
+                              <div class="col-md-3  ">
+                                 <label class="text-success ">Cupos Disponibles</label>
+                              </div>
+                              <div class="col-md-3  ">
+                                 <label id="cupos" class="text-success "> 0</label>
+                              </div>
+                           </div>
+                           <div style="text-align: right;">
+                              <button id="btnAgregarAsiento" class="btn btn-info btn-sm"
+                                 style="color: white">Agregar</button>
+                           </div>
 
                         </div>
                      </div>

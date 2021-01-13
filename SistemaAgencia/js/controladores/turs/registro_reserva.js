@@ -40,7 +40,7 @@ $(document).ready(function () {
          ASIENTOS_SELECCIONADOS.forEach(element => {
             porElegir += parseInt(element.cantidad) * parseInt(element.seleccionables);
          });
-         if (seleccionados > CUPOS || porElegir>CUPOS)  {
+         if (seleccionados > CUPOS || porElegir > CUPOS) {
             Toast.fire({
                title: 'Oops...',
                icon: 'error',
@@ -64,7 +64,7 @@ $(document).ready(function () {
                      showConfirmButton: true,
                   });
                } else {
-                  console.log("ok")
+                  guardarReserva();
                }
 
             }
@@ -90,7 +90,7 @@ $(document).ready(function () {
                   showConfirmButton: true,
                });
             } else {
-               console.log("OK")
+               guardarReserva();
             }
          }
       }
@@ -156,6 +156,7 @@ $(document).ready(function () {
          if (response.cupos != "" && response.cupos != "0") {
             costoPasaje.val(response.precio);
             CUPOS = parseInt(response.cupos);
+            $('#cupos').html(CUPOS);
             //AGREGAMOS EL COSTO BASE
             DATA_ASIENTOS.push({
                seleccionables: "1",
@@ -184,7 +185,7 @@ $(document).ready(function () {
                let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
                dibujarAsientos(mapa);
                bloquearAsientosInavilitados(deshabilitados);
-               bloquearAsientosOcupados();
+               bloquearAsientosOcupados(response.transporte.ocupados);
             } else {
                $('#dibujoAsientos').hide();
             }
@@ -206,126 +207,7 @@ $(document).ready(function () {
 
       });
    }
-   function inicializarValidaciones() {
-      $('#miFormulario').validate({
-         rules: {
-            nombre: {
-               required: true,
-               minlength: 3,
-               maxlength: 40
-            },
-            coordenadas: {
-               required: true,
-            },
-            descripcion: {
-               required: true,
-               minlength: 10,
-            }, fotos: {
-               required: true
-            }, precio_sitio: {
-               required: true,
-               min: 0
-            }
-         },
-         messages: {
-            nombre: {
-               required: "Ingrese un nombre",
-               minlength: "Logitud del nombre debe ser mayor a 3",
-               maxlength: "Logitud del nombre no debe exceder a 40",
-            },
-            coordenadas: {
-               required: "Debe de proporcionar las coordenadas",
-
-            },
-            descripcion: {
-               required: "La descripcion es necesaria",
-               minlength: "Debe de tener una longitud minima de 10",
-            }, fotos: {
-               required: "Suba por lo menos 1 foto"
-            }, precio_sitio: {
-               required: "El precio es necesario",
-               min: "Debe de ser mayor que 0"
-            }
-
-         },
-         errorElement: 'span',
-         errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-         },
-         highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-         },
-         unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-
-         }
-      });
-
-      $('#formularioAgregar').validate({
-         rules: {
-            correoContacto: {
-               email: true
-            },
-            nombreContacto: {
-               required: true,
-               minlength: 3,
-            }
-         },
-         messages: {
-            correoContacto: {
-               email: "Ingrese un correo electrónico válido"
-            },
-            nombreContacto: {
-               required: "Es necesario un nombre",
-               minlength: "Debe de tener una longitud minima de 3"
-            }
-
-         },
-         errorElement: 'span',
-         errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-         },
-         highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-         },
-         unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-
-         }
-      });
-
-      $('#formularioAgregarTipo').validate({
-         rules: {
-            nombreTipo: {
-               required: true,
-               minlength: 3,
-            }
-         },
-         messages: {
-            nombreTipo: {
-               required: "Es necesario un nombre",
-               minlength: "Debe de tener una longitud minima de 3"
-            }
-
-         },
-         errorElement: 'span',
-         errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-         },
-         highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-         },
-         unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-
-         }
-      });
-
-   }
-   function guardar() {
+   function guardarReserva() {
       $('#loadingReservaTur').show();
       let form = new FormData();
       let myCoordnada = document.getElementById("coordenadas").value;
@@ -557,12 +439,6 @@ $(document).ready(function () {
       });
 
    }
-   function borrarTodo() {
-      $('.seatCharts-row').remove();
-      $('.seatCharts-legendItem').remove();
-      $('#seat-map,#seat-map *').unbind().removeData();
-
-   }
    function recalculateTotal(sc) {
       var total = 0;
 
@@ -612,7 +488,7 @@ $(document).ready(function () {
       let arreglo = asientosBloqueados.split(",");
       seat_charts.get(arreglo).status('unavailable');
    }
-   function bloquearAsientosOcupados() {
-      seat_charts.get(["1_2"]).status('ocupado');
+   function bloquearAsientosOcupados(ocupados) {
+      seat_charts.get(ocupados).status('ocupado');
    }
 });

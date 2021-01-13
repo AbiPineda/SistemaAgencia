@@ -1,71 +1,53 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let explorer = $("#kv-explorer");
     let idVehiculo;
+    let FLOTA = [];
 
     inicializarFlota();
 
     //BOTON DE MOSTRAR CARACTERISTICAS
-    $(document).on('click', '.btn-primary', function() {
-
+    $(document).on('click', '.btn-primary', function () {
         idVehiculo = $(this).attr("name");
+        let data = obtenerVehiculo(idVehiculo);
+        console.log(data);
 
-        $('#loadingActualizar').show();
-        $.ajax({
-            url: "http://localhost/API-REST-PHP/vehiculo/Flota?idvehiculo=" + idVehiculo,
-            method: "GET"
-        }).done(function(response) {
-            //MANDALOS LOS VALORES AL MODAL
-            for (let i = 0, ien = response.autos.length; i < ien; i++) {
-                $('#mode1').text(response.autos[i].modelo);
-                $('#marca').text(response.autos[i].marca);
-                $('#precio').text(response.autos[i].precio_diario);
-                $('#categoria').text(response.autos[i].nombre);
-                $('#detalles').text(response.autos[i].detalles);
-                $('#descripcion').text(response.autos[i].descripcion);
-                $('#puerta').text(response.autos[i].puertas);
-                $('#pasajero').text(response.autos[i].pasajeros);
-                $('#kilometraje').text(response.autos[i].kilometraje);
-                $('#combustible').text(response.autos[i].tipoCombustible);
-                $('#transmision').text(response.autos[i].transmision);
-                $('#placa').text(response.autos[i].placa);
-                $('#anio').text(response.autos[i].anio);
-                $('#opcA').text(response.autos[i].opc_avanzadas);
-            }
-
-        }).fail(function(response) {
-
-        }).always(function(xhr, opts) {
-            $('#modal-editar').modal('show');
-            $('#loadingActualizar').hide();
-        });
+        $('#mode1').text(data.modelo);
+        $('#marca').text(data.marca);
+        $('#precio').text(data.precio_diario);
+        $('#categoria').text(data.nombre);
+        $('#detalles').text(data.detalles);
+        $('#descripcion').text(data.descripcion);
+        $('#puerta').text(data.puertas);
+        $('#pasajero').text(data.pasajeros);
+        $('#kilometraje').text(data.kilometraje);
+        $('#combustible').text(data.tipoCombustible);
+        $('#transmision').text(data.transmision);
+        $('#placa').text(data.placa);
+        $('#anio').text(data.anio);
+        $('#opcA').text(data.opc_avanzadas);
     });
 
 
     function inicializarFlota() {
-
-
         $.ajax({
             url: URL_SERVIDOR + "vehiculo/vehiculos",
             method: "GET"
-        }).done(function(response) {
-
-            console.log(response);
+        }).done(function (response) {
             let contenedor = $('#contenedorAutos');
             if (response.autos) {
-                let lista = response.autos;
-                for (let index = 0; index < lista.length; index++) {
-                    console.log(lista[index]);
+                FLOTA = response.autos;
+                for (let index = 0; index < FLOTA.length; index++) {
                     let html = "";
                     html += '<div class="col-xs-6 col-sm-4">';
                     html += '    <div class="fall-item fall-effect">';
-                    html += '        <img  src="' + lista[index].foto + '" />';
+                    html += '        <img  src="' + FLOTA[index].foto + '" />';
                     html += '        <div class="mask">';
-                    html += '            <h2 id="">' + lista[index].modelo + '</h2>';
+                    html += '            <h2 id="">' + FLOTA[index].modelo + '</h2>';
                     html += '            <br>';
-                    html += '            <div> Categoria: ' + lista[index].nombre + '</div>';
-                    html += '            <div> Año: ' + lista[index].anio + '</div>';
-                    html += '            <p> Precio Diario: $' + lista[index].precio_diario + '</p>';
-                    html += '           <button type="button" name="' + lista[index].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
+                    html += '            <div> Categoria: ' + FLOTA[index].nombre + '</div>';
+                    html += '            <div> Año: ' + FLOTA[index].anio + '</div>';
+                    html += '            <p> Precio Diario: $' + FLOTA[index].precio_diario + '</p>';
+                    html += '           <button type="button" name="' + FLOTA[index].idvehiculo + '" class="btn btn-primary" data-toggle="modal"';
                     html += '            data-target="#modal-editar">Detalles</button>';
                     html += '        </div>';
                     html += '    </div>';
@@ -75,12 +57,14 @@ $(document).ready(function() {
                     contenedor.append(html);
                 }
             }
-        }).fail(function(response) {
+        }).fail(function (response) {
             console.log(response);
 
         });
     }
-
+    function obtenerVehiculo(idBuscado) {
+        return FLOTA.find((vehiculo) => vehiculo.idvehiculo == idBuscado);
+    }
 
 
 
