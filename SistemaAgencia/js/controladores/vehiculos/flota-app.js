@@ -56,9 +56,9 @@ $(document).ready(function() {
                 for (let index = 0; index < lista.length; index++) {
                     console.log(lista[index]);
                     let html = "";
-                    html += '<div class="col-xs-6 col-sm-3">';
+                    html += '<div class="col-xs-6 col-sm-4">';
                     html += '    <div class="fall-item fall-effect">';
-                    html += '        <img style="width: auto; height: auto; max-width: 550px; max-height: 240px" src="' + lista[index].foto + '" />';
+                    html += '        <img  src="' + lista[index].foto + '" />';
                     html += '        <div class="mask">';
                     html += '            <h2 id="">' + lista[index].modelo + '</h2>';
                     html += '            <br>';
