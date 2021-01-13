@@ -25,6 +25,27 @@ $(document).ready(function () {
         $('#placa').text(data.placa);
         $('#anio').text(data.anio);
         $('#opcA').text(data.opc_avanzadas);
+        let imagenGrande = $('#imagenGrande');
+        let imagenesPequenas = $('#imagenesPequenas');
+        imagenGrande.empty();
+        imagenesPequenas.empty();
+
+        
+        if (data.galeria) {
+            let fotos =  data.galeria;
+            for (let index = 0; index <fotos.length; index++) {
+                if (index == 0) {
+                    let htmlGrande = '<img src="'+fotos[index].foto_path+'" class="product-image" alt="Product Image">';
+                    imagenGrande.append(htmlGrande);
+                    let htmlPequeno = ' <div class="product-image-thumb active"><img src="'+fotos[index].foto_path+'" alt="Product Image"></div>';
+                    imagenesPequenas.append(htmlPequeno);
+               
+                }else{
+                    let htmlPequeno = ' <div class="product-image-thumb"><img src="'+fotos[index].foto_path+'" alt="Product Image"></div>';
+                    imagenesPequenas.append(htmlPequeno);
+                }
+            }
+        }
     });
 
 

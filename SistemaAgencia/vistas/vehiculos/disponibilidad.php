@@ -67,16 +67,12 @@ h6 {
                   <div class="card-body">
                      <div class="row">
                         <div class="col-12 col-sm-6">
-                           <div class="col-12">
+                           <div id="imagenGrande" class="col-12">
                               <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image">
                            </div>
-                           <div class="col-12 product-image-thumbs">
+                           <div id="imagenesPequenas" class="col-12 product-image-thumbs">
                               <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg"
                                     alt="Product Image"></div>
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image">
-                              </div>
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image">
-                              </div>
                               <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image">
                               </div>
                               <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="Product Image">
@@ -220,15 +216,15 @@ h6 {
 
 
 <?php
-  include_once '../../plantillas/footer.php';
+include_once '../../plantillas/footer.php';
 ?>
 <!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/conf.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/flota-app.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/vehiculos/flota-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<?php  include_once '../../plantillas/cierre.php';?>
+<?php include_once '../../plantillas/cierre.php'; ?>
