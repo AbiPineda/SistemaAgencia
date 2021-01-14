@@ -25,27 +25,35 @@ $(document).ready(function () {
         $('#placa').text(data.placa);
         $('#anio').text(data.anio);
         $('#opcA').text(data.opc_avanzadas);
-        let imagenGrande = $('#imagenGrande');
-        let imagenesPequenas = $('#imagenesPequenas');
-        imagenGrande.empty();
-        imagenesPequenas.empty();
+        let imagenGrande = document.getElementById("imagenGrande");
+        let imagenesPequenas = document.getElementById("imagenesPequenas");
+        // imagenGrande.empty();
+        // imagenesPequenas.empty();
 
-        
+
         if (data.galeria) {
-            let fotos =  data.galeria;
-            for (let index = 0; index <fotos.length; index++) {
+            let fotos = data.galeria;
+            for (let index = 0; index < fotos.length; index++) {
                 if (index == 0) {
-                    let htmlGrande = '<img src="'+fotos[index].foto_path+'" class="product-image" alt="Product Image">';
-                    imagenGrande.append(htmlGrande);
-                    let htmlPequeno = ' <div class="product-image-thumb active"><img src="'+fotos[index].foto_path+'" alt="Product Image"></div>';
-                    imagenesPequenas.append(htmlPequeno);
-               
-                }else{
-                    let htmlPequeno = ' <div class="product-image-thumb"><img src="'+fotos[index].foto_path+'" alt="Product Image"></div>';
-                    imagenesPequenas.append(htmlPequeno);
+                    let imgBig = document.createElement("img");
+                    let imgSmall = document.createElement("img");
+                    imgBig.className = "product-image";
+                    imgSmall.className = "product-image-thumb active";
+                    imgBig.src = fotos[index].foto_path;
+                    imgSmall.src = fotos[index].foto_path;
+                    imagenGrande.appendChild(imgBig);
+                    imagenesPequenas.appendChild(imgSmall);
+
+                } else {
+                    let imgSmall = document.createElement("img");
+                    imgSmall.className = "product-image-thumb";
+                    imgSmall.src = fotos[index].foto_path;
+                    imagenesPequenas.appendChild(imgSmall);
+
                 }
             }
         }
+        console.log(imagenGrande, imagenesPequenas);
     });
 
 
@@ -87,7 +95,23 @@ $(document).ready(function () {
         return FLOTA.find((vehiculo) => vehiculo.idvehiculo == idBuscado);
     }
 
+    function name(params) {
+        document.getElementById("addToDo").addEventListener("keyup", function todoList() {
+            var item = document.getElementById("addToDo").value;
+            var text = document.createTextNode(item);
+            var newItem = document.createElement("li");
+            var span = document.createElement("span");
+            var itag = document.createElement("i");
+            itag.className = "fa fa-trash";
+            span.appendChild(itag);
+            newItem.appendChild(span);
+            newItem.appendChild(text);
 
+            if (event.keyCode === 13) { //keycode de tecla enter
+                document.querySelector("ul").appendChild(newItem);
+            }
+        });
+    }
 
 
 });

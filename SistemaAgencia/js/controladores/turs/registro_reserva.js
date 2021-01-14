@@ -38,6 +38,8 @@ $(document).ready(function () {
          let seleccionados = seat_charts.find('e.selected').seatIds.length;//este es un arreglo
          let porElegir = 0;
          ASIENTOS_SELECCIONADOS.forEach(element => {
+            //cantidad       => lo que ha puesto el usuario en el input
+            //seleccionables => la cantidad de asientons que puede seleccionar por haber elegido ese tipo
             porElegir += parseInt(element.cantidad) * parseInt(element.seleccionables);
          });
          if (seleccionados > CUPOS || porElegir > CUPOS) {
@@ -162,7 +164,7 @@ $(document).ready(function () {
                seleccionables: "1",
                id: 0,
                pasaje: response.precio,
-               titulo: "asiento normal",
+               titulo: "Normal",
             });
             let lista = response.promociones;
             for (let index = 0; index < lista.length; index++) {
@@ -208,61 +210,7 @@ $(document).ready(function () {
       });
    }
    function guardarReserva() {
-      $('#loadingReservaTur').show();
-      let form = new FormData();
-      let myCoordnada = document.getElementById("coordenadas").value;
-      myCoordnada = myCoordnada.split(' ');
-
-      //ESTO ES PARA L A GALERIA 
-      let galeria = document.getElementById("fotos").files;
-      for (let i = 0; i < galeria.length; i++) {
-         form.append('fotos[]', galeria[i]);
-      }
-      form.append("nombre_sitio", document.getElementById("nombre").value);
-      form.append("longitud", myCoordnada[0]);
-      form.append("latitud", myCoordnada[1]);
-      form.append("descripcion_sitio", document.getElementById("descripcion").value);
-      form.append("id_tipo_sitio", document.getElementById("ComboTipo").value);
-      form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
-      form.append("precio_sitio", document.getElementById("precio_sitio").value);
-
-      //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-      $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/save",
-         method: "POST",
-         mimeType: "multipart/form-data",
-         data: form,
-         timeout: 0,
-         processData: false,
-         contentType: false,
-      }).done(function (response) {
-         //REST_Controller::HTTP_OK
-         let respuestaDecodificada = JSON.parse(response);
-
-         Toast.fire({
-            title: 'Exito...',
-            icon: 'success',
-            text: respuestaDecodificada.mensaje,
-            showConfirmButton: true,
-         }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#miFormulario").trigger("reset");
-         });
-      }).fail(function (response) {
-         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-         console.log(response);
-
-
-         Toast.fire({
-            title: 'Oops...',
-            icon: 'error',
-            text: "ERROR EN EL ENVIO DE INFORMACIÓN",
-            showConfirmButton: true,
-         });
-
-      }).always(function (xhr, opts) {
-         $('#loadingReservaTur').hide();
-      });
+     console.log(ASIENTOS_SELECCIONADOS);
    }
    function inicialComboAsientos() {
       let myData = [];
