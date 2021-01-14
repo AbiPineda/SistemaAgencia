@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+
+    inicializarValidaciones();
+
     let contadorTabla = 0;
     let TOTAL = 0.0;
     let COMISION = 0.0;
@@ -105,6 +108,93 @@ $(document).ready(function () {
 
         $('#totalCliente').empty();
         $('#totalCliente').text("$" + (TOTAL + COMISION));
+    }
+
+    //BOTON DE IMPRIMIR
+    $(document).on('click', '#btnImprimir', function (evento) {
+        evento.preventDefault();//para evitar que la pagina se recargue
+       let form = $("#cliente-form");
+       let form1 = $("#encomienda-form");
+        form1.validate();
+        form.validate();
+        if (form.valid()) {
+            if (form1.valid()) {
+                 //aqui podemos poner el método guardar por si llegariamos a guardar las
+                 //las cotizaciones
+            }
+        
+       } 
+    });
+    ///PARA LAS VALIDACIONES AL  MOMENTO DE IMPRIMIRLAS
+    function inicializarValidaciones() {
+    $('#cliente-form').validate({
+
+            rules: {
+                id_cliente: {
+                   required: true
+                }
+            },
+            messages: {
+                id_cliente: {
+                    required: "Seleccione el cliente"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+        $('#encomienda-form').validate({
+
+            rules: {
+                direccion: {
+                    required:true,
+                    minlength: 10
+                },
+                punto_referencia: {
+                    required:true,
+                    minlength: 10
+                },
+                fecha: {
+                   required: true
+                }
+            },
+            messages: {
+                direccion:{
+                    required:"Digite la dirección",
+                    minlength: "La dirección debe de tener una longitud minima de 10"
+                },
+                punto_referencia:{
+                    required:"Digite el punto de referencia",
+                    minlength: "El punto referencia debe de tener una longitud minima de 10"
+                },
+                fecha: {
+                    required: "Digite la fecha"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
     }
     //BOTON DE ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {

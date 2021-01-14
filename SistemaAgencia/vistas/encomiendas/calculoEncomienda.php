@@ -43,6 +43,7 @@ include_once '../../plantillas/barra_lateral.php';
                      <h3 class="timeline-header"><a href="#">Datos del Cliente</a></h3>
                      <div class="timeline-body" style="margin-top: -9px;">
                         <!--Una fila para jugar-->
+                         <form id="cliente-form" name="recargar-form" onsubmit="return false">
 
                         <div class="row">
                            <div class="col-lg-3"></div>
@@ -56,6 +57,7 @@ include_once '../../plantillas/barra_lateral.php';
                               </div>
                            </div>
                         </div>
+                     </form>
                         <!--fin de Una fila para jugar-->
                      </div>
                   </div>
@@ -124,7 +126,7 @@ include_once '../../plantillas/barra_lateral.php';
                               <div class="col-sm-6">
                                  <div class="form-group">
                                     <label>Fecha</label>
-                                    <input name="punto_referencia" id="fecha" type="date" class="form-control"
+                                    <input name="fecha" id="fecha" type="date" class="form-control"
                                        placeholder="Introduzca el punto de referencia">
                                  </div>
                               </div>
@@ -237,7 +239,7 @@ include_once '../../plantillas/barra_lateral.php';
                      </div>
                      <br> <br>
                      <div class="timeline-footer" style="text-align: right;">
-                        <button name="btnguardar" id="btnguardar" class="btn btn-secondary btn-sm"
+                        <button name="btnguardar" id="btnImprimir" class="btn btn-secondary btn-sm"
                            style="color: white">Imprimir</button>
                         <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                      </div>
@@ -355,8 +357,6 @@ $(document).on('click', '#producto-add', function() {
 </script>
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
 </script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
@@ -366,5 +366,7 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/calculo.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>
