@@ -31,29 +31,29 @@ $(document).ready(function () {
         // imagenesPequenas.empty();
 
 
-        if (data.galeria) {
-            let fotos = data.galeria;
-            for (let index = 0; index < fotos.length; index++) {
-                if (index == 0) {
-                    let imgBig = document.createElement("img");
-                    let imgSmall = document.createElement("img");
-                    imgBig.className = "product-image";
-                    imgSmall.className = "product-image-thumb active";
-                    imgBig.src = fotos[index].foto_path;
-                    imgSmall.src = fotos[index].foto_path;
-                    imagenGrande.appendChild(imgBig);
-                    imagenesPequenas.appendChild(imgSmall);
+        // if (data.galeria) {
+        //     let fotos = data.galeria;
+        //     for (let index = 0; index < fotos.length; index++) {
+        //         if (index == 0) {
+        //             let imgBig = document.createElement("img");
+        //             let imgSmall = document.createElement("img");
+        //             imgBig.className = "product-image";
+        //             imgSmall.className = "product-image-thumb active";
+        //             imgBig.src = fotos[index].foto_path;
+        //             imgSmall.src = fotos[index].foto_path;
+        //             imagenGrande.appendChild(imgBig);
+        //             imagenesPequenas.appendChild(imgSmall);
 
-                } else {
-                    let imgSmall = document.createElement("img");
-                    imgSmall.className = "product-image-thumb";
-                    imgSmall.src = fotos[index].foto_path;
-                    imagenesPequenas.appendChild(imgSmall);
+        //         } else {
+        //             let imgSmall = document.createElement("img");
+        //             imgSmall.className = "product-image-thumb";
+        //             imgSmall.src = fotos[index].foto_path;
+        //             imagenesPequenas.appendChild(imgSmall);
 
-                }
-            }
-        }
-        console.log(imagenGrande, imagenesPequenas);
+        //         }
+        //     }
+        // }
+        console.log($('#imagenesPequenas'));
     });
 
 

@@ -68,17 +68,17 @@ h6 {
                      <div class="row">
                         <div class="col-12 col-sm-6">
                            <div id="imagenGrande" class="col-12">
-                              <!-- <img src="../../dist/img/prod-1.jpg" class="product-image" alt=""> -->
+                              <img src="../../dist/img/prod-1.jpg" class="product-image" alt="">
                            </div>
                            <div id="imagenesPequenas" class="col-12 product-image-thumbs">
-                              <!-- <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="">
+                              <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="">
                               </div>
                               <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="">
                               </div>
                               <div class="product-image-thumb"><img src="../../dist/img/prod-4.jpg" alt="">
                               </div>
                               <div class="product-image-thumb"><img src="../../dist/img/prod-5.jpg" alt="">
-                              </div> -->
+                              </div>
                            </div>
                         </div>
                         <div class="col-12 col-sm-6">
