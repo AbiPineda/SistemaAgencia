@@ -14,6 +14,11 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
+         "columnDefs":[
+        {"className":"dt-center","targets":"_all"},
+        {"targets":[5], "visible":false},
+        {"targets":[6], "visible":false},
+        ]
 
     });
 
@@ -27,9 +32,9 @@ $(document).ready(function () {
         let costo = $('#costo').val();
         let cantidad = $('#cantidad').val();
         //alert(cantidad);
-        if (!costo) {
-            //     errors = { precio_sitio: "Digite precio" };
-            //$("#miFormulario").validate().showErrors(errors);
+        if (!cantidad) {
+                 errors = { cantidad: "Digite la cantidad" };
+            $("#encomienda-form").validate().showErrors(errors);
         } else {
 
             let id = document.getElementById("id_producto").value;
