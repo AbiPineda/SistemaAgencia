@@ -16,9 +16,11 @@ $(document).ready(function () {
    let seat_charts;
    let transporte = false;
    let CUPOS;
+   let nombre_producto;
+   let descripcionProducto;
 
    inicializarComboUsuario();
-   obtenerData(ID_TUR);
+   inicialData(ID_TUR);
    inicializarTabla();
 
    //CUANDO HAY CAMBIOS EN EL COMBO DE ASIENTOS
@@ -149,11 +151,13 @@ $(document).ready(function () {
       });
 
    }
-   function obtenerData(idTour) {
+   function inicialData(idTour) {
       $.ajax({
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
          method: "GET"
       }).done(function (response) {
+         nombre_producto = response.nombre;
+         descripcionProducto = response.descripcion_tur;
          console.log(response)
          if (response.cupos != "" && response.cupos != "0") {
             costoPasaje.val(response.precio);
@@ -210,7 +214,69 @@ $(document).ready(function () {
       });
    }
    function guardarReserva() {
-     console.log(ASIENTOS_SELECCIONADOS);
+      $('#loadingReservaTur').hide();
+      let form = getData();
+      $.ajax({
+         url: URL_SERVIDOR + "DetalleTour/saveByAgency",
+         method: "POST",
+         mimeType: "multipart/form-data",
+         data: form,
+         timeout: 0,
+         processData: false,
+         contentType: false,
+      }).done(function (response) {
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: "Servicio Guardado Exitosamente",
+            showConfirmButton: true,
+         })
+      }).fail(function (response) {
+         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+         console.log(response);
+
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+            showConfirmButton: true,
+         });
+
+      }).always(function (xhr, opts) {
+         $('#loadingReservaTur').hide();
+      });
+
+
+
+   }
+
+   function getData() {
+      let form = new FormData();
+      let id_cliente = document.getElementById('comboUsuario').value;
+      let asientos_seleccionados = seat_charts.find('e.selected').seatIds;
+      let dataAsiento = seat_charts.find('e.selected').seats;
+      let total = 0.0;
+      let cantidad_asientos = 0;
+      let label_asiento = [];
+      dataAsiento.forEach(element => {
+         label_asiento.push(element.settings.label);
+      });
+      ASIENTOS_SELECCIONADOS.forEach((element) => {
+         total += parseFloat(element.subTotal);
+         cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
+      });
+      form.append("id_tours", ID_TUR);
+      form.append("id_cliente", id_cliente);
+      form.append("asientos_seleccionados", asientos_seleccionados);
+      form.append("label_asiento", label_asiento);
+      form.append("nombre_producto", nombre_producto);
+      form.append("total", total);
+      form.append("descripcionProducto", descripcionProducto);
+      form.append("cantidad_asientos", cantidad_asientos);
+
+      return form;
    }
    function inicialComboAsientos() {
       let myData = [];
