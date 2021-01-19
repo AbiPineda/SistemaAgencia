@@ -158,10 +158,11 @@ h6 {
                               </div>
                            </div>
                            <div class="mt-4">
-                              <div class="btn btn-block btn-primary btn-flat">
+                              <button class="btn btn-block btn-primary btn-flat" id="btnReservar"
+                                       name="btnReservar">
                                  <i class="fas fa-cart-plus fa-lg"></i>
                                  Reservar Vehiculo
-                              </div>
+                              </button>
                            </div>
                         </div>
                      </div>
@@ -223,6 +224,7 @@ include_once '../../plantillas/footer.php';
 
 
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/vehiculos/flota-app.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboServicio.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

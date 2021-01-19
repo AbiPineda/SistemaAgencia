@@ -2,14 +2,14 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: URL_SERVIDOR + "serviciosVehiculo/servicios",
+        url: URL_SERVIDOR + "usuario/obtenerUsuario",
         async: false,
         dataType: "json",
         success: function(data) {
 
-            let $select = $('#comboServicio');
-            $.each(data.Servicios, function(i, name) {
-                $select.append('<option value=' + name.idservicios_opc + '>' + name.nombre_servicio +
+            let $select = $('#comboUsuario');
+            $.each(data.usuarios, function(i, name) {
+                $select.append('<option value=' + name.id_cliente + '>' + name.nombre +
                     '</option>');
             });
         },
@@ -19,7 +19,7 @@ $(document).ready(function() {
             Toast.fire({
                 title: 'Oops...',
                 icon: 'error',
-                text: 'No hay Servicios Opcionales para mostrar',
+                text: 'No hay Usuarios para mostrar',
                 showConfirmButton: true,
             });
         }

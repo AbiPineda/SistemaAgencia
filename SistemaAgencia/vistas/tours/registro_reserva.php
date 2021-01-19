@@ -14,6 +14,7 @@
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
+
 <div class="content-wrapper" style="min-height: 1185.73px;">
    <!-- Content Header (Page header) -->
    <section class="content-header">
