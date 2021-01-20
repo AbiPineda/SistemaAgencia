@@ -1,4 +1,4 @@
-<?php
+s<?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';
@@ -68,16 +68,38 @@ h6 {
                      <div class="row">
                         <div class="col-12 col-sm-6">
                            <div id="imagenGrande" class="col-12">
-                              <img src="../../dist/img/prod-1.jpg" class="product-image" alt="">
                            </div>
                            <div id="imagenesPequenas" class="col-12 product-image-thumbs">
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="">
+                              
+                              <div class="product-image-thumb" id="0">
+
                               </div>
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="">
+                              <div class="product-image-thumb" id="1">
+
                               </div>
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-4.jpg" alt="">
+                              <div class="product-image-thumb" id="2">
+
                               </div>
-                              <div class="product-image-thumb"><img src="../../dist/img/prod-5.jpg" alt="">
+                              <div class="product-image-thumb" id="3">
+
+                              </div>
+                              <div class="product-image-thumb" id="4">
+                                 
+                              </div>
+                              <div class="product-image-thumb" id="5">
+                                 
+                              </div>
+                              <div class="product-image-thumb" id="6">
+                                 
+                              </div>
+                              <div class="product-image-thumb" id="7">
+                                 
+                              </div>
+                              <div class="product-image-thumb" id="8">
+                                 
+                              </div>
+                              <div class="product-image-thumb" id="9">
+                                 
                               </div>
                            </div>
                         </div>
@@ -221,6 +243,7 @@ include_once '../../plantillas/footer.php';
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/conf.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
 
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/vehiculos/flota-app.js"></script>

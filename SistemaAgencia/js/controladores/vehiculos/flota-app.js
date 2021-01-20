@@ -7,6 +7,8 @@ $(document).ready(function () {
 
     //BOTON DE MOSTRAR CARACTERISTICAS
     $(document).on('click', '.btn-primary', function () {
+         
+
         idVehiculo = $(this).attr("name");
         let data = obtenerVehiculo(idVehiculo);
         console.log(data);
@@ -25,34 +27,60 @@ $(document).ready(function () {
         $('#placa').text(data.placa);
         $('#anio').text(data.anio);
         $('#opcA').text(data.opc_avanzadas);
-        let imagenGrande = document.getElementById("imagenGrande");
-        let imagenesPequenas = document.getElementById("imagenesPequenas");
-        // imagenGrande.empty();
+        // let imagenGrande = $("#imagenGrande");
+        // let imagenesPequenas = $("#imagenesPequenas");
+        //  imagenGrande.empty();
         // imagenesPequenas.empty();
 
+        console.log("esntrando en la funcion");
+        if (data.galeria) {
+             let fotos = data.galeria;
+             for (let index = 0; index < fotos.length; index++) {
+                console.log(fotos[index].foto_path);
+                //alert(fotos.length);
+                let divCrear=$('#imagenesPequenas');
+                  if (index == 0) {
+                    //IMAGENES GRANDES
+                    
 
-        // if (data.galeria) {
-        //     let fotos = data.galeria;
-        //     for (let index = 0; index < fotos.length; index++) {
-        //         if (index == 0) {
-        //             let imgBig = document.createElement("img");
-        //             let imgSmall = document.createElement("img");
-        //             imgBig.className = "product-image";
-        //             imgSmall.className = "product-image-thumb active";
-        //             imgBig.src = fotos[index].foto_path;
-        //             imgSmall.src = fotos[index].foto_path;
-        //             imagenGrande.appendChild(imgBig);
-        //             imagenesPequenas.appendChild(imgSmall);
+                     let imgBig = document.createElement("img");
+                     imgBig.className = "product-image";
+                     imgBig.src = fotos[index].foto_path;
+                     imagenGrande.appendChild(imgBig);
 
-        //         } else {
-        //             let imgSmall = document.createElement("img");
-        //             imgSmall.className = "product-image-thumb";
-        //             imgSmall.src = fotos[index].foto_path;
-        //             imagenesPequenas.appendChild(imgSmall);
+                     //IMAGENES PEQUEÑAS
+                     //let imgSmall = document.createElement("img");
+                     //let div = document.createElement("div");
+                    // div.className = "product-image-thumb";
+                    // imgSmall.src = fotos[index].foto_path;
+                    // imagenesPequenas.appendChild(div);
+                     //div.appendChild(imgSmall);
+                   //  alert(imgSmall);
+                   
+                   let crear =$('#'+index);
+                   crear.append('<img src="'+fotos[index].foto_path+'" alt="">');
+                  } else {
+                     //let imgSmall = document.createElement("img");
+                     //let div = document.createElement("div");
+                     //div.className = "product-image-thumb";
+                    // imgSmall.src = fotos[index].foto_path;
+                     //imagenesPequenas.appendChild(div);
+                     //div.appendChild(imgSmall);
+                    let crear =$('#'+index);
+                    crear.append('<img src="'+fotos[index].foto_path+'" alt="">');
 
-        //         }
-        //     }
-        // }
+                  }
+
+                  //para quitar los div funcionales restante
+             
+             }
+
+             for(let i = fotos.length; i <= 10; i++){
+                //alert('aqui estoy');
+                $('#'+i).remove();
+             }
+
+         }
         console.log($('#imagenesPequenas'));
     });
 
