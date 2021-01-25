@@ -4,6 +4,7 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php'; ?>
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+
 <?php
 include_once '../../plantillas/barra_lateral.php';
 ?>
@@ -47,8 +48,9 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="col-sm-11">
                                         <div class="form-group">
                                             <label>Seleccione el Cliente</label>
-                                            <select name="comboUsuario" id="comboUsuario" class="form-control">
-                                                <option value="">Seleccione</option>
+                                            <select name="comboUsuario" id="comboUsuario" class="form-control select2">
+                                                <option selected="selected">Seleccione</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -96,24 +98,33 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label for="cars">Fecha y Hora</label>
                                                 <div class="input-group">
-                                                    
-                                                    <input type="text" class="form-control float-right"
-                                                        id="reservationtime">
+                                                    <input class=" form-control" name="fecha_salida" id="fecha_salida">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <div class="form-group">
-                                                <label for="cars">Seleccione Servicio</label>
-                                                <select name="comboServicio" id="comboServicio" class="form-control">
-                                                </select>
+                                        <div class="col-sm-6">
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Seleccione los Servicios Adicionales</label>
+                                                <div class="input-group">
+                                                    <select name="comboServicio" id="comboServicio"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label for="cars">Costo($)</label>
-                                                <input name="costo" id="costo" type="text" disabled class="form-control"
-                                                    placeholder="Costo">
+                                                <input name="costo" id="costo" type="text" class="form-control"
+                                                    placeholder="Costo" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="cars">Cantidad</label>
+                                                <input name="cantidad" id="cantidad" type="number" min="1" value= "1" class="form-control"
+                                                    placeholder="Cantidad" >
                                             </div>
                                         </div>
 
@@ -142,7 +153,7 @@ include_once '../../plantillas/barra_lateral.php';
                             <div class="timeline-body">
                                 <div class="row">
                                     <div class="col-sm-12">
-
+                                        <div id="adicionados"></div>
                                         <table id="add-tabla" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr style="text-align: center;">
@@ -168,19 +179,19 @@ include_once '../../plantillas/barra_lateral.php';
                                 <div class="row">
                                     <div class="col-md-1 col-md-offset-1"> </div>
                                     <div class="col-md-3  ">
-                                        <label class="text-primary "> Total de Encomienda: </label>
+                                        <label class="text-primary "> Total de Vehiculo: </label>
                                     </div>
                                     <div class="col-md-3  ">
-                                        <label id="total" class="text-primary "> $0</label>
+                                        <label id="totalVehiculo" class="text-primary "> $0</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1 col-md-offset-1"> </div>
                                     <div class="col-md-3  ">
-                                        <label class="text-success "> Comisión de Agencia: </label>
+                                        <label class="text-success "> Total de Servicios: </label>
                                     </div>
                                     <div class="col-md-3  ">
-                                        <label id="comision" class="text-success "> $0</label>
+                                        <label id="totalServicios" class="text-success "> $0</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -216,30 +227,13 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
 include_once '../../plantillas/footer.php';
 ?>
-<script type="text/javascript">
 
-//Date range picker
-$('#reservationdate').datetimepicker({
-    format: 'LA'
-});
-//Date range picker
-$('#reservation').daterangepicker()
-//Date range picker with time picker
-$('#reservationtime').daterangepicker({
-    timePicker: true,
-    timePickerIncrement: 30,
-    locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-    }
-})
-</script>
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 
-<script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/vehiculos/comboServicio.js"></script>
+<script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/vehiculos/reservaVehiculo.js"></script>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>

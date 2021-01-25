@@ -1,5 +1,5 @@
 // CUANDO LA PAGINA YA ESTA LISTA
-$(document).ready(function () {
+$(document).ready(function() {
 
     inicializarCalendario();
     inicializarValidaciones();
@@ -36,7 +36,7 @@ $(document).ready(function () {
         ]
     });
     //CUANDO HAY CAMBIOS EN EL COMBO TUR
-    $('#ComboTur').on('select2:select', function (e) {
+    $('#ComboTur').on('select2:select', function(e) {
 
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
@@ -48,12 +48,11 @@ $(document).ready(function () {
             document.getElementById("namePreviewTur").innerHTML = DATA_SELECCIONADA.contactoN;
             document.getElementById("mailContactoTur").innerHTML = DATA_SELECCIONADA.correo;
             document.getElementById("phoneContactoTur").innerHTML = DATA_SELECCIONADA.telefono;
-            document.getElementById("imgContactoTur").src = DATA_SELECCIONADA.url;;
-            ;
+            document.getElementById("imgContactoTur").src = DATA_SELECCIONADA.url;;;
         }
     });
     //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
-    $('#ComboServicio').on('select2:select', function (e) {
+    $('#ComboServicio').on('select2:select', function(e) {
         let DATA_SELECCIONADA;
         let id = e.params.data.id;
         DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -64,12 +63,11 @@ $(document).ready(function () {
             document.getElementById("namePreviewServicio").innerHTML = DATA_SELECCIONADA.nombre_contacto;
             document.getElementById("mailContactoServicio").innerHTML = DATA_SELECCIONADA.correo;
             document.getElementById("phoneContactoServicio").innerHTML = DATA_SELECCIONADA.telefono;
-            document.getElementById("imgContactoServicio").src = DATA_SELECCIONADA.url;;
-            ;
+            document.getElementById("imgContactoServicio").src = DATA_SELECCIONADA.url;;;
         }
     });
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
-    $(document).on('click', '#btnAgregarTur', function (evento) {
+    $(document).on('click', '#btnAgregarTur', function(evento) {
         evento.preventDefault();
         //verifiacando que existe un precio
         let precio_sitio = $('#precio_sitio').val();
@@ -87,7 +85,7 @@ $(document).ready(function () {
             let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
             let precio = $("#precio_sitio").val();
             let tipo = "tur";
-            if (!ExisteFila(id, cantidad, precio, tipo,PorPasajero)) {
+            if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
                 agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
             }
             modificarIngresos();
@@ -96,7 +94,7 @@ $(document).ready(function () {
         }
     });
     //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
-    $(document).on('click', '#btnAgregarSitio', function (evento) {
+    $(document).on('click', '#btnAgregarSitio', function(evento) {
         evento.preventDefault();
         //verifiacando que existe un precio
         let precio_servicio = $('#precio_servicio').val();
@@ -114,7 +112,7 @@ $(document).ready(function () {
             let cantidad = PorPasajero == "si" ? $("#cantidad").val() : 1;
             let precio = $("#precio_servicio").val();
             let tipo = "servicio"
-            if (!ExisteFila(id, cantidad, precio, tipo,PorPasajero)) {
+            if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
                 agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
             }
             modificarIngresos();
@@ -123,18 +121,18 @@ $(document).ready(function () {
         }
     });
     //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
-    $(document).on('keyup mouseup', '#cantidad', function () {
+    $(document).on('keyup mouseup', '#cantidad', function() {
         modificarTabla();
         modificarIngresos();
         modificarGanancias();
     });
     //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE COSTO DE PASAJE
-    $(document).on('keyup mouseup', '#CostoPasaje', function () {
+    $(document).on('keyup mouseup', '#CostoPasaje', function() {
         modificarIngresos();
         modificarGanancias();
     });
     //BOTON DE ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
+    $(document).on('click', '.btn-group .btn-danger', function(evento) {
         let fila = tabla.row($(this).parents('tr')).data();
         totalGastos -= parseFloat(fila[4]);
         $('#totalGastos').text("$" + totalGastos);
@@ -144,8 +142,8 @@ $(document).ready(function () {
 
     });
     //BOTON DE GUARDAR 
-    $(document).on('click', '#btnguardar', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+    $(document).on('click', '#btnguardar', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
         if (form.valid()) {
@@ -208,6 +206,7 @@ $(document).ready(function () {
         });
 
     }
+
     function inicializarComboTuristico() {
         //COMBO DE TIPOS 
         $('#ComboTur').select2();
@@ -215,7 +214,7 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "SitioTuristico/show",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.sitios) {
@@ -238,13 +237,14 @@ $(document).ready(function () {
             } else {
                 $('#ComboTur').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#ComboTur').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             // $('#loading').hide();
         });
     }
+
     function inicializarComboServicio() {
         //COMBO DE TIPOS 
         $('#ComboSitio').select2();
@@ -252,7 +252,7 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.servicio) {
@@ -284,13 +284,14 @@ $(document).ready(function () {
             } else {
                 $('#ComboServicio').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#ComboServicio').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loading').hide();
         });
     }
+
     function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
         let subTotoal = (precio * cantidad).toFixed(2);
         let html = "";
@@ -310,9 +311,10 @@ $(document).ready(function () {
         $('#totalGastos').text("$" + totalGastos);
 
     }
+
     function modificarTabla() {
         totalGastos = 0;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             let porPasajero = data[3];
             if (porPasajero == "si") {
@@ -324,10 +326,12 @@ $(document).ready(function () {
         });
         $('#totalGastos').text("$" + totalGastos);
     }
+
     function modificarIngresos() {
-         totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
+        totalIngresos = parseFloat($("#cantidad").val() * $("#CostoPasaje").val());
         $('#totalIngresos').text("$" + totalIngresos);
     }
+
     function modificarGanancias() {
         ganancias = parseFloat(totalIngresos - totalGastos);
         if (ganancias > 0) {
@@ -345,6 +349,7 @@ $(document).ready(function () {
         }
         $('#ganancias').text("$" + ganancias.toFixed(2));
     }
+
     function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
@@ -361,6 +366,7 @@ $(document).ready(function () {
             showClose: false,
         });
     }
+
     function guardar() {
         $('#loading').show();
         let form = obtenerData();
@@ -374,7 +380,7 @@ $(document).ready(function () {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function (response) {
+        }).done(function(response) {
             console.log(response);
             let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
@@ -407,7 +413,7 @@ $(document).ready(function () {
                 });
 
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -419,10 +425,11 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loading').hide();
         });
     }
+
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
@@ -529,19 +536,20 @@ $(document).ready(function () {
                 },
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
     }
+
     function resetMiTable() {
         contadorTabla = 0;
         totalGastos = 0;
@@ -552,6 +560,7 @@ $(document).ready(function () {
         $('#ganancias').text("$0");
         $('#totalGastos').text("$0");
     }
+
     function restaurarContactos() {
 
         document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
@@ -568,6 +577,7 @@ $(document).ready(function () {
         document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
         document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
     }
+
     function addFormGroup(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.form-group');
@@ -579,11 +589,13 @@ $(document).ready(function () {
             $formGroupClone.insertAfter($formGroup);
         }
     };
+
     function removeFormGroup(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.form-group');
         $formGroup.remove();
     };
+
     function addRow(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.row');
@@ -595,11 +607,13 @@ $(document).ready(function () {
             $formGroupClone.insertAfter($formGroup);
         }
     };
+
     function removeRow(event) {
         event.preventDefault();
         let $formGroup = $(this).closest('.row');
         $formGroup.remove();
     };
+
     function obtenerData() {
         let form = new FormData();
         let serviciosAdicionales = [];
@@ -611,7 +625,7 @@ $(document).ready(function () {
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             let title = data[0];
             let costo = data[1];
@@ -638,14 +652,14 @@ $(document).ready(function () {
             }
         });
 
-        let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
-        let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
-        let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
-        let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
+        let salida = $("input[name='lugar_salida[]']").map(function() { return $(this).val(); }).get();
+        let incluye = $("input[name='incluye[]']").map(function() { return $(this).val(); }).get();
+        let no_incluye = $("input[name='no_incluye[]']").map(function() { return $(this).val(); }).get();
+        let requisitos = $("input[name='requisitos[]']").map(function() { return $(this).val(); }).get();
 
-        let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
-        let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
-        let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
+        let pasajes = $("input[name='pasajes[]']").map(function() { return $(this).val(); }).get();
+        let asientos = $("input[name='asientos[]']").map(function() { return $(this).val(); }).get();
+        let titulos = $("input[name='titulos[]']").map(function() { return $(this).val(); }).get();
 
         for (let index = 0; index < titulos.length; index++) {
             if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
@@ -678,18 +692,21 @@ $(document).ready(function () {
         return form;
 
     }
+
     function restOtrasOpciones() {
 
         $("#contenedor_opcions").empty();
         $("#contenedor_opcions").html(htmlOtrasOpciones);
     }
+
     function resetPromociones() {
         $("#contenedorPromociones").empty();
         $("#contenedorPromociones").html(htmlPromociones);
     }
-    function ExisteFila(id, cantidad, costo, tipo,PorPasajero) {
+
+    function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
         let encontrado = false;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             if (id == data[7] && tipo == data[6]) {
                 let subTotoal = (costo * cantidad).toFixed(2);
@@ -705,5 +722,3 @@ $(document).ready(function () {
     }
 
 });
-
-

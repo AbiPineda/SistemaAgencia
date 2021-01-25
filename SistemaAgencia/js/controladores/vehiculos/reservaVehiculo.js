@@ -1,13 +1,13 @@
 $(document).ready(function() {
-
-
     inicializarValidaciones();
-
+    inicializarCalendario();
     let contadorTabla = 0;
     let TOTAL = 0.0;
     let COMISION = 0.0;
     let TOTALCLIENTE = 0.0;
-    // let cantidad = document.getElementById("cantidad");
+    let contadorServicio = 0;
+
+
     let tabla = $('#add-tabla').DataTable({
         "paging": true,
         "lengthChange": false,
@@ -19,30 +19,40 @@ $(document).ready(function() {
         "responsive": true,
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
-            { "targets": [5], "visible": false },
-            { "targets": [6], "visible": false },
+            // { "targets": [5], "visible": false },
+            // { "targets": [6], "visible": false },
+        ],
+        columns: [
+            { data: "servicio" },
+            { data: "costo" },
+            { data: "cantidad" },
+            { data: "sub_total" },
+            { data: "botones" },
+            { data: "id_servicio" },
+            { data: "contador" },
         ]
 
     });
 
-    //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#agregarTabla', function(evento) {
 
 
         evento.preventDefault();
-        $('#agregarTabla').attr("disabled", true);
+
         //verifiacando que existe un precio
         let costo = $('#costo').val();
-        let cantidad = $('#cantidad').val();
+
+
         //alert(cantidad);
-        if (!cantidad) {
-            errors = { cantidad: "Digite la cantidad" };
-            $("#datosGenerales-form").validate().showErrors(errors);
+        if (!costo) {
+            // errors = { cantidad: "Digite la cantidad" };
+            // $("#encomienda-form").validate().showErrors(errors);
         } else {
 
-            let id = document.getElementById("idservicios_opc").value;
-            let combo = document.getElementById("idservicios_opc");
-            let nombre = combo.options[combo.selectedIndex].text;
+            let id = document.getElementById("comboServicio").value;
+            let costo = document.getElementById("costo").value;
+            let cantidad = $('#cantidad').val();
+            let nombre = $('#comboServicio').select2('data')[0].text;
 
             agregarFila(nombre, costo, cantidad, id);
 
@@ -50,11 +60,12 @@ $(document).ready(function() {
         }
     });
 
+
     function agregarFila(nombre, costo, cantidad, id) {
 
         if (!ExisteFila(id, cantidad, costo)) {
 
-            let subTotoal = (costo * cantidad).toFixed(2);
+            let subTotal = (costo * cantidad).toFixed(2);
             let html = "";
             html += '<td>';
             html += '    <div class="btn-group">';
@@ -64,26 +75,36 @@ $(document).ready(function() {
             html += '        </button>';
             html += '    </div>';
             html += '</td>';
-            tabla.row.add([nombre, costo, cantidad, subTotoal, html, id, contadorTabla]).draw(false);
+            tabla.row.add({
+                "servicio": nombre,
+                "costo": costo,
+                "cantidad": cantidad,
+                "sub_total": subTotal,
+                "botones": html,
+                "id_servicio": id,
+                "contador": contadorServicio,
+
+            }).draw(false);
             //PARA ORDENAR LA TABLA
-            tabla.order([6, 'desc']).draw();
-            contadorTabla++;
+            // tabla.order([6, 'desc']).draw();
+            contadorServicio++;
         }
         modificarTotal();
-        modificarComision();
+
         modificarTotalCliente();
     }
 
-    function ExisteFila(id, cantidad, costo) {
+    function ExisteFila(id, cantidadd, costo) {
         let encontrado = false;
         tabla.rows().every(function(value, index) {
             let data = this.data();
-            if (id == data[5]) {
-                let subTotoal = (costo * cantidad).toFixed(2);
-                data[2] = cantidad;
-                data[3] = subTotoal;
+            if (id == data.id_servicio) {
+                let subTotoal = (costo * cantidadd).toFixed(2);
+                data.cantidad = cantidadd;
+                data.sub_total = subTotoal;
                 encontrado = true;
                 this.data(data).draw(false);
+                modificarTotal();
             }
         });
         return encontrado;
@@ -95,23 +116,17 @@ $(document).ready(function() {
         TOTAL = 0.0;
         tabla.rows().every(function(value, index) {
             let data = this.data();
-            TOTAL += parseFloat(data[3]);
+            TOTAL += parseFloat(data.sub_total);
         });
-        $('#total').empty();
-        $('#total').text("$" + TOTAL);
+        $('#totalServicios').empty();
+        $('#totalServicios').text("$" + TOTAL);
     }
 
-    function modificarComision() {
-        let porcentaje = (parseInt($('#porcenaje').val())) / 100;
-        COMISION = porcentaje * TOTAL;
-        $('#comision').empty();
-        $('#comision').text("$" + COMISION);
-    }
 
     function modificarTotalCliente() {
 
         $('#totalCliente').empty();
-        $('#totalCliente').text("$" + (TOTAL + COMISION));
+        $('#totalCliente').text("$" + (parseFloat(TOTAL) + parseFloat(precioAuto)));
     }
 
     //BOTON DE IMPRIMIR
@@ -205,8 +220,8 @@ $(document).ready(function() {
 
         tabla.row($(this).parents('tr')).remove().draw();
         modificarTotal();
-        modificarComision();
-        modificarTotalCliente();
+        //modificarComision();
+        //modificarTotalCliente();
     });
     //CAMBIOS EN EL INPUT DE PORCENTAJE
     $(document).on('keyup mouseup', '#porcenaje', function() {
@@ -214,6 +229,48 @@ $(document).ready(function() {
         modificarTotalCliente();
     });
 
+
+    function inicializarCalendario() {
+        $('#fecha_salida').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'DD/MM/YYYY hh:mm A',
+                separator: " - ",
+                applyLabel: "Aplicar",
+                cancelLabel: "Cancelar",
+                fromLabel: "De",
+                toLabel: "A",
+                customRangeLabel: "Custom",
+                daysOfWeek: [
+                    "Dom",
+                    "Lun",
+                    "Mar",
+                    "Mie",
+                    "Jue",
+                    "Vie",
+                    "Sab"
+                ],
+                monthNames: [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre"
+                ],
+                "firstDay": 0
+            }
+        });
+
+    }
 
 
 });
