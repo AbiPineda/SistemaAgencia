@@ -71,7 +71,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/tours/registro_reserva.php" class="nav-link">
+                     <a href="<?= $base_url ?>vistas/tours/seleccionar_tur.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
                         <p>Registrar Reserva</p>
                      </a>

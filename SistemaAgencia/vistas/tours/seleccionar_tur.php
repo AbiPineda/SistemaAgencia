@@ -1,25 +1,12 @@
-s<?php
-include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';
-include_once  '../../plantillas/navbar.php';
-include_once '../../plantillas/barra_lateral.php';
-?>
-
+<!-- INICIALIZACION -->
+<?php include_once '../../config/parametros.php'; ?>
+<?php include_once '../../plantillas/cabecera.php'; ?>
+<!-- COLOCAR ESTILOS ADICIONALES AQUI -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/disponibilidad.css">
-
-<style type="text/css" media="all">
-h3,
-h6 {
-   display: inline;
-}
-
-.centrar {
-
-   text-align: center;
-}
-</style>
-
-
+<!--COTINUANDO CON LA INICIALIZACION -->
+<?php include_once '../../plantillas/navbar.php'; ?>
+<?php include_once '../../plantillas/barra_lateral.php'; ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -57,7 +44,7 @@ h6 {
 <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
    <!-- Modal EDITAR-->
    <div class="modal fade" id="modal-editar">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
          <div class="modal-content">
 
             <section class="content">
@@ -104,20 +91,19 @@ h6 {
                            </div>
                         </div>
                         <div class="col-12 col-sm-6">
-                           <h3 name="marca" id="marca"></h3>
+                           <h3 style="text-align: center;" name="titulo" id="titulo"></h3>
                            <h3 class="my-3" name="mode1" id="mode1"></h3>
                            <h3 name="anio" id="anio"></h3>
-                           <br>
-                           <h6>Categoria del Vehiculo: </h6>
-                           <h6 name="categoria" id="categoria"></h6>
-                           <hr>
-                           <button class="btn btn-primary btn-block mb-3">
-                              <h1 name="placa" id="placa"></h1>
-                           </button>
 
+                           <hr>
+                           <div class="bg-gray py-2 px-3 mt-4">
+                              <div class="centrar">
+                                 <h3 class="mb-0" name="precio" id="precio" style="text-align: center;"></h3>
+                              </div>
+                           </div>
                            <div class="card">
                               <div class="card-header">
-                                 <h3 class="card-title">Caracteristicas:</h3>
+                                 <h3 class="card-title">Datos Basico:</h3>
 
                                  <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
@@ -130,42 +116,42 @@ h6 {
 
                                     <li class="nav-item active">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-inbox"></i> Puertas
+                                          <i class="far fa-calendar-alt"></i> Fecha de viaje
                                           <span class="badge bg-primary float-right">
-                                             <h7 name="puerta" id="puerta"></h7>
+                                             <h7 name="fecha" id="fecha"></h7>
                                           </span>
                                        </a>
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-user-friends"></i> Pasajeros
-                                          <span class="badge bg-Secondary float-right">
-                                             <h7 name="pasajero" id="pasajero"></h7>
+                                          <i class="fas fa-user-friends"></i> Cupos Disponibles
+                                          <span class="badge bg-danger float-right">
+                                             <h7 name="cupos" id="cupos"></h7>
                                           </span>
                                        </a>
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-tachometer-alt"></i> Kilometraje
+                                          <i class="fas fa-clipboard-check"></i> Reservación
                                           <span class="badge bg-warning float-right">
-                                             <h7 name="kilometraje" id="kilometraje"></h7>
+                                             <h7 name="" id="">con el 50% o su totalidad</h7>
                                           </span>
 
                                        </a>
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-gas-pump"></i> Tipo de Combustible
+                                          <i class="fas fa-phone"></i> Teléfono Agencia
                                           <span class="badge bg-info float-right">
-                                             <h7 name="combustible" id="combustible"></h7>
+                                             <h7 name="combustible" id="combustible">2319-2338 / 2312-0381</h7>
                                           </span>
                                        </a>
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-car"></i> Transmisión
+                                          <i class="fab fa-whatsapp"></i> Whatsapp
                                           <span class="badge bg-Success float-right">
-                                             <h7 name="transmision" id="transmision"></h7>
+                                             <h7 name="transmision" id="transmision">7841-1184 / 7602-2242 </h7>
                                           </span>
                                        </a>
                                     </li>
@@ -173,49 +159,45 @@ h6 {
                                  </ul>
                               </div>
                            </div>
-                           <div class="bg-gray py-2 px-3 mt-4">
-                              <div class="centrar">
-                                 <h3>Precio: $</h3>
-                                 <h3 class="mb-0" name="precio" id="precio" style="align:center"></h3>
-                              </div>
-                           </div>
                            <div class="mt-4">
                               <button class="btn btn-block btn-primary btn-flat" id="btnReservar" name="btnReservar">
                                  <i class="fas fa-cart-plus fa-lg"></i>
-                                 Reservar Vehiculo
+                                 Reservar Tur
                               </button>
                            </div>
                         </div>
                      </div>
                      <div class="row mt-4">
                         <nav class="w-100">
-                           <div class="nav nav-tabs" id="product-tab" role="tablist">
-                              <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab"
-                                 href="#product-desc" role="tab" aria-controls="product-desc"
-                                 aria-selected="true">Detalles</a>
-                              <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab"
-                                 href="#product-comments" role="tab" aria-controls="product-comments"
-                                 aria-selected="false">Descripción</a>
-                              <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab"
-                                 href="#product-rating" role="tab" aria-controls="product-rating"
-                                 aria-selected="false">Opciones Avanzadas</a>
-
+                           <div class="nav nav-tabs" role="tablist">
+                              <a class="nav-item nav-link active" data-toggle="tab" href="#tab-descripcion" role="tab"
+                                 aria-selected="true">Descripción</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-incluye" role="tab"
+                                 aria-selected="false">Incluye</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-noIncluye" role="tab"
+                                 aria-selected="false">No Incluye</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-requisito" role="tab"
+                                 aria-selected="false"> Requisitos</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-promocion" role="tab"
+                                 aria-selected="false"> Promociones</a>
                            </div>
                         </nav>
                         <div class="tab-content p-3" id="nav-tabContent">
-                           <div class="tab-pane fade show active" id="product-desc" role="tabpanel"
-                              aria-labelledby="product-desc-tab">
-                              <p name="detalles" id="detalles"></p>
+                           <div class="tab-pane fade show active" id="tab-descripcion" role="tabpanel">
+                              <p name="descripcion_tur" id="descripcion_tur"></p>
                            </div>
-                           <div class="tab-pane fade" id="product-comments" role="tabpanel"
-                              aria-labelledby="product-comments-tab">
-                              <p name="descripcion" id="descripcion"></p>
+                           <div class="tab-pane fade" id="tab-incluye" role="tabpanel">
+                              <div name="incluye" id="incluye"> </div>
                            </div>
-                           <div class="tab-pane fade" id="product-rating" role="tabpanel"
-                              aria-labelledby="product-rating-tab">
-                              <p name="opcA" id="opcA"></p>
+                           <div class="tab-pane fade" id="tab-noIncluye" role="tabpanel">
+                              <div name="no-incluye" id="no-incluye"> </div>
                            </div>
-
+                           <div class="tab-pane fade" id="tab-requisito" role="tabpanel">
+                              <div name="requisito" id="requisito"> </div>
+                           </div>
+                           <div class="tab-pane fade" id="tab-promocion" role="tabpanel">
+                              <div name="promocion" id="promocion"> </div>
+                           </div>
                         </div>
 
                      </div>
@@ -235,16 +217,10 @@ h6 {
 </form>
 
 
-<?php
-include_once '../../plantillas/footer.php';
-?>
-<!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url ?>js/controladores/conf.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<script type="text/javascript" src="<?= $base_url ?>js/controladores/vehiculos/flota-app.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboServicio.js"></script>
-<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
+<?php include_once '../../plantillas/footer.php'; ?>
+<!-- PONER SCRIPT ADICIONALES ACA -->
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/seleccionar-tur.js"></script>
+<!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

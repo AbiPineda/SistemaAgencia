@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     //BOTON DE MOSTRAR CARACTERISTICAS
     $(document).on('click', '.btn-primary', function () {
-         
+
 
         idVehiculo = $(this).attr("name");
         let data = obtenerVehiculo(idVehiculo);
@@ -31,57 +31,34 @@ $(document).ready(function () {
         // let imagenesPequenas = $("#imagenesPequenas");
         //  imagenGrande.empty();
         // imagenesPequenas.empty();
-
         console.log("esntrando en la funcion");
         if (data.galeria) {
-             let fotos = data.galeria;
-             for (let index = 0; index < fotos.length; index++) {
-                console.log(fotos[index].foto_path);
-                //alert(fotos.length);
-                let divCrear=$('#imagenesPequenas');
-                  if (index == 0) {
-                    //IMAGENES GRANDES
-                    
+            let fotos = data.galeria;
+            let imagenGrande = document.getElementById('imagenGrande');
+            imagenGrande.innerHTML = '';
+            for (let index = 0; index < fotos.length; index++) {
+                if (index == 0) {
+                    let imgBig = document.createElement("img");
+                    imgBig.className = "product-image";
+                    imgBig.src = fotos[index].foto_path;
+                    imagenGrande.appendChild(imgBig);
+                    let crear = $('#' + index);
+                    crear.empty();
+                    crear.append('<img src="' + fotos[index].foto_path + '" alt="">');
+                } else {
+                    let crear = $('#' + index);
+                    crear.empty();
+                    crear.append('<img src="' + fotos[index].foto_path + '" alt="">');
 
-                     let imgBig = document.createElement("img");
-                     imgBig.className = "product-image";
-                     imgBig.src = fotos[index].foto_path;
-                     imagenGrande.appendChild(imgBig);
-
-                     //IMAGENES PEQUEÑAS
-                     //let imgSmall = document.createElement("img");
-                     //let div = document.createElement("div");
-                    // div.className = "product-image-thumb";
-                    // imgSmall.src = fotos[index].foto_path;
-                    // imagenesPequenas.appendChild(div);
-                     //div.appendChild(imgSmall);
-                   //  alert(imgSmall);
-                   
-                   let crear =$('#'+index);
-                   crear.append('<img src="'+fotos[index].foto_path+'" alt="">');
-                  } else {
-                     //let imgSmall = document.createElement("img");
-                     //let div = document.createElement("div");
-                     //div.className = "product-image-thumb";
-                    // imgSmall.src = fotos[index].foto_path;
-                     //imagenesPequenas.appendChild(div);
-                     //div.appendChild(imgSmall);
-                    let crear =$('#'+index);
-                    crear.append('<img src="'+fotos[index].foto_path+'" alt="">');
-
-                  }
-
-                  //para quitar los div funcionales restante
-             
-             }
-
-             for(let i = fotos.length; i <= 10; i++){
+                }
+            }
+            for (let i = fotos.length; i <= 10; i++) {
                 //alert('aqui estoy');
-                $('#'+i).remove();
-             }
+                $('#' + i).remove();
+            }
 
-         }
-        console.log($('#imagenesPequenas'));
+        }
+
     });
 
 
