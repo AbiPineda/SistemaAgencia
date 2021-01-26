@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     inicializarValidaciones();
     inicializarCalendario();
     let contadorTabla = 0;
@@ -6,6 +6,8 @@ $(document).ready(function() {
     let COMISION = 0.0;
     let TOTALCLIENTE = 0.0;
     let contadorServicio = 0;
+    let TOTAL_DIAS = 1;
+ 
 
 
     let tabla = $('#add-tabla').DataTable({
@@ -34,7 +36,7 @@ $(document).ready(function() {
 
     });
 
-    $(document).on('click', '#agregarTabla', function(evento) {
+    $(document).on('click', '#agregarTabla', function (evento) {
 
 
         evento.preventDefault();
@@ -90,13 +92,13 @@ $(document).ready(function() {
             contadorServicio++;
         }
         modificarTotal();
-
         modificarTotalCliente();
+
     }
 
     function ExisteFila(id, cantidadd, costo) {
         let encontrado = false;
-        tabla.rows().every(function(value, index) {
+        tabla.rows().every(function (value, index) {
             let data = this.data();
             if (id == data.id_servicio) {
                 let subTotoal = (costo * cantidadd).toFixed(2);
@@ -114,7 +116,7 @@ $(document).ready(function() {
 
     function modificarTotal() {
         TOTAL = 0.0;
-        tabla.rows().every(function(value, index) {
+        tabla.rows().every(function (value, index) {
             let data = this.data();
             TOTAL += parseFloat(data.sub_total);
         });
@@ -124,13 +126,13 @@ $(document).ready(function() {
 
 
     function modificarTotalCliente() {
-
+        //POR DIA
         $('#totalCliente').empty();
         $('#totalCliente').text("$" + (parseFloat(TOTAL) + parseFloat(precioAuto)));
     }
 
     //BOTON DE IMPRIMIR
-    $(document).on('click', '#btnImprimir', function(evento) {
+    $(document).on('click', '#btnImprimir', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#cliente-form");
         let form1 = $("#encomienda-form");
@@ -159,14 +161,14 @@ $(document).ready(function() {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -201,14 +203,14 @@ $(document).ready(function() {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -216,7 +218,7 @@ $(document).ready(function() {
 
     }
     //BOTON DE ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function(evento) {
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
 
         tabla.row($(this).parents('tr')).remove().draw();
         modificarTotal();
@@ -224,17 +226,27 @@ $(document).ready(function() {
         //modificarTotalCliente();
     });
     //CAMBIOS EN EL INPUT DE PORCENTAJE
-    $(document).on('keyup mouseup', '#porcenaje', function() {
+    $(document).on('keyup mouseup', '#porcenaje', function () {
         modificarComision();
         modificarTotalCliente();
     });
 
 
+    $(function () {
+        $("#fecha_salida").on("change", function () {
+            let inicio = moment($('#fecha_salida').data('daterangepicker').startDate._d);
+            let fin = moment($('#fecha_salida').data('daterangepicker').endDate._d);
+            TOTAL_DIAS = fin.diff(inicio, 'days');
+            let nuevoTotal =  (precioAuto*TOTAL_DIAS).toFixed(2)
+            $('#totalVehiculo').text(`$${nuevoTotal}(${TOTAL_DIAS} Días)` );
+        });
+    });
+
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
             timePicker: true,
             startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
+            endDate: moment().startOf('hour').add(24, 'hour'),
             locale: {
                 format: 'DD/MM/YYYY hh:mm A',
                 separator: " - ",
@@ -273,7 +285,7 @@ $(document).ready(function() {
     }
 
     //BOTON DE NUEVO CLIENTE
-    $(document).on('click', '#btnNuevoCliente', function(evento) {
+    $(document).on('click', '#btnNuevoCliente', function (evento) {
         $('#modalAgregarCliente').modal('show');
     });
 
