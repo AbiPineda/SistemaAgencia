@@ -272,5 +272,10 @@ $(document).ready(function() {
 
     }
 
+    //BOTON DE NUEVO CLIENTE
+    $(document).on('click', '#btnNuevoCliente', function(evento) {
+        $('#modalAgregarCliente').modal('show');
+    });
+
 
 });

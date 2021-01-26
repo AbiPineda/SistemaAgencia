@@ -1,3 +1,5 @@
+let DATA_USUARIO;
+
 $(document).ready(function() {
 
     $.ajax({
@@ -6,15 +8,22 @@ $(document).ready(function() {
         async: false,
         dataType: "json",
         success: function(data) {
+            let myData = [];
+            DATA_USUARIO = data.usuarios;
+            for (let index = 0; index < DATA_USUARIO.length; index++) {
+                myData.push({
+                    id: DATA_USUARIO[index].id_cliente,
+                    text: DATA_USUARIO[index].nombre
+                });
+            }
 
-            let $select = $('#comboUsuario');
-            $.each(data.usuarios, function(i, name) {
-                $select.append('<option value=' + name.id_cliente + '>' + name.nombre +
-                    '</option>');
-            });
+            ///LE CARGAMOS LA DATA 
+            $('#comboUsuario').select2({ data: myData });
         },
+
         error: function(err) {
             //si da un error ya que quede la alerta
+            $('#comboUsuario').select2({});
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',
@@ -24,5 +33,7 @@ $(document).ready(function() {
             });
         }
     });
+
+
 
 });
