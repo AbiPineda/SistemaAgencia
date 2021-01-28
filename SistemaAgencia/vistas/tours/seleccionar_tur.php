@@ -4,6 +4,7 @@
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link rel="stylesheet" href="<?= $base_url ?>dist/css/disponibilidad.css">
+<link rel="stylesheet" href="<?= $base_url ?>plugins/carrucel-bootstrap/style.css">
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -160,7 +161,7 @@
                               </div>
                            </div>
                            <div class="mt-4">
-                              <button class="btn btn-block btn-primary btn-flat" id="btnReservar" name="btnReservar">
+                              <button class="btn btn-block btn-success btn-flat" id="btnReservar" name="btnReservar">
                                  <i class="fas fa-cart-plus fa-lg"></i>
                                  Reservar Tur
                               </button>
@@ -180,6 +181,12 @@
                                  aria-selected="false"> Requisitos</a>
                               <a class="nav-item nav-link" data-toggle="tab" href="#tab-promocion" role="tab"
                                  aria-selected="false"> Promociones</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-salida" role="tab"
+                                 aria-selected="false">Lugar de Salida</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-sitios" role="tab"
+                                 aria-selected="false">Sitios Turísticos</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-otros" role="tab"
+                                 aria-selected="false">Otros Servicios</a>
                            </div>
                         </nav>
                         <div class="tab-content p-3" id="nav-tabContent">
@@ -198,20 +205,36 @@
                            <div class="tab-pane fade" id="tab-promocion" role="tabpanel">
                               <div name="promocion" id="promocion"> </div>
                            </div>
+                           <div class="tab-pane fade" id="tab-salida" role="tabpanel">
+                              <div name="salida" id="salida"> </div>
+                           </div>
+                           <div class="tab-pane fade" id="tab-sitios" role="tabpanel">
+                              <div name="sitios" id="sitios"> </div>
+                           </div>
+                           <div class="tab-pane fade" id="tab-otros" role="tabpanel">
+                              <div name="otros" id="otros">
+
+                              </div>
+                           </div>
                         </div>
 
                      </div>
                   </div>
 
-                  <!-- /.card-body -->
                </div>
-               <!-- /.card -->
 
-            </section>
          </div>
-         <!-- /.modal-content -->
       </div>
-      <!-- /.modal-dialog -->
+
+      <!-- /.card-body -->
+   </div>
+   <!-- /.card -->
+
+   </section>
+   </div>
+   <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
    </div>
    <!-- End Modal EDITAR-->
 </form>
@@ -224,3 +247,4 @@
 <script src="<?= $base_url ?>js/controladores/turs/seleccionar-tur.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->

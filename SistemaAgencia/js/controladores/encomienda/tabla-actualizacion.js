@@ -23,7 +23,7 @@ $(document).ready(function () {
         $('#loadingActualizar').hide();
         id_encomienda = $(this).attr("name");
 
-    window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/verActualizacion.php?ac=`+id_encomienda;
+    window.location = `${URL_SISTEMA}vistas/encomiendas/verActualizacion.php?ac=`+id_encomienda;
                     
     
     });

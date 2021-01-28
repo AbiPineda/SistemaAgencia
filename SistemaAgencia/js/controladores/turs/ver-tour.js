@@ -11,7 +11,7 @@ $(document).ready(function () {
    //BOTON DE EDITAR
    $(document).on('click', '.btn-group .btn-primary', function () {
       let idSeleccionado = $(this).attr("name");
-      window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/editar_tour.php?tur=${idSeleccionado}`;
+      window.location = `${URL_SISTEMA}vistas/tours/editar_tour.php?tur=${idSeleccionado}`;
 
 
    });
@@ -98,7 +98,7 @@ $(document).ready(function () {
    //BOTON DE ITINERARIO
    $(document).on('click', '.btn-group .btn-success ', function (evento) {
       let idSeleccionado = $(this).attr("name");
-      window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${idSeleccionado}`;
+      window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?tur=${idSeleccionado}`;
 
    });
 

@@ -295,7 +295,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA
-                 window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/encomiendas/verEncomienda.php` 
+                 window.location = `${URL_SISTEMA}vistas/encomiendas/verEncomienda.php` 
                
             });
             

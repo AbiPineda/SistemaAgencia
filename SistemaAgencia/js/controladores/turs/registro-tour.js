@@ -408,7 +408,7 @@ $(document).ready(function() {
 
                 }).then((result) => {
                     if (result.value) {
-                        window.location = `${URL_SISTEMA}/Plantillas/SistemaAgencia/vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+                        window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
                     }
                 });
 
