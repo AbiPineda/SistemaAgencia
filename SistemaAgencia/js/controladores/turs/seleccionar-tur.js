@@ -13,6 +13,7 @@ $(document).ready(function () {
          let imagenGrande = document.getElementById('imagenGrande');
          imagenGrande.innerHTML = '';
          for (let index = 0; index < fotos.length; index++) {
+          
             if (index == 0) {
                let imgBig = document.createElement("img");
                imgBig.className = "product-image";
@@ -21,16 +22,18 @@ $(document).ready(function () {
                let crear = $('#' + index);
                crear.empty();
                crear.append('<img src="' + fotos[index].foto_path + '" alt="">');
+               crear.show();
             } else {
                let crear = $('#' + index);
                crear.empty();
                crear.append('<img src="' + fotos[index].foto_path + '" alt="">');
+               crear.show();
 
             }
          }
          for (let i = fotos.length; i <= 10; i++) {
             //alert('aqui estoy');
-            $('#' + i).remove();
+            $('#' + i).hide();
          }
 
       }
@@ -66,7 +69,6 @@ $(document).ready(function () {
       $('#otros').empty();
       obtenerInformacionAdicional();
    });
-
    $(document).on('click', '#btnReservar', function () {
       window.location = `${URL_SISTEMA}vistas/tours/registro_reserva.php?tur=${ID_TUR}`;
    });

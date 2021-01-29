@@ -176,11 +176,11 @@ h6 {
                            <div class="bg-gray py-2 px-3 mt-4">
                               <div class="centrar">
                                  <h3>Precio: $</h3>
-                                 <h3 class="mb-0" name="precio" id="precio" style="align:center"></h3>
+                                 <h3 class="mb-0" name="precio" id="precio" style="text-align:center"></h3>
                               </div>
                            </div>
                            <div class="mt-4">
-                              <button class="btn btn-block btn-primary btn-flat" id="btnReservar" name="btnReservar">
+                              <button class="btn btn-block btn-success btn-flat" id="btnReservar" name="btnReservar">
                                  <i class="fas fa-cart-plus fa-lg"></i>
                                  Reservar Vehiculo
                               </button>
@@ -244,7 +244,6 @@ include_once '../../plantillas/footer.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/vehiculos/flota-app.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboServicio.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>
