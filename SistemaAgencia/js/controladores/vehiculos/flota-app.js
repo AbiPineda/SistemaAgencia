@@ -65,7 +65,7 @@ $(document).ready(function() {
             $('#descripcion').text(data.descripcion);
 
             $('#opcA').empty();
-            data.opc_avanzadas ? .forEach(element => {
+            data.opc_avanzadas?.forEach(element => {
                 $('#opcA').append(`<p>⚙️${element}</p>`);
             });
         }
@@ -112,9 +112,7 @@ $(document).ready(function() {
         return FLOTA.find((vehiculo) => vehiculo.idvehiculo == idBuscado);
     }
 
-    $(document).on('click', '#btnReservar', function() {
-        window.location = `${URL_SISTEMA}vistas/vehiculos/reservaVehiculo.php?vehiculo=${idVehiculo}`;
-    });
+
 
     function name(params) {
         document.getElementById("addToDo").addEventListener("keyup", function todoList() {
@@ -133,6 +131,8 @@ $(document).ready(function() {
             }
         });
     }
-
+    $(document).on('click', '#btnReservar', function() {
+        window.location = `${URL_SISTEMA}vistas/vehiculos/reservaVehiculo.php?vehiculo=${idVehiculo}`;
+    });
 
 });
