@@ -1,13 +1,13 @@
-$(document).ready(function () {
+$(document).ready(function() {
     let explorer = $("#kv-explorer");
     let idVehiculo;
     let FLOTA = [];
 
+
     inicializarFlota();
 
     //BOTON DE MOSTRAR CARACTERISTICAS
-    $(document).on('click', '.btn-primary', function () {
-
+    $(document).on('click', '.btn-primary', function() {
 
         idVehiculo = $(this).attr("name");
         let data = obtenerVehiculo(idVehiculo);
@@ -59,18 +59,15 @@ $(document).ready(function () {
                 $('#' + i).hide();
             }
             $('#detalles').empty();
-            $('#detalles').text( data.detalles);
+            $('#detalles').text(data.detalles);
 
             $('#descripcion').empty();
             $('#descripcion').text(data.descripcion);
 
             $('#opcA').empty();
-            data.opc_avanzadas?.forEach(element => {
+            data.opc_avanzadas ? .forEach(element => {
                 $('#opcA').append(`<p>⚙️${element}</p>`);
             });
-
-
-
         }
 
     });
@@ -80,7 +77,7 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "vehiculo/vehiculos",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             let contenedor = $('#contenedorAutos');
             if (response.autos) {
                 FLOTA = response.autos;
@@ -105,14 +102,19 @@ $(document).ready(function () {
                     contenedor.append(html);
                 }
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             console.log(response);
 
         });
     }
+
     function obtenerVehiculo(idBuscado) {
         return FLOTA.find((vehiculo) => vehiculo.idvehiculo == idBuscado);
     }
+
+    $(document).on('click', '#btnReservar', function() {
+        window.location = `${URL_SISTEMA}vistas/vehiculos/reservaVehiculo.php?vehiculo=${idVehiculo}`;
+    });
 
     function name(params) {
         document.getElementById("addToDo").addEventListener("keyup", function todoList() {

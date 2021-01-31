@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     inicializarValidaciones();
     inicializarCalendario();
     let contadorTabla = 0;
@@ -7,7 +7,7 @@ $(document).ready(function () {
     let TOTALCLIENTE = 0.0;
     let contadorServicio = 0;
     let TOTAL_DIAS = 1;
- 
+
 
 
     let tabla = $('#add-tabla').DataTable({
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '#agregarTabla', function (evento) {
+    $(document).on('click', '#agregarTabla', function(evento) {
 
 
         evento.preventDefault();
@@ -98,7 +98,7 @@ $(document).ready(function () {
 
     function ExisteFila(id, cantidadd, costo) {
         let encontrado = false;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             if (id == data.id_servicio) {
                 let subTotoal = (costo * cantidadd).toFixed(2);
@@ -116,7 +116,7 @@ $(document).ready(function () {
 
     function modificarTotal() {
         TOTAL = 0.0;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             TOTAL += parseFloat(data.sub_total);
         });
@@ -131,21 +131,7 @@ $(document).ready(function () {
         $('#totalCliente').text("$" + (parseFloat(TOTAL) + parseFloat(precioAuto)));
     }
 
-    //BOTON DE IMPRIMIR
-    $(document).on('click', '#btnImprimir', function (evento) {
-        evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#cliente-form");
-        let form1 = $("#encomienda-form");
-        form1.validate();
-        form.validate();
-        if (form.valid()) {
-            if (form1.valid()) {
-                //aqui podemos poner el método guardar por si llegariamos a guardar las
-                //las cotizaciones
-            }
 
-        }
-    });
     ///PARA LAS VALIDACIONES AL  MOMENTO DE IMPRIMIRLAS
     function inicializarValidaciones() {
         $('#cliente-form').validate({
@@ -161,84 +147,34 @@ $(document).ready(function () {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
-
-        $('#encomienda-form').validate({
-
-            rules: {
-                direccion: {
-                    required: true,
-                    minlength: 10
-                },
-                punto_referencia: {
-                    required: true,
-                    minlength: 10
-                },
-                fecha: {
-                    required: true
-                }
-            },
-            messages: {
-                direccion: {
-                    required: "Digite la dirección",
-                    minlength: "La dirección debe de tener una longitud minima de 10"
-                },
-                punto_referencia: {
-                    required: "Digite el punto de referencia",
-                    minlength: "El punto referencia debe de tener una longitud minima de 10"
-                },
-                fecha: {
-                    required: "Digite la fecha"
-                }
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-
-            }
-        });
-
     }
     //BOTON DE ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
+    $(document).on('click', '.btn-group .btn-danger', function(evento) {
 
         tabla.row($(this).parents('tr')).remove().draw();
         modificarTotal();
-        //modificarComision();
-        //modificarTotalCliente();
-    });
-    //CAMBIOS EN EL INPUT DE PORCENTAJE
-    $(document).on('keyup mouseup', '#porcenaje', function () {
-        modificarComision();
-        modificarTotalCliente();
+
     });
 
-
-    $(function () {
-        $("#fecha_salida").on("change", function () {
+    $(function() {
+        $("#fecha_salida").on("change", function() {
             let inicio = moment($('#fecha_salida').data('daterangepicker').startDate._d);
             let fin = moment($('#fecha_salida').data('daterangepicker').endDate._d);
             TOTAL_DIAS = fin.diff(inicio, 'days');
-            let nuevoTotal =  (precioAuto*TOTAL_DIAS).toFixed(2)
-            $('#totalVehiculo').text(`$${nuevoTotal}(${TOTAL_DIAS} Días)` );
+            let nuevoTotal = (precioAuto * TOTAL_DIAS).toFixed(2)
+            $('#totalVehiculo').text(`$${nuevoTotal}(${TOTAL_DIAS} Días)`);
         });
     });
 
@@ -285,7 +221,7 @@ $(document).ready(function () {
     }
 
     //BOTON DE NUEVO CLIENTE
-    $(document).on('click', '#btnNuevoCliente', function (evento) {
+    $(document).on('click', '#btnNuevoCliente', function(evento) {
         $('#modalAgregarCliente').modal('show');
     });
 
