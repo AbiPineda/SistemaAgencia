@@ -81,12 +81,13 @@ $(document).ready(function () {
     new Draggable(containerEl, {
         itemSelector: '.external-event',
         eventData: function (eventEl) {
-            console.log(eventEl);
             return {
                 title: eventEl.innerText,
                 id: eventEl.id,
                 tipo: eventEl.getAttribute("tipo"),
                 precio: eventEl.getAttribute("precio"),
+                por_usuario: eventEl.getAttribute("por_usuario"),
+                id_sitio_turistico: eventEl.getAttribute("id_sitio_turistico"),
                 allDay: true,
                 backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
                     'background-color'),
@@ -141,8 +142,8 @@ $(document).ready(function () {
         let sitiosOld = []
         todos.forEach(element => {
             //SI NO SE ESCOGIO UNA FECHA FINAL LE ASIGNAREMOS LA MISMA INICIAL
-            console.log(element.extendedProps.precio);
             if (element.extendedProps.tipo === "GUARDAR_SITIO") {
+                //ESTE ES CUANDO SE SELECCCIONA UN ELEMENTO DEL COMBO TURISTICO
                 sitiosNew.push(
                     {
                         start: crearFecha(new Date(element.start)),
@@ -156,6 +157,7 @@ $(document).ready(function () {
                         costo: element.extendedProps.precio
                     });
             } else if (element.extendedProps.tipo === "GUARDAR_EVENTO") {
+                //ESTE SE ACTIVARA CUANDO SE CREA UN EVENTTO DE OTRAS ACTIVIDADES
                 eventos.push(
                     {
                         start: crearFecha(new Date(element.start)),
@@ -167,6 +169,7 @@ $(document).ready(function () {
                         textColor: "#fff"
                     });
             } else if (element.extendedProps.tipo === "ACTUALIZAR_SITIO") {
+                //SITIOS OLD ES CUANDO LOS SITIOS FUERON SELECCIONADOS DESDE LA PUBLICAR TUR
                 sitiosOld.push(
                     {
                         start: crearFecha(new Date(element.start)),
@@ -175,7 +178,12 @@ $(document).ready(function () {
                         backgroundColor: element.backgroundColor,
                         title: element.title,
                         borderColor: element.borderColor,
-                        allDay: null, textColor: "#fff"
+                        allDay: null,
+                        textColor: "#fff",
+                        id_sitio_turistico: element.extendedProps.id_sitio_turistico,
+                        costo: element.extendedProps.precio,
+                        por_usuario: element.extendedProps.por_usuario
+
                     });
             } else {
                 sitiosOld.push(
@@ -187,7 +195,10 @@ $(document).ready(function () {
                         title: element.title,
                         borderColor: element.borderColor,
                         allDay: null,
-                        textColor: "#fff"
+                        textColor: "#fff",
+                        id_sitio_turistico: element.extendedProps.id_sitio_turistico,
+                        costo: element.extendedProps.precio,
+                        por_usuario: element.extendedProps.por_usuario,
                     });
             }
         });
@@ -226,13 +237,12 @@ $(document).ready(function () {
         let id_itinerario = mytur[0].id; //DICE ID ITINERARIO, PERO ES EL ID DEL TUR
         let backgroundColor = "#28a745"
         let textColor = "#fff"
-        let precio = $('#precio').val();
-        crearEventoConId({ title, id_itinerario, backgroundColor, textColor, precio }, "GUARDAR_SITIO");
+        let costo = $('#precio').val();
+        crearEventoConId({ title, id_itinerario, backgroundColor, textColor, costo }, "GUARDAR_SITIO");
 
     });
     //PARA ELIMINAR LOS EVENTOS QUE NO ESTAN EL CALENDARIO 
     $(document).on('click', '#external-events div.external-event', function (evento) {
-        console.log("eliminar");
     });
     //CAMBIOS EN EL COMBO
     $('#ComboTur').on('select2:select', function (e) {
@@ -266,7 +276,6 @@ $(document).ready(function () {
         });
     }
     function crearEventoConId(itinerario, tipo) {
-        console.log(itinerario);
 
         let event = $('<div />');
         event.css({
@@ -276,7 +285,9 @@ $(document).ready(function () {
         event.html(itinerario.title);
         event.attr("id", itinerario.id_itinerario);
         event.attr("tipo", tipo);
-        event.attr('precio', itinerario.precio);
+        event.attr('precio', itinerario.costo);
+        event.attr('por_usuario', itinerario.por_usuario);
+        event.attr('id_sitio_turistico', itinerario.id_sitio_turistico);
         $('#external-events').prepend(event)
         //Add draggable funtionality
         ini_events(event)
