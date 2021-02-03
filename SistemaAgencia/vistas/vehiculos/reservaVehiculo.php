@@ -39,7 +39,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <!-- /.timeline-label -->
                         <!-- timeline item -->
                         <div>
-                            <i class="fas fa-comments bg-gradient-blue"></i>
+                            <i class="fas fa-users bg-gradient-blue"></i>
                             <div class="timeline-item">
                                 <!--<span class="time"><i class="fas fa-clock"></i> 12:05</span>-->
                                 <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
@@ -75,7 +75,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                         <!-- timeline item -->
                         <div id="formulario">
-                            <i class="fas fa-box-open bg-green"></i>
+                            <i class="fas fa-calendar-alt bg-green"></i>
                             <div class="timeline-item">
                                 <h3 class="timeline-header"><a href="#">Opciones Adicionales</a></h3>
 
@@ -153,7 +153,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <!-- END timeline item -->
                         <!-- timeline item -->
                         <div id="tabla">
-                            <i class="fas fa-user bg-green"></i>
+                            <i class="fas fa-clipboard-list bg-red"></i>
                             <div class="timeline-item">
                                 <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
                                 <div class="timeline-body">
@@ -168,8 +168,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                         <th>Cantidad</th>
                                                         <th>Sub Total</th>
                                                         <th>Acción</th>
-                                                        <th>id</th>
-                                                        <th>contador</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -342,7 +341,11 @@ include_once '../../plantillas/barra_lateral.php';
 include_once '../../plantillas/footer.php';
 ?>
 
-
+<script>
+$(function() {
+    fecha_salida.min = new Date().toISOString().split("T")[0];
+});
+</script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>

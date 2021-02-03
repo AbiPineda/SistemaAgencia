@@ -18,7 +18,7 @@ $(document).ready(function() {
         "info": true,
         "autoWidth": false,
         "pageLength": 3,
-        "responsive": true,
+        "responsive": true, 
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
             // { "targets": [5], "visible": false },
@@ -30,8 +30,8 @@ $(document).ready(function() {
             { data: "cantidad" },
             { data: "sub_total" },
             { data: "botones" },
-            { data: "id_servicio" },
-            { data: "contador" },
+           // { data: "id_servicio" },
+            //{ data: "contador" },
         ]
 
     });

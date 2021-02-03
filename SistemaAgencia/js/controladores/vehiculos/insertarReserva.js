@@ -25,10 +25,9 @@ $(document).ready(function() {
             form.append("direccionDevolucion", document.getElementById("direccionD").value);
             
             form.append("nombre", arregloServicios);
-        
+    
             form.append("fechaHora", document.getElementById("fecha_salida").value);
             form.append("total", document.getElementById("totalCliente").value);
-
 
             $.ajax({
                 url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",

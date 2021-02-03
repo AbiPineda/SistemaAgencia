@@ -104,7 +104,7 @@
             <div class="modal-content">
 
                 <div class="overlay-wrapper">
-                    
+
                     <div class="modal-header">
                         <h4 class="modal-title">Modificar Servicio</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,7 +165,7 @@
 
 <!-- /.MODALES DE BOTONES PARA INSERTAR -->
 
-<!-- /.Cierre de MODAL MARCA -->
+<!-- /.Cierre de MODAL  -->
 
 
 <?php 
