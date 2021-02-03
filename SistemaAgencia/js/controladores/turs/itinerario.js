@@ -172,7 +172,10 @@ $(document).ready(function () {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
-
+                        backgroundColor: element.backgroundColor,
+                        title: element.title,
+                        borderColor: element.borderColor,
+                        allDay: null, textColor: "#fff"
                     });
             } else {
                 sitiosOld.push(
@@ -180,8 +183,11 @@ $(document).ready(function () {
                         start: crearFecha(new Date(element.start)),
                         end: (element.end == null) ? crearFecha(new Date(element.start)) : crearFecha(new Date(element.end)),
                         id_itinerario: element.id,
-                        // allDay: (element.start == element.end) ? null : 1,
-
+                        backgroundColor: element.backgroundColor,
+                        title: element.title,
+                        borderColor: element.borderColor,
+                        allDay: null,
+                        textColor: "#fff"
                     });
             }
         });

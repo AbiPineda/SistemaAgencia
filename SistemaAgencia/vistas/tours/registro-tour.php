@@ -573,6 +573,7 @@
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/guardar.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
