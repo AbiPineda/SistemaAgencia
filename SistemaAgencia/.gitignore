@@ -1,3 +1,6 @@
+push.json
+js/controladores/chat/firestore-config.js
+
 // System / Log files 
 *.DS_Store
 *.log

@@ -119,7 +119,7 @@ $(document).ready(function () {
    function dibujarServicios(serviciosAdicionales) {
       serviciosAdicionales.forEach((servicio, numeroCarrucel) => {
          let allHtml = '';
-         allHtml += `<div class="row">`;
+         allHtml += `<div style="display: block;" class="row">`;
          allHtml += `    <h3>${servicio.nombre_servicio}</h3>`;
          allHtml += `    <hr />`;
          allHtml += `    <article>${servicio.descripcion_servicio}</article>`;
@@ -176,7 +176,7 @@ $(document).ready(function () {
    function dibujarSiiosTuristicos(sitiosTuristicos) {
       sitiosTuristicos.forEach((sitio, numeroCarrucel) => {
          let allHtml = '';
-         allHtml += `<div class="row">`;
+         allHtml += `<div style="display: block;" class="row">`;
          allHtml += `    <h3>${sitio.nombre_sitio}</h3>`;
          allHtml += `    <hr />`;
          allHtml += `    <article>${sitio.descripcion_sitio}</article>`;
