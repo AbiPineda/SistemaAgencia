@@ -32,12 +32,7 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="timeline">
-                    <!-- timeline time label -->
-                    <div class="time-label">
-                        <span class="bg-red">Información</span>
-                    </div>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
+
                     <div>
                         <i class="fas fa-car bg-blue"></i>
                         <div class="timeline-item">
@@ -60,7 +55,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Contraseña</label>
                                                 <input type="password" class="form-control"
-                                                    placeholder="Digite Contraseña" name="pass" id="pass" autocomplete="off">
+                                                    placeholder="Digite Contraseña" name="pass" id="pass"
+                                                    autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -68,7 +64,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Nombre de Renta Cars</label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="Nombre de Renta Cars" name="rentaCar" id="rentaCar" autocomplete="off">
+                                                    placeholder="Nombre de Renta Cars" name="rentaCar" id="rentaCar"
+                                                    autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -76,7 +73,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Telefono</label>
                                                 <input type="tel" class="form-control" placeholder="Numero de Telefono"
-                                                name="telefono" id="telefono" autocomplete="off" pattern="^\d{3}-\d{4}-\d{4}$" required >
+                                                    name="telefono" id="telefono" autocomplete="off"
+                                                    pattern="^\d{3}-\d{4}-\d{4}$" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -84,7 +82,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Lugar</label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="Dirección de Ubicación" name="lugar" id="lugar" autocomplete="off">
+                                                    placeholder="Dirección de Ubicación" name="lugar" id="lugar"
+                                                    autocomplete="off">
                                             </div>
                                         </div>
 
@@ -94,10 +93,17 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Descripción</label>
                                                 <textarea type="text" class="form-control" name="descripcion"
-                                                    id="descripcion" placeholder="Introduzca descripción" autocomplete="off"
-                                                    rows="3"></textarea>
+                                                    id="descripcion" placeholder="Introduzca descripción"
+                                                    autocomplete="off" rows="3"></textarea>
                                             </div>
                                         </div>
+
+
+                                    </div>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                            id="btnGuardar">Guardar</a>
+                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                     </div>
                                 </form>
                             </div>
@@ -105,31 +111,7 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                     </div>
 
-                    <div>
-                        <i class="fas fa-comments bg-yellow"></i>
-                        <div class="timeline-item">
 
-                            <h3 class="timeline-header"><a href="#"> Información Adicional</a>
-                            </h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>
-
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                        id="btnGuardar">Guardar</a>
-                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

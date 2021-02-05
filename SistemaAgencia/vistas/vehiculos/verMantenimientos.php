@@ -108,6 +108,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+
+                        </div>
+                        <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Fecha</label>
@@ -117,8 +120,6 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Vehiculo</label>
@@ -128,39 +129,39 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Año</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="anio" name="anio"  disabled>
+                                        <input type="text" class="form-control" id="anio" name="anio" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Placa</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="placa" name="placa"  disabled>
+                                        <input type="text" class="form-control" id="placa" name="placa" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Lugar donde se realizo mantenimiento</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="lugar" name="lugar" disabled>
+                                        <input type="text" class="form-control" id="lugar" name="lugar" >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Mantenimientos Realizados</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="mantenimientos"
-                                            name="mantenimientos" disabled>
+                                            name="mantenimientos" >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
