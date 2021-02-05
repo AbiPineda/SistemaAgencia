@@ -57,18 +57,7 @@
                      </div>
                   </div>
                </div>
-               <!-- <div class="row">
-                  <div class="col-8">
-                     <div class="icheck-primary">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">
-                           Recuerdame
-                        </label>
-                     </div>
-                  </div>
-               </div> -->
             </form>
-
             <div class="social-auth-links text-center mb-3">
 
                <button id="login-btn" href="home" class="btn btn-block btn-primary">

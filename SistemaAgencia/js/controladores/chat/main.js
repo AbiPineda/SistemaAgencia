@@ -30,69 +30,86 @@ $("#register-btn").on("click", function (e) {
 });
 
 $("#login-btn").on("click", function () {
-  let btnHTML = $(this).html();
-  $(this).html("<img id='loader' src='img/loader.svg' alt='Loading...!' />");
+  let form = $("#login-form");
+  form.validate();
+  if (form.valid()) {
+    let btnHTML = $(this).html();
+    $(this).html("<img id='loader' src='img/loader.svg' alt='Loading...!' />");
 
-  $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/loginUser",
-    method: "POST",
-    data: $("#login-form").serialize()
-  }).done(function (resp) {
-    if (!resp.err) {
-      let token = resp.token;
-      console.log(resp.message);
-      firebase
-        .auth()
-        .signInWithCustomToken(token)
-        .catch(function (error) {
-          // Handle Errors here.
-          let errorCode = error.code;
-          let errorMessage = error.message;
+    $.ajax({
+      url: "http://localhost/API-REST-PHP/Usuario/loginUser",
+      method: "POST",
+      data: $("#login-form").serialize()
+    }).done(function (resp) {
+      console.log(resp)
+      if (!resp.err) {
+        let token = resp.token;
+        console.log(resp.message);
+        firebase
+          .auth()
+          .signInWithCustomToken(token)
+          .catch(function (error) {
+            // Handle Errors here.
+            let errorCode = error.code;
+            let errorMessage = error.message;
 
-          alert(errorMessage);
-        })
-        .then(function (data) {
-          $("#login-btn").html(btnHTML);
-          if (data.user.uid != "") {
-            window.location.href = "chat.php";
-          }
-        });
-    } else {
-      alert(response.message);
+            alert(errorMessage);
+          })
+          .then(function (data) {
+            $("#login-btn").html(btnHTML);
+            if (data.user.uid != "") {
+              window.location.href = "home.php";
+            }
+          });
+      } else {
+        alert(response.message);
+      }
     }
+    ).fail(function (resp) {
+      console.log(resp)
+      if (resp.responseJSON.err) {
+        if (resp.responseJSON.mensaje == 'EMAIL_NOT_FOUND') {
+          const Toast = Swal.mixin();
+          Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: 'Correo electrónico no registrado',
+            showConfirmButton: true,
+          });
+        }
+        else if (resp.responseJSON.mensaje == 'INVALID_EMAIL') {
+          const Toast = Swal.mixin();
+          Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: 'Correo electrónico no valido',
+            showConfirmButton: true,
+          });
+        }
+      } else {
+        const Toast = Swal.mixin();
+        Toast.fire({
+          title: 'Oops...',
+          icon: 'error',
+          text: 'Credenciales no validas',
+          showConfirmButton: true,
+        });
+      }
+      $("#login-btn").html(btnHTML);
+
+    });
+
+  }else{
+    const Toast = Swal.mixin();
+    Toast.fire({
+      title: 'Oops...',
+      icon: 'error',
+      text: 'Digite Credenciales',
+      showConfirmButton: true,
+    });
   }
-  ).fail(function (resp) {
-    if (resp.responseJSON.err) {
-      if (resp.responseJSON.mensaje == 'EMAIL_NOT_FOUND') {
-        const Toast = Swal.mixin();
-        Toast.fire({
-          title: 'Oops...',
-          icon: 'error',
-          text: 'Correo electrónico no registrado',
-          showConfirmButton: true,
-        });
-      }
-      else if (resp.responseJSON.mensaje == 'INVALID_EMAIL') {
-        const Toast = Swal.mixin();
-        Toast.fire({
-          title: 'Oops...',
-          icon: 'error',
-          text: 'Correo electrónico no valido',
-          showConfirmButton: true,
-        });
-      }
-    } else {
-      const Toast = Swal.mixin();
-      Toast.fire({
-        title: 'Oops...',
-        icon: 'error',
-        text: 'Credenciales no validas',
-        showConfirmButton: true,
-      });
-    }
-    $("#login-btn").html(btnHTML);
 
-  });
+
 });
 
 $(".login-register-btn").on("click", function () {
@@ -109,7 +126,6 @@ $(".card input").on("focus blur", function () {
 });
 
 function inicializarValidaciones() {
-  console.log("cargando validaciones ")
   $('#login-form').validate({
     rules: {
       username: {
@@ -133,13 +149,16 @@ function inicializarValidaciones() {
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
+      console.log("funcion 1")
       error.addClass('invalid-feedback');
       element.closest('.form-group').append(error);
     },
     highlight: function (element, errorClass, validClass) {
+      console.log("funcion 2")
       $(element).addClass('is-invalid');
     },
     unhighlight: function (element, errorClass, validClass) {
+      console.log("funcion 3")
       $(element).removeClass('is-invalid');
 
     }
