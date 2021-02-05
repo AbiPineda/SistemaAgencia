@@ -22,8 +22,8 @@
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                  <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>
+                  <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
+                  <li class="breadcrumb-item active">Registrar Usuario</li>
                </ol>
             </div>
          </div>
@@ -44,11 +44,7 @@
                   </div>
                   <!-- START timeline item -->
                   <div class="timeline">
-                     <!-- timeline time label -->
-                     <div class="time-label">
-                        <span class="bg-red">Información</span>
-                     </div>
-                     <!-- /.timeline-label -->
+
                      <!-- timeline item -->
                      <div>
                         <i class="fas fa-users bg-blue"></i>
@@ -65,7 +61,7 @@
                                              <label>Nombre de Cliente</label>
                                              <div class="input-group">
                                                 <input type="text" class="form-control" name="nombreCliente"
-                                                   id="nombreCliente">
+                                                   placeholder="Digite Nombre" id="nombreCliente">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -74,7 +70,8 @@
                                           <div class="form-group">
                                              <label>Correo Electronico</label>
                                              <div class="input-group">
-                                                <input type="text" class="form-control" name="correo" id="correo">
+                                                <input placeholder="Digite Correo Electronico" type="text"
+                                                   class="form-control" name="correo" id="correo">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -86,8 +83,8 @@
                                           <div class="form-group">
                                              <label>Contraseña</label>
                                              <div class="input-group">
-                                                <input type="password" class="form-control" name="password1"
-                                                   id="password1">
+                                                <input placeholder="Digite Contraseña" type="password"
+                                                   class="form-control" name="password1" id="password1">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -96,8 +93,8 @@
                                           <div class="form-group">
                                              <label>Repetir Contraseña</label>
                                              <div class="input-group">
-                                                <input type="password" class="form-control" name="password2"
-                                                   id="password2">
+                                                <input type="password" placeholder="Repita Contraseña"
+                                                   class="form-control" name="password2" id="password2">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -108,7 +105,8 @@
                                           <div class="form-group">
                                              <label>Dui (opcional)</label>
                                              <div class="input-group">
-                                                <input type="text" class="form-control" id="dui" name="dui">
+                                                <input placeholder="12345678-9" type="text" class="form-control"
+                                                   id="dui" name="dui">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -117,13 +115,30 @@
                                           <div class="form-group">
                                              <label>Célular (opcional)</label>
                                              <div class="input-group">
-                                                <input type="text" class="form-control" id="celular" name="celular">
+                                                <input placeholder="8765-4321" type="text" class="form-control"
+                                                   id="celular" name="celular">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
                                        </div>
                                     </div>
+                                    <div class="col-sm-12">
+                                       <div class="form-group">
+                                          <label>Seleccione Tipo de Usuario</label>
+                                          <select name="tipo_usuario" id="tipo_usuario"
+                                             class="select2 select2-hidden-accessible form-control"
+                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                             <option value="CLIENTE">CLIENTE</option>
+                                             <option value="EMPLEADO">EMPLEADO</option>
+                                             <option value="RENTA CARS">RENTA CARS </option>
+                                             <!-- <option value="ADMINISTR ADOR">ADMINISTRADOR</option> -->
+                                          </select>
+                                       </div>
+                                    </div>
                                  </div>
+
+
+
                                  <div class="col-sm-3">
                                     <div class="form-group">
                                        <div class="kv-avatar">

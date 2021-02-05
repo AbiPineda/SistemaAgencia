@@ -107,7 +107,8 @@ $(document).ready(function () {
          "deferRender": true,
          "columnDefs": [
             // { "className": "dt-center", "targets": "_all" },
-            { "targets": [0], width: "13%" },
+            { "targets": [0], width: "18%" },
+            { "targets": [2], width: "4%" },
             { "targets": [5], visible: false },
 
          ],

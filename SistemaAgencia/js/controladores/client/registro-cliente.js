@@ -7,6 +7,8 @@ $(document).ready(function () {
    inicializarMascara();
    $('#loadingCliente').hide();
 
+   $('#tipo_usuario').select2();
+
    //BOTON DE GUARDAR
    $(document).on('click', '#btnguardarCliente', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
@@ -133,8 +135,7 @@ $(document).ready(function () {
       form.append("password", document.getElementById("password2").value);
       form.append("dui", document.getElementById("dui").value);
       form.append("celular", document.getElementById("celular").value);
-      form.append("nivel", 'cliente');
-
+      form.append("nivel", $('#tipo_usuario').val());
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
          url: URL_SERVIDOR + "Usuario/registroUser",

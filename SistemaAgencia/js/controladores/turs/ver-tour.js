@@ -111,7 +111,7 @@ $(document).ready(function () {
          "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
             { "targets": [4], "visible": false },
-            { "targets": [3], width: "13%" },
+            { "targets": [3], width: "30%" },
            
         ],
          "ajax": {
@@ -147,7 +147,9 @@ $(document).ready(function () {
                      html += '        </button>';
                      html += '    </div>';
                      html += '</td>';
-
+                     let fechaSalida =  moment(json[i]["start"] );
+                     // json[i]["start"]  = fechaSalida.locale('es').format('LL');
+                     json[i]["start"]  = fechaSalida.locale('es').format('l');
 
                      json[i]["botones"] = html;
                   }

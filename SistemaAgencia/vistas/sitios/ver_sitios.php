@@ -21,8 +21,8 @@
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">DataTables</li>
+                  <li class="breadcrumb-item"><a href="../../home.php">Home</a></li>
+                  <li class="breadcrumb-item active">Sitios Turisticos </li>
                </ol>
             </div>
          </div>
@@ -37,7 +37,7 @@
 
             <div class="card">
                <div class="card-header">
-                  <h3 class="card-title">Servicios</h3>
+                  <h3 class="card-title">Sitios Turisticos</h3>
                </div>
                <!-- /.card-header -->
                <div class="card-body">

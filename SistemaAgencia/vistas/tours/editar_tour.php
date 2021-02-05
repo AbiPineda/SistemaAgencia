@@ -43,14 +43,9 @@
                      </div>
                   </div>
                   <div class="timeline">
-                     <!-- timeline time label -->
-                     <div class="time-label">
-                        <span class="bg-red">Información</span>
-                     </div>
-                     <!-- /.timeline-label -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-car bg-blue"></i>
+                        <i class="fas fa-list bg-blue"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
                            <div class="timeline-body">
@@ -92,7 +87,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-umbrella-beach bg-green"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Sitios
@@ -208,7 +203,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-cog bg-red"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Servicios Adicionales</a>
@@ -323,7 +318,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-box bg-yellow"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Producto(s) Seleccionado(s)</a>
@@ -415,7 +410,7 @@
                      <!-- timeline item -->
                      <!-- END timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-plus-square bg-red"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Otras opciones</a>
@@ -475,7 +470,7 @@
                      <!-- END timeline item -->
                      <!-- END timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-money-bill-wave bg-blue"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Promociones Especiales</a>

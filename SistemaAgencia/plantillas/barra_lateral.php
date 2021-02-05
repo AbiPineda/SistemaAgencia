@@ -27,7 +27,7 @@
                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
-                     Clientes
+                     Usuarios
                      <i class="fas fa-angle-left right"></i>
                   </p>
                </a>
@@ -141,6 +141,38 @@
             </li>
             <li class="nav-item has-treeview">
                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-address-card"></i>
+                  <p>
+                     Servicios Adicionales
+                     <i class="fas fa-angle-left right"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="<?= $base_url ?>vistas/servicios/registro_servicio.php" class="nav-link">
+                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                        <p>Registro Servicios</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
+                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                        <p>Ver Servicios</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
+                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                        <p>Ver Contactos</p>
+                     </a>
+                  </li>
+
+               </ul>
+            </li>
+            <li class="nav-item has-treeview">
+               <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-car"></i>
                   <p>
                      Vehiculos
@@ -155,7 +187,7 @@
                         <p>Disponibilidad de Reserva</p>
                      </a>
                   </li>
-                  
+
 
                </ul>
             </li>
@@ -343,38 +375,6 @@
             <li class="nav-header">CONTROL</li>
             <li class="nav-item has-treeview">
                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-address-card"></i>
-                  <p>
-                     Servicios Adicionales
-                     <i class="fas fa-angle-left right"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="<?=$base_url?>vistas/servicios/registro_servicio.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Registro Servicios</p>
-                     </a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Servicios</p>
-                     </a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Contactos</p>
-                     </a>
-                  </li>
-
-               </ul>
-            </li>
-            <li class="nav-item has-treeview">
-               <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-car"></i>
                   <p>
                      Renta Cars
@@ -452,29 +452,6 @@
                      <a href="<?= $base_url ?>home.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
                         <p>Estadisticas</p>
-                     </a>
-                  </li>
-               </ul>
-            </li>
-            <li class="nav-item has-treeview">
-               <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-users-cog"></i>
-                  <p>
-                     Usuarios
-                     <i class="fas fa-angle-left right"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>home.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Registrar Usuario</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>home.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Bitácora</p>
                      </a>
                   </li>
                </ul>

@@ -21,8 +21,8 @@
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">DataTables</li>
+                  <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
+                  <li class="breadcrumb-item active">Turs Registrados</li>
                </ol>
             </div>
          </div>
@@ -223,6 +223,7 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/ver-tour.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

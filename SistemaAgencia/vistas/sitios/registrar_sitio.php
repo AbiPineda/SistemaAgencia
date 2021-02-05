@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
                   <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>
                </ol>
             </div>
@@ -43,14 +43,9 @@
                      </div>
                   </div>
                   <div class="timeline">
-                     <!-- timeline time label -->
-                     <div class="time-label">
-                        <span class="bg-red">Información</span>
-                     </div>
-                     <!-- /.timeline-label -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-car bg-blue"></i>
+                        <i class="fas fa-umbrella-beach bg-blue"></i>
                         <div class="timeline-item">
 
                            <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
@@ -61,7 +56,8 @@
                                     <div class="form-group">
                                        <label>Nombre del sitio turístico</label>
                                        <div class="input-group">
-                                          <input type="text" class="form-control" name="nombre" id="nombre">
+                                          <input type="text" placeholder="Digite el nombre del sitio Turístiico"
+                                             class="form-control" name="nombre" id="nombre">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -71,7 +67,7 @@
                                        <label>Precio</label>
                                        <div class="input-group">
                                           <input type="number" min="0" class=" form-control" name="precio_sitio"
-                                             id="precio_sitio">
+                                             value="1" id="precio_sitio">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -101,7 +97,7 @@
                                        <label>Coordenadas</label>
                                        <div class="input-group">
                                           <input disabled type="text" class="form-control" name="coordenadas"
-                                             id="coordenadas">
+                                             placeholder="Seleccione las coordenadas" id="coordenadas">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -144,7 +140,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-user bg-green"></i>
+                        <i class="fas fa-comments bg-green"></i>
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
@@ -164,7 +160,7 @@
 
 
                      <div>
-                        <i class="fas fa-image bg-green"></i>
+                        <i class="fas fa-image bg-danger"></i>
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
@@ -180,15 +176,17 @@
                                  </div>
                               </div>
                            </div>
+                           <!-- END TIME LINE BODY -->
+                           <div class="timeline-footer" style="text-align: right;">
+                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                                 style="color: white">Guardar</button>
+                              <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="timeline-footer" style="text-align: right;">
-                  <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                     style="color: white">Guardar</button>
-                  <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-               </div>
+
             </div>
          </div>
          <!-- END timeline item -->
@@ -216,26 +214,28 @@
                               <div class="form-group">
                                  <label>Nombre de Contacto</label>
                                  <div class="input-group">
-                                    <input type="text" class="form-control" name="nombreContacto" id="nombreContacto">
+                                    <input placeholder="Digite Nombre" type="text" class="form-control"
+                                       name="nombreContacto" id="nombreContacto">
                                  </div>
                                  <!-- /.input group -->
                               </div>
                            </div>
                            <div class="col-sm-12">
                               <div class="form-group">
-                                 <label>Telefono de Contactos</label>
+                                 <label>Teléfono de Contactos</label>
                                  <div class="input-group">
-                                    <input type="text" class="form-control" id="telefonoContacto"
-                                       name="telefonoContacto">
+                                    <input placeholder="Digite Teléfono" type="text" class="form-control"
+                                       id="telefonoContacto" name="telefonoContacto">
                                  </div>
                                  <!-- /.input group -->
                               </div>
                            </div>
-                           <div class="col-sm-12">
+                           <div class="col-sm-12">Digite Teléfono
                               <div class="form-group">
                                  <label>Correo Electronico</label>
                                  <div class="input-group">
-                                    <input type="text" class="form-control" name="correoContacto" id="correoContacto">
+                                    <input placeholder="Digite Correo" type="text" class="form-control"
+                                       name="correoContacto" id="correoContacto">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -284,7 +284,8 @@
                         <div class="form-group">
                            <label>Tipo de Sitio Turistico</label>
                            <div class="input-group">
-                              <input type="text" class="form-control" name="nombreTipo" id="nombreTipo">
+                              <input placeholder="Digite el Tipo" type="text" class="form-control" name="nombreTipo"
+                                 id="nombreTipo">
                            </div>
                         </div>
                      </div>
