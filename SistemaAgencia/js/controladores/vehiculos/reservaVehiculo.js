@@ -30,8 +30,8 @@ $(document).ready(function() {
             { data: "cantidad" },
             { data: "sub_total" },
             { data: "botones" },
-           // { data: "id_servicio" },
-            //{ data: "contador" },
+            { data: "id_servicio" },
+            { data: "contador" },
         ]
 
     });

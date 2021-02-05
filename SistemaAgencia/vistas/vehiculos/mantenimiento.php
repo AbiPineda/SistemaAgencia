@@ -43,9 +43,7 @@ include_once '../../plantillas/cabecera.php';
         <div class="col-md-12">
           <div class="timeline">
             <!-- timeline time label -->
-            <div class="time-label">
-              <span class="bg-red">Información</span>
-            </div>
+            
             <!-- /.timeline-label -->
             <!-- timeline item -->
             <div>

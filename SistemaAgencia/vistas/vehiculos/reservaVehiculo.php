@@ -168,7 +168,8 @@ include_once '../../plantillas/barra_lateral.php';
                                                         <th>Cantidad</th>
                                                         <th>Sub Total</th>
                                                         <th>Acción</th>
-                                                        
+                                                        <th>id</th>
+                                                        <th>contador</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -341,11 +342,7 @@ include_once '../../plantillas/barra_lateral.php';
 include_once '../../plantillas/footer.php';
 ?>
 
-<script>
-$(function() {
-    fecha_salida.min = new Date().toISOString().split("T")[0];
-});
-</script>
+
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>

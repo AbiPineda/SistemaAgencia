@@ -29,7 +29,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Precio</label>
-                                            <input type="text" name="precio" id="precio" class="form-control"
+                                            <input type="number" min=0 name="precio" id="precio" class="form-control"
                                                 placeholder="Digite precio">
                                         </div>
                                     </div>
@@ -41,14 +41,15 @@
                                                 placeholder="Describir.."></textarea>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
+                                <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                            id="btnAgregar">Guardar</a>
+                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                    </div>
                             </div>
-                            <div class="timeline-footer" style="text-align: right;">
-                                <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                    id="btnAgregar">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                            </div>
+
 
                         </div>
 
