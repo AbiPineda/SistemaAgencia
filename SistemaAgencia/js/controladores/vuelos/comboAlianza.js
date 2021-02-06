@@ -1,3 +1,5 @@
+let DATA_ALIANZA;
+
 $(document).ready(function() {
 
     $.ajax({
@@ -7,11 +9,15 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data) {
 
-            let $select = $('#id_alianza');
-            $.each(data.alianzas, function(i, name) {
-                $select.append('<option value=' + name.idalianza + '>' + name.nombre_alianza +
-                    '</option>');
-            });
+            let myData = [];
+            DATA_ALIANZA = data.alianzas;
+            for (let index = 0; index < DATA_ALIANZA.length; index++) {
+                myData.push({
+                    id: DATA_ALIANZA[index].idalianza,
+                    text: DATA_ALIANZA[index].nombre_alianza
+                });
+            }
+            $('#id_alianza').select2({ data: myData });
         },
         error: function(err) {
             //si da un error ya que quede la alerta

@@ -68,6 +68,7 @@ $(document).ready(function() {
 
                 $('#ciudadP').text(response.informacion[i].ciudad_partida);
                 $('#fechaP').text(response.informacion[i].fechaPartida);
+                
                 $('#horaP').text(response.informacion[i].HoraPartida);
 
                 $('#ciudadL').text(response.informacion[i].ciudad_llegada);

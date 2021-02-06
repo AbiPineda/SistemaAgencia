@@ -8,7 +8,7 @@ include_once '../../plantillas/cabecera.php';
     type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
+
 <link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@ include_once '../../plantillas/cabecera.php';
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
-                       
+
                         <div>
                             <i class="fas fa-car bg-blue"></i>
                             <div class="timeline-item">
@@ -59,21 +59,27 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-3">
                                             <!-- text input -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Renta Cars</label>
-                                                <select name="id_renta" id="id_renta" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_renta" id="id_renta"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-3">
                                             <!-- text input -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Modelo</label>
-                                                <select name="id_modelo" id="id_modelo" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_modelo" id="id_modelo"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -94,13 +100,17 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- select -->
-                                            <div class="form-group">
+
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Combustible</label>
-                                                <select class="form-control" name="comboCombustible"
-                                                    id="comboCombustible">
-                                                    <option>Gasolina</option>
-                                                    <option>Diesel</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="comboCombustible" id="comboCombustible"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                        <option>Gasolina</option>
+                                                        <option>Diesel</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -122,11 +132,14 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                         <div class="col-sm-3">
                                             <!-- select -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Transmición</label>
-                                                <select name="id_transmision" id="id_transmision" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_transmision" id="id_transmision"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
@@ -217,7 +230,7 @@ include_once '../../plantillas/cabecera.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -348,4 +361,3 @@ $(function() {
 <script src="<?= $base_url ?>js/controladores/vehiculos/insertarVehiculo.js"></script>
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>

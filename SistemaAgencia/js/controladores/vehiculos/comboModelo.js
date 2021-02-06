@@ -1,3 +1,4 @@
+let DATA_MODELO;
 $(document).ready(function() {
 
     $.ajax({
@@ -7,11 +8,15 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data) {
 
-            let $select = $('#id_modelo');
-            $.each(data.modelo, function(i, name) {
-                $select.append('<option value=' + name.idmodelo + '>' + name.modelo +
-                    '</option>');
-            });
+            let myData = [];
+            DATA_MODELO = data.modelo;
+            for (let index = 0; index < DATA_MODELO.length; index++) {
+                myData.push({
+                    id: DATA_MODELO[index].idmodelo,
+                    text: DATA_MODELO[index].modelo
+                });
+            }
+            $('#id_modelo').select2({ data: myData });
         },
         error: function(err) {
             //si da un error ya que quede la alerta

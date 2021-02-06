@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="modal-aerolinea">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -15,16 +16,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- INICIO de primera fila -->
-
-
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
+                                        <div class="form-group multiple-form-group input-group">
                                             <label>Seleccione Alianza</label>
-                                            <select name="id_alianza" id="id_alianza" class="form-control">
-                                                <option disabled="" selected="">Seleccione</option>
-                                            </select>
+                                            <div class="input-group">
+                                                <select name="id_alianza" id="id_alianza"
+                                                    class="select2 select2-hidden-accessible form-control"
+                                                    data-placeholder="Seleccione" style="width: 100%;">
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre de Aerolinea</label>

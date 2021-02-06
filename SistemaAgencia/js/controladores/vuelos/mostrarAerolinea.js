@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     inicializarValidaciones();
     inicializarTabla();
+    inicializarMascara();
     //BOTON MOSTRAR
     $(document).on('click', '.btn-group .btn-primary', function() {
 
@@ -242,5 +243,5 @@ $(document).ready(function() {
         });
     }
 
-
+   
 });

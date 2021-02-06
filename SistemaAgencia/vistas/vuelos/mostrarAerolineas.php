@@ -154,7 +154,7 @@
                                     <label>Telefono</label>
                                     <div class="input-group">
                                         <input id="telefonoContacto" name="telefonoContacto" type="text"
-                                            class="form-control">
+                                            class="form-control" data-inputmask="'mask': '9999 9999'">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -188,6 +188,7 @@ include_once '../../plantillas/footer.php';?>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/mostrarAerolinea.js"></script>
 

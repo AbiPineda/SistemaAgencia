@@ -504,25 +504,18 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- /.col -->
+
                                                 </div>
-                                                <!-- /.row -->
-
-                                                <!-- this row will not appear when printing -->
-
                                             </div>
-                                            <!-- /.invoice -->
-                                        </div><!-- /.col -->
-                                    </div><!-- /.row -->
-                                </div><!-- /.container-fluid -->
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
     </div>
     <!-- End Modal EDITAR-->
 </form>
@@ -544,22 +537,10 @@ document.getElementById("doPrint").addEventListener("click", function() {
 });
 </script>
 
-<script>
-var doc = new jsPDF();
-var specialElementHandlers = {
-    '#editor': function(element, renderer) {
-        return true;
-    }
-};
+<scrip>
 
-$('#convertirPDF').click(function() {
-    doc.fromHTML($('#printDiv').html(), 15, 15, {
-        'width': 170,
-        'elementHandlers': specialElementHandlers
-    });
-    doc.save('sample-file.pdf');
-});
-</script>
+</scrip>
+
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
