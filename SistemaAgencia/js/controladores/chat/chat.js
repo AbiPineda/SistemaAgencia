@@ -1,17 +1,21 @@
-let chat_data = {},
-  user_uuid,
-  fotoEmisor,
-  fotoReceptor,
-  chatViejo,
-  chatHTML = "",
-  chat_uuid = "",
-  userList = [];
+let chat_data = {};
+let user_uuid;
+let fotoReceptor;
+let chatViejo;
+let chatHTML = "";
+let chat_uuid = "";
+let userList = [];
 let newMessage = "";
 let referenciaRT;
 let activarSonido = false;
 let proximaConsulta;
+let fotoEmisor = localStorage.fotoPerfil;
+
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
+    console.log(user)
+    //HACER ALGO CON EL USUARIO
     user_uuid = user.uid;
     $('#btn-enviar').prop('disabled', true);
     getUsers();
@@ -25,28 +29,6 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-function logout() {
-  $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/logout",
-    method: "POST",
-    data: { logoutUser: 1 },
-    success: function (response) {
-      console.log(response);
-      firebase
-        .auth()
-        .signOut()
-        .then(function () {
-          console.log("Logout");
-          window.location.href = "index.php";
-        })
-        .catch(function (error) {
-          // An error happened.
-          console.log("Logout Fail");
-        });
-    },
-  });
-}
-
 function getUsers() {
   $.ajax({
     url: "http://localhost/API-REST-PHP/Usuario/obtenerUsuarioByChat",
@@ -58,6 +40,8 @@ function getUsers() {
         let usersHTML = "";
         let messageCount = "";
         $.each(users, function (index, value) {
+          //SE RECORREN TODOS LOS USUARIOS Y SE PONEN EN LA LISTA
+          //DE CHATS CON ECEPCCION DEL MISMO LA FOTO DEL USUARIO ACTUAL
           if (user_uuid != value.uuid) {
             usersHTML +=
               '<div class="user" uuid="' +
@@ -74,11 +58,9 @@ function getUsers() {
               "</div>";
 
             userList.push({ user_uuid: value.uuid, username: value.nombre });
-          } else {
-            fotoEmisor = value.foto
           }
         });
-
+        // DIBUJAMOS LOS USUARIOS EN LA BARRA LATERAL
         $(".users").html(usersHTML);
       } else {
         console.log(response.message);
@@ -88,6 +70,7 @@ function getUsers() {
 }
 
 $(document.body).on("click", ".user", function () {
+  //ESTA PARTE ES PARA EL EFECTO CSS DE CAMBIO
   let chatNuevo = $(this);
   chatNuevo.css("background", "#cecece");
   if (chatViejo && !chatNuevo.is(chatViejo)) {
@@ -95,7 +78,7 @@ $(document.body).on("click", ".user", function () {
   }
   chatViejo = chatNuevo;
 
-  ///con esto se arregla el bug
+  ///con esto se arregla el bug de tener suscripciones activas
   if (referenciaRT) {
     referenciaRT();
   }
@@ -128,6 +111,21 @@ $(document.body).on("click", ".user", function () {
     },
   });
 
+});
+
+$(document).on('click', '#cerrarSesion', function () {
+  firebase
+    .auth()
+    .signOut()
+    .then(function () {
+      console.log("Logout");
+      window.location.href = URL_SISTEMA;
+    })
+    .catch(function (error) {
+      // An error happened.
+      console.log("Logout Fail");
+      window.location.href = URL_SISTEMA;
+    });
 });
 
 function actualizarFecha(uuid) {

@@ -30,46 +30,62 @@ $("#register-btn").on("click", function (e) {
 });
 
 $("#login-btn").on("click", function () {
+  const Toast = Swal.mixin();
   let form = $("#login-form");
   form.validate();
   if (form.valid()) {
     let btnHTML = $(this).html();
     $(this).html("<img id='loader' src='img/loader.svg' alt='Loading...!' />");
-
     $.ajax({
       url: "http://localhost/API-REST-PHP/Usuario/loginUser",
       method: "POST",
       data: $("#login-form").serialize()
     }).done(function (resp) {
-      console.log(resp)
+      //NUESTRO SERVICIO RETORNARA UN TOKEN QUE ES EL
+      // QUE OCUPAREMOS PARA MANEJAR LA SESION DEL USUARIO
       if (!resp.err) {
-        let token = resp.token;
-        console.log(resp.message);
-        firebase
-          .auth()
-          .signInWithCustomToken(token)
-          .catch(function (error) {
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-
-            alert(errorMessage);
-          })
-          .then(function (data) {
-            $("#login-btn").html(btnHTML);
-            if (data.user.uid != "") {
-              window.location.href = "home.php";
-            }
+        if (resp.nivel == 'EMPLEADO' || resp.nivel == 'ADMINISTRADOR') {
+          //aqui estamos guardando la foto de perfil del usuario          
+          localStorage.setItem('fotoPerfil', resp.foto)
+          let token = resp.token;
+          console.log(resp.message);
+          firebase
+            .auth()
+            .signInWithCustomToken(token)
+            .then(function (data) {
+              $("#login-btn").html(btnHTML);
+              if (data.user.uid != "") {
+                window.location.href = "home.php";
+              }
+            }).catch(function (error) {
+              // Handle Errors here.
+              let errorCode = error.code;
+              let errorMessage = error.message;
+              alert(errorMessage);
+            });
+        } else {
+          $("#login-btn").html(btnHTML);
+          Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: 'No tienes los permisos necesarios',
+            showConfirmButton: true,
           });
+        }
       } else {
-        alert(response.message);
+        Toast.fire({
+          title: 'Oops...',
+          icon: 'error',
+          text: 'Credenciales no validas',
+          showConfirmButton: true,
+        });
       }
-    }
-    ).fail(function (resp) {
+
+    }).fail(function (resp) {
       console.log(resp)
       if (resp.responseJSON.err) {
         if (resp.responseJSON.mensaje == 'EMAIL_NOT_FOUND') {
-          const Toast = Swal.mixin();
+
           Toast.fire({
             title: 'Oops...',
             icon: 'error',
@@ -78,7 +94,6 @@ $("#login-btn").on("click", function () {
           });
         }
         else if (resp.responseJSON.mensaje == 'INVALID_EMAIL') {
-          const Toast = Swal.mixin();
           Toast.fire({
             title: 'Oops...',
             icon: 'error',
@@ -87,7 +102,6 @@ $("#login-btn").on("click", function () {
           });
         }
       } else {
-        const Toast = Swal.mixin();
         Toast.fire({
           title: 'Oops...',
           icon: 'error',
@@ -99,8 +113,7 @@ $("#login-btn").on("click", function () {
 
     });
 
-  }else{
-    const Toast = Swal.mixin();
+  } else {
     Toast.fire({
       title: 'Oops...',
       icon: 'error',
@@ -149,16 +162,13 @@ function inicializarValidaciones() {
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
-      console.log("funcion 1")
       error.addClass('invalid-feedback');
       element.closest('.form-group').append(error);
     },
     highlight: function (element, errorClass, validClass) {
-      console.log("funcion 2")
       $(element).addClass('is-invalid');
     },
     unhighlight: function (element, errorClass, validClass) {
-      console.log("funcion 3")
       $(element).removeClass('is-invalid');
 
     }
