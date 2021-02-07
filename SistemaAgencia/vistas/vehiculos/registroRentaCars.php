@@ -72,9 +72,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Telefono</label>
-                                                <input type="tel" class="form-control" placeholder="Numero de Telefono"
-                                                    name="telefono" id="telefono" autocomplete="off"
-                                                    pattern="^\d{3}-\d{4}-\d{4}$" required>
+                                                <input type="text" class="form-control" name="telefono" id="telefono"
+                                                    autocomplete="off" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -124,8 +123,12 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <script>
-$("#telefono").mask("999-999-999");
+$(":input").inputmask();
+$("#telefono").inputmask({"mask": "(999) 9999-9999"});
 </script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
+
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarRentacars.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>

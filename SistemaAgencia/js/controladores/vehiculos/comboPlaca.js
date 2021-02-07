@@ -1,3 +1,4 @@
+let DATA_PLACA;
 $(document).ready(function() {
 
     $.ajax({
@@ -7,11 +8,17 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data) {
 
-            let $select = $('#id_placa');
-            $.each(data.autos, function(i, name) {
-                $select.append('<option value=' + name.idvehiculo + '>' + "Modelo: " + name.modelo + '>' + " Placa: " + name.placa + '>' + " Año: " + name.anio +
-                    '</option>');
-            });
+            let myData = [];
+            DATA_PLACA = data.autos;
+            for (let index = 0; index < DATA_PLACA.length; index++) {
+                myData.push({
+                    id: DATA_PLACA[index].idvehiculo,
+                    text: DATA_PLACA[index].modelo,
+                    text: DATA_PLACA[index].placa,
+                    text: DATA_PLACA[index].anio
+                });
+            }
+            $('#id_placa').select2({ data: myData });
         },
         error: function(err) {
             //si da un error ya que quede la alerta

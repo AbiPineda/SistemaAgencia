@@ -167,20 +167,18 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-6">
                                             <!-- select -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Categoría</label>
-                                                <select name="id_categoria" id="id_categoria" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_categoria" id="id_categoria"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-
-
-
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                         <!-- END timeline item -->

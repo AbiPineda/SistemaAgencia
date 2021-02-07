@@ -8,9 +8,6 @@ include_once '../../plantillas/cabecera.php';
     type="text/css" />
 <!-- iCheck for checkboxes -->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- Select2 -->
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -55,15 +52,16 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="timeline-body">
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Vehiculo</label>
-                                                <select name="id_placa" id="id_placa" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_placa" id="id_placa"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-
-
                                         <div class="col-sm-4">
                                             <!-- text input -->
                                             <div class="form-group">
@@ -220,7 +218,7 @@ $(function() {
 function myFunction() {
     let x = document.getElementById("mantenimiento_realizado");
     let option = document.createElement("option");
-    option.text= document.createElement("insertarMantenimiento");
+    option.text = document.createElement("insertarMantenimiento");
     x.add(option);
 }
 </script>
@@ -232,4 +230,3 @@ function myFunction() {
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboPlaca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarMantenimiento.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
