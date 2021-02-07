@@ -74,6 +74,8 @@
 
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
+<script src="<?= $base_url ?>js/controladores/asesorias/ramas_automaticas.js"></script>
+<script src="<?= $base_url ?>js/controladores/asesorias/preguntas_automaticas.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/insertar-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/update-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/calendario-app.js"></script>

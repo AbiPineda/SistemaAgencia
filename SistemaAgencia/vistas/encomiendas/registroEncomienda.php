@@ -366,7 +366,7 @@ $(document).on('click', '#producto-add', function() {
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
 </script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
-<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
+<script src="<?= $base_url ?>js/controladores/mapas/myMap.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/deptos.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
