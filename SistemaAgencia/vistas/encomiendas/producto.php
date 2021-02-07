@@ -3,7 +3,8 @@ include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
 <!--LOS SCRIPT ADICIONALES-->
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
 <?php
 include_once '../../plantillas/barra_lateral.php';
 ?>
@@ -31,12 +32,7 @@ include_once '../../plantillas/barra_lateral.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="timeline">
-                    <!-- timeline time label -->
-                    <div class="time-label">
-                        <span class="bg-red">Información</span>
-                    </div>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
+
                     <div>
                         <i class="fas fa-box-open bg-blue"></i>
                         <div class="timeline-item">
@@ -44,65 +40,47 @@ include_once '../../plantillas/barra_lateral.php';
 
                             <div class="timeline-body">
                                 <form id="register-form" name="register-form" onsubmit="return false">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input name="nombre_producto" type="text" class="form-control" placeholder="Introduzca el nombre" autocomplete="off">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input name="nombre_producto" type="text" class="form-control"
+                                                    placeholder="Introduzca el nombre" autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Tarifa</label>
+                                                <input name="tarifa" type="text" class="form-control"
+                                                    placeholder="Introduzca la tarifa" autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Unidad de medida</label>
+                                                <select class="form-control" name="unidades_medidas">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="lbs">Libras</option>
+                                                    <option value="unidad">Unidades</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                           <label>Tarifa</label>
-                                            <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                           <label>Unidad de medida</label>
-                                           <select class="form-control" name="unidades_medidas">
-                                                <option value="">Seleccione</option>
-                                               <option value="lbs">Libras</option>
-                                               <option value="unidad">Unidades</option>
-                                           </select>
-                                        </div>
-                                    </div>
-
-                                </div>
                                 </form>
-                            </div>
-                             
-                        </div>
-                   
-                    </div>
-
-                    <div>
-                         <i class="fas fa-save bg-gradient-lightblue"></i>
-                            <div class="timeline-item">
-                                <span class="time"><i class="fas fa-save"></i>Guardar</span>
-                               <h3 class="timeline-header"><a href="#">Guardar Información</a></h3>
-                                <div class="timeline-body"><div class="row">
-                                  <div class="col-lg-1"></div><div class="col-lg-10"></div>
-                                    <div class="col-lg-1"></div>
-                                    <div style="text-align: right;width:577px;margin-top:-8px;">
-                                <a class="btn btn-primary btn-sm" id="btn-producto" style="color: white">Guardar</a>
-                                <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <a class="btn btn-info btn-sm" id="btn-producto" style="color: white">Guardar</a>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    </div>
 
-                    <!-- timeline time label -->
-                        <div class="time-label">
-                            <span class="bg-green">Encomiendas</span>
                         </div>
-                        <!-- /.timeline-label -->
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 </div>
 
