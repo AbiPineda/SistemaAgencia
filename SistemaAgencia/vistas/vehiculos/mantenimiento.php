@@ -123,19 +123,20 @@ include_once '../../plantillas/cabecera.php';
                                                 <label>Nuevo Servicio</label>
                                                 <input type="text" class="form-control" name="insertarMantenimiento"
                                                     id="insertarMantenimiento"
-                                                    placeholder="Insertar Nuevo Servicio Realizado">
+                                                    placeholder="Insertar Nuevo Servicio Realizado" autocomplete="off">
                                             </div>
 
                                         </div>
                                         <div class="col-sm-1">
-                                        <br>
+                                            <br>
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" name="agregarServicio" id="agregarServicio"
-                                                    style="margin-top:8px;" onclick="myFunction()">+</button>
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    name="agregarServicio" id="agregarServicio" style="margin-top:8px;"
+                                                    onclick="myFunction()">+</button>
                                             </span>
-                                            
+
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <div class="form-group">
                                                 <label>Cambio de Piezas</label>
                                                 <div class="select2-danger">
@@ -149,6 +150,25 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nuevo Cambio de Pieza</label>
+                                                <input type="text" class="form-control" name="insertarPieza"
+                                                    id="insertarPieza" placeholder="Insertar Nuevo Pieza"
+                                                    autocomplete="off">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    name="agregarPieza" id="agregarServicio" style="margin-top:8px;"
+                                                    onclick="CambioPieza()">+</button>
+                                            </span>
+
                                         </div>
 
                                     </div>
@@ -216,10 +236,25 @@ $(function() {
 <script>
 function myFunction() {
     let x = $("#insertarMantenimiento").val();
-    let seleccion = $("<option></option>").val(x).text(x); 
+    let seleccion = $("<option></option>").val(x).text(x);
     $("#mantenimiento_realizado").append(seleccion).trigger('change');
-    ///pruebe
 }
+
+function CambioPieza() {
+    let x = $("#insertarPieza").val();
+    let seleccion = $("<option></option>").val(x).text(x);
+    $("#piezas_cambiadas").append(seleccion).trigger('change');
+}
+</script>
+
+<script>
+$(document).on('click', '#agregarServicio', function(e) {
+    swal(
+        'Success',
+        'You clicked the <b style="color:green;">Success</b> button!',
+        'success'
+    )
+});
 </script>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>

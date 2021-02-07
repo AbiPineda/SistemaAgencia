@@ -13,9 +13,8 @@ $(document).ready(function() {
             for (let index = 0; index < DATA_PLACA.length; index++) {
                 myData.push({
                     id: DATA_PLACA[index].idvehiculo,
-                    text: DATA_PLACA[index].modelo,
-                    text: DATA_PLACA[index].placa,
-                    text: DATA_PLACA[index].anio
+                    text: DATA_PLACA[index].placa
+                    
                 });
             }
             $('#id_placa').select2({ data: myData });

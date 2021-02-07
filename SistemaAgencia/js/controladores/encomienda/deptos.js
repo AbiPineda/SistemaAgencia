@@ -1,3 +1,5 @@
+let DATA_DEPTOS;
+let DATA_MUNICIPIOS;
 $(document).ready(function() {
         //********para el combo de los departamentos
 
@@ -7,11 +9,16 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
 
-                var $select = $('#depto');
-                $.each(data.deptos, function(i, name) {
-                    $select.append('<option value=' + name.id_departamentos+ '>' + name.nombre_deptos+
-                        '</option>');
-                });
+                let myData = [];
+                DATA_DEPTOS = data.deptos;
+                for (let index = 0; index < DATA_DEPTOS.length; index++) {
+                    myData.push({
+                        id: DATA_DEPTOS[index].id_departamentos,
+                        text: DATA_DEPTOS[index].nombre_deptos 
+                    });
+                }
+                $('#depto').select2({ data: myData });
+
             },
             error: function(err) {
                 var $select = $('#depto');
@@ -38,13 +45,15 @@ $(document).ready(function() {
             async: false,
             dataType: "json",
             success: function(data) {
-
-                var $select = $('#id_municipios');
-                 $select.append('<option value="">Seleccione</option>');
-                $.each(data.municipios, function(i, name) {
-                    $select.append('<option value=' + name.id_municipios+ '>' + name.nombre_municipios+
-                        '</option>');
-                });
+                let myData = [];
+                DATA_MUNICIPIOS = data.municipios;
+                for (let index = 0; index < DATA_MUNICIPIOS.length; index++) {
+                    myData.push({
+                        id: DATA_MUNICIPIOS[index].id_municipios,
+                        text: DATA_MUNICIPIOS[index].nombre_municipios 
+                    });
+                }
+                $('#id_municipios').select2({ data: myData });
             },
             error: function(err) {
                 var $select = $('#id_municipios');

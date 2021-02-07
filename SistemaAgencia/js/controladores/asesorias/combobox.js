@@ -1,3 +1,4 @@
+let DATA_CLIENTE;
 $(document).ready(function() {
 
         $.ajax({
@@ -7,11 +8,15 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
         
-                var $select = $('#cliente');
-                $.each(data.usuarios, function(i, name) {
-                    $select.append('<option value=' + name.id_cliente + '>' + name.nombre +
-                        '</option>');
-                });
+                let myData = [];
+                DATA_CLIENTE = data.usuarios;
+                for (let index = 0; index < DATA_CLIENTE.length; index++) {
+                    myData.push({
+                        id: DATA_CLIENTE[index].id_cliente,
+                        text: DATA_CLIENTE[index].nombre 
+                    });
+                }
+                $('#cliente').select2({ data: myData });
             
             },
             error: function(err) {

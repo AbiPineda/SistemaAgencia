@@ -1,3 +1,4 @@
+let DATA_PRODUCTOS;
 $(document).ready(function() {
     //*******************para los productos**************-
     $.ajax({
@@ -6,12 +7,15 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
 
-                var $select = $('#id_producto');
-                 $select.append('<option value="">Seleccione</option>');
-                $.each(data.product, function(i,index) {
-                    $select.append('<option value=' +index.id_producto+ '>' +index.nombre_producto+
-                        '</option>');
-                });
+                let myData = [];
+                DATA_PRODUCTOS = data.product;
+                for (let index = 0; index < DATA_PRODUCTOS.length; index++) {
+                    myData.push({
+                        id: DATA_PRODUCTOS[index].id_producto,
+                        text: DATA_PRODUCTOS[index].nombre_producto 
+                    });
+                }
+                $('#id_producto').select2({ data: myData });
             },
             error: function(err) {
                 $select.append('<option value="">Seleccione</option>');
