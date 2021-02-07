@@ -7,27 +7,20 @@ include_once '../../plantillas/cabecera.php';
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
-
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
 <style>
 #desborde {
-    width:100%;
-    overflow:hidden;
+    width: 100%;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    word-wrap: break-word; 
+    word-wrap: break-word;
 }
-
 </style>
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
@@ -54,7 +47,7 @@ include_once '../../plantillas/cabecera.php';
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
-                        
+
                         <div>
                             <i class="fas fa-car bg-blue"></i>
                             <div class="timeline-item">
@@ -66,11 +59,14 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-12">
                                             <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Nombre del Cliente</label>
-                                                <select name="id_cliente" id="id_cliente" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Cliente</label>
+                                                <div class="input-group">
+                                                    <select name="id_cliente" id="id_cliente"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -174,29 +170,38 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-4">
                                             <!-- select -->
-                                            <div class="form-group">
-                                                <label>Preferencia de Aerolínea</label>
-                                                <select name="idaerolinea" id="idaerolinea" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Aerolinea</label>
+                                                <div class="input-group">
+                                                    <select name="idaerolinea" id="idaerolinea"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <!-- select -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Clase</label>
-                                                <select name="idclase" id="idclase" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="idclase" id="idclase"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <!-- select -->
-                                            <div class="form-group">
+                                            <div class="form-group multiple-form-group input-group">
                                                 <label>Tipo de Viaje</label>
-                                                <select name="idtipo_viaje" id="idtipo_viaje" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="idtipo_viaje" id="idtipo_viaje"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -310,4 +315,3 @@ $(function() {
 <script src="<?= $base_url ?>js/controladores/vuelos/insertarCotizacion.js"></script>
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
