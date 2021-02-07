@@ -29,7 +29,7 @@ $.ajax({
         if (response.vehiculo) {
             precioAuto = response.vehiculo.precio_diario;
             $('#totalVehiculo').text('$' + precioAuto + '(1 Día)');
-            $('#totalCliente').text("$" + precioAuto);
+            $('#totalCliente').text("$" + precioAuto );
         }
 
     },

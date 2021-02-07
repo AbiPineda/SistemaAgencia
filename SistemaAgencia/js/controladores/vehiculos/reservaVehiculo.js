@@ -4,7 +4,7 @@ $(document).ready(function() {
     let contadorTabla = 0;
     let TOTAL = 0.0;
     let COMISION = 0.0;
-    let TOTALCLIENTE = 0.0;
+    let TOTALVEHICULO = 0.0;
     let contadorServicio = 0;
     let TOTAL_DIAS = 1;
 
@@ -128,7 +128,7 @@ $(document).ready(function() {
     function modificarTotalCliente() {
         //POR DIA
         $('#totalCliente').empty();
-        $('#totalCliente').text("$" + (parseFloat(TOTAL) + parseFloat(precioAuto)));
+        $('#totalCliente').text("$" + (parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
     }
 
 
@@ -175,6 +175,7 @@ $(document).ready(function() {
             TOTAL_DIAS = fin.diff(inicio, 'days');
             let nuevoTotal = (precioAuto * TOTAL_DIAS).toFixed(2)
             $('#totalVehiculo').text(`$${nuevoTotal}(${TOTAL_DIAS} Días)`);
+            TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
         });
     });
 

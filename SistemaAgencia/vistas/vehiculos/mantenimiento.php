@@ -113,7 +113,6 @@ include_once '../../plantillas/cabecera.php';
                                                         <option>Cambio de Aceite </option>
                                                         <option>Limpieza de Filtros </option>
                                                         <option>Lavado </option>
-
                                                     </select>
                                                 </div>
                                             </div>
@@ -129,12 +128,12 @@ include_once '../../plantillas/cabecera.php';
 
                                         </div>
                                         <div class="col-sm-1">
-                                            <br>
-                                            <div class="form-group">
-                                                <button name="agregarServicio" id="agregarServicio"
-                                                    class="btn btn-info btn-sm" style="color: white" type="button"
-                                                    onclick="myFunction()">+</button>
-                                            </div>
+                                        <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add" name="agregarServicio" id="agregarServicio"
+                                                    style="margin-top:8px;" onclick="myFunction()">+</button>
+                                            </span>
+                                            
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -216,10 +215,10 @@ $(function() {
 
 <script>
 function myFunction() {
-    let x = document.getElementById("mantenimiento_realizado");
-    let option = document.createElement("option");
-    option.text = document.createElement("insertarMantenimiento");
-    x.add(option);
+    let x = $("#insertarMantenimiento").val();
+    let seleccion = $("<option></option>").val(x).text(x); 
+    $("#mantenimiento_realizado").append(seleccion).trigger('change');
+    ///pruebe
 }
 </script>
 
