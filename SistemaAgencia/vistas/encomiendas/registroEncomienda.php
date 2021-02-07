@@ -149,7 +149,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             </span>
                                         </div>
 
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label for="cars">Costo($)</label>
                                                 <input name="costo" id="costo" type="text" disabled class="form-control"
