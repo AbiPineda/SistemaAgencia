@@ -2,7 +2,8 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <?php include_once '../../plantillas/barra_lateral.php';?>
 
@@ -35,23 +36,22 @@ include_once  '../../plantillas/navbar.php';?>
             <div class="container-fluid">
                 <!-- ./row -->
                 <div class="row">
-                    <div class="col-12 col-sm-1"></div>
-                    <div class="col-12 col-sm-10">
+
+                    <div class="col-sm-12">
                         <div class="card card-primary card-tabs">
                             <div class="card-header p-0 pt-1">
                                 <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                                   
-                                   
                                 </ul>
                             </div>
                             <div class="card-body">
-                            <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
-                                <div style="width: 200px;"></div>
-
-                               <select name="id_cita" id="citas_dias" class="form-control" style="width: 400px; margin-top: 20px" required="true">
-                                </select>
-                                <div class="tab-content" id="custom-tabs-one-tabContent">
-                                       <!--<div class="form-group" id="1"> 
+                                <form id="migratorio-form" name="register-form" onsubmit="return false"
+                                    class="form-inline" role="form">
+                                    <div style="width: 200px;"></div>
+                                    <select name="id_cita" id="citas_dias" class="form-control"
+                                        style="width: 400px; margin-top: 20px" required="true">
+                                    </select>
+                                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                                        <!--<div class="form-group" id="1"> 
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
                                          <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
                                          <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
@@ -93,42 +93,42 @@ include_once  '../../plantillas/navbar.php';?>
                                          </div>
                                            
                                         </div>-->
-                   
-                                      
-                                   
-                                </div><!--fin de una pestaña-->
-                            </br>
-                            <div style="width: 400px;"></div>
-                             <div style="width: 400px;">
-                                 <button type="button" id="btnFormulario" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Guardar</button>
-                                <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
-                                 
-                             </div>
-                                
+
+
+
+                                    </div>
+                                    <!--fin de una pestaña-->
+                                    </br>
+                                    <div style="width: 400px;"></div>
+
+
                                 </form>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
+                                        style=" margin-top: 10px; color: white">Guardar</button>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
+
                                 </div>
-
-
                             </div>
                         </div>
-                        <!-- /.card -->
                     </div>
+                    <!-- /.card -->
                 </div>
-                <div class="col-12 col-sm-1"></div>
             </div>
-
-
+            <div class="col-12 col-sm-1"></div>
         </section>
     </div>
+
 </div>
 
 <?php
   include_once '../../plantillas/footer.php';
 ?>
 <div id="script"></div>
- <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
- <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
- <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combo_formulario.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combo_formulario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
@@ -137,6 +137,3 @@ include_once  '../../plantillas/navbar.php';?>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>
-
-
-

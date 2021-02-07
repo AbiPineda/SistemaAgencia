@@ -57,7 +57,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <tr>
                                                 <th>Pregunta</th>
                                                 <th>Más de una respuesta</th>
-                                                 <th>Rama</th>
+                                                <th>Rama</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -109,14 +109,14 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                    <div class="col-sm-2"></div>
+                                <div class="col-sm-2"></div>
                                 <div class="col-sm-7">
                                     <div class="form-group">
                                         <label>Rama de la Pregunta</label>
                                         <div class="input-group">
-                                        <select name="id_rama" id="id_rama" class="form-control">
-                                            <option disabled selected >Seleccione</option>
-                                                </select>
+                                            <select name="id_rama" id="id_rama" class="form-control">
+                                                <option disabled selected>Seleccione</option>
+                                            </select>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -129,7 +129,8 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Pregunta</label>
                                         <div class="input-group">
-                                            <input id="pregunta" name="pregunta" type="text" class="form-control" autocomplete="off">
+                                            <input id="pregunta" name="pregunta" type="text" class="form-control"
+                                                autocomplete="off">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -141,26 +142,26 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="form-group">
                                         <label>Mas de una respuesta</label>
                                         <div class="input-group">
-                                           <select name="mas_respuestas" id="mas_respuestas" class="form-control">
-                                            <option disabled selected >Seleccione</option>
-                                                    <option value=Si>Si</option>
-                                                    <option value=No>No</option>
+                                            <select name="mas_respuestas" id="mas_respuestas" class="form-control">
+                                                <option disabled selected>Seleccione</option>
+                                                <option value=Si>Si</option>
+                                                <option value=No>No</option>
 
-                                                </select>
+                                            </select>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                         </div>
 
-                         <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
-                            style="color: white">Actualizar</button>
-                    </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                                style="color: white">Actualizar</button>
+                        </div>
 
                     </div>
 
@@ -169,9 +170,10 @@ include_once '../../plantillas/barra_lateral.php';
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+    </form>
 </div>
 <!-- End Modal Mostrar-->
-</form>
+
 <?php
   include_once '../../plantillas/footer.php';
 ?>
