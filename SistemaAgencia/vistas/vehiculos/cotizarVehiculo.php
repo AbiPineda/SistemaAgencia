@@ -8,8 +8,7 @@ include_once '../../plantillas/cabecera.php';
     type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="<?= $base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 
@@ -53,12 +52,7 @@ include_once '../../plantillas/cabecera.php';
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
-                        <!-- timeline time label -->
-                        <div class="time-label">
-                            <span class="bg-red">Información</span>
-                        </div>
-                        <!-- /.timeline-label -->
-                        <!-- timeline item -->
+
                         <div>
                             <i class="fas fa-car bg-blue"></i>
                             <div class="timeline-item">
@@ -70,26 +64,33 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-12">
                                             <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Nombre del Cliente</label>
-                                                <select name="id_cliente" id="id_cliente" class="form-control">
-                                                    <option disabled="" selected="">Seleccione</option>
-                                                </select>
+
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Cliente</label>
+                                                <div class="input-group">
+                                                    <select name="id_cliente" id="id_cliente"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
+
+
                                         </div>
                                         <div class="col-sm-8">
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nombre de Vehiculo</label>
                                                 <input type="text" class="form-control" name="nombreVehiculo"
-                                                    id="nombreVehiculo" placeholder="Digite nombre del vehiculo">
+                                                    id="nombreVehiculo" placeholder="Digite Marca o Modelo del vehiculo que necesita">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Año</label>
-                                                <input type="number" class="form-control" min=<?php echo date("Y")-5; ?> max=<?php echo date("Y")+1; ?>
-                                                    name="anio" id="anio" autocomplete="off">
+                                                <input type="number" class="form-control" min=<?php echo date("Y")-5; ?>
+                                                    max=<?php echo date("Y")+1; ?> name="anio" id="anio"
+                                                    autocomplete="off">
                                             </div>
                                         </div>
 
@@ -97,9 +98,9 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group">
                                                 <label>Caracteristicas</label>
                                                 <textarea class="textarea" name="caracteristicas" id="caracteristicas"
-                                                placeholder="Digite caracteristicas del Vehiculo"
-                                                style="width: 100%; height: 50px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                       
+                                                    placeholder="Digite caracteristicas del Vehiculo"
+                                                    style="width: 100%; height: 50px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
                                             </div>
                                         </div>
 
@@ -151,40 +152,15 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="input-group clockpicker" data-autoclose="true">
                                                 <input type="text" id="timepicker2" name="start" class="form-control"
                                                     value="08:00" />
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div>
-                            <i class="fas fa-comments bg-yellow"></i>
-                            <div class="timeline-item">
-
-                                <h3 class="timeline-header"><a href="#">Condiciones</a></h3>
-                                <div class="timeline-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group" id="desborde">
-                                                <p>
-                                                    <!-- <pre> --><label name="condiciones" id="condiciones"></label>
-                                                </p>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <button name="btnGuardarCotizacionV" id="btnGuardarCotizacionV"
+                                            class="btn btn-info btn-sm" style="color: white">Guardar</button>
+                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                    </div>
                                 </div>
-                                <div class="timeline-footer" style="text-align: right;">
-                                    <button name="btnGuardarCotizacionV" id="btnGuardarCotizacionV"
-                                        class="btn btn-info btn-sm" style="color: white">Guardar</button>
-                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                </div>
-
                             </div>
                         </div>
                     </div>
