@@ -9,10 +9,10 @@
 
         }).done(function (response) {
 
+          $("#recargar2").load(" #recargar2");//recargar solo un div y no toda la pagina
+          $('#inputs').empty();//vaciar los inputs dinamicos
           $("#modal_eventos").modal('toggle');
           $('#calendar').fullCalendar('refetchEvents');
-          $("#recargar2").load(" #recargar2");//recargar solo un div y no toda la pagina
-           $('#inputs').empty();//vaciar los inputs dinamicos
         
             //REST_Controller::HTTP_OK
             //let respuestaDecodificada = JSON.parse(response);

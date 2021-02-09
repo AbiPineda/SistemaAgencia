@@ -162,7 +162,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnActualizar"  class="btn btn-info float-right">Actualizar</button>
-                    <button type="button" id="btnAgregar" class="btn btn-warning" style="color: white">Eliminar</button>
+                    <button type="button" id="btnEliminar" class="btn btn-warning" style="color: white">Eliminar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
