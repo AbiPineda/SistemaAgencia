@@ -16,7 +16,6 @@
             $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-green"></i>'+
                             '<div class="timeline-item">'+
-                                '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Abiertas</a></h3>'+
                                 '<div class="timeline-body" style="margin-top: -9px;">'+
                                 '<form id="register-form" name="register-form" onsubmit="return false">'+
@@ -39,21 +38,16 @@
                                                     '<option value="Si">Si</option>'+
                                                     '<option value="No">No</option>'+
 
-                                                '</select></div></div>'+
+                                                '</select></div>'+
+                                  '<div class="timeline-footer" style="text-align: right;">'+
+                                    '<button id="btn-preguntas"'+
+                                    'class="btn btn-info btn-sm" style="color: white">Guardar</button>'+
+                                      '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a></div>'+
+
+                                                '</div>'+
 
                                     '</div></form></div></div>');
-
-             $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
-                            '<div class="timeline-item">'+
-                                '<span class="time"><i class="fas fa-save"></i>Guardar</span>'+
-                               '<h3 class="timeline-header"><a href="#">Guardar Información</a></h3>'+
-                                '<div class="timeline-body"><div class="row">'+
-                                        '<div class="col-lg-1"></div><div class="col-lg-10"></div>'+
-                                          '<div class="col-lg-1"></div>'+
-                                        '<div style="text-align: right;width:577px;margin-top:-8px;">'+
-                                 '<a class="btn btn-primary btn-sm" id="btn-preguntas" style="color: white">Guardar</a>'+
-                                '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
-                                '</div></div></div></div>');
+            
            $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-pregunta-app.js">');
             $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
            }
