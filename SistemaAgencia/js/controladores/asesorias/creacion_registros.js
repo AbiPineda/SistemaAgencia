@@ -47,7 +47,7 @@
                                                 '</div>'+
 
                                     '</div></form></div></div>');
-            
+
            $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-pregunta-app.js">');
             $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
            }
@@ -59,38 +59,42 @@
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Cerrada</a></h3>'+
                                 '<div class="timeline-body" style="margin-top: -9px;">'+
                                     '<form id="register-form" name="register-form" onsubmit="return false">'+
-                                    '<div class="row">'+
-                                        '<div class="col-lg-1">'+
-                                        '</div>'+
-                                         
+                                    '<div class="row">'+ 
                                         '<div class="col-lg-6">'+
                                             '<div class="form-group"><label for="cars">Digite la Pregunta</label>'+
                                              '<input id="input_cerrada" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">'+
                                             '<input id="rama" name="id_rama" type="hidden">'+
                                             '<input  value="cerrada" name="opcion" type="hidden">'+
-                                            '</div></div><div class="col-lg-4">'+
+                                            '</div></div>'+
+                                            '<div class="col-lg-3">'+
                                             '<div class="form-group">'+
                                                 '<label>Opciones de Respueta</label>'+
                                                 '<select class="select2" name="opcion_respuesta[]" id="combo_cerrada" multiple="multiple" data-placeholder="Seleccione" style="width:100%;">'+
                                                     '<option>Si</option>'+
                                                     '<option>No</option>'+
                                                     '</select></div>'+
-                                                    '<button type="button" name="" class="btn btn-success" data-toggle="modal" data-target="#modal-opciones">'+
-                                                 '<i class="fas fa-edit" style="color: white"></i>'+
-                                                'Agregar opciones</button></div>'+
-                                            '<div class="col-lg-1"></div></div></form></div></div>');
+                                                    '</div>'+
+                                            '<div class="col-lg-3">'+
+                                            '<div class="form-group"><label>Agregar opciones</label>'+
+                                                '<input type="text" class="form-control" name="opcion"'+
+                                                'id="opcion" placeholder="Nueva opción" style="width: 190px;" autocomplete="off">'+
+                                                '<span class="input-group-btn">'+
+                                              '<button type="button" class="btn btn-success btn-add"'+
+                                              'name="agregarServicio" id="agregar" style="margin-top:-38px; margin-left:191px;">+</button>'+
+                                            '</span>'+
+                                            '</div>'+
+                                            '</div>'+
 
-            $botones.append(' <i class="fas fa-save bg-gradient-lightblue"></i>'+
-                            '<div class="timeline-item">'+
-                                '<span class="time"><i class="fas fa-save"></i>Guardar</span>'+
-                               '<h3 class="timeline-header"><a href="#">Guardar Información</a></h3>'+
-                                '<div class="timeline-body"><div class="row">'+
-                                        '<div class="col-lg-1"></div><div class="col-lg-10"></div>'+
-                                          '<div class="col-lg-1"></div>'+
-                                        '<div style="text-align: right;width:577px;margin-top:-8px;">'+
-                                 '<a class="btn btn-primary btn-sm" id="btn-cerrada" style="color: white">Guardar</a>'+
-                                '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>'+
-                                '</div></div></div></div>');
+                                            
+                                            '</div>'+
+
+                                            '</form>'+
+                                            '<div class="timeline-footer" style="text-align: right;">'+
+                                    '<button id="btn-cerrada"'+
+                                    'class="btn btn-info btn-sm" style="color: white">Guardar</button>'+
+                                      '<a class="btn btn-danger btn-sm" style="color: white">Cancelar</a></div>'+
+                                            '</div></div>');
+
                $('.select2').select2();
                $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/insertar-cerrada-app.js">');
                $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combobox-ramas.js">');
