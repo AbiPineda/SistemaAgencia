@@ -54,15 +54,15 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.cotizacion.length; i < ien; i++) {
 
-                $('#nombre').text(response.cotizacion[i].nombre);
-                $('#nombreVehiculo').text(response.cotizacion[i].nombreVehiculo);
-                $('#anio').text(response.cotizacion[i].anio);
-                $('#direccion_recogida').text(response.cotizacion[i].direccion_recogida);
-                $('#fechaRecogida').text(response.cotizacion[i].fechaRecogida);
-                $('#HoraRecogida').text(response.cotizacion[i].HoraRecogida);
-                $('#direccion_devolucion').text(response.cotizacion[i].direccion_devolucion);
-                $('#fechaDevolucion').text(response.cotizacion[i].fechaDevolucion);
-                $('#HoraDevolucion').text(response.cotizacion[i].HoraDevolucion);
+                $('#nombreC').text(response.cotizacion[i].nombre);
+                $('#nombreVehiculoC').text(response.cotizacion[i].nombreVehiculo);
+                $('#anioC').text(response.cotizacion[i].anio);
+                $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
+                $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
+                $('#HoraRecogidaC').text(response.cotizacion[i].HoraRecogida);
+                $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
+                $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
+                $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
             }
 
         }).fail(function(response) {

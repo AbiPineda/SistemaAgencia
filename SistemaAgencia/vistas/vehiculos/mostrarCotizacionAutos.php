@@ -242,168 +242,183 @@
                         </button>
                     </div>
                     <div class="modal-body">
+
                         <div class="row">
-                            <section class="content">
-                                <div class="callout callout-info">
-                                    <h6><i class="fas fa-info"></i> Nota: Los datos fueron proporcionados
-                                        por el cliente.</h6>
-                                </div>
-                                <div class="container-fluid" id="printDiv">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- Main content -->
-                                            <div class="invoice p-3 mb-3">
-                                                <!-- title row -->
-                                                <div class="row">
-                                                    <div class="col sm-12">
-                                                        <h4>
-                                                            <i class="fas fa-globe"></i> Agencia de Viajes Martínez
-                                                            Travels & Tours
-                                                        </h4>
+                            <div class="col sm-12">
+                                <section class="content">
+                                    <div class="callout callout-info">
+                                        <h6><i class="fas fa-info"></i> Nota: Los datos fueron proporcionados
+                                            por el cliente.</h6>
+                                    </div>
+                                    <div class="container-fluid" id="printDiv">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <!-- Main content -->
+                                                <div class="invoice p-3 mb-3">
+                                                    <!-- title row -->
+                                                    <div class="row">
+                                                        <div class="col sm-12">
+                                                            <h4>
+                                                                <i class="fas fa-globe"></i> Agencia de Viajes Martínez
+                                                                Travels & Tours
+                                                            </h4>
+                                                        </div>
+                                                        <!-- /.col -->
                                                     </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- info row -->
-                                                <div class="row invoice-info">
-                                                    <div class="col-sm-4 invoice-col">
-                                                        <br>
-                                                        <address>
-                                                            <label>Cliente:</label>
-                                                            <label name="nombre" id="nombre"
-                                                                style="font-weight: normal;"></label>
+                                                    <!-- info row -->
+                                                    <div class="row invoice-info">
+                                                        <div class="col-sm-4 invoice-col">
                                                             <br>
-                                                            <label>Email:</label>
-                                                            <label name="email" id="email"
-                                                                style="font-weight: normal;"></label>
-                                                            <br>
-                                                            <label>Telefono:</label>
-                                                            <label name="telefono" id="telefono"
-                                                                style="font-weight: normal;"></label>
-                                                        </address>
+                                                            <address>
+                                                                <label>Cliente:</label>
+                                                                <label name="nombreC" id="nombreC"
+                                                                    style="font-weight: normal;"></label>
+                                                                <br>
+                                                                <label>Email:</label>
+                                                                <label name="emailC" id="emailC"
+                                                                    style="font-weight: normal;"></label>
+                                                                <br>
+                                                                <label>Telefono:</label>
+                                                                <label name="telefonoC" id="telefonoC"
+                                                                    style="font-weight: normal;"></label>
+                                                            </address>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                        <!-- /.col -->
                                                     </div>
-                                                    <!-- /.col -->
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- /.row -->
+                                                    <!-- /.row -->
 
-                                                <!-- Table row -->
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Nombre de Vehiculo</th>
-                                                                    <th>Año</th>
+                                                    <!-- Table row -->
+                                                    <div class="row">
+                                                        <div class="col-12 table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Nombre de Vehiculo</th>
+                                                                        <th>Año</th>
 
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="nombreVehiculo" id="nombreVehiculo"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="anio" id="anio"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Dirección de Recogida</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Hora</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="direccion_recogida"
-                                                                            id="direccion_recogida"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="fechaRecogida" id="fechaRecogida"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="HoraRecogida" id="HoraRecogida"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- /.row -->
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Dirección de Devolución</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Hora</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="direccion_devolucion"
-                                                                            id="direccion_devolucion"
-                                                                            style="font-weight: normal;"></label>
-                                                                    </td>
-                                                                    <td><label name="fechaDevolucion"
-                                                                            id="fechaDevolucion"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="HoraDevolucion" id="HoraDevolucion"
-                                                                            style="font-weight: normal;"></label>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <div class="row">
-                                                    <!-- accepted payments column -->
-                                                    <div class="col-6">
-                                                    </div>
-                                                    <!-- /.col -->
-                                                    <div class="col-6">
-                                                        <div class="table-responsive">
-                                                            <table class="table">
-                                                                <tr>
-                                                                    <th>Descuentos (%)</th>
-                                                                    <td><label name="descuent" id="descuent"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Total ($)</th>
-                                                                    <td><label name="tot" id="tot"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><label name="nombreVehiculoC"
+                                                                                id="nombreVehiculoC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                        <td><label name="anioC" id="anioC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
                                                             </table>
                                                         </div>
-
+                                                        <!-- /.col -->
                                                     </div>
-                                                    <div class="row no-print">
-                                                        <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-12 table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Dirección de Recogida</th>
+                                                                        <th>Fecha</th>
+                                                                        <th>Hora</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><label name="direccion_recogidaC"
+                                                                                id="direccion_recogidaC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                        <td><label name="fechaRecogidaC"
+                                                                                id="fechaRecogidaC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                        <td><label name="HoraRecogidaC" id="HoraRecogidaC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    </div>
+                                                    <!-- /.row -->
+                                                    <div class="row">
+                                                        <div class="col-12 table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Dirección de Devolución</th>
+                                                                        <th>Fecha</th>
+                                                                        <th>Hora</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><label name="direccion_devolucionC"
+                                                                                id="direccion_devolucionC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                        <td><label name="fechaDevolucionC"
+                                                                                id="fechaDevolucionC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                        <td><label name="HoraDevolucionC"
+                                                                                id="HoraDevolucionC"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <!-- accepted payments column -->
+                                                        <div class="col-6">
+                                                        </div>
+                                                        <!-- /.col -->
+                                                        <div class="col-6">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <tr>
+                                                                        <th>Descuentos (%)</th>
+                                                                        <td><label name="descuent" id="descuent"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Total ($)</th>
+                                                                        <td><label name="tot" id="tot"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
 
-                                                            <button target="_blank" id="doPrint"
-                                                                class="btn btn-default"><i class="fas fa-print"></i>
-                                                                Imprimir</button>
-
-                                                            <div id="editor"></div>
+                                                                </table>
+                                                            </div>
 
                                                         </div>
-                                                    </div>
+                                                        <div class="row no-print">
+                                                            <div class="col-md-12">
 
+                                                                <button target="_blank" id="doPrint"
+                                                                    class="btn btn-default"><i class="fas fa-print"></i>
+                                                                    Imprimir</button>
+
+                                                                <div id="editor"></div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
