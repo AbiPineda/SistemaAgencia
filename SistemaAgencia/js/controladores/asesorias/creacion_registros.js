@@ -9,6 +9,7 @@
 
           $('#mostrar').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
           $('#botones').empty();
+          $('#script').empty();
 
 
           if (selected=='Abiertas') {

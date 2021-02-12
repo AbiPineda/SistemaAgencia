@@ -125,7 +125,6 @@ include_once '../../plantillas/barra_lateral.php';
   include_once '../../plantillas/footer.php';
 ?>
 <div id="script"></div>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-pregunta-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas_automaticas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas_automaticas.js"></script>

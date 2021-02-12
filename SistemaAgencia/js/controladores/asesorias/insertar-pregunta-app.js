@@ -10,10 +10,10 @@ $(document).ready(function (){
         form1.validate();
         form.validate();
         if (form1.valid()) {
-          if (form.valid()) {
+         if (form.valid()) {
             add_cerrada();
         }  
-        }
+       }
         
     });
 
