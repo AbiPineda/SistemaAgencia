@@ -8,12 +8,11 @@ $(document).ready(function () {
 
   $select.change(opcionCambiada);
   const agregar = () => {
-    const valor = $('#opcion').val();
-    if ($('#opcion').val().length != 0) {
+    const valor = $('#opcion_combo').val();
+    if ($('#opcion_combo').val().length != 0) {
     var $seleccionadas = $("<option></option>").val(valor).text(valor); 
     $('#combo_cerrada').append($seleccionadas).trigger('change');
-    //$('#opcion').val('')
-    $('#modal-opciones').modal('hide');
+    $('#opcion_combo').val('')
   }else{
     const Toast = Swal.mixin();
             Toast.fire({

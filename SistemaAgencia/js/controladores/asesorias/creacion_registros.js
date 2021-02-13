@@ -56,7 +56,6 @@
             $('#combo_rama').empty();
             $('#combo_rama').prop("disabled",false);
             $mostrar.append('<i class="fas fa-address-card bg-gradient-info"></i> <div class="timeline-item">'+
-                                '<span class="time"><i class="fas fa-anchor"></i>Selección</span>'+
                                 '<h3 class="timeline-header"><a href="#">Tipo de Pregunta Cerrada</a></h3>'+
                                 '<div class="timeline-body" style="margin-top: -9px;">'+
                                     '<form id="register-form" name="register-form" onsubmit="return false">'+
@@ -77,8 +76,8 @@
                                                     '</div>'+
                                             '<div class="col-lg-3">'+
                                             '<div class="form-group"><label>Agregar opciones</label>'+
-                                                '<input type="text" class="form-control" name="opcion"'+
-                                                'id="opcion" placeholder="Nueva opción" style="width: 190px;" autocomplete="off">'+
+                                                '<input type="text" class="form-control" name="opcion_combo"'+
+                                                'id="opcion_combo" placeholder="Nueva opción" style="width: 190px;" autocomplete="off">'+
                                                 '<span class="input-group-btn">'+
                                               '<button type="button" class="btn btn-success btn-add"'+
                                               'name="agregarServicio" id="agregar" style="margin-top:-38px; margin-left:191px;">+</button>'+
