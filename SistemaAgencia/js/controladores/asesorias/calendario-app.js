@@ -38,7 +38,7 @@
                 if (select>=hoy) {
 
                 $('#modal_registro').modal();
-                $('#txtFecha').val(date.format());
+                $('#txtFecha').val(date.format("DD-MM-YYYY"));
               }else{
 
                 const Toast = Swal.mixin();
@@ -66,8 +66,13 @@
                   $('#btnActualizar').prop("disabled",true);
                 }else{ $('#btnActualizar').prop("disabled",false);}
                 $('#tituloEvento').html(calEvent.title);
-                $('#txtFecha2').val(calEvent.fecha);
-                $('#txtFecha3').val(calEvent.fecha);
+
+                let convertir=calEvent.fecha;
+                let nuevaFecha=convertir.split('-');
+                let fechita=nuevaFecha[2]+'-'+nuevaFecha[1]+'-'+nuevaFecha[0];
+
+                $('#txtFecha2').val(fechita);
+                $('#txtFecha3').val(fechita);
                 $('#txtId').val(calEvent.id_cita);
                 $('#timepicker2').val(calEvent.hora);
                 document.getElementById("asistencia2").value = calEvent.compania;
