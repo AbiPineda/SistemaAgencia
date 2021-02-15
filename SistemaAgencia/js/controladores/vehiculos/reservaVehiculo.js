@@ -125,13 +125,7 @@ $(document).ready(function() {
     }
 
 
-    function modificarTotalCliente() {
-        //POR DIA
-        $('#totalCliente').empty();
-        $('#totalCliente').text("$" + (parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
-    }
-
-
+    
     ///PARA LAS VALIDACIONES AL  MOMENTO DE IMPRIMIRLAS
     function inicializarValidaciones() {
         $('#cliente-form').validate({
@@ -178,6 +172,15 @@ $(document).ready(function() {
             TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
         });
     });
+
+    function modificarTotalCliente() {
+        //POR DIA
+        $('#totalCliente').empty();
+        TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
+        $('#totalCliente').text("$" + (parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
+    }
+
+
 
     function inicializarCalendario() {
         $('#fecha_salida').daterangepicker({
@@ -227,5 +230,4 @@ $(document).ready(function() {
     });
 
 
-    
 });
