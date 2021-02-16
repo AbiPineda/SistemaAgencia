@@ -178,6 +178,7 @@ $(document).ready(function() {
         $('#totalCliente').empty();
         TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
         $('#totalCliente').text("$" + (parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
+        $('#emergencia').val((parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
     }
 
 

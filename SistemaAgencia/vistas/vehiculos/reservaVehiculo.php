@@ -207,6 +207,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                         <div class="col-md-3  ">
                                             <label id="totalCliente" class="text-danger "> $0</label>
+                                            <input type="hidden" id="emergencia">
                                         </div>
                                     </div>
                                 </div>

@@ -28,7 +28,7 @@
                 form.append("nombre", arregloServicios);
         
                 form.append("fechaHora", document.getElementById("fecha_salida").value);
-                form.append("total", document.getElementById("totalCliente").value);
+                form.append("total", document.getElementById("emergencia").value);
                 form.append("activo", estadoReservado);
     
                 $.ajax({

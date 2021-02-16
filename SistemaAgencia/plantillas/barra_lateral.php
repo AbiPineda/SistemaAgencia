@@ -433,6 +433,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="<?= $base_url ?>vistas/vehiculos/vehiculosAlquilados.php" class="nav-link">
+                                        <i class="fas fa-ellipsis-v nav-icon"></i>
+                                        <p>Vehiculos Alquilados</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= $base_url ?>vistas/vehiculos/verMantenimientos.php" class="nav-link">
                                         <i class="fas fa-ellipsis-v nav-icon"></i>
                                         <p>Mantenimientos Realizados</p>
