@@ -6,12 +6,12 @@ $(document).ready(function() {
         e.preventDefault();
         let myData = {
 
-            "usuario": document.getElementById("nombreUsuario").value,
-            "contrasena": document.getElementById("pass").value,
+            "usuario_renta": document.getElementById("nombreUsuario").value,
+            "contrasena_renta": document.getElementById("pass").value,
             "rentaCar": document.getElementById("rentaCar").value,
-            "telefono": document.getElementById("telefono").value,
-            "lugar": document.getElementById("lugar").value,
-            "descripcion": document.getElementById("descripcion").value
+            "telefono_renta": document.getElementById("telefono").value,
+            "lugar_renta": document.getElementById("lugar").value,
+            "descripcion_renta": document.getElementById("descripcion").value
         }
 
         $.ajax({

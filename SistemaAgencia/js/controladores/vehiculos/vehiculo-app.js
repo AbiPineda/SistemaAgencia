@@ -17,7 +17,7 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            document.getElementById("nombre").value = response.autos[0].nombre;
+            document.getElementById("nombre").value = response.autos[0].nombre_categoria;
             document.getElementById("placa").value = response.autos[0].placa;
             document.getElementById("anio").value = response.autos[0].anio;
             document.getElementById("precio_diario").value = response.autos[0].precio_diario;
@@ -159,7 +159,7 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "nombre" },
+                { data: "nombre_categoria" },
                 { data: "marca" },
                 { data: "modelo" },
                 { data: "placa" },

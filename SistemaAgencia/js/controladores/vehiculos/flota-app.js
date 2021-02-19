@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('#mode1').text(data.modelo);
         $('#marca').text(data.marca);
         $('#precio').text(data.precio_diario);
-        $('#categoria').text(data.nombre);
+        $('#categoria').text(data.nombre_categoria);
         $('#detalles').text(data.detalles);
         $('#descripcion').text(data.descripcion);
         $('#puerta').text(data.puertas);

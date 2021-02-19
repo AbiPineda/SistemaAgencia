@@ -25,8 +25,8 @@ $(document).ready(function() {
 
 
             form.append("id_vehiculoFK", document.getElementById("id_placa").value);
-            form.append("fecha", document.getElementById("fecha").value);
-            form.append("lugar", document.getElementById("lugar").value);
+            form.append("fecha_mantenimiento", document.getElementById("fecha").value);
+            form.append("lugar_mantenimiento", document.getElementById("lugar").value);
             form.append("mantenimiento_realizado", arregloMantimiento);
             form.append("piezas_cambiadas", arregloPiezas);
             form.append("comentariosIncidentes", document.getElementById("comentarios").value);

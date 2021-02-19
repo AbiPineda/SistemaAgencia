@@ -25,7 +25,7 @@
                 form.append("direccionRecogida", document.getElementById("direccionR").value);
                 form.append("direccionDevolucion", document.getElementById("direccionD").value);
                 
-                form.append("nombre", arregloServicios);
+                form.append("nombre_detalle", arregloServicios);
         
                 form.append("fechaHora", document.getElementById("fecha_salida").value);
                 form.append("total", document.getElementById("emergencia").value);

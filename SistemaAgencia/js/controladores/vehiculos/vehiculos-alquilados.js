@@ -14,31 +14,30 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?activo=2&id_detalle=" + idAlquiler,
+            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?detalle_vehiculo.activo=2&id_detalle=" + idAlquiler,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
 
                 document.getElementById("idDetalle").value = response.detalleVehiculo[i].id_detalle;
-                document.getElementById("cliente").value = response.detalleVehiculo[i].id_cliente;
-                document.getElementById("vehiculo").value = response.detalleVehiculo[i].id_vehiculo;
+                document.getElementById("cliente").value = response.detalleVehiculo[i].nombre;
+                document.getElementById("placa").value = response.detalleVehiculo[i].placa;
+                document.getElementById("anio").value = response.detalleVehiculo[i].anio;
+                document.getElementById("modelo").value = response.detalleVehiculo[i].modelo;
+                document.getElementById("kilometraje").value = response.detalleVehiculo[i].kilometraje;
                 document.getElementById("total").value = response.detalleVehiculo[i].total;
                 document.getElementById("recogida").value = response.detalleVehiculo[i].direccionRecogida;
                 document.getElementById("devolucion").value = response.detalleVehiculo[i].direccionDevolucion;
                 document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora;
-                document.getElementById("servicios").value = response.detalleVehiculo[i].nombre;
+                document.getElementById("servicios").value = response.detalleVehiculo[i].nombre_detalle;
               
             }
-
-
-
-
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
             $('#modal-editar').modal('show');
-            $('#loadingActualizar').hide();
+         //   $('#loadingActualizar').hide();
         });
     });
 
@@ -86,7 +85,7 @@ $(document).ready(function() {
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo?activo=2",
+                "url": URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo?detalle_vehiculo.activo=2",
                 "method": "GET",
                 "dataSrc": function(json) {
                     console.log(json.detalleVehiculo);
@@ -120,8 +119,8 @@ $(document).ready(function() {
             },
             columns: [
                 { data: "id_detalle" },
-                { data: "id_cliente" },
-                { data: "id_vehiculo" },
+                { data: "nombre" },
+                { data: "modelo" },
                 { data: "total" },
                 { data: "fechaHora" },
                 { data: "botones" }
@@ -133,42 +132,13 @@ $(document).ready(function() {
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
-                placa: {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 40
-                },
-                anio: {
-                    required: true,
-                    number: true,
-                    min: 2010
-                },
-                tipoCombustible: {
+                kilometraje: {
                     required: true,
                     minlength: 10,
-                },
-                precio_diario: {
-                    required: true,
-                    number: true,
-                    min: 1
                 }
             },
             messages: {
-                placa: {
-                    required: "Ingrese un nombre",
-                    minlength: "Logitud del nombre debe ser mayor a 3",
-                    maxlength: "Logitud del nombre no debe exceder a 40",
-                },
-                anio: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
-                },
-                tipoCombustible: {
-                    required: "La informacion de contacto es necesaria",
-                    minlength: "Debe de tener una longitud minima de 10",
-                },
-                precio_diario: {
+                kilometraje: {
                     required: "Ingrese un numero",
                     number: "Ingrese un numero",
                     min: "Debe de ser mayor que 0"
@@ -194,14 +164,13 @@ $(document).ready(function() {
     function actualizar() {
         $('#loadingActualizar').show();
         let data = {
-            "id_mantenimiento": idAlquiler,
-            "fecha": document.getElementById("fecha").value,
-            "lugar": document.getElementById("lugar").value
+            "id_detalle": idAlquiler,
+            "kilometraje": document.getElementById("kilometraje").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
-            url: URL_SERVIDOR + "mantenimientoVehiculo/actualizarMantenimiento",
+            url: URL_SERVIDOR + "DetalleVehiculo/actualizarDetalle",
             method: "PUT",
             timeout: 0,
             data: data
@@ -235,7 +204,7 @@ $(document).ready(function() {
 
     function eliminar() {
         let data = {
-            "id_mantenimiento": idAlquiler
+            "id_detalle": idAlquiler
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 

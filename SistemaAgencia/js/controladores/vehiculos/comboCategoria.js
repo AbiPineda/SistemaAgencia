@@ -13,7 +13,7 @@ $(document).ready(function() {
             for (let index = 0; index < DATA_CATEGORIA.length; index++) {
                 myData.push({
                     id: DATA_CATEGORIA[index].idcategoria,
-                    text: DATA_CATEGORIA[index].nombre 
+                    text: DATA_CATEGORIA[index].nombre_categoria 
                 });
             }
             $('#id_categoria').select2({ data: myData });

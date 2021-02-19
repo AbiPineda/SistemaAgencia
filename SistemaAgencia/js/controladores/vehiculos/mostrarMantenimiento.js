@@ -20,8 +20,8 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.mantenimiento.length; i < ien; i++) {
 
-                document.getElementById("fecha").value = response.mantenimiento[i].fecha;
-                document.getElementById("lugar").value = response.mantenimiento[i].lugar;
+                document.getElementById("fecha").value = response.mantenimiento[i].fecha_mantenimiento;
+                document.getElementById("lugar").value = response.mantenimiento[i].lugar_mantenimiento;
                 document.getElementById("vehiculo").value = response.mantenimiento[i].modelo;
                 document.getElementById("anio").value = response.mantenimiento[i].anio;
                 document.getElementById("placa").value = response.mantenimiento[i].placa;
@@ -117,10 +117,10 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "fecha" },
+                { data: "fecha_mantenimiento" },
                 { data: "modelo" },
                 { data: "anio" },
-                { data: "lugar" },
+                { data: "lugar_mantenimiento" },
                 { data: "costoMantenimiento" },
                 { data: "botones" }
             ]

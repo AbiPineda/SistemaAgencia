@@ -122,6 +122,15 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
+                                    <label>Total</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="total" name="total" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
                                     <label>Cliente</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="cliente" name="cliente" disabled>
@@ -132,23 +141,42 @@
                             
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label>Vehiculo</label>
+                                    <label>Placa</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="vehiculo" name="vehiculo" disabled>
+                                        <input type="text" class="form-control" id="placa" name="placa" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Año</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="anio" name="anio" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Modelo</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="modelo" name="modelo" disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Kilometraje</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="kilometraje" name="kilometraje">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
                             
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label>Total</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="total" name="total" disabled>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Dirección de Recogida</label>

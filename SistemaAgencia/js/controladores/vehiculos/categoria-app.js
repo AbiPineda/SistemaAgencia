@@ -2,8 +2,8 @@ $("#btnCategoria").on('click', function(e) {
 
     e.preventDefault();
     let myData = {
-        "nombre": document.getElementById("nombreCategoria").value,
-        "descripcion":document.getElementById("descripcionCategoria").value 
+        "nombre_categoria": document.getElementById("nombreCategoria").value,
+        "descripcion_categoria":document.getElementById("descripcionCategoria").value 
     };
     $.ajax({
         url: URL_SERVIDOR + "categoriasAutos/categorias",
