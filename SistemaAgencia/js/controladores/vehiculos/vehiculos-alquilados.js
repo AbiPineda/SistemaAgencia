@@ -5,7 +5,7 @@ $(document).ready(function() {
     let tabla;
 
 
-    // inicializarValidaciones();
+     inicializarValidaciones();
     inicializarTabla();
 
     //BOTON DE EDITAR
@@ -136,7 +136,7 @@ $(document).ready(function() {
             rules: {
                 kilometraje: {
                     required: true,
-                    minlength: 10,
+                    minlength: 5,
                 }
             },
             messages: {

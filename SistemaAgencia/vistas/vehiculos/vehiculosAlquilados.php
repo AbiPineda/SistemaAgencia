@@ -170,7 +170,7 @@
                                 <div class="form-group">
                                     <label>Kilometraje</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="kilometraje" name="kilometraje">
+                                        <input type="number" class="form-control" id="kilometraje" name="kilometraje">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -181,7 +181,7 @@
                                 <div class="form-group">
                                     <label>Dirección de Recogida</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="recogida" name="recogida" >
+                                        <input type="text" class="form-control" id="recogida" name="recogida" disabled >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -191,7 +191,7 @@
                                     <label>Dirección de Devolución</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="devolucion"
-                                            name="devolucion" >
+                                            name="devolucion" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -201,7 +201,7 @@
                                     <label>Servicios Adquiridos</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="servicios"
-                                            name="servicios" >
+                                            name="servicios" disabled >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -211,7 +211,7 @@
                                     <label>Fecha - Hora (Recogida/Devolución) </label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="fechaHora"
-                                            name="fechaHora" >
+                                            name="fechaHora" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
