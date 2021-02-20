@@ -1,6 +1,7 @@
 $(document).ready(function() {
     let explorer = $("#kv-explorer");
     let idAlquiler;
+    let id_vehiculo;
     let tabla;
 
 
@@ -11,6 +12,7 @@ $(document).ready(function() {
     $(document).on('click', '.btn-group .btn-primary', function() {
 
         idAlquiler = $(this).attr("name");
+        id_vehiculo = $(this).attr("id");
 
         $('#loadingActualizar').show();
         $.ajax({
@@ -96,7 +98,7 @@ $(document).ready(function() {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" class="btn btn-primary" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" id="' + json.detalleVehiculo[i].id_vehiculo + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
@@ -165,7 +167,8 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "id_detalle": idAlquiler,
-            "kilometraje": document.getElementById("kilometraje").value
+            "kilometraje": document.getElementById("kilometraje").value,
+            "idvehiculo":id_vehiculo
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
@@ -175,6 +178,7 @@ $(document).ready(function() {
             timeout: 0,
             data: data
         }).done(function(response) {
+            console.log(response);
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
