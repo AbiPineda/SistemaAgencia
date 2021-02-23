@@ -16,7 +16,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?detalle_vehiculo.activo=2&id_detalle=" + idAlquiler,
+            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -87,7 +87,7 @@ $(document).ready(function() {
             "autoWidth": false,
             "deferRender": true,
             "ajax": {
-                "url": URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo?detalle_vehiculo.activo=2",
+                "url": URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo",
                 "method": "GET",
                 "dataSrc": function(json) {
                     console.log(json.detalleVehiculo);
@@ -101,10 +101,6 @@ $(document).ready(function() {
                             html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" id="' + json.detalleVehiculo[i].id_vehiculo + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
