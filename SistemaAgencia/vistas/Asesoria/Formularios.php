@@ -120,6 +120,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                                <div class="card-body">
                         <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                            <label style="width: 400px;margin-left: 98px; margin-top:4px;">Cliente</label>
                                 <div style="width: 200px;"></div>
                                 <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
                                 <input type="text" id="usuario" value="" class="form-control" disabled="true" style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp

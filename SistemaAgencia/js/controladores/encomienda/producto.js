@@ -6,6 +6,9 @@ $(document).ready(function() {
             url: URL_SERVIDOR+"Producto/productos",
             dataType: "json",
             success: function(data) {
+                let $select = $('#id_producto');
+                $select.append('<option value="">Seleccione</option>');
+               
 
                 let myData = [];
                 DATA_PRODUCTOS = data.product;
