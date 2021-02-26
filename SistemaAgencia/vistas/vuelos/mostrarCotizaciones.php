@@ -153,8 +153,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaPartida" name="fechaPartida" type="text" class="form-control"
-                                            disabled>
+                                        <input id="fechaPartida" name="fechaPartida" type="date" class="form-control"
+                                            disabled  type="date" data-date="" data-date-format="DD MMMM YYYY">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -183,8 +183,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaLlegada" name="fechaLlegada" type="text" class="form-control"
-                                            disabled>
+                                        <input id="fechaLlegada" name="fechaLlegada" type="date" class="form-control"
+                                            disabled  type="date" data-date="" data-date-format="DD MMMM YYYY">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -387,7 +387,7 @@
                                                                     <td><label name="ciudadP" id="ciudadP"
                                                                             style="font-weight: normal;"></label></td>
                                                                     <td><label name="fechaP" id="fechaP"
-                                                                            style="font-weight: normal;"></label></td>
+                                                                            style="font-weight: normal;" ></label></td>
                                                                     <td><label name="horaP" id="horaP"
                                                                             style="font-weight: normal;"></label></td>
                                                                 </tr>
@@ -537,10 +537,15 @@ document.getElementById("doPrint").addEventListener("click", function() {
 });
 </script>
 
-<scrip>
-
-</scrip>
-
+<script>
+$("input").on("change", function() {
+    this.setAttribute(
+        "data-date",
+        moment(this.value, "YYYY-MM-DD")
+        .format( this.getAttribute("data-date-format") )
+    )
+}).trigger("change")
+</script>
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>

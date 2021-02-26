@@ -105,6 +105,11 @@ $(document).ready(function() {
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
+
+                            let fechaSalida =  moment(json.mantenimiento[i]["start"] );
+                            
+                            json.mantenimiento[i]["start"]  = fechaSalida.locale('es').format('L');
+       
                             json.mantenimiento[i]["botones"] = html;
 
                         }
@@ -117,7 +122,7 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "fecha_mantenimiento" },
+                { data: "start" },
                 { data: "modelo" },
                 { data: "anio" },
                 { data: "lugar_mantenimiento" },
