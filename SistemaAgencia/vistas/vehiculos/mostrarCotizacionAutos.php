@@ -286,9 +286,7 @@
                                                         <!-- /.col -->
                                                         <!-- /.col -->
                                                     </div>
-                                                    <!-- /.row -->
 
-                                                    <!-- Table row -->
                                                     <div class="row">
                                                         <div class="col-12 table-responsive">
                                                             <table class="table table-striped">
@@ -296,7 +294,6 @@
                                                                     <tr>
                                                                         <th>Nombre de Vehiculo</th>
                                                                         <th>Año</th>
-
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -320,8 +317,6 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Dirección de Recogida</th>
-                                                                        <th>Fecha</th>
-                                                                        <th>Hora</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -330,11 +325,31 @@
                                                                                 id="direccion_recogidaC"
                                                                                 style="font-weight: normal;"></label>
                                                                         </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th>Fecha de Recogida</th>
+                                                                        <th>Hora de Recogida</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+
                                                                         <td><label name="fechaRecogidaC"
                                                                                 id="fechaRecogidaC"
                                                                                 style="font-weight: normal;"></label>
                                                                         </td>
-                                                                        <td><label name="HoraRecogidaC" id="HoraRecogidaC"
+                                                                        <td><label name="HoraRecogidaC"
+                                                                                id="HoraRecogidaC"
                                                                                 style="font-weight: normal;"></label>
                                                                         </td>
                                                                     </tr>
@@ -350,8 +365,6 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Dirección de Devolución</th>
-                                                                        <th>Fecha</th>
-                                                                        <th>Hora</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -360,6 +373,25 @@
                                                                                 id="direccion_devolucionC"
                                                                                 style="font-weight: normal;"></label>
                                                                         </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!-- /.col -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th>Fecha de Devolución</th>
+                                                                        <th>Hora de Devolución</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+
                                                                         <td><label name="fechaDevolucionC"
                                                                                 id="fechaDevolucionC"
                                                                                 style="font-weight: normal;"></label>
@@ -376,47 +408,23 @@
                                                     </div>
                                                     <div class="row">
                                                         <!-- accepted payments column -->
-                                                        <div class="col-6">
+                                                        <div class="col-md-6">
                                                         </div>
-                                                        <!-- /.col -->
-                                                        <div class="col-6">
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <tr>
-                                                                        <th>Descuentos (%)</th>
-                                                                        <td><label name="descuent" id="descuent"
-                                                                                style="font-weight: normal;"></label>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Total ($)</th>
-                                                                        <td><label name="tot" id="tot"
-                                                                                style="font-weight: normal;"></label>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                </table>
-                                                            </div>
-
+                                                        <div class="col-md-4">
                                                         </div>
                                                         <div class="row no-print">
                                                             <div class="col-md-12">
-
                                                                 <button target="_blank" id="doPrint"
                                                                     class="btn btn-default"><i class="fas fa-print"></i>
                                                                     Imprimir</button>
-
                                                                 <div id="editor"></div>
-
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </section>
                             </div>
                         </div>
