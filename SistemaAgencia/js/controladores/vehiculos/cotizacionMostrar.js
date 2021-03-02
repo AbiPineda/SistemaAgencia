@@ -55,11 +55,16 @@ $(document).ready(function() {
             for (let i = 0, ien = response.cotizacion.length; i < ien; i++) {
 
                 $('#nombreC').text(response.cotizacion[i].nombre);
+                $('#emailC').text(response.cotizacion[i].correo);
+                $('#telefonoC').text(response.cotizacion[i].celular);
+
                 $('#nombreVehiculoC').text(response.cotizacion[i].nombreVehiculo);
                 $('#anioC').text(response.cotizacion[i].anio);
+
                 $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
                 $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
                 $('#HoraRecogidaC').text(response.cotizacion[i].HoraRecogida);
+                
                 $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
                 $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
                 $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
