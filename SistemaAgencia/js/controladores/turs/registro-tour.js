@@ -156,6 +156,10 @@ $(document).on('click', '#btnguardar', function (evento) {
         });
     }
 });
+//BOTON + AGREGAR UN NUEVO SERVICIO 
+$(document).on('click', '#newServicio', function (evento) {
+    $('#modal-agregarServicio').modal('show');
+});
 //BOTON DE AGREGAR INPUT
 $(document).on('click', '.btn-add', addFormGroup);
 //BOTON DE ELIMINAR INPUT

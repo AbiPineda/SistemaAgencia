@@ -73,7 +73,6 @@ $(document).ready(function () {
 
         let tipoServicio = $('#tipo_servicio').select2("data");
         let fila_trasera = $('#checkTrasero').prop('checked');
-        console.log("la fila trasera es " + fila_trasera);
 
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
@@ -101,7 +100,6 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
-            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -121,6 +119,13 @@ $(document).ready(function () {
                 borrarTodo();
                 crearFilas();
                 dibujarAsientos();
+                let respuestaDecodificada = JSON.parse(response);
+                //ACTUALIZAREMOS EL COMBO SI ESTAMOS EN REGISTRO TOURS
+                let texto = respuestaDecodificada.nombre_servicio;
+                let id = respuestaDecodificada.id;
+                let newOption = new Option(texto, id, false, false);
+                $('#ComboServicio').append(newOption).trigger('change');
+                $('#modal-agregarServicio').modal('hide');
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -200,7 +205,6 @@ $(document).ready(function () {
         let myData = {
             tipo_servicio: document.getElementById("nombreTipoServicio").value
         }
-        console.log(myData);
         $.ajax({
             url: URL_SERVIDOR + "TipoServicio/save",
             method: "POST",
