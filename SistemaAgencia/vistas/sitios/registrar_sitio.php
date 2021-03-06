@@ -32,7 +32,7 @@
 
    <!-- Main content -->
    <section class="content">
-      <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+      <form id="miFormularioSitio" enctype="multipart/form-data" name="miFormularioSitio" role="form">
          <div class="row">
             <!-- <div class="offset-md-1"></div> -->
             <div class="col-md-12">
@@ -85,8 +85,8 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipo"
-                                          name="btn-nuevoTipo" style="margin-top: 10px; width: 100%;">+</button>
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipoSitio"
+                                          name="btn-nuevoTipoSitio" style="margin-top: 10px; width: 100%;">+</button>
                                     </span>
                                  </div>
                               </div>
@@ -126,8 +126,8 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
-                                          name="btn-nuevo" style="margin-top: 10px; width: 100%;">+</button>
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoContacto"
+                                          name="btn-nuevoContacto" style="margin-top: 10px; width: 100%;">+</button>
                                     </span>
                                  </div>
 
@@ -195,8 +195,8 @@
 
    </section>
 
-   <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
-      <div class="modal fade" id="modal-agregar">
+   <form id="formularioAgregarContacto" name="formularioAgregarContacto" enctype="multipart/form-data">
+      <div class="modal fade" id="modal-agregarContactoSitio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -215,7 +215,7 @@
                                  <label>Nombre de Contacto</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Nombre" type="text" class="form-control"
-                                       name="nombreContacto" id="nombreContacto">
+                                       name="nombreContactoSitio" id="nombreContactoSitio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -225,7 +225,7 @@
                                  <label>Teléfono de Contactos</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Teléfono" type="text" class="form-control"
-                                       id="telefonoContacto" name="telefonoContacto">
+                                       id="telefonoContactoSitio" name="telefonoContactoSitio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -235,7 +235,7 @@
                                  <label>Correo Electronico</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Correo" type="text" class="form-control"
-                                       name="correoContacto" id="correoContacto">
+                                       name="correoContactoSitio" id="correoContactoSitio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -247,7 +247,7 @@
                            <div class="kv-avatar">
                               <label>Foto de Contacto</label>
                               <div class="file-loading">
-                                 <input id="foto" name="foto" type="file">
+                                 <input id="fotoContactoSitio" name="fotoContactoSitio" type="file">
                               </div>
                            </div>
                            <!-- /.input group -->
@@ -257,7 +257,7 @@
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                  <button name="btnAgregarContactoSitio" id="btnAgregarContactoSitio" class="btn btn-info btn-sm"
                      style="color: white">Guardar</button>
                </div>
             </div>
@@ -268,7 +268,7 @@
       <!-- End Modal EDITAR-->
    </form>
    <form id="formularioAgregarTipo" name="formularioAgregarTipo">
-      <div class="modal fade" id="modal-agregarTipo">
+      <div class="modal fade" id="modal-agregarTipoSitio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -293,7 +293,7 @@
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregarTipo" id="btnAgregarTipo" class="btn btn-info btn-sm"
+                  <button name="btnAgregarTipoSitio" id="btnAgregarTipoSitio" class="btn btn-info btn-sm"
                      style="color: white">Guardar</button>
                </div>
             </div>

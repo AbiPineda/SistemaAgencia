@@ -2,51 +2,51 @@
 $(document).ready(function () {
     let dataTipo;
 
-    inicializarComboContacto();
-    inicializarComboTipo();
-    inicializarValidaciones();
-    inicializarGaleria();
-    inicializarFoto();
-    
-    //BOTON DE NUEVO
-    $(document).on('click', '#btn-nuevo', function (evento) {
-        $('#modal-agregar').modal('show');
+    inicializarComboContactoSitios();
+    inicializarComboTipoSitios();
+    inicializarValidacionesSitios();
+    inicializarGaleriaSitios();
+    inicializarFotoContactoSitio();
+
+    //BOTON ABRIR MODAL DE CONTACTO
+    $(document).on('click', '#btn-nuevoContacto', function (evento) {
+        $('#modal-agregarContactoSitio').modal('show');
     });
-     //BOTON PARA AGREGAR UN NUEVO CONTACTO 
-    $(document).on('click', '#btnAgregar', function (evento) {
+    //BOTON PARA AGREGAR UN NUEVO CONTACTO 
+    $(document).on('click', '#btnAgregarContactoSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#formularioAgregar");
+        let form = $("#formularioAgregarContacto");
         form.validate();
         if (form.valid()) {
 
-            guardarContacto();
+            guardarContactoSitios();
         }
     });
     //BOTON PARA AGREGAR UN NUEVO TIPO 
-    $(document).on('click', '#btnAgregarTipo', function (evento) {
+    $(document).on('click', '#btnAgregarTipoSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#formularioAgregarTipo");
         form.validate();
         if (form.valid()) {
-            guardarTipo();
+            guardarTipoSitio();
         }
     });
     //BOTON DE NUEVO TIPO
-    $(document).on('click', '#btn-nuevoTipo', function (evento) {
-        $('#modal-agregarTipo').modal('show');
+    $(document).on('click', '#btn-nuevoTipoSitio', function (evento) {
+        $('#modal-agregarTipoSitio').modal('show');
     });
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#miFormulario");
+        let form = $("#miFormularioSitio");
         let coordenadas = $('#coordenadas').val();
         form.validate();
         if (form.valid() && coordenadas) {
-            guardar();
+            guardarSitio();
         } else {
             if (!coordenadas) {
                 errors = { coordenadas: "No ha seleccionada las coordenadas" };
-                $("#miFormulario").validate().showErrors(errors);
+                $("#miFormularioSitio").validate().showErrors(errors);
             }
             const Toast = Swal.mixin();
             Toast.fire({
@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
     });
 
-    function inicializarComboTipo() {
+    function inicializarComboTipoSitios() {
         $.ajax({
             url: URL_SERVIDOR + "TipoSitio/show",
             method: "GET"
@@ -87,7 +87,7 @@ $(document).ready(function () {
         });
 
     }
-    function inicializarGaleria() {
+    function inicializarGaleriaSitios() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
             theme: 'fas',
@@ -103,7 +103,7 @@ $(document).ready(function () {
             showClose: false,
         });
     }
-    function inicializarComboContacto() {
+    function inicializarComboContactoSitios() {
         //COMBO DE CONTACTOS
         $.ajax({
             url: URL_SERVIDOR + "Contacto/show",
@@ -132,9 +132,9 @@ $(document).ready(function () {
             // $('#loading').hide();
         });
     }
-    function inicializarFoto() {
+    function inicializarFotoContactoSitio() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-        $('#foto').fileinput({
+        $('#fotoContactoSitio').fileinput({
             theme: 'fas',
             language: 'es',
             required: true,
@@ -154,8 +154,8 @@ $(document).ready(function () {
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
     }
-    function inicializarValidaciones() {
-        $('#miFormulario').validate({
+    function inicializarValidacionesSitios() {
+        $('#miFormularioSitio').validate({
             rules: {
                 nombre: {
                     required: true,
@@ -210,21 +210,21 @@ $(document).ready(function () {
             }
         });
 
-        $('#formularioAgregar').validate({
+        $('#formularioAgregarContacto').validate({
             rules: {
-                correoContacto: {
+                correoContactoSitio: {
                     email: true
                 },
-                nombreContacto: {
+                nombreContactoSitio: {
                     required: true,
                     minlength: 3,
                 }
             },
             messages: {
-                correoContacto: {
+                correoContactoSitio: {
                     email: "Ingrese un correo electrónico válido"
                 },
-                nombreContacto: {
+                nombreContactoSitio: {
                     required: "Es necesario un nombre",
                     minlength: "Debe de tener una longitud minima de 3"
                 }
@@ -273,15 +273,15 @@ $(document).ready(function () {
         });
 
     }
-    function guardarContacto() {
+    function guardarContactoSitios() {
         $('#loading').show();
         let form = new FormData();
 
-        let foto_perfil = document.getElementById("foto").files[0];
+        let foto_perfil = document.getElementById("fotoContactoSitio").files[0];
         form.append('foto', foto_perfil);
-        form.append("nombre_contacto", document.getElementById("nombreContacto").value);
-        form.append("telefono", document.getElementById("telefonoContacto").value);
-        form.append("correo", document.getElementById("correoContacto").value);
+        form.append("nombre_contacto", document.getElementById("nombreContactoSitio").value);
+        form.append("telefono", document.getElementById("telefonoContactoSitio").value);
+        form.append("correo", document.getElementById("correoContactoSitio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio"));
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -294,6 +294,7 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
+            // console.log(response);
             let respuestaDecodificada = JSON.parse(response);
             //AGREGAMOS RESPUESTA AL COMBO
             let texto = respuestaDecodificada.contacto.nombre_contacto;
@@ -309,8 +310,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#formularioAgregar").trigger("reset");
-                $('#modal-agregar').modal('hide');
+                $("#formularioAgregarContacto").trigger("reset");
+                $('#modal-agregarContactoSito').modal('hide');
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -325,12 +326,11 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $("#formularioAgregar").trigger("reset");
-            $('#modal-agregar').modal('hide');
+            $("#formularioAgregarContacto").trigger("reset");
             $('#loading').hide();
         });
     }
-    function guardar() {
+    function guardarSitio() {
         $('#loading').show();
         let form = new FormData();
         let myCoordnada = document.getElementById("coordenadas").value;
@@ -369,7 +369,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#miFormulario").trigger("reset");
+                $("#miFormularioSitio").trigger("reset");
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -387,7 +387,7 @@ $(document).ready(function () {
             $('#loading').hide();
         });
     }
-    function guardarTipo() {
+    function guardarTipoSitio() {
         $('#loading').show();
         let myData = {
             tipo_sitio: document.getElementById("nombreTipo").value
@@ -417,7 +417,7 @@ $(document).ready(function () {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#formularioAgregarTipo").trigger("reset");
-                $('#modal-agregarTipo').modal('hide');
+                $('#modal-agregarTipoSitio').modal('hide');
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -433,10 +433,10 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $("#formularioAgregarTipo").trigger("reset");
-            $('#modal-agregarTipo').modal('hide');
+            $('#modal-agregarTipoSitio').modal('hide');
             $('#loading').hide();
         });
     }
-  
+
 
 });

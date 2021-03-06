@@ -164,6 +164,7 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
+            console.log(response);
             let respuestaDecodificada = JSON.parse(response);
             //AGREGAMOS RESPUESTA AL COMBO
             let texto = respuestaDecodificada.contacto.nombre_contacto;
