@@ -36,12 +36,12 @@
    <!-- Main content -->
    <section class="content">
 
-      <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+      <form id="miFormularioServicio" enctype="multipart/form-data" name="miFormularioServicio" role="form">
          <div class="row">
             <div class="col-md-12">
                <!-- overlay-wrapper start -->
                <div class="overlay-wrapper">
-                  <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                  <div id="loadingServicio" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
                      <div class="text-bold pt-2">Cargando...
                      </div>
@@ -63,8 +63,8 @@
                                     <div class="form-group">
                                        <label>Nombre de Servicio</label>
                                        <div class="input-group">
-                                          <input placeholder="Digite el Nombre del Servicio" id="nombre" name="nombre"
-                                             type="text" class="form-control">
+                                          <input placeholder="Digite el Nombre del Servicio" id="nombreServicio"
+                                             name="nombreServicio" type="text" class="form-control">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -82,8 +82,8 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipo"
-                                          name="btn-nuevoTipo" style="margin-top: 7px; width: 100%;">+</button>
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipoServicio"
+                                          name="btn-nuevoTipoServicio" style="margin-top: 7px; width: 100%;">+</button>
                                     </span>
                                  </div>
                               </div>
@@ -92,8 +92,8 @@
                                     <div class="form-group">
                                        <label>Costo</label>
                                        <div class="input-group">
-                                          <input placeholder="Digite el Costo" id="costos_defecto" name="costos_defecto"
-                                             type="number" class="form-control">
+                                          <input placeholder="Digite el Costo" id="costos_defectoServicio"
+                                             name="costos_defectoServicio" type="number" class="form-control">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -114,8 +114,8 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevo"
-                                          name="btn-nuevo" style="margin-top: 7px; width: 100%;"
+                                       <button type="button" class="btn btn-success btn-add" id="nuevoContactoServicio"
+                                          name="nuevoContactoServicio" style="margin-top: 7px; width: 100%;"
                                           id="btn-asistiran">+</button>
                                     </span>
                                  </div>
@@ -202,7 +202,7 @@
 
                                     <label>Seleccione Imagenes</label>
                                     <div class="file-loading">
-                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                       <input type="file" multiple name="fotosServicio[]" id="fotosServicio">
                                     </div>
 
                                  </div>
@@ -212,7 +212,7 @@
                            </div>
                            <!-- fin de body timeline -->
                            <div class="timeline-footer" style="text-align: right;">
-                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                              <button name="btnguardarServicio" id="btnguardarServicio" class="btn btn-info btn-sm"
                                  style="color: white">Guardar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>
@@ -224,8 +224,8 @@
          </div>
       </form>
    </section>
-   <form id="formularioAgregar" name="formularioAgregar" enctype="multipart/form-data">
-      <div class="modal fade" id="modal-agregar">
+   <form id="formularioAgregarContactoServicio" name="formularioAgregarContactoServicio" enctype="multipart/form-data">
+      <div class="modal fade" id="modal-agregarContactoServicio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -244,7 +244,7 @@
                                  <label>Nombre de Contacto</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Nombre" type="text" class="form-control"
-                                       name="nombreContacto" id="nombreContacto">
+                                       name="nombreContactoServicio" id="nombreContactoServicio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -254,7 +254,7 @@
                                  <label>Teléfono de Contactos</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Teléfono" type="text" class="form-control"
-                                       id="telefonoContacto" name="telefonoContacto">
+                                       id="telefonoContactoServicio" name="telefonoContactoServicio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -264,7 +264,7 @@
                                  <label>Correo Electronico</label>
                                  <div class="input-group">
                                     <input placeholder="Digite Correo" type="text" class="form-control"
-                                       name="correoContacto" id="correoContacto">
+                                       name="correoContactoServicio" id="correoContactoServicio">
                                  </div>
                                  <!-- /.input group -->
                               </div>
@@ -276,7 +276,7 @@
                            <div class="kv-avatar">
                               <label>Foto de Contacto</label>
                               <div class="file-loading">
-                                 <input id="foto" name="foto" type="file">
+                                 <input id="fotoServicio" name="fotoServicio" type="file">
                               </div>
                            </div>
                            <!-- /.input group -->
@@ -286,7 +286,7 @@
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregar" id="btnAgregar" class="btn btn-info btn-sm"
+                  <button name="btnAgregarContactoServicio" id="btnAgregarContactoServicio" class="btn btn-info btn-sm"
                      style="color: white">Guardar</button>
                </div>
             </div>
@@ -296,8 +296,8 @@
       </div>
       <!-- End Modal EDITAR-->
    </form>
-   <form id="formularioAgregarTipo" name="formularioAgregarTipo">
-      <div class="modal fade" id="modal-agregarTipo">
+   <form id="formularioAgregarTipoServicio" name="formularioAgregarTipoServicio">
+      <div class="modal fade" id="modal-agregarTipoServicio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -313,8 +313,8 @@
                         <div class="form-group">
                            <label>Tipo de Servicio</label>
                            <div class="input-group">
-                              <input placeholder="Digite el Tipo" type="text" class="form-control" name="nombreTipo"
-                                 id="nombreTipo">
+                              <input placeholder="Digite el Tipo" type="text" class="form-control"
+                                 name="nombreTipoServicio" id="nombreTipoServicio">
                            </div>
                         </div>
                      </div>
@@ -322,7 +322,7 @@
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregarTipo" id="btnAgregarTipo" class="btn btn-info btn-sm"
+                  <button name="btnAgregarTipoServicio" id="btnAgregarTipoServicio" class="btn btn-info btn-sm"
                      style="color: white">Guardar</button>
                </div>
             </div>
@@ -344,7 +344,7 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>

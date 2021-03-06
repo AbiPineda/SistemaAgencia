@@ -2,47 +2,46 @@
 $(document).ready(function () {
     $('#configuracionAsientos').hide();
     $('#dibujoAsientos').hide();
-    inicializarGaleria();
-    inicializarFoto();
-    inicializarValidaciones();
-    inicializarComboContacto();
-    inicializarComboTipo();
+    inicializarGaleriaServicio();
+    inicializarFotoServicio();
+    inicializarValidacionesServicio();
+    inicializarComboContactoServicio();
+    inicializarComboTipoServicio();
 
     //BOTON DE GUARDAR
-    $(document).on('click', '#btnguardar', function (evento) {
+    $(document).on('click', '#btnguardarServicio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#miFormulario");
+        let form = $("#miFormularioServicio");
         form.validate();
         if (form.valid()) {
-            guardar();
+            guardarServicio();
         }
     });
     //BOTON PARA AGREGAR UN NUEVO CONTACTO 
-    $(document).on('click', '#btnAgregar', function (evento) {
+    $(document).on('click', '#btnAgregarContactoServicio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#formularioAgregar");
+        let form = $("#formularioAgregarContactoServicio");
         form.validate();
         if (form.valid()) {
-
-            guardarContacto();
+            guardarContactoServicio();
         }
     });
     //BOTON PARA AGREGAR UN NUEVO TIPO 
-    $(document).on('click', '#btnAgregarTipo', function (evento) {
+    $(document).on('click', '#btnAgregarTipoServicio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#formularioAgregarTipo");
+        let form = $("#formularioAgregarTipoServicio");
         form.validate();
         if (form.valid()) {
-            guardarTipo();
+            guardarTipoServicio();
         }
     });
-    //BOTON DE NUEVO
-    $(document).on('click', '#btn-nuevo', function (evento) {
-        $('#modal-agregar').modal('show');
+    //BOTON DE + CONTACTO
+    $(document).on('click', '#nuevoContactoServicio', function (evento) {
+        $('#modal-agregarContactoServicio').modal('show');
     });
     //BOTON DE NUEVO TIPO
-    $(document).on('click', '#btn-nuevoTipo', function (evento) {
-        $('#modal-agregarTipo').modal('show');
+    $(document).on('click', '#btn-nuevoTipoServicio', function (evento) {
+        $('#modal-agregarTipoServicio').modal('show');
     });
     //CAMBIO EN EL COMBO TIPO PARA MOSTRAR EL DIBUJO DEL TRANSPORTE
     $('#tipo_servicio').on('select2:select', function (e) {
@@ -58,29 +57,31 @@ $(document).ready(function () {
 
     });
 
-    function guardar() {
-        $('#loading').show();
+    function guardarServicio() {
+        $('#loadingServicio').show();
         let form = new FormData();
         //ESTO ES PARA L A GALERIA 
-        let galeria = document.getElementById("fotos").files;
+        let galeria = document.getElementById("fotosServicio").files;
         for (let i = 0; i < galeria.length; i++) {
-            form.append('fotos[]', galeria[i]);
+            form.append('fotosServicio[]', galeria[i]);
         }
         form.append("id_tipo_servicio", document.getElementById("tipo_servicio").value);
-        form.append("nombre_servicio", document.getElementById("nombre").value);
-        form.append("costos_defecto", document.getElementById("costos_defecto").value);
+        form.append("nombre_servicio", document.getElementById("nombreServicio").value);
+        form.append("costos_defecto", document.getElementById("costos_defectoServicio").value);
         form.append("descripcion_servicio", document.getElementById("descripcion_servicio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
 
         let tipoServicio = $('#tipo_servicio').select2("data");
-        let fila_trasera  = $('#checkTrasero').prop('checked');
+        let fila_trasera = $('#checkTrasero').prop('checked');
+        console.log("la fila trasera es " + fila_trasera);
+
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
             if (fila_trasera) {
                 asientos_disponibles += asientos_derecho + asientos_izquierdo + 1;
             }
             asientos_disponibles -= sc.find('e.selected').seatIds.length;
-            
+
             form.append("asientos_deshabilitados", sc.find('e.selected').seatIds);
             form.append("filas", $('#numero_filas').val());
             form.append("asiento_derecho", $('#asientos_derecho').val());
@@ -113,7 +114,7 @@ $(document).ready(function () {
                 $("#tipo_servicio").val('1').trigger('change');
                 $('#configuracionAsientos').hide();
                 $('#dibujoAsientos').hide();
-                $("#miFormulario").trigger("reset");
+                $("#miFormularioServicio").trigger("reset");
                 miMapa = [];
                 numero_filas = 2;
                 crearStrFila();
@@ -134,18 +135,18 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $('#loading').hide();
+            $('#loadingServicio').hide();
         });
     }
-    function guardarContacto() {
-        $('#loading').show();
+    function guardarContactoServicio() {
+        $('#loadingServicio').show();
         let form = new FormData();
 
-        let foto_perfil = document.getElementById("foto").files[0];
+        let foto_perfil = document.getElementById("fotoServicio").files[0];
         form.append('foto', foto_perfil);
-        form.append("nombre_contacto", document.getElementById("nombreContacto").value);
-        form.append("telefono", document.getElementById("telefonoContacto").value);
-        form.append("correo", document.getElementById("correoContacto").value);
+        form.append("nombre_contacto", document.getElementById("nombreContactoServicio").value);
+        form.append("telefono", document.getElementById("telefonoContactoServicio").value);
+        form.append("correo", document.getElementById("correoContactoServicio").value);
         form.append("id_contacto", document.getElementById("contacto_servicio"));
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -173,8 +174,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#formularioAgregar").trigger("reset");
-                $('#modal-agregar').modal('hide');
+                $("#formularioAgregarContactoServicio").trigger("reset");
+                $('#modal-agregarContactoServicio').modal('hide');
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -189,15 +190,15 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $("#formularioAgregar").trigger("reset");
-            $('#modal-agregar').modal('hide');
-            $('#loading').hide();
+            $("#formularioAgregarContactoServicio").trigger("reset");
+            // $('#modal-agregarContactoServicio').modal('hide');
+            $('#loadingServicio').hide();
         });
     }
-    function guardarTipo() {
-        $('#loading').show();
+    function guardarTipoServicio() {
+        $('#loadingServicio').show();
         let myData = {
-            tipo_servicio: document.getElementById("nombreTipo").value
+            tipo_servicio: document.getElementById("nombreTipoServicio").value
         }
         console.log(myData);
         $.ajax({
@@ -223,8 +224,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#formularioAgregarTipo").trigger("reset");
-                $('#modal-agregarTipo').modal('hide');
+                $("#formularioAgregarTipoServicio").trigger("reset");
+                $('#modal-agregarTipoServicio').modal('hide');
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -239,14 +240,14 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $("#formularioAgregarTipo").trigger("reset");
-            $('#modal-agregarTipo').modal('hide');
-            $('#loading').hide();
+            $("#formularioAgregarTipoServicio").trigger("reset");
+            $('#modal-agregarTipoServicio').modal('hide');
+            $('#loadingServicio').hide();
         });
     }
-    function inicializarGaleria() {
+    function inicializarGaleriaServicio() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-        $('#fotos').fileinput({
+        $('#fotosServicio').fileinput({
             theme: 'fas',
             language: 'es',
             //uploadUrl: '#',
@@ -260,9 +261,9 @@ $(document).ready(function () {
             showClose: false,
         });
     }
-    function inicializarFoto() {
+    function inicializarFotoServicio() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-        $('#foto').fileinput({
+        $('#fotoServicio').fileinput({
             theme: 'fas',
             language: 'es',
             required: true,
@@ -282,7 +283,7 @@ $(document).ready(function () {
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
     }
-    function inicializarComboContacto() {
+    function inicializarComboContactoServicio() {
         //COMBO DE TIPOS 
         $('#tipo_servicio').select2();
         //COMBO DE CONTACTOS
@@ -313,7 +314,7 @@ $(document).ready(function () {
             //  $('#loading').hide();
         });
     }
-    function inicializarComboTipo() {
+    function inicializarComboTipoServicio() {
 
         $.ajax({
             url: URL_SERVIDOR + "TipoServicio/show",
@@ -339,18 +340,18 @@ $(document).ready(function () {
             $('#tipo_servicio').select2();
 
         }).always(function (xhr, opts) {
-            $('#loading').hide();
+            $('#loadingServicio').hide();
         });
     }
-    function inicializarValidaciones() {
-        $('#miFormulario').validate({
+    function inicializarValidacionesServicio() {
+        $('#miFormularioServicio').validate({
             rules: {
-                nombre: {
+                nombreServicio: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
                 },
-                costos_defecto: {
+                costos_defectoServicio: {
                     required: true,
                     number: true,
                     min: 0
@@ -358,22 +359,22 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: true,
                     minlength: 10,
-                }, fotos: {
+                }, fotosServicio: {
                     required: true
                 }
             },
             messages: {
-                nombre: {
+                nombreServicio: {
                     required: "Ingrese un nombre",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                costos_defecto: {
+                costos_defectoServicio: {
                     required: "Ingrese un numero",
                     number: "Ingrese un numero",
                     min: "Debe de ser mayor que 0"
                 },
-                descripcion_servicio: {
+                descripcion_servicioServicio: {
                     required: "La descripcion del servico es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
                 }
@@ -393,21 +394,21 @@ $(document).ready(function () {
             }
         });
 
-        $('#formularioAgregar').validate({
+        $('#formularioAgregarContactoServicio').validate({
             rules: {
-                correoContacto: {
+                correoContactoServicio: {
                     email: true
                 },
-                nombreContacto: {
+                nombreContactoServicio: {
                     required: true,
                     minlength: 3,
                 }
             },
             messages: {
-                correoContacto: {
+                correoContactoServicio: {
                     email: "Ingrese un correo electrónico válido"
                 },
-                nombreContacto: {
+                nombreContactoServicio: {
                     required: "Es necesario un nombre",
                     minlength: "Debe de tener una longitud minima de 3"
                 }
@@ -426,15 +427,15 @@ $(document).ready(function () {
 
             }
         });
-        $('#formularioAgregarTipo').validate({
+        $('#formularioAgregarTipoServicio').validate({
             rules: {
-                nombreTipo: {
+                nombreTipoServicio: {
                     required: true,
                     minlength: 3,
                 }
             },
             messages: {
-                nombreTipo: {
+                nombreTipoServicio: {
                     required: "Es necesario un nombre",
                     minlength: "Debe de tener una longitud minima de 3"
                 }

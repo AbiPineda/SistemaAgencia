@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log(user)
     //HACER ALGO CON EL USUARIO
-    user_uuid = user.uid;
+    user_uuid = '28TK1JZ3yWRf2DT5TzdRd5hT0L43';
     $('#btn-enviar').prop('disabled', true);
     getUsers();
     // if (history.state) {
