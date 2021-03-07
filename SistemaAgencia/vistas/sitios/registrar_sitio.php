@@ -37,7 +37,7 @@
             <!-- <div class="offset-md-1"></div> -->
             <div class="col-md-12">
                <div class="overlay-wrapper">
-                  <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                  <div id="loadingSitio" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
                      <div class="text-bold pt-2">Cargando...
                      </div>
@@ -57,7 +57,7 @@
                                        <label>Nombre del sitio turístico</label>
                                        <div class="input-group">
                                           <input type="text" placeholder="Digite el nombre del sitio Turístiico"
-                                             class="form-control" name="nombre" id="nombre">
+                                             class="form-control" name="nombreSitio" id="nombreSitio">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -76,7 +76,7 @@
                                  <div class="col-sm-5">
                                     <div class="form-group">
                                        <label>Tipo</label>
-                                       <select name="ComboTipo" id="ComboTipo"
+                                       <select name="ComboTipoSitio" id="ComboTipoSitio"
                                           class="select2 select2-hidden-accessible form-control"
                                           data-placeholder="Seleccione el tipo" style="width: 100%;">
                                        </select>
@@ -116,7 +116,7 @@
                                        <label>Contacto</label>
 
                                        <div class="input-group">
-                                          <select name="contacto_servicio" id="contacto_servicio"
+                                          <select name="contacto_sitio" id="contacto_sitio"
                                              class="select2 select2-hidden-accessible form-control"
                                              data-placeholder="Seleccione el tipo" style="width: 100%;">
                                           </select>
@@ -126,8 +126,9 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoContacto"
-                                          name="btn-nuevoContacto" style="margin-top: 10px; width: 100%;">+</button>
+                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoContactoSitio"
+                                          name="btn-nuevoContactoSitio"
+                                          style="margin-top: 10px; width: 100%;">+</button>
                                     </span>
                                  </div>
 
@@ -149,8 +150,8 @@
                                  <div class="col-sm-12">
                                     <div class="form-group">
                                        <label>Descripcion del Servicio</label>
-                                       <textarea name="descripcion" id="descripcion" class="form-control" rows="3"
-                                          placeholder="Digitar aquí ..."></textarea>
+                                       <textarea name="descripcionSitio" id="descripcionSitio" class="form-control"
+                                          rows="3" placeholder="Digitar aquí ..."></textarea>
                                     </div>
                                  </div>
                               </div>
@@ -171,14 +172,14 @@
 
                                     <label>Seleccione Imagenes</label>
                                     <div class="file-loading">
-                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                       <input type="file" multiple name="fotosSitio[]" id="fotosSitio">
                                     </div>
                                  </div>
                               </div>
                            </div>
                            <!-- END TIME LINE BODY -->
                            <div class="timeline-footer" style="text-align: right;">
-                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
+                              <button name="btnguardarSitio" id="btnguardarSitio" class="btn btn-info btn-sm"
                                  style="color: white">Guardar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>

@@ -9,7 +9,7 @@ $(document).ready(function () {
     inicializarFotoContactoSitio();
 
     //BOTON ABRIR MODAL DE CONTACTO
-    $(document).on('click', '#btn-nuevoContacto', function (evento) {
+    $(document).on('click', '#btn-nuevoContactoSitio', function (evento) {
         $('#modal-agregarContactoSitio').modal('show');
     });
     //BOTON PARA AGREGAR UN NUEVO CONTACTO 
@@ -36,7 +36,7 @@ $(document).ready(function () {
         $('#modal-agregarTipoSitio').modal('show');
     });
     //BOTON DE GUARDAR
-    $(document).on('click', '#btnguardar', function (evento) {
+    $(document).on('click', '#btnguardarSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormularioSitio");
         let coordenadas = $('#coordenadas').val();
@@ -73,23 +73,23 @@ $(document).ready(function () {
                         text: lista[index].tipo_sitio
                     });
                 }
-                $('#ComboTipo').select2(
+                $('#ComboTipoSitio').select2(
                     { data: myData }
                 );
             } else {
-                $('#ComboTipo').select2();
+                $('#ComboTipoSitio').select2();
             }
         }).fail(function (response) {
-            $('#ComboTipo').select2();
+            $('#ComboTipoSitio').select2();
 
         }).always(function (xhr, opts) {
-            $('#loading').hide();
+            $('#loadingSitio').hide();
         });
 
     }
     function inicializarGaleriaSitios() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-        $('#fotos').fileinput({
+        $('#fotosSitio').fileinput({
             theme: 'fas',
             language: 'es',
             //uploadUrl: '#',
@@ -119,14 +119,14 @@ $(document).ready(function () {
                         text: lista[index].nombre_contacto
                     });
                 }
-                $('#contacto_servicio').select2(
+                $('#contacto_sitio').select2(
                     { data: myData }
                 );
             } else {
-                $('#contacto_servicio').select2();
+                $('#contacto_sitio').select2();
             }
         }).fail(function (response) {
-            $('#contacto_servicio').select2();
+            $('#contacto_sitio').select2();
 
         }).always(function (xhr, opts) {
             // $('#loading').hide();
@@ -157,7 +157,7 @@ $(document).ready(function () {
     function inicializarValidacionesSitios() {
         $('#miFormularioSitio').validate({
             rules: {
-                nombre: {
+                nombreSitio: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
@@ -168,7 +168,7 @@ $(document).ready(function () {
                 descripcion: {
                     required: true,
                     minlength: 10,
-                }, fotos: {
+                }, fotosSitios: {
                     required: true
                 }, precio_sitio: {
                     required: true,
@@ -176,7 +176,7 @@ $(document).ready(function () {
                 }
             },
             messages: {
-                nombre: {
+                nombreSitio: {
                     required: "Ingrese un nombre",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
@@ -188,7 +188,7 @@ $(document).ready(function () {
                 descripcion: {
                     required: "La descripcion es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
-                }, fotos: {
+                }, fotosSitios: {
                     required: "Suba por lo menos 1 foto"
                 }, precio_sitio: {
                     required: "El precio es necesario",
@@ -274,7 +274,7 @@ $(document).ready(function () {
 
     }
     function guardarContactoSitios() {
-        $('#loading').show();
+        $('#loadingSitio').show();
         let form = new FormData();
 
         let foto_perfil = document.getElementById("fotoContactoSitio").files[0];
@@ -327,26 +327,26 @@ $(document).ready(function () {
 
         }).always(function (xhr, opts) {
             $("#formularioAgregarContacto").trigger("reset");
-            $('#loading').hide();
+            $('#loadingSitio').hide();
         });
     }
     function guardarSitio() {
-        $('#loading').show();
+        $('#loadingSitio').show();
         let form = new FormData();
         let myCoordnada = document.getElementById("coordenadas").value;
         myCoordnada = myCoordnada.split(' ');
 
         //ESTO ES PARA L A GALERIA 
-        let galeria = document.getElementById("fotos").files;
+        let galeria = document.getElementById("fotosSitios").files;
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
-        form.append("nombre_sitio", document.getElementById("nombre").value);
+        form.append("nombre_sitio", document.getElementById("nombreSitio").value);
         form.append("longitud", myCoordnada[0]);
         form.append("latitud", myCoordnada[1]);
-        form.append("descripcion_sitio", document.getElementById("descripcion").value);
-        form.append("id_tipo_sitio", document.getElementById("ComboTipo").value);
-        form.append("informacion_contacto", document.getElementById("contacto_servicio").value);
+        form.append("descripcion_sitio", document.getElementById("descripcionSitio").value);
+        form.append("id_tipo_sitio", document.getElementById("ComboTipoSitio").value);
+        form.append("informacion_contacto", document.getElementById("contacto_sitio").value);
         form.append("precio_sitio", document.getElementById("precio_sitio").value);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
@@ -384,11 +384,11 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $('#loading').hide();
+            $('#loadingSitio').hide();
         });
     }
     function guardarTipoSitio() {
-        $('#loading').show();
+        $('#loadingSitio').show();
         let myData = {
             tipo_sitio: document.getElementById("nombreTipo").value
         }
@@ -406,7 +406,7 @@ $(document).ready(function () {
             let texto = respuestaDecodificada.tipo.tipo_sitio;
             let id = respuestaDecodificada.id;
             let newOption = new Option(texto, id, false, false);
-            $('#ComboTipo').append(newOption).trigger('change');
+            $('#ComboTipoSitio').append(newOption).trigger('change');
             //mandamos un mensaje al usuario
             const Toast = Swal.mixin();
             Toast.fire({
@@ -434,7 +434,7 @@ $(document).ready(function () {
         }).always(function (xhr, opts) {
             $("#formularioAgregarTipo").trigger("reset");
             $('#modal-agregarTipoSitio').modal('hide');
-            $('#loading').hide();
+            $('#loadingSitio').hide();
         });
     }
 
