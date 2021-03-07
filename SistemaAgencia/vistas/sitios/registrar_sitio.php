@@ -66,8 +66,8 @@
                                     <div class="form-group">
                                        <label>Precio</label>
                                        <div class="input-group">
-                                          <input type="number" min="0" class=" form-control" name="precio_sitio"
-                                             value="1" id="precio_sitio">
+                                          <input type="number" min="0" class=" form-control" name="precioSitio"
+                                             value="1" id="precioSitio">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -213,8 +213,7 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
-</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>

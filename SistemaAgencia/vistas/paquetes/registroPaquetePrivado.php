@@ -100,8 +100,8 @@
                                  <div class="col-sm-1">
                                     <br>
                                     <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoServicio"
-                                          name="btn-nuevoServicio" style="margin-top: 7px; width: 100%;">+</button>
+                                       <button type="button" class="btn btn-success btn-add" id="newSitio"
+                                          name="newSitio" style="margin-top: 7px; width: 100%;">+</button>
                                     </span>
                                  </div>
                                  <div class="col-sm-2">
@@ -594,107 +594,122 @@
       </div>
       <!-- End Modal EDITAR-->
    </form>
-   <!--FORMULARIO DE AGREGAR CONTACTO  -->
-   <form id="formularioAgregarContactoServicio" name="formularioAgregarContactoServicio" enctype="multipart/form-data">
-      <div class="modal fade" id="modal-agregarContactoServicio">
+
+   <form id="miFormularioSitio" name="miFormularioSitio" enctype="multipart/form-data">
+      <div class="modal fade" id="modal-agregarSitio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <div class="modal-header">
-                  <h4 class="modal-title">Agregar Contacto</h4>
+                  <h4 class="modal-title">Agregar Sitio Turistico</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                   </button>
                </div>
                <div class="modal-body">
                   <div class="row">
-                     <div class="col-sm-7">
-                        <div class="row">
-                           <div class="col-sm-12">
-                              <div class="form-group">
-                                 <label>Nombre de Contacto</label>
-                                 <div class="input-group">
-                                    <input placeholder="Digite Nombre" type="text" class="form-control"
-                                       name="nombreContactoServicio" id="nombreContactoServicio">
-                                 </div>
-                                 <!-- /.input group -->
-                              </div>
-                           </div>
-                           <div class="col-sm-12">
-                              <div class="form-group">
-                                 <label>Teléfono de Contactos</label>
-                                 <div class="input-group">
-                                    <input placeholder="Digite Teléfono" type="text" class="form-control"
-                                       id="telefonoContactoServicio" name="telefonoContactoServicio">
-                                 </div>
-                                 <!-- /.input group -->
-                              </div>
-                           </div>
-                           <div class="col-sm-12">
-                              <div class="form-group">
-                                 <label>Correo Electronico</label>
-                                 <div class="input-group">
-                                    <input placeholder="Digite Correo" type="text" class="form-control"
-                                       name="correoContactoServicio" id="correoContactoServicio">
-                                 </div>
-                                 <!-- /.input group -->
-                              </div>
-                           </div>
-                        </div>
-                     </div>
                      <div class="col-sm-5">
                         <div class="form-group">
-                           <div class="kv-avatar">
-                              <label>Foto de Contacto</label>
-                              <div class="file-loading">
-                                 <input id="fotoServicio" name="fotoServicio" type="file">
-                              </div>
+                           <label>Nombre del sitio turístico</label>
+                           <div class="input-group">
+                              <input type="text" placeholder="Digite el nombre del sitio Turístiico"
+                                 class="form-control" name="nombreSitio" id="nombreSitio">
                            </div>
                            <!-- /.input group -->
                         </div>
                      </div>
+                     <div class="col-sm-1">
+                        <div class="form-group">
+                           <label>Precio</label>
+                           <div class="input-group">
+                              <input type="number" min="0" class=" form-control" name="precioSitio" value="1"
+                                 id="precioSitio">
+                           </div>
+                           <!-- /.input group -->
+                        </div>
+                     </div>
+
+                     <div class="col-sm-5">
+                        <div class="form-group">
+                           <label>Tipo</label>
+                           <select name="ComboTipoSitio" id="ComboTipoSitio"
+                              class="select2 select2-hidden-accessible form-control"
+                              data-placeholder="Seleccione el tipo" style="width: 100%;">
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-sm-1">
+                        <br>
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipoSitio"
+                              name="btn-nuevoTipoSitio" style="margin-top: 10px; width: 100%;">+</button>
+                        </span>
+                     </div>
                   </div>
-               </div>
-               <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregarContactoServicio" id="btnAgregarContactoServicio" class="btn btn-info btn-sm"
-                     style="color: white">Guardar</button>
-               </div>
-            </div>
-            <!-- /.modal-content -->
-         </div>
-         <!-- /.modal-dialog -->
-      </div>
-      <!-- End Modal EDITAR-->
-   </form>
-   <!-- FORMULARIO DE AGREGAR TIPO DE SERVICIO -->
-   <form id="formularioAgregarTipoServicio" name="formularioAgregarTipoServicio">
-      <div class="modal fade" id="modal-agregarTipoServicio">
-         <!-- Modal EDITAR-->
-         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h4 class="modal-title">Agregar Tipo de Sericio Adicional</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-sm-5">
+                        <!-- text input -->
+                        <div class="form-group">
+                           <label>Coordenadas</label>
+                           <div class="input-group">
+                              <input disabled type="text" class="form-control" name="coordenadas"
+                                 placeholder="Seleccione las coordenadas" id="coordenadas">
+                           </div>
+                           <!-- /.input group -->
+                        </div>
+                     </div>
+                     <div class="col-sm-1">
+                        <br>
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-success btn-add" name="btn-mapa"
+                              style="margin-top: 10px; width: 100%;" id="btn-mapa">
+                              <i class="fas fa-globe" style="color: white"></i>
+                           </button>
+                        </span>
+                     </div>
+                     <div class="col-sm-5">
+                        <div class="form-group multiple-form-group input-group">
+                           <label>Contacto</label>
+
+                           <div class="input-group">
+                              <select name="contacto_sitio" id="contacto_sitio"
+                                 class="select2 select2-hidden-accessible form-control"
+                                 data-placeholder="Seleccione el tipo" style="width: 100%;">
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-1">
+                        <br>
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-success btn-add" id="btn-nuevoContactoSitio"
+                              name="btn-nuevoContactoSitio" style="margin-top: 10px; width: 100%;">+</button>
+                        </span>
+                     </div>
+
+                  </div>
                   <div class="row">
                      <div class="col-sm-12">
                         <div class="form-group">
-                           <label>Tipo de Servicio</label>
-                           <div class="input-group">
-                              <input placeholder="Digite el Tipo" type="text" class="form-control"
-                                 name="nombreTipoServicio" id="nombreTipoServicio">
-                           </div>
+                           <label>Descripcion del Servicio</label>
+                           <textarea name="descripcionSitio" id="descripcionSitio" class="form-control" rows="3"
+                              placeholder="Digitar aquí ..."></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-sm-12">
+
+                        <label>Seleccione Imagenes</label>
+                        <div class="file-loading">
+                           <input type="file" multiple name="fotosSitios[]" id="fotosSitios">
                         </div>
                      </div>
                   </div>
                </div>
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btnAgregarTipoServicio" id="btnAgregarTipoServicio" class="btn btn-info btn-sm"
+                  <button name="btnguardarSitio" id="btnguardarSitio" class="btn btn-info btn-sm"
                      style="color: white">Guardar</button>
                </div>
             </div>
@@ -705,6 +720,11 @@
       <!-- End Modal EDITAR-->
    </form>
 
+   <?php include_once '../servicios/registro_contacto.php'?>
+   <?php include_once '../servicios/registro_tipo.php'?>
+   <?php include_once '../sitios/registro_tipo.php' ?>
+   <?php include_once '../sitios/registro_contacto.php' ?>
+   <?php include_once '../../vistas/mapa/coordenadas.php' ?>
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
@@ -725,5 +745,9 @@
 <script src="<?= $base_url ?>js/controladores/turs/guardar.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
+<script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
+<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
+
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

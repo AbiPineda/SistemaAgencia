@@ -160,6 +160,11 @@ $(document).on('click', '#btnguardar', function (evento) {
 $(document).on('click', '#newServicio', function (evento) {
     $('#modal-agregarServicio').modal('show');
 });
+//BOTON + AGREGAR UN NUEVO SITIO 
+$(document).on('click', '#newSitio', function (evento) {
+    console.log("sitosdfad f");
+    $('#modal-agregarSitio').modal('show');
+});
 //BOTON DE AGREGAR INPUT
 $(document).on('click', '.btn-add', addFormGroup);
 //BOTON DE ELIMINAR INPUT
@@ -239,8 +244,8 @@ function inicializarComboServicio() {
             $('#ComboServicio').select2({ data: myData });
             //CARGAMOS EL COSTO AL INPUT
             if (DATA_SERVICIO[0]) {
-                
-                
+
+
             }
         } else {
             $('#ComboServicio').select2();
