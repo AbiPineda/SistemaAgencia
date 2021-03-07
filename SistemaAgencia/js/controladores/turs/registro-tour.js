@@ -238,12 +238,10 @@ function inicializarComboServicio() {
             ///LE CARGAMOS LA DATA 
             $('#ComboServicio').select2({ data: myData });
             //CARGAMOS EL COSTO AL INPUT
-            document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
-            document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
-            document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
-            document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
-            document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
-            document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
+            if (DATA_SERVICIO[0]) {
+                
+                
+            }
         } else {
             $('#ComboServicio').select2();
         }

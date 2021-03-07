@@ -12,7 +12,7 @@ $(document).ready(function () {
     $(document).on('click', '#btn-nuevoContactoSitio', function (evento) {
         $('#modal-agregarContactoSitio').modal('show');
     });
-    //BOTON PARA AGREGAR UN NUEVO CONTACTO 
+    //BOTON PARA AGREGAR UN NUEVO   CONTACTO 
     $(document).on('click', '#btnAgregarContactoSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#formularioAgregarContacto");
@@ -25,7 +25,7 @@ $(document).ready(function () {
     //BOTON PARA AGREGAR UN NUEVO TIPO 
     $(document).on('click', '#btnAgregarTipoSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-        let form = $("#formularioAgregarTipo");
+        let form = $("#formularioAgregarTipoSitio");
         form.validate();
         if (form.valid()) {
             guardarTipoSitio();
@@ -89,7 +89,7 @@ $(document).ready(function () {
     }
     function inicializarGaleriaSitios() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-        $('#fotosSitio').fileinput({
+        $('#fotosSitios').fileinput({
             theme: 'fas',
             language: 'es',
             //uploadUrl: '#',
@@ -244,7 +244,7 @@ $(document).ready(function () {
             }
         });
 
-        $('#formularioAgregarTipo').validate({
+        $('#formularioAgregarTipoSitio').validate({
             rules: {
                 nombreTipo: {
                     required: true,
@@ -416,7 +416,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                $("#formularioAgregarTipo").trigger("reset");
+                $("#formularioAgregarTipoSitio").trigger("reset");
                 $('#modal-agregarTipoSitio').modal('hide');
             });
         }).fail(function (response) {
@@ -432,7 +432,7 @@ $(document).ready(function () {
             });
 
         }).always(function (xhr, opts) {
-            $("#formularioAgregarTipo").trigger("reset");
+            $("#formularioAgregarTipoSitio").trigger("reset");
             $('#modal-agregarTipoSitio').modal('hide');
             $('#loadingSitio').hide();
         });

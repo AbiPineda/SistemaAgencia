@@ -172,7 +172,7 @@
 
                                     <label>Seleccione Imagenes</label>
                                     <div class="file-loading">
-                                       <input type="file" multiple name="fotosSitio[]" id="fotosSitio">
+                                       <input type="file" multiple name="fotosSitios[]" id="fotosSitios">
                                     </div>
                                  </div>
                               </div>
@@ -268,7 +268,7 @@
       </div>
       <!-- End Modal EDITAR-->
    </form>
-   <form id="formularioAgregarTipo" name="formularioAgregarTipo">
+   <form id="formularioAgregarTipoSitio" name="formularioAgregarTipo">
       <div class="modal fade" id="modal-agregarTipoSitio">
          <!-- Modal EDITAR-->
          <div class="modal-dialog modal-lg">

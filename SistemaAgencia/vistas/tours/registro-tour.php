@@ -18,7 +18,7 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Registrar Tours</h1>
+               <h1>Publicar Tours</h1>
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
@@ -50,7 +50,7 @@
                            <h3 class="timeline-header"><a href="#">Datos Generales</a> </h3>
                            <div class="timeline-body">
                               <div class="row">
-                                 <div class="col-sm-6">
+                                 <div class="col-sm-4">
                                     <div class="form-group">
                                        <label>Titulo del viaje</label>
                                        <div class="input-group">
@@ -60,12 +60,22 @@
                                        <!-- /.input group -->
                                     </div>
                                  </div>
-                                 <div class="col-sm-6">
+                                 <div class="col-sm-4">
                                     <div class="form-group">
                                        <label>Fecha del viaje</label>
                                        <!-- placeholder="dd-mm-yyyy"  type="date"  -->
                                        <div class="input-group">
                                           <input class=" form-control" name="fecha_salida" id="fecha_salida">
+                                       </div>
+                                       <!-- /.input group -->
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <div class="form-group">
+                                       <label>Pasaje Normal</label>
+                                       <!-- placeholder="dd-mm-yyyy"  type="date"  -->
+                                       <div class="input-group">
+                                          <input class="form-control" type="number" name="pasajeTour" id="pasajeTour">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -86,345 +96,8 @@
                         </div>
                      </div>
                      <!-- END timeline item -->
+
                      <!-- timeline item -->
-                     <div>
-                        <i class="fas fa-umbrella-beach bg-green"></i>
-                        <div class="timeline-item">
-                           <h3 class="timeline-header no-border">
-                              <a href="#">Sitios
-                                 Turístico</a>
-                           </h3>
-                           <div class="timeline-body">
-                              <div class="row">
-                                 <div class="col-sm-4">
-                                    <div class="form-group multiple-form-group input-group">
-                                       <label>Seleccione los Sitios Turísticos</label>
-                                       <div class="input-group">
-                                          <select name="ComboTur" id="ComboTur" name="ComboTur"
-                                             class="select2 select2-hidden-accessible form-control"
-                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                          </select>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-1">
-                                    <br>
-                                    <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="btn-nuevoServicio"
-                                          name="btn-nuevoServicio" style="margin-top: 7px; width: 100%;">+</button>
-                                    </span>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <div class="form-group">
-                                       <label>Precio</label>
-                                       <div class="input-group">
-                                          <input type="number" min="0" class=" form-control" name="precio_sitio"
-                                             id="precio_sitio">
-                                       </div>
-                                       <!-- /.input group -->
-                                    </div>
-                                 </div>
-
-                                 <div class="col-sm-1">
-                                    <div class="form-group">
-                                       <label>Contacto</label>
-                                       <br>
-                                       <a style="position:absolute; z-index:1;" href="#">
-                                          <div id="namePreviewTur">Nombre de Contacto
-                                          </div>
-                                          <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                                             <div class="ocultar card bg-light">
-                                                <div class="card-body">
-                                                   <div class="row">
-                                                      <div class="col-7">
-                                                         <p id="nameContactoTur" class="text-muted text-sm">
-                                                            <b>Nombre de Contacto:</b>
-                                                            Nombre de Contacto detallado
-                                                         </p>
-                                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                            <li class="small">
-                                                               <span class="fa-li">
-                                                                  <i class="fas fa-lg fa-mail-bulk">
-                                                                  </i>
-                                                               </span>
-                                                               <div id="mailContactoTur">
-                                                                  correo@correo.com
-                                                               </div>
-                                                            </li>
-                                                            <li class="small">
-                                                               <span class="fa-li">
-                                                                  <i class="fas fa-lg fa-phone"></i>
-                                                               </span>
-                                                               <div id="phoneContactoTur">
-                                                                  Teléfono #: 1234-5678
-                                                               </div>
-                                                            </li>
-                                                         </ul>
-                                                      </div>
-                                                      <div class="col-5 text-center">
-                                                         <img id="imgContactoTur"
-                                                            src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
-                                                            alt="" class="img-fluid">
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </a>
-
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <!-- radio -->
-                                    <label>Por Pasajero</label>
-                                    <div class="form-group clearfix">
-                                       <div class="icheck-success d-inline" style="margin-left: 40px;">
-                                          <input type="radio" value="si" name="radioTur" id="radioSuccess1">
-                                          <label for="radioSuccess1">
-                                          </label>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <!-- radio -->
-                                    <label>Por Viaje</label>
-                                    <div class="form-group clearfix">
-                                       <div class="icheck-success d-inline" style="margin-left: 30px;">
-                                          <input type="radio" value="no" name="radioTur" checked="" id="radioSuccess2">
-                                          <label for="radioSuccess2">
-                                          </label>
-                                       </div>
-
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="timeline-footer" style="text-align: right;">
-                              <button id="btnAgregarTur" class="btn btn-info btn-sm"
-                                 style="color: white">Agregar</button>
-
-                           </div>
-                        </div>
-                     </div>
-                     <!-- END timeline item -->
-                     <!-- timeline item -->
-                     <div>
-                        <i class="fas fa-cog bg-red"></i>
-                        <div class="timeline-item">
-                           <h3 class="timeline-header no-border">
-                              <a href="#">Servicios Adicionales</a>
-                           </h3>
-                           <div class="timeline-body">
-                              <div class="row">
-
-                                 <div class="col-sm-4">
-                                    <div class="form-group multiple-form-group input-group">
-                                       <label>Seleccione los Servicios Adicionales</label>
-                                       <div class="input-group">
-                                          <select name="ComboServicio" id="ComboServicio"
-                                             class="select2 select2-hidden-accessible form-control"
-                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
-                                          </select>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-1">
-                                    <br>
-                                    <span class="input-group-btn">
-                                       <button type="button" class="btn btn-success btn-add" id="newServicio"
-                                          name="newServicio" style="margin-top: 7px; width: 100%;">+</button>
-                                    </span>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <div class="form-group">
-                                       <label>Precio</label>
-                                       <div class="input-group">
-                                          <input type="number" min="0" class=" form-control" name="precio_servicio"
-                                             id="precio_servicio">
-                                       </div>
-                                       <!-- /.input group -->
-                                    </div>
-                                 </div>
-
-                                 <div class="col-sm-1">
-                                    <div class="form-group">
-                                       <label>Contacto</label>
-                                       <br>
-                                       <a style="position:absolute; z-index:1;" href="#">
-                                          <div id="namePreviewServicio">
-                                             Nombre de Contacto
-                                          </div>
-                                          <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-                                             <div class="ocultar card bg-light">
-                                                <div class="card-body">
-                                                   <div class="row">
-                                                      <div class="col-7">
-                                                         <p id="nameContactoServicio" class="text-muted text-sm">
-                                                            <b>Nombre de Contacto:</b>Nombre de Contacto detallado
-                                                         </p>
-                                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                            <li class="small"> <span class="fa-li"><i
-                                                                     class="fas fa-lg fa-mail-bulk">
-                                                                  </i>
-                                                               </span>
-                                                               <div id="mailContactoServicio">
-                                                                  correo@correo.com
-                                                               </div>
-                                                            </li>
-                                                            <li class="small">
-                                                               <span class="fa-li">
-                                                                  <i class="fas fa-lg fa-phone"></i>
-                                                               </span>
-                                                               <div id="phoneContactoServicio">
-                                                                  Teléfono #: 1234-5678
-                                                               </div>
-                                                            </li>
-                                                         </ul>
-                                                      </div>
-                                                      <div class="col-5 text-center">
-                                                         <img id="imgContactoServicio"
-                                                            src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
-                                                            alt="" class="img-fluid">
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </a>
-
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <!-- radio -->
-                                    <label>Por Pasajero</label>
-                                    <div class="form-group clearfix">
-                                       <div class="icheck-success d-inline" style="margin-left: 40px;">
-                                          <input type="radio" checked="" name="servicioCheck" id="PasajeroServicio"
-                                             value="si">
-                                          <label for="PasajeroServicio">
-                                          </label>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-2">
-                                    <!-- radio -->
-                                    <label>Por Viaje</label>
-                                    <div class="form-group clearfix">
-                                       <div class="icheck-success d-inline" style="margin-left: 30px;">
-                                          <input type="radio" name="servicioCheck" id="ViajeServicio" value="no">
-                                          <label for="ViajeServicio">
-                                          </label>
-                                       </div>
-
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="timeline-footer" style="text-align: right;">
-                              <button id="btnAgregarSitio" class="btn btn-info btn-sm"
-                                 style="color: white">Agregar</button>
-
-                           </div>
-                        </div>
-                     </div>
-                     <!-- END timeline item -->
-                     <!-- timeline item -->
-                     <div>
-                        <i class="fas fa-box bg-yellow"></i>
-                        <div class="timeline-item">
-                           <h3 class="timeline-header no-border">
-                              <a href="#">Producto(s) Seleccionado(s)</a>
-                           </h3>
-                           <div class="timeline-body">
-                              <div class="row">
-                                 <div class="col-sm-12">
-                                    <table id="TablaCostos" class="table table-bordered table-hover">
-                                       <div class="row">
-                                          <div class="col-sm-3">
-                                             <div class="form-group">
-                                                <label>Número de Pasajeros</label>
-                                                <div class="input-group">
-                                                   <input id="cantidad" type="number" min="1" value="1"
-                                                      class="form-control" id="cupos_disponibles">
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col-sm-3">
-                                             <div class="form-group">
-                                                <label>Costo del Pasaje($)</label>
-                                                <div class="input-group">
-                                                   <input id="CostoPasaje" type="number" min="1" value="1"
-                                                      class="form-control" id="precio">
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <thead>
-                                          <tr style="text-align: center;">
-                                             <th>Sitio Turisto/Servicio dicional</th>
-                                             <th>Costo</th>
-                                             <th>Cantidad</th>
-                                             <th>por pasajero</th>
-                                             <th>Sub Total</th>
-                                             <th>Eliminar</th>
-                                             <th>tipo</th>
-                                             <th>id</th>
-                                             <th>contador</th>
-                                          </tr>
-                                       </thead>
-                                       <tbody style="text-align: center;">
-
-                                       </tbody>
-
-                                    </table>
-                                 </div>
-
-                                 <div class="col-md-1 col-md-offset-1">
-                                 </div>
-                                 <div class="col-md-2 ">
-                                    <label class="text-primary ">
-                                       Total
-                                       de
-                                       Ingresos:
-                                    </label>
-                                 </div>
-                                 <div class="col-md-9">
-                                    <label id="totalIngresos" class="text-primary">$0</label>
-                                 </div>
-                                 <div class="col-md-1 col-md-offset-1">
-                                 </div>
-                                 <div class="col-md-2">
-                                    <label class="text-danger ">
-                                       Total
-                                       de
-                                       Gastos:
-                                    </label>
-                                 </div>
-                                 <div class="col-md-9">
-                                    <label id="totalGastos" class="text-danger">$0</label>
-                                 </div>
-                                 <div class="col-md-1 col-md-offset-1">
-                                 </div>
-                                 <div class="col-md-2">
-                                    <label id="labelGanancias" class="text-warning ">
-                                       Ganancias:
-                                    </label>
-                                 </div>
-                                 <div class="col-md-9">
-                                    <label id="ganancias" class="text-warning">
-                                       $0</label>
-                                 </div>
-                              </div>
-                           </div>
-
-                        </div>
-                     </div>
-                     <!-- timeline item -->
-                     <!-- END timeline item -->
                      <div>
                         <i class="fas fa-plus-square bg-red"></i>
                         <div class="timeline-item">
