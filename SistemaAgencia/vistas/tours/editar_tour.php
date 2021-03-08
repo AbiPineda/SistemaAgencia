@@ -4,10 +4,8 @@
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-   type="text/css" />
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-   type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
@@ -75,8 +73,7 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                        <label>Descripción del Viaje</label>
-                                       <textarea class="form-control" rows="4" id="descripcion_tur"
-                                          name="descripcion_tur" placeholder="Digitar aquí ..."></textarea>
+                                       <textarea class="form-control" rows="4" id="descripcion_tur" name="descripcion_tur" placeholder="Digitar aquí ..."></textarea>
                                     </div>
                                  </div>
 
@@ -99,9 +96,7 @@
                                     <div class="form-group multiple-form-group input-group">
                                        <label>Seleccione los Sitios Turísticos</label>
                                        <div class="input-group">
-                                          <select name="ComboTur" id="ComboTur" name="ComboTur"
-                                             class="select2 select2-hidden-accessible form-control"
-                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                          <select name="ComboTur" id="ComboTur" name="ComboTur" class="select2 select2-hidden-accessible form-control" data-placeholder="Seleccione el tipo" style="width: 100%;">
                                           </select>
                                        </div>
                                     </div>
@@ -110,8 +105,7 @@
                                     <div class="form-group">
                                        <label>Precio</label>
                                        <div class="input-group">
-                                          <input type="number" min="0" class=" form-control" name="precio_sitio"
-                                             id="precio_sitio">
+                                          <input type="number" min="0" class=" form-control" name="precio_sitio" id="precio_sitio">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -154,9 +148,7 @@
                                                          </ul>
                                                       </div>
                                                       <div class="col-5 text-center">
-                                                         <img id="imgContactoTur"
-                                                            src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
-                                                            alt="" class="img-fluid">
+                                                         <img id="imgContactoTur" src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg" alt="" class="img-fluid">
                                                       </div>
                                                    </div>
                                                 </div>
@@ -194,8 +186,7 @@
                               </div>
                            </div>
                            <div class="timeline-footer" style="text-align: right;">
-                              <button id="btnAgregarTur" class="btn btn-info btn-sm"
-                                 style="color: white">Agregar</button>
+                              <button id="btnAgregarTur" class="btn btn-info btn-sm" style="color: white">Agregar</button>
 
                            </div>
                         </div>
@@ -214,9 +205,7 @@
                                     <div class="form-group multiple-form-group input-group">
                                        <label>Seleccione los Servicios Adicionales</label>
                                        <div class="input-group">
-                                          <select name="ComboServicio" id="ComboServicio"
-                                             class="select2 select2-hidden-accessible form-control"
-                                             data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                          <select name="ComboServicio" id="ComboServicio" class="select2 select2-hidden-accessible form-control" data-placeholder="Seleccione el tipo" style="width: 100%;">
                                           </select>
                                        </div>
                                     </div>
@@ -225,8 +214,7 @@
                                     <div class="form-group">
                                        <label>Precio</label>
                                        <div class="input-group">
-                                          <input type="number" min="0" class=" form-control" name="precio_servicio"
-                                             id="precio_servicio">
+                                          <input type="number" min="0" class=" form-control" name="precio_servicio" id="precio_servicio">
                                        </div>
                                        <!-- /.input group -->
                                     </div>
@@ -249,8 +237,7 @@
                                                             <b>Nombre de Contacto:</b>Nombre de Contacto detallado
                                                          </p>
                                                          <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                            <li class="small"> <span class="fa-li"><i
-                                                                     class="fas fa-lg fa-mail-bulk">
+                                                            <li class="small"> <span class="fa-li"><i class="fas fa-lg fa-mail-bulk">
                                                                   </i>
                                                                </span>
                                                                <div id="mailContactoServicio">
@@ -268,9 +255,7 @@
                                                          </ul>
                                                       </div>
                                                       <div class="col-5 text-center">
-                                                         <img id="imgContactoServicio"
-                                                            src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
-                                                            alt="" class="img-fluid">
+                                                         <img id="imgContactoServicio" src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg" alt="" class="img-fluid">
                                                       </div>
                                                    </div>
                                                 </div>
@@ -287,8 +272,7 @@
                                     <label>Por Pasajero</label>
                                     <div class="form-group clearfix">
                                        <div class="icheck-success d-inline" style="margin-left: 40px;">
-                                          <input type="radio" checked="" name="servicioCheck" id="PasajeroServicio"
-                                             value="si">
+                                          <input type="radio" checked="" name="servicioCheck" id="PasajeroServicio" value="si">
                                           <label for="PasajeroServicio">
                                           </label>
                                        </div>
@@ -309,8 +293,7 @@
                               </div>
                            </div>
                            <div class="timeline-footer" style="text-align: right;">
-                              <button id="btnAgregarSitio" class="btn btn-info btn-sm"
-                                 style="color: white">Agregar</button>
+                              <button id="btnAgregarSitio" class="btn btn-info btn-sm" style="color: white">Agregar</button>
 
                            </div>
                         </div>
@@ -332,8 +315,7 @@
                                              <div class="form-group">
                                                 <label>Número de Pasajeros</label>
                                                 <div class="input-group">
-                                                   <input id="cantidad" type="number" min="1" value="1"
-                                                      class="form-control" id="cupos_disponibles">
+                                                   <input id="cantidad" type="number" min="1" value="1" class="form-control" id="cupos_disponibles">
                                                 </div>
                                              </div>
                                           </div>
@@ -341,8 +323,7 @@
                                              <div class="form-group">
                                                 <label>Costo del Pasaje($)</label>
                                                 <div class="input-group">
-                                                   <input id="CostoPasaje" type="number" min="1" value="1"
-                                                      class="form-control" id="precio">
+                                                   <input id="CostoPasaje" type="number" min="1" value="1" class="form-control" id="precio">
                                                 </div>
                                              </div>
                                           </div>
@@ -421,44 +402,36 @@
                                     <div class="col-sm-3" id="contenedor_lugar">
                                        <label id="labelLugar">Lugar(es) de Salida</label>
                                        <div class="form-group multiple-form-group input-group" name="grupo_lugar">
-                                          <input type="text" name="lugar_salida[]" class="form-control"
-                                             placeholder="Digite el lugar">
+                                          <input type="text" name="lugar_salida[]" class="form-control" placeholder="Digite el lugar">
                                           <span class="input-group-btn">
-                                             <button type="button" class="btn btn-success btn-add"
-                                                style="margin-top:0px;">+</button>
+                                             <button type="button" class="btn btn-success btn-add" style="margin-top:0px;">+</button>
                                           </span>
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
                                        <label id="labelIncluye">El viaje incluye</label>
                                        <div class="form-group multiple-form-group input-group" name="grupo_incluye">
-                                          <input type="text" name="incluye[]" class="form-control"
-                                             placeholder="¿Qué incluye el viaje?">
+                                          <input type="text" name="incluye[]" class="form-control" placeholder="¿Qué incluye el viaje?">
                                           <span class="input-group-btn">
-                                             <button type="button" class="btn btn-success btn-add"
-                                                style="margin-top:0px;">+</button>
+                                             <button type="button" class="btn btn-success btn-add" style="margin-top:0px;">+</button>
                                           </span>
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
                                        <label id="labelNoIncluye">El viaje no incluye</label>
                                        <div class="form-group multiple-form-group input-group" name='grupo_noIncluye'>
-                                          <input type="text" name="no_incluye[]" class="form-control"
-                                             placeholder="¿Qué incluye no incluye viaje?">
+                                          <input type="text" name="no_incluye[]" class="form-control" placeholder="¿Qué incluye no incluye viaje?">
                                           <span class="input-group-btn">
-                                             <button type="button" class="btn btn-success btn-add"
-                                                style="margin-top:0px;">+</button>
+                                             <button type="button" class="btn btn-success btn-add" style="margin-top:0px;">+</button>
                                           </span>
                                        </div>
                                     </div>
                                     <div class="col-sm-3">
                                        <label id="labelRequisito">Requisitos</label>
                                        <div class="form-group multiple-form-group input-group" name="grupo_requisitos">
-                                          <input type="text" name="requisitos[]" class="form-control"
-                                             placeholder="Digite los requisitos">
+                                          <input type="text" name="requisitos[]" class="form-control" placeholder="Digite los requisitos">
                                           <span class="input-group-btn">
-                                             <button type="button" class="btn btn-success btn-add"
-                                                style="margin-top:0px;">+</button>
+                                             <button type="button" class="btn btn-success btn-add" style="margin-top:0px;">+</button>
                                           </span>
                                        </div>
                                     </div>
@@ -493,8 +466,7 @@
                                  <div class="row" id="promocione_especiales">
                                     <div class="col-sm-4">
                                        <div class="form-group multiple-form-group input-group">
-                                          <input type="text" class="form-control" name="titulos[]"
-                                             placeholder="Ej: Niños Menores de 5 años">
+                                          <input type="text" class="form-control" name="titulos[]" placeholder="Ej: Niños Menores de 5 años">
                                        </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -506,8 +478,7 @@
                                        <div class="form-group multiple-form-group input-group">
                                           <input type="number" name="pasajes[]" min="0" class="form-control">
                                           <span class="input-group-btn">
-                                             <button type="button" class="btn btn-success btn-addRow"
-                                                style="margin-top:0px;">+</button>
+                                             <button type="button" class="btn btn-success btn-addRow" style="margin-top:0px;">+</button>
                                           </span>
                                        </div>
                                     </div>
@@ -516,8 +487,7 @@
                            </div>
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
-                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
-                                 style="color: white">Actualizar</button>
+                              <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm" style="color: white">Actualizar</button>
                               <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                            </div>
                         </div>
@@ -549,6 +519,6 @@
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/editar.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
+<script src="<?= $base_url ?>js/controladores/viajes/configuracion.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

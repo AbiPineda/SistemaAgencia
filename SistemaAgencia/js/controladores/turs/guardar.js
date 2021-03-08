@@ -61,8 +61,6 @@ function guardar() {
       }).then((result) => {
          //TODO BIEN Y RECARGAMOS LA PAGINA 
          $("#miFormulario").trigger("reset");
-         restaurarContactos();
-         resetMiTable();
          restOtrasOpciones();
          resetPromociones();
          Toast.fire({
@@ -101,8 +99,6 @@ function guardar() {
 
 function obtenerData() {
    let form = new FormData();
-   let serviciosAdicionales = [];
-   let sistiosTuristicos = [];
    let promocion = [];
 
    //ESTO ES PARA L A GALERIA 
@@ -110,32 +106,7 @@ function obtenerData() {
    for (let i = 0; i < galeria.length; i++) {
       form.append('fotos[]', galeria[i]);
    }
-   tabla.rows().every(function (value, index) {
-      let data = this.data();
-      let title = data[0];
-      let costo = data[1];
-      let por_pasajero = data[3];
-      let tipo = data[6];
-      let id = data[7];
-      if (tipo == "servicio") {
-         serviciosAdicionales.push({
-            "id_servicios": id,
-            "costo": costo,
-            "por_usuario": por_pasajero == 'si',
-            "nuemo_veces": "1"
-         });
-      } else {
-         sistiosTuristicos.push({
-            "id_sitio_turistico": id,
-            "title": title,
-            "costo": costo,
-            "por_usuario": por_pasajero == 'si',
-            "backgroundColor": "#28a745",
-            "borderColor": "#28a745",
-            "textColor": "#fff"
-         });
-      }
-   });
+
 
    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
    let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
@@ -157,8 +128,7 @@ function obtenerData() {
    let start = fecha[0]
    let end = fecha[1]
 
-   form.append("sitios", JSON.stringify(sistiosTuristicos));
-   form.append("servicios", JSON.stringify(serviciosAdicionales));
+
    form.append("promociones", JSON.stringify(promocion));
    form.append("no_incluye", JSON.stringify(no_incluye));
    form.append("requisitos", JSON.stringify(requisitos));
@@ -174,9 +144,17 @@ function obtenerData() {
    form.append("aprobado", 1);
    form.append("tipo", "TUR");
 
-   console.log(start)
-   console.log(end)
-
    return form;
 
+}
+
+function restOtrasOpciones() {
+
+   $("#contenedor_opcions").empty();
+   $("#contenedor_opcions").html(htmlOtrasOpciones);
+}
+
+function resetPromociones() {
+   $("#contenedorPromociones").empty();
+   $("#contenedorPromociones").html(htmlPromociones);
 }
