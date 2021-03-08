@@ -253,6 +253,14 @@ function inicializarComboServicio() {
            $('#ComboServicio').select2({ data: dataOtros });
            $('#ComboTransporte').select2({ data: dataTransporte });
            //CARGAMOS EL COSTO AL INPUT
+           
+           document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
+           document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
+           document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
+           document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
+           document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
+           document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
+      
 
        } else {
            $('#ComboServicio').select2();
