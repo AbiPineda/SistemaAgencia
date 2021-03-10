@@ -332,23 +332,7 @@ $(document).ready(function () {
     }
     function guardarSitio() {
         $('#loadingSitio').show();
-        let form = new FormData();
-        let myCoordnada = document.getElementById("coordenadas").value;
-        myCoordnada = myCoordnada.split(' ');
-
-        //ESTO ES PARA L A GALERIA 
-        let galeria = document.getElementById("fotosSitios").files;
-        for (let i = 0; i < galeria.length; i++) {
-            form.append('fotos[]', galeria[i]);
-        }
-        form.append("nombre_sitio", document.getElementById("nombreSitio").value);
-        form.append("longitud", myCoordnada[0]);
-        form.append("latitud", myCoordnada[1]);
-        form.append("descripcion_sitio", document.getElementById("descripcionSitio").value);
-        form.append("id_tipo_sitio", document.getElementById("ComboTipoSitio").value);
-        form.append("informacion_contacto", document.getElementById("contacto_sitio").value);
-        form.append("nombreSitio", document.getElementById("nombreSitio").value);
-
+        let form = getDAta();
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "SitioTuristico/save",
@@ -360,12 +344,13 @@ $(document).ready(function () {
             contentType: false,
         }).done(function (response) {
             //REST_Controller::HTTP_OK
-            let respuestaDecodificada = JSON.parse(response);
+            actualizarComboSitio();
             const Toast = Swal.mixin();
+            $('#modal-agregarSitio').modal('hide');
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: respuestaDecodificada.mensaje,
+                text: 'Sitio Guardado Exitosamente',
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
@@ -386,6 +371,32 @@ $(document).ready(function () {
         }).always(function (xhr, opts) {
             $('#loadingSitio').hide();
         });
+    }
+    function getDAta() {
+        let form = new FormData();
+        let myCoordnada = document.getElementById("coordenadas").value;
+        myCoordnada = myCoordnada.split(' ');
+
+        //ESTO ES PARA L A GALERIA 
+        let galeria = document.getElementById("fotosSitios").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
+        form.append("nombre_sitio", document.getElementById("nombreSitio").value);
+        form.append("longitud", myCoordnada[0]);
+        form.append("latitud", myCoordnada[1]);
+        form.append("descripcion_sitio", document.getElementById("descripcionSitio").value);
+        form.append("id_tipo_sitio", document.getElementById("ComboTipoSitio").value);
+        form.append("informacion_contacto", document.getElementById("contacto_sitio").value);
+        form.append("nombreSitio", document.getElementById("nombreSitio").value);
+        return form;
+    }
+    //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
+    function actualizarComboSitio() {
+        if (typeof DATA_SERVICIO !== 'undefined') {
+            console.log("actualizamos el combo sitio");
+            inicializarComboTuristico();
+        }
     }
     function guardarTipoSitio() {
         $('#loadingSitio').show();

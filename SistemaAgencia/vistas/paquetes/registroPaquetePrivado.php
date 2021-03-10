@@ -73,7 +73,17 @@
                                     </div>
                                  </div>
                               </div>
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                       <label>Descripción del Viaje</label>
+                                       <textarea class="form-control" rows="4" id="descripcion_tur"
+                                          name="descripcion_tur" placeholder="Digitar aquí ..."></textarea>
+                                    </div>
+                                 </div>
 
+                              </div>
                            </div>
                         </div>
                      </div>

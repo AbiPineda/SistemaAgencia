@@ -10,7 +10,7 @@ let contadorTabla = 0.0;
 let totalGastos = 0.0;
 let totalIngresos = 0.0;
 let ganancias = 0.0;
-let cantidadByTransporte = 20;
+let cantidadByTransporte = 0;
 const htmlOtrasOpciones = $('#otras_opciones').clone();
 const htmlPromociones = $('#promocione_especiales').clone();
 
@@ -65,41 +65,41 @@ $('#ComboServicio').on('select2:select', function (e) {
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TRANSPORTET
 $('#ComboTransporte').on('select2:select', function (e) {
-   let transporte;
-let id = e.params.data.id;
-transporte = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
-cantidadByTransporte = transporte.asientos_dispobibles;
+    let transporte;
+    let id = e.params.data.id;
+    transporte = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
+    cantidadByTransporte = transporte.asientos_dispobibles;
 
-modificarTabla();
-modificarIngresos();
-modificarGanancias();
+    modificarTabla();
+    modificarIngresos();
+    modificarGanancias();
 });
 //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
 $(document).on('click', '#btnAgregarTur', function (evento) {
-   evento.preventDefault();
-   //verifiacando que existe un precio
-   let precio_sitio = $('#precio_sitio').val();
-   if (!precio_sitio) {
-       errors = { precio_sitio: "Digite precio" };
-       $("#miFormulario").validate().showErrors(errors);
-   } else {
-       let PorPasajero = $("input[name='radioTur']:checked").val();
-       let mytur = $('#ComboTur').select2('data');
-       let nombre = mytur[0].text;
-       let id = mytur[0].id;
-       contadorTabla++;
-       ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
-       //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
-       let cantidad = PorPasajero == "si" ? cantidadByTransporte : 1;
-       let precio = $("#precio_sitio").val();
-       let tipo = "tur";
-       if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
-           agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
-       }
-       modificarIngresos();
-       modificarTabla();
-       modificarGanancias();
-   }
+    evento.preventDefault();
+    //verifiacando que existe un precio
+    let precio_sitio = $('#precio_sitio').val();
+    if (!precio_sitio) {
+        errors = { precio_sitio: "Digite precio" };
+        $("#miFormulario").validate().showErrors(errors);
+    } else {
+        let PorPasajero = $("input[name='radioTur']:checked").val();
+        let mytur = $('#ComboTur').select2('data');
+        let nombre = mytur[0].text;
+        let id = mytur[0].id;
+        contadorTabla++;
+        ///si ha seleccionado el radio Button seleccionando que el costo sera por pasajerro
+        //obteneros la cantidad de pasajero, de lo contrio la cantidad sera 1
+        let cantidad = PorPasajero == "si" ? cantidadByTransporte : 1;
+        let precio = $("#precio_sitio").val();
+        let tipo = "tur";
+        if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id);
+        }
+        modificarIngresos();
+        modificarTabla();
+        modificarGanancias();
+    }
 });
 //AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
 $(document).on('click', '#btnAgregarSitio', function (evento) {
@@ -168,6 +168,30 @@ $(document).on('click', '#btnguardar', function (evento) {
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
 $(document).on('click', '#newServicio', function (evento) {
+    //se habilita el combo
+    $('#tipo_servicio').prop('disabled', false);
+    //seleccionamos por defecto la primera opcion
+    $('#tipo_servicio').val('1');
+    $('#tipo_servicio').trigger('change');
+    //deshabilitamos la segunda opcion que es la del transporte
+    $('#tipo_servicio option[value="2"]').prop('disabled', true);
+    //se ocultan las opciones de trasnporte
+    $('#configuracionAsientos').hide();
+    $('#dibujoAsientos').hide();
+    //se abre el modal
+    $('#modal-agregarServicio').modal('show');
+});
+//BOTON + AGREGAR UN NUEVO SERVICIO 
+$(document).on('click', '#newTranspore', function (evento) {
+    //seleccionamos por defecto la opcion del transporte
+    $('#tipo_servicio').val('2');
+    //seshabilitamos el combo
+    $('#tipo_servicio').trigger('change');
+    $('#tipo_servicio').prop('disabled', true);
+    //mostramos las opciones de transporte
+    $('#configuracionAsientos').show();
+    $('#dibujoAsientos').show();
+    //mostramos el modal
     $('#modal-agregarServicio').modal('show');
 });
 //BOTON + AGREGAR UN NUEVO SITIO 
@@ -183,7 +207,6 @@ $(document).on('click', '.btn-remove', removeFormGroup);
 $(document).on('click', '.btn-addRow', addRow);
 //BOTON DE ELIMINAR FILA
 $(document).on('click', '.btn-removeRow', removeRow);
-
 
 function inicializarComboTuristico() {
     //COMBO DE TIPOS 
@@ -222,59 +245,58 @@ function inicializarComboTuristico() {
         // $('#loading').hide();
     });
 }
-
 function inicializarComboServicio() {
-   //COMBO DE TIPOS 
-   $('#ComboSitio').select2();
-   //COMBO DE CONTACTOS
-   $.ajax({
-       url: URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
-       method: "GET"
-   }).done(function (response) {
-       //REST_Controller::HTTP_OK
-       let dataOtros = [];
-       let dataTransporte = [];
-       if (response.servicio) {
-           DATA_SERVICIO = response.servicio;
-           for (let index = 0; index < DATA_SERVICIO.length; index++) {
-               if (DATA_SERVICIO[index].tipo_servicio === "Transporte") {
-                   dataTransporte.push({
-                       id: DATA_SERVICIO[index].id_servicios,
-                       text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio}, ${DATA_SERVICIO[index].asientos_dispobibles} Asientos)`
-                   });
-               } else {
-                   dataOtros.push({
-                       id: DATA_SERVICIO[index].id_servicios,
-                       text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio})`
-                   });
-               }
-           }
-           ///LE CARGAMOS LA DATA 
-           $('#ComboServicio').select2({ data: dataOtros });
-           $('#ComboTransporte').select2({ data: dataTransporte });
-           //CARGAMOS EL COSTO AL INPUT
-           
-           document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
-           document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
-           document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
-           document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
-           document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
-           document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
-      
+    //COMBO DE CONTACTOS
+    $.ajax({
+        url: URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
+        method: "GET"
+    }).done(function (response) {
+        //REST_Controller::HTTP_OK
+        let dataOtros = [];
+        let dataTransporte = [];
+        if (response.servicio) {
+            DATA_SERVICIO = response.servicio;
+            for (let index = 0; index < DATA_SERVICIO.length; index++) {    
+                if (DATA_SERVICIO[index].tipo_servicio === "Transporte") {
+                    if (cantidadByTransporte == 0) {
+                        cantidadByTransporte = parseInt(DATA_SERVICIO[index].asientos_dispobibles);
+                    }
+                    dataTransporte.push({
+                        id: DATA_SERVICIO[index].id_servicios,
+                        text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio}, ${DATA_SERVICIO[index].asientos_dispobibles} Asientos)`
+                    });
+                } else {
+                    dataOtros.push({
+                        id: DATA_SERVICIO[index].id_servicios,
+                        text: `${DATA_SERVICIO[index].nombre_servicio} (${DATA_SERVICIO[index].tipo_servicio})`
+                    });
+                }
+            }
+            ///LE CARGAMOS LA DATA 
+            $('#ComboServicio').select2({ data: dataOtros });
+            $('#ComboTransporte').select2({ data: dataTransporte });
+            //CARGAMOS EL COSTO AL INPUT
 
-       } else {
-           $('#ComboServicio').select2();
-           $('#ComboTransporte').select2();
-       }
-   }).fail(function (response) {
-       $('#ComboServicio').select2();
-       $('#ComboTransporte').select2();
+            document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
+            document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
+            document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
+            document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
+            document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
+            document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
 
-   }).always(function (xhr, opts) {
-       $('#loading').hide();
-   });
+
+        } else {
+            $('#ComboServicio').select2();
+            $('#ComboTransporte').select2();
+        }
+    }).fail(function (response) {
+        $('#ComboServicio').select2();
+        $('#ComboTransporte').select2();
+
+    }).always(function (xhr, opts) {
+        $('#loading').hide();
+    });
 }
-
 function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
     let subTotoal = (precio * cantidad).toFixed(2);
     let html = "";
@@ -294,33 +316,28 @@ function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
     $('#totalGastos').text("$" + totalGastos);
 
 }
-
 function modificarTabla() {
-   totalGastos = 0;
-   tabla.rows().every(function (value, index) {
-       let data = this.data();
-       let porPasajero = data[3];
-       if (porPasajero == "si") {
-           data[2] = cantidadByTransporte; //le asignamos un nuevoo valor a la columna cantidad
-           data[4] = (data[1] * data[2]).toFixed(2); // modificamos el sub total
-       }
-       totalGastos += parseFloat(data[4]);
-       this.data(data).draw(false);
-   });
-   $('#totalGastos').text("$" + totalGastos);
+    totalGastos = 0;
+    tabla.rows().every(function (value, index) {
+        let data = this.data();
+        let porPasajero = data[3];
+        if (porPasajero == "si") {
+            data[2] = cantidadByTransporte; //le asignamos un nuevoo valor a la columna cantidad
+            data[4] = (data[1] * data[2]).toFixed(2); // modificamos el sub total
+        }
+        totalGastos += parseFloat(data[4]);
+        this.data(data).draw(false);
+    });
+    $('#totalGastos').text("$" + totalGastos);
 }
-
-function modificarIngresos() {
-   totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
-   $('#totalIngresos').text("$" + totalIngresos);
-}
-
-
 function modificarIngresos() {
     totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
     $('#totalIngresos').text("$" + totalIngresos);
 }
-
+function modificarIngresos() {
+    totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
+    $('#totalIngresos').text("$" + totalIngresos);
+}
 function modificarGanancias() {
     ganancias = parseFloat(totalIngresos - totalGastos);
     if (ganancias > 0) {
@@ -338,7 +355,6 @@ function modificarGanancias() {
     }
     $('#ganancias').text("$" + ganancias.toFixed(2));
 }
-
 function inicializarGaleria() {
     // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
     $('#fotos').fileinput({
@@ -355,9 +371,6 @@ function inicializarGaleria() {
         showClose: false,
     });
 }
-
-
-
 function inicializarValidaciones() {
     $('#miFormulario').validate({
         rules: {
@@ -477,18 +490,16 @@ function inicializarValidaciones() {
         }
     });
 }
-
 function resetMiTable() {
-    contadorTabla = 0;
-    totalGastos = 0;
-    totalIngresos = 0;
-    ganancias = 0;
-    tabla.clear().draw();
-    $('#totalIngresos').text("$0");
-    $('#ganancias').text("$0");
-    $('#totalGastos').text("$0");
+        contadorTabla = 0;
+        totalGastos = 0;
+        totalIngresos = 0;
+        ganancias = 0;
+        tabla.clear().draw();
+        $('#totalIngresos').text("$0");
+        $('#ganancias').text("$0");
+        $('#totalGastos').text("$0");
 }
-
 function restaurarContactos() {
 
     document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
@@ -505,7 +516,6 @@ function restaurarContactos() {
     document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
     document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
 }
-
 function addFormGroup(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.form-group');
@@ -516,14 +526,12 @@ function addFormGroup(event) {
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         $formGroupClone.insertAfter($formGroup);
     }
-};
-
+}
 function removeFormGroup(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.form-group');
     $formGroup.remove();
-};
-
+}
 function addRow(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.row');
@@ -534,25 +542,21 @@ function addRow(event) {
         $(this).toggleClass('btn-success btn-addRow btn-danger btn-removeRow').html('–');
         $formGroupClone.insertAfter($formGroup);
     }
-};
-
+}
 function removeRow(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.row');
     $formGroup.remove();
-};
-
+}
 function restOtrasOpciones() {
 
     $("#contenedor_opcions").empty();
     $("#contenedor_opcions").html(htmlOtrasOpciones);
 }
-
 function resetPromociones() {
     $("#contenedorPromociones").empty();
     $("#contenedorPromociones").html(htmlPromociones);
 }
-
 function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
     let encontrado = false;
     tabla.rows().every(function (value, index) {

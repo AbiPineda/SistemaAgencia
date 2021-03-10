@@ -59,6 +59,54 @@ $(document).ready(function () {
 
     function guardarServicio() {
         $('#loadingServicio').show();
+        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+        let form = getData();
+        $.ajax({
+            url: URL_SERVIDOR + "ServiciosAdicionales/save",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            actualizarCombo();
+            //CERRAMOS EL MODAL
+            $('#modal-agregarServicio').modal('hide');
+            //RESTAURAMOS LOS CAMPOS
+            $('#configuracionAsientos').hide();
+            $('#dibujoAsientos').hide();
+            $("#miFormularioServicio").trigger("reset");
+            miMapa = [];
+            numero_filas = 2;
+            crearStrFila();
+            borrarTodo();
+            crearFilas();
+            dibujarAsientos();
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: "Servicio Guardado Exitosamente",
+                showConfirmButton: true,
+            });
+            $('#loadingServicio').hide();
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            console.log(response);
+
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+                showConfirmButton: true,
+            });
+
+        });
+    }
+    function getData() {
         let form = new FormData();
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotosServicio").files;
@@ -88,60 +136,14 @@ $(document).ready(function () {
             form.append("fila_trasera", fila_trasera);
             form.append("asientos_dispobibles", asientos_disponibles);
         }
-
-        //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
-        $.ajax({
-            url: URL_SERVIDOR + "ServiciosAdicionales/save",
-            method: "POST",
-            mimeType: "multipart/form-data",
-            data: form,
-            timeout: 0,
-            processData: false,
-            contentType: false,
-        }).done(function (response) {
-            //REST_Controller::HTTP_OK
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Exito...',
-                icon: 'success',
-                text: "Servicio Guardado Exitosamente",
-                showConfirmButton: true,
-            }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA
-
-                $("#tipo_servicio").val('1').trigger('change');
-                $('#configuracionAsientos').hide();
-                $('#dibujoAsientos').hide();
-                $("#miFormularioServicio").trigger("reset");
-                miMapa = [];
-                numero_filas = 2;
-                crearStrFila();
-                borrarTodo();
-                crearFilas();
-                dibujarAsientos();
-                let respuestaDecodificada = JSON.parse(response);
-                //ACTUALIZAREMOS EL COMBO SI ESTAMOS EN REGISTRO TOURS
-                let texto = respuestaDecodificada.nombre_servicio;
-                let id = respuestaDecodificada.id;
-                let newOption = new Option(texto, id, false, false);
-                $('#ComboServicio').append(newOption).trigger('change');
-                $('#modal-agregarServicio').modal('hide');
-            });
-        }).fail(function (response) {
-            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            console.log(response);
-
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Oops...',
-                icon: 'error',
-                text: "ERROR EN EL ENVIO DE INFORMACIÓN",
-                showConfirmButton: true,
-            });
-
-        }).always(function (xhr, opts) {
-            $('#loadingServicio').hide();
-        });
+        return form;
+    }
+    //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
+    function actualizarCombo() {
+        if (typeof DATA_TUR !== 'undefined') {
+            console.log("actualizamos el combo servicio");
+            inicializarComboServicio();
+        }
     }
     function guardarContactoServicio() {
         $('#loadingServicio').show();
