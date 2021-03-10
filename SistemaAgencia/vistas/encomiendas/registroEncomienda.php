@@ -2,6 +2,11 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php'; ?>
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+   type="text/css" />
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 <?php
@@ -163,6 +168,15 @@ include_once '../../plantillas/barra_lateral.php';
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                 <div class="col-sm-12">
+
+                                    <label>Seleccione Imagenes</label>
+                                    <div class="file-loading">
+                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                    </div>
+                                 </div>
+                              </div>
                                     <div class="timeline-footer" style="text-align: right;">
                                         <a class="btn btn-info btn-sm" id="agregarTabla"
                                             style="color: white">Agregar</a>
@@ -369,6 +383,11 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
 </script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/deptos.js"></script>

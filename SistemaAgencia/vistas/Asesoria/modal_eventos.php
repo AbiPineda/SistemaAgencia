@@ -1,5 +1,4 @@
-  <!-- ./wrapper -->
-
+<!-- ./wrapper -->
   <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/operaciones.js"></script>
 
     <!--modal alternativo para los eventos-->
@@ -16,16 +15,17 @@
                 <form id="register-form" name="register-form" onsubmit="return false" role="form">
                 <div class="modal-body">
                         <div class="form-row">
-                             <div class="form-group col-md-8">
-                                <label>Cliente</label>
-                                <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();">
-                                    <option disabled="" selected="">Seleccione</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                 <label>Fecha</label>
+                             <div class="form-group col-md-4">
+                               <label>Fecha</label>
                               <input type="text" id="txtFecha"  name="fecha" class="form-control"/>
                               <input type="hidden" id="usuario" name="usuario" class="form-control" />
+                                
+                            </div>
+                            <div class="form-group col-md-8">
+                               <label>Cliente</label>
+                                <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();" style="width: 100%;">
+                                    <option disabled="" selected="">Seleccione</option>
+                                </select> 
                           </div>
                             
                         </div>
@@ -57,21 +57,31 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-4"> 
-                                <input type="hidden" class="form-control" id="txtTitulo" name="title"
-                                value="Asesoria" />
-                            </div>
-
-                            <div class="form-group col-md-4">
+                          <div class="form-group col-md-4">
                                 <label>Hora de la cita</label>
                                 <div class="input-group clockpicker" data-autoclose="true">
                             <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
-
                                 </div>
 
                             </div>
+
+                            <div class="form-group col-md-8">
+                               <label>N° pasaporte</label>
+                              <input type="text" id="txtFecha"  name="pasaporte" class="form-control" placeholder="A12345878" />
+                                
+                            </div>
                             
                         </div>
+
+                        <div class="row">
+                                 <div class="col-sm-12">
+
+                                    <label>Seleccione Imagenes</label>
+                                    <div class="file-loading">
+                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                    </div>
+                                 </div>
+                              </div>
 
 
                 </div>
@@ -170,3 +180,4 @@
         </div>
     </div>
     <!--fin de modal de enventos-->
+  
