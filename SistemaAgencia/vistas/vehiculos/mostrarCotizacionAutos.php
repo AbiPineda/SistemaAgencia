@@ -394,7 +394,7 @@
 
                                                                         <td><label name="fechaDevolucionC"
                                                                                 id="fechaDevolucionC"
-                                                                                style="font-weight: normal;"></label>
+                                                                                style="font-weight: normal;" data-date="" data-date-format="DD MMMM YYYY"></label>
                                                                         </td>
                                                                         <td><label name="HoraDevolucionC"
                                                                                 id="HoraDevolucionC"
@@ -466,6 +466,11 @@ $(function() {
     });
 
 })
+</script>
+<script> 
+$("label").on("change", function() { 
+this.setAttribute( "data-date", moment(this.value, "YYYY-MM-DD") .format( this.getAttribute("data-date-format") ) ) 
+}).trigger("change") 
 </script>
 
 <!-- SCRIPT ADICIONALES -->

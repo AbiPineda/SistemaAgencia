@@ -132,7 +132,7 @@ include_once '../../plantillas/cabecera.php';
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-success btn-add"
                                                     name="agregarServicio" id="agregarServicio" style="margin-top:8px;"
-                                                    onclick="myFunction()">+</button>
+                                                    onclick="myFunction()">Agregar</button>
                                             </span>
 
                                         </div>
@@ -166,7 +166,7 @@ include_once '../../plantillas/cabecera.php';
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-success btn-add"
                                                     name="agregarPieza" id="agregarServicio" style="margin-top:8px;"
-                                                    onclick="CambioPieza()">+</button>
+                                                    onclick="CambioPieza()">Agregar</button>
                                             </span>
 
                                         </div>

@@ -197,6 +197,8 @@ $("input").on("change", function() {
     )
 }).trigger("change")
 </script>
+
+
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/mostrarMantenimiento.js"></script>
