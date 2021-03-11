@@ -1,9 +1,3 @@
-inicializarCalendario();
-inicializarValidaciones();
-inicializarComboTuristico();
-inicializarComboServicio();
-inicializarGaleria();
-
 let DATA_TUR;
 let DATA_SERVICIO;
 let contadorTabla = 0.0;
@@ -14,6 +8,11 @@ let cantidadByTransporte = 0;
 const htmlOtrasOpciones = $('#otras_opciones').clone();
 const htmlPromociones = $('#promocione_especiales').clone();
 
+inicializarCalendario();
+inicializarValidaciones();
+inicializarComboTuristico();
+inicializarComboServicio();
+inicializarGaleria();
 
 let tabla = $('#TablaCostos').DataTable({
     "responsive": true,
@@ -27,9 +26,9 @@ let tabla = $('#TablaCostos').DataTable({
 
     "columnDefs": [
         { "className": "dt-center", "targets": "_all" },
-        { "targets": [6], "visible": false },
-        { "targets": [7], "visible": false },
-        { "targets": [8], "visible": false },
+        // { "targets": [6], "visible": false },
+        // { "targets": [7], "visible": false },
+        // { "targets": [8], "visible": false },
     ]
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TUR
@@ -45,7 +44,7 @@ $('#ComboTur').on('select2:select', function (e) {
         document.getElementById("namePreviewTur").innerHTML = DATA_SELECCIONADA.contactoN;
         document.getElementById("mailContactoTur").innerHTML = DATA_SELECCIONADA.correo;
         document.getElementById("phoneContactoTur").innerHTML = DATA_SELECCIONADA.telefono;
-        document.getElementById("imgContactoTur").src = DATA_SELECCIONADA.url;;;
+        document.getElementById("imgContactoTur").src = DATA_SELECCIONADA.url;
     }
 });
 //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
@@ -60,16 +59,29 @@ $('#ComboServicio').on('select2:select', function (e) {
         document.getElementById("namePreviewServicio").innerHTML = DATA_SELECCIONADA.nombre_contacto;
         document.getElementById("mailContactoServicio").innerHTML = DATA_SELECCIONADA.correo;
         document.getElementById("phoneContactoServicio").innerHTML = DATA_SELECCIONADA.telefono;
-        document.getElementById("imgContactoServicio").src = DATA_SELECCIONADA.url;;;
+        document.getElementById("imgContactoServicio").src = DATA_SELECCIONADA.url;
     }
 });
-//CUANDO HAY CAMBIOS EN EL COMBO TRANSPORTET
+//CUANDO HAY CAMBIOS EN EL COMBO TRANSPORTE
 $('#ComboTransporte').on('select2:select', function (e) {
-    let transporte;
+    //OBTENEMOS LA DATA DEL COMBO    
+    let data;
     let id = e.params.data.id;
-    transporte = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
-    cantidadByTransporte = transporte.asientos_dispobibles;
+    //FILTRAMOS Y OBTENEMOS LA INFORMACION COMPLETA
+    data = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
+    //ACTUALIZAMOS LA CANTIDAD DE ASIENTOS DEPENDIENDO DEL TRANSPORTE
+    cantidadByTransporte = data.asientos_dispobibles;
+    //ACTUALIZAMOS LA INFORMACION DEL TRANSPORTE
+    document.getElementById("precio_transporte").value = data.costos_defecto;
+    document.getElementById("nameContactoTransporte").innerHTML = `<b>Nombre de Contacto:</b> ${data.nombre_contacto}`;
+    document.getElementById("namePreviewTransporte").innerHTML = data.nombre_contacto;
+    document.getElementById("mailContactoTransporte").innerHTML = data.correo;
+    document.getElementById("phoneContactoTransporte").innerHTML = data.telefono;
+    document.getElementById("imgContactoTransporte").src = data.url;
+    //ACTUALIZAMOS LA INFORMACION DE LA TABLA
 
+    let label = $("#ComboTransporte option:selected").html();
+    modificarRowTransporte(id, cantidadByTransporte, data.costos_defecto, label);
     modificarTabla();
     modificarIngresos();
     modificarGanancias();
@@ -101,7 +113,7 @@ $(document).on('click', '#btnAgregarTur', function (evento) {
         modificarGanancias();
     }
 });
-//AGREGANDO LA INFORMACION DE UN SITIO TURISTICO A LA TABLA
+//AGREGANDO LA INFORMACION DE UN SITIO SERVICIO A LA TABLA
 $(document).on('click', '#btnAgregarSitio', function (evento) {
     evento.preventDefault();
     //verifiacando que existe un precio
@@ -128,6 +140,19 @@ $(document).on('click', '#btnAgregarSitio', function (evento) {
         modificarGanancias();
     }
 });
+//CUANDO HAY CAMBIOS EN EL INPUT DE PRECIO DE TRANSPORTE
+$(document).on('keyup mouseup', '#precio_transporte', function () {
+    
+    let id = $('#ComboTransporte').val();
+    let cantidad = 1;
+    let costo   = $('#precio_transporte').val();
+    let label = $("#ComboTransporte option:selected").html();
+    modificarRowTransporte(id,cantidad,costo,label);
+    modificarTabla();
+    modificarIngresos();
+    modificarGanancias();
+});
+
 //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
 $(document).on('keyup mouseup', '#cantidad', function () {
     modificarTabla();
@@ -229,12 +254,6 @@ function inicializarComboTuristico() {
             ///LE CARGAMOS LA DATA 
             $('#ComboTur').select2({ data: myData });
             //CARGAMOS EL COSTO AL INPUT
-            document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-            document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-            document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-            document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-            document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-            document.getElementById("imgContactoTur").src = DATA_TUR[0].url
         } else {
             $('#ComboTur').select2();
         }
@@ -256,7 +275,7 @@ function inicializarComboServicio() {
         let dataTransporte = [];
         if (response.servicio) {
             DATA_SERVICIO = response.servicio;
-            for (let index = 0; index < DATA_SERVICIO.length; index++) {    
+            for (let index = 0; index < DATA_SERVICIO.length; index++) {
                 if (DATA_SERVICIO[index].tipo_servicio === "Transporte") {
                     if (cantidadByTransporte == 0) {
                         cantidadByTransporte = parseInt(DATA_SERVICIO[index].asientos_dispobibles);
@@ -275,16 +294,6 @@ function inicializarComboServicio() {
             ///LE CARGAMOS LA DATA 
             $('#ComboServicio').select2({ data: dataOtros });
             $('#ComboTransporte').select2({ data: dataTransporte });
-            //CARGAMOS EL COSTO AL INPUT
-
-            document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
-            document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
-            document.getElementById("namePreviewServicio").innerHTML = DATA_SERVICIO[0].nombre_contacto;
-            document.getElementById("mailContactoServicio").innerHTML = DATA_SERVICIO[0].correo;
-            document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
-            document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
-
-
         } else {
             $('#ComboServicio').select2();
             $('#ComboTransporte').select2();
@@ -294,20 +303,23 @@ function inicializarComboServicio() {
         $('#ComboTransporte').select2();
 
     }).always(function (xhr, opts) {
+        agregarInformacionContacto();
         $('#loading').hide();
     });
 }
-function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id) {
+function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id, Crearboton = true) {
     let subTotoal = (precio * cantidad).toFixed(2);
     let html = "";
-    html += '<td>';
-    html += '    <div class="btn-group">';
-    html += '        <button type="button" name="" class="btn btn-danger" data-toggle="modal"';
-    html += '            data-target="#modal-eliminar">';
-    html += '            <i class="fas fa-trash" style="color: white"></i>';
-    html += '        </button>';
-    html += '    </div>';
-    html += '</td>';
+    if (Crearboton) {
+        html += '<td>';
+        html += '    <div class="btn-group">';
+        html += '        <button type="button" name="" class="btn btn-danger" data-toggle="modal"';
+        html += '            data-target="#modal-eliminar">';
+        html += '            <i class="fas fa-trash" style="color: white"></i>';
+        html += '        </button>';
+        html += '    </div>';
+        html += '</td>';
+    }
     tabla.row.add([nombre, precio, cantidad, PorPasajero, subTotoal, html, tipo, id, contadorTabla]).draw(false);
     //PARA ORDENAR LA TABLA
     tabla.order([8, 'desc']).draw();
@@ -402,6 +414,11 @@ function inicializarValidaciones() {
                 number: true,
                 min: 0
             },
+            precio_transporte:{
+                required: true,
+                number: true,
+                min: 0
+            },
             descripcion_tur: {
                 required: true,
                 minlength: 5
@@ -454,6 +471,11 @@ function inicializarValidaciones() {
                 number: "Solo numero",
                 min: "Debe ser mayor o igual a 0"
             },
+            precio_transporte:{
+                required: "Digite precio",
+                number: "Solo numeros",
+                min: "Debe ser mayor o igual a 0"
+            },
             descripcion_tur: {
                 required: "Este campo es requierido",
                 minlength: "debe de tener una longitud mayor a 4 "
@@ -491,14 +513,14 @@ function inicializarValidaciones() {
     });
 }
 function resetMiTable() {
-        contadorTabla = 0;
-        totalGastos = 0;
-        totalIngresos = 0;
-        ganancias = 0;
-        tabla.clear().draw();
-        $('#totalIngresos').text("$0");
-        $('#ganancias').text("$0");
-        $('#totalGastos').text("$0");
+    contadorTabla = 0;
+    totalGastos = 0;
+    totalIngresos = 0;
+    ganancias = 0;
+    tabla.clear().draw();
+    $('#totalIngresos').text("$0");
+    $('#ganancias').text("$0");
+    $('#totalGastos').text("$0");
 }
 function restaurarContactos() {
 
@@ -572,4 +594,72 @@ function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
     });
 
     return encontrado;
+}
+function agregarInformacionContacto() {
+    let ComboServicio = document.getElementById("ComboServicio").value;
+    let Combotransporte = document.getElementById("ComboTransporte").value;
+    let CombotSitio = document.getElementById("ComboTur").value;
+    if (typeof CombotSitio !== 'undefined') {
+        let data = DATA_TUR.find(myTur => myTur.id_sitio_turistico === CombotSitio);
+        document.getElementById("precio_sitio").value = data.precio_sitio;
+        document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${data.contactoN}`;
+        document.getElementById("namePreviewTur").innerHTML = data.contactoN;
+        document.getElementById("mailContactoTur").innerHTML = data.correo;
+        document.getElementById("phoneContactoTur").innerHTML = data.telefono;
+        document.getElementById("imgContactoTur").src = data.url
+    }
+
+    if (typeof ComboServicio !== 'undefined') {
+        let data = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === ComboServicio);
+        document.getElementById("precio_servicio").value = data.costos_defecto;
+        document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${data.nombre_contacto}`;
+        document.getElementById("namePreviewServicio").innerHTML = data.nombre_contacto;
+        document.getElementById("mailContactoServicio").innerHTML = data.correo;
+        document.getElementById("phoneContactoServicio").innerHTML = data.telefono;
+        document.getElementById("imgContactoServicio").src = data.url;
+    }
+    if (typeof Combotransporte !== 'undefined') {
+        let data = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === Combotransporte);
+        document.getElementById("precio_transporte").value = data.costos_defecto;
+        document.getElementById("nameContactoTransporte").innerHTML = `<b>Nombre de Contacto:</b> ${data.nombre_contacto}`;
+        document.getElementById("namePreviewTransporte").innerHTML = data.nombre_contacto;
+        document.getElementById("mailContactoTransporte").innerHTML = data.correo;
+        document.getElementById("phoneContactoTransporte").innerHTML = data.telefono;
+        document.getElementById("imgContactoTransporte").src = data.url;
+        //CARGAMOS EL PRIMER REGISTRO A LA TABLA 
+        let id = Combotransporte;
+        let cantidad = 1;
+        let precio = $('#precio_transporte').val();
+        let tipo = "servicio";
+        let PorPasajero = "no";
+        let nombre = $("#ComboTransporte option:selected").html();
+        let Crearboton = false;
+
+        if (!ExisteFila(id, cantidad, precio, tipo, PorPasajero)) {
+            agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id, Crearboton);
+        }
+        modificarIngresos();
+        modificarTabla();
+        modificarGanancias();
+    }
+
+}
+function modificarRowTransporte(id, cantidad, costo, titulo) {
+    tabla.rows().every(function (value, index) {
+        let data = this.data();
+        //PARA MODIFICAR LA FILA CON CONTADOR 0 QUE ES DONDE SIEMPRE SE ENCUENTRA LA EL TRANSPORTE
+        if (data[8] == "0") {
+            //asignamos los nuevos valores
+            data[0] = titulo;
+            data[1] = costo;
+            data[2] = cantidad;
+            data[4] = costo;
+            data[7] = id;
+            //actualizamo la tabla
+            this.data(data).draw(false);
+            //rompemos el ciclo
+            return;
+        }
+    });
+
 }

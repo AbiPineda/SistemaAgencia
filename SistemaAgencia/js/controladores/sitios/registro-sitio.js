@@ -383,6 +383,7 @@ $(document).ready(function () {
             form.append('fotos[]', galeria[i]);
         }
         form.append("nombre_sitio", document.getElementById("nombreSitio").value);
+        form.append("precio_sitio", document.getElementById("precioSitio").value);
         form.append("longitud", myCoordnada[0]);
         form.append("latitud", myCoordnada[1]);
         form.append("descripcion_sitio", document.getElementById("descripcionSitio").value);

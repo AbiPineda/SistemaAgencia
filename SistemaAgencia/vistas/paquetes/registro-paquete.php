@@ -364,6 +364,67 @@
                                                    name="newTranspore" style="margin-top: 7px; width: 100%;">+</button>
                                              </span>
                                           </div>
+                                          <div class="col-sm-2">
+                                             <div class="form-group">
+                                                <label>Precio</label>
+                                                <div class="input-group">
+                                                   <input id="precio_transporte" name="precio_transporte" type="number"
+                                                      min="1" class="form-control">
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-sm-2">
+                                             <div class="form-group">
+                                                <label>Contacto</label>
+                                                <br>
+                                                <a style="position:absolute; z-index:1;" href="#">
+                                                   <div id="namePreviewTransporte">Nombre de Contacto
+                                                   </div>
+                                                   <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                                      <div class="ocultar card bg-light">
+                                                         <div class="card-body">
+                                                            <div class="row">
+                                                               <div class="col-7">
+                                                                  <p id="nameContactoTransporte"
+                                                                     class="text-muted text-sm">
+                                                                     <b>Nombre de Contacto:</b>
+                                                                     Nombre de Contacto detallado
+                                                                  </p>
+                                                                  <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                                     <li class="small">
+                                                                        <span class="fa-li">
+                                                                           <i class="fas fa-lg fa-mail-bulk">
+                                                                           </i>
+                                                                        </span>
+                                                                        <div id="mailContactoTransporte">
+                                                                           correo@correo.com
+                                                                        </div>
+                                                                     </li>
+                                                                     <li class="small">
+                                                                        <span class="fa-li">
+                                                                           <i class="fas fa-lg fa-phone"></i>
+                                                                        </span>
+                                                                        <div id="phoneContactoTransporte">
+                                                                           Teléfono #: 1234-5678
+                                                                        </div>
+                                                                     </li>
+                                                                  </ul>
+                                                               </div>
+                                                               <div class="col-5 text-center">
+                                                                  <img id="imgContactoTransporte"
+                                                                     src="http://www.lagraderia.com/wp-content/uploads/2018/12/no-imagen.jpg"
+                                                                     alt="" class="img-fluid">
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="card-footer">
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </a>
+
+                                             </div>
+                                          </div>
                                           <div class="col-sm-3">
                                              <div class="form-group">
                                                 <label>Costo del Pasaje($)</label>
