@@ -194,7 +194,7 @@
                                 <div class="form-group">
                                     <label>Transmision</label>
                                     <div class="input-group">
-                                        <input id="transmision" name="transmision" type="text" class="form-control"
+                                        <input id="trans" name="trans" type="text" class="form-control"
                                             disabled>
                                     </div>
                                     <!-- /.input group -->

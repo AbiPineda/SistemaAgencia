@@ -42,7 +42,7 @@ include_once '../../plantillas/cabecera.php';
 
     <!-- Main content -->
     <section class="content">
-        <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
+    <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
@@ -130,7 +130,7 @@ include_once '../../plantillas/cabecera.php';
                                                     id="kilometraje" autocomplete="off">
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-2">
                                             <!-- select -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Transmición</label>
@@ -141,6 +141,16 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            
+
+                                            <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-add" data-toggle="modal"
+                                                data-target="#modal-transmision"
+                                                style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
                                         </div>
                                         <div class="col-sm-2">
                                             <!-- text input -->
@@ -314,10 +324,12 @@ include_once '../../plantillas/cabecera.php';
                 </div>
             </div>
     </section>
+
 </div>
 <!-- END timeline item -->
 
 <?php
+  include_once './modal-transmision.php';
   include_once '../../plantillas/footer.php';
 ?>
 
@@ -340,14 +352,17 @@ $(function() {
 })
 </script>
 <!-- jquery-validation -->
+
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboMarca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboRentaCars.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboTransmision.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboCategoria.js"></script>
+
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>

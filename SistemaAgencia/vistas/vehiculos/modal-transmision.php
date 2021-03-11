@@ -2,13 +2,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
-
             <div class="modal-body">
                 <p>
                     <!-- Main content -->
@@ -25,7 +22,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Transmisión</label>
                                             <input type="text" class="form-control" name="transmision"
-                                                placeholder="Digite nombre de la transmisión">
+                                                id="transmision" placeholder="Digite nombre de la transmisión">
                                         </div>
                                     </div>
 

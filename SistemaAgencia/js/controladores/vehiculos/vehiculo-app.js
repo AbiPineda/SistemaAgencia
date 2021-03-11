@@ -25,7 +25,7 @@ $(document).ready(function() {
             document.getElementById("marca").value = response.autos[0].marca;
             document.getElementById("modelo").value = response.autos[0].modelo;
             document.getElementById("color").value = response.autos[0].color;
-            document.getElementById("transmision").value = response.autos[0].transmision;
+            document.getElementById("trans").value = response.autos[0].transmision;
             document.getElementById("puertas").value = response.autos[0].puertas;
             document.getElementById("pasajeros").value = response.autos[0].pasajeros;
             document.getElementById("kilometraje").value = response.autos[0].kilometraje;

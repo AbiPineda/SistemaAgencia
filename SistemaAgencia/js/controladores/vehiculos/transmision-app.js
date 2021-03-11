@@ -1,10 +1,15 @@
 $("#btnGuardar").on('click', function(e) {
 
     e.preventDefault();
+    let data = {
+        "transmision": document.getElementById("transmision").value
+
+    };
+   
     $.ajax({
         url: URL_SERVIDOR + "transmisionVehiculo/transmision",
         method: 'POST',
-        data: $("#register-transmision").serialize()
+        data: data
 
     }).done(function(response) {
 
