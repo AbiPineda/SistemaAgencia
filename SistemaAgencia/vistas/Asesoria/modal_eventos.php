@@ -62,6 +62,8 @@
                                 <div class="input-group clockpicker" data-autoclose="true">
                             <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
                                 </div>
+                                 <input type="hidden" class="form-control" id="txtTitulo" name="title"
+                                value="Asesoria" />
 
                             </div>
 
