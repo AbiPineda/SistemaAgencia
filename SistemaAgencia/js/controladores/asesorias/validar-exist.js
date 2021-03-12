@@ -16,20 +16,26 @@ $(function () {
 
     }).done(function(response) {
 
-        alert(response.mensaje);
+        alert(response.existe.id_cita);
 
-      //  document.getElementById("register-form").reset();
-
-        /*const Toast = Swal.mixin();
-        Toast.fire({
-            title: 'Exito...',
-            icon: 'success',
-            text: response.mensaje,
-            showConfirmButton: true,
+       if (response.mensaje=='Existe') {
+        const Toast = Swal.mixin();
+        Swal.fire({
+            title: '¡EL cliente ya ha realizado proceso migratorio!',
+            text: "¿Desea modificar la información?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí!'
         }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-            location.reload();
-        });*/
+            console.log(result);
+            if (result.value) {
+                eliminar();
+            }
+        })
+       }
     }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         let respuestaDecodificada = JSON.parse(response.responseText);
