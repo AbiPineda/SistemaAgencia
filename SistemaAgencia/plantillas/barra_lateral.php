@@ -23,6 +23,9 @@
             <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
+
+
+
             <li class="nav-item has-treeview">
                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
@@ -78,32 +81,26 @@
                   </li>
                </ul>
             </li>
-            <li class="nav-item has-treeview">
+
+            <li class="nav-item">
                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-map-marked-alt"></i>
                   <p>
                      Paquetes
-                     <i class="fas fa-angle-left right"></i>
+                     <i class="right fas fa-angle-left"></i>
                   </p>
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/paquetes/registro-paquete.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Publicar Paquete</p>
+                        <p>Publicar Paquete Publico</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/paquetes/registroPaquetePrivado.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Crear Paquete Privado</p>
-                     </a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/paquetes/ver_paquete.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Tours</p>
+                        <p>Publicar Paquete Privado</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -112,69 +109,81 @@
                         <p>Registrar Reserva</p>
                      </a>
                   </li>
-               </ul>
-            </li>
-
-            <li class="nav-item has-treeview">
-               <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-star"></i>
-                  <p>
-                     Sitios turisticos
-                     <i class="fas fa-angle-left right"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php" class="nav-link">
+                     <a href="<?= $base_url ?>vistas/paquetes/ver_paquete.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Registrar Sitio</p>
+                        <p>Ver Paquetes</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver sitios</p>
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                           Sitios Turísticos
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
                      </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Sitio</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver sitios</p>
+                           </a>
+                        </li>
+                     </ul>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Contactos</p>
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-address-card"></i>
+                        <p>
+                           Servicios Adicionales
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
                      </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/servicios/registro_servicio.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Servicio</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver Servicios</p>
+                           </a>
+                        </li>
+                     </ul>
                   </li>
-               </ul>
-
-            </li>
-            <li class="nav-item has-treeview">
-               <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-address-card"></i>
-                  <p>
-                     Servicios Adicionales
-                     <i class="fas fa-angle-left right"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/servicios/registro_servicio.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Registro Servicios</p>
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                           Contactos
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
                      </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Contacto</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver Contactos</p>
+                           </a>
+                        </li>
+                     </ul>
                   </li>
-
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Servicios</p>
-                     </a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
-                        <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Ver Contactos</p>
-                     </a>
-                  </li>
-
                </ul>
             </li>
             <li class="nav-item has-treeview">
