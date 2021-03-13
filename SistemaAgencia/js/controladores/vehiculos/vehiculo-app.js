@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     inicializarValidaciones();
     inicializarTabla();
+
     //BOTON MOSTRAR VEHICULO
     $(document).on('click', '.btn-group .btn-primary', function() {
 
@@ -29,7 +30,8 @@ $(document).ready(function() {
             document.getElementById("puertas").value = response.autos[0].puertas;
             document.getElementById("pasajeros").value = response.autos[0].pasajeros;
             document.getElementById("kilometraje").value = response.autos[0].kilometraje;
-            document.getElementById("opc_avanzadas").value = response.autos[0].opc_avanzadas;
+            document.getElementById("opc_avanzadasMostrar").value = response.autos[0].opc_avanzadas;
+           
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
@@ -159,6 +161,7 @@ $(document).ready(function() {
                 }
             },
             columns: [
+                { data: "foto" },
                 { data: "nombre_categoria" },
                 { data: "marca" },
                 { data: "modelo" },
@@ -237,7 +240,9 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "idvehiculo": idVehiculo,
-            "precio_diario": document.getElementById("precio_diario").value
+            "precio_diario": document.getElementById("precio_diario").value,
+            "color": document.getElementById("color").value,
+            "opc_avanzadas": document.getElementById("opc_avanzadasMostrar").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
@@ -311,6 +316,6 @@ $(document).ready(function() {
             $('#loadingActualizar').hide();
         });
     }
-
+  
 
 });

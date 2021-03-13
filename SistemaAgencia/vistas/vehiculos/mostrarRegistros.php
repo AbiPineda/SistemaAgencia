@@ -8,6 +8,12 @@
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+
+<link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+
+<link href="<?= $base_url ?>css/hover.css" media="all" rel="stylesheet" type="text/css" />
+
 
 <style>
 .center {
@@ -69,6 +75,7 @@
                                     <table id="tabla_vehiculos" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
+                                                <th>Imagen</th>
                                                 <th>Categoria</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
@@ -185,7 +192,7 @@
                                 <div class="form-group">
                                     <label>Color</label>
                                     <div class="input-group">
-                                        <input id="color" name="color" type="text" class="form-control" disabled>
+                                        <input id="color" name="color" type="color" class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -194,8 +201,7 @@
                                 <div class="form-group">
                                     <label>Transmision</label>
                                     <div class="input-group">
-                                        <input id="trans" name="trans" type="text" class="form-control"
-                                            disabled>
+                                        <input id="trans" name="trans" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -255,11 +261,16 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Opciones Avanzadas</label>
-                                    <div class="input-group">
-                                        <input id="opc_avanzadas" name="opc_avanzadas" type="text" class="form-control"
-                                            disabled>
+                                    <div class="select2-danger">
+                                        <select class="select2" multiple="multiple" name="opc_avanzadasMostrar"
+                                            id="opc_avanzadasMostrar" data-placeholder="Seleccione"
+                                            data-dropdown-css-class="select2-danger" style="width: 100%;">
+                                            <option>Aire Acondicionado </option>
+                                            <option>Wifi </option>
+                                            <option>Equipo de Sonido </option>
+
+                                        </select>
                                     </div>
-                                    <!-- /.input group -->
                                 </div>
                             </div>
 
@@ -306,12 +317,34 @@
     <!-- End Modal EDITAR-->
 </form>
 
+
 <?php  
 include_once './modal-marca.php';
 include_once './modal-modelo.php';
 include_once './modal-categoria.php';
 include_once './modal-transmision.php';
 include_once '../../plantillas/footer.php';?>
+
+
+
+<script>
+$(function() {
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+        theme: 'bootstrap4'
+    })
+
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+
+    $("input[data-bootstrap-switch]").each(function() {
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+})
+</script>
 
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
