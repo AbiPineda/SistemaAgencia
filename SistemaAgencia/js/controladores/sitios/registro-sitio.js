@@ -97,7 +97,7 @@ $(document).ready(function () {
             //showCaption: false,
             maxFileSize: 2000,
             maxFilesNum: 10,
-            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            allowedFileExtensions: ['jpg', 'png', 'gif', 'pdf'],
             required: true,
             uploadAsync: false,
             showClose: false,
@@ -138,7 +138,7 @@ $(document).ready(function () {
             theme: 'fas',
             language: 'es',
             required: true,
-            maxFileSize: 2000,
+            maxFileSize: 20000,
             maxFilesNum: 10,
             showUpload: false,
             showClose: false,
@@ -151,7 +151,7 @@ $(document).ready(function () {
             msgErrorClass: 'alert alert-block alert-danger',
             defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
             layoutTemplates: { main2: '{preview} {remove} {browse}' },
-            allowedFileExtensions: ["jpg", "png", "gif"]
+            allowedFileExtensions: ["jpg", "png", "gif", 'pdf']
         });
     }
     function inicializarValidacionesSitios() {
