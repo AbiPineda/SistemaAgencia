@@ -62,7 +62,7 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="timeline-body">
                                     <div class="row">
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
                                             <!-- text input -->
 
                                             <div class="form-group multiple-form-group input-group">
@@ -77,19 +77,24 @@ include_once '../../plantillas/cabecera.php';
 
 
                                         </div>
-                                        <div class="col-sm-8">
+
+                                        <div class="col-sm-4">
                                             <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Nombre de Vehiculo</label>
-                                                <input type="text" class="form-control" name="nombreVehiculo"
-                                                    id="nombreVehiculo" placeholder="Digite Marca o Modelo del vehiculo que necesita">
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Modelo</label>
+                                                <div class="input-group">
+                                                    <select name="id_modelo" id="id_modelo"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-2">
                                             <div class="form-group">
                                                 <label>Año</label>
-                                                <input type="number" class="form-control" min=<?php echo date("Y")-5; ?>
-                                                    max=<?php echo date("Y")+1; ?> name="anio" id="anio"
+                                                <input type="number" class="form-control" min=2010
+                                                    max=<?php echo date("Y"); ?> name="anio" id="anio"
                                                     autocomplete="off">
                                             </div>
                                         </div>
@@ -216,7 +221,7 @@ $(function() {
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboUsuario.js"></script>
-
+<script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 

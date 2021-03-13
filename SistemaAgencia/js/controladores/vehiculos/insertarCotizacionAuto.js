@@ -7,7 +7,7 @@ $(document).ready(function() {
         let myData = {
 
             "id_usuario": document.getElementById("id_cliente").value,
-            "nombreVehiculo": document.getElementById("nombreVehiculo").value,
+            "modelo": document.getElementById("id_modelo").value,
             "anio": document.getElementById("anio").value,
             "caracteristicas": document.getElementById("caracteristicas").value,
             "direccion_recogida": document.getElementById("direccion_recogida").value,
