@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+inicializarValidaciones();
+verInfo();
+
+function verInfo(){
     //para recibir el parametro del url
      const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
@@ -79,6 +83,133 @@ $(document).ready(function () {
             }
         });
     
- 
+ }
+
+  //BOTON PARA ACTUALIZAR
+    $(document).on('click', '#btnActualizar', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+       // let form = $("#editar");
+       // form.validate();
+        //if (form.valid()) {
+            actualizar();
+        //}
+    });
+    function inicializarValidaciones() {
+        $('#editar').validate({
+            rules: {
+                id_rama: {
+                    required: true,
+                    number:true
+                },
+                pregunta: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 40
+                },
+                mas_respuestas: {
+                    required: true,
+                    minlength: 2,
+                }
+            },
+            messages: {
+                id_rama: {
+                    required: "Seleccione la rama de la pregunta",
+                },
+                pregunta: {
+                    required: "Ingrese la pregunta",
+                    minlength: "Debe de tener una longitud minima de 10",
+                    maxlength: "Debe de tener una longitud maxima de 40"
+                },
+                mas_respuestas: {
+                    required: "Seleccione si va a contener mas respuestas",
+                   
+                }
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
+    }
+    function actualizar() {
+        $('#loadingActualizar').show();
+        
+        ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
+        $.ajax({
+             url: URL_SERVIDOR+"FormularioMigratorio/updateFormulario",
+            method: 'POST',
+            data: $("#editar-form").serialize()
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                $('#modal-editar').modal('hide');;
+                tabla.ajax.reload(null, false);
+            });
+        }).fail(function (response) {
+            console.log(response);
+
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN ENVIO DE INFORMACION",
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $('#loadingActualizar').hide();
+        });
+    }
+    function eliminar() {
+        let data = {
+            "id_pregunta": idpregunta
+        };
+        $.ajax({
+            url: URL_SERVIDOR + "Asesoria/deletePregunta",
+            method: "DELETE",
+            timeout: 0,
+            data: data
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                tabla.ajax.reload(null, false);
+            });
+        }).fail(function (response) {
+
+            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACION",
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $('#loadingActualizar').hide();
+        });
+    }
 
 });
