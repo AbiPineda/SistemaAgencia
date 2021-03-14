@@ -21,7 +21,7 @@
                               <input type="hidden" id="usuario" name="usuario" class="form-control" />
                                 
                             </div>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-8" id="vaciar">
                                <label>Cliente</label>
                                 <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();" style="width: 100%;">
                                     <option disabled="" selected="">Seleccione</option>

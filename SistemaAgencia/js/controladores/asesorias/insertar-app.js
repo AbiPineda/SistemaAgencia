@@ -69,7 +69,7 @@ function inicializarValidaciones() {
          // toastr.success(response.mensaje)//me gusta
                     //console.log(response);
           document.getElementById("register-form").reset();
-          $("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
+          $("#recargar").load("#recargar");//recargar solo un div y no toda la pagina
             //REST_Controller::HTTP_OK
             //let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();

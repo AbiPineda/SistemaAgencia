@@ -16,25 +16,43 @@ $(function () {
 
     }).done(function(response) {
 
-        alert(response.existe.id_cita);
+        //alert(response.existe.id_cita);
+       let fecha=response.existe.fecha;
+       let nueva= fecha.split('-');
 
-       if (response.mensaje=='Existe') {
+       if (response.mensaje=='Existe' && response.existe.estado_cita==0) {
         const Toast = Swal.mixin();
         Swal.fire({
             title: '¡EL cliente ya ha realizado proceso migratorio!',
             text: "¿Desea modificar la información?",
             icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: "Cancelar",
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Sí!'
         }).then((result) => {
             console.log(result);
             if (result.value) {
-                eliminar();
+               window.location = `${URL_SISTEMA}vistas/encomiendas/verActualizacion.php?ac=`+response.existe.id_cita;
+            }
+        });
+       }else{
+
+         const Toast = Swal.mixin();
+        Swal.fire({
+            title: '¡EL cliente ya tiene una cita agendada!',
+            text: "Fecha de su cita: "+nueva[2]+'-'+nueva[1]+'-'+nueva[0],
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ok!'
+        }).then((result) => {
+            console.log(result);
+            if (result.value) {
+                 $("#modal_registro").modal('toggle');
+
             }
         })
+
        }
     }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
