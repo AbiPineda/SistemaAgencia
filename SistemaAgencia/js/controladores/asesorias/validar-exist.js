@@ -32,7 +32,7 @@ $(function () {
         }).then((result) => {
             console.log(result);
             if (result.value) {
-               window.location = `${URL_SISTEMA}vistas/encomiendas/verActualizacion.php?ac=`+response.existe.id_cita;
+               window.location = `${URL_SISTEMA}vistas/Asesoria/Formulario.php?form=`+response.existe.id_cita;
             }
         });
        }else{

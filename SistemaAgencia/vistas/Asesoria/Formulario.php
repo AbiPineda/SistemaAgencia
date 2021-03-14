@@ -44,11 +44,10 @@ include_once  '../../plantillas/navbar.php';?>
                                 </ul>
                             </div>
                             <div class="card-body">
-                                <form id="migratorio-form" name="register-form" onsubmit="return false"
-                                    class="form-inline" role="form">
+                                <form id="migratorio-form" name="register-form" onsubmit="return false">
                                     <div style="width: 200px;"></div>
-                                    <label>Cliente</label><br>
-                                    <input type="text" name="" class="form-control" style="width: 387px;">
+                                    <label style="width: 629px; margin-left:99px;">Cliente</label><br>
+                                    <input type="text" name="" class="form-control" style="width: 867px; margin-left:99px;">
                                     
 
                                     <div class="tab-content" id="custom-tabs-one-tabContent">
@@ -126,15 +125,13 @@ include_once  '../../plantillas/navbar.php';?>
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<div id="script"></div>
-<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combo_formulario.js"></script>
+<!-- SCRIPT ADICIONALES -->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-formulario.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/form-app.js"></script>
+<!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>
