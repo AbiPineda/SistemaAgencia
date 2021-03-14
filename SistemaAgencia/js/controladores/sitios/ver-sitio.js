@@ -70,16 +70,18 @@ $(document).ready(function () {
             explorer.fileinput({
                 theme: 'fas',
                 language: 'es',
+                // POR CADA FOTO SE LLAMARA A ESTE SERVICIO
                 uploadUrl: URL_SERVIDOR + '/Imagen/save',
                 uploadExtraData: informacionAdicional,
                 overwriteInitial: false,
                 initialPreviewAsData: true,
+                initialPreviewFileType : 'pdf',
                 initialPreview: urlFotos,
                 initialPreviewConfig: infoFotos,
                 required: true,
-                maxFileSize: 2000,
+                maxFileSize: 10000,
                 maxFilesNum: 10,
-                allowedFileExtensions: ["jpg", "png", "gif"]
+                allowedFileExtensions: ["jpg", "png", "gif", "pdf"]
 
             });
         });
