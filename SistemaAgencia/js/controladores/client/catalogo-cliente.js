@@ -29,6 +29,7 @@ $(document).ready(function () {
       //recuperamos la informacion
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
+      console.log(data);
       ///le enviamos la imagen del cliente al avatar
       let $avatar = $('.file-default-preview');
       console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
@@ -130,25 +131,39 @@ $(document).ready(function () {
       console.log("DESTRUYENDO DE NUEVO");
       $("#foto").fileinput('destroy');
       $("#formulario_perfil").trigger("reset");
-     
+
    })
+
+
 
    //INICIALIZANDO LA TABLA
    function inicializarTabla() {
       tabla = $("#tabla_cliente").DataTable({
-         "responsive": true,
-         "autoWidth": false,
-         "deferRender": true,
-         "columnDefs": [
-            // { "className": "dt-center", "targets": "_all" },
-            { "targets": [0], width: "13%" },
-            { "targets": [6], visible: false },
-
+         responsive: true,
+         autoWidth: false,
+         deferRender: true,
+         columns: [
+            { data: "image" },
+            { data: "nombre" },
+            { data: "correo" },
+            { data: "celular" },
+            { data: "dui" },
+            { data: "botones" },
+            { data: "foto" },
+            { data: "nivel" },
+            { data: "activo" },
          ],
-         "ajax": {
-            "url": URL_SERVIDOR + "Usuario/obtenerUsuario",
-            "method": "GET",
-            "dataSrc": function (json) {
+         columnDefs: [
+            { "className": "dt-center", "targets": "_all" },
+            { targets: [0], width: "13%" },
+            { targets: [6], visible: false },
+            { targets: [7], visible: false },
+            { targets: [8], visible: false },
+         ],
+         ajax: {
+            url: URL_SERVIDOR + "Usuario/obtenerUsuario",
+            method: "GET",
+            dataSrc: function (json) {
                //PARA CONPROVAR QUE EL SERVICIO EXISTE
                if (json.usuarios) {
                   for (let i = 0, ien = json.usuarios.length; i < ien; i++) {
@@ -164,19 +179,31 @@ $(document).ready(function () {
                      html += '            data-target="#modal-galeria">';
                      html += '            <i class="fas fa-image" style="color: white"></i>';
                      html += '        </button>';
-                     html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-danger" data-toggle="modal"';
-                     html += '            data-target="#modal-eliminar">';
-                     html += '            <i class="fas fa-trash" style="color: white"></i>';
-                     html += '        </button>';
-                     html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success" data-toggle="modal"';
-                     html += '            data-target="">';
-                     html += '            <i class="fab fa-telegram-plane" style="color: white"></i>';
-                     html += '        </button>';
+
+                     if (json.usuarios[i].activo == "1") {
+                        html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-danger" data-toggle="modal"';
+                        html += '            data-target="#modal-eliminar">';
+                        html += '            <i class="fas fa-trash" style="color: white"></i>';
+                        html += '        </button>';
+                        html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success" data-toggle="modal"';
+                        html += '            data-target="">';
+                        html += '            <i class="fab fa-telegram-plane" style="color: white"></i>';
+                        html += '        </button>';
+
+                     }else{
+                        html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success" data-toggle="modal"';
+                        html += '            data-target="">';
+                        html += '            <i class="fa fa-arrow-alt-circle-up" style="color: white"></i>';
+                        html += '        </button>';
+                     }
+
+
+
                      html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '"  class="btn btn-info" data-toggle="modal"';
                      html += '            data-target="">';
                      html += '            <i class="fa fa-signal" style="color: white"></i>';
                      html += '        </button>';
-                     
+
                      html += '    </div>';
                      html += '</td>';
                      json.usuarios[i]["botones"] = html;
@@ -204,19 +231,34 @@ $(document).ready(function () {
                }
             }
          },
-         columns: [
 
-            { data: "image" },
-            { data: "nombre" },
-            { data: "correo" },
-            { data: "celular" },
-            { data: "dui" },
-            { data: "botones" },
-            { data: "foto" },
-         ]
       });
 
    }
+   //CUANDO HAY CAMBIO EN EL RADIO BUTTON
+   $(document).on('change', 'input[type=radio][name="radioUsuario"]', function () {
+      tabla.draw();
+   });
+   // PARA HACER FILTRAR REGISTROS EN LA TABLA DE A CUERDO CON RADIO BUTTON
+   $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+         let opcionSeleccionada = $("input[name='radioUsuario']:checked").val();
+         switch (opcionSeleccionada) {
+            case 'CLIENTE':
+               return (data[7] == "CLIENTE" && data[8] == '1');
+            case 'EMPLEADO':
+               return (data[7] == "EMPLEADO" && data[8] == '1');
+            case 'RENTA CARS':
+               return (data[7] == "RENTA CARS" && data[8] == '1');
+            case 'INACTIVOS':
+               return data[8] == "0";
+            default:
+               return true;
+         }
+      }
+   );
+
+
    //INICIALIZANDO VALIDACIONES
    function inicializarValidaciones() {
       $('#formularioEditar').validate({
@@ -322,12 +364,12 @@ $(document).ready(function () {
    }
    function eliminar() {
       let data = {
-         "id_sitio_turistico": idSeleccionado
+         "id_cliente": idSeleccionado
       };
       ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
 
       $.ajax({
-         url: URL_SERVIDOR + "SitioTuristico/elimination",
+         url: URL_SERVIDOR + "Usuario/elimination",
          method: "DELETE",
          timeout: 0,
          data: data
@@ -343,7 +385,6 @@ $(document).ready(function () {
             tabla.ajax.reload(null, false);
          });
       }).fail(function (response) {
-
          console.log(response);
          const Toast = Swal.mixin();
          Toast.fire({

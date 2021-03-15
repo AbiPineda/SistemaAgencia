@@ -147,7 +147,6 @@ $(document).ready(function () {
          processData: false,
          contentType: false,
       }).done(function (response) {
-         console.log(response);
          //REST_Controller::HTTP_OK
          let respuestaDecodificada = JSON.parse(response);
          const Toast = Swal.mixin();
