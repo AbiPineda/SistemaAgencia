@@ -84,10 +84,19 @@
                            <div class="kv-avatar">
                               <label>Foto de Perfil (opcional)</label>
                               <div class="file-loading">
-                                 <input id="foto" name="foto" type="file">
+                                 <input id="fotoCliente" name="fotoCliente" type="file">
                               </div>
                            </div>
                            <!-- /.input group -->
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-sm-12">
+
+                        <label>Documentos Personales (opcional)</label>
+                        <div class="file-loading">
+                           <input type="file" multiple name="fotosDocumentos[]" id="fotosDocumentos">
                         </div>
                      </div>
                   </div>
@@ -95,7 +104,7 @@
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                   <button name="btnguardarCliente" id="btnguardarCliente" class="btn btn-info btn-sm"
-                     style="color: white">Actualizar</button>
+                     style="color: white">Guardar</button>
                </div>
             </div>
          </div>

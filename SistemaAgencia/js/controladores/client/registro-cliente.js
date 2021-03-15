@@ -28,7 +28,7 @@ $(document).ready(function () {
    });
    function inicializarGaleria() {
       // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-      $('#fotos').fileinput({
+      $('#fotosDocumentos').fileinput({
          theme: 'fas',
          language: 'es',
          //uploadUrl: '#',
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
    function inicializarFoto() {
       // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-      $('#foto').fileinput({
+      $('#fotoCliente').fileinput({
          theme: 'fas',
          language: 'es',
          required: true,
@@ -122,11 +122,11 @@ $(document).ready(function () {
       $('#loadingCliente').show();
       let form = new FormData();
       //ESTO ES PARA LA FOTO DE PERFIL
-      let foto_perfil = document.getElementById("foto").files[0];
+      let foto_perfil = document.getElementById("fotoCliente").files[0];
       form.append('foto', foto_perfil);
 
-      //ESTO ES PARA L A GALERIA 
-      let galeria = document.getElementById("fotos").files;
+      //ESTO ES PARA L A GALERIA EN EL CASO VAYA A SUBIR SUS 
+      let galeria = document.getElementById("fotosDocumentos").files;
       for (let i = 0; i < galeria.length; i++) {
          form.append('fotos[]', galeria[i]);
       }
@@ -177,9 +177,12 @@ $(document).ready(function () {
 
    function inicializarMascara() {
       let dui = $("#dui");
+      let celular = $('#celular');
       dui.inputmask("99999999-9");  //static mask
       dui.inputmask({ "mask": "99999999-9" }); //specifying options
       // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
+      celular.inputmask("(+123) 1234-5678");  //static mask
+      celular.inputmask({ "mask": "(+999) 9999-9999" }); //specifying options
    }
 
 });

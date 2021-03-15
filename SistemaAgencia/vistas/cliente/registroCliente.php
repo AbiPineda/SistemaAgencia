@@ -144,7 +144,7 @@
                                        <div class="kv-avatar">
                                           <label>Foto de Perfil (opcional)</label>
                                           <div class="file-loading">
-                                             <input id="foto" name="foto" type="file">
+                                             <input id="fotoCliente" name="fotoCliente" type="file">
                                           </div>
                                        </div>
                                        <!-- /.input group -->
@@ -171,7 +171,7 @@
 
                                     <label>Subir imagenes del Dui</label>
                                     <div class="file-loading">
-                                       <input type="file" multiple name="fotos[]" id="fotos">
+                                       <input type="file" multiple name="fotosDocumentos[]" id="fotosDocumentos">
                                     </div>
                                  </div>
                               </div>
