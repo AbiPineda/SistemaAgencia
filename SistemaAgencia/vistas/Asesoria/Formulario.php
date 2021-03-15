@@ -44,10 +44,11 @@ include_once  '../../plantillas/navbar.php';?>
                                 </ul>
                             </div>
                             <div class="card-body">
-                                <form id="migratorio-form" name="register-form" onsubmit="return false">
+                                <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
                                     <div style="width: 200px;"></div>
+                                    <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
                                     <label style="width: 629px; margin-left:99px;">Cliente</label><br>
-                                    <input type="text" name="" class="form-control" style="width: 867px; margin-left:99px;">
+                                    <input type="text" name="usuario" class="form-control" style="width: 867px; margin-left:99px;">
                                     
 
                                     <div class="tab-content" id="custom-tabs-one-tabContent">
@@ -104,8 +105,7 @@ include_once  '../../plantillas/navbar.php';?>
 
                                 </form>
                                 <div class="timeline-footer" style="text-align: right;">
-                                    <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
-                                        style=" margin-top: 10px; color: white">Guardar</button>
+                                    <button type="button" id="btnActualizar" class="btn btn-info btn-sm" style=" margin-top: 10px; color: white">Actualizar</button>
                                     <button type="button" class="btn btn-danger btn-sm"
                                         style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
 

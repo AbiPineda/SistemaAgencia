@@ -9,6 +9,8 @@ function verInfo(){
     const urlParams = new URLSearchParams(valores);
     let id_cita = urlParams.get('form');
 
+    $("#id_cita").val(id_cita);
+
     //mostrar informacion
          $.ajax({
             type: "GET",
@@ -158,8 +160,7 @@ function verInfo(){
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                $('#modal-editar').modal('hide');;
-                tabla.ajax.reload(null, false);
+                 location.reload();
             });
         }).fail(function (response) {
             console.log(response);
