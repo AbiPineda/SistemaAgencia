@@ -31,7 +31,7 @@ $(document).ready(function() {
             form.append("idaerolinea", document.getElementById("idaerolinea").value);
             form.append("idclase", document.getElementById("idclase").value);
             form.append("idtipo_viaje", document.getElementById("idtipo_viaje").value);
-
+            form.append("detallePasajero", document.getElementById("detalleBebe").value);
             form.append("opc_avanzadas", arregloOpciones);
 
             $.ajax({

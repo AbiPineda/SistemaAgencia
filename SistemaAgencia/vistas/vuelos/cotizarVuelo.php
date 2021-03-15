@@ -9,6 +9,7 @@ include_once '../../plantillas/cabecera.php';
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -72,7 +73,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Ciudad de Partida</label>
+                                                <label>Punto de Partida</label>
                                                 <input type="text" class="form-control" name="ciudad_partida"
                                                     id="ciudad_partida" placeholder="Digite nombre del Lugar">
                                             </div>
@@ -98,7 +99,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Ciudad de Llegada</label>
+                                                <label>Punto de Llegada</label>
                                                 <input type="text" class="form-control" name="ciudad_llegada"
                                                     id="ciudad_llegada" placeholder="Digite nombre del Lugar">
                                             </div>
@@ -151,9 +152,17 @@ include_once '../../plantillas/cabecera.php';
                                                     id="maletas">
                                             </div>
                                         </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>*En caso que el bebe viaje solo, favor detallarlo</label>
+                                                <textarea class="textarea" name="detalleBebe" id="detalleBebe"
+                                                    placeholder="Ejemplo: La bebe Casey Henriquez de 10 meses viaja sola, encargada responsable: Aeromoza Beatriz Ponce"
+                                                    style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <!-- END timeline item -->
@@ -168,7 +177,7 @@ include_once '../../plantillas/cabecera.php';
                                     <div class="row">
 
 
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <!-- select -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Aerolinea</label>
@@ -180,7 +189,15 @@ include_once '../../plantillas/cabecera.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modal-aerolinea"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-3">
                                             <!-- select -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Clase</label>
@@ -192,7 +209,15 @@ include_once '../../plantillas/cabecera.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modal-tipoClase"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-3">
                                             <!-- select -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Tipo de Viaje</label>
@@ -204,9 +229,17 @@ include_once '../../plantillas/cabecera.php';
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modal-tipoViaje"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
 
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-7">
                                             <div class="form-group">
                                                 <label>Opciones Avanzadas</label>
                                                 <div class="select2-danger">
@@ -220,6 +253,25 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nuevo Opción</label>
+                                                <input type="text" class="form-control" name="insertarOpcion"
+                                                    id="insertarOpcion" placeholder="Insertar Nueva Opcion"
+                                                    autocomplete="off">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    name="agregarOpcion" id="agregarOpcion" style="margin-top: 10px; width: 100%;"
+                                                    onclick="OpcAvanzada()" >+</button>
+                                            </span>
+
                                         </div>
 
                                     </div>
@@ -263,6 +315,9 @@ include_once '../../plantillas/cabecera.php';
 <!-- END timeline item -->
 
 <?php
+ include_once './modal-aerolinea.php';
+ include_once './modal-tipoClase.php';
+ include_once './modal-tipoViaje.php';
   include_once '../../plantillas/footer.php';
 ?>
 
@@ -293,7 +348,15 @@ $(function() {
 })
 </script>
 
+<script>
 
+function OpcAvanzada() {
+    let x = $("#insertarOpcion").val();
+    let seleccion = $("<option></option>").val(x).text(x);
+    $("#opc_avanzadas").append(seleccion).trigger('change');
+}
+
+</script>
 
 
 <!-- jquery-validation -->
