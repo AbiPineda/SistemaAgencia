@@ -121,6 +121,7 @@ $(document).ready(function () {
    function guardarCliente() {
       $('#loadingCliente').show();
       let form = new FormData();
+      let nivel = typeof $('#tipo_usuario').val() == 'undefined'? 'CLIENTE' : $('#tipo_usuario').val() ;
       //ESTO ES PARA LA FOTO DE PERFIL
       let foto_perfil = document.getElementById("fotoCliente").files[0];
       form.append('foto', foto_perfil);
@@ -135,7 +136,7 @@ $(document).ready(function () {
       form.append("password", document.getElementById("password2").value);
       form.append("dui", document.getElementById("dui").value);
       form.append("celular", document.getElementById("celular").value);
-      form.append("nivel", $('#tipo_usuario').val());
+      form.append("nivel", nivel);
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
          url: URL_SERVIDOR + "Usuario/registroUser",
@@ -146,6 +147,7 @@ $(document).ready(function () {
          processData: false,
          contentType: false,
       }).done(function (response) {
+         console.log(response);
          //REST_Controller::HTTP_OK
          let respuestaDecodificada = JSON.parse(response);
          const Toast = Swal.mixin();
