@@ -3,7 +3,6 @@ $("#btnGuardar").on('click', function(e) {
     e.preventDefault();
     let data = {
         "transmision": document.getElementById("transmision").value
-
     };
    
     $.ajax({

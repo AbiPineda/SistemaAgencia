@@ -76,12 +76,12 @@ $(document).ready(function () {
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 initialPreviewFileType : 'pdf',
+                allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
                 initialPreview: urlFotos,
                 initialPreviewConfig: infoFotos,
                 required: true,
                 maxFileSize: 10000,
                 maxFilesNum: 10,
-                allowedFileExtensions: ["jpg", "png", "gif", "pdf"]
 
             });
         });

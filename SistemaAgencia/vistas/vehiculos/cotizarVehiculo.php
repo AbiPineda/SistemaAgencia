@@ -3,17 +3,19 @@ include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 ?>
 
-<!-- COLORAR ESTILOS ADICIONALES AQUI -->
+<!-- ESTILOS ADICIONALES-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-
-
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 
+<!-- ESTILOS ADICIONALES DE FOTO PARA REGISTRO USUARIO-->
+
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+    type="text/css" />
 
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -64,7 +66,6 @@ include_once '../../plantillas/cabecera.php';
 
                                         <div class="col-sm-6">
                                             <!-- text input -->
-
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
                                                 <div class="input-group">
@@ -74,11 +75,17 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
-
-
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    id="btnNuevoCliente" name="btnNuevoCliente"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
                                         </div>
 
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-2">
                                             <!-- text input -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Modelo</label>
@@ -89,6 +96,14 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modal-modelo"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
                                         </div>
                                         <div class="col-sm-2">
                                             <div class="form-group">
@@ -114,7 +129,8 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group">
                                                 <label>Dirección de Recogida</label>
                                                 <input type="text" class="form-control" name="direccion_recogida"
-                                                    id="direccion_recogida" placeholder="Digite dirección de recogida">
+                                                    id="direccion_recogida" placeholder="Digite dirección de recogida"
+                                                    autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -141,7 +157,7 @@ include_once '../../plantillas/cabecera.php';
                                                 <label>Dirección de Devolución</label>
                                                 <input type="text" class="form-control" name="direccion_devolucion"
                                                     id="direccion_devolucion"
-                                                    placeholder="Digite dirección de devolución">
+                                                    placeholder="Digite dirección de devolución" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
@@ -173,12 +189,12 @@ include_once '../../plantillas/cabecera.php';
             </div>
         </form>
     </section>
+    <?php include_once '../cliente/modalCliente.php'  ?>
 </div>
 
-
-<!-- END timeline item -->
-
 <?php
+  
+  include_once './modal-modelo.php';
   include_once '../../plantillas/footer.php';
 ?>
 
@@ -213,6 +229,14 @@ $(function() {
 
 
 <!-- jquery-validation -->
+<!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
+<!-- FIN DE SCRIPT PARA REGISTRO DE USUARIO -->
 
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
 

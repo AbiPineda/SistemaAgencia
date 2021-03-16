@@ -19,7 +19,7 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Catálogo de Clientes</h1>
+               <h1>Catálogo de Usuarios</h1>
             </div>
          </div>
       </div><!-- /.container-fluid -->
@@ -32,7 +32,36 @@
          <div class="col-12">
             <div class="card">
                <div class="card-header">
-                  <h3 class="card-title">Clientes</h3>
+                  <div class="row">
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioUsuario" id="radioUsuarioCliente"
+                           value="CLIENTE" checked>
+                        <label class="form-check-label" for="radioUsuarioCliente">
+                           CLIENTES
+                        </label>
+                     </div>
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioUsuario" id="radioUsuarioEmpleado"
+                           value="EMPLEADO">
+                        <label class="form-check-label" for="radioUsuarioEmpleado">
+                           EMPLEADOS
+                        </label>
+                     </div>
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioUsuario" id="radioUsuarioCars"
+                           value="RENTA CARS">
+                        <label class="form-check-label" for="radioUsuarioCars">
+                           RENTA CARS
+                        </label>
+                     </div>
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioUsuario" id="radioUsuarioInactivo"
+                           value="INACTIVOS">
+                        <label class="form-check-label" for="radioUsuarioInactivo">
+                           INACTIVOS
+                        </label>
+                     </div>
+                  </div>
                </div>
                <!-- /.card-header -->
 
@@ -46,7 +75,9 @@
                            <th>Célular</th>
                            <th>DUI</th>
                            <th>Acciones</th>
-                           <th>URL Foto</th>
+                           <th>Url Foto</th>
+                           <th>Nivel</th>
+                           <th>activo</th>
                         </tr>
                      </thead>
                      <div class="overlay-wrapper">

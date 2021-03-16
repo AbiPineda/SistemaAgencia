@@ -21,7 +21,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nombre de Tipo de Viaje</label>
-                                            <input type="text" name="nombre_tipoviaje" id="nombre_tipoviaje"
+                                            <input type="text" name="nombre_tipoviajes" id="nombre_tipoviajes"
                                                 class="form-control" placeholder="Digite nombre de tipo de viaje">
                                         </div>
                                     </div>
@@ -30,7 +30,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" rows="3" name="descripcion" id="descripcion"
+                                            <textarea class="form-control" rows="3" name="descripcion_tipoViaje" id="descripcion_tipoViaje"
                                                 placeholder="Describir.."></textarea>
                                         </div>
                                     </div>

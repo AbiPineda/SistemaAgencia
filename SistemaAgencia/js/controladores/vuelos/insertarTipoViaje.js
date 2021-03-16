@@ -1,10 +1,16 @@
 $("#btnAgregarViaje").on('click', function(e) {
 
     e.preventDefault();
+
+    let myData = {
+        "nombre_tipoviaje": document.getElementById("nombre_tipoviajes").value,
+        "descripcion": document.getElementById("descripcion_tipoViaje").value,
+    }
+    
     $.ajax({
         url: URL_SERVIDOR + "tipo_viaje/viajes",
         method: 'POST',
-        data: $("#register-viaje").serialize()
+        data: myData
 
     }).done(function(response) {
 

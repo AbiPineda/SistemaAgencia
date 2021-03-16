@@ -151,6 +151,15 @@ $(document).ready(function() {
                             html += '</td>';
                             json.autos[i]["botones"] = html;
 
+                            let html2 = "";
+                            html2 += '      <div class="hovereffect">   ';
+                            html2 += '         <img class="img-responsive rounded"';
+                            html2 += `            src="${json.autos[i].foto}" `;
+                            html2 += '            alt="" >';
+                            html2 += '            <div class="my-overlay">';       
+                            html2 += '            </div>';
+                            html2 += '      </div>';
+                            json.autos[i]["foto"] = html2;
                         }
                         $('#loading').hide();
                         return json.autos;

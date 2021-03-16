@@ -1,10 +1,16 @@
 $("#btnAgregarClase").on('click', function(e) {
 
     e.preventDefault();
+    
+    let myData = {
+        "nombre_clase": document.getElementById("nombre_clase").value,
+        "descripcion": document.getElementById("descripcion").value,
+    }
+
     $.ajax({
         url: URL_SERVIDOR + "tipo_clases/clases",
         method: 'POST',
-        data: $("#register-clase").serialize()
+        data: myData
 
     }).done(function(response) {
 

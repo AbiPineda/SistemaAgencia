@@ -42,7 +42,7 @@ include_once '../../plantillas/cabecera.php';
 
     <!-- Main content -->
     <section class="content">
-    <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+        <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
             <div class="row">
                 <div class="col-md-12">
                     <div class="timeline">
@@ -144,12 +144,12 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                         <div class="col-sm-1">
                                             <br>
-                                            
+
 
                                             <span class="input-group-btn">
-                                            <button type="button" class="btn btn-success btn-add" data-toggle="modal"
-                                                data-target="#modal-transmision"
-                                                style="margin-top: 10px; width: 100%;">+</button>
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modal-transmision"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
                                             </span>
                                         </div>
                                         <div class="col-sm-2">
@@ -308,9 +308,22 @@ include_once '../../plantillas/cabecera.php';
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+
+                                                    <label>Comprobante de Detalles (opcional)</label>
+                                                    <div class="file-loading">
+                                                        <input type="file" multiple name="fotosDocumentos[]"
+                                                            id="fotosDocumentos">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <!-- /.col-->
                                     </div>
+
+                                    <br>
                                     <div class="timeline-footer" style="text-align: right;">
                                         <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
                                             style="color: white">Guardar</button>
