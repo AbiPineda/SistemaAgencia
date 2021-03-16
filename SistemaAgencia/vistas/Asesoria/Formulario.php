@@ -44,11 +44,11 @@ include_once  '../../plantillas/navbar.php';?>
                                 </ul>
                             </div>
                             <div class="card-body">
-                                <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
+                                <form id="editar-form" name="register-form" onsubmit="return false">
                                     <div style="width: 200px;"></div>
                                     <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
                                     <label style="width: 629px; margin-left:99px;">Cliente</label><br>
-                                    <input type="text" name="usuario" class="form-control" style="width: 867px; margin-left:99px;">
+                                    <input type="text" id="usuario" name="usuario" class="form-control" style="width: 867px; margin-left:99px;">
                                     
 
                                     <div class="tab-content" id="custom-tabs-one-tabContent">

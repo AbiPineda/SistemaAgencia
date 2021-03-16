@@ -84,6 +84,45 @@ function verInfo(){
             });
             }
         });
+
+        ///ESTA PARTE ES PARA EL USUARIO PARA MOSTRARLOS
+    $.ajax({
+        url: URL_SERVIDOR + "FormularioMigratorio/usuarioFormularios?id_cita="+id_cita,
+        method: 'GET'
+
+    }).done(function(response) {
+
+         $.each(response.usuario, function(i, index) {
+                 $("#usuario").val(index.nombre);   
+                });
+
+        
+    }).fail(function(response) {
+        //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+        let respuestaDecodificada = JSON.parse(response.responseText);
+        let listaErrores = "";
+
+        if (respuestaDecodificada.errores) {
+            ///ARREGLO DE ERRORES 
+            let erroresEnvioDatos = respuestaDecodificada.errores;
+            for (mensaje in erroresEnvioDatos) {
+                listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                //toastr.error(erroresEnvioDatos[mensaje]);
+            };
+        } else {
+            listaErrores = respuestaDecodificada.mensaje
+        }
+        const Toast = Swal.mixin();
+        Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: listaErrores,
+            showConfirmButton: true,
+        });
+
+         });
+
+        //FIN DE MOSTRAR USUARIO
     
  }
 
