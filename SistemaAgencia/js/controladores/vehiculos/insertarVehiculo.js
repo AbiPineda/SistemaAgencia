@@ -1,7 +1,9 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function() {
     inicializarGaleria();
+    inicializarGaleriaDocumentos();
     inicializarFoto();
+    inicializarFotoDocumentos();
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function(evento) {
@@ -21,6 +23,11 @@ $(document).ready(function() {
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
+        }
+
+        let galeriaDocumentos = document.getElementById("fotosDocumentos").files;
+        for (let i = 0; i < galeriaDocumentos.length; i++) {
+            form.append('fotosDocumentos[]', galeriaDocumentos[i]);
         }
 
         let comboOpciones = $("#opc_avanzadas").select2('data');
@@ -88,6 +95,8 @@ $(document).ready(function() {
 
 
 
+    
+
     function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
@@ -105,6 +114,7 @@ $(document).ready(function() {
         });
     }
 
+    
     function inicializarFoto() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
         $('#foto').fileinput({
@@ -125,7 +135,33 @@ $(document).ready(function() {
             defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
             layoutTemplates: { main2: '{preview} {remove} {browse}' },
             allowedFileExtensions: ["jpg", "png", "gif"]
+           
         });
+        
+    }
+
+    function inicializarFotoDocumentos() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
+        $('#fotosDocumentos').fileinput({
+            theme: 'fas',
+            language: 'es',
+            required: true,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            showUpload: false,
+            showClose: false,
+            showCaption: true,
+            browseLabel: '',
+            removeLabel: '',
+            //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
+            layoutTemplates: { main2: '{preview} {remove} {browse}' },
+            allowedFileExtensions: ["jpg", "png", "gif", "pdf"]
+        });
+        
     }
 
 });
