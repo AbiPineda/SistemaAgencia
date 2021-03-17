@@ -37,6 +37,23 @@ $(document).ready(function () {
       ///le damos el valor al id seleccionado
       idSeleccionado = data.id_cliente;
    });
+   //OTRA PARA CAMBIAR LA FOTO DE PERFIL 
+   $(document).on('click', '.img-responsive', function () {
+      //inicializamos nuevamente el input de foto
+      inicializarFoto();
+      ///abrimos el modal
+      $('#modal-perfil').modal('show');
+      //recuperamos la informacion
+      let fila = $(this).closest("tr");
+      let data = tabla.row(fila).data();
+      console.log(data);
+      ///le enviamos la imagen del cliente al avatar
+      let $avatar = $('.file-default-preview');
+      console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
+      console.log(data);
+      ///le damos el valor al id seleccionado
+      idSeleccionado = data.id_cliente;
+   });
    //BOTON EDITAR DOCUMENTOS
    $(document).on('click', '.btn-group .btn-warning', function () {
       $('#modal-imagenes').modal('show');
@@ -96,6 +113,25 @@ $(document).ready(function () {
          }
       });
    });
+   //BOTON PARA RESTAURAR USUARIOS 
+   $(document).on('click', '.restaurarUsuario', function (evento) {
+     idSeleccionado = $(this).attr("name");
+     
+      Swal.fire({
+         title: '¿Estas seguro?',
+         text: "Se Restaurar este registro!",
+         icon: 'warning',
+         showCancelButton: true,
+         cancelButtonText: "Cancelar",
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Sí, Restaurar!'
+      }).then((result) => {
+         if (result.value) {
+            restaurar()
+         }
+      });
+   });
    //BOTON PARA ACTUALIZAR
    $(document).on('click', '#btnActualizar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
@@ -133,9 +169,6 @@ $(document).ready(function () {
       $("#formulario_perfil").trigger("reset");
 
    })
-
-
-
    //INICIALIZANDO LA TABLA
    function inicializarTabla() {
       tabla = $("#tabla_cliente").DataTable({
@@ -190,15 +223,12 @@ $(document).ready(function () {
                         html += '            <i class="fab fa-telegram-plane" style="color: white"></i>';
                         html += '        </button>';
 
-                     }else{
-                        html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success" data-toggle="modal"';
+                     } else {
+                        html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '" class="btn btn-success restaurarUsuario" data-toggle="modal"';
                         html += '            data-target="">';
                         html += '            <i class="fa fa-arrow-alt-circle-up" style="color: white"></i>';
                         html += '        </button>';
                      }
-
-
-
                      html += '        <button type="button" name="' + json.usuarios[i].id_cliente + '"  class="btn btn-info" data-toggle="modal"';
                      html += '            data-target="">';
                      html += '            <i class="fa fa-signal" style="color: white"></i>';
@@ -371,6 +401,41 @@ $(document).ready(function () {
       $.ajax({
          url: URL_SERVIDOR + "Usuario/elimination",
          method: "DELETE",
+         timeout: 0,
+         data: data
+      }).done(function (response) {
+         //REST_Controller::HTTP_OK
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: response.mensaje,
+            showConfirmButton: true,
+         }).then((result) => {
+            tabla.ajax.reload(null, false);
+         });
+      }).fail(function (response) {
+         console.log(response);
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: "ERROR EN EL ENVIO DE INFORMACION",
+            showConfirmButton: true,
+         });
+
+      }).always(function (xhr, opts) {
+         $('#loadingActualizar').hide();
+      });
+   }
+   function restaurar() {
+      let data = {
+         "id_cliente": idSeleccionado
+      };
+      ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
+      $.ajax({
+         url: URL_SERVIDOR + "Usuario/restaurar",
+         method: "PUT",
          timeout: 0,
          data: data
       }).done(function (response) {

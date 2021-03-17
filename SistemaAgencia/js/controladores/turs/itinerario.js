@@ -1,7 +1,6 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function () {
     //INICIALIZAN
-    let DATA_TUR;
     let Calendar = FullCalendar.Calendar;
     let Draggable = FullCalendarInteraction.Draggable;
     let containerEl = document.getElementById('external-events');
@@ -9,10 +8,15 @@ $(document).ready(function () {
     let calendarEl = document.getElementById('calendar');
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
-    let ID_TUR = urlParams.get('tur');
+    let ID_VIAJE = urlParams.get('viaje');
+
+    let fechaInicioViaje = moment(urlParams.get('fechaInicioViaje'));
+    let fechaEndViaje = moment(urlParams.get('fechaFinViaje')).add(1, "days");
+    let fechaFinViaje = moment(urlParams.get('fechaFinViaje'));
+
+    $('#titulo').html(`Itinerario (${fechaInicioViaje.local('es').format('LL')} - ${fechaFinViaje.local('es').format('ll')})`);
     /* PARA CREAR UN NUEVO EVENTO EVENTS */
     let currColor = '#007bff' //Red by default
-    inicializarComboTuristico();
     cargarEventosSinFecha();
     /* INICIALIZANDO LOS EVENTOS EXTERNOS ---------------------------------*/
     ini_events($('#external-events div.external-event'));
@@ -20,6 +24,7 @@ $(document).ready(function () {
     //INICIALIZANDO EL CALENDARIO
     let calendar = new Calendar(calendarEl, {
         locale: 'es',
+        defaultDate: urlParams.get('fechaInicioViaje'),
         plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid'],
         header: {
             left: 'prev,next today',
@@ -34,30 +39,33 @@ $(document).ready(function () {
                 buttonText: '4 day'
             }
         },
+        //CON ESTE CARGAMOS LA FECHA 
         eventSources: [
             {
                 url: `${URL_SERVIDOR}Itinerario/calendar`,
-                extraParams: { id_tours: ID_TUR },
+                extraParams: { id_tours: ID_VIAJE },
             }
         ],
         eventClick: function (info) {
+            console.log(object)
             VentanaEliminar(info);
 
         },
         editable: true,
         droppable: true, // this allows things to be dropped onto the calendar !!!
         drop: function (info) {
-            // is the "remove after drop" checkbox checked?
             if (checkbox.checked) {
-                // if so, remove the element from the "Draggable Events" list
+                // si se logra poner el nuevo evento lo borramos de la lista de actividades
                 info.draggedEl.parentNode.removeChild(info.draggedEl);
             }
+        },
+        eventAllow: function (dropInfo, draggedEvent) {
+            return (dropInfo.start >= fechaInicioViaje && fechaEndViaje >= dropInfo.end); // a boolean
         }
     });
     calendar.render();
     function ini_events(ele) {
         ele.each(function () {
-
             // CREANDO UN OBJETO DE TIPO EVENTO (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
             // it doesn't need to have a start or end
             let eventObject = {
@@ -65,7 +73,6 @@ $(document).ready(function () {
             };
             // store the Event Object in the DOM element so we can get to it later
             $(this).data('eventObject', eventObject);
-
             // make the event draggable using jQuery UI
             $(this).draggable({
                 zIndex: 1070,
@@ -79,8 +86,10 @@ $(document).ready(function () {
     // -----------------------------------------------------------------
     //ESTA PARTE ES PARA INICIALIZAR LA PARTE ARRASTRAR Y SOLTAR 
     new Draggable(containerEl, {
+        //.external-event es el div en donde estan los eventos que queremos agregar al calendario
         itemSelector: '.external-event',
         eventData: function (eventEl) {
+            console.log("moviendo")
             return {
                 title: eventEl.innerText,
                 id: eventEl.id,
@@ -205,7 +214,7 @@ $(document).ready(function () {
         form.append("eventos", JSON.stringify(eventos));
         form.append("sitiosNew", JSON.stringify(sitiosNew));
         form.append("sitiosOld", JSON.stringify(sitiosOld));
-        form.append("id_tours", ID_TUR);
+        form.append("id_tours", ID_VIAJE);
 
         $.ajax({
             url: URL_SERVIDOR + "Itinerario/calendarSave",
@@ -249,11 +258,10 @@ $(document).ready(function () {
         let precio = e.params.data.precio;
         document.getElementById("precio").value = precio;
     });
-
     function cargarEventosSinFecha() {
         const Toast = Swal.mixin();
         $.ajax({
-            url: URL_SERVIDOR + `Itinerario/showNull/?id_tours=${ID_TUR}`,
+            url: URL_SERVIDOR + `Itinerario/showNull/?id_tours=${ID_VIAJE}`,
             method: "GET"
         }).done(function (response) {
             if (!response.err) {
@@ -338,36 +346,6 @@ $(document).ready(function () {
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
-        });
-    }
-
-    function inicializarComboTuristico() {
-        //COMBO DE TIPOS 
-        $('#ComboTur').select2();
-        //COMBO DE CONTACTOS
-        $.ajax({
-            url: URL_SERVIDOR + "SitioTuristico/show",
-            method: "GET"
-        }).done(function (response) {
-            let myData = [];
-            if (response.sitios) {
-                DATA_TUR = response.sitios;
-                for (let index = 0; index < DATA_TUR.length; index++) {
-                    myData.push({
-                        id: DATA_TUR[index].id_sitio_turistico,
-                        text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`,
-                        precio: DATA_TUR[index].precio_sitio
-                    });
-                }
-                ///LE CARGAMOS LA DATA 
-                $('#ComboTur').select2({ data: myData });
-                document.getElementById("precio").value = DATA_TUR[0].precio_sitio;
-            } else {
-                $('#ComboTur').select2();
-            }
-        }).fail(function (response) {
-            $('#ComboTur').select2();
-
         });
     }
     function crearFecha(date) {

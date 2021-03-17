@@ -12,8 +12,6 @@ $(document).ready(function () {
    $(document).on('click', '.btn-group .btn-primary', function () {
       let idSeleccionado = $(this).attr("name");
       window.location = `${URL_SISTEMA}vistas/tours/editar_tour.php?tur=${idSeleccionado}`;
-
-
    });
    //BOTON EDITAR LA FOTO
    $(document).on('click', '.btn-group .btn-warning', function () {
@@ -97,11 +95,14 @@ $(document).ready(function () {
    });
    //BOTON DE ITINERARIO
    $(document).on('click', '.btn-group .btn-success ', function (evento) {
-      let idSeleccionado = $(this).attr("name");
-      window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?tur=${idSeleccionado}`;
+      let fila = $(this).closest("tr");
+      let dataFilaTur = tabla.row(fila).data();
 
+      let idViaje = dataFilaTur.id_tours;
+      let fechaInicioViaje = dataFilaTur.start;
+      let fechaFinViaje = dataFilaTur.end;
+      window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
    });
-
    function inicializarTabla() {
       tabla = $("#tabla_servicios").DataTable({
          "responsive": true,
@@ -112,8 +113,8 @@ $(document).ready(function () {
             { "className": "dt-center", "targets": "_all" },
             { "targets": [4], "visible": false },
             { "targets": [3], width: "30%" },
-           
-        ],
+
+         ],
          "ajax": {
             "url": URL_SERVIDOR + "TurPaquete/show?estado=1",
             "method": "GET",
@@ -147,9 +148,9 @@ $(document).ready(function () {
                      html += '        </button>';
                      html += '    </div>';
                      html += '</td>';
-                     let fechaSalida =  moment(json[i]["start"] );
+                     let fechaSalida = moment(json[i]["start"]);
                      // json[i]["start"]  = fechaSalida.locale('es').format('LL');
-                     json[i]["start"]  = fechaSalida.locale('es').format('l');
+                     json[i]["fecha"] = fechaSalida.locale('es').format('LL');
 
                      json[i]["botones"] = html;
                   }
@@ -166,7 +167,7 @@ $(document).ready(function () {
          columns: [
             { data: "nombreTours" },
             { data: "precio" },
-            { data: "start" },
+            { data: "fecha" },
             { data: "botones" },
             { data: "id_tours" },
          ]

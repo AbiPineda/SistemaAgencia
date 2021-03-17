@@ -37,10 +37,10 @@ a.text-success:hover {
       <section class="content-header">
          <div class="container-fluid">
             <div class="row mb-2">
-               <div class="col-sm-6">
-                  <h1>Itinerario</h1>
+               <div class="col-sm-8">
+                  <h1 id="titulo"></h1>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-4">
                   <ol class="breadcrumb float-sm-right">
                      <li class="breadcrumb-item"><a href="../../home.php">Inicio</a>
                      </li>
@@ -82,35 +82,6 @@ a.text-success:hover {
                            </div>
                            <!-- /.card-body -->
                         </div>
-
-                        <!-- /.card -->
-                        <div class="card">
-                           <div class="card-header">
-                              <h3 class="card-title">Nuevo Sitio Turistico</h3>
-                           </div>
-                           <div class="card-body">
-                              <div class="input-group">
-                                 <div class="input-group">
-                                    <select name="ComboTur" id="ComboTur"
-                                       class="select2 select2-success  select2-hidden-accessible form-control"
-                                       data-placeholder="Seleccione el tipo" data-dropdown-css-class="select2-success"
-                                       style="width: 100%;">
-                                    </select>
-
-                                 </div>
-                                 <div class="input-group" style="padding-top: 5px;">
-                                    <input id="precio" name="precio" type="number" min="1" class="form-control"
-                                       placeholder="Precio">
-                                    <div class="input-group-append">
-                                       <button id="add-new-sitio" type="button" class="btn btn-success">Agregar</button>
-                                    </div>
-                                 </div>
-                                 <!-- /btn-group -->
-                              </div>
-                              <!-- /input-group -->
-                           </div>
-                        </div>
-                        <!-- /.card -->
                         <!-- /.card -->
                         <div class="card">
                            <div class="card-header">
@@ -182,6 +153,7 @@ a.text-success:hover {
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/itinerario.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

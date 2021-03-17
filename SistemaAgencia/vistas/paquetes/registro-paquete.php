@@ -74,6 +74,24 @@
                                  </div>
                               </div>
                               <div class="row">
+                                 <div class="ml-2"><label for="">Tipo de Paquete</label></div>
+                                 <div class="form-check mx-auto icheck-success">
+
+                                    <input class="form-check-input" type="radio" name="radioTipoPaquete"
+                                       id="radioTipoPaqueteNacional" value="Paquete Nacional" checked>
+                                    <label class="form-check-label" for="radioTipoPaqueteNacional">
+                                       Paquete Nacional
+                                    </label>
+                                 </div>
+                                 <div class="form-check mx-auto icheck-success">
+                                    <input class="form-check-input" type="radio" name="radioTipoPaquete"
+                                       id="radioTipoPaqueteInternacional" value="Paquete Internacional">
+                                    <label class="form-check-label" for="radioTipoPaqueteInternacional">
+                                       Paquete Internacional
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="row">
                                  <div class="col-sm-12">
                                     <!-- text input -->
                                     <div class="form-group">

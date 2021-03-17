@@ -93,6 +93,23 @@
 
                               </div>
                               <div class="row">
+                                 <div class="ml-3"><label for="">Tipo de Tour</label></div>
+                                 <div class="form-check mx-auto icheck-success">
+                                    <input class="form-check-input" type="radio" name="radioTipoTour"
+                                       id="radioTipoTourNacional" value="Tour Nacional" checked>
+                                    <label class="form-check-label" for="radioTipoTourNacional">
+                                       Tour Nacional
+                                    </label>
+                                 </div>
+                                 <div class="form-check mx-auto icheck-success">
+                                    <input class="form-check-input" type="radio" name="radioTipoTour"
+                                       id="radioTipoTourInternacional" value="Tour Internacional">
+                                    <label class="form-check-label" for="radioTipoTourInternacional">
+                                       Tour Internacional
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="row">
                                  <div class="col-sm-12">
                                     <!-- text input -->
                                     <div class="form-group">

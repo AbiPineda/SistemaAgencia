@@ -50,7 +50,6 @@ function guardar() {
       processData: false,
       contentType: false,
    }).done(function (response) {
-      console.log(response);
       let respuestaDecodificada = JSON.parse(response);
       const Toast = Swal.mixin();
       Toast.fire({
@@ -75,7 +74,10 @@ function guardar() {
 
          }).then((result) => {
             if (result.value) {
-               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+               let idViaje = respuestaDecodificada.id;
+               let fechaInicioViaje = respuestaDecodificada.turPaquete.start;
+               let fechaFinViaje = respuestaDecodificada.turPaquete.end;
+               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
             }
          });
 
@@ -116,6 +118,7 @@ function obtenerData() {
    let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
    let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
    let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
+   let tipoTour = $("input[name='radioTipoTour']:checked").val();
 
    for (let index = 0; index < titulos.length; index++) {
       if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
@@ -129,20 +132,20 @@ function obtenerData() {
    let end = fecha[1]
 
 
+   form.append("nombreTours", document.getElementById("nombreTours").value);
    form.append("promociones", JSON.stringify(promocion));
    form.append("no_incluye", JSON.stringify(no_incluye));
    form.append("requisitos", JSON.stringify(requisitos));
    form.append("incluye", JSON.stringify(incluye));
    form.append("lugar_salida", JSON.stringify(salida));
-   form.append("nombreTours", document.getElementById("nombreTours").value);
    form.append("precio", document.getElementById("CostoPasaje").value);
    form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
    form.append("cupos_disponibles", document.getElementById("cantidad").value);
    form.append("start", start);
    form.append("end", end);
+   form.append("tipo", tipoTour);
    form.append("estado", 1);
    form.append("aprobado", 1);
-   form.append("tipo", "TUR");
 
    return form;
 

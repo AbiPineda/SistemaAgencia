@@ -145,6 +145,7 @@ function obtenerData() {
    let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
    let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
    let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
+   let tipoPaquete =  $("input[name='radioTipoPaquete']:checked").val();
 
    for (let index = 0; index < titulos.length; index++) {
       if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
@@ -168,15 +169,11 @@ function obtenerData() {
    form.append("precio", document.getElementById("CostoPasaje").value);
    form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
    form.append("cupos_disponibles", cantidadByTransporte);
+   form.append("tipo",tipoPaquete);
    form.append("start", start);
    form.append("end", end);
    form.append("estado", 1);
    form.append("aprobado", 1);
-   form.append("tipo", "PAQUETE");
-
-   console.log(start)
-   console.log(end)
-
    return form;
 
 }
