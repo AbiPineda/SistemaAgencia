@@ -34,24 +34,6 @@ include_once '../../plantillas/cabecera.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="timeline">
-                    <div>
-                        <i class="fas fa-comments bg-gradient-blue"></i>
-                        <div class="timeline-item">
-                            <h3 class="timeline-header"><a href="#">Datos del Cliente</a></h3>
-                            <div class="timeline-body" style="margin-top: -9px;">
-                                <!--Una fila para jugar-->
-                                <form id="cliente-form" name="recargar-form" onsubmit="return false">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                          
-                                        </div>
-                                    </div>
-                                </form>
-                                <!--fin de Una fila para jugar-->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END timeline item -->
                     <!-- timeline item -->
                     <div id="formulario">
                         <i class="fas fa-box-open bg-green"></i>
@@ -61,7 +43,7 @@ include_once '../../plantillas/cabecera.php';
                             <div class="timeline-body">
                                 <form id="encomienda-form" name="register-form" onsubmit="return false">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-5">
                                               <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
                                                 <div class="input-group">
@@ -73,6 +55,13 @@ include_once '../../plantillas/cabecera.php';
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add" id=""
+                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
                                         <div class="col-sm-6">
                                                 <label>Teléfono</label>
                                                 <div class="input-group">
@@ -80,24 +69,80 @@ include_once '../../plantillas/cabecera.php';
                                                 class="form-control" autocomplete="off">
                                                 </div>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Coordenadas</label>
+                                                <label>Ciudad</label>
                                                 <div class="input-group">
-                                                    <input disabled type="text" class="form-control" name="coordenadas"
-                                                        id="coordenadas">
+                                            <input  type="text" class="form-control" name="ciudad"id="ciudad" placeholder="Digite la ciudad de origen">
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-sm-1">
-                                            <br>
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                                    style="margin-top: 8px; width: 100%; height: 37px;" id="btn-mapa">
-                                                    <i class="fas fa-globe" style="color: white"></i>
-                                                </button>
-                                            </span>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Código</label>
+                                                <input name="codigo" id="codigo" type="text" class="form-control"
+                                                    placeholder="Introduzca el Código postal de origen">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <input name="fecha" id="fecha" type="date" class="form-control"
+                                                    placeholder="Introduzca el punto de referencia">
+                                            </div>
+                                        </div>            
+                                    </div>
+                                    <div>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END timeline item -->
+                       <!-- timeline item -->
+                    <div id="formulario">
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
+
+                            <div class="timeline-body">
+                                <form id="encomienda-form" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                              <div class="form-group multiple-form-group input-group">
+                                                <label>Nombre Completo</label>
+                                                <div class="input-group">
+                                                <input class="form-control" type="text" name="cliente_des" id="cliente_des" placeholder="Digite el nombre">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                                <label>Teléfono</label>
+                                                <div class="input-group">
+                                                <input type="text" name="telefono_des" id="telefono_des"
+                                                class="form-control" autocomplete="off">
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Ciudad</label>
+                                                <div class="input-group">
+                                            <input  type="text" class="form-control" name="ciudad_des" id="ciudad" placeholder="Digite la ciudad de destino">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Código</label>
+                                                <input name="codigo_des" id="codigo_des" type="text" class="form-control"
+                                                    placeholder="Introduzca el Código postal de destino">
+                                            </div>
                                         </div>
 
                                         <div class="col-sm-6">
@@ -109,19 +154,29 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Punto de referencia</label>
-                                                <input name="punto_referencia" id="punto_referencia" type="text"
+                                                <label>Dirección alterna</label>
+                                                <input name="direccion_alterna" id="direccion_alterna" type="text"
                                                     class="form-control"
-                                                    placeholder="Introduzca el punto de referencia">
+                                                    placeholder="Ej: Correo El Salvador ó 2da, av sur, numero 34, barrio centro">
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Fecha</label>
-                                                <input name="fecha" id="fecha" type="date" class="form-control"
-                                                    placeholder="Introduzca el punto de referencia">
-                                            </div>
-                                        </div>
+                                        </div>            
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END timeline item -->
+                    <div>
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Productos</a></h3>
+
+                            <div class="timeline-body">
+                                <form id="encomienda-form" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                       
                                         <div class="col-sm-5">
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Producto</label>
@@ -155,17 +210,7 @@ include_once '../../plantillas/cabecera.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-
-                                                <label>Seleccione Imagenes</label>
-                                                <div class="file-loading">
-                                                    <input type="file" multiple name="fotos[]" id="fotos">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="timeline-footer" style="text-align: right;">
                                         <a class="btn btn-info btn-sm" id="agregarTabla"
                                             style="color: white">Agregar</a>
@@ -247,10 +292,34 @@ include_once '../../plantillas/cabecera.php';
                                 </div>
                             </div>
                             <br> <br>
-                            <div class="timeline-footer" style="text-align: right;">
+                        </div>
+
+                    </div>
+                    <!-- END timeline item -->
+                    <!-- END timeline item -->
+                    <div>
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
+
+                            <div class="timeline-body">
+                                    <div class="row">
+
+                                        <div class="col-sm-12">
+
+                                                <label>Seleccione Imagenes</label>
+                                                <div class="file-loading">
+                                                    <input type="file" multiple name="fotos[]" id="fotos">
+                                                </div>
+                                            </div>
+                                       
+                                                                   
+                                    </div><br>
+                                <div class="timeline-footer" style="text-align: right;">
                                 <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
                                     style="color: white">Guardar</button>
                                 <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                            </div>
                             </div>
                         </div>
 
@@ -327,34 +396,7 @@ include_once '../../plantillas/cabecera.php';
         </div>
         <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
-    <div class="modal fade" id="modal-mapa">
-        <!-- Modal EDITAR-->
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Selecciona la ubicación</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="mapa" style="width: 100%; height: 500px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-end">
-                    <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
+   
 </div>
 
 <?php
@@ -372,8 +414,6 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
-</script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
