@@ -7,6 +7,9 @@ $(document).ready(function() {
           
             dataType: "json",
             success: function(data) {
+
+                let $select = $('#cliente');
+                $select.append('<option value="">Seleccione</option>');
         
                 let myData = [];
                 DATA_CLIENTE = data.usuarios;

@@ -43,16 +43,7 @@ include_once '../../plantillas/cabecera.php';
                                 <form id="cliente-form" name="recargar-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group multiple-form-group input-group">
-                                                <label>Cliente</label>
-                                                <div class="input-group">
-                                                    <select name="id_cliente" id="cliente"
-                                                        class="select2 select2-hidden-accessible form-control"
-                                                        data-placeholder="Seleccione" style="width: 100%;">
-                                                    </select>
-                                                    <input type="hidden" name="estado" id="estado" value="Enviado">
-                                                </div>
-                                            </div>
+                                          
                                         </div>
                                     </div>
                                 </form>
@@ -65,32 +56,29 @@ include_once '../../plantillas/cabecera.php';
                     <div id="formulario">
                         <i class="fas fa-box-open bg-green"></i>
                         <div class="timeline-item">
-                            <h3 class="timeline-header"><a href="#">Registro de encomienda</a></h3>
+                            <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
                             <div class="timeline-body">
                                 <form id="encomienda-form" name="register-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="form-group multiple-form-group input-group">
-                                                <label>Departamento</label>
+                                              <div class="form-group multiple-form-group input-group">
+                                                <label>Cliente</label>
                                                 <div class="input-group">
-                                                    <select name="depto" id="depto"
+                                                    <select name="id_cliente" id="cliente"
                                                         class="select2 select2-hidden-accessible form-control"
-                                                        data-placeholder="Seleccione Departamento" style="width: 100%;">
+                                                        data-placeholder="Seleccione" style="width: 100%;">
                                                     </select>
+                                                    <input type="hidden" name="estado" id="estado" value="Enviado">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="form-group multiple-form-group input-group">
-                                                <label>Municipio</label>
+                                                <label>Teléfono</label>
                                                 <div class="input-group">
-                                                    <select name="id_municipios" id="id_municipios"
-                                                        class="select2 select2-hidden-accessible form-control"
-                                                        data-placeholder="Seleccione Municipio" style="width: 100%;">
-                                                    </select>
+                                                <input type="text" name="telefono" id="telefono"
+                                                class="form-control" autocomplete="off">
                                                 </div>
-                                            </div>
                                         </div>
                                         <div class="col-sm-5">
                                             <div class="form-group">
