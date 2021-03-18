@@ -3,6 +3,7 @@ $(document).ready(function () {
     inicializarValidacionesGuardar();
     inicializarGaleria();
     inicializarFoto();
+    telefono();
 
     let contadorTabla = 0;
     let TOTAL = 0.0;
@@ -338,6 +339,41 @@ $(document).ready(function () {
             layoutTemplates: { main2: '{preview} {remove} {browse}' },
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
+    }
+
+    //funcion para cargar el celular en el input
+    function telefono(){
+
+    $("#cliente").change(function () {
+           var id = document.getElementById("cliente").value;
+          
+    $.ajax({
+        url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente="+id,
+        method: 'GET'
+
+    }).done(function(response) {
+        $.each(response.usuarios, function(i, index) {
+            $("#telefono").val(index.celular);  
+
+        });
+
+        
+
+
+    }).fail(function(response) {
+        const Toast = Swal.mixin();
+        Toast.fire({
+            title: 'Error',
+            icon: 'error',
+            text: response.mensaje,
+            showConfirmButton: true,
+        });
+
+         });
+
+
+             });
+
     }
 
 });

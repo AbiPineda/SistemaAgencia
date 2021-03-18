@@ -6,8 +6,8 @@ $(document).ready(function() {
             url: URL_SERVIDOR+"Producto/productos",
             dataType: "json",
             success: function(data) {
-                let $select = $('#id_producto');
-                $select.append('<option value="">Seleccione</option>');
+                let $ok = $('#id_producto');
+                $ok.append('<option value="">Seleccione</option>');
                
 
                 let myData = [];
@@ -21,8 +21,8 @@ $(document).ready(function() {
                 $('#id_producto').select2({ data: myData });
             },
             error: function(err) {
-                $select.append('<option value="">Seleccione</option>');
-                var $select = $('#id_producto');
+                let $ok = $('#id_producto');
+                $ok.append('<option value="">Seleccione</option>');
               /* const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',

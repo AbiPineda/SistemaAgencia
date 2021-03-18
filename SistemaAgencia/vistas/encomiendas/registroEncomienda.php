@@ -65,8 +65,8 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-6">
                                                 <label>Teléfono</label>
                                                 <div class="input-group">
-                                                <input type="text" name="telefono" id="telefono"
-                                                class="form-control" autocomplete="off">
+                                                <input disabled="true" type="text" name="telefono" id="telefono"
+                                                class="form-control" autocomplete="off" placeholder="7232-2345">
                                                 </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -419,10 +419,6 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-
-
-<script src="<?= $base_url ?>js/controladores/mapas/myMap.js"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/deptos.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
