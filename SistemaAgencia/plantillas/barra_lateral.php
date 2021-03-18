@@ -147,7 +147,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="<?= $base_url ?>" class="nav-link">
+                           <a href="<?= $base_url ?>vistas/contactos/registro-contacto.php" class="nav-link">
                               <i class="fas fa-ellipsis-v nav-icon"></i>
                               <p>Registrar Contacto</p>
                            </a>

@@ -17,8 +17,6 @@ $(document).ready(function () {
       $('#correoContacto').val(data.correo);
       $('#telefonoContacto').val(data.telefono);
       $('#nombreContacto').val(data.nombre_contacto);
-      console.log(data);
-
       idSeleccionado = data.id_contacto;
 
    });
@@ -33,7 +31,7 @@ $(document).ready(function () {
       let data = tabla.row(fila).data();
       ///le enviamos la imagen del cliente al avatar
       let $avatar = $('.file-default-preview');
-      console.log($avatar.html(`<img src="${data.foto}" style="width: 186px;">`));
+      $avatar.html(`<img src="${data.foto}" style="width: 186px;">`);
       ///le damos el valor al id seleccionado
       idSeleccionado = data.id_contacto;
    });
@@ -85,12 +83,9 @@ $(document).ready(function () {
    //CUANDO EL MODAL DE EDITAR
    $('#modal-editar').on('hidden.bs.modal', function (e) {
       formularioEditar.resetForm();
-      console.log("cerando el editar");
-
    });
    //CUANDO EL MODAL DE LA FOTOGRAFIA 
    $('#modal-perfil').on('hidden.bs.modal', function (e) {
-      console.log("DESTRUYENDO DE NUEVO");
       $("#foto").fileinput('destroy');
       $("#formulario_perfil").trigger("reset");
 
@@ -225,7 +220,7 @@ $(document).ready(function () {
          data: data
       }).done(function (response) {
          //REST_Controller::HTTP_OK
-         console.log(response);
+   
          const Toast = Swal.mixin();
          Toast.fire({
             title: 'Exito...',
@@ -337,7 +332,7 @@ $(document).ready(function () {
          contentType: false,
       }).done(function (response) {
          //REST_Controller::HTTP_OK
-         console.log(response);
+         
          tabla.ajax.reload(null, false);
          const Toast = Swal.mixin();
          Toast.fire({

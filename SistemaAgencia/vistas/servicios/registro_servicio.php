@@ -223,7 +223,7 @@
          </div>
       </form>
    </section>
-   <?php include_once './registro_contacto.php'  ?>
+   <?php include_once '../contactos/modal-contacto.php'  ?>
    <?php include_once './registro_tipo.php'  ?>
 </div>
 
@@ -241,5 +241,6 @@
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
+<script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
