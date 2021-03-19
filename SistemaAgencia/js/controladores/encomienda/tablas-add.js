@@ -130,14 +130,14 @@ $(document).ready(function () {
         evento.preventDefault();//para evitar que la pagina se recargue
        let form = $("#cliente-form");
        let form1 = $("#encomienda-form");
-        form1.validate();
-        form.validate();
-        if (form.valid()) {
-            if (form1.valid()) {
+        //form1.validate();
+        //form.validate();
+        //if (form.valid()) {
+           // if (form1.valid()) {
                  guardar();   
-            }
+            //}
         
-       } 
+       //} 
     });
 
     function inicializarValidacionesGuardar() {
@@ -258,6 +258,7 @@ $(document).ready(function () {
      function obtenerData() {
         let form = new FormData();
          let detalle_encomienda = [];
+         let cliente_des="JUan carlos moz";
         
         tabla.rows().every(function (value, index) {
             let data = this.data();
@@ -269,18 +270,19 @@ $(document).ready(function () {
                 detalle_encomienda.push({
                     "id_producto": id_producto,
                     "cantidad": cantidad,
-                    "sub_total": sub_total
+                    "sub_total": sub_total,
+                    "prueba":cliente_des
                 });
             
         });
        
         form.append("direccion",          document.getElementById("direccion").value);
-        form.append("punto_referencia",   document.getElementById("punto_referencia").value);
+        /*form.append("punto_referencia",   document.getElementById("punto_referencia").value);
         form.append("fecha",              document.getElementById("fecha").value);
         form.append("estado",              document.getElementById("estado").value);
         form.append("total_encomienda",   TOTAL);
         form.append("total_comision",     COMISION);
-        form.append("total_cliente",     (TOTAL+COMISION));
+        form.append("total_cliente",     (TOTAL+COMISION));*/
         form.append("id_usuario",          document.getElementById("cliente").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
        
