@@ -71,11 +71,11 @@ $(document).ready(function () {
       obtenerInformacionAdicional();
    });
    $(document).on('click', '#btnReservar', function () {
-      window.location = `${URL_SISTEMA}vistas/tours/registro_reserva.php?tur=${ID_TUR}`;
+      window.location = `${URL_SISTEMA}vistas/paquetes/reserva-paquete.php?tur=${ID_TUR}`;
    });
    function inicializarViajes() {
       $.ajax({
-         url: URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=tour",
+         url: URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=paquete",
          method: "GET"
       }).done(function (response) {
          let contenedor = $('#contenedorAutos');

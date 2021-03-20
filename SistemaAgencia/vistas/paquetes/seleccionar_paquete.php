@@ -244,7 +244,7 @@
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/seleccionar-tur.js"></script>
+<script src="<?= $base_url ?>js/controladores/paquete/seleccionar-paquete.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->

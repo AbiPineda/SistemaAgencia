@@ -173,7 +173,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= $base_url ?>vistas/paquetes/registro_reserva.php" class="nav-link">
+                     <a href="<?= $base_url ?>vistas/paquetes/seleccionar_paquete.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
                         <p>Registrar Reserva</p>
                      </a>

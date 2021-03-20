@@ -242,7 +242,7 @@
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/reserva-tour.js"></script>
+<script src="<?= $base_url ?>js/controladores/paquete/reserva-paquete.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 
 <!-- CIERRE DE ETIQUETAS -->

@@ -134,7 +134,7 @@ $(document).ready(function () {
 
                myData.push({
                   id: lista[index].id_cliente,
-                  text: lista[index].nombre
+                  text: `${lista[index].nombre} (Dui: ${lista[index].dui})`
                });
             }
             $('#comboUsuario').select2(
@@ -153,7 +153,7 @@ $(document).ready(function () {
    }
    function inicialData(idTour) {
       $.ajax({
-         url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
+         url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
          method: "GET"
       }).done(function (response) {
          nombre_producto = response.nombre;
