@@ -22,14 +22,14 @@
                 let form = new FormData();
                 form.append("id_vehiculo", ID_VEHICULO);
                 form.append("id_cliente", document.getElementById("comboUsuario").value);
-                form.append("direccionRecogida", document.getElementById("direccionR").value);
-                form.append("direccionDevolucion", document.getElementById("direccionD").value);
+                form.append("direccionRecogida_detalle", document.getElementById("direccionR").value);
+                form.append("direccionDevolucion_detalle", document.getElementById("direccionD").value);
                 
                 form.append("nombre_detalle", arregloServicios);
         
-                form.append("fechaHora", document.getElementById("fecha_salida").value);
-                form.append("total", document.getElementById("emergencia").value);
-                form.append("activo", estadoReservado);
+                form.append("fechaHora_detalle", document.getElementById("fecha_salida").value);
+                form.append("total_detalle", document.getElementById("emergencia").value);
+                form.append("activo_detalle", estadoReservado);
     
                 $.ajax({
                     url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",
@@ -90,14 +90,14 @@
                     id_cliente: {
                         required: true
                     },
-                    fechaHora: {
+                    fechaHora_detalle: {
                         required: true,
                     },
-                    direccionRecogida: {
+                    direccionRecogida_detalle: {
                         required: true,
                         minlength: 10,
                     },
-                    direccionDevolucion: {
+                    direccionDevolucion_detalle: {
                         required: true,
                         minlength: 10
                     }
@@ -106,15 +106,15 @@
                     id_cliente: {
                         required: "Seleccione un cliente",
                     },
-                    fechaHora: {
+                    fechaHora_detalle: {
                         required: "Debe de proporcionar la fecha",
     
                     },
-                    direccionRecogida: {
+                    direccionRecogida_detalle: {
                         required: "el lugar es necesario",
                         minlength: "Debe de tener una longitud minima de 10",
                     },
-                    direccionDevolucion: {
+                    direccionDevolucion_detalle: {
                         required: "el lugar es necesario",
                         minlength: "Debe de tener una longitud minima de 10"
                     }

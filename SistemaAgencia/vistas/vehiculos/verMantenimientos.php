@@ -147,11 +147,11 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Lugar donde se realizo mantenimiento</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="lugar" name="lugar" >
+                                        <input type="text" class="form-control" id="lugar" name="lugar" autocomplete="off" >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -161,7 +161,17 @@
                                     <label>Mantenimientos Realizados</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="mantenimientos"
-                                            name="mantenimientos" >
+                                            name="mantenimientos" autocomplete="off">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Piezas Cambiadas</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="piezas_cambiadasM"
+                                            name="piezas_cambiadasM" autocomplete="off">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -203,5 +213,5 @@ $("input").on("change", function() {
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/mostrarMantenimiento.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <?php  include_once '../../plantillas/cierre.php';?>

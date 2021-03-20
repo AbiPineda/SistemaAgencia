@@ -4,7 +4,7 @@ $(document).ready(function() {
     let tabla;
 
 
-    // inicializarValidaciones();
+    inicializarValidaciones();
     inicializarTabla();
 
     //BOTON DE EDITAR
@@ -26,7 +26,7 @@ $(document).ready(function() {
                 document.getElementById("anio").value = response.mantenimiento[i].anio;
                 document.getElementById("placa").value = response.mantenimiento[i].placa;
                 document.getElementById("mantenimientos").value = response.mantenimiento[i].mantenimiento_realizado;
-
+                document.getElementById("piezas_cambiadasM").value = response.mantenimiento[i].piezas_cambiadas;
             }
 
 
@@ -136,46 +136,40 @@ $(document).ready(function() {
     function inicializarValidaciones() {
         $('#miFormulario').validate({
             rules: {
-                placa: {
+                lugar_mantenimiento: {
                     required: true,
                     minlength: 3,
                     maxlength: 40
                 },
-                anio: {
+                mantenimiento_realizado: {
                     required: true,
-                    number: true,
-                    min: 2010
+                    minlength: 3,
+                    maxlength: 40
                 },
-                tipoCombustible: {
+                piezas_cambiadas: {
                     required: true,
-                    minlength: 10,
-                },
-                precio_diario: {
-                    required: true,
-                    number: true,
-                    min: 1
+                    minlength: 3,
+                    maxlength: 40
                 }
+                
             },
             messages: {
-                placa: {
-                    required: "Ingrese un nombre",
+                lugar_mantenimiento: {
+                    required: "Ingrese lugar",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                anio: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
+                mantenimiento_realizado: {
+                    required: "Ingrese mantenimientos",
+                    minlength: "Logitud del nombre debe ser mayor a 3",
+                    maxlength: "Logitud del nombre no debe exceder a 40",
                 },
-                tipoCombustible: {
-                    required: "La informacion de contacto es necesaria",
-                    minlength: "Debe de tener una longitud minima de 10",
-                },
-                precio_diario: {
-                    required: "Ingrese un numero",
-                    number: "Ingrese un numero",
-                    min: "Debe de ser mayor que 0"
+                piezas_cambiadas: {
+                    required: "Ingrese piezas cambiadas",
+                    minlength: "Logitud del nombre debe ser mayor a 3",
+                    maxlength: "Logitud del nombre no debe exceder a 40",
                 }
+                
 
             },
             errorElement: 'span',
@@ -199,7 +193,9 @@ $(document).ready(function() {
         let data = {
             "id_mantenimiento": idMantenimiento,
             "fecha": document.getElementById("fecha").value,
-            "lugar": document.getElementById("lugar").value
+            "lugar_mantenimiento": document.getElementById("lugar").value,
+            "piezas_cambiadas": document.getElementById("piezas_cambiadasM").value,
+            "mantenimiento_realizado": document.getElementById("mantenimientos").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
