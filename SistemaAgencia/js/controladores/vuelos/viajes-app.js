@@ -19,8 +19,8 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.viaje.length; i < ien; i++) {
 
-                document.getElementById("nombre_tipoviaje").value = response.viaje[i].nombre_tipoviaje;
-                document.getElementById("descripcion").value = response.viaje[i].descripcion;
+                document.getElementById("nombre_tipoviajes").value = response.viaje[i].nombre_tipoviaje;
+                document.getElementById("descripcion_tipoViaje").value = response.viaje[i].descripcion;
 
             }
 

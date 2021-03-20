@@ -3,8 +3,8 @@ $("#btnAgregarClase").on('click', function(e) {
     e.preventDefault();
     
     let myData = {
-        "nombre_clase": document.getElementById("nombre_clase").value,
-        "descripcion": document.getElementById("descripcion").value,
+        "nombre_clase": document.getElementById("nombre_clases").value,
+        "descripcion": document.getElementById("descripcion_clases").value,
     }
 
     $.ajax({

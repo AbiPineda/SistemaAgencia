@@ -21,7 +21,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nombre de Tipo de Clase</label>
-                                            <input type="text" name="nombre_clase" id="nombre_clase"
+                                            <input type="text" name="nombre_clases" id="nombre_clases"
                                                 class="form-control" placeholder="Digite nombre de clase">
                                         </div>
                                     </div>
@@ -30,7 +30,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" rows="3" name="descripcion" id="descripcion"
+                                            <textarea class="form-control" rows="3" name="descripcion_clases" id="descripcion_clases"
                                                 placeholder="Describir.."></textarea>
                                         </div>
                                     </div>
