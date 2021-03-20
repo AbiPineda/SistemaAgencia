@@ -80,7 +80,7 @@ include_once '../../plantillas/cabecera.php';
                                             <br>
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-success btn-add"
-                                                    id="btnNuevoCliente" name="btnNuevoCliente"
+                                                    data-toggle="modal" data-target="#modalAgregarCliente"
                                                     style="margin-top: 10px; width: 100%;">+</button>
                                             </span>
                                         </div>
@@ -189,11 +189,11 @@ include_once '../../plantillas/cabecera.php';
             </div>
         </form>
     </section>
-    <?php include_once '../cliente/modalCliente.php'  ?>
+    
 </div>
 
 <?php
-  
+  include_once '../cliente/modalCliente.php';
   include_once './modal-modelo.php';
   include_once '../../plantillas/footer.php';
 ?>
