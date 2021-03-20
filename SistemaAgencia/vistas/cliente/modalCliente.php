@@ -1,3 +1,10 @@
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+   type="text/css" />
+
+
 <form id="miFormularioCliente" name="miFormularioCliente" role="form">
    <!-- Modal EDITAR-->
    <div class="modal fade" id="modalAgregarCliente">
@@ -114,3 +121,12 @@
    </div>
    <!-- End Modal EDITAR-->
 </form>
+
+<script type="text/javascript" src="<?= $base_url?>js/controladores/client/registro-cliente.js"></script>
+
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>

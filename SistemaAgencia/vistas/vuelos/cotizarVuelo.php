@@ -58,7 +58,7 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="timeline-body">
                                     <div class="row">
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-11">
                                             <!-- text input -->
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
@@ -69,6 +69,14 @@ include_once '../../plantillas/cabecera.php';
                                                     </select>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modalAgregarCliente"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
                                         </div>
                                         <div class="col-sm-6">
                                             <!-- text input -->
@@ -315,6 +323,7 @@ include_once '../../plantillas/cabecera.php';
 <!-- END timeline item -->
 
 <?php
+include_once '../cliente/modalCliente.php';
  include_once './modal-aerolinea.php';
  include_once './modal-tipoClase.php';
  include_once './modal-tipoViaje.php';
