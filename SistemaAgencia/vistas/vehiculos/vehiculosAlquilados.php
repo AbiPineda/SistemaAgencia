@@ -3,6 +3,10 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+
+<link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
+<link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
 <style>
 .center {
     display: block;
@@ -115,7 +119,8 @@
                                 <div class="form-group">
                                     <label>Id Alquiler</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="idDetalle" name="idDetalle" disabled>
+                                        <input type="text" class="form-control" id="idDetalle" name="idDetalle"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -138,7 +143,7 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Placa</label>
@@ -175,13 +180,13 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Dirección de Recogida</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="recogida" name="recogida" disabled >
+                                        <input type="text" class="form-control" id="recogida" name="recogida" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -190,8 +195,8 @@
                                 <div class="form-group">
                                     <label>Dirección de Devolución</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="devolucion"
-                                            name="devolucion" disabled>
+                                        <input type="text" class="form-control" id="devolucion" name="devolucion"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -200,8 +205,8 @@
                                 <div class="form-group">
                                     <label>Servicios Adquiridos</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="servicios"
-                                            name="servicios" disabled >
+                                        <input type="text" class="form-control" id="servicios" name="servicios"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -210,14 +215,37 @@
                                 <div class="form-group">
                                     <label>Fecha - Hora (Recogida/Devolución) </label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="fechaHora"
-                                            name="fechaHora" disabled>
+                                        <input type="text" class="form-control" id="fechaHora" name="fechaHora"
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Fecha de Devolución</label>
+                                    <input type="date" class="form-control" name="fechaDe" id="fechaDe">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Hora de Devolución</label>
+                                <div class="input-group clockpicker" data-autoclose="true">
+                                    <input type="text" id="timepicker2" name="start" class="form-control"
+                                        value="08:00" />
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Intereses (%)</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="porcentaje" name="porcentaje">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
                         </div>
-
+                        </div>
+                        
 
                     </div>
                     <div class="modal-footer justify-content-between">
@@ -239,10 +267,25 @@
 <?php  
 include_once '../../plantillas/footer.php';?>
 
+<script>
+$(function() {
+
+    $(document).ready(function() {
+        $('#timepicker').mdtimepicker(); //Initializes the time picker
+    });
+
+})
+</script>
+
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculos-alquilados.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+
+<script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
+<script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>

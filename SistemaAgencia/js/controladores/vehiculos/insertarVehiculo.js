@@ -1,7 +1,7 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function() {
-    inicializarGaleria();
-  
+    inicializarGaleriaAutos();
+    inicializarGaleriaDocumentos();
     inicializarFoto();
   
 
@@ -19,6 +19,8 @@ $(document).ready(function() {
     function guardar() {
         $('#loading').show();
         let form = new FormData();
+
+      
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
@@ -97,7 +99,26 @@ $(document).ready(function() {
 
     
 
-    function inicializarGaleria() {
+    function inicializarGaleriaDocumentos() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
+        $('#fotosDocumentos').fileinput({
+            theme: 'fas',
+            language: 'es',
+            //uploadUrl: '#',
+            showUpload: false,
+            //showCaption: false,
+            maxFileSize: 2000,
+            maxFilesNum: 10, 
+            initialPreviewAsData: true,
+            initialPreviewFileType : 'pdf',
+            allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
+            required: true,
+            uploadAsync: false,
+            showClose: false,
+        });
+    }
+
+    function inicializarGaleriaAutos() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
             theme: 'fas',
@@ -113,7 +134,6 @@ $(document).ready(function() {
             showClose: false,
         });
     }
-
     
     function inicializarFoto() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO

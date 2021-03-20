@@ -28,10 +28,10 @@ $(document).ready(function() {
                 document.getElementById("anio").value = response.detalleVehiculo[i].anio;
                 document.getElementById("modelo").value = response.detalleVehiculo[i].modelo;
                 document.getElementById("kilometraje").value = response.detalleVehiculo[i].kilometraje;
-                document.getElementById("total").value = response.detalleVehiculo[i].total;
-                document.getElementById("recogida").value = response.detalleVehiculo[i].direccionRecogida;
-                document.getElementById("devolucion").value = response.detalleVehiculo[i].direccionDevolucion;
-                document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora;
+                document.getElementById("total").value = response.detalleVehiculo[i].total_detalle;
+                document.getElementById("recogida").value = response.detalleVehiculo[i].direccionRecogida_detalle;
+                document.getElementById("devolucion").value = response.detalleVehiculo[i].direccionDevolucion_detalle;
+                document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora_detalle;
                 document.getElementById("servicios").value = response.detalleVehiculo[i].nombre_detalle;
               
             }
@@ -119,8 +119,8 @@ $(document).ready(function() {
                 { data: "id_detalle" },
                 { data: "nombre" },
                 { data: "modelo" },
-                { data: "total" },
-                { data: "fechaHora" },
+                { data: "total_detalle" },
+                { data: "fechaHora_detalle" },
                 { data: "botones" }
             ]
         });
