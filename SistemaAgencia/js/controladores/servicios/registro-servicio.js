@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('#configuracionAsientos').hide();
     $('#dibujoAsientos').hide();
     inicializarGaleriaServicio();
- 
+
     inicializarValidacionesServicio();
     inicializarComboContactoServicio();
     inicializarComboTipoServicio();
@@ -102,7 +102,7 @@ $(document).ready(function () {
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotosServicio").files;
         for (let i = 0; i < galeria.length; i++) {
-            form.append('fotosServicio[]', galeria[i]);
+            form.append('fotos[]', galeria[i]);
         }
         form.append("id_tipo_servicio", document.getElementById("tipo_servicio").value);
         form.append("nombre_servicio", document.getElementById("nombreServicio").value);
@@ -132,7 +132,6 @@ $(document).ready(function () {
     //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
     function actualizarCombo() {
         if (typeof DATA_SERVICIO !== 'undefined') {
-            console.log("actualizamos el combo servicio");
             inicializarComboServicio();
         }
     }
