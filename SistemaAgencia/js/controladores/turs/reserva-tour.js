@@ -153,59 +153,42 @@ $(document).ready(function () {
    }
    function inicialData(idTour) {
       $.ajax({
-         url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}&tipo=tur`,
+         url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
          method: "GET"
       }).done(function (response) {
          nombre_producto = response.nombre;
          descripcionProducto = response.descripcion_tur;
-         console.log(response)
          if (response.cupos != "" && response.cupos != "0") {
-            costoPasaje.val(response.precio);
-            CUPOS = parseInt(response.cupos);
-            $('#cupos').html(CUPOS);
-            //AGREGAMOS EL COSTO BASE
+         costoPasaje.val(response.precio);
+         CUPOS = parseInt(response.cupos);
+         $('#cupos').html(CUPOS);
+         //AGREGAMOS EL COSTO BASE
+         DATA_ASIENTOS.push({
+            seleccionables: "1",
+            id: 0,
+            pasaje: response.precio,
+            titulo: "Normal",
+         });
+         let lista = response.promociones;
+         for (let index = 0; index < lista.length; index++) {
             DATA_ASIENTOS.push({
-               seleccionables: "1",
-               id: 0,
-               pasaje: response.precio,
-               titulo: "Normal",
-            });
-            let lista = response.promociones;
-            for (let index = 0; index < lista.length; index++) {
-               DATA_ASIENTOS.push({
-                  seleccionables: lista[index].asiento,
-                  id: index + 1,
-                  pasaje: lista[index].pasaje,
-                  titulo: lista[index].titulo,
-               });
-            }
-            inicialComboAsientos();
-            if (response.transporte != null) {
-               transporte = true;
-               let derecho = response.transporte.asiento_derecho;
-               let izquierdo = response.transporte.asiento_izquierdo;
-               let numero_filas = response.transporte.filas;
-               let deshabilitados = response.transporte.asientos_deshabilitados;
-
-               let strFila = crearStrFila(derecho, izquierdo);
-               let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
-               dibujarAsientos(mapa);
-               bloquearAsientosInavilitados(deshabilitados);
-               bloquearAsientosOcupados(response.transporte.ocupados);
-            } else {
-               $('#dibujoAsientos').hide();
-            }
-         } else {
-            $('#item_asiento').hide();
-
-            Toast.fire({
-               title: 'Oops...',
-               icon: 'warning',
-               text: "No hay cupos disponibles",
-               showConfirmButton: true,
+               seleccionables: lista[index].asiento,
+               id: index + 1,
+               pasaje: lista[index].pasaje,
+               titulo: lista[index].titulo,
             });
          }
+         inicialComboAsientos();
+      }else {
+         $('#item_asiento').hide();
 
+         Toast.fire({
+            title: 'Oops...',
+            icon: 'warning',
+            text: "No hay cupos disponibles",
+            showConfirmButton: true,
+         });
+      }
       }).fail(function (response) {
          console.log("Error");
          console.log(response);
@@ -255,22 +238,19 @@ $(document).ready(function () {
    function getData() {
       let form = new FormData();
       let id_cliente = document.getElementById('comboUsuario').value;
-      let asientos_seleccionados = seat_charts.find('e.selected').seatIds;
-      let dataAsiento = seat_charts.find('e.selected').seats;
+    
       let total = 0.0;
       let cantidad_asientos = 0;
       let label_asiento = [];
-      dataAsiento.forEach(element => {
-         label_asiento.push(element.settings.label);
-      });
+
       ASIENTOS_SELECCIONADOS.forEach((element) => {
          total += parseFloat(element.subTotal);
          cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
       });
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
-      form.append("asientos_seleccionados", asientos_seleccionados);
-      form.append("label_asiento", label_asiento);
+      form.append("asientos_seleccionados", "NO_SELECCIONADO");
+      form.append("label_asiento", "NO_LABEL");
       form.append("nombre_producto", nombre_producto);
       form.append("total", total);
       form.append("descripcionProducto", descripcionProducto);
