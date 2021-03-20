@@ -133,7 +133,8 @@ function guardarContactoSitios() {
       let texto = respuestaDecodificada.contacto.nombre_contacto;
       let id = respuestaDecodificada.id;
       let newOption = new Option(texto, id, false, false);
-      $('#contacto_servicio').append(newOption).trigger('change');
+      let demas = $('#contacto_servicio').append(newOption).trigger('change');
+      console.log(demas);
       $('#contacto_sitio').append(newOption).trigger('change');
       $('#modal-agregarContactoSitio').modal('hide');
       //mandamos un mensaje al usuario

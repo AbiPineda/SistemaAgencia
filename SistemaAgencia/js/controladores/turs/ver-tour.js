@@ -16,14 +16,18 @@ $(document).ready(function () {
    //BOTON EDITAR LA FOTO
    $(document).on('click', '.btn-group .btn-warning', function () {
       $('#modal-imagenes').modal('show');
-      let identificador = $(this).attr("name");
-      let nombreTabla = 'tours_paquete';
-      let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
+
+      let fila = $(this).closest("tr");
+      let data = tabla.row(fila).data();
+    
+      let identificador = data.id_tours;
+      let tipoGaleria = data.tipo;
+      let informacionAdicional = { tipo: tipoGaleria, identificador: identificador };
       let urlFotos = [];
       let infoFotos = [];
 
       $.ajax({
-         url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
+         url: URL_SERVIDOR + "Imagen/show?tipo=" + tipoGaleria + "&identificador=" + identificador,
          method: "GET",
 
       }).done(function (response) {
@@ -111,12 +115,12 @@ $(document).ready(function () {
          "order": [[4, "desc"]],
          "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
-            { "targets": [4], "visible": false },
-            { "targets": [3], width: "30%" },
+            { "targets": [5], "visible": false },
+            { "targets": [4], width: "30%" },
 
          ],
          "ajax": {
-            "url": URL_SERVIDOR + "TurPaquete/show?estado=1",
+            "url": URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=tour",
             "method": "GET",
             "dataSrc": function (json) {
                //PARA CONPROVAR QUE EL SERVICIO EXISTE
@@ -168,6 +172,7 @@ $(document).ready(function () {
             { data: "nombreTours" },
             { data: "precio" },
             { data: "fecha" },
+            { data: "tipo" },
             { data: "botones" },
             { data: "id_tours" },
          ]

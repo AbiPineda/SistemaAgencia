@@ -272,7 +272,9 @@ $(document).ready(function () {
     }
     //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
     function actualizarComboSitio() {
-        if (typeof DATA_SERVICIO !== 'undefined') {
+        console.log(typeof DATA_SITIO)
+
+        if (typeof DATA_SITIO !== 'undefined') {
             console.log("actualizamos el combo sitio");
             inicializarComboTuristico();
         }
@@ -282,7 +284,6 @@ $(document).ready(function () {
         let myData = {
             tipo_sitio: document.getElementById("nombreTipo").value
         }
-        console.log(myData);
         $.ajax({
             url: URL_SERVIDOR + "TipoSitio/save",
             method: "POST",

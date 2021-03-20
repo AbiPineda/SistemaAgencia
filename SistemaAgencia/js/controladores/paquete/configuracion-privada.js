@@ -37,7 +37,7 @@ $('#ComboTur').on('select2:select', function (e) {
 
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
-    DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
+    DATA_SELECCIONADA = DATA_SITIO.find(myTur => myTur.id_sitio_turistico === id);
     ///ENCONTRO EL TUR
     if (DATA_SELECCIONADA) {
         document.getElementById("precio_sitio").value = DATA_SELECCIONADA.precio_sitio;
@@ -185,22 +185,22 @@ function inicializarComboTuristico() {
         //REST_Controller::HTTP_OK
         let myData = [];
         if (response.sitios) {
-            DATA_TUR = response.sitios;
-            for (let index = 0; index < DATA_TUR.length; index++) {
+            DATA_SITIO = response.sitios;
+            for (let index = 0; index < DATA_SITIO.length; index++) {
                 myData.push({
-                    id: DATA_TUR[index].id_sitio_turistico,
-                    text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`
+                    id: DATA_SITIO[index].id_sitio_turistico,
+                    text: `${DATA_SITIO[index].nombre_sitio} (${DATA_SITIO[index].tipo_sitio})`
                 });
             }
             ///LE CARGAMOS LA DATA 
             $('#ComboTur').select2({ data: myData });
             //CARGAMOS EL COSTO AL INPUT
-            document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-            document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-            document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-            document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-            document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-            document.getElementById("imgContactoTur").src = DATA_TUR[0].url
+            document.getElementById("precio_sitio").value = DATA_SITIO[0].precio_sitio;
+            document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SITIO[0].contactoN}`;
+            document.getElementById("namePreviewTur").innerHTML = DATA_SITIO[0].contactoN;
+            document.getElementById("mailContactoTur").innerHTML = DATA_SITIO[0].correo;
+            document.getElementById("phoneContactoTur").innerHTML = DATA_SITIO[0].telefono;
+            document.getElementById("imgContactoTur").src = DATA_SITIO[0].url
         } else {
             $('#ComboTur').select2();
         }
@@ -470,12 +470,12 @@ function resetMiTable() {
 
 function restaurarContactos() {
 
-    document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-    document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-    document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-    document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-    document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-    document.getElementById("imgContactoTur").src = DATA_TUR[0].url
+    document.getElementById("precio_sitio").value = DATA_SITIO[0].precio_sitio;
+    document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SITIO[0].contactoN}`;
+    document.getElementById("namePreviewTur").innerHTML = DATA_SITIO[0].contactoN;
+    document.getElementById("mailContactoTur").innerHTML = DATA_SITIO[0].correo;
+    document.getElementById("phoneContactoTur").innerHTML = DATA_SITIO[0].telefono;
+    document.getElementById("imgContactoTur").src = DATA_SITIO[0].url
 
     document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
     document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;

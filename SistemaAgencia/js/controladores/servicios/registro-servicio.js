@@ -131,7 +131,7 @@ $(document).ready(function () {
     }
     //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
     function actualizarCombo() {
-        if (typeof DATA_TUR !== 'undefined') {
+        if (typeof DATA_SERVICIO !== 'undefined') {
             console.log("actualizamos el combo servicio");
             inicializarComboServicio();
         }

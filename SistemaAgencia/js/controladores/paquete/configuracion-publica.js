@@ -1,4 +1,4 @@
-let DATA_TUR;
+let DATA_SITIO;
 let DATA_SERVICIO;
 let contadorTabla = 0.0;
 let totalGastos = 0.0;
@@ -36,7 +36,7 @@ $('#ComboTur').on('select2:select', function (e) {
 
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
-    DATA_SELECCIONADA = DATA_TUR.find(myTur => myTur.id_sitio_turistico === id);
+    DATA_SELECCIONADA = DATA_SITIO.find(myTur => myTur.id_sitio_turistico === id);
     ///ENCONTRO EL TUR
     if (DATA_SELECCIONADA) {
         document.getElementById("precio_sitio").value = DATA_SELECCIONADA.precio_sitio;
@@ -89,6 +89,9 @@ $('#ComboTransporte').on('select2:select', function (e) {
 //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
 $(document).on('click', '#btnAgregarTur', function (evento) {
     evento.preventDefault();
+    //verificamos que exista algo seleccionado en el combo
+    if (!document.getElementById("ComboTur").value) return;
+
     //verifiacando que existe un precio
     let precio_sitio = $('#precio_sitio').val();
     if (!precio_sitio) {
@@ -116,6 +119,8 @@ $(document).on('click', '#btnAgregarTur', function (evento) {
 //AGREGANDO LA INFORMACION DE UN SITIO SERVICIO A LA TABLA
 $(document).on('click', '#btnAgregarSitio', function (evento) {
     evento.preventDefault();
+    //verificamos que se halla seleccionado algo en el select
+    if (!document.getElementById("ComboServicio").value) return;
     //verifiacando que existe un precio
     let precio_servicio = $('#precio_servicio').val();
     if (!precio_servicio) {
@@ -142,12 +147,12 @@ $(document).on('click', '#btnAgregarSitio', function (evento) {
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE PRECIO DE TRANSPORTE
 $(document).on('keyup mouseup', '#precio_transporte', function () {
-    
+
     let id = $('#ComboTransporte').val();
     let cantidad = 1;
-    let costo   = $('#precio_transporte').val();
+    let costo = $('#precio_transporte').val();
     let label = $("#ComboTransporte option:selected").html();
-    modificarRowTransporte(id,cantidad,costo,label);
+    modificarRowTransporte(id, cantidad, costo, label);
     modificarTabla();
     modificarIngresos();
     modificarGanancias();
@@ -179,17 +184,9 @@ $(document).on('click', '#btnguardar', function (evento) {
     evento.preventDefault(); //para evitar que la pagina se recargue
     let form = $("#miFormulario");
     form.validate();
-    if (form.valid()) {
-        guardar();
-    } else {
-        const Toast = Swal.mixin();
-        Toast.fire({
-            title: 'Exito...',
-            icon: 'error',
-            text: "Complete los campos",
-            showConfirmButton: true,
-        });
-    }
+    //verificamos que se hallan cumplido las validaciones 
+    if (form.valid()) guardar();
+    mensajeError("Complete los campos");
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
 $(document).on('click', '#newServicio', function (evento) {
@@ -244,11 +241,11 @@ function inicializarComboTuristico() {
         //REST_Controller::HTTP_OK
         let myData = [];
         if (response.sitios) {
-            DATA_TUR = response.sitios;
-            for (let index = 0; index < DATA_TUR.length; index++) {
+            DATA_SITIO = response.sitios;
+            for (let index = 0; index < DATA_SITIO.length; index++) {
                 myData.push({
-                    id: DATA_TUR[index].id_sitio_turistico,
-                    text: `${DATA_TUR[index].nombre_sitio} (${DATA_TUR[index].tipo_sitio})`
+                    id: DATA_SITIO[index].id_sitio_turistico,
+                    text: `${DATA_SITIO[index].nombre_sitio} (${DATA_SITIO[index].tipo_sitio})`
                 });
             }
             ///LE CARGAMOS LA DATA 
@@ -414,7 +411,7 @@ function inicializarValidaciones() {
                 number: true,
                 min: 0
             },
-            precio_transporte:{
+            precio_transporte: {
                 required: true,
                 number: true,
                 min: 0
@@ -422,6 +419,9 @@ function inicializarValidaciones() {
             descripcion_tur: {
                 required: true,
                 minlength: 5
+            },
+            ComboTransporte: {
+                required: true
             },
             "requisitos[]": {
                 required: true,
@@ -471,10 +471,13 @@ function inicializarValidaciones() {
                 number: "Solo numero",
                 min: "Debe ser mayor o igual a 0"
             },
-            precio_transporte:{
+            precio_transporte: {
                 required: "Digite precio",
                 number: "Solo numeros",
                 min: "Debe ser mayor o igual a 0"
+            },
+            ComboTransporte: {
+                required: "seleccione un vehiculo"
             },
             descripcion_tur: {
                 required: "Este campo es requierido",
@@ -524,12 +527,12 @@ function resetMiTable() {
 }
 function restaurarContactos() {
 
-    document.getElementById("precio_sitio").value = DATA_TUR[0].precio_sitio;
-    document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_TUR[0].contactoN}`;
-    document.getElementById("namePreviewTur").innerHTML = DATA_TUR[0].contactoN;
-    document.getElementById("mailContactoTur").innerHTML = DATA_TUR[0].correo;
-    document.getElementById("phoneContactoTur").innerHTML = DATA_TUR[0].telefono;
-    document.getElementById("imgContactoTur").src = DATA_TUR[0].url
+    document.getElementById("precio_sitio").value = DATA_SITIO[0].precio_sitio;
+    document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SITIO[0].contactoN}`;
+    document.getElementById("namePreviewTur").innerHTML = DATA_SITIO[0].contactoN;
+    document.getElementById("mailContactoTur").innerHTML = DATA_SITIO[0].correo;
+    document.getElementById("phoneContactoTur").innerHTML = DATA_SITIO[0].telefono;
+    document.getElementById("imgContactoTur").src = DATA_SITIO[0].url
 
     document.getElementById("precio_servicio").value = DATA_SERVICIO[0].costos_defecto;
     document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${DATA_SERVICIO[0].nombre_contacto}`;
@@ -599,8 +602,8 @@ function agregarInformacionContacto() {
     let ComboServicio = document.getElementById("ComboServicio").value;
     let Combotransporte = document.getElementById("ComboTransporte").value;
     let CombotSitio = document.getElementById("ComboTur").value;
-    if (typeof CombotSitio !== 'undefined') {
-        let data = DATA_TUR.find(myTur => myTur.id_sitio_turistico === CombotSitio);
+    if (CombotSitio !== '') {
+        let data = DATA_SITIO.find(myTur => myTur.id_sitio_turistico === CombotSitio);
         document.getElementById("precio_sitio").value = data.precio_sitio;
         document.getElementById("nameContactoTur").innerHTML = `<b>Nombre de Contacto:</b> ${data.contactoN}`;
         document.getElementById("namePreviewTur").innerHTML = data.contactoN;
@@ -609,7 +612,7 @@ function agregarInformacionContacto() {
         document.getElementById("imgContactoTur").src = data.url
     }
 
-    if (typeof ComboServicio !== 'undefined') {
+    if (ComboServicio !== '') {
         let data = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === ComboServicio);
         document.getElementById("precio_servicio").value = data.costos_defecto;
         document.getElementById("nameContactoServicio").innerHTML = `<b>Nombre de Contacto:</b> ${data.nombre_contacto}`;
@@ -618,7 +621,7 @@ function agregarInformacionContacto() {
         document.getElementById("phoneContactoServicio").innerHTML = data.telefono;
         document.getElementById("imgContactoServicio").src = data.url;
     }
-    if (typeof Combotransporte !== 'undefined') {
+    if (Combotransporte !== '') {
         let data = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === Combotransporte);
         document.getElementById("precio_transporte").value = data.costos_defecto;
         document.getElementById("nameContactoTransporte").innerHTML = `<b>Nombre de Contacto:</b> ${data.nombre_contacto}`;
@@ -662,4 +665,13 @@ function modificarRowTransporte(id, cantidad, costo, titulo) {
         }
     });
 
+}
+function mensajeError(mensaje = 'erro') {
+    const Toast = Swal.mixin();
+    Toast.fire({
+        title: 'Exito...',
+        icon: 'error',
+        text: mensaje,
+        showConfirmButton: true,
+    });
 }

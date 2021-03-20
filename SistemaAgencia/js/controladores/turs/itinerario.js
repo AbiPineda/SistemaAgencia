@@ -47,7 +47,6 @@ $(document).ready(function () {
             }
         ],
         eventClick: function (info) {
-            console.log(object)
             VentanaEliminar(info);
 
         },
@@ -304,7 +303,7 @@ $(document).ready(function () {
         const Toast = Swal.mixin();
         Toast.fire({
             title: '¿Desea Eliminar?',
-            text: "Se eiminara el Sitio turistico del itinerario",
+            text: "Se eiminarar del itinerario",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

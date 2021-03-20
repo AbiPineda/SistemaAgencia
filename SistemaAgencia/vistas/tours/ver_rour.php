@@ -44,7 +44,8 @@
                         <tr>
                            <th>Nombre</th>
                            <th>Precio ($)</th>
-                           <th>Fecha</th>
+                           <th>Fecha de Salida</th>
+                           <th>Tipo de Tour</th>
                            <th>Acciones</th>
                            <th>id</th>
 

@@ -664,8 +664,7 @@
    <?php include_once '../servicios/formulario_servicio.php' ?>
    <?php include_once '../servicios/registro_tipo.php' ?>
    <?php include_once '../sitios/registro_tipo.php' ?>
-   <?php include_once '../servicios/registro_contacto.php' ?>
-   <?php include_once '../sitios/registro_contacto.php' ?>
+   <?php include_once '../contactos/modal-contacto.php' ?>
    <?php include_once '../../vistas/mapa/coordenadas.php' ?>
 
 
@@ -690,6 +689,7 @@
 <script src="<?= $base_url ?>js/controladores/paquete/configuracion-publica.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
+<script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
 
