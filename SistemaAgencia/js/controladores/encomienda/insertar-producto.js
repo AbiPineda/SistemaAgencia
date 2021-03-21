@@ -65,7 +65,7 @@ function add_producto() {
 
         }).done(function (response) {
         document.getElementById("register-form").reset();
-        
+      $('#id_unidad').val('').trigger('change');
         //$('#id_producto').load('#id_producto');
          //$('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
           //$('#botones').empty();
