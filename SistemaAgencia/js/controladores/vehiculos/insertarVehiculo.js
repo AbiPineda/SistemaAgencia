@@ -2,7 +2,6 @@
 $(document).ready(function() {
     inicializarGaleriaAutos();
     inicializarGaleriaDocumentos();
-    inicializarFoto();
   
 
     //BOTON DE GUARDAR
@@ -27,10 +26,8 @@ $(document).ready(function() {
             form.append('fotos[]', galeria[i]);
         }
 
-        let galeriaDocumentos = document.getElementById("fotosDocumentos").files;
-        for (let i = 0; i < galeriaDocumentos.length; i++) {
-            form.append('fotos[]', galeriaDocumentos[i]);
-        }
+        let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
+        form.append('foto', galeriaDocumentos);
 
         let comboOpciones = $("#opc_avanzadas").select2('data');
         let arregloOpciones = [];
@@ -108,7 +105,7 @@ $(document).ready(function() {
             showUpload: false,
             //showCaption: false,
             maxFileSize: 2000,
-            maxFilesNum: 10, 
+            maxFilesNum: 1,
             initialPreviewAsData: true,
             initialPreviewFileType : 'pdf',
             allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
@@ -134,31 +131,7 @@ $(document).ready(function() {
             showClose: false,
         });
     }
-    
-    function inicializarFoto() {
-        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-        $('#foto').fileinput({
-            theme: 'fas',
-            language: 'es',
-            required: true,
-            maxFileSize: 2000,
-            maxFilesNum: 10,
-            showUpload: false,
-            showClose: false,
-            showCaption: true,
-            browseLabel: '',
-            removeLabel: '',
-            //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-            removeTitle: 'Cancel or reset changes',
-            elErrorContainer: '#kv-avatar-errors-1',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
-            layoutTemplates: { main2: '{preview} {remove} {browse}' },
-            allowedFileExtensions: ["jpg", "png", "gif"]
-           
-        });
-        
-    }
+
 
     
 
