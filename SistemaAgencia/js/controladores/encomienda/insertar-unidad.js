@@ -92,7 +92,7 @@ function add_unidad() {
             $('#id_unidad').select2({});
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: 'No hay Usuarios para mostrar',
                 showConfirmButton: true,

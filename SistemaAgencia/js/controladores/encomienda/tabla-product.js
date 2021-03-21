@@ -204,7 +204,7 @@ $(document).ready(function () {
 
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: "ERROR EN ENVIO DE INFORMACION",
                 showConfirmButton: true,
