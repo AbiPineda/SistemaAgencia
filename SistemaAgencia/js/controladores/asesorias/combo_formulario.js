@@ -19,7 +19,7 @@ $(document).ready(function() {
                 $select.append('<option disabled value="" selected>Seleccione la cita</option>');
               /* const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error'
                 icon: 'error',
                 text:'No hay Ramas para mostrar',
                 showConfirmButton: true,

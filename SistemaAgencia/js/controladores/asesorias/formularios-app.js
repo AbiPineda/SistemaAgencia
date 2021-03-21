@@ -100,7 +100,7 @@ $(document).ready(function () {
             error: function(err) {
                 const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text:'No hay preguntas registradas..!',
                 showConfirmButton: true,
@@ -264,7 +264,7 @@ $(document).ready(function () {
 
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: "ERROR EN ENVIO DE INFORMACION",
                 showConfirmButton: true,
@@ -299,7 +299,7 @@ $(document).ready(function () {
             console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: "ERROR EN EL ENVIO DE INFORMACION",
                 showConfirmButton: true,

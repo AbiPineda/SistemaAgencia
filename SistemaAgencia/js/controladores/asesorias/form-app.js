@@ -77,7 +77,7 @@ function verInfo(){
             error: function(err) {
                 const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text:'No hay preguntas registradas..!',
                 showConfirmButton: true,
@@ -114,7 +114,7 @@ function verInfo(){
         }
         const Toast = Swal.mixin();
         Toast.fire({
-            title: 'Oops...',
+            title: 'Error',
             icon: 'error',
             text: listaErrores,
             showConfirmButton: true,
@@ -206,7 +206,7 @@ function verInfo(){
 
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: "ERROR EN ENVIO DE INFORMACION",
                 showConfirmButton: true,
@@ -241,7 +241,7 @@ function verInfo(){
             console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: "ERROR EN EL ENVIO DE INFORMACION",
                 showConfirmButton: true,

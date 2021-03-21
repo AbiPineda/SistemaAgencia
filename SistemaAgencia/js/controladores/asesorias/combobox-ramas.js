@@ -18,7 +18,7 @@ $(document).ready(function() {
                 $select.append('<option disabled="" selected>Seleccione</option>');
               /* const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text:'No hay Ramas para mostrar',
                 showConfirmButton: true,

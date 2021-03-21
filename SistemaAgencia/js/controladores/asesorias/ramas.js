@@ -36,7 +36,7 @@ $(document).ready(function() {
             error: function(err) {
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text:'No hay Ramas para mostrar',
                 showConfirmButton: true,

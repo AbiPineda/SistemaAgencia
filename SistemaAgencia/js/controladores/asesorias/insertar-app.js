@@ -99,7 +99,7 @@ function inicializarValidaciones() {
             }
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: listaErrores,
                 showConfirmButton: true,

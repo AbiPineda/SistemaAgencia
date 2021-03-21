@@ -43,7 +43,7 @@
 
                 const Toast = Swal.mixin();
                 Toast.fire({
-                  title: 'Oops...',
+                  title: 'Error',
                   icon: 'error',
                   text: 'No se puede agendar una cita en el pasado',
                   showConfirmButton: true,
@@ -124,7 +124,7 @@
               $('#calendar').fullCalendar('refetchEvents');
               const Toast = Swal.mixin();
               Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: 'Esta cita ya fue atendida',
                 showConfirmButton: true,
@@ -143,7 +143,7 @@
               if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
                 const Toast = Swal.mixin();
                 Toast.fire({
-                  title: 'Oops...',
+                  title: 'Error',
                   icon: 'error',
                   text: 'Este dia esta cerrado!',
                   showConfirmButton: true,
@@ -200,7 +200,7 @@
             }
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: listaErrores,
                 showConfirmButton: true,
@@ -212,7 +212,7 @@
        }else{
          const Toast = Swal.mixin();
                 Toast.fire({
-                  title: 'Oops...',
+                  title: 'Error',
                   icon: 'error',
                   text: 'No se puede agendar una cita en el pasado',
                   showConfirmButton: true,

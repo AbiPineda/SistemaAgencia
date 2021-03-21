@@ -33,7 +33,7 @@
             
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: response,
                 showConfirmButton: true,
