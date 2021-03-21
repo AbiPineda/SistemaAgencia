@@ -120,7 +120,7 @@ $(document).ready(function () {
 
          ],
          "ajax": {
-            "url": URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=paquete",
+            "url": URL_SERVIDOR + "TurPaquete/show?estado=1&tipo=Allpaquete",
             "method": "GET",
             "dataSrc": function (json) {
                //PARA CONPROVAR QUE EL SERVICIO EXISTE

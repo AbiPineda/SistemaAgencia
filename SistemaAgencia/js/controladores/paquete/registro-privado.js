@@ -147,7 +147,7 @@ function obtenerData() {
    form.append("end", end);
    form.append("estado", 1);
    form.append("aprobado", 1);
-   form.append("tipo", "PAQUETE");
+   form.append("tipo", "Paquete Privado");
    form.append("sitios", JSON.stringify(sistiosTuristicos));
    form.append("servicios", JSON.stringify(serviciosAdicionales));
 

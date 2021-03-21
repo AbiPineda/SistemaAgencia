@@ -163,7 +163,7 @@
                            <div class="mt-4">
                               <button class="btn btn-block btn-success btn-flat" id="btnReservar" name="btnReservar">
                                  <i class="fas fa-cart-plus fa-lg"></i>
-                                 Reservar Tur
+                                 Reservar Paquete
                               </button>
                            </div>
                         </div>

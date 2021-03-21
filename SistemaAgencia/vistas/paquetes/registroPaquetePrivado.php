@@ -448,7 +448,6 @@
    <?php include_once '../servicios/formulario_servicio.php' ?>
    <?php include_once '../servicios/registro_tipo.php' ?>
    <?php include_once '../sitios/registro_tipo.php' ?>
-   <?php include_once '../servicios/registro_contacto.php' ?>
    <?php include_once '../contactos/modal-contacto.php' ?>
    <?php include_once '../../vistas/mapa/coordenadas.php' ?>
 </div>
@@ -462,7 +461,7 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
