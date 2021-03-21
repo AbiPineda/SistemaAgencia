@@ -156,39 +156,40 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
          method: "GET"
       }).done(function (response) {
+         $('#titulo').html(`Reservar Tour (${response.nombre})`);
          nombre_producto = response.nombre;
          descripcionProducto = response.descripcion_tur;
          if (response.cupos != "" && response.cupos != "0") {
-         costoPasaje.val(response.precio);
-         CUPOS = parseInt(response.cupos);
-         $('#cupos').html(CUPOS);
-         //AGREGAMOS EL COSTO BASE
-         DATA_ASIENTOS.push({
-            seleccionables: "1",
-            id: 0,
-            pasaje: response.precio,
-            titulo: "Normal",
-         });
-         let lista = response.promociones;
-         for (let index = 0; index < lista.length; index++) {
+            costoPasaje.val(response.precio);
+            CUPOS = parseInt(response.cupos);
+            $('#cupos').html(CUPOS);
+            //AGREGAMOS EL COSTO BASE
             DATA_ASIENTOS.push({
-               seleccionables: lista[index].asiento,
-               id: index + 1,
-               pasaje: lista[index].pasaje,
-               titulo: lista[index].titulo,
+               seleccionables: "1",
+               id: 0,
+               pasaje: response.precio,
+               titulo: "Normal",
+            });
+            let lista = response.promociones;
+            for (let index = 0; index < lista.length; index++) {
+               DATA_ASIENTOS.push({
+                  seleccionables: lista[index].asiento,
+                  id: index + 1,
+                  pasaje: lista[index].pasaje,
+                  titulo: lista[index].titulo,
+               });
+            }
+            inicialComboAsientos();
+         } else {
+            $('#item_asiento').hide();
+
+            Toast.fire({
+               title: 'Oops...',
+               icon: 'warning',
+               text: "No hay cupos disponibles",
+               showConfirmButton: true,
             });
          }
-         inicialComboAsientos();
-      }else {
-         $('#item_asiento').hide();
-
-         Toast.fire({
-            title: 'Oops...',
-            icon: 'warning',
-            text: "No hay cupos disponibles",
-            showConfirmButton: true,
-         });
-      }
       }).fail(function (response) {
          console.log("Error");
          console.log(response);
@@ -214,7 +215,8 @@ $(document).ready(function () {
             icon: 'success',
             text: "Servicio Guardado Exitosamente",
             showConfirmButton: true,
-         })
+         });
+         reset();
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
          console.log(response);
@@ -238,22 +240,25 @@ $(document).ready(function () {
    function getData() {
       let form = new FormData();
       let id_cliente = document.getElementById('comboUsuario').value;
-    
+
       let total = 0.0;
       let cantidad_asientos = 0;
-      let label_asiento = [];
+      let descripcionReserva = '';
 
       ASIENTOS_SELECCIONADOS.forEach((element) => {
          total += parseFloat(element.subTotal);
+         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`  
          cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
       });
+      descripcionReserva = `${descripcionReserva}  Total : $${total}`
+    
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
       form.append("asientos_seleccionados", "NO_SELECCIONADO");
       form.append("label_asiento", "NO_LABEL");
       form.append("nombre_producto", nombre_producto);
       form.append("total", total);
-      form.append("descripcionProducto", descripcionProducto);
+      form.append("descripcionProducto", descripcionReserva);
       form.append("cantidad_asientos", cantidad_asientos);
 
       return form;
@@ -484,5 +489,15 @@ $(document).ready(function () {
    }
    function bloquearAsientosOcupados(ocupados) {
       seat_charts.get(ocupados).status('ocupado');
+   }
+   function reset (){
+      tablaReserva.clear().draw();
+      $('#totalPago').html('$0');
+      $('#asientosAReservar').html('0');
+      DATA_ASIENTOS = [];
+      ASIENTOS_SELECCIONADOS = [];
+      totalReserva = 0;
+      inicialData(ID_TUR);
+
    }
 });

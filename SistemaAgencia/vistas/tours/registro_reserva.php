@@ -20,10 +20,10 @@
    <section class="content-header">
       <div class="container-fluid">
          <div class="row mb-2">
-            <div class="col-sm-6">
-               <h1>Registrar Cliente</h1>
+            <div class="col-sm-10">
+               <h1 id="titulo">Reservar Tour</h1>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-2">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Inicio</a></li>
                   <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>

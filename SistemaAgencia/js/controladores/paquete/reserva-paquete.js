@@ -156,6 +156,8 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
          method: "GET"
       }).done(function (response) {
+         console.log($('#titulo').html())    
+         $('#titulo').html(`Reservar Paquete (${response.nombre})`);
          nombre_producto = response.nombre;
          descripcionProducto = response.descripcion_tur;
          console.log(response)
@@ -232,6 +234,7 @@ $(document).ready(function () {
             text: "Servicio Guardado Exitosamente",
             showConfirmButton: true,
          })
+         reset();
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
          console.log(response);
@@ -260,20 +263,23 @@ $(document).ready(function () {
       let total = 0.0;
       let cantidad_asientos = 0;
       let label_asiento = [];
+      let descripcionReserva = '';
       dataAsiento.forEach(element => {
          label_asiento.push(element.settings.label);
       });
       ASIENTOS_SELECCIONADOS.forEach((element) => {
          total += parseFloat(element.subTotal);
          cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
+         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`  
       });
+      descripcionReserva = `${descripcionReserva}  Total : $${total}`
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
       form.append("asientos_seleccionados", asientos_seleccionados);
       form.append("label_asiento", label_asiento);
       form.append("nombre_producto", nombre_producto);
       form.append("total", total);
-      form.append("descripcionProducto", descripcionProducto);
+      form.append("descripcionProducto", descripcionReserva);
       form.append("cantidad_asientos", cantidad_asientos);
 
       return form;
@@ -504,5 +510,15 @@ $(document).ready(function () {
    }
    function bloquearAsientosOcupados(ocupados) {
       seat_charts.get(ocupados).status('ocupado');
+   }
+   function reset (){
+      tablaReserva.clear().draw();
+      $('#totalPago').html('$0');
+      $('#asientosAReservar').html('0');
+      DATA_ASIENTOS = [];
+      ASIENTOS_SELECCIONADOS = [];
+      totalReserva = 0;
+      inicialData(ID_TUR);
+
    }
 });
