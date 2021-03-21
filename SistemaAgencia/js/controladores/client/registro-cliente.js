@@ -158,6 +158,49 @@ $(document).ready(function () {
          }).then((result) => {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
             $("#miFormularioCliente").trigger("reset");
+            $("#comboUsuario").empty();
+            //************prueba*************
+            let DATA_USUARIO;
+
+$(document).ready(function() {
+
+    $.ajax({
+        type: "GET",
+        url: URL_SERVIDOR + "usuario/obtenerUsuario?nivel=CLIENTE",
+        async: false,
+        dataType: "json",
+        success: function(data) {
+            let myData = [];
+            DATA_USUARIO = data.usuarios;
+            for (let index = 0; index < DATA_USUARIO.length; index++) {
+                myData.push({
+                    id: DATA_USUARIO[index].id_cliente,
+                    text: DATA_USUARIO[index].nombre
+                });
+            }
+
+            ///LE CARGAMOS LA DATA 
+            $('#comboUsuario').select2({ data: myData });
+        },
+
+        error: function(err) {
+            //si da un error ya que quede la alerta
+            $('#comboUsuario').select2({});
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: 'No hay Usuarios para mostrar',
+                showConfirmButton: true,
+            });
+        }
+    });
+
+
+
+});
+            //**************fin prueba*********
+
          });
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: URL_SERVIDOR + "usuario/obtenerUsuario",
+        url: URL_SERVIDOR + "usuario/obtenerUsuario?nivel=CLIENTE",
         async: false,
         dataType: "json",
         success: function(data) {

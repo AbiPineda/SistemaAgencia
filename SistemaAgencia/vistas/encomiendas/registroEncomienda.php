@@ -49,7 +49,7 @@ include_once '../../plantillas/cabecera.php';
                                               <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
                                                 <div class="input-group">
-                                                    <select name="id_cliente" id="cliente"
+                                                    <select name="comboUsuario" id="comboUsuario"
                                                         class="select2 select2-hidden-accessible form-control"
                                                         data-placeholder="Seleccione" style="width: 100%;">
                                                     </select>
@@ -60,8 +60,9 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-1">
                                             <br>
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" id=""
-                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modalAgregarCliente"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
                                             </span>
                                         </div>
                                         <div class="col-sm-6">
@@ -402,6 +403,7 @@ include_once '../../plantillas/cabecera.php';
 </div>
 
 <?php
+  include_once '../cliente/modalCliente.php';
 include_once '../../plantillas/footer.php';
 ?>
 <script type="text/javascript">
@@ -421,7 +423,7 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
+<script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>

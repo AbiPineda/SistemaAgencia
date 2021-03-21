@@ -258,7 +258,7 @@ $(document).ready(function () {
      function obtenerData() {
         let form = new FormData();
          let detalle_encomienda = [];
-         let cliente_des="JUan carlos moz";
+         let cliente_des=document.getElementById("cliente_des").value;
         
         tabla.rows().every(function (value, index) {
             let data = this.data();

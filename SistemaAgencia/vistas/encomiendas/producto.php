@@ -41,7 +41,7 @@ include_once '../../plantillas/barra_lateral.php';
                             <div class="timeline-body">
                                 <form id="register-form" name="register-form" onsubmit="return false">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-5">
                                             <div class="form-group">
                                                 <label>Nombre</label>
                                                 <input name="nombre_producto" type="text" class="form-control"
@@ -67,6 +67,14 @@ include_once '../../plantillas/barra_lateral.php';
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add" id="unidad-add"
+                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+
                                     </div>
                                 </form>
                                 <div class="timeline-footer" style="text-align: right;">
@@ -81,8 +89,65 @@ include_once '../../plantillas/barra_lateral.php';
             </div>
         </div>
 
+        <!-- ******************Modal ********************************-->
+    <div class="modal fade" id="add-unidad">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nueva Unidad</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="unidad-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                               <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input name="unidad_medida" type="text" class="form-control"
+                                            placeholder="Introduzca el nombre" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3"></div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btn-producto" id="btn-unidad" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <!-- ******************Modal ********************************-->
+
     </section>
 </div>
+
+<script type="text/javascript">
+$(document).on('click', '#unidad-add', function() {
+    $('#add-unidad').modal('show');
+    $('#loadingActualizar').hide();
+});
+</script>
+
 
 <?php
   include_once '../../plantillas/footer.php';
