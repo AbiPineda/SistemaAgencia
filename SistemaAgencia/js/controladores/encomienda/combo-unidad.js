@@ -1,31 +1,31 @@
-let DATA_USUARIO;
+let DATA_UNIDAD;
 
 $(document).ready(function() {
 
     $.ajax({
         type: "GET",
-        url: URL_SERVIDOR + "usuario/obtenerUsuario?nivel=CLIENTE",
+        url: URL_SERVIDOR + "Producto/unidades",
         async: false,
         dataType: "json",
         success: function(data) {
-            let $select = $('#comboUsuario');
+            let $select = $('#id_unidad');
                 $select.append('<option value="">Seleccione</option>');
             let myData = [];
-            DATA_USUARIO = data.usuarios;
-            for (let index = 0; index < DATA_USUARIO.length; index++) {
+            DATA_UNIDAD = data.unidad;
+            for (let index = 0; index < DATA_UNIDAD.length; index++) {
                 myData.push({
-                    id: DATA_USUARIO[index].id_cliente,
-                    text: DATA_USUARIO[index].nombre
+                    id: DATA_UNIDAD[index].id_unidad,
+                    text: DATA_UNIDAD[index].unidad_medida
                 });
             }
 
             ///LE CARGAMOS LA DATA 
-            $('#comboUsuario').select2({ data: myData });
+            $('#id_unidad').select2({ data: myData });
         },
 
         error: function(err) {
             //si da un error ya que quede la alerta
-            $('#comboUsuario').select2({});
+            $('#id_unidad').select2({});
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Oops...',

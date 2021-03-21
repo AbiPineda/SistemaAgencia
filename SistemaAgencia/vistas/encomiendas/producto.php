@@ -60,11 +60,12 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Unidad de medida</label>
-                                                <select class="form-control" name="unidades_medidas">
-                                                    <option value="">Seleccione</option>
-                                                    <option value="lbs">Libras</option>
-                                                    <option value="unidad">Unidades</option>
-                                                </select>
+                                                <div class="input-group">
+                                                    <select name="id_unidad" id="id_unidad"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-1">
@@ -152,9 +153,13 @@ $(document).on('click', '#unidad-add', function() {
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-producto.js"></script>
-<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-producto.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-unidad.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
+
+<script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

@@ -154,7 +154,7 @@ $(document).ready(function () {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                $('#modal-editar').modal('hide');;
+                $('#modal-editar').modal('hide');
                 tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {

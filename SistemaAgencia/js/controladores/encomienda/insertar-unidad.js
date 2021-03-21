@@ -8,7 +8,7 @@ $(document).ready(function (){
         let form = $("#unidad-form");  
        form.validate();
          if (form.valid()) {
-            add_producto();
+            add_unidad();
         }  
         
     });
@@ -17,27 +17,15 @@ $(document).ready(function (){
         $('#unidad-form').validate({
 
             rules: {
-                nombre_producto:{
+                unidad_medida:{
                     required: true,
-                    minlength: 7
-                },
-                tarifa: {
-                    required: true
-                },
-                unidades_medidas: {
-                   required: true
+                    minlength: 5
                 }
             },
             messages: {
-                nombre_producto:{
-                    required:"Digite el nombre del producto",
+                unidad_medida:{
+                    required:"Digite la unidad de medida",
                     minlength:"El nombre producto debe tener una longitud minima de 7"
-                },
-                 tarifa:{
-                    required:"Digite la tarifa del producto"
-                },
-                unidades_medidas: {
-                    required: "Seleccione una unidad de medida"
                 }
             },
             errorElement: 'span',
@@ -56,24 +44,15 @@ $(document).ready(function (){
 
     }
     
-function add_producto() {
+function add_unidad() {
 
         $.ajax({
-            url: URL_SERVIDOR+"Producto/producto",
+            url: URL_SERVIDOR+"Producto/unidad",
             method: 'POST',
-            data: $("#register-form").serialize()
+            data: $("#unidad-form").serialize()
 
         }).done(function (response) {
-        document.getElementById("register-form").reset();
-        
-        //$('#id_producto').load('#id_producto');
-         //$('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
-          //$('#botones').empty();
-          
-
-          //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
-            //REST_Controller::HTTP_OK
-            //let respuestaDecodificada = JSON.parse(response);
+        document.getElementById("unidad-form").reset();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -81,8 +60,49 @@ function add_producto() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
-                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+                $('#id_unidad').empty();
+                ///**********VOLVEMOS A CARGAR EL COMBOBOX
+                let DATA_UNIDAD;
+
+$(document).ready(function() {
+
+    $.ajax({
+        type: "GET",
+        url: URL_SERVIDOR + "Producto/unidades",
+        async: false,
+        dataType: "json",
+        success: function(data) {
+            let $select = $('#id_unidad');
+                $select.append('<option value="">Seleccione</option>');
+            let myData = [];
+            DATA_UNIDAD = data.unidad;
+            for (let index = 0; index < DATA_UNIDAD.length; index++) {
+                myData.push({
+                    id: DATA_UNIDAD[index].id_unidad,
+                    text: DATA_UNIDAD[index].unidad_medida
+                });
+            }
+
+            ///LE CARGAMOS LA DATA 
+            $('#id_unidad').select2({ data: myData });
+        },
+
+        error: function(err) {
+            //si da un error ya que quede la alerta
+            $('#id_unidad').select2({});
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: 'No hay Usuarios para mostrar',
+                showConfirmButton: true,
+            });
+        }
+    });
+});
+                ////////********************
+
+                $('#add-unidad').modal('hide');//CERRAMOS EL MODAL
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
