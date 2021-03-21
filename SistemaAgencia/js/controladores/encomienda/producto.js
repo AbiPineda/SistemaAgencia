@@ -48,15 +48,9 @@ $(document).ready(function() {
                 $.each(data.tarifas, function(i,index) {
                     $('#costo').val(index.tarifa);
 
-                    if (index.unidades_medidas=='lbs') {
-                    select.append('<label for="cars">Ingrese la Cantidad(Lbs)</label>'+
-                    '<input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Lbs">');
-                    }
-                    if (index.unidades_medidas=='unidad') {
-                    select.append('<label for="cars">Ingrese la Cantidad(Unidades)</label>'+
-                    '<input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="Unidades">');
-                    
-                    }
+                     select.append('<label for="cars">Ingrese la Cantidad('+index.unidad_medida+')</label>'+
+                    '<input name="cantidad" id="cantidad" type="text" class="form-control" placeholder="'+index.unidad_medida+'">');
+
                     
 
                 });
