@@ -64,9 +64,9 @@ function add_unidad() {
                 ///**********VOLVEMOS A CARGAR EL COMBOBOX
                 let DATA_UNIDAD;
 
-$(document).ready(function() {
+        $(document).ready(function() {
 
-    $.ajax({
+        $.ajax({
         type: "GET",
         url: URL_SERVIDOR + "Producto/unidades",
         async: false,

@@ -373,15 +373,34 @@ include_once '../../plantillas/cabecera.php';
 
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label>Unidad de medida</label>
-                                        <select class="form-control" name="unidades_medidas">
-                                            <option value="">Seleccione</option>
-                                            <option value="lbs">Libras</option>
-                                            <option value="unidad">Unidades</option>
-                                        </select>
+                                        <div class="input-group">
+                                            <label>Unidad de medida</label>
+                                                    <select name="id_unidad" id="id_unidad"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                        </div>
                                     </div>
                                 </div>
 
+                            </div>
+                        </form>
+                        <form id="unidad-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label>Nueva Unidad</label>
+                                        <input name="unidad_medida" id="unidad_medida" type="text" class="form-control"
+                                            placeholder="Introduzca la unidad" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary btn-add" id="btn-unidad"
+                                                    name="btn-unidad" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
                             </div>
                         </form>
 
@@ -424,7 +443,9 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
 

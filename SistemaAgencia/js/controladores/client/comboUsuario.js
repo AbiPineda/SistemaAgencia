@@ -28,7 +28,7 @@ $(document).ready(function() {
             $('#comboUsuario').select2({});
             const Toast = Swal.mixin();
             Toast.fire({
-                title: 'Oops...',
+                title: 'Error',
                 icon: 'error',
                 text: 'No hay Usuarios para mostrar',
                 showConfirmButton: true,
