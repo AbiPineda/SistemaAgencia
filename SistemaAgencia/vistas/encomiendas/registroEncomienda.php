@@ -49,7 +49,7 @@ include_once '../../plantillas/cabecera.php';
                                               <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
                                                 <div class="input-group">
-                                                    <select name="comboUsuario" id="comboUsuario"
+                                                    <select name="id_usuario" id="comboUsuario"
                                                         class="select2 select2-hidden-accessible form-control"
                                                         data-placeholder="Seleccione" style="width: 100%;">
                                                     </select>

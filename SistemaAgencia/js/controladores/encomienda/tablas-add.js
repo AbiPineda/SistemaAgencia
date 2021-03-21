@@ -283,7 +283,7 @@ $(document).ready(function () {
         form.append("total_encomienda",   TOTAL);
         form.append("total_comision",     COMISION);
         form.append("total_cliente",     (TOTAL+COMISION));*/
-        form.append("id_usuario",          document.getElementById("cliente").value);
+        form.append("id_usuario",          document.getElementById("comboUsuario").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
        
 
@@ -346,8 +346,8 @@ $(document).ready(function () {
     //funcion para cargar el celular en el input
     function telefono(){
 
-    $("#cliente").change(function () {
-           var id = document.getElementById("cliente").value;
+    $("#comboUsuario").change(function () {
+           var id = document.getElementById("comboUsuario").value;
           
     $.ajax({
         url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente="+id,
