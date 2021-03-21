@@ -4,6 +4,7 @@ $(document).ready(function() {
     let id_vehiculo;
     let tabla;
 
+    let ciento=100;
 
      inicializarValidaciones();
     inicializarTabla();
@@ -33,6 +34,13 @@ $(document).ready(function() {
                 document.getElementById("devolucion").value = response.detalleVehiculo[i].direccionDevolucion_detalle;
                 document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora_detalle;
                 document.getElementById("servicios").value = response.detalleVehiculo[i].nombre_detalle;
+               
+                var totalAuto = document.getElementById("total").value;
+                var porcentajeExtra = document.getElementById("porcentaje").value;
+                var calculoPorcentaje = (parseFloat(30)*parseFloat(totalAuto))/ciento;
+                var totalPagar = (parseFloat(calculoPorcentaje)+parseFloat(totalAuto)).toFixed(2);
+                document.getElementById('pagar').value=parseFloat(totalPagar);
+               
               
             }
         }).fail(function(response) {
@@ -240,6 +248,10 @@ $(document).ready(function() {
         });
     }
 
+    function modificarTotal() {
+       
+     
+    }
 
 
 });

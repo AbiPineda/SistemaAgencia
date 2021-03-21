@@ -4,8 +4,9 @@
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 
-<link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
+<link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 
 <style>
 .center {
@@ -221,45 +222,59 @@
                                     <!-- /.input group -->
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Fecha de Devolución</label>
                                     <input type="date" class="form-control" name="fechaDe" id="fechaDe">
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <label>Hora de Devolución</label>
                                 <div class="input-group clockpicker" data-autoclose="true">
-                                    <input type="text" id="timepicker2" name="start" class="form-control"
+                                    <input type="text" id="timepicker" name="start" class="form-control"
                                         value="08:00" />
                                 </div>
-                            </div>
-                            <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Intereses (%)</label>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="porcentaje" name="porcentaje">
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-                        </div>
-                        </div>
-                        
 
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
-                            style="color: white">Devolver</button>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Intereses (%)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="porcentaje" name="porcentaje"
+                                            min=0>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Total a Pagar</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="pagar" name="pagar"
+                                            disabled>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
+                                style="color: white">Devolver</button>
+                        </div>
                     </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
+        <!-- End Modal EDITAR-->
     </div>
-    <!-- End Modal EDITAR-->
 </form>
 
 
@@ -269,7 +284,8 @@ include_once '../../plantillas/footer.php';?>
 
 <script>
 $(function() {
-
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
     $(document).ready(function() {
         $('#timepicker').mdtimepicker(); //Initializes the time picker
     });
