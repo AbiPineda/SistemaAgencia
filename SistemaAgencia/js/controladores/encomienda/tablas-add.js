@@ -258,7 +258,12 @@ $(document).ready(function () {
      function obtenerData() {
         let form = new FormData();
          let detalle_encomienda = [];
-         let cliente_des=document.getElementById("cliente_des").value;
+         let nombre_cliente_destino  = document.getElementById("cliente_des").value;
+         let telefono                = document.getElementById("telefono_des").value;
+         let ciudad_destino          = document.getElementById("ciudad_des").value;
+         let codigo_postal_destino   = document.getElementById("codigo_des").value;
+         let direccion_destino       = document.getElementById("direccion").value;
+         let alterna_destino         = document.getElementById("direccion_alterna").value;
         
         tabla.rows().every(function (value, index) {
             let data = this.data();
@@ -271,18 +276,23 @@ $(document).ready(function () {
                     "id_producto": id_producto,
                     "cantidad": cantidad,
                     "sub_total": sub_total,
-                    "prueba":cliente_des
+                    "nombre_cliente_destino":nombre_cliente_destino,
+                    "telefono": telefono,
+                    "ciudad_destino": ciudad_destino,
+                    "codigo_postal_destino": codigo_postal_destino,
+                    "direccion_destino": direccion_destino,
+                    "alterna_destino": alterna_destino
                 });
             
         });
        
-        form.append("direccion",          document.getElementById("direccion").value);
-        /*form.append("punto_referencia",   document.getElementById("punto_referencia").value);
+        form.append("ciudad_origen",          document.getElementById("ciudad").value);
+        form.append("codigo_postal_origen",   document.getElementById("codigo").value);
         form.append("fecha",              document.getElementById("fecha").value);
         form.append("estado",              document.getElementById("estado").value);
         form.append("total_encomienda",   TOTAL);
         form.append("total_comision",     COMISION);
-        form.append("total_cliente",     (TOTAL+COMISION));*/
+        form.append("total_cliente",     (TOTAL+COMISION));
         form.append("id_usuario",          document.getElementById("comboUsuario").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
        

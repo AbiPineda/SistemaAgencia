@@ -134,7 +134,7 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group">
                                                 <label>Ciudad</label>
                                                 <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad_des" id="ciudad" placeholder="Digite la ciudad de destino">
+                                            <input  type="text" class="form-control" name="ciudad_des" id="ciudad_des" placeholder="Digite la ciudad de destino">
                                                 </div>
 
                                             </div>
