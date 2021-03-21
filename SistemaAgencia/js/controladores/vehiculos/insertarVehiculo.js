@@ -29,7 +29,7 @@ $(document).ready(function() {
 
         let galeriaDocumentos = document.getElementById("fotosDocumentos").files;
         for (let i = 0; i < galeriaDocumentos.length; i++) {
-            form.append('fotosDocumentos[]', galeriaDocumentos[i]);
+            form.append('fotos[]', galeriaDocumentos[i]);
         }
 
         let comboOpciones = $("#opc_avanzadas").select2('data');
