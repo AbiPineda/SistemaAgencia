@@ -21,13 +21,26 @@
                               <input type="hidden" id="usuario" name="usuario" class="form-control" />
                                 
                             </div>
-                            <div class="form-group col-md-8" id="vaciar">
-                               <label>Cliente</label>
-                                <select name="id_cliente" id="cliente" class="form-control" onchange="ShowSelected();" style="width: 100%;">
-                                    <option disabled="" selected="">Seleccione</option>
-                                </select> 
-                          </div>
-                            
+                             <div class="form-group col-md-7">
+                                              <div class="form-group multiple-form-group input-group">
+                                                <label>Cliente</label>
+                                                <div class="input-group">
+                                                    <select name="id_cliente" id="comboUsuario"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;" onchange="ShowSelected();">
+                                                    </select>
+                                                    <input type="hidden" name="estado" id="estado" value="Enviado">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add"
+                                                    data-toggle="modal" data-target="#modalAgregarCliente"
+                                                    style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div> 
                         </div>
 
                         <div class="form-row">
@@ -78,7 +91,7 @@
                         <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione Imagenes</label>
+                                    <label>Agregar foto de pasaporte</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotos[]" id="fotos">
                                     </div>

@@ -1,6 +1,8 @@
 $(document).ready(function (){
 
     inicializarValidaciones();
+    inicializarGaleria();
+    inicializarFoto();
   
     //BOTON PARA AGREGAR
     $(document).on('click', '#btnAgregar', function (evento) {
@@ -55,6 +57,49 @@ function inicializarValidaciones() {
         });
 
     }
+
+    //***************para la galeria******************
+     function inicializarGaleria() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
+        $('#fotos').fileinput({
+            theme: 'fas',
+            language: 'es',
+            //uploadUrl: '#',
+            showUpload: false,
+            //showCaption: false,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            required: true,
+            uploadAsync: false,
+            showClose: false,
+        });
+    }
+
+    function inicializarFoto() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
+        $('#foto').fileinput({
+            theme: 'fas',
+            language: 'es',
+            required: true,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            showUpload: false,
+            showClose: false,
+            showCaption: true,
+            browseLabel: '',
+            removeLabel: '',
+            //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
+            layoutTemplates: { main2: '{preview} {remove} {browse}' },
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+    }
+
+    //**********************************
     function add() {
 
         $.ajax({
@@ -68,8 +113,8 @@ function inicializarValidaciones() {
           $('#calendar').fullCalendar('refetchEvents');
          // toastr.success(response.mensaje)//me gusta
                     //console.log(response);
-          document.getElementById("register-form").reset();
-          $("#recargar").load("#recargar");//recargar solo un div y no toda la pagina
+         // document.getElementById("register-form").reset();
+         // $("#recargar").load("#recargar");//recargar solo un div y no toda la pagina
             //REST_Controller::HTTP_OK
             //let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
@@ -80,7 +125,7 @@ function inicializarValidaciones() {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+                location.reload(); 
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

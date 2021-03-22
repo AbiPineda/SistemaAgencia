@@ -65,7 +65,9 @@
 </div>
 
 
-<?php include_once './modal_eventos.php';?>
+<?php include_once './modal_eventos.php';
+      include_once '../cliente/modalCliente.php';
+?>
 <?php include_once '../../plantillas/footer.php';?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 
@@ -85,6 +87,7 @@
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/ramas_automaticas.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/preguntas_automaticas.js"></script>

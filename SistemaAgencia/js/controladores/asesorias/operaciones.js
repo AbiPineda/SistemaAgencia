@@ -50,7 +50,7 @@ function ShowSelected()
 //alert(cod);
  
 /* Para obtener el texto */
-var combo = document.getElementById("cliente");
+var combo = document.getElementById("comboUsuario");
 var selected = combo.options[combo.selectedIndex].text;
 $('#usuario').val(selected);
 }
