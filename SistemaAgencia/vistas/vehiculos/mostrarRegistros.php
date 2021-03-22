@@ -220,7 +220,7 @@
                                 <div class="form-group">
                                     <label>Precio Diario</label>
                                     <div class="input-group">
-                                        <input id="precio_diario" name="precio_diario" type="text" value=""
+                                        <input id="precio_diario" name="precio_diario" type="number" value=""
                                             maxlength="9"
                                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                                             class="form-control">
@@ -261,15 +261,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Opciones Avanzadas</label>
-                                    <div class="select2-danger">
-                                        <select class="select2" multiple="multiple" name="opc_avanzadasMostrar"
-                                            id="opc_avanzadasMostrar" data-placeholder="Seleccione"
-                                            data-dropdown-css-class="select2-danger" style="width: 100%;">
-                                            <option>Aire Acondicionado </option>
-                                            <option>Wifi </option>
-                                            <option>Equipo de Sonido </option>
-
-                                        </select>
+                                    <div class="input-group">
+                                        <input id="opc_avanzadasMostrar" name="opc_avanzadasMostrar" type="text"
+                                            class="form-control" disabled>
                                     </div>
                                 </div>
                             </div>

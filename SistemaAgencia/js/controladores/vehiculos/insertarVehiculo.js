@@ -49,7 +49,7 @@ $(document).ready(function() {
         form.append("precio_diario", document.getElementById("precio").value);
         form.append("descripcion", document.getElementById("descripcion").value);
         form.append("detalles", document.getElementById("detalle").value);
-        form.append("opc_avanzadas", document.getElementById("opc_avanzadas").value);
+        form.append("opc_avanzadas", arregloOpciones);
         form.append("kilometraje", document.getElementById("kilometraje").value);
         form.append("tipoCombustible", document.getElementById("comboCombustible").value);
 

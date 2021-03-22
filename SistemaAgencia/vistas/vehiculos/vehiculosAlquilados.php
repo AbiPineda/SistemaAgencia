@@ -243,7 +243,7 @@
                                     <label>Intereses (%)</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="porcentaje" name="porcentaje"
-                                            min=0>
+                                            min=0  value="5">
                                     </div>
                                     <!-- /.input group -->
                                 </div>

@@ -5,6 +5,7 @@ $(document).ready(function() {
     let tabla;
 
     let ciento=100;
+    let TotalSinInteres=0;
 
      inicializarValidaciones();
     inicializarTabla();
@@ -23,6 +24,7 @@ $(document).ready(function() {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
 
+                
                 document.getElementById("idDetalle").value = response.detalleVehiculo[i].id_detalle;
                 document.getElementById("cliente").value = response.detalleVehiculo[i].nombre;
                 document.getElementById("placa").value = response.detalleVehiculo[i].placa;
@@ -35,12 +37,8 @@ $(document).ready(function() {
                 document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora_detalle;
                 document.getElementById("servicios").value = response.detalleVehiculo[i].nombre_detalle;
                
-                var totalAuto = document.getElementById("total").value;
-                var porcentajeExtra = document.getElementById("porcentaje").value;
-                var calculoPorcentaje = (parseFloat(30)*parseFloat(totalAuto))/ciento;
-                var totalPagar = (parseFloat(calculoPorcentaje)+parseFloat(totalAuto)).toFixed(2);
-                document.getElementById('pagar').value=parseFloat(totalPagar);
                
+                
               
             }
         }).fail(function(response) {
@@ -210,48 +208,17 @@ $(document).ready(function() {
         });
     }
 
-    function eliminar() {
-        let data = {
-            "id_detalle": idAlquiler
-        };
-        ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
+    
 
-        $.ajax({
-            url: URL_SERVIDOR + "mantenimientoVehiculo/eliminarMantenimiento",
-            method: "DELETE",
-            timeout: 0,
-            data: data
-        }).done(function(response) {
-            //REST_Controller::HTTP_OK
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Exito...',
-                icon: 'success',
-                text: response.mensaje,
-                showConfirmButton: true,
-            }).then((result) => {
-                tabla.ajax.reload(null, false);
-            });
-        }).fail(function(response) {
+    $(document).on('keyup mouseup', '#porcentaje', function () {
 
-            console.log(response);
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Oops...',
-                icon: 'error',
-                text: "ERROR EN EL ENVIO DE INFORMACION",
-                showConfirmButton: true,
-            });
+    let  interes =parseFloat( document.getElementById('porcentaje').value);
+    let  TotalSinInteres =parseFloat( document.getElementById('total').value);
+    let calculo =parseFloat(interes*TotalSinInteres)/ciento;
+    let TotalconInteres=TotalSinInteres + calculo;
+    document.getElementById('pagar').value=TotalconInteres;
 
-        }).always(function(xhr, opts) {
-            $('#loadingActualizar').hide();
-        });
-    }
-
-    function modificarTotal() {
-       
-     
-    }
-
-
+    });
 });
+
+
