@@ -2,11 +2,7 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 ?>
-<!--para la subida de fotos al sistema-->
-<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
+
 <!--alerta del sistema-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
@@ -294,6 +290,13 @@ include_once '../../plantillas/cabecera.php';
                                 </div>
                             </div>
                             <br> <br>
+                            <!--****************botones***********-->
+                         <div class="timeline-footer" style="text-align: right;">
+                                <button name="btnguardar" id="btnImprimir" class="btn btn-secondary btn-sm"
+                                    style="color: white">Imprimir</button>
+                                <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                            </div>
+                        <!--**************fin de los botones*********-->
                         </div>
 
                     </div>
@@ -414,19 +417,13 @@ $("#telefono_des").inputmask({"mask": "(999) 9999-9999"});
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <!--para la mascara-->
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
-<!--para las subida de fotos-->
-<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
-<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <!--procesos del sistema-->
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/calculo.js"></script>
 <!--fecha actual-->
 <script src="<?= $base_url ?>js/controladores/encomienda/fecha_actual.js"></script>
 
