@@ -128,8 +128,8 @@ $(document).ready(function () {
  //BOTON DE GUARDAR 
     $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
-       let form = $("#cliente-form");
-       let form1 = $("#encomienda-form");
+       let form = $("#datosOrigen-form");
+       let form1 = $("#datosDestino-form");
         form1.validate();
         form.validate();
         if (form.valid()) {
@@ -141,16 +141,32 @@ $(document).ready(function () {
     });
 
     function inicializarValidacionesGuardar() {
-    $('#cliente-form').validate({
+    $('#datosOrigen-form').validate({
 
             rules: {
-                id_cliente: {
+                   id_usuario: {
                    required: true
+                },
+                ciudad:{
+                    required:true,
+                    minlength: 7
+                },
+                codigo:{
+                    required:true,
+                    minlength: 2
                 }
             },
             messages: {
-                id_cliente: {
+                id_usuario: {
                     required: "Seleccione el cliente"
+                },
+                ciudad:{
+                    required:"Digite la ciudad",
+                    minlength: "La ciudad debe de tener una longitud minima de 7"
+                },
+                codigo:{
+                    required:"Digite el Código postal",
+                    minlength: "El Código debe de tener una longitud minima de 2"
                 }
             },
             errorElement: 'span',
@@ -167,7 +183,7 @@ $(document).ready(function () {
             }
         });
 
-        $('#encomienda-form').validate({
+        $('#datosDestino-form').validate({
 
             rules: {
                 direccion: {

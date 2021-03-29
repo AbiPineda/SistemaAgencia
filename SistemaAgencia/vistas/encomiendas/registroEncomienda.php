@@ -43,7 +43,7 @@ include_once '../../plantillas/cabecera.php';
                             <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
                             <div class="timeline-body">
-                                <form id="ok-form" name="register-form" onsubmit="return false">
+                                <form id="datosOrigen-form" name="register-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-5">
                                               <div class="form-group multiple-form-group input-group">
@@ -76,7 +76,7 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group">
                                                 <label>Ciudad</label>
                                                 <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad"id="ciudad" placeholder="Digite la ciudad de origen">
+                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Digite la ciudad de origen">
                                                 </div>
 
                                             </div>
@@ -113,7 +113,7 @@ include_once '../../plantillas/cabecera.php';
                             <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
 
                             <div class="timeline-body">
-                                <form id="otro-form" name="register-form" onsubmit="return false">
+                                <form id="datosDestino-form" name="register-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-6">
                                               <div class="form-group multiple-form-group input-group">
