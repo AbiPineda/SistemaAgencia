@@ -458,5 +458,8 @@ $("#telefono_des").inputmask({"mask": "(999) 9999-9999"});
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
+<!--fecha actual-->
+<script src="<?= $base_url ?>js/controladores/encomienda/fecha_actual.js"></script>
+
 
 <?php include_once '../../plantillas/cierre.php'; ?>
