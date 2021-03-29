@@ -43,7 +43,7 @@ include_once '../../plantillas/cabecera.php';
                             <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
                             <div class="timeline-body">
-                                <form id="encomienda-form" name="register-form" onsubmit="return false">
+                                <form id="ok-form" name="register-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-5">
                                               <div class="form-group multiple-form-group input-group">
@@ -113,7 +113,7 @@ include_once '../../plantillas/cabecera.php';
                             <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
 
                             <div class="timeline-body">
-                                <form id="encomienda-form" name="register-form" onsubmit="return false">
+                                <form id="otro-form" name="register-form" onsubmit="return false">
                                     <div class="row">
                                         <div class="col-sm-6">
                                               <div class="form-group multiple-form-group input-group">

@@ -130,14 +130,14 @@ $(document).ready(function () {
         evento.preventDefault();//para evitar que la pagina se recargue
        let form = $("#cliente-form");
        let form1 = $("#encomienda-form");
-        //form1.validate();
-        //form.validate();
-        //if (form.valid()) {
-           // if (form1.valid()) {
+        form1.validate();
+        form.validate();
+        if (form.valid()) {
+            if (form1.valid()) {
                  guardar();   
-            //}
+             }
         
-       //} 
+        } 
     });
 
     function inicializarValidacionesGuardar() {

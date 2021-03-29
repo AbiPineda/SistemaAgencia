@@ -28,7 +28,7 @@
               if(nombreDia=='domingo'){//si es domingo dia que no abre la agencia
                 const Toast = Swal.mixin();
                 Toast.fire({
-                  title: 'Oops...',
+                  title: 'Error',
                   icon: 'error',
                   text: 'Este dia esta cerrado!',
                   showConfirmButton: true,
