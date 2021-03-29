@@ -186,29 +186,56 @@ $(document).ready(function () {
         $('#datosDestino-form').validate({
 
             rules: {
+                cliente_des:{
+                    required:true,
+                    minlength: 10
+                },
+                telefono_des:{
+                    required:true,
+                    minlength: 9
+                },
+                ciudad_des: {
+                    required:true,
+                    minlength: 7
+                },
+                codigo_des:{
+                    required:true,
+                    minlength: 2
+                },
                 direccion: {
                     required:true,
                     minlength: 10
                 },
-                punto_referencia: {
-                    required:true,
-                    minlength: 10
-                },
-                fecha: {
-                   required: true
+                direccion_alterna: {
+                   required: true,
+                   minlength:10
                 }
             },
             messages: {
+                 cliente_des:{
+                    required:"Digite el nombre del cliente destino",
+                    minlength: "El nombre del cliente debe de tener una longitud minima de 10"
+                },
+                telefono_des:{
+                    required:"Digite el Teléfono",
+                    minlength: "El Teléfono debe de tener una longitud minima de 9"
+                
+                },
+                ciudad_des:{
+                    required:"Digite la ciudad",
+                    minlength: "La ciudad debe de tener una longitud minima de 7"
+                },
+                codigo_des:{
+                    required:"Digite el Código postal",
+                    minlength: "El Código debe de tener una longitud minima de 2"
+                },
                 direccion:{
                     required:"Digite la dirección",
                     minlength: "La dirección debe de tener una longitud minima de 10"
                 },
-                punto_referencia:{
-                    required:"Digite el punto de referencia",
-                    minlength: "El punto referencia debe de tener una longitud minima de 10"
-                },
-                fecha: {
-                    required: "Digite la fecha"
+                direccion_alterna: {
+                    required: "Digite la dirección alterna",
+                     minlength: "La dirección alterna debe de tener una longitud minima de 10"
                 }
             },
             errorElement: 'span',
