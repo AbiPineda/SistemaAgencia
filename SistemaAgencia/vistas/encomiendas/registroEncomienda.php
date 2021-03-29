@@ -2,12 +2,12 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 ?>
-
+<!--para la subida de fotos al sistema-->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-    type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
+<!--alerta del sistema-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
 
@@ -69,7 +69,7 @@ include_once '../../plantillas/cabecera.php';
                                                 <label>Teléfono</label>
                                                 <div class="input-group">
                                                 <input disabled="true" type="text" name="telefono" id="telefono"
-                                                class="form-control" autocomplete="off" placeholder="7232-2345">
+                                                class="form-control" autocomplete="off" placeholder="(503)7232-2345">
                                                 </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -431,17 +431,27 @@ $(document).on('click', '#producto-add', function() {
     $('#loadingActualizar').hide();
 });
 </script>
+<script>
+    //para la mascara del celular
+$(":input").inputmask();
+$("#telefono_des").inputmask({"mask": "(999) 9999-9999"});
+</script>
 
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
-
+<!--alerta del sistema-->
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<!--validaciones del sistema-->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<!--para la mascara-->
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
+<!--para las subida de fotos-->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<!--procesos del sistema-->
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
