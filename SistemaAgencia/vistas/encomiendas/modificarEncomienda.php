@@ -280,16 +280,41 @@ include_once '../../plantillas/barra_lateral.php';
                            </div>
                         </div>
                      </div>
-                     <br> <br>
-                     <div class="timeline-footer" style="text-align: right;">
-                        <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
-                           style="color: white">Actualizar</button>
-                        <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                     </div>
+                     <br> 
                   </div>
 
                </div>
                <!-- END timeline item -->
+                <!-- END timeline item -->
+                    <div>
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
+
+                            <div class="timeline-body">
+                                    <div class="row">
+
+                                        <div class="col-sm-12">
+
+                                                <label>Seleccione Imagenes</label>
+                                                <div class="file-loading">
+                                                    <input type="file" multiple name="fotos[]" id="fotos">
+                                                </div>
+                                            </div>
+                                       
+                                                                   
+                                    </div><br>
+                                <div class="timeline-footer" style="text-align: right;">
+                               <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
+                           style="color: white">Actualizar</button>
+                                <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END timeline item -->
+
                
                <!-- /.timeline-label -->
             </div>
@@ -297,97 +322,89 @@ include_once '../../plantillas/barra_lateral.php';
          </div>
       </div>
    </section>
-   <!-- Modal mostrar-->
-   <div class="modal fade" id="add-producto">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-         <div class="modal-content">
+     <!-- Modal mostrar-->
+    <div class="modal fade" id="add-producto">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
 
-            <div class="overlay-wrapper">
-               <div id="loadingActualizar" class="overlay">
-                  <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                  <div class="text-bold pt-2">Cargando...
-                  </div>
-               </div>
-               <div class="modal-header">
-                  <h4 class="modal-title">Nuevo Producto</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <form id="register-form" name="register-form" onsubmit="return false">
-                     <div class="row">
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <label>Nombre</label>
-                              <input name="nombre_producto" type="text" class="form-control"
-                                 placeholder="Introduzca el nombre" autocomplete="off">
-                           </div>
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
                         </div>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nuevo Producto</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="register-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input name="nombre_producto" type="text" class="form-control"
+                                            placeholder="Introduzca el nombre" autocomplete="off">
+                                    </div>
+                                </div>
 
-                        <div class="col-sm-3">
-                           <div class="form-group">
-                              <label>Tarifa</label>
-                              <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa"
-                                 autocomplete="off">
-                           </div>
-                        </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Tarifa</label>
+                                        <input name="tarifa" type="text" class="form-control"
+                                            placeholder="Introduzca la tarifa" autocomplete="off">
+                                    </div>
+                                </div>
 
-                        <div class="col-sm-3">
-                           <div class="form-group">
-                              <label>Unidad de medida</label>
-                              <select class="form-control" name="unidades_medidas">
-                                 <option value="">Seleccione</option>
-                                 <option value="lbs">Libras</option>
-                                 <option value="unidad">Unidades</option>
-                              </select>
-                           </div>
-                        </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label>Unidad de medida</label>
+                                                    <select name="id_unidad" id="id_unidad"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione" style="width: 100%;">
+                                                    </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-                     </div>
-                  </form>
+                            </div>
+                        </form>
+                        <form id="unidad-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label>Nueva Unidad</label>
+                                        <input name="unidad_medida" id="unidad_medida" type="text" class="form-control"
+                                            placeholder="Introduzca la unidad" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary btn-add" id="btn-unidad"
+                                                    name="btn-unidad" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+                            </div>
+                        </form>
 
-               </div>
+                    </div>
 
-               <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
-                     style="color: white">Guardar</button>
-               </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+
+                </div>
 
             </div>
-
-         </div>
-      </div>
-      <!-- /.modal-content -->
-   </div>
-   <!-- /.modal-dialog -->
-   <div class="modal fade" id="modal-mapa">
-      <!-- Modal EDITAR-->
-      <div class="modal-dialog modal-lg">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h4 class="modal-title">Selecciona la ubicación</h4>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-
-               <div class="row">
-                  <div class="col-md-12">
-                     <div id="mapa" style="width: 100%; height: 500px"></div>
-                  </div>
-               </div>
-            </div>
-            <div class="modal-footer justify-content-end">
-               <button data-dismiss="modal" class="btn btn-info btn-sm" style="color: white">Guardar</button>
-            </div>
-         </div>
-         <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-   </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
 
 </div>
 
