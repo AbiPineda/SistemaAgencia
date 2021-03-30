@@ -46,8 +46,9 @@ $(document).ready(function () {
             $.each(response.Encomiendas, function (i, index) {
                 $('#nombre_cliente').val(index.nombre);
                 $('#cliente').val(index.id_usuario);
-                $('#direccion').val(index.direccion);
-                $('#punto_referencia').val(index.punto_referencia);
+                $('#telefono').val(index.celular);
+                $('#ciudad').val(index.ciudad_origen);
+                $('#codigo').val(index.codigo_postal_origen);
                 $('#fecha').val(index.fecha);
                 $('#total').text(index.total_encomienda);
                 $('#comision').text(index.total_comision);

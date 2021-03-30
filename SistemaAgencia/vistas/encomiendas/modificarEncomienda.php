@@ -45,6 +45,9 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" disabled="true">
                                                 </div>
+                                                <div class="input-group">
+                                                    <input type="hidden" class="form-control" name="cliente" id="cliente" disabled="true">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
