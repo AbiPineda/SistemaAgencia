@@ -419,20 +419,25 @@ $(document).on('click', '#producto-add', function() {
 </script>
 
 
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
-</script>
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
-<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/deptos.js"></script>
-
-<script src="<?= $base_url ?>js/controladores/encomienda/modificar-en.js"></script>
-
-<script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
-
+<!--alerta del sistema-->
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<!--validaciones del sistema-->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-
+<!--para la mascara-->
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
+<!--para las subida de fotos-->
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<!--Script de los procedimientos del sistema-->
+<script src="<?= $base_url ?>js/controladores/encomienda/modificar-en.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>
