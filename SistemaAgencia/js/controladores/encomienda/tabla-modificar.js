@@ -8,14 +8,14 @@ $(document).ready(function () {
     inicializarTabla();
   
     //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function () {
+$(document).on('click', '.btn-group .btn-primary', function () {
         $('#loadingActualizar').hide();
         id_encomienda = $(this).attr("name");
 
     window.location = `${URL_SISTEMA}vistas/encomiendas/modificarEncomienda.php?en=`+id_encomienda;
                     
     
-    });
+});
    
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
@@ -90,8 +90,8 @@ $(document).ready(function () {
             },
             columns: [
                 { data: "nombre" },
-                { data: "direccion" },
-                { data: "punto_referencia" },
+                { data: "ciudad_origen" },
+                { data: "codigo_postal_origen" },
                 { data: "fecha" },
                 { data: "botones" },
             ]

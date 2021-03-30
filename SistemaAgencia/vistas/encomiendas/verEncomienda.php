@@ -46,8 +46,8 @@ include_once '../../plantillas/barra_lateral.php';
                                         <thead style="text-align: center;">
                                             <tr>
                                                 <th>Nombre</th>
-                                                <th>Dirección</th>
-                                                <th>Punto Referencia</th>
+                                                <th>Ciudad de origen</th>
+                                                <th>Código postal</th>
                                                 <th>Fecha</th>
                                                 <th>Acciones</th>
                                             </tr>
