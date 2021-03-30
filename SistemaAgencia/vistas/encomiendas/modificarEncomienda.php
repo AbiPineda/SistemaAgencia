@@ -30,142 +30,62 @@ include_once '../../plantillas/barra_lateral.php';
       <div class="row">
          <div class="col-md-12">
             <div class="timeline">
-               <!-- timeline time label -->
-               <div class="time-label">
-                  <span class="bg-red">Información</span>
-               </div>
-               <!-- /.timeline-label -->
                <!-- timeline item -->
-               <div>
-                  <i class="fas fa-comments bg-gradient-blue"></i>
-                  <div class="timeline-item">
-                     <span class="time"><i class="fas fa-address-book">Cliente</i></span>
-                     <h3 class="timeline-header"><a href="#">Datos del Cliente</a></h3>
-                     <div class="timeline-body" style="margin-top: -9px;">
-                        <!--Una fila para jugar-->
-                         <form id="cliente-form" name="recargar-form" onsubmit="return false">
-                        <div class="row">
-                           <div class="col-lg-3"></div>
-                           <div class="col-sm-5">
-                              <div class="form-group">
-                                 <label for="cars">Cliente:</label>
-                                 <input type="text" class="form-control" name="cliente" id="nombre_cliente" disabled="true">
-                                 <input type="hidden" class="form-control" name="cliente" id="cliente">
-                                 <input type="hidden" class="form-control" name="id_encomienda" id="id_encomienda">
-                              
-                              </div>
-                           </div>
-                        </div>
-                     </form>
-                        <!--fin de Una fila para jugar-->
-                     </div>
-                  </div>
-               </div>
-               <!-- END timeline item -->
+                <div id="formulario">
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
-               <!-- timeline item -->
-               <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
-                  <div class="timeline-item">
-                     <h3 class="timeline-header"><a href="#">Datos de encomienda</a></h3>
+                            <div class="timeline-body">
+                                <form id="datosOrigen-form" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                              <div class="form-group multiple-form-group input-group">
+                                                <label>Cliente</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                                <label>Teléfono</label>
+                                                <div class="input-group">
+                                                <input disabled="true" type="text" name="telefono" id="telefono"
+                                                class="form-control" autocomplete="off" placeholder="(503)7232-2345">
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Ciudad</label>
+                                                <div class="input-group">
+                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Digite la ciudad de origen">
+                                                </div>
 
-                     <div class="timeline-body">
-                        <form id="encomienda-form" name="register-form" onsubmit="return false">
-                           <div class="row">
-                              <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label for="cars">Seleccione el departamento</label>
-                                    <select name="depto" id="depto" class="form-control">
-                                       <option value="">Seleccione</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label for="cars">Seleccione el municipio</label>
-                                    <select name="id_municipios" id="id_municipios" class="form-control">
-                                       <option value="">Seleccione</option>
-                                    </select>
-                                 </div>
-                              </div>
-                              <div class="col-sm-5">
-                                 <div class="form-group">
-                                    <label>Coordenadas</label>
-                                    <div class="input-group">
-                                       <input disabled type="text" class="form-control" name="coordenadas"
-                                          id="coordenadas">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Código</label>
+                                                <input name="codigo" id="codigo" type="text" class="form-control"
+                                                    placeholder="Introduzca el Código postal de origen">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input name="fecha" id="fecha" type="hidden" class="form-control"
+                                                    placeholder="Introduzca el punto de referencia">
+                                            </div>
+                                        </div>            
                                     </div>
+                                    <div>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                        </div>
 
-                                 </div>
-                              </div>
-                              <div class="col-sm-1">
-                                 <br>
-                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                       style="margin-top: 8px; width: 100%; height: 37px;" id="btn-mapa">
-                                       <i class="fas fa-globe" style="color: white"></i>
-                                    </button>
-                                 </span>
-                              </div>
-                              
-                              <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label>Dirección</label>
-                                    <input name="direccion" id="direccion" type="text" class="form-control"
-                                       placeholder="Introduzca la Dirección">
-                                 </div>
-                              </div>
-                              <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label>Punto de referencia</label>
-                                    <input name="punto_referencia" id="punto_referencia" type="text" class="form-control"
-                                       placeholder="Introduzca el punto de referencia">
-                                 </div>
-                              </div>
-                              <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label>Fecha</label>
-                                    <input name="punto_referencia" id="fecha" type="date" class="form-control"
-                                       placeholder="Introduzca el punto de referencia">
-                                 </div>
-                              </div>
-                              <div class="col-sm-3">
-                                 <div class="form-group">
-                                    <label for="cars">Seleccione el Producto</label>
-                                    <select name="producto" id="id_producto" class="form-control"> </select>
-                                 </div>
-                              </div>
-                              <div class="col-sm-1">
-                                 <br>
-                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-success btn-add" id="producto-add" name=""
-                                       style="margin-top: 10px; width: 100%;">+</button>
-                                 </span>
-                              </div>
-
-                              <div class="col-sm-4">
-                                 <div class="form-group">
-                                    <label for="cars">Costo($)</label>
-                                    <input name="costo" id="costo" type="text" disabled class="form-control"
-                                       placeholder="Costo">
-                                 </div>
-                              </div>
-                              
-                              <div class="col-sm-3">
-                                 <div class="form-group" id="mostrar">
-
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="timeline-footer" style="text-align: right;">
-                              <a class="btn btn-info btn-sm" id="agregarTabla" style="color: white">Agregar</a>
-
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-
-               </div>
+                    </div>
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="tabla">

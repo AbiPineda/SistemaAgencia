@@ -39,7 +39,6 @@ $(document).ready(function () {
 
 
     function mostrarDatos() {
-
         $.ajax({
             url: URL_SERVIDOR + 'Encomienda/encomiendaModificar?id_encomienda=' + ID_ENCOMIENDA,
             method: "GET"

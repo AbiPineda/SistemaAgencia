@@ -267,7 +267,11 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
-            console.log(response);
+            //console.log(response);
+            document.getElementById("datosOrigen-form").reset();
+            document.getElementById("datosDestino-form").reset();
+            $('#comboUsuario').val('').trigger('change');
+            $('#id_producto').val('').trigger('change');
             
            const Toast = Swal.mixin();
             Toast.fire({
@@ -301,6 +305,7 @@ $(document).ready(function () {
      function obtenerData() {
         let form = new FormData();
          let detalle_encomienda = [];
+         let detalle_destino=[];
          let nombre_cliente_destino  = document.getElementById("cliente_des").value;
          let telefono                = document.getElementById("telefono_des").value;
          let ciudad_destino          = document.getElementById("ciudad_des").value;
@@ -318,15 +323,18 @@ $(document).ready(function () {
                 detalle_encomienda.push({
                     "id_producto": id_producto,
                     "cantidad": cantidad,
-                    "sub_total": sub_total,
-                    "nombre_cliente_destino":nombre_cliente_destino,
+                    "sub_total": sub_total
+                    
+                }); 
+        });
+
+        detalle_destino.push({
+                    "nombre_cliente_destini":nombre_cliente_destino,
                     "telefono": telefono,
                     "ciudad_destino": ciudad_destino,
                     "codigo_postal_destino": codigo_postal_destino,
                     "direccion_destino": direccion_destino,
                     "alterna_destino": alterna_destino
-                });
-            
         });
        
         form.append("ciudad_origen",          document.getElementById("ciudad").value);
@@ -338,6 +346,7 @@ $(document).ready(function () {
         form.append("total_cliente",     (TOTAL+COMISION));
         form.append("id_usuario",          document.getElementById("comboUsuario").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
+        form.append("detalle_destino", JSON.stringify(detalle_destino));
        
 
         return form;
