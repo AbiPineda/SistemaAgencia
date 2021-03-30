@@ -155,6 +155,62 @@ include_once '../../plantillas/barra_lateral.php';
 
                     </div>
                     <!-- END timeline item -->
+              <!--timeline item-->
+                                  <div>
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Productos</a></h3>
+
+                            <div class="timeline-body">
+                                <form id="encomienda-form" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                       
+                                        <div class="col-sm-5">
+                                            <div class="form-group multiple-form-group input-group">
+                                                <label>Producto</label>
+                                                <div class="input-group">
+                                                    <select name="producto" id="id_producto"
+                                                        class="select2 select2-hidden-accessible form-control"
+                                                        data-placeholder="Seleccione Producto" style="width: 100%;">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add" id="producto-add"
+                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="cars">Costo($)</label>
+                                                <input name="costo" id="costo" type="text" disabled class="form-control"
+                                                    placeholder="Costo">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="form-group" id="mostrar">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="timeline-footer" style="text-align: right;">
+                                        <a class="btn btn-info btn-sm" id="agregarTabla"
+                                            style="color: white">Agregar</a>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END timeline item -->
+              <!--END timeline item-->
                <!-- timeline item -->
                <div id="tabla">
                   <i class="fas fa-user bg-green"></i>
