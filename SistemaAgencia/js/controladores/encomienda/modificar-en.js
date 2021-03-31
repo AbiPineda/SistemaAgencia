@@ -11,6 +11,8 @@ $(document).ready(function () {
     let ID_ENCOMIENDA = urlParams.get('en');
     let tabla;
 
+    inicializarGaleria();
+    inicializarFoto();
     inicializarValidaciones();
     mostrarDatos();
     inicializarTabla();
@@ -58,6 +60,18 @@ $(document).ready(function () {
                 COMISION = index.total_comision;
                 TOTALCLIENTE = index.total_cliente;
             });
+
+            //.each para los datos destino
+
+            $.each(response.Detalles_destino, function (i,pivote) {
+                $('#cliente_des').val(pivote.nombre_cliente_destini);
+                $('#telefono_des').val(pivote.telefono);
+                $('#ciudad_des').val(pivote.ciudad_destino);
+                $('#codigo_des').val(pivote.codigo_postal_destino);
+                $('#direccion').val(pivote.direccion_destino);
+                $('#direccion_alterna').val(pivote.alterna_destino);
+            });
+
 
         }).fail(function (response) {
             console.log(response);
@@ -351,5 +365,46 @@ $(document).ready(function () {
         return form;
 
     }
+
+        function inicializarGaleria() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
+        $('#fotos').fileinput({
+            theme: 'fas',
+            language: 'es',
+            //uploadUrl: '#',
+            showUpload: false,
+            //showCaption: false,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            required: true,
+            uploadAsync: false,
+            showClose: false,
+        });
+    }
+
+    function inicializarFoto() {
+        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
+        $('#foto').fileinput({
+            theme: 'fas',
+            language: 'es',
+            required: true,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            showUpload: false,
+            showClose: false,
+            showCaption: true,
+            browseLabel: '',
+            removeLabel: '',
+            //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
+            layoutTemplates: { main2: '{preview} {remove} {browse}' },
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+    }
+
 
 });
