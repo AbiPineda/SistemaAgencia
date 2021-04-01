@@ -170,6 +170,8 @@ $(document).ready(function() {
         async: false,
         dataType: "json",
         success: function(data) {
+            let $select = $('#comboUsuario');
+                $select.append('<option value="">Seleccione</option>');
             let myData = [];
             DATA_USUARIO = data.usuarios;
             for (let index = 0; index < DATA_USUARIO.length; index++) {
