@@ -11,6 +11,13 @@ include_once '../../plantillas/cabecera.php';
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 <link rel="stylesheet" href="<?= $base_url ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
+<!-- ESTILOS ADICIONALES DE FOTO PARA REGISTRO USUARIO-->
+
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+    type="text/css" />
+
 <!-- CONTINUAMOS CON LA INICIALIZACION -->
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
@@ -63,7 +70,7 @@ include_once '../../plantillas/cabecera.php';
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Cliente</label>
                                                 <div class="input-group">
-                                                    <select name="id_cliente" id="id_cliente"
+                                                    <select name="id_usuario" id="comboUsuario"
                                                         class="select2 select2-hidden-accessible form-control"
                                                         data-placeholder="Seleccione" style="width: 100%;">
                                                     </select>
@@ -367,23 +374,29 @@ function OpcAvanzada() {
 
 </script>
 
-
 <!-- jquery-validation -->
-
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
+
+<!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
+<script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
+<!-- FIN DE SCRIPT PARA REGISTRO DE USUARIO -->
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 
-<script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboAerolinea.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboClase.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/comboViaje.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/mostrarCondiciones.js"></script>
-
-<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
 <script src="<?= $base_url ?>js/controladores/vuelos/insertarCotizacion.js"></script>
 
-<script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<?php include_once '../../plantillas/cierre.php'; ?>

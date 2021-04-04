@@ -170,8 +170,11 @@ $(document).ready(function() {
         let data = {
             "id_detalle": idAlquiler,
             "kilometraje": document.getElementById("kilometraje").value,
+            "fechaDevolucion": document.getElementById("fechaDe").value,
+            "horaDevolucion": document.getElementById("timepicker").value,
+            "porcentajeMora": document.getElementById("porcentaje").value,
+            "totalDevolucion": document.getElementById("pagar").value,
             "idvehiculo":id_vehiculo
-
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({

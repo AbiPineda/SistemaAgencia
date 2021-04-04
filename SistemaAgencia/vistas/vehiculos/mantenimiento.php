@@ -247,15 +247,6 @@ function CambioPieza() {
 }
 </script>
 
-<script>
-$(document).on('click', '#agregarServicio', function(e) {
-    swal(
-        'Success',
-        'You clicked the <b style="color:green;">Success</b> button!',
-        'success'
-    )
-});
-</script>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>

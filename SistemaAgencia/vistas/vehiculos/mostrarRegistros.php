@@ -330,9 +330,6 @@ $(function() {
         theme: 'bootstrap4'
     })
 
-    $('.my-colorpicker1').colorpicker()
-    //color picker with addon
-
     $("input[data-bootstrap-switch]").each(function() {
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
