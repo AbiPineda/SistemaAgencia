@@ -131,12 +131,37 @@ $(document).ready(function () {
             columns: [
                 { data: "nombre_producto" },
                 { data: "tarifa" },
-                { data: "unidades_medidas" },
+                { data: "unidad_medida" },
                 { data: "botones" },
-            ]
+                 { data: "estado_producto" },
+            ],
+             columnDefs: [
+            { "className": "dt-center", "targets": "_all" },
+           
+            { targets: [4], visible: false },
+         ]
         });
 
     }
+
+    //CUANDO HAY CAMBIO EN EL RADIO BUTTON
+   $(document).on('change', 'input[type=radio][name="radioProducto"]', function () {
+      tabla.draw();
+   });
+   // PARA HACER FILTRAR REGISTROS EN LA TABLA DE A CUERDO CON RADIO BUTTON
+   $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+         let opcionSeleccionada = $("input[name='radioProducto']:checked").val();
+         switch (opcionSeleccionada) {
+            case 'activo':
+               return (data[4] == '1');
+            case 'inactivo':
+               return (data[4] == '0');
+            default:
+               return true;
+         }
+      }
+   );
     function inicializarValidaciones() {
         $('#register-form').validate({
 

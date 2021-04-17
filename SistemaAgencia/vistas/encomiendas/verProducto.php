@@ -31,9 +31,28 @@ include_once '../../plantillas/barra_lateral.php';
     <section class="content">
         <div class="row">
             <div class="col-12">
-
-
                 <div class="card">
+                     <!--para filtrar los productos activos e inactivos-->
+                <div class="card-header">
+                  <div class="row">
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioProducto" id="radioUsuarioCliente"
+                           value="activo" checked>
+                        <label class="form-check-label" for="radioProductoActivo">
+                           PRODUCTOS ACTIVOS
+                        </label>
+                     </div>
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioProducto" id="radioUsuarioInactivo"
+                           value="inactivo">
+                        <label class="form-check-label" for="radioProductoInactivo">
+                           PRODUCTOS INACTIVOS
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <!-- /.card-header -->
+<!--*******************************fin de filtrar esos productos***-->
                     <div class="card-header">
                         <h3 class="card-title">Datos de los productos</h3>
                     </div>
@@ -49,6 +68,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <th>Tarifa($)</th>
                                                 <th>Unidad de medida</th>
                                                 <th>Acciones</th>
+                                                <th>estado</th>
                                             </tr>
                                         </thead>
                                         <!-- /.inicio de loading -->
