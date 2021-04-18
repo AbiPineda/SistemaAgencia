@@ -207,14 +207,19 @@ $(document).ready(function () {
     
     function actualizar() {
         $('#loadingActualizar').show();
-         let form = new FormData();
-         form.append("nombre_producto",          document.getElementById("producto").value);
-         form.append("tarifa",   document.getElementById("tarifa").value);
+         let data = {
+         "nombre_producto":          document.getElementById("producto").value,
+         "tarifa":                   document.getElementById("tarifa").value,
+         "id_producto":             document.getElementById("id_producto").value,
+         "id_unidad_medida":   document.getElementById("id_unidad").value
+        
+         };
+         
         $.ajax({
             url: URL_SERVIDOR + "Producto/updateProducto",
             method: "POST",
             timeout: 0,
-            data:$('#register-form').serialize()
+            data:data
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
