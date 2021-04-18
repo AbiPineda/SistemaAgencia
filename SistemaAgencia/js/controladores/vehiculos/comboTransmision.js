@@ -20,11 +20,7 @@ $(document).ready(function() {
             ///LE CARGAMOS LA DATA 
             $('#id_transmision').select2({ data: myData });
 
-            //let $select = $('#id_transmision');
-            //$.each(data.transmision, function(i, name) {
-              //  $select.append('<option value=' + name.idtransmicion + '>' + name.transmision +
-                //    '</option>');
-            //});
+         
         },
         error: function(err) {
             //si da un error ya que quede la alerta

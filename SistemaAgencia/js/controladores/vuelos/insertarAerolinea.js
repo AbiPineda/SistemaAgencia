@@ -20,8 +20,38 @@ $(document).ready(function() {
 
             $("#modal-aerolinea").modal('toggle');
 
-            document.getElementById("register-aerolinea").reset();
-
+            //inicio recargar combo
+            $('#idaerolinea').empty();
+            let DATA_AEROLINEA;
+            $.ajax({
+                type: "GET",
+                url: URL_SERVIDOR + "aerolinea/aerolinea",
+                async: false,
+                dataType: "json",
+                success: function(data) {
+                    let myData = [];
+                    DATA_AEROLINEA = data.aerolineas;
+                    for (let index = 0; index < DATA_AEROLINEA.length; index++) {
+                        myData.push({
+                            id: DATA_AEROLINEA[index].idaerolinea,
+                            text: DATA_AEROLINEA[index].nombre_aerolinea
+                        });
+                    }
+                    $('#idaerolinea').select2({ data: myData });
+                },
+                error: function(err) {
+                    //si da un error ya que quede la alerta
+                    const Toast = Swal.mixin();
+                    Toast.fire({
+                        title: 'Oops...',
+                        icon: 'error',
+                        text: 'No hay Aerolineas para mostrar',
+                        showConfirmButton: true,
+                    });
+                }
+            });
+            // document.getElementById("register-aerolinea").reset();
+            //fin recargar combo
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -29,8 +59,7 @@ $(document).ready(function() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
-                location.reload();
+
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
