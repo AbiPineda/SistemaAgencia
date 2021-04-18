@@ -8,17 +8,17 @@ $(document).ready(function () {
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
         id_producto = $(this).attr("name");
+        unidad = $(this).attr("id");
 
          fila = $(this).closest("tr");
 
         producto         = fila.find('td:eq(0)').text();
         tarifa           = fila.find('td:eq(1)').text();
-        unidades_medidas = fila.find('td:eq(2)').text();
 
         document.getElementById("producto").value = producto;
         document.getElementById("tarifa").value   = tarifa;
-        document.getElementById("unidades").value = unidades_medidas;
-         document.getElementById("id_producto").value = id_producto;
+        $('#id_unidad').val(unidad).trigger('change.select2');
+        document.getElementById("id_producto").value = id_producto;
 
         $('#modificacion-producto').modal('show');
        $('#loadingActualizar').hide(); 
@@ -98,7 +98,7 @@ $(document).ready(function () {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.product[i].id_producto+'" class="btn btn-primary" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.product[i].id_producto+'" id="' + json.product[i].id_unidad+'" class="btn btn-primary" data-toggle="modal"';
                             html += '         data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
@@ -133,7 +133,7 @@ $(document).ready(function () {
                 { data: "tarifa" },
                 { data: "unidad_medida" },
                 { data: "botones" },
-                 { data: "estado_producto" },
+                { data: "estado_producto" },
             ],
              columnDefs: [
             { "className": "dt-center", "targets": "_all" },
@@ -207,6 +207,9 @@ $(document).ready(function () {
     
     function actualizar() {
         $('#loadingActualizar').show();
+         let form = new FormData();
+         form.append("nombre_producto",          document.getElementById("producto").value);
+         form.append("tarifa",   document.getElementById("tarifa").value);
         $.ajax({
             url: URL_SERVIDOR + "Producto/updateProducto",
             method: "POST",
