@@ -14,19 +14,23 @@ $(document).ready(function (){
     });
 
   function inicializarValidaciones() {
+
         $('#unidad-form').validate({
 
             rules: {
+               
                 unidad_medida:{
                     required: true,
                     minlength: 5
                 }
             },
             messages: {
+                
                 unidad_medida:{
                     required:"Digite la unidad de medida",
                     minlength:"El nombre producto debe tener una longitud minima de 7"
                 }
+
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {

@@ -5,10 +5,16 @@ $(document).ready(function (){
     //BOTON PARA AGREGAR
     $(document).on('click', '#btn-producto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#register-form");  
-       form.validate();
+        let form = $("#register-form");
+        let form1 = $("#combo-form");
+
+        form.validate();
         if (form.valid()) {
-            add_producto();
+            if (form1.valid()) {
+               add_producto(); 
+            }
+                 
+            
         }  
         
     });
@@ -23,9 +29,6 @@ $(document).ready(function (){
                 },
                 tarifa: {
                     required: true
-                },
-                unidades_medidas: {
-                   required: true
                 }
             },
             messages: {
@@ -35,9 +38,6 @@ $(document).ready(function (){
                 },
                  tarifa:{
                     required:"Digite la tarifa del producto"
-                },
-                unidades_medidas: {
-                    required: "Seleccione una unidad de medida"
                 }
             },
             errorElement: 'span',
@@ -53,6 +53,42 @@ $(document).ready(function (){
 
             }
         });
+
+        $('#combo-form').validate({
+
+            rules: {
+                id_unidad: {
+                    required: true
+                },
+                unidad_medida:{
+                    required: false,
+                    minlength: 5
+                }
+            },
+            messages: {
+               
+                 id_unidad:{
+                    required:"Seleccione la Unidad"
+                },
+                unidad_medida:{
+                    required:"Digite la unidad de medida",
+                    minlength:"El nombre producto debe tener una longitud minima de 7"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+
 
     }
 

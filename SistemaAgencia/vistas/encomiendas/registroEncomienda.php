@@ -373,7 +373,7 @@ include_once '../../plantillas/cabecera.php';
 
                             </div>
                         </form>
-                        <form id="unidad-form" name="register-form" onsubmit="return false">
+                        <form id="combo-form" name="register-form" onsubmit="return false">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
