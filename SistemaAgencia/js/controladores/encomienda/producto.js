@@ -19,6 +19,11 @@ $(document).ready(function() {
                     });
                 }
                 $('#id_producto').select2({ data: myData });
+            ///vamos a cargar la comision de la agencia
+            $.each(data.comision, function(i,index) {
+            $("#porcenaje").val(index.porcentaje);  
+
+              });
             },
             error: function(err) {
                 let $ok = $('#id_producto');

@@ -236,10 +236,9 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
-                                                    <label>Comision de Agencia (%)</label>
                                                     <div class="input-group">
-                                                        <input id="porcenaje" type="number" min="1" value="1"
-                                                            class="form-control" id="porcenaje">
+                                                        <input id="porcenaje" type="hidden"
+                                                            class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
