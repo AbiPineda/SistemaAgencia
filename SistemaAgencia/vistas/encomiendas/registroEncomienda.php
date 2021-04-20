@@ -91,8 +91,7 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Fecha</label>
-                                                <input name="fecha" id="fecha" type="date" class="form-control"
+                                                <input name="fecha" id="fecha" type="hidden" class="form-control"
                                                     placeholder="Introduzca el punto de referencia">
                                             </div>
                                         </div>            
