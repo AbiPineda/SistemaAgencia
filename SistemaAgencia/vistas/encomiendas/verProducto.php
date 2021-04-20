@@ -118,7 +118,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <label>Nombre</label>
                                         <input name="nombre_producto" id="producto" type="text" class="form-control"
                                             placeholder="Introduzca el nombre" autocomplete="off">
-                                         <input name="id_producto" id="id_producto" type="text">
+                                         <input name="id_producto" id="id_producto" type="hidden">
                                     </div>
                                 </div>
 
