@@ -358,7 +358,7 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="nombre_producto" type="text" class="form-control"
+                                        <input name="nombre_producto" id="producto" type="text" class="form-control"
                                             placeholder="Introduzca el nombre" autocomplete="off">
                                     </div>
                                 </div>
@@ -366,7 +366,7 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Tarifa</label>
-                                        <input name="tarifa" type="text" class="form-control"
+                                        <input name="tarifa" id="tarifa" type="text" class="form-control"
                                             placeholder="Introduzca la tarifa" autocomplete="off">
                                     </div>
                                 </div>

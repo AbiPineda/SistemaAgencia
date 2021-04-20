@@ -88,11 +88,16 @@ function llenarCombo(){
 
     
 function add_producto() {
+        let data = {
+         "nombre_producto":          document.getElementById("producto").value,
+         "tarifa":                   document.getElementById("tarifa").value,
+         "id_unidad":   document.getElementById("id_unidad").value
+         }; 
 
         $.ajax({
             url: URL_SERVIDOR+"Producto/producto",
             method: 'POST',
-            data: $("#register-form").serialize()
+            data: data
 
         }).done(function (response) {
         document.getElementById("register-form").reset();
@@ -137,7 +142,7 @@ function add_producto() {
             Toast.fire({
                 title: 'Error',
                 icon: 'error',
-                text: listaErrores,
+                text: response.responseText,
                 showConfirmButton: true,
             });
 
