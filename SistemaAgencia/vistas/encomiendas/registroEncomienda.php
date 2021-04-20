@@ -363,7 +363,7 @@ include_once '../../plantillas/cabecera.php';
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Tarifa</label>
                                         <input name="tarifa" type="text" class="form-control"
@@ -371,7 +371,11 @@ include_once '../../plantillas/cabecera.php';
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3">
+                            </div>
+                        </form>
+                        <form id="unidad-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <label>Unidad de medida</label>
@@ -382,11 +386,6 @@ include_once '../../plantillas/cabecera.php';
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        </form>
-                        <form id="unidad-form" name="register-form" onsubmit="return false">
-                            <div class="row">
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>Nueva Unidad</label>
@@ -397,7 +396,7 @@ include_once '../../plantillas/cabecera.php';
                                 <div class="col-sm-1">
                                             <br>
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-primary btn-add" id="btn-unidad"
+                                                <button type="button" class="btn btn-success btn-add" id="btn-unidad"
                                                     name="btn-unidad" style="margin-top: 10px; width: 100%;">+</button>
                                             </span>
                                         </div>
