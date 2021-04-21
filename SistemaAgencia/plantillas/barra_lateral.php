@@ -399,6 +399,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/disponibilidadPromociones.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Disponibilidad de Promoción</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vuelos/registroPromocion.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Registrar Promoción</p>

@@ -1,6 +1,6 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function() {
-    inicializarGaleriaAutos();
+    inicializarGaleria();
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function(evento) {
@@ -73,7 +73,7 @@ $(document).ready(function() {
     }
 
 
-    function inicializarGaleriaAutos() {
+    function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
             theme: 'fas',
@@ -82,7 +82,7 @@ $(document).ready(function() {
             showUpload: false,
             //showCaption: false,
             maxFileSize: 2000,
-            maxFilesNum: 10,
+            maxFilesNum: 1,
             allowedFileExtensions: ['jpg', 'png', 'gif'],
             required: true,
             uploadAsync: false,
