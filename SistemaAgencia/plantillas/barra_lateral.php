@@ -187,26 +187,7 @@
 
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-car"></i>
-                        <p>
-                            Vehiculos
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
 
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Disponibilidad de Reserva</p>
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </li>
                 <!--INCIA CARGO EXPRES MENU-->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -309,86 +290,8 @@
                     </ul>
                 </li>
                 <!--TERMINA ASESORIA MIGRATORIA MENU-->
-                <!--INCIA VUELOS MENU-->
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-plane"></i>
-                        <p>
-                            Información Vuelos
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/mostrarCotizaciones.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Mostrar Cotizaciones</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/mostrarAerolineas.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Información de Aerolineas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoClase.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Tipos de Clase</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoViaje.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Tipos de Viaje</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/condiciones.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Condiciones</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--TERMINA VUELOS MIGRATORIA MENU-->
-                <li class="nav-header">COTIZACIONES</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
-                        <p>
-                            Cotización
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Vuelo</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>home.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Paquete</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>home.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Tours</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vehiculos/cotizarVehiculo.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Vehiculo</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-header">CONTROL</li>
+
+                <!--INCIA RENTA CARS MENU-->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-car"></i>
@@ -400,6 +303,18 @@
 
                     <ul class="nav nav-treeview">
 
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vehiculos/disponibilidad.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Disponibilidad de Reserva</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vehiculos/cotizarVehiculo.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Cotización de Vehiculo</p>
+                            </a>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-file-alt"></i>
@@ -471,6 +386,90 @@
                         </li>
                     </ul>
                 </li>
+
+
+                <!--INCIA VUELOS MENU-->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-plane"></i>
+                        <p>
+                            Información Vuelos
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/registroPromocion.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Registrar Promoción</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarCotizaciones.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Mostrar Cotizaciones</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarAerolineas.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Información de Aerolineas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoClase.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Tipos de Clase</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/mostrarTipoViaje.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Tipos de Viaje</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/condiciones.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Condiciones</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--TERMINA VUELOS MIGRATORIA MENU-->
+                <li class="nav-header">COTIZACIONES</li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                        <p>
+                            Cotización
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Cotización de Vuelo</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Cotización de Paquete</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>home.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Cotización de Tours</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-header">CONTROL</li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-hand-holding-usd"></i>

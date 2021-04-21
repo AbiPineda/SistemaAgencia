@@ -125,7 +125,7 @@ include_once '../../plantillas/cabecera.php';
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Kilometraje</label>
-                                                <input type="number" class="form-control" min=1 name="kilometraje"
+                                                <input type="number" class="form-control" min=10 name="kilometraje"
                                                     id="kilometraje" autocomplete="off">
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@ include_once '../../plantillas/cabecera.php';
                                                     autocomplete="off">
                                             </div>
                                         </div>
-                                        <div class="col-sm-1">
+                                        <div class="col-sm-0.7">
                                             <br>
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-success btn-add"

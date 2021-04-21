@@ -1,7 +1,6 @@
 // CUANDO LA PAGINA YA ESTA LISTA
 $(document).ready(function() {
     inicializarGaleriaAutos();
-    inicializarGaleriaDocumentos();
 
     //BOTON DE GUARDAR
     $(document).on('click', '#btnguardar', function(evento) {
@@ -18,43 +17,25 @@ $(document).ready(function() {
         $('#loading').show();
         let form = new FormData();
 
-
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
         }
 
-        let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
-        form.append('foto', galeriaDocumentos);
+        form.append("idaerolineaFK", document.getElementById("idaerolinea").value);
+        form.append("idclaseFK", document.getElementById("idclase").value);
+        form.append("nombre_promocion", document.getElementById("nombrePromocion").value);
+        form.append("pais_promocion", document.getElementById("nombrePais").value);
+        form.append("lugarSalida_promocion", document.getElementById("salida").value);
+        form.append("precio_promocion", document.getElementById("precioPromocion").value);
+        form.append("fechaDisponible_promocion", document.getElementById("fechaDisponible").value);
+        form.append("descripcion_promocion", document.getElementById("desPromocion").value);
 
-        let comboOpciones = $("#opc_avanzadas").select2('data');
-        let arregloOpciones = [];
-
-        for (let index = 0; index < comboOpciones.length; index++) {
-            arregloOpciones.push(comboOpciones[index].text);
-        }
-        console.log(arregloOpciones);
-
-        form.append("id_rentaCarFK", document.getElementById("id_renta").value);
-        form.append("idmodelo", document.getElementById("id_modelo").value);
-        form.append("id_transmicionFK", document.getElementById("id_transmision").value);
-        form.append("idcategoria", document.getElementById("id_categoria").value);
-        form.append("placa", document.getElementById("placa").value);
-        form.append("anio", document.getElementById("anio").value);
-        form.append("color", document.getElementById("colorAuto").value);
-        form.append("puertas", document.getElementById("puertas").value);
-        form.append("pasajeros", document.getElementById("pasajero").value);
-        form.append("precio_diario", document.getElementById("precio").value);
-        form.append("descripcion", document.getElementById("descripcion").value);
-        form.append("detalles", document.getElementById("detalle").value);
-        form.append("opc_avanzadas", arregloOpciones);
-        form.append("kilometraje", document.getElementById("kilometraje").value);
-        form.append("tipoCombustible", document.getElementById("comboCombustible").value);
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
-            url: URL_SERVIDOR + "vehiculo/vehiculo",
+            url: URL_SERVIDOR + "promocionVuelo/promocion",
             method: "POST",
             mimeType: "multipart/form-data",
             data: form,
@@ -92,28 +73,6 @@ $(document).ready(function() {
     }
 
 
-
-
-
-    function inicializarGaleriaDocumentos() {
-        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-        $('#fotosDocumentos').fileinput({
-            theme: 'fas',
-            language: 'es',
-            //uploadUrl: '#',
-            showUpload: false,
-            //showCaption: false,
-            maxFileSize: 2000,
-            maxFilesNum: 1,
-            initialPreviewAsData: true,
-            initialPreviewFileType: 'pdf',
-            allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
-            required: true,
-            uploadAsync: false,
-            showClose: false,
-        });
-    }
-
     function inicializarGaleriaAutos() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
@@ -130,8 +89,5 @@ $(document).ready(function() {
             showClose: false,
         });
     }
-
-
-
 
 });
