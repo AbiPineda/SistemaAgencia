@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     inicializarValidacionesGuardar();
     inicializarGaleria();
-    inicializarFoto();
+
     telefono();
 
     let contadorTabla = 0;
@@ -19,16 +19,16 @@ $(document).ready(function () {
         "autoWidth": false,
         "pageLength": 3,
         "responsive": true,
-        "columnDefs":[
-        {"className":"dt-center","targets":"_all"},
-        {"targets":[5], "visible":false},
-        {"targets":[6], "visible":false},
+        "columnDefs": [
+            { "className": "dt-center", "targets": "_all" },
+            { "targets": [5], "visible": false },
+            { "targets": [6], "visible": false },
         ]
 
     });
 
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
-    $(document).on('click', '#agregarTabla', function (evento) {
+    $(document).on('click', '#agregarTabla', function(evento) {
 
 
         evento.preventDefault();
@@ -38,8 +38,8 @@ $(document).ready(function () {
         let cantidad = $('#cantidad').val();
         //alert(cantidad);
         if (!cantidad) {
-                errors = { cantidad: "Digite la cantidad" };
-                $("#encomienda-form").validate().showErrors(errors);
+            errors = { cantidad: "Digite la cantidad" };
+            $("#encomienda-form").validate().showErrors(errors);
         } else {
 
             let id = document.getElementById("id_producto").value;
@@ -75,9 +75,10 @@ $(document).ready(function () {
         modificarComision();
         modificarTotalCliente();
     }
+
     function ExisteFila(id, cantidad, costo) {
         let encontrado = false;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             if (id == data[5]) {
                 let subTotoal = (costo * cantidad).toFixed(2);
@@ -91,28 +92,31 @@ $(document).ready(function () {
 
 
     }
+
     function modificarTotal() {
         TOTAL = 0.0;
-        tabla.rows().every(function (value, index) {
+        tabla.rows().every(function(value, index) {
             let data = this.data();
             TOTAL += parseFloat(data[3]);
         });
         $('#total').empty();
         $('#total').text("$" + TOTAL);
     }
+
     function modificarComision() {
         let porcentaje = (parseInt($('#porcenaje').val())) / 100;
         COMISION = porcentaje * TOTAL;
         $('#comision').empty();
         $('#comision').text("$" + COMISION);
     }
+
     function modificarTotalCliente() {
 
         $('#totalCliente').empty();
         $('#totalCliente').text("$" + (TOTAL + COMISION));
     }
     //BOTON DE ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
+    $(document).on('click', '.btn-group .btn-danger', function(evento) {
 
         tabla.row($(this).parents('tr')).remove().draw();
         modificarTotal();
@@ -120,39 +124,39 @@ $(document).ready(function () {
         modificarTotalCliente();
     });
     //CAMBIOS EN EL INPUT DE PORCENTAJE
-    $(document).on('keyup mouseup', '#porcenaje', function () {
+    $(document).on('keyup mouseup', '#porcenaje', function() {
         modificarComision();
         modificarTotalCliente();
     });
 
- //BOTON DE GUARDAR 
-    $(document).on('click', '#btnguardar', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
-       let form = $("#datosOrigen-form");
-       let form1 = $("#datosDestino-form");
+    //BOTON DE GUARDAR 
+    $(document).on('click', '#btnguardar', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        let form = $("#datosOrigen-form");
+        let form1 = $("#datosDestino-form");
         form1.validate();
         form.validate();
         if (form.valid()) {
             if (form1.valid()) {
-                 guardar();   
-             }
-        
-        } 
+                guardar();
+            }
+
+        }
     });
 
     function inicializarValidacionesGuardar() {
-    $('#datosOrigen-form').validate({
+        $('#datosOrigen-form').validate({
 
             rules: {
-                   id_usuario: {
-                   required: true
+                id_usuario: {
+                    required: true
                 },
-                ciudad:{
-                    required:true,
+                ciudad: {
+                    required: true,
                     minlength: 7
                 },
-                codigo:{
-                    required:true,
+                codigo: {
+                    required: true,
                     minlength: 2
                 }
             },
@@ -160,24 +164,24 @@ $(document).ready(function () {
                 id_usuario: {
                     required: "Seleccione el cliente"
                 },
-                ciudad:{
-                    required:"Digite la ciudad",
+                ciudad: {
+                    required: "Digite la ciudad",
                     minlength: "La ciudad debe de tener una longitud minima de 7"
                 },
-                codigo:{
-                    required:"Digite el Código postal",
+                codigo: {
+                    required: "Digite el Código postal",
                     minlength: "El Código debe de tener una longitud minima de 2"
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -186,76 +190,83 @@ $(document).ready(function () {
         $('#datosDestino-form').validate({
 
             rules: {
-                cliente_des:{
-                    required:true,
+                cliente_des: {
+                    required: true,
                     minlength: 10
                 },
-                telefono_des:{
-                    required:true,
+                telefono_des: {
+                    required: true,
                     minlength: 9
                 },
                 ciudad_des: {
-                    required:true,
+                    required: true,
                     minlength: 7
                 },
-                codigo_des:{
-                    required:true,
+                codigo_des: {
+                    required: true,
                     minlength: 2
                 },
                 direccion: {
-                    required:true,
+                    required: true,
                     minlength: 10
                 },
                 direccion_alterna: {
-                   required: true,
-                   minlength:10
+                    required: true,
+                    minlength: 10
                 }
             },
             messages: {
-                 cliente_des:{
-                    required:"Digite el nombre del cliente destino",
+                cliente_des: {
+                    required: "Digite el nombre del cliente destino",
                     minlength: "El nombre del cliente debe de tener una longitud minima de 10"
                 },
-                telefono_des:{
-                    required:"Digite el Teléfono",
+                telefono_des: {
+                    required: "Digite el Teléfono",
                     minlength: "El Teléfono debe de tener una longitud minima de 9"
-                
+
                 },
-                ciudad_des:{
-                    required:"Digite la ciudad",
+                ciudad_des: {
+                    required: "Digite la ciudad",
                     minlength: "La ciudad debe de tener una longitud minima de 7"
                 },
-                codigo_des:{
-                    required:"Digite el Código postal",
+                codigo_des: {
+                    required: "Digite el Código postal",
                     minlength: "El Código debe de tener una longitud minima de 2"
                 },
-                direccion:{
-                    required:"Digite la dirección",
+                direccion: {
+                    required: "Digite la dirección",
                     minlength: "La dirección debe de tener una longitud minima de 10"
                 },
                 direccion_alterna: {
                     required: "Digite la dirección alterna",
-                     minlength: "La dirección alterna debe de tener una longitud minima de 10"
+                    minlength: "La dirección alterna debe de tener una longitud minima de 10"
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
 
     }
+
     function guardar() {
         $('#loading').show();
         let form = obtenerData();
+
+        //ESTO ES PARA LA GALERIA 
+        let galeria = document.getElementById("fotos").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
@@ -266,14 +277,14 @@ $(document).ready(function () {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function (response) {
+        }).done(function(response) {
             //console.log(response);
             document.getElementById("datosOrigen-form").reset();
             document.getElementById("datosDestino-form").reset();
             $('#comboUsuario').val('').trigger('change');
             $('#id_producto').val('').trigger('change');
-            
-           const Toast = Swal.mixin();
+
+            const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
@@ -284,8 +295,8 @@ $(document).ready(function () {
                 $("#encomienda-form").trigger("reset");
                 resetMiTable();
             });
-            
-        }).fail(function (response) {
+
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -297,63 +308,63 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });*/
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loading').hide();
         });
     }
 
-     function obtenerData() {
+    function obtenerData() {
         let form = new FormData();
-         let detalle_encomienda = [];
-         let detalle_destino=[];
-         let nombre_cliente_destino  = document.getElementById("cliente_des").value;
-         let telefono                = document.getElementById("telefono_des").value;
-         let ciudad_destino          = document.getElementById("ciudad_des").value;
-         let codigo_postal_destino   = document.getElementById("codigo_des").value;
-         let direccion_destino       = document.getElementById("direccion").value;
-         let alterna_destino         = document.getElementById("direccion_alterna").value;
-        
-        tabla.rows().every(function (value, index) {
+        let detalle_encomienda = [];
+        let detalle_destino = [];
+        let nombre_cliente_destino = document.getElementById("cliente_des").value;
+        let telefono = document.getElementById("telefono_des").value;
+        let ciudad_destino = document.getElementById("ciudad_des").value;
+        let codigo_postal_destino = document.getElementById("codigo_des").value;
+        let direccion_destino = document.getElementById("direccion").value;
+        let alterna_destino = document.getElementById("direccion_alterna").value;
+
+        tabla.rows().every(function(value, index) {
             let data = this.data();
-           
+
             let id_producto = data[5];
             let cantidad = data[2];
             let sub_total = data[3];
-                 
-                detalle_encomienda.push({
-                    "id_producto": id_producto,
-                    "cantidad": cantidad,
-                    "sub_total": sub_total
-                    
-                }); 
+
+            detalle_encomienda.push({
+                "id_producto": id_producto,
+                "cantidad": cantidad,
+                "sub_total": sub_total
+
+            });
         });
 
         detalle_destino.push({
-                    "nombre_cliente_destini":nombre_cliente_destino,
-                    "telefono": telefono,
-                    "ciudad_destino": ciudad_destino,
-                    "codigo_postal_destino": codigo_postal_destino,
-                    "direccion_destino": direccion_destino,
-                    "alterna_destino": alterna_destino
+            "nombre_cliente_destini": nombre_cliente_destino,
+            "telefono": telefono,
+            "ciudad_destino": ciudad_destino,
+            "codigo_postal_destino": codigo_postal_destino,
+            "direccion_destino": direccion_destino,
+            "alterna_destino": alterna_destino
         });
-       
-        form.append("ciudad_origen",          document.getElementById("ciudad").value);
-        form.append("codigo_postal_origen",   document.getElementById("codigo").value);
-        form.append("fecha",              document.getElementById("fecha").value);
-        form.append("estado",              document.getElementById("estado").value);
-        form.append("total_encomienda",   TOTAL);
-        form.append("total_comision",     COMISION);
-        form.append("total_cliente",     (TOTAL+COMISION));
-        form.append("id_usuario",          document.getElementById("comboUsuario").value);
+
+        form.append("ciudad_origen", document.getElementById("ciudad").value);
+        form.append("codigo_postal_origen", document.getElementById("codigo").value);
+        form.append("fecha", document.getElementById("fecha").value);
+        form.append("estado", document.getElementById("estado").value);
+        form.append("total_encomienda", TOTAL);
+        form.append("total_comision", COMISION);
+        form.append("total_cliente", (TOTAL + COMISION));
+        form.append("id_usuario", document.getElementById("comboUsuario").value);
         form.append("detalle_encomienda", JSON.stringify(detalle_encomienda));
         form.append("detalle_destino", JSON.stringify(detalle_destino));
-       
+
 
         return form;
 
     }
 
-     function resetMiTable() {
+    function resetMiTable() {
         contadorTabla = 0;
         TOTAL = 0.0;
         COMISION = 0.0;
@@ -382,61 +393,40 @@ $(document).ready(function () {
         });
     }
 
-    function inicializarFoto() {
-        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE UNA UNICA FOTO
-        $('#foto').fileinput({
-            theme: 'fas',
-            language: 'es',
-            required: true,
-            maxFileSize: 2000,
-            maxFilesNum: 10,
-            showUpload: false,
-            showClose: false,
-            showCaption: true,
-            browseLabel: '',
-            removeLabel: '',
-            //removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-            removeTitle: 'Cancel or reset changes',
-            elErrorContainer: '#kv-avatar-errors-1',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="../../img/avatar.png" alt="Your Avatar">',
-            layoutTemplates: { main2: '{preview} {remove} {browse}' },
-            allowedFileExtensions: ["jpg", "png", "gif"]
-        });
-    }
+
 
     //funcion para cargar el celular en el input
-    function telefono(){
+    function telefono() {
 
-    $("#comboUsuario").change(function () {
-           var id = document.getElementById("comboUsuario").value;
-          
-    $.ajax({
-        url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente="+id,
-        method: 'GET'
+        $("#comboUsuario").change(function() {
+            var id = document.getElementById("comboUsuario").value;
 
-    }).done(function(response) {
-        $.each(response.usuarios, function(i, index) {
-            $("#telefono").val(index.celular);  
+            $.ajax({
+                url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente=" + id,
+                method: 'GET'
+
+            }).done(function(response) {
+                $.each(response.usuarios, function(i, index) {
+                    $("#telefono").val(index.celular);
+
+                });
+
+
+
+
+            }).fail(function(response) {
+                const Toast = Swal.mixin();
+                Toast.fire({
+                    title: 'Error',
+                    icon: 'error',
+                    text: response.mensaje,
+                    showConfirmButton: true,
+                });
+
+            });
+
 
         });
-
-        
-
-
-    }).fail(function(response) {
-        const Toast = Swal.mixin();
-        Toast.fire({
-            title: 'Error',
-            icon: 'error',
-            text: response.mensaje,
-            showConfirmButton: true,
-        });
-
-         });
-
-
-             });
 
     }
 
