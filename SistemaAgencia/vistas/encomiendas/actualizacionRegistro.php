@@ -34,7 +34,66 @@ include_once '../../plantillas/barra_lateral.php';
    <section class="content">
       <div class="row">
         <div class="col-md-4">
-          
+          <div class="timeline">
+           <!-- timeline item -->
+                <div id="titulo">
+                        <i class="fas fa-box-open bg-green"></i>
+                        <div class="timeline-item">
+                            <h3 class="timeline-header"><a href="#">Registro de información</a></h3>
+
+                            <div class="timeline-body">
+                                <form id="informacion-form" name="register-form" onsubmit="return false">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                              <div class="form-group multiple-form-group input-group">
+                                                <label>Título</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="titulo_actu" id="titulo_actu" placeholder="Digite título">
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                                <label>Fecha</label>
+                                                <div class="input-group">
+                                                <input type="date" name="fecha_actu" id="fecha_actu" class="form-control">
+                                                </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Hora</label>
+                                                <div class="input-group">
+                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Falta el reloj">
+                                                </div>
+
+                                            </div>
+                                        </div>           
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group"> 
+                                                <div class="input-group">
+                                             <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                                                </div>
+
+                                            </div>
+                                        </div>           
+                                    </div>
+
+                                  
+                                   
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+               <!-- END timeline item -->
+            </div>
         </div>
          <div class="col-md-8">
             <div class="timeline">
