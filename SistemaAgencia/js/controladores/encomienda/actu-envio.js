@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    let id_pregunta;
     let tabla;
 
     //inicializarValidaciones();
@@ -8,11 +7,11 @@ $(document).ready(function () {
     inicializarTabla();
   
     //BOTON DE EDITAR
-$(document).on('click', '.btn-group .btn-primary', function () {
+$(document).on('click', '.btn-group .btn-success', function () {
         $('#loadingActualizar').hide();
         id_encomienda = $(this).attr("name");
 
-    window.location = `${URL_SISTEMA}vistas/encomiendas/modificarEncomienda.php?en=`+id_encomienda;
+    window.location = `${URL_SISTEMA}vistas/encomiendas/actualizacionRegistro.php?ac=`+id_encomienda;
                     
     
 });
@@ -67,9 +66,9 @@ $(document).on('click', '.btn-group .btn-primary', function () {
                             html = "";
                             html += '<td>';
                             html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-primary" data-toggle="modal"';
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-success" data-toggle="modal"';
                             html += '         data-target="#modal-editar">';
-                            html += '            <i class="fas fa-edit" style="color: white"></i>';
+                            html += '            <i class="fas fa-map-marked-alt" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
