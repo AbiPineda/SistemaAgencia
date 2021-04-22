@@ -95,7 +95,12 @@ $(document).on('click', '.btn-group .btn-primary', function () {
                 { data: "fecha" },
                 { data: "botones" },
                 { data: "estado" },
-            ]
+            ],
+             columnDefs: [
+            { "className": "dt-center", "targets": "_all" },
+           
+            { targets: [5], visible: false },
+         ]
         });
 
     }
