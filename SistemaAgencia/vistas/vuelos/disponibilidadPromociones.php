@@ -109,9 +109,14 @@ h6 {
                            <h6>Promoción disponible hasta: </h6>
                            <h6 name="fechaR" id="fechaR"></h6>
                            <hr>
-                           <button class="btn btn-primary btn-block mb-3">
-                              <h1 name="lugar" id="lugar"></h1>
-                           </button>
+                           
+
+                           <div class="bg-primary py-2 px-3 mt-4">
+                              <div class="centrar">
+                                 <h3>Precio por persona: $</h3>
+                                 <h3 class="mb-0" name="precioP" id="precioP" style="text-align:center"></h3>
+                              </div>
+                           </div>
 
                            <div class="card">
                               <div class="card-header">
@@ -126,9 +131,19 @@ h6 {
                               <div class="card-body p-0">
                                  <ul class="nav nav-pills flex-column">
 
+                                 <li class="nav-item">
+                                       <a href="#" class="nav-link">
+                                          <i class="fas fa-plane-departure"></i> Saliendo de
+                                          <span class="badge bg-warning float-right">
+                                             <h7 name="saliendo" id="saliendo"></h7>
+                                          </span>
+
+                                       </a>
+                                    </li>
+
                                     <li class="nav-item active">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-inbox"></i> País
+                                          <i class="fas fa-plane-arrival"></i> País
                                           <span class="badge bg-primary float-right">
                                              <h7 name="pais" id="pais"></h7>
                                           </span>
@@ -136,46 +151,40 @@ h6 {
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-user-friends"></i> Lugar de Destino
+                                          <i class="fas fa-map-marked-alt"></i> Lugar de Destino
                                           <span class="badge bg-Secondary float-right">
                                              <h7 name="lugard" id="lugard"></h7>
                                           </span>
                                        </a>
                                     </li>
+                                    
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fas fa-tachometer-alt"></i> Saliendo de
-                                          <span class="badge bg-warning float-right">
-                                             <h7 name="saliendo" id="saliendo"></h7>
+                                          <i class="fas fa-plane"></i> Aerolinea
+                                          <span class="badge bg-success float-right">
+                                             <h7 name="aerolineav" id="aerolineav"></h7>
                                           </span>
 
                                        </a>
                                     </li>
-                                    
+                                    <li class="nav-item">
+                                       <a href="#" class="nav-link">
+                                          <i class="fas fa-suitcase-rolling"></i> Tipo de Clase
+                                          <span class="badge bg-danger float-right">
+                                             <h7 name="tipoClase" id="tipoClase"></h7>
+                                          </span>
+
+                                       </a>
+                                    </li>
                                  </ul>
                               </div>
                            </div>
-                           <div class="bg-gray py-2 px-3 mt-4">
-                              <div class="centrar">
-                                 <h3>Precio: $</h3>
-                                 <h3 class="mb-0" name="precio" id="precio" style="text-align:center"></h3>
-                              </div>
-                           </div>
-                           <div class="mt-4">
-                              <button class="btn btn-block btn-success btn-flat" id="btnReservar" name="btnReservar">
-                                 <i class="fas fa-cart-plus fa-lg"></i>
-                                 Reservar Vuelo
-                              </button>
-                           </div>
                         </div>
                      </div>
-                     
                   </div>
-
                   <!-- /.card-body -->
                </div>
                <!-- /.card -->
-
             </section>
          </div>
          <!-- /.modal-content -->

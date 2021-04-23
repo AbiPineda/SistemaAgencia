@@ -12,17 +12,17 @@ $(document).ready(function() {
         idPromo = $(this).attr("name");
         let data = obtenerPromocion(idPromo);
         console.log(data);
-
-        
-        $('#precio').text(data.precio_promocion);
         
         $('#fechaR').text(data.fechaDisponible_promocion);
         $('#pais').text(data.pais_promocion);
         $('#lugar').text(data.nombre_promocion);
         $('#lugard').text(data.nombre_promocion);
         $('#saliendo').text(data.lugarSalida_promocion);
+        $('#precioP').text(data.precio_promocion);
+        $('#aerolineav').text(data.nombre_aerolinea);
+        $('#tipoClase').text(data.nombre_clase);
         
-        console.log("esntrando en la funcion");
+        console.log("entrando en la funcion");
         if (data.galeria) {
             let galeria = data.galeria;
             let imagenGrande = document.getElementById('imagenGrande');
@@ -91,7 +91,9 @@ $(document).ready(function() {
     }
 
     function obtenerPromocion(idBuscado) {
-        return promo.find((promocion_vuelo) => promocion_vuelo.idPromo == idBuscado);
+        console.log(promo);
+        console.log(idBuscado);
+        return promo.find((promocion_vuelo) => promocion_vuelo.idpromocion_vuelo == idBuscado);
     }
 
 
@@ -114,7 +116,7 @@ $(document).ready(function() {
         });
     }
     $(document).on('click', '#btnReservar', function() {
-        window.location = `${URL_SISTEMA}vistas/vuelos/reservaVuelos.php?promo=${idPromo}`;
+        window.location = `${URL_SISTEMA}vistas/vuelos/reservaVuelos.php?promocion_vuelo=${idPromo}`;
     });
 
 });
