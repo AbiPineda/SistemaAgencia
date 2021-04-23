@@ -2,6 +2,9 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php'; ?>
+<!--para el reloj-->
+ <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/bootstrap-clockpicker.css">
+ <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css">
 <!--para la subida de fotos al sistema-->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
@@ -67,7 +70,11 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group">
                                                 <label>Hora</label>
                                                 <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Falta el reloj">
+                                               <div class="input-group clockpicker" data-autoclose="true">
+                                                <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
+                                                 </div>
+
+
                                                 </div>
 
                                             </div>
@@ -541,12 +548,19 @@ $(document).on('click', '#producto-add', function() {
    $('#add-producto').modal('show');
    $('#loadingActualizar').hide();
 });
+
+ $(document).ready(function() {
+   $('#timepicker').mdtimepicker(); //Initializes the time picker
+});
+
 </script>
 
 
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <!--alerta del sistema-->
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<!--********************reloj********************-->
+<script src="<?= $base_url ?>js/mdtimepicker.js"></script>
 <!--validaciones del sistema-->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
@@ -564,5 +578,4 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
-
 <?php include_once '../../plantillas/cierre.php'; ?>
