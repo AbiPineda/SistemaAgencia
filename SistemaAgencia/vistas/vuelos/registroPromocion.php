@@ -57,7 +57,7 @@ include_once '../../plantillas/cabecera.php';
                     <div class="timeline">
 
                         <div>
-                            <i class="fas fa-car bg-blue"></i>
+                            <i class="fas fa-plane bg-blue"></i>
                             <div class="timeline-item">
 
                                 <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>

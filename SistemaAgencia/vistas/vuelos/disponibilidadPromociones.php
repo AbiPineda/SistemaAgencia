@@ -107,7 +107,7 @@ h6 {
                            
                            <br>
                            <h6>Promoción disponible hasta: </h6>
-                           <h6 name="fechaR" id="fechaR"></h6>
+                           <label name="fechaR" id="fechaR" data-date="" data-date-format="DD MMMM YYYY"></label>
                            <hr>
                            
 
@@ -198,6 +198,14 @@ h6 {
 <?php
 include_once '../../plantillas/footer.php';
 ?>
+
+
+<script> 
+$("label").on("change", function() { 
+this.setAttribute( "data-date", moment(this.value, "YYYY-MM-DD") .format( this.getAttribute("data-date-format") ) ) 
+}).trigger("change") 
+</script>
+
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/conf.js"></script>
 
