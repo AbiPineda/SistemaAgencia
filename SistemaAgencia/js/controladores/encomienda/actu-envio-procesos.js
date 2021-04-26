@@ -6,6 +6,9 @@ $(document).ready(function () {
     let ID_ENCOMIENDA = urlParams.get('ac');
 
     inicializarValidaciones();
+    mostrarHistorial();
+
+
 
      //BOTON PARA AGREGAR
     $(document).on('click', '#btn-informacion', function (evento) {
@@ -17,6 +20,51 @@ $(document).ready(function () {
         }  
         
     });
+
+    function mostrarHistorial(){
+    	//mostrar informacion
+         $.ajax({
+            type: "GET",
+            url: URL_SERVIDOR+"Detalle_envio/detalleEnvio?id_encomienda="+ID_ENCOMIENDA,
+            success: function(data) {
+            	//alert('estoy aqui');
+                if (data.detalles) {
+                	//alert('entre');
+                for (let i = 0, ien = data.detalles.length; i < ien; i++) {
+                   // alert('paso');
+                     var $select = $('#historias');
+                    $select.append('<div class="row">'+
+                                        '<div class="col-sm-12">'+
+                                               
+                                                '<div class="input-group">'+
+                                                '<label class="far fa-marker"></label>'+
+                                                 '<label>'+data.detalles[i].descripcion+'</label>&nbsp'+
+                                                 '<label>'+data.detalles[i].fecha+'</label>&nbsp'+
+                                                 '<label>'+data.detalles[i].hora+'</label>'+
+                                                '</div>'+
+                                        '</div>'+
+                                      '</div>');
+
+                    
+                }
+            }else{
+            	//vamos a poner un mensaje
+            }
+
+            },
+            error: function(err) {
+                const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Error',
+                icon: 'error',
+                text:'No hay preguntas registradas..!',
+                showConfirmButton: true,
+            });
+            }
+        });
+
+        ///ESTA PARTE ES PARA EL USUARIO PARA MOSTRARLOS
+    }
 
     function add_actualizacion() {
 

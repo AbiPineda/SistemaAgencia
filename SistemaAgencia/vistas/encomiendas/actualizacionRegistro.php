@@ -107,49 +107,9 @@ include_once '../../plantillas/barra_lateral.php';
                         <div class="timeline-item">
                             <h3 class="timeline-header"><a href="#">Historial de información</a></h3>
 
-                            <div class="timeline-body">
+                            <div class="timeline-body" id="historias">
                              
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                              <div class="form-group multiple-form-group input-group">
-                                                <label>Título</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="titulo_actu" id="titulo_actu" placeholder="Digite título">
-                                                </div>
-                                               
-                                            </div>
-                                        </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-12">
-                                                <label>Fecha</label>
-                                                <div class="input-group">
-                                                <input type="date" name="fecha_actu" id="fecha_actu" class="form-control">
-                                                </div>
-                                        </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Hora</label>
-                                                <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Falta el reloj">
-                                                </div>
-
-                                            </div>
-                                        </div>           
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group"> 
-                                                <div class="input-group">
-                                             <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                                                </div>
-
-                                            </div>
-                                        </div>           
-                                    </div>
+                                   
                             </div>
                         </div>
 
