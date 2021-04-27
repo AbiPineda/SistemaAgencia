@@ -61,7 +61,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-12">
                                                 <label>Fecha</label>
                                                 <div class="input-group">
-                                                <input type="date" name="fecha_actu" id="fecha_actu" class="form-control">
+                                                <input type="date" name="fecha_actu" id="fecha_actu" class="form-control" disabled="true">
                                                 </div>
                                         </div>
                                       </div>
@@ -71,7 +71,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <label>Hora</label>
                                                 <div class="input-group">
                                                <div class="input-group clockpicker" data-autoclose="true">
-                                                <input type="text" id="hora_actu" name="hora_actu" class="form-control" value="08:00" />
+                                                <input type="text" id="hora_actu" name="hora_actu" class="form-control"/>
                                                  </div>
 
 
@@ -86,6 +86,8 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <div class="input-group">
                                              <button name="btn-informacion" id="btn-informacion" class="btn btn-info btn-sm"
                             style="color: white">Guardar</button>
+                             <button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"
+                            style="color: white">Entregar</button>
                                                 </div>
 
                                             </div>
@@ -165,12 +167,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input name="fecha" id="fecha" type="hidden" class="form-control"
-                                                    placeholder="Introduzca el punto de referencia">
-                                            </div>
-                                        </div>            
+                                                   
                                     </div>
                                     <div>
                                     </div>
@@ -316,6 +313,20 @@ $(document).on('click', '#producto-add', function() {
  $(document).ready(function() {
    $('#hora_actu').mdtimepicker(); //Initializes the time picker
 });
+
+ ///fecha actual y hora
+  let fecha = new Date(); //Fecha actual
+  let mes     = fecha.getMonth()+1; //obteniendo mes
+  let dia     = fecha.getDate(); //obteniendo dia
+  let ano     = fecha.getFullYear(); //obteniendo año
+  let hora    = fecha.getHours();
+  let minutos = fecha.getMinutes();
+  if(dia<10)
+    dia='0'+dia; //agrega cero si el menor de 10
+  if(mes<10)
+    mes='0'+mes //agrega cero si el menor de 10
+  document.getElementById('fecha_actu').value=ano+"-"+mes+"-"+dia;
+  document.getElementById('hora_actu').value=hora+":"+minutos
 
 </script>
 

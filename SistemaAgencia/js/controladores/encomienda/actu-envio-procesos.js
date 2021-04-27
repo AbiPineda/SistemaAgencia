@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 
 
-     //BOTON PARA AGREGAR
+ //BOTON PARA AGREGAR
 $(document).on('click', '#btn-informacion', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#informacion-form");  
@@ -22,6 +22,13 @@ $(document).on('click', '#btn-informacion', function (evento) {
          if (form.valid()) {
             add_actualizacion();
         }  
+        
+});
+
+//BOTON PARA ENTREGAR LA ENCOMIENDA
+$(document).on('click', '#btn-entregar', function (evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
+        entregar();  
         
 });
 
@@ -161,6 +168,59 @@ function mostrarHistorial(){
         ///ESTA PARTE ES PARA EL USUARIO PARA MOSTRARLOS
 }
 
+function entregar() {
+
+    	let data = {
+         "descripcion":         'Entregado',
+         "id_encomienda":        ID_ENCOMIENDA,
+         "fecha":                document.getElementById("fecha_actu").value,
+         "hora":                 document.getElementById("hora_actu").value
+         }; 
+
+        $.ajax({
+            url: URL_SERVIDOR+"Detalle_envio/entregar",
+            method: 'POST',
+            data: data
+
+        }).done(function (response) {
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                $('#historias').empty();
+                mostrarHistorial();
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "";
+
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                     //toastr.error(erroresEnvioDatos[mensaje]);
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
+            }
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: listaErrores,
+                showConfirmButton: true,
+            });
+
+        });
+
+
+}
+
 function add_actualizacion() {
 
     	let data = {
@@ -185,7 +245,8 @@ function add_actualizacion() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                
+                $('#historias').empty();
+                mostrarHistorial();
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
