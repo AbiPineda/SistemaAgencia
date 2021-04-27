@@ -131,7 +131,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="row">
                                         <div class="col-sm-6">
                                               <div class="form-group multiple-form-group input-group">
-                                                <label>Cliente</label>
+                                                <label class="text-success">Cliente</label>
                                                 <div class="input-group">
                                                     <label id="nombre_cliente"></label>
                                                 </div>
@@ -141,7 +141,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                                <label>Teléfono</label>
+                                                <label class="text-success">Teléfono</label>
                                                 <div class="input-group">
                                                 <label id="telefono"></label>
                                                 </div>
@@ -194,22 +194,21 @@ include_once '../../plantillas/barra_lateral.php';
                                               <div class="form-group multiple-form-group input-group">
                                                 <label>Nombre Completo</label>
                                                 <div class="input-group">
-                                                <input class="form-control" type="text" name="cliente_des" id="cliente_des" placeholder="Digite el nombre">
+                                                <label  id="cliente_des"></label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                                 <label>Teléfono</label>
                                                 <div class="input-group">
-                                                <input type="text" name="telefono_des" id="telefono_des"
-                                                class="form-control" autocomplete="off">
+                                                <label id="telefono_des"></label>
                                                 </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Ciudad</label>
                                                 <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad_des" id="ciudad_des" placeholder="Digite la ciudad de destino">
+                                            <label id="ciudad_des"></label>
                                                 </div>
 
                                             </div>
@@ -228,16 +227,19 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Dirección</label>
-                                                <input name="direccion" id="direccion" type="text" class="form-control"
-                                                    placeholder="Introduzca la Dirección">
+                                                <div class="input-group">
+                                                   <label id="direccion"></label>  
+                                                </div>
+                                               
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Dirección alterna</label>
-                                                <input name="direccion_alterna" id="direccion_alterna" type="text"
-                                                    class="form-control"
-                                                    placeholder="Ej: Correo El Salvador ó 2da, av sur, numero 34, barrio centro">
+                                                <div class="input-group">
+                                                 <label id="direccion_alterna"></label>   
+                                                </div>
+                                                
                                             </div>
                                         </div>            
                                     </div>
@@ -253,7 +255,7 @@ include_once '../../plantillas/barra_lateral.php';
                <div id="tabla">
                   <i class="fas fa-user bg-green"></i>
                   <div class="timeline-item">
-                     <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
+                     <h3 class="timeline-header no-border"><a href="#">Mostrando Información de productos</a></h3>
                      <div class="timeline-body">
                         <div class="row">
                            <div class="col-sm-12">

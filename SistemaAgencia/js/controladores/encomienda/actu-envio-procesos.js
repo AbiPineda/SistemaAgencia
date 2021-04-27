@@ -42,12 +42,12 @@ $(document).ready(function () {
             //.each para los datos destino
 
             $.each(response.Detalles_destino, function (i,pivote) {
-                $('#cliente_des').val(pivote.nombre_cliente_destini);
-                $('#telefono_des').val(pivote.telefono);
-                $('#ciudad_des').val(pivote.ciudad_destino);
-                $('#codigo_des').val(pivote.codigo_postal_destino);
-                $('#direccion').val(pivote.direccion_destino);
-                $('#direccion_alterna').val(pivote.alterna_destino);
+                $('#cliente_des').text(pivote.nombre_cliente_destini);
+                $('#telefono_des').text(pivote.telefono);
+                $('#ciudad_des').text(pivote.ciudad_destino);
+                $('#codigo_des').text(pivote.codigo_postal_destino);
+                $('#direccion').text(pivote.direccion_destino);
+                $('#direccion_alterna').text(pivote.alterna_destino);
             });
 
 
