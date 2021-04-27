@@ -143,15 +143,14 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-6">
                                                 <label>Teléfono</label>
                                                 <div class="input-group">
-                                                <input disabled="true" type="text" name="telefono" id="telefono"
-                                                class="form-control" autocomplete="off" placeholder="(503)7232-2345">
+                                                <label id="telefono"></label>
                                                 </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Ciudad</label>
                                                 <div class="input-group">
-                                            <input  type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Digite la ciudad de origen">
+                                            <label id="ciudad"></label>
                                                 </div>
 
                                             </div>
@@ -160,8 +159,10 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input name="codigo" id="codigo" type="text" class="form-control"
-                                                    placeholder="Introduzca el Código postal de origen">
+                                                <div class="input-group">
+                                                     <label id="codigo"></label>
+                                                </div>
+                                               
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -217,8 +218,10 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input name="codigo_des" id="codigo_des" type="text" class="form-control"
-                                                    placeholder="Introduzca el Código postal de destino">
+                                                <div class="input-group">
+                                                  <label id="codigo_des"></label>   
+                                                </div>
+                                               
                                             </div>
                                         </div>
 
@@ -267,7 +270,7 @@ include_once '../../plantillas/barra_lateral.php';
                                  <thead>
                                     <tr style="text-align: center;">
                                        <th>Producto</th>
-                                       <th>Costo</th>
+                                       <th>Costo($)</th>
                                        <th>Cantidad</th>
                                        <th>Sub Total</th>
                                        <th>Acción</th>

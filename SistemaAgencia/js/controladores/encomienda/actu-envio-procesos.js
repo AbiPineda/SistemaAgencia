@@ -32,18 +32,11 @@ $(document).ready(function () {
         }).done(function (response) {
             $.each(response.Encomiendas, function (i, index) {
                 $('#nombre_cliente').text(index.nombre);
-                $('#cliente').val(index.id_usuario);
-                $('#telefono').val(index.celular);
-                $('#ciudad').val(index.ciudad_origen);
-                $('#codigo').val(index.codigo_postal_origen);
-                $('#fecha').val(index.fecha);
-                $('#total').text(index.total_encomienda);
-                $('#comision').text(index.total_comision);
-                $('#totalCliente').text(index.total_cliente);
-                $('#id_encomienda').val(ID_ENCOMIENDA);
-                TOTAL= index.total_encomienda;
-                COMISION = index.total_comision;
-                TOTALCLIENTE = index.total_cliente;
+                $('#cliente').text(index.id_usuario);
+                $('#telefono').text(index.celular);
+                $('#ciudad').text(index.ciudad_origen);
+                $('#codigo').text(index.codigo_postal_origen);
+                $('#fecha').text(index.fecha);
             });
 
             //.each para los datos destino
