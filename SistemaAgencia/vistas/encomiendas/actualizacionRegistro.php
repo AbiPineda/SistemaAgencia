@@ -159,7 +159,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Código</label>
+                                                <label>Código postal</label>
                                                 <input name="codigo" id="codigo" type="text" class="form-control"
                                                     placeholder="Introduzca el Código postal de origen">
                                             </div>
@@ -216,7 +216,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Código</label>
+                                                <label>Código postal</label>
                                                 <input name="codigo_des" id="codigo_des" type="text" class="form-control"
                                                     placeholder="Introduzca el Código postal de destino">
                                             </div>
@@ -239,61 +239,6 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>            
                                     </div>
                                    
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- END timeline item -->
-              <!--timeline item-->
-                                  <div>
-                        <i class="fas fa-box-open bg-green"></i>
-                        <div class="timeline-item">
-                            <h3 class="timeline-header"><a href="#">Productos</a></h3>
-
-                            <div class="timeline-body">
-                                <form id="encomienda-form" name="register-form" onsubmit="return false">
-                                    <div class="row">
-                                       
-                                        <div class="col-sm-5">
-                                            <div class="form-group multiple-form-group input-group">
-                                                <label>Producto</label>
-                                                <div class="input-group">
-                                                    <select name="producto" id="id_producto"
-                                                        class="select2 select2-hidden-accessible form-control"
-                                                        data-placeholder="Seleccione Producto" style="width: 100%;">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <br>
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-add" id="producto-add"
-                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
-                                            </span>
-                                        </div>
-
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <label for="cars">Costo($)</label>
-                                                <input name="costo" id="costo" type="text" disabled class="form-control"
-                                                    placeholder="Costo">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-3">
-                                            <div class="form-group" id="mostrar">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                  
-                                    <div class="timeline-footer" style="text-align: right;">
-                                        <a class="btn btn-info btn-sm" id="agregarTabla"
-                                            style="color: white">Agregar</a>
-
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -346,37 +291,6 @@ include_once '../../plantillas/barra_lateral.php';
 
                </div>
                <!-- END timeline item -->
-                <!-- END timeline item -->
-                    <div>
-                        <i class="fas fa-box-open bg-green"></i>
-                        <div class="timeline-item">
-                            <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
-
-                            <div class="timeline-body">
-                                    <div class="row">
-
-                                        <div class="col-sm-12">
-
-                                                <label>Seleccione Imagenes</label>
-                                                <div class="file-loading">
-                                                    <input type="file" multiple name="fotos[]" id="fotos">
-                                                </div>
-                                            </div>
-                                       
-                                                                   
-                                    </div><br>
-                                <div class="timeline-footer" style="text-align: right;">
-                               <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
-                           style="color: white">Actualizar</button>
-                                <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                            </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- END timeline item -->
-
-               
                <!-- /.timeline-label -->
             </div>
             <!-- END timeline item -->
