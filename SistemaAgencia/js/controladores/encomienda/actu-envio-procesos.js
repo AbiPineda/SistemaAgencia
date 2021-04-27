@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 
      //BOTON PARA AGREGAR
-    $(document).on('click', '#btn-informacion', function (evento) {
+$(document).on('click', '#btn-informacion', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#informacion-form");  
        form.validate();
@@ -23,9 +23,9 @@ $(document).ready(function () {
             add_actualizacion();
         }  
         
-    });
+});
 
-    function mostrarDatos() {
+function mostrarDatos() {
         $.ajax({
             url: URL_SERVIDOR + 'Encomienda/encomiendaModificar?id_encomienda=' + ID_ENCOMIENDA,
             method: "GET"
@@ -56,9 +56,9 @@ $(document).ready(function () {
 
         });
 
-    }
+}
 
-     function inicializarTabla() {
+function inicializarTabla() {
         tabla = $("#add-tabla").DataTable({
             "responsive": true,
             "autoWidth": false,
@@ -114,9 +114,9 @@ $(document).ready(function () {
             ]
         });
 
-    }
+}
 
-    function mostrarHistorial(){
+function mostrarHistorial(){
     	//mostrar informacion
          $.ajax({
             type: "GET",
@@ -159,9 +159,9 @@ $(document).ready(function () {
         });
 
         ///ESTA PARTE ES PARA EL USUARIO PARA MOSTRARLOS
-    }
+}
 
-    function add_actualizacion() {
+function add_actualizacion() {
 
     	let data = {
          "descripcion":          document.getElementById("titulo_actu").value,
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //
+                
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -213,9 +213,9 @@ $(document).ready(function () {
         });
 
 
-    }
+}
     
-     function inicializarValidaciones() {
+function inicializarValidaciones() {
 
         $('#informacion-form').validate({
 
@@ -248,6 +248,6 @@ $(document).ready(function () {
             }
         });
 
-    }
+}
 
 });
