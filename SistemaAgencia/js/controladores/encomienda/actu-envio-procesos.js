@@ -31,7 +31,7 @@ $(document).ready(function () {
             method: "GET"
         }).done(function (response) {
             $.each(response.Encomiendas, function (i, index) {
-                $('#nombre_cliente').val(index.nombre);
+                $('#nombre_cliente').text(index.nombre);
                 $('#cliente').val(index.id_usuario);
                 $('#telefono').val(index.celular);
                 $('#ciudad').val(index.ciudad_origen);
