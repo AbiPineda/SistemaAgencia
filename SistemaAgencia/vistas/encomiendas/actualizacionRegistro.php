@@ -148,7 +148,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Ciudad</label>
+                                                <label class="text-success">Ciudad</label>
                                                 <div class="input-group">
                                             <label id="ciudad"></label>
                                                 </div>
@@ -158,7 +158,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Código postal</label>
+                                                <label class="text-success">Código postal</label>
                                                 <div class="input-group">
                                                      <label id="codigo"></label>
                                                 </div>
@@ -192,21 +192,21 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="row">
                                         <div class="col-sm-6">
                                               <div class="form-group multiple-form-group input-group">
-                                                <label>Nombre Completo</label>
+                                                <label class="text-success">Nombre Completo</label>
                                                 <div class="input-group">
                                                 <label  id="cliente_des"></label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                                <label>Teléfono</label>
+                                                <label class="text-success">Teléfono</label>
                                                 <div class="input-group">
                                                 <label id="telefono_des"></label>
                                                 </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Ciudad</label>
+                                                <label class="text-success">Ciudad</label>
                                                 <div class="input-group">
                                             <label id="ciudad_des"></label>
                                                 </div>
@@ -216,7 +216,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Código postal</label>
+                                                <label class="text-success">Código postal</label>
                                                 <div class="input-group">
                                                   <label id="codigo_des"></label>   
                                                 </div>
@@ -226,7 +226,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Dirección</label>
+                                                <label class="text-success">Dirección</label>
                                                 <div class="input-group">
                                                    <label id="direccion"></label>  
                                                 </div>
@@ -235,7 +235,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Dirección alterna</label>
+                                                <label class="text-success">Dirección alterna</label>
                                                 <div class="input-group">
                                                  <label id="direccion_alterna"></label>   
                                                 </div>
@@ -274,7 +274,7 @@ include_once '../../plantillas/barra_lateral.php';
                                        <th>Producto</th>
                                        <th>Costo($)</th>
                                        <th>Cantidad</th>
-                                       <th>Sub Total</th>
+                                       <th>Sub Total($)</th>
                                        <th>Acción</th>
                                        <th>id</th>
                                        <th>contador</th>
