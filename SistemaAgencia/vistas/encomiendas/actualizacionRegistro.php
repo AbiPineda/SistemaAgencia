@@ -340,33 +340,6 @@ include_once '../../plantillas/barra_lateral.php';
 
 
                         </div>
-                        <div class="row">
-                           <div class="col-md-1 col-md-offset-1"> </div>
-                           <div class="col-md-3  ">
-                              <label class="text-primary "> Total de Encomienda: </label>
-                           </div>
-                           <div class="col-md-3  ">
-                              <label id="total" class="text-primary "> $0</label>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-1 col-md-offset-1"> </div>
-                           <div class="col-md-3  ">
-                              <label class="text-success "> Comisión de Agencia: </label>
-                           </div>
-                           <div class="col-md-3  ">
-                              <label id="comision" class="text-success "> $0</label>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-1 col-md-offset-1"> </div>
-                           <div class="col-md-3  ">
-                              <label class="text-danger "> Total de cliente: </label>
-                           </div>
-                           <div class="col-md-3  ">
-                              <label id="totalCliente" class="text-danger "> $0</label>
-                           </div>
-                        </div>
                      </div>
                      <br> 
                   </div>
