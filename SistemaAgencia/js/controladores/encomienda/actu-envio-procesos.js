@@ -44,6 +44,14 @@ function mostrarDatos() {
                 $('#ciudad').text(index.ciudad_origen);
                 $('#codigo').text(index.codigo_postal_origen);
                 $('#fecha').text(index.fecha);
+
+                if (index.estado=='Entregado') {
+                	$('#btn-informacion').prop('disabled',true);
+                	$('#btn-entregar').prop('disabled',true);
+                }else{
+                	$('#btn-informacion').prop('disabled',false);
+                	$('#btn-entregar').prop('disabled',false);
+                }
             });
 
             //.each para los datos destino
@@ -130,7 +138,13 @@ function mostrarHistorial(){
             url: URL_SERVIDOR+"Detalle_envio/detalleEnvio?id_encomienda="+ID_ENCOMIENDA,
             success: function(data) {
             	//alert('estoy aqui');
-                if (data.detalles) {
+                if (data.detalles.length > 0) {
+                	//crear el boton cuando ya ayan registros
+                	let entregarDiv = $('#entregar-div');
+                	$('#entregar-div').empty();
+                    entregarDiv.append('<button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"'+
+                            'style="color: white">Entregar</button>');
+
                 	//alert('entre');
                 for (let i = 0, ien = data.detalles.length; i < ien; i++) {
                    // alert('paso');
@@ -151,6 +165,20 @@ function mostrarHistorial(){
                 }
             }else{
             	//vamos a poner un mensaje
+
+            	 var $select = $('#historias');
+                    $select.append('<div class="row">'+
+                                        '<div class="col-sm-12">'+
+                                               
+                                                '<div class="input-group">'+
+                                                '<label class="far fa-marker"></label>'+
+                                                 '<label class="text-success">No hay Registros</label>&nbsp'+
+                                                
+                                                '</div>'+
+                                        '</div>'+
+                                      '</div>');
+                  $('#entregar-div').empty();
+
             }
 
             },
@@ -183,6 +211,8 @@ function entregar() {
             data: data
 
         }).done(function (response) {
+        	 $('#historias').empty();
+                mostrarHistorial();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -190,9 +220,13 @@ function entregar() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                $('#historias').empty();
-                mostrarHistorial();
+                //desabilitado temporal en el momento que se ejecuto la acción
+                //cuando vuelva a cargar la pagina en el mostrarDatos()
+                //en esa funcion se va ha validar sengun el estado de la encomienda
+                $('#btn-informacion').prop('disabled',true);
+                 $('#entregar-div').empty();
             });
+
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
@@ -282,16 +316,16 @@ function inicializarValidaciones() {
 
             rules: {
                
-                unidad_medida:{
+                titulo_actu:{
                     required: true,
-                    minlength: 5
+                    minlength: 8
                 }
             },
             messages: {
                 
-                unidad_medida:{
-                    required:"Digite la unidad de medida",
-                    minlength:"El nombre producto debe tener una longitud minima de 7"
+                titulo_actu:{
+                    required:"Digite el titulo de la actualización",
+                    minlength:"El titulo debe tener una longitud minima de 8"
                 }
 
             },

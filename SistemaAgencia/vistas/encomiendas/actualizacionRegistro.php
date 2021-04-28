@@ -86,8 +86,11 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <div class="input-group">
                                              <button name="btn-informacion" id="btn-informacion" class="btn btn-info btn-sm"
                             style="color: white">Guardar</button>
-                             <button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"
+                            <div id="entregar-div">
+                                 <button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"
                             style="color: white">Entregar</button>
+                            </div>
+                            
                                                 </div>
 
                                             </div>
