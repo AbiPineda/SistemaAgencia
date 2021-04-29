@@ -411,6 +411,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Registrar Cotización</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= $base_url ?>vistas/vuelos/mostrarCotizaciones.php" class="nav-link">
                                 <i class="fas fa-ellipsis-v nav-icon"></i>
                                 <p>Mostrar Cotizaciones</p>
@@ -443,37 +449,7 @@
                     </ul>
                 </li>
                 <!--TERMINA VUELOS MIGRATORIA MENU-->
-                <li class="nav-header">COTIZACIONES</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
-                        <p>
-                            Cotización
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>vistas/vuelos/cotizarVuelo.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Vuelo</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>home.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Paquete</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $base_url ?>home.php" class="nav-link">
-                                <i class="fas fa-ellipsis-v nav-icon"></i>
-                                <p>Cotización de Tours</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
+                
                 <li class="nav-header">CONTROL</li>
 
                 <li class="nav-item has-treeview">
