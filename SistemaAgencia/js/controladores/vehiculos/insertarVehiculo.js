@@ -73,6 +73,7 @@ $(document).ready(function() {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
+                $('#id_renta').val('').trigger('change');
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

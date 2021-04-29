@@ -6,7 +6,7 @@ $(document).ready(function (){
     $(document).on('click', '#btn-unidad', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#unidad-form");  
-       form.validate();
+         form.validate();
          if (form.valid()) {
             add_unidad();
         }  

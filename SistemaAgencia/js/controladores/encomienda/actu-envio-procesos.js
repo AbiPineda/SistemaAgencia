@@ -270,7 +270,8 @@ function add_actualizacion() {
             data: data
 
         }).done(function (response) {
-        document.getElementById("informacion-form").reset();
+        //document.getElementById("informacion-form").reset();
+        $('#titulo_actu').val('');
 
             const Toast = Swal.mixin();
             Toast.fire({
