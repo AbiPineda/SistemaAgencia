@@ -6,11 +6,7 @@ $(document).ready(function (){
     $(document).on('click', '#btn-unidad', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#unidad-form");  
-<<<<<<< Updated upstream
-         form.validate();
-=======
         form.validate();
->>>>>>> Stashed changes
          if (form.valid()) {
             add_unidad();
         }  
