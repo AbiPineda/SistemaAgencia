@@ -54,7 +54,7 @@
                         <div id="" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="tabla_mantenimientos" class="table table-bordered table-striped">
+                                    <table id="tabla_alquilados" class="table table-bordered table-striped">
                                         <thead style="text-align: center;">
                                             <tr>
                                                 <th>ID Alquiler</th>
@@ -296,7 +296,6 @@ $(function() {
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/vehiculos-alquilados.js"></script>
-<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->

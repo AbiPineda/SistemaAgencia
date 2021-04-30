@@ -29,7 +29,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Precio</label>
-                                            <input type="number" min=0 name="precio" id="precio" class="form-control"
+                                            <input type="number" min="1" name="precio" id="precio" class="form-control"
                                                 placeholder="Digite precio">
                                         </div>
                                     </div>
@@ -63,5 +63,6 @@
     <!-- /.modal-dialog -->
 </div>
 
-
+<script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarServicios.js"></script>

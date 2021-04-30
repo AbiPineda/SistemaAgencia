@@ -45,7 +45,7 @@ $(document).ready(function() {
 
         }).always(function(xhr, opts) {
             $('#modal-editar').modal('show');
-         //   $('#loadingActualizar').hide();
+            $('#loadingActualizar').hide();
         });
     });
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
     })
 
     function inicializarTabla() {
-        tabla = $("#tabla_mantenimientos").DataTable({
+        tabla = $("#tabla_alquilados").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,

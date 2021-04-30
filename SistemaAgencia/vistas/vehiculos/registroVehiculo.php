@@ -269,74 +269,24 @@ include_once '../../plantillas/cabecera.php';
                                 </h3>
                                 <div class="timeline-body">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card card-outline card-lightblue">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        Descripciones del Vehiculo
-                                                    </h3>
-                                                    <!-- tools box -->
-                                                    <div class="card-tools">
-                                                        <button type="button" class="btn btn-tool btn-sm"
-                                                            data-card-widget="collapse" data-toggle="tooltip"
-                                                            title="Collapse">
-                                                            <i class="fas fa-minus"></i></button>
-
-                                                    </div>
-                                                    <!-- /. tools -->
-                                                </div>
-                                                <!-- /.card-header -->
-                                                <div class="card-body pad">
-                                                    <div class="mb-3">
-                                                        <textarea class="textarea" name="descripcion" id="descripcion"
-                                                            placeholder="Digite Descripción del Vehiculo"
-                                                            style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                                    </div>
-                                                </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" id="descripcion"
+                                                    name="descripcion"
+                                                    placeholder="Digite Descripción del Vehiculo"></textarea>
                                             </div>
                                         </div>
-                                        <!-- /.col-->
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card card-outline card-lightblue">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        Detalles Adicionales del Vehiculo
-                                                    </h3>
-                                                    <!-- tools box -->
-                                                    <div class="card-tools">
-                                                        <button type="button" class="btn btn-tool btn-sm"
-                                                            data-card-widget="collapse" data-toggle="tooltip"
-                                                            title="Collapse">
-                                                            <i class="fas fa-minus"></i></button>
-
-                                                    </div>
-                                                    <!-- /. tools -->
-                                                </div>
-                                                <!-- /.card-header -->
-                                                <div class="card-body pad">
-                                                    <div class="mb-3">
-                                                        <textarea class="textarea" name="detalle" id="detalle"
-                                                            placeholder="Digite Detalles Adicionales del Vehiculo"
-                                                            style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-
-                                                    <label>Comprobante de Detalles (opcional)</label>
-                                                    <div class="file-loading">
-                                                        <input type="file" name="fotosDocumentos" id="fotosDocumentos">
-                                                    </div>
-                                                </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" id="detalle"
+                                                    name="detalle"
+                                                    placeholder="Digite Detalles Adicionales del Vehiculo"></textarea>
                                             </div>
                                         </div>
-
-                                        <!-- /.col-->
                                     </div>
+
 
                                     <br>
                                     <div class="timeline-footer" style="text-align: right;">
