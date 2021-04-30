@@ -23,7 +23,7 @@
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
-                  <li class="breadcrumb-item active">Registrar Tur</li>
+                  <li class="breadcrumb-item active">Registrar Tours</li>
                </ol>
             </div>
          </div>
@@ -52,7 +52,7 @@
                               <div class="row">
                                  <div class="col-sm-3">
                                     <div class="form-group">
-                                       <label>Titulo del viaje</label>
+                                       <label>Título del viaje</label>
                                        <div class="input-group">
                                           <input placeholder="Digite el Título" type="text" class="form-control"
                                              id="nombreTours" name="nombreTours">
@@ -82,7 +82,7 @@
                                  </div>
                                  <div class="col-sm-3">
                                     <div class="form-group">
-                                       <label>Numero de Pasajeros</label>
+                                       <label>Número de Pasajeros</label>
                                        <!-- placeholder="dd-mm-yyyy"  type="date"  -->
                                        <div class="input-group">
                                           <input class="form-control" type="number" name="cantidad" id="cantidad">
@@ -195,7 +195,7 @@
                            <div class="timeline-body">
                               <div class="row">
                                  <div class="col-sm-4">
-                                    <label>Titulo de la Promocion</label>
+                                    <label>Título de la Promoción</label>
                                  </div>
                                  <div class="col-sm-4">
                                     <label>Número de Asientos</label>
@@ -238,14 +238,14 @@
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border">
-                              <a href="#">Galería de Imagenes</a>
+                              <a href="#">Galería de Imágenes</a>
                            </h3>
                            <div class="timeline-body">
 
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione Imagenes</label>
+                                    <label>Seleccione Imágenes</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotos[]" id="fotos">
                                     </div>

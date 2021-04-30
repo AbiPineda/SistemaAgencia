@@ -8,15 +8,14 @@ include_once './plantillas/barra_lateral.php';
 
 <!-- Content Wrapper. Contains page content -->
 <div id="contenido_principal">
-   <div class="content-wrapper">
+   <div class="content-wrapper" style="min-height: 100;">
       <!-- Main content -->
       <section class="content">
          <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-               <img style="width: 100%;" src="img/fondo.jpg" alt="imagen de fondo">
+               <img style="width: 100%; heingt: 100%;" src="img/fondo.jpg" alt="imagen de fondo">
             </div> <!-- /.cierre row -->
-
          </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->

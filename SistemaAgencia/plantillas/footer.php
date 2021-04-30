@@ -1,19 +1,6 @@
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.0.4
-    </div>
-    <strong>Todos los derechos reservados &copy; <a href="#">UES 2020 </a>.</strong>
-
-
-
+<footer class="main-footer" >  
+    <strong >Todos los derechos reservados &copy; <a href="#">UES 2020 </a>.</strong>
 </footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
-
 
 </div>
 <!-- ./wrapper -->
