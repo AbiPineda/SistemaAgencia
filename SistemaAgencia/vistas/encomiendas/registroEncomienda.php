@@ -371,7 +371,7 @@ include_once '../../plantillas/cabecera.php';
 
                             </div>
                         </form>
-                        <form id="combo-form" name="register-form" onsubmit="return false">
+                        <form id="unidadre-form" name="register-form" onsubmit="return false">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -452,7 +452,7 @@ $("#telefono_des").inputmask({"mask": "(999) 9999-9999"});
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad-re.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
 <!--fecha actual-->

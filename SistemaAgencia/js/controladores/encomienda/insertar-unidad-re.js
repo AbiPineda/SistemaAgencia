@@ -1,35 +1,34 @@
 $(document).ready(function (){
 
-    inicializarValidaciones();
+    //inicializarValidaciones();
   
     //BOTON PARA AGREGAR
     $(document).on('click', '#btn-unidad', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#unidad-form");  
-<<<<<<< Updated upstream
-         form.validate();
-=======
-        form.validate();
->>>>>>> Stashed changes
-         if (form.valid()) {
-            add_unidad();
-        }  
+
+         let unidad = document.querySelector('#unidad_medida').value.length;
+        //alert(cantidad);
+        if (unidad > 5) {
+              add_unidad();
+           
+        } else {     
+            errors = { unidad_medida: "El nombre de la unidad debe tener una longitud minima de 5" };
+            $("#unidadre-form").validate().showErrors(errors);
+        }
         
     });
 
   function inicializarValidaciones() {
 
-        $('#unidad-form').validate({
+        $('#unidadre-form').validate({
 
             rules: {
-               
                 unidad_medida:{
-                    required: true,
+                    required: false,
                     minlength: 5
                 }
             },
             messages: {
-                
                 unidad_medida:{
                     required:"Digite la unidad de medida",
                     minlength:"El nombre producto debe tener una longitud minima de 7"
@@ -57,10 +56,10 @@ function add_unidad() {
         $.ajax({
             url: URL_SERVIDOR+"Producto/unidad",
             method: 'POST',
-            data: $("#unidad-form").serialize()
+            data: $("#unidadre-form").serialize()
 
         }).done(function (response) {
-        document.getElementById("unidad-form").reset();
+        document.getElementById("unidadre-form").reset();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',

@@ -6,7 +6,7 @@ $(document).ready(function (){
     $(document).on('click', '#btn-producto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#register-form");
-        let form1 = $("#combo-form");
+        let form1 = $("#unidadre-form");
 
         form.validate();
         if (form.valid()) {
@@ -54,25 +54,17 @@ $(document).ready(function (){
             }
         });
 
-        $('#combo-form').validate({
+        $('#unidadre-form').validate({
 
             rules: {
                 id_unidad: {
                     required: true
-                },
-                unidad_medida:{
-                    required: false,
-                    minlength: 5
                 }
             },
             messages: {
                
                  id_unidad:{
                     required:"Seleccione la Unidad"
-                },
-                unidad_medida:{
-                    required:"Digite la unidad de medida",
-                    minlength:"El nombre producto debe tener una longitud minima de 7"
                 }
             },
             errorElement: 'span',
