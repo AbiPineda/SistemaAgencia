@@ -25,8 +25,8 @@ $(document).ready(function() {
             form.append('fotos[]', galeria[i]);
         }
 
-        let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
-        form.append('foto', galeriaDocumentos);
+       // let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
+        //form.append('foto', galeriaDocumentos); 
 
         let comboOpciones = $("#opc_avanzadas").select2('data');
         let arregloOpciones = [];

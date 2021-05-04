@@ -4,6 +4,22 @@
         const estadoReservado =2;
         inicializarValidacion();
         
+        let tabla = $('#add-tabla').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "pageLength": 3,
+            "responsive": true, 
+            "columnDefs": [
+                { "className": "dt-center", "targets": "_all" },
+                // { "targets": [5], "visible": false },
+                // { "targets": [6], "visible": false },
+            ]
+    
+        });
     
         $("#btnGuardar").on('click', function(e) {
             e.preventDefault();
@@ -30,6 +46,26 @@
                 form.append("fechaHora_detalle", document.getElementById("fecha_salida").value);
                 form.append("total_detalle", document.getElementById("emergencia").value);
                 form.append("activo_detalle", estadoReservado);
+
+                let detalle_servicios = [];
+
+                tabla.rows().every(function(value, index) {
+                    let data = this.data();
+        
+                    let servicios = data[0];
+                    let costo_servicios = data[1];
+                    let cantidad_servicios = data[2];
+        
+                    detalle_servicios.push({
+                        "servicio_adicional": servicios,
+                        "costo_servicio": costo_servicios,
+                        "cantidad_servicio": cantidad_servicios
+        
+                    });
+                });
+                form.append("detalle_servicios", JSON.stringify(detalle_servicios));
+
+              
     
                 $.ajax({
                     url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",
