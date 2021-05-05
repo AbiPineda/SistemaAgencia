@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let explorer = $("#kv-explorer");
     let id_pregunta;
     let tabla;
 

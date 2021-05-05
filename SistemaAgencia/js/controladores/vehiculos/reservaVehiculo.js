@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
 
-    let tabla = $('#add-tabla').DataTable({
+    let tabla = $('#add-tablaR').DataTable({
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -26,8 +26,7 @@ $(document).ready(function() {
             { "className": "dt-center", "targets": "_all" },
             // { "targets": [5], "visible": false },
             // { "targets": [6], "visible": false },
-        ],
-        columns: [
+        ],columns: [
             { data: "servicio" },
             { data: "costo" },
             { data: "cantidad" },
@@ -36,7 +35,6 @@ $(document).ready(function() {
             { data: "id_servicio" },
             { data: "contador" },
         ]
-
     });
 
     $(document).on('click', '#agregarTabla', function(evento) {
@@ -233,35 +231,35 @@ $(document).ready(function() {
             form.validate();
             if (form.valid()) {
     
-                let comboServicios = $("#comboServicio").select2('data');
+                /*let comboServicios = $("#comboServicio").select2('data');
                 let arregloServicios = [];
                
                 for (let index = 0; index < comboServicios.length; index++) {
                     arregloServicios.push(comboServicios[index].text);
                 }
-                console.log(arregloServicios);
+                console.log(arregloServicios);*/
+
               
                 let form = new FormData();
-                let detalle_servicios = [];
+                
                 form.append("id_vehiculo", ID_VEHICULO);
                 form.append("id_cliente", document.getElementById("comboUsuario").value);
                 form.append("direccionRecogida_detalle", document.getElementById("direccionR").value);
                 form.append("direccionDevolucion_detalle", document.getElementById("direccionD").value);
                 
-                form.append("nombre_detalle", arregloServicios);
+               // form.append("nombre_detalle", arregloServicios);
         
                 form.append("fechaHora_detalle", document.getElementById("fecha_salida").value);
                 form.append("total_detalle", document.getElementById("emergencia").value);
                 form.append("activo_detalle", estadoReservado);
 
-                
-
+                let detalle_servicios = [];
                 tabla.rows().every(function(value, index) {
                     let data = this.data();
         
-                    let servicios = data[0];
-                    let costo_servicios = data[1];
-                    let cantidad_servicios = data[2];
+                    let servicios = data['servicio'];
+                    let costo_servicios = data['costo'];
+                    let cantidad_servicios = data['cantidad'];
         
                     detalle_servicios.push({
                         "servicio_adicional": servicios,
@@ -271,12 +269,11 @@ $(document).ready(function() {
                     });
                 });
                 form.append("detalle_servicios", JSON.stringify(detalle_servicios));
-
-              
     
                 $.ajax({
                     url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",
-                    method: 'POST',
+                    method: "POST",
+                    mimeType: "multipart/form-data",
                     data: form,
                     timeout: 0,
                     processData: false,

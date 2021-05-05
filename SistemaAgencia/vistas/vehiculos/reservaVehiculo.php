@@ -152,7 +152,7 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                         <!-- END timeline item -->
                         <!-- timeline item -->
-                        <div id="tabla">
+                        <div id="tabla-servicios">
                             <i class="fas fa-clipboard-list bg-red"></i>
                             <div class="timeline-item">
                                 <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
@@ -160,7 +160,7 @@ include_once '../../plantillas/barra_lateral.php';
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div id="adicionados"></div>
-                                            <table id="add-tabla" class="table table-bordered table-hover">
+                                            <table id="add-tablaR" class="table table-bordered table-hover">
                                                 <thead>
                                                     <tr style="text-align: center;">
                                                         <th>Servicio</th>
