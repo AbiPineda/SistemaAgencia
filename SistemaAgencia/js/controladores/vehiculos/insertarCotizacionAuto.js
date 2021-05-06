@@ -6,7 +6,7 @@ $(document).ready(function() {
         e.preventDefault();
         let myData = {
 
-            "id_usuario": document.getElementById("id_cliente").value,
+            "id_usuario": document.getElementById("comboUsuario").value,
             "modelo": document.getElementById("id_modelo").value,
             "anio": document.getElementById("anio").value,
             "caracteristicas": document.getElementById("caracteristicas").value,

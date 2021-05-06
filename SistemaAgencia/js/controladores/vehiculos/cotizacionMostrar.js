@@ -20,7 +20,7 @@ $(document).ready(function() {
             for (let i = 0, ien = response.cotizacion.length; i < ien; i++) {
 
                 document.getElementById("nombre").value = response.cotizacion[i].nombre;
-                document.getElementById("nombreVehiculo").value = response.cotizacion[i].nombreVehiculo;
+                document.getElementById("nombreVehiculo").value = response.cotizacion[i].modelo;
                 document.getElementById("anio").value = response.cotizacion[i].anio;  
                 document.getElementById("direccion_recogida").value = response.cotizacion[i].direccion_recogida;
                 document.getElementById("fechaRecogida").value = response.cotizacion[i].fechaRecogida;
@@ -29,7 +29,9 @@ $(document).ready(function() {
                 document.getElementById("fechaDevolucion").value = response.cotizacion[i].fechaDevolucion;
                 document.getElementById("HoraDevolucion").value = response.cotizacion[i].HoraDevolucion;
                 document.getElementById("caracteristicas").value = response.cotizacion[i].caracteristicas;
-              
+                document.getElementById("descuentosA").value = response.cotizacion[i].descuentosCotizacion;
+                document.getElementById("totalA").value = response.cotizacion[i].totalCotizacion;
+                document.getElementById("respuestaA").value = response.cotizacion[i].respuestaCotizacion;
                 
             }
 
@@ -58,7 +60,7 @@ $(document).ready(function() {
                 $('#emailC').text(response.cotizacion[i].correo);
                 $('#telefonoC').text(response.cotizacion[i].celular);
 
-                $('#nombreVehiculoC').text(response.cotizacion[i].nombreVehiculo);
+                $('#nombreVehiculoC').text(response.cotizacion[i].modelo);
                 $('#anioC').text(response.cotizacion[i].anio);
 
                 $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
@@ -68,6 +70,9 @@ $(document).ready(function() {
                 $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
                 $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
                 $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
+
+                $('#descuent').text(response.cotizacion[i].descuentosCotizacion);
+                $('#tot').text(response.cotizacion[i].totalCotizacion);
             }
 
         }).fail(function(response) {
@@ -158,7 +163,7 @@ $(document).ready(function() {
             },
             columns: [
                 { data: "nombre" },
-                { data: "nombreVehiculo" },
+                { data: "modelo" },
                 { data: "anio" },
                 { data: "botones" },
             ]
@@ -215,7 +220,10 @@ $(document).ready(function() {
             "HoraRecogida": document.getElementById("HoraRecogida").value,
             "direccion_devolucion": document.getElementById("direccion_devolucion").value,
             "fechaDevolucion": document.getElementById("fechaDevolucion").value,
-            "HoraDevolucion": document.getElementById("HoraDevolucion").value
+            "HoraDevolucion": document.getElementById("HoraDevolucion").value,
+            "descuentosCotizacion": document.getElementById("descuentosA").value,
+            "totalCotizacion": document.getElementById("totalA").value,
+            "respuestaCotizacion": document.getElementById("respuestaA").value
 
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO

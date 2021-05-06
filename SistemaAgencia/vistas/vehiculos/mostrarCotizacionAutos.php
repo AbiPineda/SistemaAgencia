@@ -209,6 +209,31 @@
                                         style="width: 100%; height: 50px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Descuentos (%)</label>
+                                    <div class="input-group">
+                                        <input id="descuentosA" name="descuentosA" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Total ($)</label>
+                                    <div class="input-group">
+                                        <input id="totalA" name="totalA" type="text" class="form-control">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Respuesta</label>
+                                    <textarea class="textarea" name="respuestaA" id="respuestaA"
+                                        style="width: 100%; height: 50px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -394,7 +419,9 @@
 
                                                                         <td><label name="fechaDevolucionC"
                                                                                 id="fechaDevolucionC"
-                                                                                style="font-weight: normal;" data-date="" data-date-format="DD MMMM YYYY"></label>
+                                                                                style="font-weight: normal;"
+                                                                                data-date=""
+                                                                                data-date-format="DD MMMM YYYY"></label>
                                                                         </td>
                                                                         <td><label name="HoraDevolucionC"
                                                                                 id="HoraDevolucionC"
@@ -408,11 +435,31 @@
                                                     </div>
                                                     <div class="row">
                                                         <!-- accepted payments column -->
-                                                        <div class="col-md-6">
+                                                        <div class="col-6">
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+
+                                                                    <tr>
+                                                                        <th>Descuentos (%)</th>
+                                                                        <td><label name="descuent" id="descuent"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Total ($)</th>
+                                                                        <td><label name="tot" id="tot"
+                                                                                style="font-weight: normal;"></label>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </table>
+                                                            </div>
+
                                                         </div>
                                                         <div class="row no-print">
+
                                                             <div class="col-md-12">
                                                                 <button target="_blank" id="doPrint"
                                                                     class="btn btn-default"><i class="fas fa-print"></i>
@@ -467,10 +514,11 @@ $(function() {
 
 })
 </script>
-<script> 
-$("label").on("change", function() { 
-this.setAttribute( "data-date", moment(this.value, "YYYY-MM-DD") .format( this.getAttribute("data-date-format") ) ) 
-}).trigger("change") 
+<script>
+$("label").on("change", function() {
+    this.setAttribute("data-date", moment(this.value, "YYYY-MM-DD").format(this.getAttribute(
+        "data-date-format")))
+}).trigger("change")
 </script>
 
 <!-- SCRIPT ADICIONALES -->
