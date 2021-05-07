@@ -81,7 +81,26 @@
                             </div>
 
                             <div class="form-group col-md-8">
-                               <label>N° pasaporte</label>
+                               <label>N° pasaporte de las personas</label>
+                             <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="asistiran[]" id="asistiran" disabled="true" class="form-control" placeholder="Digite el nombre">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran" disabled="true" style="margin-top:0px;">+</button>
+                             </span>
+                             </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-4">
+                                
+
+                            </div>
+
+                            <div class="form-group col-md-8">
+                               <label>N° pasaporte del cliente</label>
                               <input type="text" id="txtFecha"  name="pasaporte" class="form-control" placeholder="A12345878" />
                                 
                             </div>
