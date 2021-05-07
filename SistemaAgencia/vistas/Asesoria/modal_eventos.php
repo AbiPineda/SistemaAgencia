@@ -85,7 +85,7 @@
                              <div class="form-group multiple-form-group input-group">
                               <input type="text" name="pasaporte_personas[]" id="pasaporte_personas" disabled="true" class="form-control" placeholder="Digite el pasaporte">
                               <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran" disabled="true" style="margin-top:0px;">+</button>
+                              <button type="button" class="btn btn-success btn-add" id="btn-pasaportes" disabled="true" style="margin-top:0px;">+</button>
                              </span>
                              </div>
                                 
