@@ -1,3 +1,4 @@
+
 let DATA_ALIANZA;
 
 $(document).ready(function() {
@@ -5,7 +6,6 @@ $(document).ready(function() {
     $.ajax({
         type: "GET",
         url: URL_SERVIDOR + "alianzas/alianzas",
-        async: false,
         dataType: "json",
         success: function(data) {
 
