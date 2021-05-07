@@ -105,6 +105,9 @@ $(document).ready(function() {
 $(document).ready(function() {
    $('#timepicker2').mdtimepicker(); //Initializes the time picker
 });
+
+$('#loadingActualizar').hide();
+
 </script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

@@ -2,17 +2,23 @@
   <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/operaciones.js"></script>
 
     <!--modal alternativo para los eventos-->
-    <div class="modal fade" id="modal_registro" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="modal_registro">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="">Registro de cita</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="register-form" name="register-form" onsubmit="return false" role="form">
+
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Registro de cita</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                   <form id="register-form" name="register-form" onsubmit="return false" role="form">
                 <div class="modal-body">
                         <div class="form-row">
                              <div class="form-group col-md-4">
@@ -124,8 +130,11 @@
                     <button type="button" class="btn btn-danger btn-sm" style="color: white" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
+                </div>
+
             </div>
         </div>
+        <!-- /.modal-content -->
     </div>
     <!--fin de modal de enventos-->
 
