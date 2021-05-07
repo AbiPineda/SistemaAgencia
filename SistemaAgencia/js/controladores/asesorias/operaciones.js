@@ -8,10 +8,12 @@
             if ($(this).val() === "1") {
                 $("#btn-asistiran").prop("disabled",true);
                 $("#asistiran").prop("disabled", true);
+                $("#pasaporte_personas").prop("disabled",true);  
             }
             if ($(this).val() === "0") {
                 $("#btn-asistiran").prop("disabled",false);
-                $("#asistiran").prop("disabled", false);    
+                $("#asistiran").prop("disabled", false);
+                $("#pasaporte_personas").prop("disabled", false);    
             }
         });
     });
