@@ -521,6 +521,8 @@ $("label").on("change", function() {
 }).trigger("change")
 </script>
 
+
+
 <!-- SCRIPT ADICIONALES -->
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>

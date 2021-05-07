@@ -21,8 +21,8 @@
 
                                         <div class="form-group">
                                             <label>Nombre de Alianza</label>
-                                            <input type="text" class="form-control" name="nombreAlianza" id="nombreAlianza"
-                                                placeholder="Digite nombre de alianza">
+                                            <input type="text" class="form-control" name="nombreAlianza"
+                                                id="nombreAlianza" placeholder="Digite nombre de alianza">
                                         </div>
                                         <div class="form-group">
                                             <label>URL de Sitio Web</label>
@@ -32,8 +32,10 @@
 
                                         <div class="form-group">
                                             <label>Telefono de Contacto</label>
-                                            <input type="text" class="form-control" name="telef" id="telef"
-                                                placeholder="Digite nombre telefono de contacto">
+                                            <div class="input-group">
+                                                <input placeholder="7765-4321" type="text" class="form-control"
+                                                   id="telef" name="telef">
+                                             </div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,5 +55,9 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.js"></script>
+
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/insertarAlianza.js"></script>

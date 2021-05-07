@@ -1,5 +1,5 @@
 $("#btnAgregar").on('click', function(e) {
-
+    inicializarMascara();
     e.preventDefault();
 
     let myData = {
@@ -54,5 +54,10 @@ $("#btnAgregar").on('click', function(e) {
 
     })
 
+    function inicializarMascara() {
+        let telef = $('#telef');
+        telef.inputmask("(+123) 1234-5678");
+        telef.inputmask({ "mask": "(+999) 9999-9999" });
+    }
 
 });
