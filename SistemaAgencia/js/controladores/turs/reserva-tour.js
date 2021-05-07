@@ -241,23 +241,23 @@ $(document).ready(function () {
       let form = new FormData();
       let id_cliente = document.getElementById('comboUsuario').value;
 
-      let total = 0.0;
+      let totalPago = 0.0;
       let cantidad_asientos = 0;
       let descripcionReserva = '';
 
       ASIENTOS_SELECCIONADOS.forEach((element) => {
-         total += parseFloat(element.subTotal);
-         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`  
+         totalPago += parseFloat(element.subTotal);
+         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub Total: $${element.subTotal}\n`  
          cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
       });
-      descripcionReserva = `${descripcionReserva}  Total : $${total}`
+      descripcionReserva = `${descripcionReserva}  Total : $${totalPago}`
     
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
       form.append("asientos_seleccionados", "NO_SELECCIONADO");
       form.append("label_asiento", "NO_LABEL");
       form.append("nombre_producto", nombre_producto);
-      form.append("total", total);
+      form.append("total", totalPago);
       form.append("descripcionProducto", descripcionReserva);
       form.append("cantidad_asientos", cantidad_asientos);
 
