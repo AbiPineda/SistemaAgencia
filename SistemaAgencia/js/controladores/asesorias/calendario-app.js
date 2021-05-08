@@ -79,6 +79,7 @@
 
                 if (calEvent.compania==0) {
                     $('#inputs').empty();//vaciar los inputs dinamicos
+                    $('#inputsPasa').empty();//vaciar los inputs dinamicos
                     //que los vacie y despues que los muestre...
                     $('#asistiran2').prop("disabled",false);
                     $('#btn-asistiran2').prop("disabled",false);
@@ -112,7 +113,8 @@
                 }else{
                    $('#asistiran2').prop("disabled",true);
                    $('#btn-asistiran2').prop("disabled",true); 
-                     $('#inputs').empty();
+                   $('#inputs').empty();
+                    $('#inputsPasa').empty();
                 }
                 $('#id_cliente').val(calEvent.id_cita);
                 $('#modal_eventos').modal();
