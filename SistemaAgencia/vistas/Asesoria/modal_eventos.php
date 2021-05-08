@@ -155,8 +155,7 @@
                    <form id="update-form" onsubmit="return false">
                 <div class="modal-body">
                         <div class="form-row">
-                            <div class="form-group col-md-2"></div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-2">
                               <input type="hidden" id="txtFecha3" name="fecha" class="form-control"/>
                               <input type="hidden" id="txtId" name="id_cita" class="form-control"/>
                                  <label>Fecha</label>
@@ -172,13 +171,8 @@
                                  <option value=0>No</option>
                              </select>
                              </div>
-                            
-                        </div>
 
-                        <div class="form-row">
-                            
-                        <div class="form-group col-md-2"></div>
-                        <div class="form-group col-md-8">
+                          <div class="form-group col-md-6">
                             <div id="recargar2">
                                 <label>¿Personas que asistirán ?</label>
                               <div id="inputs"></div>
@@ -195,19 +189,27 @@
                             
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-4"> 
-                                <input type="hidden" class="form-control" id="txtTitulo" name="title"
-                                value="Asesoria" />
-                            </div>
 
-                            <div class="form-group col-md-4">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
                                 <label>Hora de la cita</label>
                                 <div class="input-group clockpicker" data-autoclose="true">
                             <input type="text" id="timepicker2" name="start" class="form-control" />
 
                                 </div>
+                                <input type="hidden" class="form-control" id="txtTitulo" name="title"
+                                value="Asesoria" />
+                            </div>
 
+                            <div class="form-group col-md-6">
+                               <label>N° pasaporte de las personas</label>
+                             <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="pasaporte_personas[]" id="pasaporte_personas2" disabled="true" class="form-control" placeholder="Digite el pasaporte">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add" id="btn-pasaportes2" disabled="true" style="margin-top:0px;">+</button>
+                             </span>
+                             </div>
+                                
                             </div>
                             
                         </div>
@@ -220,13 +222,6 @@
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
-
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
-                            style="color: white">Guardar</button>
-                    </div>
-
                 </div>
 
             </div>
