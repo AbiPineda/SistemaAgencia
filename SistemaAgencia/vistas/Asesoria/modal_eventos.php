@@ -136,17 +136,23 @@
 
  <!-- ./otro modal*************************** -->
     <!--modal alternativo para los eventos-->
-    <div class="modal fade" id="modal_eventos" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+   <div class="modal fade" id="modal_eventos">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tituloEvento">Titulo del evento</h5>
+
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizarEventos" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                       <h5 class="modal-title" id="tituloEvento">Titulo del evento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
-                <form id="update-form" onsubmit="return false">
+                    </div>
+                   <form id="update-form" onsubmit="return false">
                 <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-2"></div>
@@ -214,8 +220,18 @@
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
+        <!-- /.modal-content -->
     </div>
     <!--fin de modal de enventos-->
   

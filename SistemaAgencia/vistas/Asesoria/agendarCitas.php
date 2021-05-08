@@ -107,6 +107,7 @@ $(document).ready(function() {
 });
 
 $('#loadingActualizar').hide();
+$('#loadingActualizarEventos').hide();
 
 </script>
 <!-- CIERRE DE ETIQUETAS -->
