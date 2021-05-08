@@ -26,10 +26,14 @@
             if ($(this).val() === "1") {
                 $("#btn-asistiran2").prop("disabled",true);
                 $("#asistiran2").prop("disabled", true);
+                $("#pasaporte_personas2").prop("disabled", true);
+                $("#btn-pasaportes2").prop("disabled", true);
             }
             if ($(this).val() === "0") {
                 $("#btn-asistiran2").prop("disabled",false);
-                $("#asistiran2").prop("disabled", false);    
+                $("#asistiran2").prop("disabled", false);
+                $("#pasaporte_personas2").prop("disabled", false);
+                $("#btn-pasaportes2").prop("disabled", false);     
             }
         });
     });
