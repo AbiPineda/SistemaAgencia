@@ -82,20 +82,25 @@
                     //que los vacie y despues que los muestre...
                     $('#asistiran2').prop("disabled",false);
                     $('#btn-asistiran2').prop("disabled",false);
+                    $("#pasaporte_personas2").prop("disabled", false);
+                    $("#btn-pasaportes2").prop("disabled", false);
                     //para mostrar en el input de las personas que asitiran
                 $(document).ready(function() {
 
                  $.ajax({
                  type: "GET",
-                 url: 'http://localhost/API-REST-PHP/index.php/PersonasCitas/personas/'+calEvent.id_cita,
+                 url: URL_SERVIDOR+'PersonasCitas/personas/'+calEvent.id_cita,
                  async: false,
                 dataType: "json",
                     success: function(data) {
 
-                var $select = $('#inputs');
-                $.each(data.personas, function(i, name) {
-                    $select.append('<input id="input" name="input[]" class="form-control" value="'+name.nombres_personas+'">');
-                      });
+                let $select = $('#inputs');
+                let $selectPas=$('#inputsPasa');
+                $.each(data.personas, function(i,index) {
+                    $select.append('<input id="input" name="input[]" class="form-control" value="'+index.nombres_personas+'">');
+                    $selectPas.append('<input id="inputPas" name="inputPas[]" class="form-control" value="'+index.pasaporte_personas+'">');  
+                  });
+
                  },
                 error: function(data) {
                 //alert('error');

@@ -202,7 +202,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                               <label>N° pasaporte de las personas</label>
+                              <label>N° pasaporte de las personas</label>
+                              <div id="inputsPasa"></div>
                              <div class="form-group multiple-form-group input-group">
                               <input type="text" name="pasaporte_personas[]" id="pasaporte_personas2" disabled="true" class="form-control" placeholder="Digite el pasaporte">
                               <span class="input-group-btn">

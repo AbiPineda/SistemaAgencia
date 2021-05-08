@@ -179,7 +179,7 @@ include_once '../../plantillas/barra_lateral.php';
 ?>
 
 <!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/tabla-abierta.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
