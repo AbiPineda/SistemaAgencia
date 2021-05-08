@@ -1,12 +1,12 @@
 inicializarMascara();
 
-$("#btnAgregar").on('click', function (e) {
+$("#btnAgregar").on('click', function(e) {
     e.preventDefault();
 
     let myData = {
         "nombre_alianza": document.getElementById("nombreAlianza").value,
-        "sitioWeb": document.getElementById("sitio").value,
-        "telefonoContacto": document.getElementById("telef").value
+        "sitioWeb_alianza": document.getElementById("sitio").value,
+        "telefonoContacto_alianza": document.getElementById("telef").value
     }
 
     $.ajax({
@@ -14,7 +14,7 @@ $("#btnAgregar").on('click', function (e) {
         method: 'POST',
         data: myData
 
-    }).done(function (response) {
+    }).done(function(response) {
 
         $("#modal-alianza").modal('toggle');
 
@@ -30,7 +30,7 @@ $("#btnAgregar").on('click', function (e) {
             //TODO BIEN Y RECARGAMOS LA PAGINA 
             location.reload();
         });
-    }).fail(function (response) {
+    }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         let respuestaDecodificada = JSON.parse(response.responseText);
         let listaErrores = "";
@@ -57,6 +57,7 @@ $("#btnAgregar").on('click', function (e) {
 
 
 });
+
 function inicializarMascara() {
     let telef = $('#telef');
     telef.inputmask("(+123) 1234-5678");

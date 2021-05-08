@@ -153,7 +153,7 @@
                            <label>Telefono</label>
                            <div class="input-group">
                               <input id="telefonoContacto" name="telefonoContacto" type="text" class="form-control"
-                                 data-inputmask="'mask': '9999 9999'">
+                                 data-inputmask="'mask': '(+999)9999 9999'">
                            </div>
                            <!-- /.input group -->
                         </div>

@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     let idAerolineas;
     let tabla;
+    inicializarMascara();
 
     inicializarValidaciones();
     inicializarTabla();
@@ -130,20 +131,20 @@ $(document).ready(function() {
                 telefonoContacto: {
                     required: true,
                     minlength: 8,
-                    maxlength: 10
+                    maxlength: 15
                 }
             },
             messages: {
                 sitioWeb: {
                     required: "Ingrese la url del sitio web",
-                    minlength: "Logitud del nombre debe ser mayor a 3",
-                    maxlength: "Logitud del nombre no debe exceder a 40",
+                    minlength: "Logitud de url debe ser mayor a 3",
+                    maxlength: "Logitud de url no debe exceder a 40",
                 },
 
                 telefonoContacto: {
                     required: "Ingrese el numero de telefono",
-                    minlength: "Logitud del nombre debe ser mayor a 8",
-                    maxlength: "Logitud del nombre no debe exceder a 10",
+                    minlength: "Logitud del numero de telefono debe ser mayor a 8",
+                    maxlength: "Logitud del numero de telefono excede",
                 }
 
             },
@@ -243,5 +244,9 @@ $(document).ready(function() {
         });
     }
 
-
+    function inicializarMascara() {
+        let telef = $('#telefonoContacto');
+        telef.inputmask("(+123) 1234-5678");
+        telef.inputmask({ "mask": "(+999) 9999-9999" });
+    }
 });
