@@ -1,29 +1,21 @@
 let chat_data = {};
-let user_uuid;
+let uid_administrador;
+let uid_cliente;
+let chat_uuid = "";
 let fotoReceptor;
 let chatViejo;
 let chatHTML = "";
-let chat_uuid = "";
-let userList = [];
 let newMessage = "";
 let referenciaRT;
 let activarSonido = false;
 let proximaConsulta;
-let fotoEmisor = localStorage.fotoPerfil;
+let fotoEmisor;
 
 
 firebase.auth().onAuthStateChanged(function (user) {
+  //VERIFICAMOS QUE EL ADMINISTRADOR ESTA LOGUEADO
   if (user) {
-    console.log(user)
-    //HACER ALGO CON EL USUARIO
-    user_uuid = '28TK1JZ3yWRf2DT5TzdRd5hT0L43';
-    $('#btn-enviar').prop('disabled', true);
     getUsers();
-    // if (history.state) {
-    //   console.log(history.state)
-    //   fotoReceptor = history.state.fotoReceptor;
-    //   cargarChats(user_uuid, history.state.lastUuid);
-    // }
   } else {
     console.log("Not sign in");
   }
@@ -33,16 +25,16 @@ function getUsers() {
   $.ajax({
     url: "http://localhost/API-REST-PHP/Usuario/obtenerUsuarioByChat",
     method: "GET",
-    data: { getUsers: 1 },
     success: function (response) {
       if (!response.error) {
+        uid_administrador = response.administrador.uuid;
+        fotoEmisor = response.administrador.foto;
         let users = response.usuarios;
         let usersHTML = "";
-        let messageCount = "";
         $.each(users, function (index, value) {
           //SE RECORREN TODOS LOS USUARIOS Y SE PONEN EN LA LISTA
           //DE CHATS CON ECEPCCION DEL MISMO LA FOTO DEL USUARIO ACTUAL
-          if (user_uuid != value.uuid) {
+          if (uid_administrador != value.uuid) {
             usersHTML +=
               '<div class="user" uuid="' +
               value.uuid +
@@ -56,8 +48,6 @@ function getUsers() {
               "<span></span>" +
               "</div>" +
               "</div>";
-
-            userList.push({ user_uuid: value.uuid, username: value.nombre });
           }
         });
         // DIBUJAMOS LOS USUARIOS EN LA BARRA LATERAL
@@ -85,8 +75,7 @@ $(document.body).on("click", ".user", function () {
 
   let name = $(this).find("strong").text();
   fotoReceptor = $(this).find('img').attr("src");
-  let user_1 = user_uuid;
-  let user_2 = $(this).attr("uuid");
+  uid_cliente = $(this).attr("uuid");
   $(".message-container").html("Cargando Mensajes...");
   $(".name").text(name);
   $('#btn-enviar').prop('disabled', false);
@@ -96,16 +85,10 @@ $(document.body).on("click", ".user", function () {
   $.ajax({
     url: "http://localhost/API-REST-PHP/Usuario/obtenerChat",
     method: "POST",
-    data: { connectUser: 1, user_1: user_1, user_2: user_2 },
-    success: function (resp) {
-      chat_data = {
-        chat_uuid: resp.message.chat_uuid,
-        user_1_uuid: resp.message.user_1_uuid,
-        user_2_uuid: resp.message.user_2_uuid,
-        user_1_name: "",
-        user_2_name: name,
-      };
+    data: { user_1: uid_administrador, user_2: uid_cliente },
+    success: function (infoChat) {
       $(".message-container").empty();
+      chat_uuid = infoChat.chat_uuid
       activarSonido = false;
       realTime();
     },
@@ -146,9 +129,9 @@ $(".send-btn").on("click", function () {
 ///CREA UN LISTERNER INTERNAMENTE PARA CREAR LOS NUEVOS MENSAJES EN PANTALLA
 function realTime() {
   referenciaRT = db.collection("chat")
-    .where("chat_uuid", "==", chat_data.chat_uuid)
+    .where("chat_uuid", "==", chat_uuid)
     .orderBy("time", "desc")
-    .limit(9)
+    .limit(15)
     .onSnapshot(function (snapshot) {
       newMessage = "";
       snapshot.docChanges().slice().reverse().forEach(function (change) {
@@ -156,14 +139,14 @@ function realTime() {
         if (!proximaConsulta) {
           let lastVisible = snapshot.docs[snapshot.docs.length - 1];
           proximaConsulta = db.collection("chat")
-            .where("chat_uuid", "==", chat_data.chat_uuid)
+            .where("chat_uuid", "==", chat_uuid)
             .orderBy("time", "desc")
-            .startAfter(lastVisible)
-            .limit(2);
+          .startAfter(lastVisible)
+          .limit(2);
         }
 
         if (change.type === "added") {
-          if (change.doc.data().user_1_uuid == user_uuid) {
+          if (change.doc.data().user_1_uuid == uid_administrador) {
             ///debe de mostrar la foto de quien esta enviando el mensaje EMISOR
             newMessage +=
               '<div class="message-block received-message">' +
@@ -200,8 +183,8 @@ function realTime() {
     });
 }
 
-$('#message-input').keypress(function (e) {
-  var keycode = (e.keyCode ? e.keyCode : e.which);
+$('#message-input').on('keypress', function (e) {
+  let keycode = (e.keyCode ? e.keyCode : e.which);
   if (keycode == '13') {
     enviarMensaje();
     e.preventDefault();
@@ -215,9 +198,9 @@ function enviarMensaje() {
     db.collection("chat")
       .add({
         message: message,
-        user_1_uuid: user_uuid,
-        user_2_uuid: chat_data.user_2_uuid,
-        chat_uuid: chat_data.chat_uuid,
+        user_1_uuid: uid_administrador,
+        user_2_uuid: uid_cliente,
+        chat_uuid: chat_uuid,
         user_1_isView: 0,
         user_2_isView: 0,
         time: new Date(),
@@ -225,7 +208,7 @@ function enviarMensaje() {
       .then(function (docRef) {
         $(".message-input").val("");
         // console.log("Document written with ID: ", docRef.id);
-        actualizarFecha(chat_data.user_2_uuid);
+        actualizarFecha(uid_cliente);
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
@@ -243,7 +226,7 @@ $('#chats').scroll(function () {
         .then(function (querySnapshot) {
           let arrMessage = [];
           querySnapshot.forEach(function (doc) {
-            if (doc.data().user_1_uuid == user_uuid) {
+            if (doc.data().user_1_uuid == uid_administrador) {
               ///debe de mostrar la foto de quien esta enviando el mensaje EMISOR
               let newMessage =
                 '<div class="message-block received-message">' +
@@ -279,7 +262,7 @@ $('#chats').scroll(function () {
           //PREPARAMOS EL TERRENO PARA UNA NUEVA CONSULTA
           let lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
           proximaConsulta = db.collection("chat")
-            .where("chat_uuid", "==", chat_data.chat_uuid)
+            .where("chat_uuid", "==", chat_uuid)
             .orderBy("time", "desc")
             .startAfter(lastVisible)
             .limit(2);
