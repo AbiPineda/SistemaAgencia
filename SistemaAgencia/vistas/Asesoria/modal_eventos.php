@@ -183,7 +183,7 @@
                              </span>
                              </div>
                                 
-                            </div>
+                            </div><!--Recargar las personas-->
                              
                         </div>
                             
@@ -202,6 +202,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
+                              <div id="recargarPasa">
                               <label>N° pasaporte de las personas</label>
                               <div id="inputsPasa"></div>
                              <div class="form-group multiple-form-group input-group">
@@ -210,7 +211,7 @@
                               <button type="button" class="btn btn-success btn-add" id="btn-pasaportes2" disabled="true" style="margin-top:0px;">+</button>
                              </span>
                              </div>
-                                
+                            </div><!--recargar pasaportes-->
                             </div>
                             
                         </div>

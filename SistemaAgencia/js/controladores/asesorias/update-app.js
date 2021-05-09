@@ -3,14 +3,16 @@
         e.preventDefault();
         // recolectarDatos();
          $.ajax({
-            url: "http://localhost/API-REST-PHP/index.php/Cita/updateCita",
+            url: URL_SERVIDOR+"Cita/updateCita",
             method: 'POST',
             data: $("#update-form").serialize()
 
         }).done(function (response) {
 
-          $("#recargar2").load(" #recargar2");//recargar solo un div y no toda la pagina
+          $("#recargar2").load("#recargar2");//recargar solo un div y no toda la pagina
+          $("#recargarPasa").load("#recargarPasa");
           $('#inputs').empty();//vaciar los inputs dinamicos
+          $('#inputsPasa').empty();//vaciar los inputs dinamicos
           $("#modal_eventos").modal('toggle');
           $('#calendar').fullCalendar('refetchEvents');
         
