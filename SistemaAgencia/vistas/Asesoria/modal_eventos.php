@@ -23,8 +23,8 @@
                         <div class="form-row">
                              <div class="form-group col-md-2">
                                <label>Fecha</label>
-                              <input type="text" id="txtFecha"  name="fecha" class="form-control"/>
-                              <input type="hidden" id="usuario" name="usuario" class="form-control" />
+                              <input type="text" id="txtFecha"  name="fecha" id="fecha" class="form-control"/>
+                              <input type="hidden" id="usuario" name="usuario" id="usuario" class="form-control" />
                                 
                             </div>
                              <div class="form-group col-md-5">
@@ -50,7 +50,7 @@
 
                               <div class="form-group col-md-4">
                                <label>N° pasaporte del cliente</label>
-                              <input type="text" id="txtFecha"  name="pasaporte" class="form-control" placeholder="A12345878" />
+                              <input type="text" id="pasaporte"  name="pasaporte" class="form-control" placeholder="A12345878" />
                                 
                               </div>
                         </div>
