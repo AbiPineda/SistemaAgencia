@@ -38,37 +38,30 @@
       <!-- /.login-logo -->
       <div class="card">
          <div class="card-body login-card-body">
-            <p class="login-box-msg">Identificate para iniciar sesión</p>
+            <p class="login-box-msg">Te enviaremos un correo electrónico para reestablecer tu contraseña</p>
             <form id="login-form">
                <div class="input-group mb-3">
-                  <input name="username" id="username" type="email" class="form-control"
-                     placeholder="Correo electrónico">
+                  <input name="email" id="email" type="email" class="form-control" autocomplete="false"
+                     placeholder="Digita Correo electrónico">
                   <div class="input-group-append">
                      <div class="input-group-text">
                         <span class="fas fa-user"></span>
                      </div>
                   </div>
                </div>
-               <div class="input-group mb-3">
-                  <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                  <div class="input-group-append">
-                     <div class="input-group-text">
-                        <span class="fas fa-lock"></span>
-                     </div>
-                  </div>
-               </div>
+
             </form>
             <div class="social-auth-links text-center mb-3">
 
                <button id="login-btn" href="home" class="btn btn-block btn-primary">
-                  <i class="fab fa-dot-circle-o mr-2"></i> Ingresar
+                  <i class="fab fa-dot-circle-o mr-2"></i> Enviar
                </button>
 
             </div>
             <!-- /.social-auth-links -->
 
             <p class="mb-1" style="text-align: center;">
-               <a href="./reset_password.php">Olvide mi contraseña</a>
+               <a href="./index.php">Inicia Sesión</a>
             </p>
 
          </div>
@@ -87,7 +80,7 @@
    <script src="./plugins/jquery-validation/jquery.validate.min.js"></script>
    <script src="./plugins/jquery-validation/additional-methods.min.js"></script>
    <script src="./js/controladores/firebase/firestore-config.js"></script>
-   <script src="./js/controladores/firebase/main.js"></script>
+   <script src="./js/controladores/firebase/reset_password.js"></script>
 </body>
 
 </html>

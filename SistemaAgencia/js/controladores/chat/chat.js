@@ -1,7 +1,9 @@
+
+
 let chat_data = {};
 let uid_administrador;
 let uid_cliente;
-let chat_uuid = "";
+let chat_uuid ;
 let fotoReceptor;
 let chatViejo;
 let chatHTML = "";
