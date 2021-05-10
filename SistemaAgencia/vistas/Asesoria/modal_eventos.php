@@ -23,7 +23,7 @@
                         <div class="form-row">
                              <div class="form-group col-md-2">
                                <label>Fecha</label>
-                              <input type="text" id="txtFecha"  name="fecha" id="fecha" class="form-control"/>
+                              <input type="text" id="txtFecha"  name="fecha" class="form-control"/>
                               <input type="hidden" id="usuario" name="usuario" id="usuario" class="form-control" />
                                 
                             </div>

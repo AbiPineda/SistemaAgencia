@@ -104,6 +104,24 @@ function inicializarValidaciones() {
 
          let form = obtenerInfo();
 
+          //para los arreglos
+        let asistiran = document.getElementById("asistiran").value;
+        for (let i = 0; i < asistiran.length; i++) {
+            form.append('asistiran[]', asistiran[i]);
+        }
+        //
+        let pasaporte_personas = document.getElementById("pasaporte_personas").value;
+        for (let i = 0; i < pasaporte_personas.length; i++) {
+            form.append('pasaporte_personas[]', pasaporte_personas[i]);
+        }
+        let start = document.getElementById("timepicker").value;
+        let title = document.getElementById("txtTitulo").value;
+        //ESTO ES PARA LA GALERIA 
+        let galeria = document.getElementById("fotos").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
+
         $.ajax({
             url: URL_SERVIDOR+"Cita/citas",
             method: 'POST',
@@ -163,28 +181,12 @@ function inicializarValidaciones() {
     function obtenerInfo(){
         let form = new FormData();
        
-        let nombre_cliente_destino = document.getElementById("fecha").value;
-        let telefono = document.getElementById("usuario").value;
-        let ciudad_destino = document.getElementById("comboUsuario").value;
-        let codigo_postal_destino = document.getElementById("pasaporte").value;
-        let direccion_destino = document.getElementById("asistencia").value;
-        //para los arreglos
-        let asistiran = document.getElementById("asistiran").value;
-        for (let i = 0; i < asistiran.length; i++) {
-            form.append('asistiran[]', asistiran[i]);
-        }
-        //
-        let pasaporte_personas = document.getElementById("pasaporte_personas").value;
-        for (let i = 0; i < pasaporte_personas.length; i++) {
-            form.append('pasaporte_personas[]', pasaporte_personas[i]);
-        }
-        let start = document.getElementById("timepicker").value;
-        let title = document.getElementById("txtTitulo").value;
-        //ESTO ES PARA LA GALERIA 
-        let galeria = document.getElementById("fotos").files;
-        for (let i = 0; i < galeria.length; i++) {
-            form.append('fotos[]', galeria[i]);
-        }
+        let fecha      = document.getElementById("txtFecha").value;
+        let usuario    = document.getElementById("usuario").value;
+        let id_cliente = document.getElementById("comboUsuario").value;
+        let pasaporte  = document.getElementById("pasaporte").value;
+        let asistencia = document.getElementById("asistencia").value;
+       
         
         return form;
     }
