@@ -9,8 +9,8 @@
 
         }).done(function (response) {
 
-          $("#recargar2").load("#recargar2");//recargar solo un div y no toda la pagina
-          $("#recargarPasa").load("#recargarPasa");
+         // $("#recargar2").load("#recargar2");//recargar solo un div y no toda la pagina
+         // $("#recargarPasa").load("#recargarPasa");
           $('#inputs').empty();//vaciar los inputs dinamicos
           $('#inputsPasa').empty();//vaciar los inputs dinamicos
           $("#modal_eventos").modal('toggle');
@@ -26,7 +26,7 @@
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+                location.reload(); //NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
             });
 
         }).fail(function (response) {
