@@ -103,12 +103,12 @@ function inicializarValidaciones() {
     function add() {
 
          let form = obtenerInfo();
-         /*
+        
         //ESTO ES PARA LA GALERIA 
         let galeria = document.getElementById("fotos").files;
         for (let i = 0; i < galeria.length; i++) {
             form.append('fotos[]', galeria[i]);
-        }*/
+        }
 
         $.ajax({
             url: URL_SERVIDOR+"Cita/citas",
@@ -174,11 +174,22 @@ function inicializarValidaciones() {
         form.append("id_cliente",  document.getElementById("comboUsuario").value);
         form.append("pasaporte",   document.getElementById("pasaporte").value);
         form.append("asistencia", document.getElementById("asistencia").value);
-        form.append("pasaporte_personas[]", document.getElementById("pasaporte_personas").value);        
-        let start = document.getElementById("timepicker").value;
-        let title = document.getElementById("txtTitulo").value;
-       
-        
+        form.append("start", document.getElementById("timepicker").value);
+        form.append("title", document.getElementById("txtTitulo").value);
+
+
+        //let pasaporte_personas = document.getElementsByName("pasaporte_personas[]");
+        //console.log(pasaporte_personas);
+        $("input[name='pasaporte_personas[]']").each(function(indice, elemento) {
+         //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
+         form.append('pasaporte_personas[]', $(elemento).val());
+          });
+          // 
+        $("input[name='asistiran[]']").each(function(indice, elemento) {
+         //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
+         form.append('asistiran[]', $(elemento).val());
+          });
+        //
         return form;
     }
    
