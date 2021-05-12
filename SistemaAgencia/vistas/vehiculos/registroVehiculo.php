@@ -84,7 +84,7 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label>Año</label>
-                                                <input type="number" class="form-control" min=2010
+                                                <input type="number" class="form-control" min="2010"
                                                     max=<?php echo date("Y"); ?> name="anio" id="anio"
                                                     autocomplete="off">
                                             </div>
