@@ -761,4 +761,7 @@ $(document).ready(function () {
 
 });
 
-
+function modificarIngresos() {
+   totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
+   $('#totalIngresos').text("$" + totalIngresos);
+}

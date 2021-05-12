@@ -19,7 +19,7 @@ $(document).ready(function () {
 
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
-    
+
       let identificador = data.id_tours;
       let tipoGaleria = data.tipo;
       let informacionAdicional = { tipo: tipoGaleria, identificador: identificador };
@@ -77,6 +77,12 @@ $(document).ready(function () {
          }
       })
    });
+   //BOTON DE ANALITICAS
+   $(document).on('click', '.btn-group .btn-info', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      let idSeleccionado = $(this).attr("name");
+      window.location = `${URL_SISTEMA}vistas/tours/analitica.php?tur=${idSeleccionado}`;
+   });
    //BOTON PARA ACTUALIZAR
    $(document).on('click', '#btnActualizar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
@@ -86,6 +92,7 @@ $(document).ready(function () {
          actualizar();
       }
    });
+
    //CUANDO EL MODAL SE CIERRA
    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
       console.log("cerrando modal")

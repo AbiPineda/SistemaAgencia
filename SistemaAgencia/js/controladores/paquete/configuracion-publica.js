@@ -343,10 +343,6 @@ function modificarIngresos() {
     totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
     $('#totalIngresos').text("$" + totalIngresos);
 }
-function modificarIngresos() {
-    totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
-    $('#totalIngresos').text("$" + totalIngresos);
-}
 function modificarGanancias() {
     ganancias = parseFloat(totalIngresos - totalGastos);
     if (ganancias > 0) {

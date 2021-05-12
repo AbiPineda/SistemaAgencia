@@ -85,7 +85,7 @@
    <?php include_once '../../plantillas/footer.php'; ?>
    <!-- PONER SCRIPT ADICIONALES ACA -->
    <script type="text/javascript" src="../../js/controladores/conf.js"></script>
-   <script type="text/javascript" src="../../js/controladores/chat/firestore-config.js"></script>
+   <script type="text/javascript" src="../../js/controladores/firebase/firestore-config.js"></script>
    <script type="text/javascript" src="../../js/controladores/chat/chat.js"></script>
    <!-- CIERRE DE ETIQUETAS -->
    <?php include_once '../../plantillas/cierre.php'; ?>

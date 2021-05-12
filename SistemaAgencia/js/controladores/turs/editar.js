@@ -98,6 +98,7 @@ function AgregarFilaSitios(arreglo, cantidad) {
 
 
 
+
 function inicializarCalendario(start, end) {
    $('#fecha_salida').daterangepicker({
       locale: {
