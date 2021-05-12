@@ -115,6 +115,8 @@ include_once '../../plantillas/barra_lateral.php';
                                             <thead>
                                                 <tr style="text-align: center;">
                                                     <th>Producto</th>
+                                                    <th>Dirección Origen</th>
+                                                    <th>Dirección Destino</th>
                                                     <th>Fecha</th>
                                                     <th>Cantidad</th>
                                                     <th>Sub Total($)</th>

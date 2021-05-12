@@ -112,9 +112,11 @@ $(document).ready(function() {
             },
             columns: [
                 { data: "nombre_producto" },
+                { data: "ciudad_origen" },
+                { data: "direccion_destino" },
                 { data: "fecha" },
                 { data: "cantidad" },
-                { data: "total_encomienda" },
+                { data: "sub_total" },
 
             ]
         });
