@@ -31,7 +31,7 @@ $(document).ready(function() {
             document.getElementById("pasajeros").value = response.autos[0].pasajeros;
             document.getElementById("kilometraje").value = response.autos[0].kilometraje;
             document.getElementById("opc_avanzadasMostrar").value = response.autos[0].opc_avanzadas;
-           
+
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
@@ -156,7 +156,7 @@ $(document).ready(function() {
                             html2 += '         <img class="img-responsive rounded"';
                             html2 += `            src="${json.autos[i].foto}" `;
                             html2 += '            alt="" >';
-                            html2 += '            <div class="my-overlay">';       
+                            html2 += '            <div class="my-overlay">';
                             html2 += '            </div>';
                             html2 += '      </div>';
                             json.autos[i]["foto"] = html2;
@@ -325,6 +325,6 @@ $(document).ready(function() {
             $('#loadingActualizar').hide();
         });
     }
-  
+
 
 });

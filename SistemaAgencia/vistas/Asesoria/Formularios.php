@@ -2,7 +2,8 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+    type="text/css" />
 
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
@@ -62,7 +63,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <tr>
                                                 <th>Cliente</th>
                                                 <th>Fecha</th>
-                                                 <th>Hora</th>
+                                                <th>Hora</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -95,100 +96,109 @@ include_once '../../plantillas/barra_lateral.php';
     </section>
 
     <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
-    <!-- Modal EDITAR-->
-    <div class="modal fade" id="modal-imagenesEncomienda">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Editar Imagenes</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="file-loading">
-                        <input id="kv-explorer" name="foto" type="file" multiple>
-                    </div>
-                </div>
-
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- End Modal EDITAR-->
-</form>
-
-        <!-- Modal mostrar-->
-        <div class="modal fade" id="modal-editar">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+        <!-- Modal EDITAR-->
+        <div class="modal fade" id="modal-imagenesEncomienda">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-
-                    <div class="overlay-wrapper">
-                        <div id="loadingActualizar" class="overlay">
-                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                            <div class="text-bold pt-2">Cargando...
-                            </div>
-                        </div>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Detalle del formulario</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-12 col-sm-1"></div>
-                    <div class="col-12 col-sm-10">
-                        <div class="card card-primary card-tabs">
-                            <div class="card-header p-0 pt-1">
-                                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                                   
-                                   
-                                </ul>
-                            </div>
-                               <div class="card-body">
-                        <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
-                            <label style="width: 400px;margin-left: 98px; margin-bottom:13px;">Cliente</label>
-                                <div style="width: 200px;"></div>
-                                <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
-                                <input type="text" id="usuario" value="" class="form-control" disabled="true" style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
-
-                               
-                                <div class="tab-content" id="custom-tabs-one-tabContent">
-                                      
-                            
-                                </div><!--fin de una pestaña-->
-                                   </br>
-                            <div style="width: 400px;"></div>
-                            <div style="width: 400px;">
-                                 <button type="button" id="btnActualizar" class="btn btn-primary btn-sm" style=" margin-top: 10px; color: white">Actualizar</button>
-                                <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
-                                 
-                            </div>
-                                
-                        </form>
-                        
-                               </div>
-
-
-                            </div>
-                        </div>
-                        <!-- /.card -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Imagenes</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div class="file-loading">
+                            <input id="kv-explorer" name="foto" type="file" multiple>
+                        </div>
+                    </div>
+
+
                 </div>
-                            
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- End Modal EDITAR-->
+    </form>
 
+    <!-- Modal mostrar-->
+    <div class="modal fade" id="modal-editar">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
                         </div>
                     </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detalle del formulario</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-12 col-sm-1"></div>
+                            <div class="col-12 col-sm-10">
+                                <div class="card card-primary card-tabs">
+                                    <div class="card-header p-0 pt-1">
+                                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="editar-form" name="register-form" onsubmit="return false"
+                                            class="form-inline" role="form">
+                                            <label
+                                                style="width: 400px;margin-left: 98px; margin-bottom:13px;">Cliente</label>
+                                            <div style="width: 200px;"></div>
+                                            <input type="hidden" id="id_cita" name="id_cita" value=""
+                                                class="form-control">
+                                            <input type="text" id="usuario" value="" class="form-control"
+                                                disabled="true"
+                                                style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
+
+
+                                            <div class="tab-content" id="custom-tabs-one-tabContent">
+
+
+                                            </div>
+                                            <!--fin de una pestaña-->
+                                            </br>
+                                            <div style="width: 400px;"></div>
+                                            <div style="width: 400px;">
+                                                <button type="button" id="btnActualizar" class="btn btn-primary btn-sm"
+                                                    style=" margin-top: 10px; color: white">Actualizar</button>
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    style="margin-top: 10px; color: white"
+                                                    data-dismiss="modal">Cancelar</button>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
-            <!-- /.modal-content -->
+
         </div>
-        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
 </div>
 <!-- End Modal Mostrar-->
 <?php
