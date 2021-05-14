@@ -123,6 +123,8 @@ function inicializarValidaciones() {
 
           $("#modal_registro").modal('toggle');
           $('#calendar').fullCalendar('refetchEvents');
+          $("#register-form").trigger("reset");
+          $('#comboUsuario').val('').trigger('change');//limpia el combo
          // toastr.success(response.mensaje)//me gusta
                     //console.log(response);
          // document.getElementById("register-form").reset();
@@ -137,7 +139,7 @@ function inicializarValidaciones() {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                location.reload(); 
+                //location.reload(); 
             });
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

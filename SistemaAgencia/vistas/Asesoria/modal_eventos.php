@@ -215,8 +215,6 @@
                             </div>
                             
                         </div>
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnActualizar"  class="btn btn-info float-right">Actualizar</button>

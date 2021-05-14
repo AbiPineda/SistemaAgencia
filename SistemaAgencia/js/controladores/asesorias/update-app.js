@@ -1,4 +1,4 @@
- $("#btnActualizar").on('click', function(e) {
+    $("#btnActualizar").on('click', function(e) {
 
         e.preventDefault();
         // recolectarDatos();
@@ -41,6 +41,10 @@
                 showConfirmButton: true,
             });
 
-        })
+        });
 
     });
+
+
+
+ 
