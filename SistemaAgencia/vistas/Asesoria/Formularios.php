@@ -2,8 +2,13 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+
+<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 
 <style>
 .center {
@@ -89,6 +94,32 @@ include_once '../../plantillas/barra_lateral.php';
         <!-- /.row -->
     </section>
 
+    <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-imagenesEncomienda">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Imagenes</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="file-loading">
+                        <input id="kv-explorer" name="foto" type="file" multiple>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+
         <!-- Modal mostrar-->
         <div class="modal fade" id="modal-editar">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -169,6 +200,12 @@ include_once '../../plantillas/barra_lateral.php';
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/formularios-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
+<!--para las fotos-->
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
+<script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
