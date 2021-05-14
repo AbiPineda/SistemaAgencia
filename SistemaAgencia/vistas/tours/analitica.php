@@ -1,14 +1,13 @@
 <?php include_once '../../config/parametros.php'; ?>
 <?php include_once '../../plantillas/cabecera.php'; ?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
-<link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-   type="text/css" />
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
-<link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/jquery.seat-charts.css">
+<link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/reserva.css">
+
+
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -129,7 +128,33 @@
                      </div>
                      <!-- timeline item -->
 
-
+                     <!-- timeline item -->
+                     <div id="item_asiento">
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+                           <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
+                           <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
+                           <div class="timeline-body">
+                              <div class="row" id="dibujoAsientos">
+                                 <!-- <div class="offset-md-1"></div> -->
+                                 <div class="col-sm-6">
+                                    <div id="seat-map" class="float-right">
+                                       <div class="front-indicator">Frontal</div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
+                                    <div id="legend"></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="timeline-footer" style="text-align: right;">
+                              <button name="btnguardarReserva" id="btnguardarReserva" class="btn btn-info btn-sm"
+                                 style="color: white">Guardar</button>
+                              <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- END timeline item -->
 
                   </div>
                </div>
@@ -154,6 +179,7 @@
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
+<script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/analitica.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
