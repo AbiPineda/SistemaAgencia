@@ -8,9 +8,11 @@ $(document).ready(function() {
     let contadorTabla = 0;
 
     mostrarDatos();
+    inicializarTablaTours();
     inicializarTabla();
     inicializarTablaEncomiendas();
     inicializarTablaVehiculos();
+
 
     function mostrarDatos() {
 
@@ -168,6 +170,54 @@ $(document).ready(function() {
                 { data: "placa" },
                 { data: "fechaHora_detalle" },
                 { data: "total_detalle" },
+
+            ]
+        });
+
+    }
+
+    function inicializarTablaTours() {
+        tabla = $("#add-tours").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "deferRender": true,
+            "columnDefs": [
+                { "className": "dt-center", "targets": "_all" },
+
+            ],
+            "ajax": {
+                "url": URL_SERVIDOR + "usuario/toursAdquiridos?id_cliente=" + ID_CLIENTE,
+                "method": "GET",
+                "dataSrc": function(json) {
+                    if (json.servicios) {
+                        for (let i = 0, ien = json.servicios.length; i < ien; i++) {
+                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
+                            html = "";
+                            html += '<td>';
+                            html += '    <div class="btn-group">';
+                            html += '        <button type="button" name="' + json.servicios[i].id_cliente + '" class="btn btn-danger" data-toggle="modal"';
+                            html += '            data-target="#modal-mostrar">';
+                            html += '            <i class="fas fa-trash" style="color: white"></i>';
+                            html += '        </button>';
+                            html += '    </div>';
+                            html += '</td>';
+                            json.servicios[i]["botones"] = html;
+                        }
+                        $('#loading').hide();
+                        return json.servicios;
+                    } else {
+                        $('#loading').hide();
+                        return [];
+                    }
+                }
+            },
+            columns: [
+                { data: "id_detalle" },
+                { data: "nombreTours" },
+                { data: "start" },
+                { data: "end" },
+                { data: "tipo" },
+                { data: "precio" },
 
             ]
         });
