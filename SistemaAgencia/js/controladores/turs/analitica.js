@@ -10,12 +10,11 @@ function init() {
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
-      console.log(response);
       document.getElementById("nombreTours").value = response.nombre;
       $('#totalIngresos').text(`$ ${response.total}`);
       inicializarCalendario(response.start, response.end);
       inicializarTabla(response.reservas);
-      crearTransporte(response.transporte);
+      crearTransporte(response.transporte, response.ocupados);
 
       $('#loading').hide();
    }).fail(function (response) {
@@ -88,22 +87,21 @@ function inicializarTabla(reservas) {
       }).draw(false);;
    });
 }
-function crearTransporte(transporte) {
-   console.log(transporte)
+function crearTransporte(transporte, ocupados) {
    if (transporte != null) {
-      transporte = true;
+
       let derecho = transporte.asiento_derecho;
       let izquierdo = transporte.asiento_izquierdo;
       let numero_filas = transporte.filas;
       let deshabilitados = transporte.asientos_deshabilitados;
 
       let strFila = crearStrFila(derecho, izquierdo);
+
       let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
       dibujarAsientos(mapa);
-      console.log(mapa);
-      // bloquearAsientosInavilitados(deshabilitados);
-      // bloquearAsientosOcupados(transporte.ocupados);
-   } 
+      bloquearAsientosOcupados(ocupados);
+      bloquearAsientosInavilitados(deshabilitados);
+   }
 }
 
 function crearStrFila(asientos_derecho, asientos_izquierdo) {
@@ -172,47 +170,12 @@ function dibujarAsientos(miMapa) {
          items: [
             ['e', 'unavailable', 'Asientos no Disponibles'],
             ['e', 'ocupado', 'Asientos ya ocupados'],
-            ['e', 'selected', 'Asientos seleccionados'],
+            // ['e', 'selected', 'Asientos seleccionados'],
             ['e', 'available', 'Asientos Disponibles'],
          ]
       },
       click: function () {
-         if (this.status() == 'available') {
-            //let's create a new <li> which we'll add to the cart items
-            $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' +
-               this.data().price +
-               '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
-               .attr('id', 'cart-item-' + this.settings.id)
-               .data('seatId', this.settings.id)
-               .appendTo($cart);
-
-            /*
-             * Lets update the counter and total
-             *
-             * .find function will not find the current seat, because it will change its stauts only after return
-             * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
-             */
-            $counter.text(seat_charts.find('selected').length + 1);
-            $total.text(recalculateTotal(seat_charts) + this.data().price);
-
-            return 'selected';
-         } else if (this.status() == 'selected') {
-            //update the counter
-            $counter.text(seat_charts.find('selected').length - 1);
-            //and total
-            $total.text(recalculateTotal(seat_charts) - this.data().price);
-
-            //remove the item from our cart
-            $('#cart-item-' + this.settings.id).remove();
-
-            //seat has been vacated
-            return 'available';
-         } else if (this.status() == 'unavailable') {
-            //seat has been already booked
-            return 'unavailable';
-         } else {
-            return this.style();
-         }
+         return this.status();
       },
       focus: function () {
 
@@ -229,8 +192,7 @@ function dibujarAsientos(miMapa) {
 
 }
 function bloquearAsientosInavilitados(asientosBloqueados) {
-   let arreglo = asientosBloqueados.split(",");
-   seat_charts.get(arreglo).status('unavailable');
+   seat_charts.get(asientosBloqueados).status('unavailable');
 }
 function bloquearAsientosOcupados(ocupados) {
    seat_charts.get(ocupados).status('ocupado');
