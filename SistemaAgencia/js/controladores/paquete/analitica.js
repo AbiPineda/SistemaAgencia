@@ -1,6 +1,7 @@
 const valores = window.location.search;
 const urlParams = new URLSearchParams(valores);
 let ID_TUR = urlParams.get('tur');
+let totalIngresos = 0.0;
 
 init();
 
@@ -11,7 +12,8 @@ function init() {
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
       document.getElementById("nombreTours").value = response.nombre;
-      $('#totalIngresos').text(`$ ${response.totalIngresos}`);
+      totalIngresos = response.totalIngresos;
+      $('#totalIngresos').text(`$ ${totalIngresos}`);
       inicializarCalendario(response.start, response.end);
       inicializarTablaIngresos(response.reservas);
       crearTransporte(response.transporte, response.ocupados);
@@ -124,6 +126,9 @@ function inicializarTablaGastos(sitios, servicios, tatalPasajeros) {
       }).draw(false);
    });
    console.log(totalGastos);
+   $('#totalGastos').text(`$ ${totalGastos}`);
+   $('#totalGanancias').text(`$ ${totalIngresos - totalGastos}`);
+   
 }
 
 function crearTransporte(transporte, ocupados) {
@@ -209,7 +214,6 @@ function dibujarAsientos(miMapa) {
          items: [
             ['e', 'unavailable', 'Asientos no Disponibles'],
             ['e', 'ocupado', 'Asientos ya ocupados'],
-            // ['e', 'selected', 'Asientos seleccionados'],
             ['e', 'available', 'Asientos Disponibles'],
          ]
       },

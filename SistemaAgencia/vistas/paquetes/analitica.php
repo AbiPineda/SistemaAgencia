@@ -17,12 +17,12 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Editar Tours</h1>
+               <h1>Analítica</h1>
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                  <li class="breadcrumb-item active">Editar</li>
+                  <li class="breadcrumb-item active">Analítica</li>
                </ol>
             </div>
          </div>
@@ -107,20 +107,18 @@
                                        </tbody>
 
                                     </table>
+                                    <div class="row">
+                                       <div class="col-md-1 col-md-offset-1"> </div>
+                                       <div class="col-md-3  ">
+                                          <label class="text-primary "> Total de Ingresos: </label>
+                                       </div>
+                                       <div class="col-md-3  ">
+                                          <label id="totalIngresos" class="text-primary "> $0</label>
+                                       </div>
+                                    </div>
                                  </div>
 
-                                 <div class="col-md-1 col-md-offset-1">
-                                 </div>
-                                 <div class="col-md-2 ">
-                                    <label class="text-primary ">
-                                       Total
-                                       de
-                                       Ingresos:
-                                    </label>
-                                 </div>
-                                 <div class="col-md-9">
-                                    <label id="totalIngresos" class="text-primary">$0</label>
-                                 </div>
+
                               </div>
                            </div>
 
@@ -146,11 +144,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="timeline-footer" style="text-align: right;">
-                              <button name="btnguardarReserva" id="btnguardarReserva" class="btn btn-info btn-sm"
-                                 style="color: white">Guardar</button>
-                              <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                           </div>
+
                         </div>
                      </div>
                      <!-- END timeline item -->
@@ -181,20 +175,50 @@
                                        </tbody>
 
                                     </table>
+                                    <div class="row">
+                                       <div class="col-md-1 col-md-offset-1"> </div>
+                                       <div class="col-md-3  ">
+                                          <label class="text-danger"> Total de Gastos: </label>
+                                       </div>
+                                       <div class="col-md-3  ">
+                                          <label id="totalGastos" class="text-danger "> $0</label>
+                                       </div>
+                                    </div>
+
                                  </div>
 
-                                 <div class="col-md-1 col-md-offset-1">
+
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                     <!-- timeline item -->
+
+
+                     <!-- timeline item -->
+                     <div>
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+                           <h3 class="timeline-header no-border">
+                              <a href="#">Ganancias Aproximadas</a>
+                           </h3>
+                           <div class="timeline-body">
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    <div class="row">
+                                       <div class="col-md-1 col-md-offset-1"> </div>
+                                       <div class="col-md-3  ">
+                                          <label class="text-success"> Total de Ganancias: </label>
+                                       </div>
+                                       <div class="col-md-3  ">
+                                          <label id="totalGanancias" class="text-success "> $0</label>
+                                       </div>
+                                    </div>
+
                                  </div>
-                                 <div class="col-md-2 ">
-                                    <label class="text-primary ">
-                                       Total
-                                       de
-                                       Ingresos:
-                                    </label>
-                                 </div>
-                                 <div class="col-md-9">
-                                    <label id="totalIngresos" class="text-primary">$0</label>
-                                 </div>
+
+
                               </div>
                            </div>
 
@@ -202,6 +226,7 @@
                      </div>
                      <!-- timeline item -->
                   </div>
+
                </div>
 
             </div>
@@ -225,6 +250,6 @@
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/analitica.js"></script>
+<script src="<?= $base_url ?>js/controladores/paquete/analitica.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

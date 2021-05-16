@@ -77,6 +77,12 @@ $(document).ready(function () {
          }
       })
    });
+      //BOTON DE ANALITICAS
+      $(document).on('click', '.btn-group .btn-info', function (evento) {
+         evento.preventDefault();//para evitar que la pagina se recargue
+         let idSeleccionado = $(this).attr("name");
+         window.location = `${URL_SISTEMA}vistas/paquetes/analitica.php?tur=${idSeleccionado}`;
+      });
    //BOTON PARA ACTUALIZAR
    $(document).on('click', '#btnActualizar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
