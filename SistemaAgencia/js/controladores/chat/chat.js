@@ -14,14 +14,8 @@ let proximaConsulta;
 let fotoEmisor;
 
 
-firebase.auth().onAuthStateChanged(function (user) {
-  //VERIFICAMOS QUE EL ADMINISTRADOR ESTA LOGUEADO
-  if (user) {
-    getUsers();
-  } else {
-    console.log("Not sign in");
-  }
-});
+getUsers();
+
 
 function getUsers() {
   $.ajax({

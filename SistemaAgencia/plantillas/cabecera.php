@@ -7,6 +7,14 @@
    <!-- Tell the browser to be responsive to screen width -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Font Awesome -->
+
+   <!-- coplementos de firebase necesarios -->
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+   <script src="<?= $base_url ?>js/controladores/firebase/firestore-config.js"></script>
+
+   <script src="<?= $base_url ?>js/controladores/client/session.js"></script>
    <link rel="stylesheet" href="<?= $base_url ?>plugins/fontawesome-free/css/all.min.css">
 
    <!-- Ionicons -->

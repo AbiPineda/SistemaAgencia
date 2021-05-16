@@ -1,10 +1,9 @@
-<footer class="main-footer" >  
-    <strong >Todos los derechos reservados &copy; <a href="#">UES 2020 </a>.</strong>
+<footer class="main-footer">
+   <strong>Todos los derechos reservados &copy; <a href="#">UES 2020 </a>.</strong>
 </footer>
 
 </div>
 <!-- ./wrapper -->
-
 
 <!-- Bootstrap 4 -->
 <script src="<?=$base_url?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
