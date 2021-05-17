@@ -64,6 +64,7 @@ $(document).ready(function() {
                 $('#nombreCliente').text(response.informacion[i].nombre);
                 $('#email').text(response.informacion[i].correo);
                 $('#telefono').text(response.informacion[i].celular);
+                $('#docIdentidad').text(response.informacion[i].dui);
 
 
                 $('#ciudadP').text(response.informacion[i].ciudad_partida);

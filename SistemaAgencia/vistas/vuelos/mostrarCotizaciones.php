@@ -3,6 +3,8 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 
@@ -154,7 +156,7 @@
                                     <label>Fecha</label>
                                     <div class="input-group">
                                         <input id="fechaPartida" name="fechaPartida" type="date" class="form-control"
-                                            disabled  type="date" data-date="" data-date-format="DD MMMM YYYY">
+                                            disabled type="date" data-date="" data-date-format="DD MMMM YYYY">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -184,7 +186,7 @@
                                     <label>Fecha</label>
                                     <div class="input-group">
                                         <input id="fechaLlegada" name="fechaLlegada" type="date" class="form-control"
-                                            disabled  type="date" data-date="" data-date-format="DD MMMM YYYY">
+                                            disabled type="date" data-date="" data-date-format="DD MMMM YYYY">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -311,6 +313,9 @@
 </form>
 
 
+
+
+
 <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
     <!-- Modal EDITAR-->
     <div class="modal fade" id="modal-cotizacion">
@@ -328,182 +333,215 @@
                     <div class="modal-body">
                         <div class="row">
                             <section class="content">
-                                <div class="callout callout-info">
-                                    <h6><i class="fas fa-info"></i> Nota: Los datos fueron proporcionados
-                                        por el cliente.</h6>
 
-                                </div>
                                 <div class="container-fluid" id="printDiv">
                                     <div class="row">
-                                        <div class="col-12">
-                                            <!-- Main content -->
-                                            <div class="invoice p-3 mb-3">
-                                                <!-- title row -->
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <h4>
-                                                            <i class="fas fa-globe"></i> Agencia de Viajes Martínez
-                                                            Travels & Tours
-                                                        </h4>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- info row -->
-                                                <div class="row invoice-info">
-                                                    <div class="col-sm-4 invoice-col">
-                                                        <br>
-                                                        <address>
-                                                            <label>Cliente:</label>
-                                                            <label name="nombreCliente" id="nombreCliente"
-                                                                style="font-weight: normal;"></label>
-                                                            <br>
-                                                            <label>Email:</label>
-                                                            <label name="email" id="email"
-                                                                style="font-weight: normal;"></label>
-                                                            <br>
-                                                            <label>Telefono:</label>
-                                                            <label name="telefono" id="telefono"
-                                                                style="font-weight: normal;"></label>
-                                                        </address>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- /.row -->
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+                                                               
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_factura">
+                                                            <div class="round">
+                                                                <span class="h3">Cotización de Vuelos</span>
+                                                                <p>Fecha: 20/01/2021</p>
+                                                                <p>Hora: 10:30am</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente</span>
+                                                                <table class="datos_cliente">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Cliente:</label>
+                                                                            <p name="nombreCliente" id="nombreCliente">
+                                                                            </p>
 
-                                                <!-- Table row -->
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Ciudad de Partida</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Hora</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="ciudadP" id="ciudadP"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="fechaP" id="fechaP"
-                                                                            style="font-weight: normal;" ></label></td>
-                                                                    <td><label name="horaP" id="horaP"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Ciudad de Llegada</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Hora</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="ciudadL" id="ciudadL"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="fechaL" id="fechaL"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="horaL" id="horaL"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <!-- /.row -->
-                                                <div class="row">
-                                                    <div class="col-12 table-responsive">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Preferencia de Aerolinea</th>
-                                                                    <th>Tipo de Clase</th>
-                                                                    <th>Tipo de Viaje</th>
-                                                                    <th>Opciones Avanzadas</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><label name="aerolinea" id="aerolinea"
-                                                                            style="font-weight: normal;"></label>
-                                                                    </td>
-                                                                    <td><label name="clase" id="clase"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                    <td><label name="tipoviaje" id="tipoviaje"
-                                                                            style="font-weight: normal;"></label>
-                                                                    </td>
-                                                                    <td><label name="opc" id="opc"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.col -->
-                                                </div>
-                                                <div class="row">
-                                                    <!-- accepted payments column -->
-                                                    <div class="col-6">
-                                                    </div>
-                                                    <!-- /.col -->
-                                                    <div class="col-6">
-                                                        <div class="table-responsive">
-                                                            <table class="table">
-                                                                <tr>
-                                                                    <th style="width:50%">Cantidad de Adultos</th>
-                                                                    <td><label name="adult" id="adult"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Cantidad de Niños</th>
-                                                                    <td><label name="nino" id="nino"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Cantidad de Bebes</th>
-                                                                    <td><label name="bb" id="bb"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Cantidad de Maletas</th>
-                                                                    <td><label name="malet" id="malet"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Descuentos (%)</th>
-                                                                    <td><label name="descuent" id="descuent"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>Total ($)</th>
-                                                                    <td><label name="tot" id="tot"
-                                                                            style="font-weight: normal;"></label></td>
-                                                                </tr>
+                                                                        </td>
+                                                                        <td><label>DUI:</label>
+                                                                            <p name="docIdentidad" id="docIdentidad">
+                                                                            </p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><label>Teléfono:</label>
+                                                                            <p name="telefono" id="telefono"></p>
+                                                                        </td>
+                                                                        <td><label>Email:</label>
+                                                                            <p name="email" id="email"></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
 
-                                                            </table>
-                                                        </div>
+                                                    </tr>
+                                                </table>
 
-                                                    </div>
-                                                    <div class="row no-print">
-                                                        <div class="col-md-12">
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Ciudad de Partida</th>
+                                                            <th class="textcenter">Fecha</th>
+                                                            <th class="textcenter">Hora</th>
 
-                                                            <button target="_blank" id="doPrint"
-                                                                class="btn btn-default"><i class="fas fa-print"></i>
-                                                                Imprimir</button>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
 
-                                                            <div id="editor"></div>
+                                                        <tr>
+                                                            <td class="textcenter"><label name="ciudadP" id="ciudadP"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="fechaP" id="fechaP"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="horaP" id="horaP"
+                                                                    style="font-weight: normal;"></label></td>
 
-                                                        </div>
-                                                    </div>
+                                                        </tr>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Ciudad de Llegada</th>
+                                                            <th class="textcenter">Fecha</th>
+                                                            <th class="textcenter">Hora</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="ciudadL" id="ciudadL"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="fechaL" id="fechaL"
+                                                                    style="font-weight: normal;"></label></label></td>
+                                                            <td class="textcenter"><label name="horaL" id="horaL"
+                                                                    style="font-weight: normal;"></label></label></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Preferencia de Aerolinea</th>
+                                                            <th class="textcenter">Tipo de Clase</th>
+                                                            <th class="textcenter">Tipo de Viaje</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="aerolinea"
+                                                                    id="aerolinea" style="font-weight: normal;"></label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="clase" id="clase"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="tipoviaje"
+                                                                    id="tipoviaje" style="font-weight: normal;"></label>
+                                                            </td>
+
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Opciones Avanzadas</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+                                                        <tr>
+                                                            <td class="textcenter"><label name="opc" id="opc"
+                                                                    style="font-weight: normal;"></label></label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Cantidad de Adultos</th>
+                                                            <th class="textcenter">Cantidad de Niños</th>
+                                                            <th class="textcenter">Cantidad de Bebes</th>
+                                                            <th class="textcenter">Cantidad de Maletas</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="adult" id="adult"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="nino" id="nino"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="bb" id="bb"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="malet" id="malet"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot id="detalle_totales">
+
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>DESCUENTOS
+                                                                    (%)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="descuent" id="descuent"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>TOTAL ($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="tot" id="tot"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+
+
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
 
                                                 </div>
                                             </div>
@@ -542,7 +580,7 @@ $("input").on("change", function() {
     this.setAttribute(
         "data-date",
         moment(this.value, "YYYY-MM-DD")
-        .format( this.getAttribute("data-date-format") )
+        .format(this.getAttribute("data-date-format"))
     )
 }).trigger("change")
 </script>
