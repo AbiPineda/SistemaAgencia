@@ -529,9 +529,6 @@
                                                         </tr>
                                                     </tfoot>
                                                 </table>
-
-
-
                                             </div>
                                             <div class="row no-print">
                                                 <div class="col-md-12">

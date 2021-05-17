@@ -59,9 +59,11 @@ $(document).ready(function() {
                 $('#nombreC').text(response.cotizacion[i].nombre);
                 $('#emailC').text(response.cotizacion[i].correo);
                 $('#telefonoC').text(response.cotizacion[i].celular);
+                $('#dui-cliente').text(response.cotizacion[i].dui);
 
                 $('#nombreVehiculoC').text(response.cotizacion[i].modelo);
                 $('#anioC').text(response.cotizacion[i].anio);
+                $('#caracteristicasC').text(response.cotizacion[i].caracteristicas);
 
                 $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
                 $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
