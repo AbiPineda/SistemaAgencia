@@ -62,7 +62,7 @@
             //http://localhost/restful/index.php/Calendario/calendario
             eventClick: function(calEvent, jsEvent, view) {
 
-                if (calEvent.estado_cita==0) {
+                if (calEvent.estado_cita==0 || calEvent.color=='#FF0040') {
                   $('#btnActualizar').prop("disabled",true);
                 }else{ $('#btnActualizar').prop("disabled",false);}
                 $('#tituloEvento').html(calEvent.title);
