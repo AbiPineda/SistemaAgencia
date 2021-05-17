@@ -49,6 +49,45 @@ $(document).ready(function() {
         });
     });
 
+    //BOTON MOSTRAR 
+    $(document).on('click', '.btn-group .btn-secondary', function() {
+
+        idAlquiler = $(this).attr("name");
+        id_vehiculo = $(this).attr("id");
+
+        $('#loadingActualizar').show();
+        $.ajax({
+            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
+            method: "GET"
+        }).done(function(response) {
+            //MANDALOS LOS VALORES AL MODAL
+           for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
+
+                $('#nombreC').text(response.detalleVehiculo[i].nombre);
+                $('#emailC').text(response.detalleVehiculo[i].correo);
+                $('#telefonoC').text(response.detalleVehiculo[i].celular);
+                $('#dui-cliente').text(response.detalleVehiculo[i].dui);
+
+                $('#placaAuto').text(response.detalleVehiculo[i].placa);
+                $('#nombreVehiculo').text(response.detalleVehiculo[i].modelo);
+                $('#anioA').text(response.detalleVehiculo[i].anio);
+                $('#kilometrajeA').text(response.detalleVehiculo[i].kilometraje);
+
+                $('#direccion_recogidaC').text(response.detalleVehiculo[i].direccionRecogida_detalle);
+                $('#direccion_devolucionC').text(response.detalleVehiculo[i].direccionDevolucion_detalle);
+                
+
+                $('#fecha-hora').text(response.detalleVehiculo[i].fechaHora_detalle);
+                $('#tot').text(response.detalleVehiculo[i].total_detalle);
+            }
+
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+    });
 
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function(evento) {
@@ -107,6 +146,10 @@ $(document).ready(function() {
                             html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" id="' + json.detalleVehiculo[i].id_vehiculo + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
+                            html += '        </button>';
+                            html += '        <button type="button" name="' + json.detalleVehiculo[i].id_detalle + '" id="' + json.detalleVehiculo[i].id_vehiculo + '" class="btn btn-secondary" data-toggle="modal"';
+                            html += '            data-target="#modal-cotizacion">';
+                            html += '            <i class="fas fa-eye" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';

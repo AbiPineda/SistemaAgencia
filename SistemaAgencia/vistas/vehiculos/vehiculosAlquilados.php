@@ -3,7 +3,7 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
@@ -243,7 +243,7 @@
                                     <label>Intereses (%)</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="porcentaje" name="porcentaje"
-                                            min=0  value="5">
+                                            min=0 value="5">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -252,8 +252,7 @@
                                 <div class="form-group">
                                     <label>Total a Pagar</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="pagar" name="pagar"
-                                            disabled>
+                                        <input type="text" class="form-control" id="pagar" name="pagar" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -276,7 +275,228 @@
         <!-- End Modal EDITAR-->
     </div>
 </form>
+<form id="miFormularioReporte" name="miFormularioReporte" role="form" onsubmit="return false">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-cotizacion">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
 
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Información de Alquiler:</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreC" id="nombreC">
+                                                                                </p>
+
+                                                                            </td>
+                                                                            <td><label>DUI:</label>
+                                                                                <p name="dui-cliente" id="dui-cliente">
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p> </p>
+                                                                                <label>Teléfono:</label>
+                                                                                <p name="telefonoC" id="telefonoC"></p>
+                                                                            </td>
+                                                                            <td><label>Email:</label>
+                                                                                <p name="emailC" id="emailC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Placa</th>
+                                                            <th class="textcenter">Vehiculo</th>
+                                                            <th class="textcenter">Año</th>
+                                                            <th class="textcenter">Kilometraje Actual</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="placaAuto"
+                                                                    id="placaAuto" style="font-weight: normal;"></label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="nombreVehiculo"
+                                                                    id="nombreVehiculo"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="anioA" id="anioA"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="kilometrajeA"
+                                                                    id="kilometrajeA"
+                                                                    style="font-weight: normal;"></label></td>
+
+                                                        </tr>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Dirección de Recogida</th>
+                                                            <th class="textcenter">Dirección de Devolución</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="direccion_recogidaC"
+                                                                    id="direccion_recogidaC"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="direccion_devolucionC"
+                                                                    id="direccion_devolucionC"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Fecha - Hora (Recogida/Devolución)
+                                                            </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="fecha-hora"
+                                                                    id="fecha-hora"
+                                                                    style="font-weight: normal;"></label></td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Cantidad
+                                                            </th>
+                                                            <th class="textcenter">Servicio Adicional
+                                                            </th>
+                                                            <th class="textcenter">Precio
+                                                            </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter">falta</td>
+                                                            <td class="textcenter">falta</td>
+                                                            <td class="textcenter">falta</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+
+                                                <table id="factura_detalle">
+
+                                                    <tfoot id="detalle_totales">
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>TOTAL A PAGAR
+                                                                    ($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="tot" id="tot"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                                <div>
+                                                    <p class="nota">En caso de que la devolución del vehiculo sea uno o
+                                                        más dias despues de la fecha
+                                                        <br>establecida, se le aplicará un porcentaje de pago extra
+                                                        sobre el monto total.
+                                                    </p>
+                                                    <h5 class="label_gracias">¡Disfruta de Viajes Inolvidables!</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
 
 
 <?php  
