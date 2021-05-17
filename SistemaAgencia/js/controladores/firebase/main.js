@@ -46,7 +46,8 @@ $("#login-btn").on("click", function () {
       if (!resp.err) {
         if (resp.nivel == 'EMPLEADO' || resp.nivel == 'ADMINISTRADOR') {
           //aqui estamos guardando la foto de perfil del usuario          
-          localStorage.setItem('fotoPerfil', resp.foto)
+          localStorage.setItem('API_KEY', resp.user_uuid);
+          localStorage.setItem('NIVEL', resp.nivel);
           let token = resp.token;
           console.log(resp.message);
           firebase

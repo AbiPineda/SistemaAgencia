@@ -20,7 +20,7 @@
             <li class="nav-item dropdown">
                <a class="nav-link" href="<?= $base_url ?>vistas/chat/messenger.php">
                   <i class="far fa-comments"></i>
-                  <span class="badge badge-danger navbar-badge">3</span>
+                  <span id="mensajesPendientes" class="badge badge-danger navbar-badge">0</span>
                </a>
             </li>
             <!-- Notifications Dropdown Menu -->
@@ -53,9 +53,9 @@
 
 
             <li>
-               <a class="nav-link" id="cerrarSesion" data-toggle="dropdown" href="#">
+               <div id="logout-btn" class="nav-link" id="cerrarSesion">
                   Cerrar Sesion <i class="fas fa-sign-out-alt"></i>
-               </a>
+               </div>
             </li>
 
 
