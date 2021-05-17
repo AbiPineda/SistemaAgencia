@@ -353,16 +353,10 @@
                                                                 <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
                                                                     del Parquecito Infantil<br>Teléfono: +(503) 2319
                                                                     2338<br>info.ventas@martineztraveltours.com</p>
-                                                               
+
                                                             </div>
                                                         </td>
-                                                        <td class="info_factura">
-                                                            <div class="round">
-                                                                <span class="h3">Cotización de Vuelos</span>
-                                                                <p>Fecha: 20/01/2021</p>
-                                                                <p>Hora: 10:30am</p>
-                                                            </div>
-                                                        </td>
+                                                        
                                                     </tr>
                                                 </table>
                                                 <table id="factura_cliente">
@@ -371,26 +365,31 @@
                                                             <div class="round">
                                                                 <span class="h3">Datos Generales del Cliente</span>
                                                                 <table class="datos_cliente">
-                                                                    <tr>
-                                                                        <td>
-                                                                            <label>Cliente:</label>
-                                                                            <p name="nombreCliente" id="nombreCliente">
-                                                                            </p>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreCliente"
+                                                                                    id="nombreCliente">
+                                                                                </p>
 
-                                                                        </td>
-                                                                        <td><label>DUI:</label>
-                                                                            <p name="docIdentidad" id="docIdentidad">
-                                                                            </p>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><label>Teléfono:</label>
-                                                                            <p name="telefono" id="telefono"></p>
-                                                                        </td>
-                                                                        <td><label>Email:</label>
-                                                                            <p name="email" id="email"></p>
-                                                                        </td>
-                                                                    </tr>
+                                                                            </td>
+                                                                            <td><label>DUI:</label>
+                                                                                <p name="docIdentidad"
+                                                                                    id="docIdentidad">
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Teléfono:</label>
+                                                                                <p name="telefono" id="telefono"></p>
+                                                                            </td>
+                                                                            <td><label>Email:</label>
+                                                                                <p name="email" id="email"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
                                                                 </table>
                                                             </div>
                                                         </td>

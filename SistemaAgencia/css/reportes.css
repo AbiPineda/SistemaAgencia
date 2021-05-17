@@ -5,10 +5,10 @@
 }
 
 .h3{
-	font-family: 'BrixSansBlack';
 	font-size: 12pt;
 	display: block;
 	background: #0a4661;
+	font-weight: bold;
 	color: #FFF;
 	text-align: center;
 	padding: 3px;
@@ -22,6 +22,8 @@
 #factura_head, #factura_cliente, #factura_detalle{
 	width: 100%;
 	margin-bottom: 10px;
+	border-spacing: 10px 5px;
+
 }
 .logo_factura{
 	width: 25%;
@@ -74,6 +76,7 @@
 
 #factura_detalle{
 	border-collapse: collapse;
+	
 }
 #factura_detalle thead th{
 	background: #058167;
