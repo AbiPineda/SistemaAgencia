@@ -13,14 +13,17 @@ function obenerChats() {
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
-      let time = new Date(response.ultimaConexion);
+       let count = 0;
       db.collection("chat")
-         .where("user_1_uuid",'!=', response.uuid)
-         .where("time", ">", time)
+         .where("time", ">", response.ultimaConexion)
          .get()
-         .then((snapshot) => {
-            console.log(snapshot.size);
-            $('#mensajesPendientes').text(snapshot.size);
+         .then((chats) => {
+            chats.forEach(chat => {
+               if (chat.data().user_1_uuid != response.uuid) {
+                  count++;
+               }
+            });
+            $('#mensajesPendientes').text(count);
          })
          .catch((e) => {
             console.log(e);
