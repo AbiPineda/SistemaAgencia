@@ -40,7 +40,41 @@ $(document).ready(function() {
         });
     });
 
+//BOTON MOSTRAR 
+$(document).on('click', '.btn-group .btn-secondary', function() {
 
+    idMantenimiento = $(this).attr("name");
+
+    $('#loadingActualizar').show();
+    $.ajax({
+        url: "http://localhost/API-REST-PHP/mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
+           method: "GET"
+    }).done(function(response) {
+        //MANDALOS LOS VALORES AL MODAL
+        for (let i = 0, ien = response.mantenimiento.length; i < ien; i++) {
+
+            $('#placaMantenimiento').text(response.mantenimiento[i].placa);
+            $('#anioMantenimiento').text(response.mantenimiento[i].anio);
+            $('#marcaMantenimiento').text(response.mantenimiento[i].marca);
+            $('#modeloMantenimiento').text(response.mantenimiento[i].modelo);
+           
+            $('#fechaMantenimiento').text(response.mantenimiento[i].fecha_mantenimiento);
+            $('#lugarMantenimiento').text(response.mantenimiento[i].lugar_mantenimiento);
+
+            $('#mantenimientosRealizados').text(response.mantenimiento[i].mantenimiento_realizado);
+            $('#piezasMantenimiento').text(response.mantenimiento[i].piezas_cambiadas);
+            
+            $('#tot').text(response.mantenimiento[i].costoMantenimiento);
+            
+        }
+
+    }).fail(function(response) {
+
+    }).always(function(xhr, opts) {
+        $('#modal-reporte').modal('show');
+
+    });
+});
     //BOTON PARA ELIMINAR
     $(document).on('click', '.btn-group .btn-danger', function(evento) {
         idMantenimiento = $(this).attr("name");
@@ -98,6 +132,10 @@ $(document).ready(function() {
                             html += '        <button type="button" name="' + json.mantenimiento[i].id_mantenimiento + '" class="btn btn-primary" data-toggle="modal"';
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
+                            html += '        </button>';
+                            html += '        <button type="button" name="' + json.mantenimiento[i].id_mantenimiento + '" class="btn btn-secondary" data-toggle="modal"';
+                            html += '            data-target="#modal-reporte">';
+                            html += '            <i class="fas fa-eye" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.mantenimiento[i].id_mantenimiento + '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';

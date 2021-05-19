@@ -3,6 +3,8 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <style>
 .center {
     display: block;
@@ -115,7 +117,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="fecha" name="fecha" data-date="" data-date-format="DD MMMM YYYY" disabled>
+                                        <input type="date" class="form-control" id="fecha" name="fecha" data-date=""
+                                            data-date-format="DD MMMM YYYY" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -151,7 +154,8 @@
                                 <div class="form-group">
                                     <label>Lugar donde se realizo mantenimiento</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="lugar" name="lugar" autocomplete="off" >
+                                        <input type="text" class="form-control" id="lugar" name="lugar"
+                                            autocomplete="off">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -195,6 +199,163 @@
 </form>
 
 
+<form id="miFormularioReporte" name="miFormularioReporte" role="form" onsubmit="return false">
+    <!-- Modal EDITAR-->
+    <div class="modal fade" id="modal-reporte">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mantenimiento Realizado:</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Vehiculo</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p> </p>
+                                                                                <label>Placa:</label>
+                                                                                <p name="placaMantenimiento"
+                                                                                    id="placaMantenimiento">
+                                                                                </p>
+
+                                                                            </td>
+                                                                            <td><label>Año:</label>
+                                                                                <p name="anioMantenimiento"
+                                                                                    id="anioMantenimiento">
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p> </p>
+                                                                                <label>Marca:</label>
+                                                                                <p name="marcaMantenimiento"
+                                                                                    id="marcaMantenimiento"></p>
+                                                                            </td>
+                                                                            <td><label>Modelo:</label>
+                                                                                <p name="modeloMantenimiento"
+                                                                                    id="modeloMantenimiento"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Fecha</th>
+                                                            <th class="textcenter">Lugar donde se realizo el
+                                                                mantenimiento</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+                                                        <tr>
+                                                            <td class="textcenter"><label name="fechaMantenimiento"
+                                                                    id="fechaMantenimiento"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="lugarMantenimiento"
+                                                                    id="lugarMantenimiento"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Mantenimientos Realizados</th>
+                                                            <th class="textcenter">Piezas Cambiadas</th>
+                                                       
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+                                                        <tr>
+                                                            <td class="textcenter"><label
+                                                                    name="mantenimientosRealizados"
+                                                                    id="mantenimientosRealizados"
+                                                                    style="font-weight: normal;"></label></td>
+
+                                                                    <td class="textcenter"><label name="piezasMantenimiento"
+                                                                    id="piezasMantenimiento"
+                                                                    style="font-weight: normal;"></label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                
+                                                <table id="factura_detalle">
+                                                    <tfoot id="detalle_totales">
+                                                        <tr>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>TOTAL ($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="tot" id="tot"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
 
 <?php  
 include_once '../../plantillas/footer.php';?>
@@ -203,7 +364,7 @@ $("input").on("change", function() {
     this.setAttribute(
         "data-date",
         moment(this.value, "YYYY-MM-DD")
-        .format( this.getAttribute("data-date-format") )
+        .format(this.getAttribute("data-date-format"))
     )
 }).trigger("change")
 </script>
