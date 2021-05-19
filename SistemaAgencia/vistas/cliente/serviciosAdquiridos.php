@@ -46,7 +46,6 @@ include_once '../../plantillas/barra_lateral.php';
                         <i class="fas fa-users bg-primary"></i>
                         <div class="timeline-item">
                             <h3 class="timeline-header"><a href="#">Información General</a></h3>
-
                             <div class="timeline-body">
                                 <form id="datosOrigen-form" name="register-form" onsubmit="return false">
                                     <div class="row">
@@ -74,9 +73,6 @@ include_once '../../plantillas/barra_lateral.php';
                                 </form>
                             </div>
                         </div>
-
-
-
                     </div>
 
                     <div id="formulario">
@@ -93,14 +89,9 @@ include_once '../../plantillas/barra_lateral.php';
                                                     <a class="nav-link active" id="custom-tabs-four-home-tab"
                                                         data-toggle="pill" href="#custom-tabs-four-home" role="tab"
                                                         aria-controls="custom-tabs-four-home"
-                                                        aria-selected="true">Tours</a>
+                                                        aria-selected="true">Tours/Paquetes</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="custom-tabs-four-profile-tab"
-                                                        data-toggle="pill" href="#custom-tabs-four-profile" role="tab"
-                                                        aria-controls="custom-tabs-four-profile"
-                                                        aria-selected="false">Paquetes</a>
-                                                </li>
+                                               
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="custom-tabs-four-encomiendas-tab"
                                                         data-toggle="pill" href="#custom-tabs-four-encomiendas"
@@ -152,18 +143,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
-                                                    aria-labelledby="custom-tabs-four-profile-tab">
-                                                    Mauris tincidunt mi at erat gravida, eget tristique urna bibendum.
-                                                    Mauris pharetra purus ut ligula tempor, et vulputate metus
-                                                    facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                                                    posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus
-                                                    interdum, nisl ligula placerat mi, quis posuere purus ligula eu
-                                                    lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere
-                                                    nec nunc. Nunc
-                                                    euismod pellentesque diam.
-                                                </div>
+                                                
                                                 <div class="tab-pane fade" id="custom-tabs-four-encomiendas"
                                                     role="tabpanel" aria-labelledby="custom-tabs-four-encomiendas-tab">
                                                     <div class="col-sm-12">
@@ -234,7 +214,18 @@ include_once '../../plantillas/barra_lateral.php';
                                                     role="tabpanel"
                                                     aria-labelledby="custom-tabs-four-cotizarvuelos-tab">
                                                     <div class="col-sm-12">
-
+                                                        <table id="add-vuelos" class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr style="text-align: center;">
+                                                                    <th>Ciudad de Partida</th>
+                                                                    <th>Fecha Partida</th>
+                                                                    <th>Ciudad de Llegada</th>
+                                                                    <th>Fecha Llegada</th>
+                                                                    <th>Aerolinea</th>
+                                                                    <th>Sub Total($)</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
