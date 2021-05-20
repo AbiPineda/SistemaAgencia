@@ -155,8 +155,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaPartida" name="fechaPartida" type="date" class="form-control"
-                                            disabled type="date" data-date="" data-date-format="DD MMMM YYYY">
+                                        <input id="fechaPartida" type="text" name="fechaPartida" class="form-control"
+                                            disabled >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -185,8 +185,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaLlegada" name="fechaLlegada" type="date" class="form-control"
-                                            disabled type="date" data-date="" data-date-format="DD MMMM YYYY">
+                                        <input id="fechaLlegada" type="text" name="fechaLlegada" class="form-control"
+                                            disabled  >
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -281,7 +281,7 @@
                                 <div class="form-group">
                                     <label>Descuentos</label>
                                     <div class="input-group">
-                                        <input id="descuentos" name="descuentos" type="text" class="form-control">
+                                        <input id="descuentos" name="descuentos" type="number" min=0 class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -290,7 +290,7 @@
                                 <div class="form-group">
                                     <label>Total</label>
                                     <div class="input-group">
-                                        <input id="total" name="total" type="text" class="form-control">
+                                        <input id="total" name="total" type="number" min=0 class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -569,16 +569,6 @@ document.getElementById("doPrint").addEventListener("click", function() {
     window.print();
     document.body.innerHTML = originalContents;
 });
-</script>
-
-<script>
-$("input").on("change", function() {
-    this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD")
-        .format(this.getAttribute("data-date-format"))
-    )
-}).trigger("change")
 </script>
 
 

@@ -158,7 +158,7 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaRecogida" name="fechaRecogida" type="date" class="form-control">
+                                        <input id="fechaRecogida" name="fechaRecogida" type="text" class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -189,8 +189,8 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input id="fechaDevolucion" name="fechaDevolucion" type="date"
-                                            class="form-control">
+                                        <input id="fechaDevolucion" name="fechaDevolucion" type="text"
+                                            class="form-control" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -215,7 +215,7 @@
                                 <div class="form-group">
                                     <label>Descuentos (%)</label>
                                     <div class="input-group">
-                                        <input id="descuentosA" name="descuentosA" type="text" class="form-control">
+                                        <input id="descuentosA" name="descuentosA" type="number" min=0 class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -224,7 +224,7 @@
                                 <div class="form-group">
                                     <label>Total ($)</label>
                                     <div class="input-group">
-                                        <input id="totalA" name="totalA" type="text" class="form-control">
+                                        <input id="totalA" name="totalA"  type="number" min=0 class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>

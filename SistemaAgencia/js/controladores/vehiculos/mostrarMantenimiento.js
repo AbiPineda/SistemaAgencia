@@ -160,7 +160,7 @@ $(document).on('click', '.btn-group .btn-secondary', function() {
                 }
             },
             columns: [
-                { data: "start" },
+                { data: "fecha_mantenimiento" },
                 { data: "modelo" },
                 { data: "anio" },
                 { data: "lugar_mantenimiento" },

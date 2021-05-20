@@ -117,8 +117,7 @@
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="fecha" name="fecha" data-date=""
-                                            data-date-format="DD MMMM YYYY" disabled>
+                                        <input type="text" class="form-control" id="fecha" name="fecha" disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -359,15 +358,6 @@
 
 <?php  
 include_once '../../plantillas/footer.php';?>
-<script>
-$("input").on("change", function() {
-    this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD")
-        .format(this.getAttribute("data-date-format"))
-    )
-}).trigger("change")
-</script>
 
 
 <!-- SCRIPT ADICIONALES -->
