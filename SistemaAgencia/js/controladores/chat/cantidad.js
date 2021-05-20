@@ -13,17 +13,17 @@ function obenerChats() {
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
-       let count = 0;
+      let listChats = [];
+      console.log(response.ultimaConexion);
       db.collection("chat")
-         .where("time", ">", response.ultimaConexion)
+         // .where("time", ">", response.ultimaConexion)
          .get()
          .then((chats) => {
             chats.forEach(chat => {
-               if (chat.data().user_1_uuid != response.uuid) {
-                  count++;
-               }
+               listChats.push(chat.data().chat_uuid);
             });
-            $('#mensajesPendientes').text(count);
+            let chatsUnicos = listChats.filter(unique);
+            $('#mensajesPendientes').text(chatsUnicos.length);
          })
          .catch((e) => {
             console.log(e);
@@ -38,3 +38,7 @@ function obenerChats() {
 }
 
 obenerChats();
+
+function unique(value, index, self) {
+   return self.indexOf(value) === index
+}

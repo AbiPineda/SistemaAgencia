@@ -1,34 +1,5 @@
 inicializarValidaciones();
 
-$("#register-btn").on("click", function (e) {
-  e.preventDefault();
-
-  let btnHTML = $(this).html();
-  $(this).html("<img id='loader' src='img/loader.svg' alt='Loading...!' />");
-
-  let myData = {
-    "nombre": document.getElementById("fullname").value,
-    "correo": document.getElementById("email").value,
-    "password": document.getElementById("email").value,
-    "celular": "12334562",
-    "nivel": "USUARIO",
-  };
-  $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/registroUser",
-    method: "POST",
-    data: myData,
-    success: function (response) {
-      $("#register-btn").html(btnHTML);
-      console.log(response);
-      $("#register-form").trigger("reset");
-      changeForm($(".login-register-btn"));
-    },
-    error: function (er) {
-      console.log(er);
-    },
-  });
-});
-
 $("#login-btn").on("click", function () {
   const Toast = Swal.mixin();
   let form = $("#login-form");
@@ -56,6 +27,7 @@ $("#login-btn").on("click", function () {
             .then(function (data) {
               $("#login-btn").html(btnHTML);
               if (data.user.uid != "") {
+                
                 window.location.href = "home.php";
               }
             }).catch(function (error) {
