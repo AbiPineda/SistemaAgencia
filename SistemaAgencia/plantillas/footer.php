@@ -5,17 +5,17 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="<?=$base_url?>js/controladores/client/close-session.js"></script>
+<script src="<?= $base_url ?>js/controladores/client/close-session.js"></script>
 
 
 <!-- Bootstrap 4 -->
-<script src="<?=$base_url?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="<?=$base_url?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?= $base_url ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<?=$base_url?>dist/js/adminlte.min.js"></script>
+<script src="<?= $base_url ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?=$base_url?>dist/js/demo.js"></script>
+<script src="<?= $base_url ?>dist/js/demo.js"></script>
 <!-- DataTables -->
 <script src="<?= $base_url ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= $base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -43,4 +43,3 @@
 <script src="<?= $base_url ?>plugins/fullcalendar-bootstrap/main.min.js"></script>
 <script src='<?= $base_url ?>plugins/fullcalendar/locales/es.js'></script>
 <script src="<?= $base_url ?>js/bootstrap-clockpicker.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/comision-automatica.js"></script>
