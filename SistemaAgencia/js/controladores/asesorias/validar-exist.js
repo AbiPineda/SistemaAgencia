@@ -20,7 +20,7 @@ $(function () {
 
        }else{
 
-       if(response.mensaje=='Existe' && response.existe.estado_cita==1){
+       if(response.mensaje=='Existe' && response.existe.color=='#007bff'){
 
        let fecha=response.existe.fecha;
        let nueva= fecha.split('-');
