@@ -2,14 +2,8 @@
 //si ya realizo el proceso de asesoria estara registrada toda su informacion migratoria
 //entonces solo se necesita modificar los datos o add si hay nuevas preguntas
 $(function () {
-        $("#cliente").change(function () {
-           var id = document.getElementById("cliente").value;
-          
-           /*let data = {
-        "transmision": document.getElementById("transmision").value
-
-            };*/
-   
+        $("#comboUsuario").change(function () {
+           var id = document.getElementById("comboUsuario").value;
     $.ajax({
         url: URL_SERVIDOR + "Cita/verificarExist?id_cliente="+id,
         method: 'GET'
@@ -18,25 +12,11 @@ $(function () {
 
         //alert(response.existe.id_cita);
       
-       if (response.mensaje=='Existe' && response.existe.estado_cita==0) {
-        const Toast = Swal.mixin();
-        Swal.fire({
-            title: '¡EL cliente ya ha realizado proceso migratorio!',
-            text: "¿Desea modificar la información?",
-            icon: 'warning',
-             showCancelButton: true,
-            cancelButtonText: "Cancelar",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí!'
-        }).then((result) => {
-            console.log(result);
-            if (result.value) {
-               window.location = `${URL_SISTEMA}vistas/Asesoria/Formulario.php?form=`+response.existe.id_cita;
-            }
-        });
+       if (response.mensaje=='Existe' && response.existe.color=='#FF0040') {
 
-         document.getElementById("btnAgregar").disabled = true; 
+         document.getElementById("btnAgregar").disabled = false;
+         document.getElementById("pasaporte").disabled  = true;
+         $('#pasaporte').val(response.existe.pasaporte);
 
        }else{
 
