@@ -2,7 +2,7 @@ $(document).ready(function (){
 
     inicializarValidaciones();
     inicializarGaleria();
-    inicializarFoto();
+   // inicializarFoto();
   
     //BOTON PARA AGREGAR
     $(document).on('click', '#btnAgregar', function (evento) {

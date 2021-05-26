@@ -1,11 +1,11 @@
 <?php include_once '../../config/parametros.php'; ?>
 <?php //include_once '../../plantillas/cabecera.php'; ?>
+<?php include_once './pluing.php'; ?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <!--COTINUANDO CON LA INICIALIZACION -->
-<?php include_once '../../plantillas/barra_lateral.php'; ?>
-<?php include_once './pluing.php'; ?>
+
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
@@ -14,6 +14,7 @@
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
 <link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
+<?php include_once '../../plantillas/barra_lateral.php'; ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
