@@ -110,6 +110,8 @@ MartínezT&T
 <li class="self">Vehiculos solo chulada y con A/C</li>
 <li class="other">Vuelos</li>
 <li class="self">Encomienda</li>
+
+
 </ul>
 <div class="footer">
 <div class="text-box" disabled="true" contenteditable="true"></div>
@@ -118,7 +120,7 @@ MartínezT&T
 </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="<?=$base_url?>js/chat.js"></script>
 
                         <!--FIN DEL CHAT-->
