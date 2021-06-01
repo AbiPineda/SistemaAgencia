@@ -416,7 +416,7 @@ include_once '../../plantillas/cabecera.php';
         <!-- /.modal-content -->
     </div>
    
-</div>
+
 
 <?php
   include_once '../cliente/modalCliente.php';
