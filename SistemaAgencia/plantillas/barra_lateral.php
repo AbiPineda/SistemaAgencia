@@ -1,8 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= $base_url ?>index.html" class="brand-link">
-        <span class="brand-text font-weight-light">Agencia de Viajes</span>
+    
+    <a href="<?= $base_url ?>home.php" class="brand-link">
+        <span class="brand-text font-weight-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agencia de Viajes</span>
     </a>
 
     <!-- Sidebar -->

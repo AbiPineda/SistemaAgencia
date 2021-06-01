@@ -179,12 +179,7 @@ h6 {
                                  <h3 class="mb-0" name="precio" id="precio" style="text-align:center"></h3>
                               </div>
                            </div>
-                           <div class="mt-4">
-                              <button class="btn btn-block btn-success btn-flat" id="btnReservar" name="btnReservar">
-                                 <i class="fas fa-cart-plus fa-lg"></i>
-                                 Reservar Vehiculo
-                              </button>
-                           </div>
+                           
                         </div>
                      </div>
                      <div class="row mt-4">
