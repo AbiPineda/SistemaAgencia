@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
+include_once '../../vistas/cliente/session.php';
 ?>
 
 <!-- ESTILOS ADICIONALES-->
@@ -226,6 +227,10 @@ $(function() {
 </script>
 
 
+<script>
+let id = localStorage.getItem('id_cliente');
+console.log(id);
+</script>
 
 
 <!-- jquery-validation -->
@@ -239,6 +244,7 @@ $(function() {
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <!-- FIN DE SCRIPT PARA REGISTRO DE USUARIO -->
 
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
