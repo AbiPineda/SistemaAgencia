@@ -1,12 +1,25 @@
 $(document).ready(function() {
     let usuario = localStorage.getItem('id_cliente');
+    
     let detalle = "realizo cotizacion de vehiculo"
 
-    let hoy = new Date();
-    let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    let fecha = new Date();
+ 
+    let mes     = fecha.getMonth()+1; //obteniendo mes
+    let dia     = fecha.getDate(); //obteniendo dia
+    let ano     = fecha.getFullYear(); //obteniendo año
 
-    let hora = hoy.getHours() + '-' + hoy.getMinutes() + '-' + hoy.getSeconds();
-   
+    let hora    = fecha.getHours(); //obteniendo hora
+    let minutos = fecha.getMinutes(); //obteniendo minuto
+    let segundos = fecha.getSeconds(); //obteniendo segundos
+
+    if(dia<10)
+    dia='0'+dia; //agrega cero si el menor de 10
+    if(mes<10)
+    mes='0'+mes //agrega cero si el menor de 10
+
+    let fechaCompleta=ano+"-"+mes+"-"+dia;
+    let horaCompleta=hora+":"+minutos+":"+segundos;
    
     guardarBitacora();
 
@@ -16,8 +29,8 @@ $(document).ready(function() {
 
 
         form.append("idusuario", usuario);
-        form.append("fecha_bitacora", fecha);
-        form.append("hora_bitacora", hora);
+        form.append("fecha_bitacora", fechaCompleta);
+        form.append("hora_bitacora", horaCompleta);
         form.append("detalle_bitacora", detalle);
 
 
