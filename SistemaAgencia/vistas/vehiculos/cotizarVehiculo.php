@@ -1,7 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
-include_once '../cliente/session.php';
+include_once '../../vistas/cliente/session.php';
 ?>
 
 <!-- ESTILOS ADICIONALES-->
@@ -236,7 +236,6 @@ console.log(id);
 <!-- jquery-validation -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 
-<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
@@ -245,7 +244,7 @@ console.log(id);
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
-
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <!-- FIN DE SCRIPT PARA REGISTRO DE USUARIO -->
 
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
@@ -261,5 +260,6 @@ console.log(id);
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
+
 
 <?php include_once '../../plantillas/cierre.php'; ?>
