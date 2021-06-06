@@ -263,7 +263,7 @@
       <!-- End Modal EDITAR-->
    </form>
 
-   
+
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
