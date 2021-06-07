@@ -38,10 +38,3 @@
    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>css/bootstrap-clockpicker.css">
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
    <script src="<?= $base_url ?>plugins/jquery/jquery.min.js"></script>
-   <!-- coplementos de firebase necesarios -->
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
-   <script src="<?= $base_url ?>js/controladores/firebase/firestore-config.js"></script>
-   <script src="<?= $base_url ?>js/controladores/client/session.js"></script>
-   <script src="<?= $base_url ?>js/controladores/chat/cantidad.js"></script>

@@ -1,4 +1,5 @@
 <?php
+include_once './plantillas/session.php';
 include_once './config/parametros.php';
 include_once './plantillas/cabecera.php';
 include_once  './plantillas/navbar.php';
@@ -14,7 +15,7 @@ include_once './plantillas/barra_lateral.php';
          <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-               <img style="width: 100%; heingt: 100%;" src="img/fondo.jpg" alt="imagen de fondo">
+               <img style="width: 100%; height: 100%;" src="img/fondo.jpg" alt="imagen de fondo">
             </div> <!-- /.cierre row -->
          </div><!-- /.container-fluid -->
       </section>

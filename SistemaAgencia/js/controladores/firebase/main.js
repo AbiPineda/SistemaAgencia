@@ -17,18 +17,19 @@ $("#login-btn").on("click", function () {
       if (!resp.err) {
         if (resp.nivel == 'EMPLEADO' || resp.nivel == 'ADMINISTRADOR') {
           //aqui estamos guardando la foto de perfil del usuario          
-          localStorage.setItem('API_KEY', resp.user_uuid);
-          localStorage.setItem('NIVEL', resp.nivel);
+          initPreferencias(resp);
           let token = resp.token;
-          console.log(resp.message);
           firebase
             .auth()
             .signInWithCustomToken(token)
             .then(function (data) {
               $("#login-btn").html(btnHTML);
               if (data.user.uid != "") {
-                
-                window.location.href = "home.php";
+                console.log(resp);
+                $.post("vistas/cliente/session.php", { action: "start", nivel: resp.nivel },
+                  function (data) {
+                    location = 'home.php';
+                  });
               }
             }).catch(function (error) {
               // Handle Errors here.
@@ -146,4 +147,15 @@ function inicializarValidaciones() {
 
     }
   });
+}
+function initPreferencias(resp) {
+  console.log(resp);
+  localStorage.setItem("id_cliente", resp.id_cliente);
+  localStorage.setItem("nombre", resp.nombre);
+  localStorage.setItem("correo", resp.correo);
+  localStorage.setItem("nivel", resp.nivel);
+  localStorage.setItem("celular", resp.celular);
+  localStorage.setItem("dui", resp.dui);
+  localStorage.setItem("foto", resp.foto);
+  localStorage.setItem("user_uuid", resp.user_uuid);
 }

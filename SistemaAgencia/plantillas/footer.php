@@ -4,9 +4,12 @@
 
 </div>
 <!-- ./wrapper -->
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+<script src="<?= $base_url ?>js/controladores/firebase/firestore-config.js"></script>
 
-<script src="<?= $base_url ?>js/controladores/client/close-session.js"></script>
-
+<script src="<?= $base_url ?>js/controladores/chat/cantidad.js"></script>
 
 <!-- Bootstrap 4 -->
 <script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
