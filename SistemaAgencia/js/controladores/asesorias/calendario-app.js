@@ -126,7 +126,7 @@
             },
             editable: true,
             eventDrop: function(calEvent) {
-              if(calEvent.estado_cita==0){
+              if(calEvent.estado_cita==0 || calEvent.color=='#007bff'){
 
               $('#calendar').fullCalendar('refetchEvents');
               const Toast = Swal.mixin();
