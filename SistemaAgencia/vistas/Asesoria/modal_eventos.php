@@ -113,7 +113,7 @@
 
                                     <label>Agregar foto de pasaporte</label>
                                     <div class="file-loading">
-                                       <input type="file" name="fotos[]" id="fotos">
+                                       <input multiple type="file" name="fotos[]" id="fotos">
                                     </div>
                                  </div>
                               </div>
