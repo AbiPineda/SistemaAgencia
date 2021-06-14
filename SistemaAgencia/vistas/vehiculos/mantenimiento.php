@@ -1,4 +1,5 @@
 <?php
+include_once '../cliente/session.php';
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 ?>
@@ -195,6 +196,13 @@ include_once '../../plantillas/cabecera.php';
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="hidden">
+                                                <label name="detalle" id="detalle">Ingreso Mantenimiento de un Vehìculo</label>
+                                            </div>
+                                        </div> 
                                     <div class="timeline-footer" style="text-align: right;">
                                         <button name="btnGuardar" id="btnGuardar" class="btn btn-info btn-sm"
                                             style="color: white">Guardar</button>
@@ -247,6 +255,11 @@ function CambioPieza() {
 }
 </script>
 
+<script>
+let id = localStorage.getItem('id_cliente');
+console.log(id);
+</script>
+
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
@@ -255,3 +268,4 @@ function CambioPieza() {
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboPlaca.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarMantenimiento.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>

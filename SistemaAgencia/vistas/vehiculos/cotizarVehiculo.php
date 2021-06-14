@@ -177,6 +177,13 @@ include_once '../../plantillas/cabecera.php';
                                                     value="08:00" />
                                             </div>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="hidden">
+                                                <label name="detalle" id="detalle">Realizo Cotización de Vehìculo</label>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                     <div class="timeline-footer" style="text-align: right;">
                                         <button name="btnGuardarCotizacionV" id="btnGuardarCotizacionV"

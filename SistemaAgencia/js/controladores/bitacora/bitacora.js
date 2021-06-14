@@ -1,28 +1,26 @@
 $(document).ready(function() {
 
-   // const ID_cliente = urlParams.get('usuario');
-
     let id = localStorage.getItem('id_cliente');
-    let detalle = "realizo cotizacion de vehiculo"
+    let detallito = document.getElementById('detalle').innerHTML;
 
     let fecha = new Date();
- 
-    let mes     = fecha.getMonth()+1; //obteniendo mes
-    let dia     = fecha.getDate(); //obteniendo dia
-    let ano     = fecha.getFullYear(); //obteniendo año
 
-    let hora    = fecha.getHours(); //obteniendo hora
+    let mes = fecha.getMonth() + 1; //obteniendo mes
+    let dia = fecha.getDate(); //obteniendo dia
+    let ano = fecha.getFullYear(); //obteniendo año
+
+    let hora = fecha.getHours(); //obteniendo hora
     let minutos = fecha.getMinutes(); //obteniendo minuto
     let segundos = fecha.getSeconds(); //obteniendo segundos
 
-    if(dia<10)
-    dia='0'+dia; //agrega cero si el menor de 10
-    if(mes<10)
-    mes='0'+mes //agrega cero si el menor de 10
+    if (dia < 10)
+        dia = '0' + dia; //agrega cero si el menor de 10
+    if (mes < 10)
+        mes = '0' + mes //agrega cero si el menor de 10
 
-    let fechaCompleta=ano+"-"+mes+"-"+dia;
-    let horaCompleta=hora+":"+minutos+":"+segundos;
-   
+    let fechaCompleta = ano + "-" + mes + "-" + dia;
+    let horaCompleta = hora + ":" + minutos + ":" + segundos;
+
     guardarBitacora();
 
     function guardarBitacora() {
@@ -33,7 +31,7 @@ $(document).ready(function() {
         form.append("idusuario", id);
         form.append("fecha_bitacora", fechaCompleta);
         form.append("hora_bitacora", horaCompleta);
-        form.append("detalle_bitacora", detalle);
+        form.append("detalle_bitacora", detallito);
 
 
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
@@ -47,7 +45,7 @@ $(document).ready(function() {
             contentType: false,
         }).done(function(response) {
 
-           
+
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
