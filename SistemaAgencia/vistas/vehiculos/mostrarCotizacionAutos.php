@@ -254,7 +254,7 @@
 </form>
 
 <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
-    <!-- Modal EDITAR-->
+    <!-- Modal Cotizacion Reporte-->
     <div class="modal fade" id="modal-cotizacion">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
