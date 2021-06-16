@@ -4,7 +4,7 @@ include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
@@ -287,96 +287,13 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <table id="factura_detalle">
                                                     <thead>
                                                         <tr>
-                                                            <th class="textcenter">Vehiculo</th>
-                                                            <th class="textcenter">Año</th>
-                                                            <th class="textcenter">Caracteristicas</th>
-
+                                                            <th class="textcenter">Pregunta</th>
+                                                            <th class="textcenter">Respuesta</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="detalle_productos">
-
-                                                        <tr>
-                                                            <td class="textcenter"><label name="nombreVehiculoC" id="nombreVehiculoC"
-                                                                    style="font-weight: normal;"></label></td>
-                                                            <td class="textcenter"><label name="anioC" id="anioC"
-                                                                    style="font-weight: normal;"></label></td>
-                                                            <td class="textcenter"><label name="caracteristicasC" id="caracteristicasC"
-                                                                    style="font-weight: normal;"></label></td>
-
-                                                        </tr>
-
                                                     </tbody>
 
-                                                </table>
-
-                                                <table id="factura_detalle">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="textcenter">Dirección de Recogida</th>
-                                                            <th class="textcenter">Fecha</th>
-                                                            <th class="textcenter">Hora</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="detalle_productos">
-
-                                                        <tr>
-                                                            <td class="textcenter"><label name="direccion_recogidaC" id="direccion_recogidaC"
-                                                                    style="font-weight: normal;"></label></td>
-                                                            <td class="textcenter"><label name="fechaRecogidaC" id="fechaRecogidaC"
-                                                                    style="font-weight: normal;"></label></label></td>
-                                                            <td class="textcenter"><label name="HoraRecogidaC" id="HoraRecogidaC"
-                                                                    style="font-weight: normal;"></label></label></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <table id="factura_detalle">
-                                                    <thead>
-                                                        <tr>
-                                                        <th class="textcenter">Dirección de Devolución</th>
-                                                            <th class="textcenter">Fecha</th>
-                                                            <th class="textcenter">Hora</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="detalle_productos">
-
-                                                        <tr>
-                                                            <td class="textcenter"><label name="direccion_devolucionC"
-                                                                    id="direccion_devolucionC" style="font-weight: normal;"></label>
-                                                            </td>
-                                                            <td class="textcenter"><label name="fechaDevolucionC" id="fechaDevolucionC"
-                                                                    style="font-weight: normal;"></label></td>
-                                                            <td class="textcenter"><label name="HoraDevolucionC"
-                                                                    id="HoraDevolucionC" style="font-weight: normal;"></label>
-                                                            </td>
-
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                
-
-                                                <table id="factura_detalle">
-                                                    
-                                                    <tfoot id="detalle_totales">
-
-                                                        <tr>
-                                                            <td colspan="3" class="textright"><label>DESCUENTOS
-                                                                    (%)</label>
-                                                            </td>
-                                                            <td class="textcenter"><label name="descuent" id="descuent"
-                                                                    style="font-weight: normal;"></label></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3" class="textright"><label>TOTAL ($)</label>
-                                                            </td>
-                                                            <td class="textcenter"><label name="tot" id="tot"
-                                                                    style="font-weight: normal;"></label></td>
-                                                        </tr>
-                                                    </tfoot>
                                                 </table>
                                             </div>
                                             <div class="row no-print">

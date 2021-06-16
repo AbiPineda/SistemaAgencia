@@ -9,35 +9,19 @@ $(document).ready(function() {
      //BOTON MOSTRAR EL REPORTE
     $(document).on('click', '.btn-group .btn-secondary', function() {
 
-        idCotizarAuto = $(this).attr("name");
-
+        id = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/cotizarVehiculo/cotizar?idcotizarVehiculo=" + idCotizarAuto,
+            url: URL_SERVIDOR + "FormularioMigratorio/formulariosLlenos/" + id,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            for (let i = 0, ien = response.cotizacion.length; i < ien; i++) {
+            for (let i = 0, ien = response.cliente.length; i < ien; i++) {
 
-                $('#nombreC').text(response.cotizacion[i].nombre);
-                $('#emailC').text(response.cotizacion[i].correo);
-                $('#telefonoC').text(response.cotizacion[i].celular);
-                $('#dui-cliente').text(response.cotizacion[i].dui);
-
-                $('#nombreVehiculoC').text(response.cotizacion[i].modelo);
-                $('#anioC').text(response.cotizacion[i].anio);
-                $('#caracteristicasC').text(response.cotizacion[i].caracteristicas);
-
-                $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
-                $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
-                $('#HoraRecogidaC').text(response.cotizacion[i].HoraRecogida);
-                
-                $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
-                $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
-                $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
-
-                $('#descuent').text(response.cotizacion[i].descuentosCotizacion);
-                $('#tot').text(response.cotizacion[i].totalCotizacion);
+                $('#nombreC').text(response.cliente[i].nombre);
+                $('#emailC').text(response.cliente[i].correo);
+                $('#telefonoC').text(response.cliente[i].celular);
+                $('#dui-cliente').text(response.cliente[i].dui);
             }
 
         }).fail(function(response) {
@@ -47,6 +31,8 @@ $(document).ready(function() {
 
         });
     });
+//FIN DE MOSTRAMOS EL REPORTE
+
 
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function() {
