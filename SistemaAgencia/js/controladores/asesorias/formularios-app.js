@@ -6,6 +6,47 @@ $(document).ready(function() {
     //inicializarValidaciones();
     inicializarComboRama();
     inicializarTabla();
+     //BOTON MOSTRAR EL REPORTE
+    $(document).on('click', '.btn-group .btn-secondary', function() {
+
+        idCotizarAuto = $(this).attr("name");
+
+        $('#loadingActualizar').show();
+        $.ajax({
+            url: "http://localhost/API-REST-PHP/cotizarVehiculo/cotizar?idcotizarVehiculo=" + idCotizarAuto,
+            method: "GET"
+        }).done(function(response) {
+            //MANDALOS LOS VALORES AL MODAL
+            for (let i = 0, ien = response.cotizacion.length; i < ien; i++) {
+
+                $('#nombreC').text(response.cotizacion[i].nombre);
+                $('#emailC').text(response.cotizacion[i].correo);
+                $('#telefonoC').text(response.cotizacion[i].celular);
+                $('#dui-cliente').text(response.cotizacion[i].dui);
+
+                $('#nombreVehiculoC').text(response.cotizacion[i].modelo);
+                $('#anioC').text(response.cotizacion[i].anio);
+                $('#caracteristicasC').text(response.cotizacion[i].caracteristicas);
+
+                $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
+                $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
+                $('#HoraRecogidaC').text(response.cotizacion[i].HoraRecogida);
+                
+                $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
+                $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
+                $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
+
+                $('#descuent').text(response.cotizacion[i].descuentosCotizacion);
+                $('#tot').text(response.cotizacion[i].totalCotizacion);
+            }
+
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+    });
 
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function() {
@@ -214,13 +255,13 @@ $(document).ready(function() {
                             html += '            data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
                             html += '        </button>';
+                            html += '        <button type="button" name="' + json.citas[i].id_cita + '" class="btn btn-secondary" data-toggle="modal"';
+                            html += '            data-target="#modal-cotizacion">';
+                            html += '            <i class="fas fa-eye" style="color: white"></i>';
+                            html += '        </button>';
                             html += '        <button type="button" name="' + json.citas[i].id_cita + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.citas[i].id_cita + '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
                             html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
