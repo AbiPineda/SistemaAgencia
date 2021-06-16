@@ -212,7 +212,7 @@ include_once '../../plantillas/barra_lateral.php';
                 <div class="overlay-wrapper">
 
                     <div class="modal-header">
-                        <h4 class="modal-title">Cotización:</h4>
+                        <h4 class="modal-title">Formulario Migratorio:</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

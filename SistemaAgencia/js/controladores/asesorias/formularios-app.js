@@ -16,6 +16,7 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
+            seleccion = $('#detalle_productos');
             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
 
                 $('#nombreC').text(response.cliente[i].nombre);
@@ -23,7 +24,18 @@ $(document).ready(function() {
                 $('#telefonoC').text(response.cliente[i].celular);
                 $('#dui-cliente').text(response.cliente[i].dui);
             }
-
+            for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
+                seleccion.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
+                                 '</td>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+            }
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
