@@ -2,9 +2,9 @@
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-    type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 <?php include_once '../../plantillas/barra_lateral.php';?>
 
 <div class="wrapper">
@@ -108,6 +108,10 @@ include_once  '../../plantillas/navbar.php';?>
                                         style=" margin-top: 10px; color: white">Guardar</button>
                                     <button type="button" class="btn btn-danger btn-sm"
                                         style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
+                                    
+                                    <button type="button" style="margin-top: 10px;" name=" " class="btn btn-secondary" data-toggle="modal" data-target="#modal-cotizacion">
+                                        <i class="fas fa-eye" style= "color: white"></i>
+                                   </button>
 
                                 </div>
                             </div>
@@ -119,6 +123,124 @@ include_once  '../../plantillas/navbar.php';?>
             <div class="col-12 col-sm-1"></div>
         </section>
     </div>
+    <!--CODIGO DEL REPORTE-->
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+    <!-- Modal Cotizacion Reporte-->
+    <div class="modal fade" id="modal-cotizacion">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Formulario Migratorio:</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreC"
+                                                                                    id="nombreC">
+                                                                                </p>
+
+                                                                            </td>
+                                                                            <td><label>DUI:</label>
+                                                                                <p name="dui-cliente"
+                                                                                    id="dui-cliente">
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Teléfono:</label>
+                                                                                <p name="telefonoC" id="telefonoC"></p>
+                                                                            </td>
+                                                                            <td><label>Email:</label>
+                                                                                <p name="emailC" id="emailC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                  <span class="h3">Formulario de preguntas</span>
+                                                <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Pregunta</th>
+                                                            <th class="textcenter">Respuesta</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+<!--FIN DE CODIGO DE REPORTE-->
 
 </div>
 

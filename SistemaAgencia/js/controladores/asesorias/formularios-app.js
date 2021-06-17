@@ -16,6 +16,8 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
+            $('#detalle_productos').empty();
+            
             seleccion = $('#detalle_productos');
             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
 
