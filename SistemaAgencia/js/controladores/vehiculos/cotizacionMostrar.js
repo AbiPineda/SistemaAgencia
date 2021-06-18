@@ -21,7 +21,7 @@ $(document).ready(function() {
 
                 document.getElementById("nombre").value = response.cotizacion[i].nombre;
                 document.getElementById("nombreVehiculo").value = response.cotizacion[i].modelo;
-                document.getElementById("anio").value = response.cotizacion[i].anio;  
+                document.getElementById("anio").value = response.cotizacion[i].anio;
                 document.getElementById("direccion_recogida").value = response.cotizacion[i].direccion_recogida;
                 document.getElementById("fechaRecogida").value = response.cotizacion[i].fechaRecogida;
                 document.getElementById("HoraRecogida").value = response.cotizacion[i].HoraRecogida;
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 document.getElementById("descuentosA").value = response.cotizacion[i].descuentosCotizacion;
                 document.getElementById("totalA").value = response.cotizacion[i].totalCotizacion;
                 document.getElementById("respuestaA").value = response.cotizacion[i].respuestaCotizacion;
-                
+
             }
 
         }).fail(function(response) {
@@ -68,7 +68,7 @@ $(document).ready(function() {
                 $('#direccion_recogidaC').text(response.cotizacion[i].direccion_recogida);
                 $('#fechaRecogidaC').text(response.cotizacion[i].fechaRecogida);
                 $('#HoraRecogidaC').text(response.cotizacion[i].HoraRecogida);
-                
+
                 $('#direccion_devolucionC').text(response.cotizacion[i].direccion_devolucion);
                 $('#fechaDevolucionC').text(response.cotizacion[i].fechaDevolucion);
                 $('#HoraDevolucionC').text(response.cotizacion[i].HoraDevolucion);
@@ -216,13 +216,6 @@ $(document).ready(function() {
         $('#loadingActualizar').show();
         let data = {
             "idcotizarVehiculo": idCotizarAuto,
-            "caracteristicas": document.getElementById("caracteristicas").value,
-            "direccion_recogida": document.getElementById("direccion_recogida").value,
-            "fechaRecogida": document.getElementById("fechaRecogida").value,
-            "HoraRecogida": document.getElementById("HoraRecogida").value,
-            "direccion_devolucion": document.getElementById("direccion_devolucion").value,
-            "fechaDevolucion": document.getElementById("fechaDevolucion").value,
-            "HoraDevolucion": document.getElementById("HoraDevolucion").value,
             "descuentosCotizacion": document.getElementById("descuentosA").value,
             "totalCotizacion": document.getElementById("totalA").value,
             "respuestaCotizacion": document.getElementById("respuestaA").value
