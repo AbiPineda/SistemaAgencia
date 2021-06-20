@@ -515,9 +515,33 @@ include_once '../../plantillas/cabecera.php';
 
                                                     </tr>
                                                 </table>
-                                                <div id="crear_tablas">
-                                               
-                                                </div><!--fin de crear tablas-->
+                                                 <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Producto</th>
+                                                            <th class="textcenter">Costo</th>
+                                                            <th class="textcenter">Cantidad</th>
+                                                            <th class="textcenter">Sub Total</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                        <tr>
+                                                            <td class="textcenter"><label name="nombreVehiculoC" id="nombreVehiculoC"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="anioC" id="anioC"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="caracteristicasC" id="caracteristicasC"
+                                                                    style="font-weight: normal;"></label></td>
+                                                            <td class="textcenter"><label name="caracteristicasC" id="caracteristicasC"
+                                                            style="font-weight: normal;"></label></td>
+
+                                                        </tr>
+
+                                                    </tbody>
+
+                                                </table>
                                                   
                                             </div>
                                             <div class="row no-print">
