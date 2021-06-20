@@ -6,6 +6,7 @@ include_once '../../plantillas/cabecera.php';
 <!--alerta del sistema-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
@@ -292,8 +293,9 @@ include_once '../../plantillas/cabecera.php';
                             <br> <br>
                             <!--****************botones***********-->
                          <div class="timeline-footer" style="text-align: right;">
-                                <button name="btnguardar" id="btnImprimir" class="btn btn-secondary btn-sm"
-                                    style="color: white">Imprimir</button>
+                                <button type="button" style="margin-top: -1px;" name="" id="btnRepoteCalculo" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_calculo">
+                                        <i class="fas fa-eye" style= "color: white"></i>
+                                </button>
                                 <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                             </div>
                         <!--**************fin de los botones*********-->
@@ -390,13 +392,174 @@ include_once '../../plantillas/cabecera.php';
         </div>
         <!-- /.modal-content -->
     </div>
-   
+       <!--CODIGO DEL REPORTE-->
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+    <!-- Modal Cotizacion Reporte-->
+    <div class="modal fade" id="reporte_calculo">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Formulario Migratorio:</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente Origen</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreC"
+                                                                                    id="nombreC">
+                                                                                </p>
+
+                                                                            </td>
+                                                                           <td><label>Teléfono:</label>
+                                                                                <p name="telefonoC" id="telefonoC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Ciudad:</label>
+                                                                                <p name="ciudadC" id="ciudadC"></p>
+                                                                            </td>
+                                                                            <td><label>Código:</label>
+                                                                                <p name="codigoC" id="codigoC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_destino">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente Destino</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreD"
+                                                                                    id="nombreD">
+                                                                                </p>
+
+                                                                            </td>
+                                                                            <td><label>Télefono:</label>
+                                                                                 <p name="telefonoD" id="telefonoD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                         <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Ciudad:</label>
+                                                                                <p name="ciudadD" id="ciudadD"></p>
+                                                                            </td>
+                                                                            <td><label>Código:</label>
+                                                                                <p name="codigoD" id="codigoD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                       <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Dirección:</label>
+                                                                                <p name="direccionD" id="direccionD"></p>
+                                                                            </td>
+                                                                            <td><label>Dirección Alterna:</label>
+                                                                                <p name="alternaD" id="alternaD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <div id="crear_tablas">
+                                               
+                                                </div><!--fin de crear tablas-->
+                                                  
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+<!--FIN DE CODIGO DE REPORTE-->
 </div>
 
 <?php
   include_once '../cliente/modalCliente.php';
 include_once '../../plantillas/footer.php';
 ?>
+<script>
+document.getElementById("doPrint").addEventListener("click", function() {
+    var printContents = document.getElementById('printDiv').innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+});
+</script>
+<!--SCRIPT PARA LOS REPORTES FIN-->
 <script type="text/javascript">
 $(document).on('click', '#producto-add', function() {
     $('#add-producto').modal('show');

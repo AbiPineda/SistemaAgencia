@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 
     inicializarValidaciones();
+    telefono();
 
     let contadorTabla = 0;
     let TOTAL = 0.0;
@@ -24,6 +25,26 @@ $(document).ready(function () {
         ]
 
     });
+
+    //VAMOS A CREAR EL REPORTE
+      $(document).on('click', '#btnRepoteCalculo', function() {
+        //alert('#nombreC');
+           let combo = document.getElementById("comboUsuario");
+           let selected = combo.options[combo.selectedIndex].text;
+           let cel = $("#telefono").val();
+           let ciudad = $("#ciudad").val();
+           let codigo = $("#codigo").val();
+           
+                $('#nombreC').text(selected);
+                $('#telefonoC').text(cel);
+                $('#ciudadC').text(ciudad);
+                $('#codigoC').text(codigo);
+               
+            
+
+    });
+
+    //FIN DEL REPORTE
 
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#agregarTabla', function (evento) {
@@ -209,6 +230,40 @@ $(document).ready(function () {
         modificarComision();
         modificarTotalCliente();
     });
+
+    function telefono() {
+
+        $("#comboUsuario").change(function() {
+            var id = document.getElementById("comboUsuario").value;
+
+            $.ajax({
+                url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente=" + id,
+                method: 'GET'
+
+            }).done(function(response) {
+                $.each(response.usuarios, function(i, index) {
+                    $("#telefono").val(index.celular);
+
+                });
+
+
+
+
+            }).fail(function(response) {
+                const Toast = Swal.mixin();
+                Toast.fire({
+                    title: 'Error',
+                    icon: 'error',
+                    text: response.mensaje,
+                    showConfirmButton: true,
+                });
+
+            });
+
+
+        });
+
+    }
 
 
   
