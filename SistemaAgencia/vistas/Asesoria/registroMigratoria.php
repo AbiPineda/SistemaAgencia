@@ -5,6 +5,7 @@ include_once  '../../plantillas/navbar.php';?>
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
+<link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
 <?php include_once '../../plantillas/barra_lateral.php';?>
 
 <div class="wrapper">

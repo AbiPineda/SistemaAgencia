@@ -5,45 +5,45 @@ $(document).ready(function () {
     $(document).on('click','#btnRepote', function() {
 
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/ramita",
+            url: URL_SERVIDOR + "Asesoria/reporteMigratorio",
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
             $('#crear_tablas').empty();
             seleccion = $('#crear_tablas');
-            for (let i = 0, ien = response.ramas.length; i < ien; i++) {
-                seleccion.append('<span class="h3">'+response.ramas[i].categoria_rama+'</span>'+
+            for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
+                seleccion.append('<span class="h3">'+response.ramas.ramas[i].categoria_rama+'</span>'+
                                                 '<table id="factura_detalle">'+
                                                     '<thead>'+
-                                                       ' <div id="tr">'+
                                                            '<tr>'+
                                                             '<th class="textcenter">Pregunta</th>'+
                                                             '<th class="textcenter">Respuesta</th>'+
-                                                        '</tr>'+  
-                                                        '</div>'+
-                                                       
+                                                            '</tr>'+                                                         
                                                     '</thead>'+
-                                                    '<tbody id="detalle_productos">'+
-                                                        '<div id="fila'+i+'">'+
-                                                            
-                                                        '</div>'+
+                                                    '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
+                                                       
                                                     '</tbody>'+
 
                                                 '</table>');
-               
-            }
-            /*for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
-                seleccion.append(' <tr>'+
-                                '<td class="textcenter">'+
+                for (let j = 0, jen = response.preguntas.length; j< jen ; j++) {
+                    tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
+                    if (response.preguntas[j].num_rama == response.ramas.ramas[i].num_rama ) {
+                        tr.append(' <tr>'+
+                                '<td class="textcenter" style="tr:nth-child(even) {background: ##ededed }">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
+                                 'style="font-weight: normal;">'+response.preguntas[j].pregunta+'</label>'+
                                  '</td>'+
                                 '<td class="textcenter">'+
                                 '<label name="anioC" id="anioC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
+                                 'style="font-weight: normal;"></label>'+
                                  '</td>'+
                                 '</tr>');
-            }*/
+                    }
+                 
+                   }
+               
+            }
+           
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
