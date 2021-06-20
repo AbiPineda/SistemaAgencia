@@ -109,7 +109,7 @@ include_once  '../../plantillas/navbar.php';?>
                                     <button type="button" class="btn btn-danger btn-sm"
                                         style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                     
-                                    <button type="button" style="margin-top: 10px;" name=" " class="btn btn-secondary" data-toggle="modal" data-target="#modal-cotizacion">
+                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepote" class="btn btn-secondary" data-toggle="modal" data-target="#modal-cotizacion">
                                         <i class="fas fa-eye" style= "color: white"></i>
                                    </button>
 
@@ -204,18 +204,10 @@ include_once  '../../plantillas/navbar.php';?>
 
                                                     </tr>
                                                 </table>
-                                                  <span class="h3">Formulario de preguntas</span>
-                                                <table id="factura_detalle">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="textcenter">Pregunta</th>
-                                                            <th class="textcenter">Respuesta</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="detalle_productos">
-                                                    </tbody>
-
-                                                </table>
+                                                <div id="crear_tablas">
+                                               
+                                                </div><!--fin de crear tablas-->
+                                                  
                                             </div>
                                             <div class="row no-print">
                                                 <div class="col-md-12">

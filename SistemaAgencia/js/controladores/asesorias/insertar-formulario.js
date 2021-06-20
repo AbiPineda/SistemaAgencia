@@ -1,6 +1,61 @@
 $(document).ready(function () {
 
     validaciones();
+     //BOTON MOSTRAR EL REPORTE
+    $(document).on('click','#btnRepote', function() {
+
+        $.ajax({
+            url: URL_SERVIDOR + "Asesoria/ramita",
+            method: "GET"
+        }).done(function(response) {
+            //MANDALOS LOS VALORES AL MODAL
+            $('#crear_tablas').empty();
+            seleccion = $('#crear_tablas');
+            for (let i = 0, ien = response.ramas.length; i < ien; i++) {
+                seleccion.append('<span class="h3">'+response.ramas[i].categoria_rama+'</span>'+
+                                                '<table id="factura_detalle">'+
+                                                    '<thead>'+
+                                                       ' <div id="tr">'+
+                                                           '<tr>'+
+                                                            '<th class="textcenter">Pregunta</th>'+
+                                                            '<th class="textcenter">Respuesta</th>'+
+                                                        '</tr>'+  
+                                                        '</div>'+
+                                                       
+                                                    '</thead>'+
+                                                    '<tbody id="detalle_productos">'+
+                                                        '<div id="fila'+i+'">'+
+                                                            
+                                                        '</div>'+
+                                                    '</tbody>'+
+
+                                                '</table>');
+               
+            }
+            /*for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
+                seleccion.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
+                                 '</td>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+            }*/
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+    });
+//FIN DE MOSTRAMOS EL REPORTE
+
+
+
+
  $(document).on('click', '#btnFormulario', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#migratorio-form");
