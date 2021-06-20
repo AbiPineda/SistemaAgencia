@@ -7,6 +7,66 @@ $(document).ready(function () {
    // inicializarCombo()
    // inicializarComboRama();
     inicializarTabla();
+
+     //BOTON MOSTRAR EL REPORTE
+    $(document).on('click', '.btn-group .btn-secondary', function() {
+
+        id = $(this).attr("name");
+        $('#loadingActualizar').show();
+        $.ajax({
+            url: URL_SERVIDOR + "FormularioMigratorio/formulariosLlenos/" + id,
+            method: "GET"
+        }).done(function(response) {
+            //MANDALOS LOS VALORES AL MODAL
+             $('#crear_tablas').empty();
+            seleccion = $('#crear_tablas');
+             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
+
+                $('#nombreC').text(response.cliente[i].nombre);
+                $('#emailC').text(response.cliente[i].correo);
+                $('#telefonoC').text(response.cliente[i].celular);
+                $('#dui-cliente').text(response.cliente[i].dui);
+            }
+            for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
+                seleccion.append('<span class="h3">'+response.ramas.ramas[i].categoria_rama+'</span>'+
+                                                '<table id="factura_detalle">'+
+                                                    '<thead>'+
+                                                           '<tr>'+
+                                                            '<th class="textcenter">Pregunta</th>'+
+                                                            '<th class="textcenter">Respuesta</th>'+
+                                                            '</tr>'+                                                         
+                                                    '</thead>'+
+                                                    '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
+                                                       
+                                                    '</tbody>'+
+
+                                                '</table>');
+                for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
+                    tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
+                    if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
+                        tr.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
+                                 '</td>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+                    }
+                 
+                   }
+               
+            }
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+    });
+//FIN DE MOSTRAMOS EL REPORTE
   
     //BOTON DE EDITAR
 $(document).on('click', '.btn-group .btn-primary', function () {
@@ -111,6 +171,10 @@ $(document).on('click', '.btn-group .btn-primary', function () {
                             html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+'" class="btn btn-primary" data-toggle="modal"';
                             html += '         data-target="#modal-editar">';
                             html += '            <i class="fas fa-edit" style="color: white"></i>';
+                            html += '        </button>';
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda + '" class="btn btn-secondary" data-toggle="modal"';
+                            html += '            data-target="#reporte_encomienda">';
+                            html += '            <i class="fas fa-eye" style="color: white"></i>';
                             html += '        </button>';
                             html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda + '" class="btn btn-warning" data-toggle="modal"';
                             html += '            data-target="#modal-galeria">';

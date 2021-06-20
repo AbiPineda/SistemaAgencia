@@ -8,6 +8,7 @@ include_once '../../plantillas/cabecera.php';?>
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 
 <?php
 include_once  '../../plantillas/navbar.php';
@@ -113,6 +114,191 @@ include_once '../../plantillas/barra_lateral.php';
     </div>
     <!-- End Modal EDITAR-->
 </form>
+
+       <!--CODIGO DEL REPORTE-->
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+    <!-- Modal Cotizacion Reporte-->
+    <div class="modal fade" id="reporte_encomienda">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Formulario Migratorio:</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_cliente">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente Origen</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreC"
+                                                                                    id="nombreC">
+                                                                                </p>
+
+                                                                            </td>
+                                                                           <td><label>Teléfono:</label>
+                                                                                <p name="telefonoC" id="telefonoC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Ciudad:</label>
+                                                                                <p name="ciudadC" id="ciudadC"></p>
+                                                                            </td>
+                                                                            <td><label>Código:</label>
+                                                                                <p name="codigoC" id="codigoC"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                <table id="factura_destino">
+                                                    <tr>
+                                                        <td class="info_cliente">
+                                                            <div class="round">
+                                                                <span class="h3">Datos Generales del Cliente Destino</span>
+                                                                <table class="datos_cliente">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Cliente:</label>
+                                                                                <p name="nombreD"
+                                                                                    id="nombreD">
+                                                                                </p>
+
+                                                                            </td>
+                                                                            <td><label>Télefono:</label>
+                                                                                 <p name="telefonoD" id="telefonoD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                         <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Ciudad:</label>
+                                                                                <p name="ciudadD" id="ciudadD"></p>
+                                                                            </td>
+                                                                            <td><label>Código:</label>
+                                                                                <p name="codigoD" id="codigoD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                       <tr>
+                                                                            <td><p> </p>
+                                                                                <label>Dirección:</label>
+                                                                                <p name="direccionD" id="direccionD"></p>
+                                                                            </td>
+                                                                            <td><label>Dirección Alterna:</label>
+                                                                                <p name="alternaD" id="alternaD"></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                                 <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Producto</th>
+                                                            <th class="textcenter">Costo</th>
+                                                            <th class="textcenter">Cantidad</th>
+                                                            <th class="textcenter">Sub Total</th>
+                                                            <th class="textcenter">id</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                    </tbody>
+
+                                                </table>
+
+                                                <table id="factura_detalle">
+                                                    
+                                                    <tfoot id="detalle_totales">
+
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>Total Encomienda($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="descuent" id="totalEncomienda"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>TOTAL ($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="tot" id="tot"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                                  
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+<!--FIN DE CODIGO DE REPORTE-->
 
 
 
