@@ -26,6 +26,39 @@ $(document).ready(function () {
 
     });
 
+    //para el reporte tabla
+    let tabla2 = $('#factura_detalle').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": false,
+        "info": false,
+        "autoWidth": false,
+        "pageLength": false,
+        "responsive": true,
+         "columnDefs":[
+        {"className":"dt-center","targets":"_all"},
+        {"targets":[4], "visible":false},
+        ]
+
+    });
+
+     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
+    function agregarFila2(nombre, costo, cantidad, id) {
+
+        
+         if (!ExisteFila2(id,cantidad, costo)) {
+            let subTotoal = (costo * cantidad).toFixed(2);
+            tabla2.row.add([nombre, costo, cantidad, subTotoal,id]).draw(false);
+            //PARA ORDENAR LA TABLA
+            tabla.order([4, 'desc']).draw();
+         }
+        modificarTotal();
+        modificarComision();
+        modificarTotalCliente();
+    }
+    //para el reporte tabla
+
     //VAMOS A CREAR EL REPORTE
       $(document).on('click', '#btnRepoteCalculo', function() {
         //alert('#nombreC');
@@ -79,6 +112,7 @@ $(document).ready(function () {
             let nombre = combo.options[combo.selectedIndex].text;
 
             agregarFila(nombre, costo, cantidad, id);
+            agregarFila2(nombre, costo, cantidad, id);
 
 
         }
@@ -107,6 +141,24 @@ $(document).ready(function () {
         modificarComision();
         modificarTotalCliente();
     }
+    //para modificacion del reporte
+    function ExisteFila2(id,cantidad, costo) {
+        let encontrado = false;
+        tabla2.rows().every(function (value, index) {
+            let data = this.data();
+            if (id == data[4]) {
+                let subTotoal = (costo * cantidad).toFixed(2);
+                data[2] = cantidad;
+                data[3] = subTotoal;
+                encontrado = true;
+                this.data(data).draw(false);
+            }
+        });
+        return encontrado;
+
+
+    }
+    //fin de la modificacion de reporte
     function ExisteFila(id, cantidad, costo) {
         let encontrado = false;
         tabla.rows().every(function (value, index) {
@@ -126,6 +178,10 @@ $(document).ready(function () {
     function modificarTotal() {
         TOTAL = 0.0;
         tabla.rows().every(function (value, index) {
+            let data = this.data();
+            TOTAL += parseFloat(data[3]);
+        });
+        tabla2.rows().every(function (value, index) {
             let data = this.data();
             TOTAL += parseFloat(data[3]);
         });
