@@ -531,6 +531,25 @@ include_once '../../plantillas/cabecera.php';
                                                     </tbody>
 
                                                 </table>
+
+                                                <table id="factura_detalle">
+                                                    
+                                                    <tfoot id="detalle_totales">
+
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>Total Encomienda($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="descuent" id="totalEncomienda"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" class="textright"><label>TOTAL ($)</label>
+                                                            </td>
+                                                            <td class="textcenter"><label name="tot" id="tot"
+                                                                    style="font-weight: normal;"></label></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
                                                   
                                             </div>
                                             <div class="row no-print">

@@ -187,6 +187,9 @@ $(document).ready(function () {
         });
         $('#total').empty();
         $('#total').text("$" + TOTAL);
+
+         $('#totalEncomienda').empty();
+        $('#totalEncomienda').text("$" + TOTAL);
     }
     function modificarComision() {
         let porcentaje = (parseInt($('#porcenaje').val())) / 100;
@@ -198,6 +201,9 @@ $(document).ready(function () {
 
         $('#totalCliente').empty();
         $('#totalCliente').text("$" + (TOTAL + COMISION));
+        //para el reporte
+        $('#tot').empty();
+        $('#tot').text("$" + (TOTAL + COMISION));
     }
 
     //BOTON DE IMPRIMIR
