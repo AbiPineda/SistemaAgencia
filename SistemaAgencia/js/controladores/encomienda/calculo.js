@@ -39,6 +39,19 @@ $(document).ready(function () {
                 $('#telefonoC').text(cel);
                 $('#ciudadC').text(ciudad);
                 $('#codigoC').text(codigo);
+        //cliente destino datos
+         let cliente_des = $("#cliente_des").val();
+         let cel_des = $("#telefono_des").val();
+         let ciudad_des = $("#ciudad_des").val();
+         let codigo_des = $("#codigo_des").val();
+         let direccion = $("#direccion").val();
+         let alterna = $("#direccion_alterna").val();
+                $('#nombreD').text(cliente_des);
+                $('#telefonoD').text(cel_des);
+                $('#ciudadD').text(ciudad_des);
+                $('#codigoD').text(codigo_des);
+                $('#direccionD').text(direccion);
+                $('#alternaD').text(alterna);
                
             
 
