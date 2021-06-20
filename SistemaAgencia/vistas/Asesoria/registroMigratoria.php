@@ -6,6 +6,19 @@ include_once  '../../plantillas/navbar.php';?>
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 <link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
+
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+.hidden {
+    display: none;
+}
+
+</style>
 <?php include_once '../../plantillas/barra_lateral.php';?>
 
 <div class="wrapper">
@@ -110,7 +123,7 @@ include_once  '../../plantillas/navbar.php';?>
                                     <button type="button" class="btn btn-danger btn-sm"
                                         style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                     
-                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepote" class="btn btn-secondary" data-toggle="modal" data-target="#modal-cotizacion">
+                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepote" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_migratorio">
                                         <i class="fas fa-eye" style= "color: white"></i>
                                    </button>
 
@@ -124,10 +137,11 @@ include_once  '../../plantillas/navbar.php';?>
             <div class="col-12 col-sm-1"></div>
         </section>
     </div>
+</div>
     <!--CODIGO DEL REPORTE-->
 <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
     <!-- Modal Cotizacion Reporte-->
-    <div class="modal fade" id="modal-cotizacion">
+    <div class="modal fade" id="reporte_migratorio">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
 
@@ -234,12 +248,20 @@ include_once  '../../plantillas/navbar.php';?>
     <!-- End Modal EDITAR-->
 </form>
 <!--FIN DE CODIGO DE REPORTE-->
-
-</div>
-
 <?php
   include_once '../../plantillas/footer.php';
 ?>
+<!--SCRIPT PARA LOS REPORTES-->
+<script>
+document.getElementById("doPrint").addEventListener("click", function() {
+    var printContents = document.getElementById('printDiv').innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+});
+</script>
+<!--SCRIPT PARA LOS REPORTES FIN-->
 <div id="script"></div>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>

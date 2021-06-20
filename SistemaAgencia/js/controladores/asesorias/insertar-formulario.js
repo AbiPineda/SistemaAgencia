@@ -29,7 +29,7 @@ $(document).ready(function () {
                     tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
                     if (response.preguntas[j].num_rama == response.ramas.ramas[i].num_rama ) {
                         tr.append(' <tr>'+
-                                '<td class="textcenter" style="tr:nth-child(even) {background: ##ededed }">'+
+                                '<td class="textcenter">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
                                  'style="font-weight: normal;">'+response.preguntas[j].pregunta+'</label>'+
                                  '</td>'+

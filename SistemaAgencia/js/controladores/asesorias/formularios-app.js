@@ -16,18 +16,33 @@ $(document).ready(function() {
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
-            $('#detalle_productos').empty();
-            
-            seleccion = $('#detalle_productos');
-            for (let i = 0, ien = response.cliente.length; i < ien; i++) {
+             $('#crear_tablas').empty();
+            seleccion = $('#crear_tablas');
+             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
 
                 $('#nombreC').text(response.cliente[i].nombre);
                 $('#emailC').text(response.cliente[i].correo);
                 $('#telefonoC').text(response.cliente[i].celular);
                 $('#dui-cliente').text(response.cliente[i].dui);
             }
-            for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
-                seleccion.append(' <tr>'+
+            for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
+                seleccion.append('<span class="h3">'+response.ramas.ramas[i].categoria_rama+'</span>'+
+                                                '<table id="factura_detalle">'+
+                                                    '<thead>'+
+                                                           '<tr>'+
+                                                            '<th class="textcenter">Pregunta</th>'+
+                                                            '<th class="textcenter">Respuesta</th>'+
+                                                            '</tr>'+                                                         
+                                                    '</thead>'+
+                                                    '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
+                                                       
+                                                    '</tbody>'+
+
+                                                '</table>');
+                for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
+                    tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
+                    if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
+                        tr.append(' <tr>'+
                                 '<td class="textcenter">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
@@ -37,6 +52,10 @@ $(document).ready(function() {
                                  'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
                                  '</td>'+
                                 '</tr>');
+                    }
+                 
+                   }
+               
             }
         }).fail(function(response) {
 

@@ -5,6 +5,7 @@ include_once '../../plantillas/cabecera.php';?>
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
@@ -17,6 +18,9 @@ include_once '../../plantillas/cabecera.php';?>
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+}
+.hidden {
+    display: none;
 }
 </style>
 <?php 
@@ -284,17 +288,9 @@ include_once '../../plantillas/barra_lateral.php';
                                                     </tr>
                                                 </table>
 
-                                                <table id="factura_detalle">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="textcenter">Pregunta</th>
-                                                            <th class="textcenter">Respuesta</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="detalle_productos">
-                                                    </tbody>
-
-                                                </table>
+                                               <div id="crear_tablas">
+                                               
+                                              </div><!--fin de crear tablas-->
                                             </div>
                                             <div class="row no-print">
                                                 <div class="col-md-12">
