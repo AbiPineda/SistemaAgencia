@@ -44,6 +44,12 @@
                                 <p>Catalogo de Clientes</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= $base_url ?>vistas/cliente/bitacoraUsuarios.php" class="nav-link">
+                                <i class="fas fa-ellipsis-v nav-icon"></i>
+                                <p>Bitácora de Usuarios</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">SERVICIOS</li>
