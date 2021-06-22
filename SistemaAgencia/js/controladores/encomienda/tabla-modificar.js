@@ -17,19 +17,9 @@ $(document).ready(function () {
             url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" + id,
             method: "GET"
         }).done(function(response) {
-           
-                /*
-        //cliente destino datos
-         let alterna = $("#direccion_alterna").val();
-                $('#nombreD').text(cliente_des);
-                $('#telefonoD').text(cel_des);
-                $('#ciudadD').text(ciudad_des);
-                $('#codigoD').text(codigo_des);
-                $('#direccionD').text(direccion);
-                $('#alternaD').text(alterna);
+               
             //MANDALOS LOS VALORES AL MODAL
-             $('#crear_tablas').empty();
-            seleccion = $('#crear_tablas');*/
+            
              for (let i = 0, ien = response.Encomiendas.length; i < ien; i++) {
                 $('#nombreC').text(response.Encomiendas[i].nombre);
                 $('#telefonoC').text(response.Encomiendas[i].celular);
@@ -38,12 +28,15 @@ $(document).ready(function () {
                 $('#totalEncomienda').text(response.Encomiendas[i].total_encomienda);  
                 $('#tot').text(response.Encomiendas[i].total_cliente);
             }
-            /*for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
-               
-                 
-                   
-               
-            }*/
+            for (let j = 0, jen = response.Detalles_destino.length; j < jen; j++) {
+
+                $('#nombreD').text(response.Detalles_destino[j].nombre_cliente_destini);
+                $('#telefonoD').text(response.Detalles_destino[j].telefono);
+                $('#ciudadD').text(response.Detalles_destino[j].ciudad_destino);
+                $('#codigoD').text(response.Detalles_destino[j].codigo_postal_destino);
+                $('#direccionD').text(response.Detalles_destino[j].direccion_destino);
+                $('#alternaD').text(response.Detalles_destino[j].alterna_destino);    
+            }
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
