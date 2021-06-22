@@ -3,7 +3,7 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-    
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/mdtimepicker.css" rel="stylesheet" type="text/css"> <!-- reloj -->
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
@@ -432,7 +432,7 @@
                                             <div class="row no-print">
                                                 <div class="col-md-12">
 
-                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                    <button target="_blank" id="doPrint" type="button" class="btn btn-default"><i
                                                             class="fas fa-print"></i>
                                                         Imprimir</button>
 
@@ -461,15 +461,6 @@
  
  include_once '../../plantillas/footer.php';?>
 
-<script>
-document.getElementById("doPrint").addEventListener("click", function() {
-    var printContents = document.getElementById('printDiv').innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-});
-</script>
 
 <script>
 $(function() {
@@ -493,6 +484,7 @@ $(function() {
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
