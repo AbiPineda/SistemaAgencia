@@ -8,6 +8,7 @@ include_once '../../plantillas/cabecera.php';?>
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+
 <link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 
@@ -320,6 +321,7 @@ include_once '../../plantillas/barra_lateral.php';
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-modificar.js"></script>

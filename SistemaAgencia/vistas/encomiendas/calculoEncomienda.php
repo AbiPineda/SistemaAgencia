@@ -402,7 +402,7 @@ include_once '../../plantillas/cabecera.php';
                 <div class="overlay-wrapper">
 
                     <div class="modal-header">
-                        <h4 class="modal-title">Formulario Migratorio:</h4>
+                        <h4 class="modal-title">Calculo encomienda:</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

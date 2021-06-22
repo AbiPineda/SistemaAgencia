@@ -14,51 +14,36 @@ $(document).ready(function () {
         id = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR + "FormularioMigratorio/formulariosLlenos/" + id,
+            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" + id,
             method: "GET"
         }).done(function(response) {
+           
+                /*
+        //cliente destino datos
+         let alterna = $("#direccion_alterna").val();
+                $('#nombreD').text(cliente_des);
+                $('#telefonoD').text(cel_des);
+                $('#ciudadD').text(ciudad_des);
+                $('#codigoD').text(codigo_des);
+                $('#direccionD').text(direccion);
+                $('#alternaD').text(alterna);
             //MANDALOS LOS VALORES AL MODAL
              $('#crear_tablas').empty();
-            seleccion = $('#crear_tablas');
-             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
-
-                $('#nombreC').text(response.cliente[i].nombre);
-                $('#emailC').text(response.cliente[i].correo);
-                $('#telefonoC').text(response.cliente[i].celular);
-                $('#dui-cliente').text(response.cliente[i].dui);
+            seleccion = $('#crear_tablas');*/
+             for (let i = 0, ien = response.Encomiendas.length; i < ien; i++) {
+                $('#nombreC').text(response.Encomiendas[i].nombre);
+                $('#telefonoC').text(response.Encomiendas[i].celular);
+                $('#ciudadC').text(response.Encomiendas[i].ciudad_origen);
+                $('#codigoC').text(response.Encomiendas[i].codigo_postal_origen);
+                $('#totalEncomienda').text(response.Encomiendas[i].total_encomienda);  
+                $('#tot').text(response.Encomiendas[i].total_cliente);
             }
-            for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
-                seleccion.append('<span class="h3">'+response.ramas.ramas[i].categoria_rama+'</span>'+
-                                                '<table id="factura_detalle">'+
-                                                    '<thead>'+
-                                                           '<tr>'+
-                                                            '<th class="textcenter">Pregunta</th>'+
-                                                            '<th class="textcenter">Respuesta</th>'+
-                                                            '</tr>'+                                                         
-                                                    '</thead>'+
-                                                    '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
-                                                       
-                                                    '</tbody>'+
-
-                                                '</table>');
-                for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
-                    tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
-                    if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
-                        tr.append(' <tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
-                                 '</td>'+
-                                '<td class="textcenter">'+
-                                '<label name="anioC" id="anioC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
-                                 '</td>'+
-                                '</tr>');
-                    }
-                 
-                   }
+            /*for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
                
-            }
+                 
+                   
+               
+            }*/
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
