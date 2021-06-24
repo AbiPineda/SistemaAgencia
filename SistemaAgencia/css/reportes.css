@@ -73,7 +73,6 @@
 .round p{
 	padding: 0 15px;
 }
-
 #factura_detalle{
 	border-collapse: collapse;
 	
@@ -82,6 +81,7 @@
 	background: #058167;
 	color: #FFF;
 	padding: 5px;
+	border-collapse: none;
 }
 #detalle_productos tr:nth-child(even) {
     background: #ededed;

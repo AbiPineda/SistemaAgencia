@@ -2,6 +2,7 @@ $(document).ready(function () {
     let explorer = $("#kv-explorer");
     let id_pregunta;
     let tabla;
+    let tabla_reporte;
 
     //inicializarValidaciones();
    // inicializarCombo()
@@ -128,7 +129,9 @@ $(document).on('click', '.btn-group .btn-primary', function () {
         }
     });
   
+// vamos a inicializar la tabla
 
+//*********************fin*****
     function inicializarTabla() {
         tabla = $("#tabla_encomienda").DataTable({
             "responsive": true,

@@ -7,6 +7,9 @@ include_once '../../plantillas/cabecera.php';
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
+<style>
+  
+</style>
 
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
@@ -522,7 +525,7 @@ include_once '../../plantillas/cabecera.php';
                                                             <th class="textcenter">Costo</th>
                                                             <th class="textcenter">Cantidad</th>
                                                             <th class="textcenter">Sub Total</th>
-                                                            <th class="textcenter">id</th>
+                                                             <th class="textcenter">id</th>
 
                                                         </tr>
                                                     </thead>
