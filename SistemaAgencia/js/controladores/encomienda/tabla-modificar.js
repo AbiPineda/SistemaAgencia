@@ -38,13 +38,40 @@ $(document).ready(function () {
                 $('#direccionD').text(response.Detalles_destino[j].direccion_destino);
                 $('#alternaD').text(response.Detalles_destino[j].alterna_destino);    
             }
+            //para la tabla
+            let tablaReporte = document.getElementById('factura_detalle');
+                response.detalle.forEach(event => {
+            let tr = crearFila(event);
+            tablaReporte.appendChild(tr);
+        });
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
             $('#modal-cotizacion').modal('show');
 
         });
+
     });
+
+    //*para crear la tabla
+    function crearFila(event) {
+    let tr = document.createElement('tr');
+    tr.appendChild(crearColumna(event.nombre_producto));
+    tr.appendChild(crearColumna(event.tarifa));
+    tr.appendChild(crearColumna(event.cantidad));
+     tr.appendChild(crearColumna(event.sub_total));
+    return tr;
+}
+function crearColumna(info) {
+    let td = document.createElement('td');
+    let label = document.createElement('label');
+    label.innerHTML = info;
+    label.style.fontWeight = "normal";
+    td.appendChild(label);
+    td.classList.add('textcenter');
+    return td;
+}
+    //**********funciones para crear las tablas fin
 //FIN DE MOSTRAMOS EL REPORTE
   
     //BOTON DE EDITAR

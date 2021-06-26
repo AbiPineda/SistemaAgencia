@@ -247,8 +247,6 @@ include_once '../../plantillas/barra_lateral.php';
                                                             <th class="textcenter">Costo</th>
                                                             <th class="textcenter">Cantidad</th>
                                                             <th class="textcenter">Sub Total</th>
-                                                            <th class="textcenter">id</th>
-
                                                         </tr>
                                                     </thead>
                                                     <tbody id="detalle_productos">
