@@ -41,12 +41,18 @@ $(document).ready(function () {
                 $('#direccionD').text(response.Detalles_destino[j].direccion_destino);
                 $('#alternaD').text(response.Detalles_destino[j].alterna_destino);    
             }
-            //para la tabla
+            //para la tabla para el historial
+            let tablahistorial = document.getElementById('historial_envio');
+                response.historial.forEach(event => {
+            let tr = crearFilaHisto(event);
+            tablahistorial.appendChild(tr);
+            });
+            //para la tabla de los productos
             let tablaReporte = document.getElementById('factura_detalle');
                 response.detalle.forEach(event => {
             let tr = crearFila(event);
             tablaReporte.appendChild(tr);
-        });
+            });
         }).fail(function(response) {
 
         }).always(function(xhr, opts) {
@@ -57,6 +63,13 @@ $(document).ready(function () {
     });
 
     //*para crear la tabla
+    function crearFilaHisto(event) {
+    let tr = document.createElement('tr');
+    tr.appendChild(crearColumna(event.descripcion));
+    tr.appendChild(crearColumna(event.hora));
+    tr.appendChild(crearColumna(event.fecha));
+    return tr;
+    }
     function crearFila(event) {
     let tr = document.createElement('tr');
     tr.appendChild(crearColumna(event.nombre_producto));
@@ -64,7 +77,7 @@ $(document).ready(function () {
     tr.appendChild(crearColumna(event.cantidad));
      tr.appendChild(crearColumna(event.sub_total));
     return tr;
-}
+    }
 function crearColumna(info) {
     let td = document.createElement('td');
     let label = document.createElement('label');
