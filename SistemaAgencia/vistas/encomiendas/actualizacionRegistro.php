@@ -446,7 +446,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                     </tr>
                                                 </table>
                                                 <span class="h3">Información de envió</span>
-                                                 <table id="factura_detalle">
+                                                 <table id="historial_envio">
                                                     <thead>
                                                         <tr>
                                                             <th class="textcenter">Descripción</th>
