@@ -232,7 +232,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                         <tr>
                                                             <th class="textcenter">Producto</th>
                                                             <th class="textcenter">Costo</th>
-                                                            <th class="textcenter">Unidad</th>
+                                                            <th class="textcenter">Unidad Medida</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="detalle_productos">

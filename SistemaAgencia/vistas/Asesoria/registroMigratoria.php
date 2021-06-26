@@ -4,6 +4,8 @@ include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php';?>
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 <link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
 
@@ -251,26 +253,18 @@ include_once  '../../plantillas/navbar.php';?>
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<!--SCRIPT PARA LOS REPORTES-->
-<script>
-document.getElementById("doPrint").addEventListener("click", function() {
-    var printContents = document.getElementById('printDiv').innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-});
-</script>
 <!--SCRIPT PARA LOS REPORTES FIN-->
 <div id="script"></div>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combo_formulario.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/preguntas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/insertar-formulario.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+<!--para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

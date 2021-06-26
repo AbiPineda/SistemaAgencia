@@ -6,10 +6,10 @@ include_once '../../plantillas/cabecera.php';
 <!--alerta del sistema-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
-<style>
-  
-</style>
+
 
 <?php include_once  '../../plantillas/navbar.php'; ?> <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
@@ -624,6 +624,7 @@ $("#telefono_des").inputmask({"mask": "(999) 9999-9999"});
 <script src="<?= $base_url ?>js/controladores/encomienda/calculo.js"></script>
 <!--fecha actual-->
 <script src="<?= $base_url ?>js/controladores/encomienda/fecha_actual.js"></script>
-
+<!--para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>
