@@ -17,19 +17,9 @@
    <link rel="stylesheet" href="<?= $base_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
    <!-- Theme style -->
    <link rel="stylesheet" href="<?= $base_url ?>dist/css/adminlte.min.css">
-
-
-
-
    <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <!-- Firebase App is always required and must be first -->
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
-   <!-- Add additional services that you want to use -->
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
    <link rel="stylesheet" type="text/css" href="../../css/messenger.css">
    <!--COTINUANDO CON LA INICIALIZACION -->
    <?php include_once '../../plantillas/navbar.php'; ?>
@@ -82,10 +72,14 @@
          </div>
       </section>
    </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <?php include_once '../../plantillas/footer.php'; ?>
    <!-- PONER SCRIPT ADICIONALES ACA -->
    <script type="text/javascript" src="../../js/controladores/conf.js"></script>
-   <script type="text/javascript" src="../../js/controladores/firebase/firestore-config.js"></script>
+   <!-- Firebase App is always required and must be first -->
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+   <!-- Add additional services that you want to use -->
    <script type="text/javascript" src="../../js/controladores/chat/chat.js"></script>
+
    <!-- CIERRE DE ETIQUETAS -->
    <?php include_once '../../plantillas/cierre.php'; ?>

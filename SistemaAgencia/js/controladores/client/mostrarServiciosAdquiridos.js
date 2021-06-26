@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     //CACHANDO LOS VALORES DEL URL
     const valores = window.location.search;
@@ -10,7 +10,7 @@ $(document).ready(function() {
     mostrarDatos();
     inicializarTablaTours();
     inicializarTabla();
-    inicializarTablaEncomiendas();
+    // inicializarTablaEncomiendas();
     inicializarTablaVehiculos();
     inicializarTablaVuelos();
 
@@ -19,13 +19,13 @@ $(document).ready(function() {
         $.ajax({
             url: URL_SERVIDOR + 'usuario/datosUsuario?id_cliente=' + ID_CLIENTE,
             method: "GET"
-        }).done(function(response) {
-            $.each(response.servicios, function(i, index) {
+        }).done(function (response) {
+            $.each(response.servicios, function (i, index) {
 
                 $('#nombre_cliente').text(index.nombre);
                 $('#telefono').text(index.celular);
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
             console.log(response);
 
         });
@@ -44,7 +44,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "usuario/cotizacionesRealizadas?id_cliente=" + ID_CLIENTE,
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     if (json.servicios) {
                         for (let i = 0, ien = json.servicios.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
@@ -92,7 +92,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "usuario/encomiendasRealizadas?id_cliente=" + ID_CLIENTE,
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     if (json.servicios) {
                         for (let i = 0, ien = json.servicios.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
@@ -140,7 +140,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "usuario/vehiculosAlquilados?id_cliente=" + ID_CLIENTE,
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     if (json.servicios) {
                         for (let i = 0, ien = json.servicios.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
@@ -186,25 +186,24 @@ $(document).ready(function() {
 
             ],
             "ajax": {
-                "url": URL_SERVIDOR + "usuario/toursAdquiridos?id_cliente=" + ID_CLIENTE,
+                "url": URL_SERVIDOR + "TurPaquete/showInfoReserva?id_cliente=" + ID_CLIENTE,
                 "method": "GET",
-                "dataSrc": function(json) {
-                    if (json.servicios) {
-                        for (let i = 0, ien = json.servicios.length; i < ien; i++) {
-                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
-                            html = "";
-                            html += '<td>';
-                            html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.servicios[i].id_cliente + '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-mostrar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '    </div>';
-                            html += '</td>';
-                            json.servicios[i]["botones"] = html;
-                        }
-                        $('#loading').hide();
-                        return json.servicios;
+                "dataSrc": function (json) {
+                    console.log(json);
+                    if (json.reservas.length > 0) {
+                        json.reservas.forEach(viaje => {
+                            let ver = "";
+                            ver += `<button type="button" name="${viaje.id_tours}"  class="btn btn-info" data-toggle="modal"`;
+                            ver += '    data-target="">';
+                            ver += '    <i class="fa fa-eye" style="color: white"></i>';
+                            ver += '</button>'
+                            viaje.ver = ver;
+                            viaje.foto = `<img src="${viaje.foto}" class ="img-responsive rounded"  >`;
+                            let fecha_reserva = new Date(viaje.fecha_reserva);
+                            viaje.fecha_reserva = formatAMPM(fecha_reserva);
+
+                        });
+                        return json.reservas;
                     } else {
                         $('#loading').hide();
                         return [];
@@ -212,13 +211,15 @@ $(document).ready(function() {
                 }
             },
             columns: [
-                { data: "id_detalle" },
                 { data: "nombreTours" },
-                { data: "start" },
-                { data: "end" },
+                { data: "fecha_reserva" },
+                { data: "descripcionProducto" },
+                { data: "formaPagoUtilizada" },
+                { data: "monto" },
                 { data: "tipo" },
-                { data: "precio" },
 
+            ],
+            columnDefs: [{ "className": "dt-center", "targets": "_all" }
             ]
         });
 
@@ -236,7 +237,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "usuario/vuelosCotizaciones?id_cliente=" + ID_CLIENTE,
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     if (json.servicios) {
                         for (let i = 0, ien = json.servicios.length; i < ien; i++) {
                             //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
@@ -272,3 +273,14 @@ $(document).ready(function() {
 
     }
 });
+
+function formatAMPM(date) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    let strTime = hours + ':' + minutes + ' ' + ampm;
+    return date.toLocaleDateString() + "  " + strTime;
+}

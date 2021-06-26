@@ -1,22 +1,15 @@
 function obenerChats() {
 
-   // const query = db.collection("chat");
-   // const snapshot = await query.get();
-   // console.log(snapshot.size)
-   // snapshot.forEach((doc) => {
-   //    console.log(doc)
-   // });
-
-
    $.ajax({
       url: "http://localhost/API-REST-PHP/Usuario/obtenerAdminByChat",
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
       let listChats = [];
-      console.log(response.ultimaConexion);
+      // console.log(response.ultimaConexion);
+      let lastConnection  =new Date (response.ultimaConexion);
       db.collection("chat")
-         // .where("time", ">", response.ultimaConexion)
+         .where("time", ">",lastConnection)
          .get()
          .then((chats) => {
             chats.forEach(chat => {
