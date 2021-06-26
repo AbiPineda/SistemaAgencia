@@ -3,6 +3,9 @@ include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 <?php
 include_once  '../../plantillas/navbar.php';
 include_once '../../plantillas/barra_lateral.php';
@@ -41,6 +44,9 @@ include_once '../../plantillas/barra_lateral.php';
                         <label class="form-check-label" for="radioProductoActivo">
                            PRODUCTOS ACTIVOS
                         </label>
+                          <button type="button" style="margin-top: -4px;" name="" id="btnRepoteActivo" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_productos">
+                                        <i class="fas fa-eye" style= "color: white"></i>
+                         </button>
                      </div>
                      <div class="form-check mx-auto">
                         <input class="form-check-input" type="radio" name="radioProducto" id="radioUsuarioInactivo"
@@ -48,6 +54,9 @@ include_once '../../plantillas/barra_lateral.php';
                         <label class="form-check-label" for="radioProductoInactivo">
                            PRODUCTOS INACTIVOS
                         </label>
+                         <button type="button" style="margin-top: -4px;" name="" id="btnRepoteInactivo" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_productos">
+                                        <i class="fas fa-eye" style= "color: white"></i>
+                         </button>
                      </div>
                   </div>
                </div>
@@ -173,6 +182,89 @@ include_once '../../plantillas/barra_lateral.php';
         </div>
     </div>
     <!--fin de modal de enventos-->
+           <!--CODIGO DEL REPORTE-->
+<form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
+    <!-- Modal Cotizacion Reporte-->
+    <div class="modal fade" id="reporte_productos">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="overlay-wrapper">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Productos registrados</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <section class="content">
+
+                                <div class="container-fluid" id="printDiv">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="page_pdf">
+                                                <table id="factura_head">
+                                                    <tr>
+                                                        <td class="logo_factura">
+                                                            <div>
+                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
+                                                                    rel="stylesheet" type="text/css">
+                                                            </div>
+                                                        </td>
+                                                        <td class="info_empresa">
+                                                            <div>
+                                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                                    Tours</span>
+                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </table>
+                                                <span class="h3"><label id="titulo"></label></span>
+                                                 <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Producto</th>
+                                                            <th class="textcenter">Costo</th>
+                                                            <th class="textcenter">Unidad</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                            <div class="row no-print">
+                                                <div class="col-md-12">
+
+                                                    <button target="_blank" id="doPrint" type="button" class="btn btn-default"><i
+                                                            class="fas fa-print"></i>
+                                                        Imprimir</button>
+
+                                                    <div id="editor"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal EDITAR-->
+</form>
+<!--FIN DE CODIGO DE REPORTE-->
 
     </section>
     <!-- /.content -->
@@ -191,6 +283,8 @@ include_once '../../plantillas/barra_lateral.php';
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<!--para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 
 <!-- CIERRE DE ETIQUETAS -->

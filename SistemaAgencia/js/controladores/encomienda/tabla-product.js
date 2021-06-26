@@ -3,8 +3,72 @@ $(document).ready(function () {
     let tabla;
 
    inicializarValidaciones();
-    inicializarTabla();
-  
+   inicializarTabla();
+
+       //BOTON MOSTRAR EL REPORTE
+    $(document).on('click', '#btnRepoteActivo', function() {
+
+            $.ajax({
+            url: URL_SERVIDOR + "Producto/productosActivos",
+            method: "GET"
+        }).done(function(response) {
+            //para la tabla
+            $('#titulo').text(response.mensaje);
+            let tablaReporte = document.getElementById('factura_detalle');
+                response.product.forEach(event => {
+            let tr = crearFila(event);
+            tablaReporte.appendChild(tr);
+        });
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+
+    });//fin de activos
+
+    $(document).on('click', '#btnRepoteInactivo', function() {
+
+            $.ajax({
+            url: URL_SERVIDOR + "Producto/productosInactivos",
+            method: "GET"
+        }).done(function(response) {
+            //para la tabla
+            $('#titulo').text(response.mensaje);
+            let tablaReporte = document.getElementById('factura_detalle');
+                response.product.forEach(event => {
+            let tr = crearFila(event);
+            tablaReporte.appendChild(tr);
+        });
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+
+    });
+
+    //*para crear la tabla
+    function crearFila(event) {
+    let tr = document.createElement('tr');
+    tr.appendChild(crearColumna(event.nombre_producto));
+    tr.appendChild(crearColumna(event.tarifa));
+    tr.appendChild(crearColumna(event.unidad_medida));
+    return tr;
+}
+function crearColumna(info) {
+    let td = document.createElement('td');
+    let label = document.createElement('label');
+    label.innerHTML = info;
+    label.style.fontWeight = "normal";
+    td.appendChild(label);
+    td.classList.add('textcenter');
+    return td;
+}
+    //**********funciones para crear las tablas fin
+//FIN DE MOSTRAMOS EL REPORTE
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
         id_producto = $(this).attr("name");
@@ -107,13 +171,10 @@ $(document).ready(function () {
                             html += '        <button type="button" name="' + json.product[i].id_producto+ '" class="btn btn-danger">';
                             html += '            <i class="fas fa-arrow-down" style="color: white"></i>';
                             html += '        </button>';
-
                             }else{
-
                             html += '        <button type="button" name="' + json.product[i].id_producto+ '" class="btn btn-success">';
                             html += '            <i class="fas fa-arrow-up" style="color: white"></i>';
                             html += '        </button>';
-                           
                             }
                             html += '    </div>';
                             html += '</td>';
