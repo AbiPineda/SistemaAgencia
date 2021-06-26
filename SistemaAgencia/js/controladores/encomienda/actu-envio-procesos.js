@@ -12,7 +12,70 @@ $(document).ready(function () {
     mostrarDatos();
     inicializarTabla();
 
+ //BOTON MOSTRAR EL REPORTE
+    $(document).on('click', '#reporte_historial', function() {
 
+        id = $(this).attr("name");
+        $('#loadingActualizar').show();
+        $.ajax({
+            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" + id,
+            method: "GET"
+        }).done(function(response) {
+               
+            //MANDALOS LOS VALORES AL MODAL
+            
+             for (let i = 0, ien = response.Encomiendas.length; i < ien; i++) {
+                $('#nombreC').text(response.Encomiendas[i].nombre);
+                $('#telefonoC').text(response.Encomiendas[i].celular);
+                $('#ciudadC').text(response.Encomiendas[i].ciudad_origen);
+                $('#codigoC').text(response.Encomiendas[i].codigo_postal_origen);
+                $('#totalEncomienda').text(response.Encomiendas[i].total_encomienda);  
+                $('#tot').text(response.Encomiendas[i].total_cliente);
+            }
+            for (let j = 0, jen = response.Detalles_destino.length; j < jen; j++) {
+
+                $('#nombreD').text(response.Detalles_destino[j].nombre_cliente_destini);
+                $('#telefonoD').text(response.Detalles_destino[j].telefono);
+                $('#ciudadD').text(response.Detalles_destino[j].ciudad_destino);
+                $('#codigoD').text(response.Detalles_destino[j].codigo_postal_destino);
+                $('#direccionD').text(response.Detalles_destino[j].direccion_destino);
+                $('#alternaD').text(response.Detalles_destino[j].alterna_destino);    
+            }
+            //para la tabla
+            let tablaReporte = document.getElementById('factura_detalle');
+                response.detalle.forEach(event => {
+            let tr = crearFila(event);
+            tablaReporte.appendChild(tr);
+        });
+        }).fail(function(response) {
+
+        }).always(function(xhr, opts) {
+            $('#modal-cotizacion').modal('show');
+
+        });
+
+    });
+
+    //*para crear la tabla
+    function crearFila(event) {
+    let tr = document.createElement('tr');
+    tr.appendChild(crearColumna(event.nombre_producto));
+    tr.appendChild(crearColumna(event.tarifa));
+    tr.appendChild(crearColumna(event.cantidad));
+     tr.appendChild(crearColumna(event.sub_total));
+    return tr;
+}
+function crearColumna(info) {
+    let td = document.createElement('td');
+    let label = document.createElement('label');
+    label.innerHTML = info;
+    label.style.fontWeight = "normal";
+    td.appendChild(label);
+    td.classList.add('textcenter');
+    return td;
+}
+    //**********funciones para crear las tablas fin
+//FIN DE MOSTRAMOS EL REPORTE
 
  //BOTON PARA AGREGAR
 $(document).on('click', '#btn-informacion', function (evento) {
