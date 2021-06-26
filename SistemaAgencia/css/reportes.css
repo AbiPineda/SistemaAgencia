@@ -77,6 +77,12 @@
 	border-collapse: collapse;
 	
 }
+#historial_envio thead th{
+	background: #058167;
+	color: #FFF;
+	padding: 5px;
+	border-collapse: none;
+}
 #factura_detalle thead th{
 	background: #058167;
 	color: #FFF;

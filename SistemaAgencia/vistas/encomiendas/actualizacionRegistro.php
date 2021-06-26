@@ -14,6 +14,10 @@ include_once  '../../plantillas/navbar.php'; ?>
 <!--alerta del sistema-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
+
 <?php
 include_once '../../plantillas/barra_lateral.php';
 ?>
@@ -302,7 +306,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                             <br>
                             <div class="timeline-footer" style="text-align: right;">
-                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepote" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_migratorio">
+                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepoteHistorial" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_historial">
                                         <i class="fas fa-eye" style= "color: white"></i>
                                    </button>
 
@@ -441,6 +445,21 @@ include_once '../../plantillas/barra_lateral.php';
 
                                                     </tr>
                                                 </table>
+                                                <span class="h3">Información de envió</span>
+                                                 <table id="factura_detalle">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="textcenter">Descripción</th>
+                                                            <th class="textcenter">Hora</th>
+                                                            <th class="textcenter">Fecha</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="detalle_productos">
+
+                                                    </tbody>
+
+                                                </table>
+                                                 <span class="h3">Productos Enviados</span>
                                                  <table id="factura_detalle">
                                                     <thead>
                                                         <tr>
@@ -554,4 +573,6 @@ document.getElementById('hora_actu').value = hora + ":" + minutos
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
+<!--Para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

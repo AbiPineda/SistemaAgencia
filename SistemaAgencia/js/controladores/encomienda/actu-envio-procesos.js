@@ -13,12 +13,12 @@ $(document).ready(function () {
     inicializarTabla();
 
  //BOTON MOSTRAR EL REPORTE
-    $(document).on('click', '#reporte_historial', function() {
+    $(document).on('click', '#btnRepoteHistorial', function() {
 
         id = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" + id,
+            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" +ID_ENCOMIENDA,
             method: "GET"
         }).done(function(response) {
                
