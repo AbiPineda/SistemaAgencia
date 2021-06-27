@@ -3,6 +3,27 @@ const urlParams = new URLSearchParams(valores);
 let ID_TUR = urlParams.get('tur');
 
 init();
+// BOTON DE IMPRIMIR
+$(document).on('click', '#doPrint', function (evento) {
+   evento.preventDefault();
+   printElement(document.getElementById("printDiv"));
+});
+
+function printElement(elem) {
+   var domClone = elem.cloneNode(true);
+
+   var $printSection = document.getElementById("printSection");
+
+   if (!$printSection) {
+       var $printSection = document.createElement("div");
+       $printSection.id = "printSection";
+       document.body.appendChild($printSection);
+   }
+
+   $printSection.innerHTML = "";
+   $printSection.appendChild(domClone);
+   window.print();
+}
 
 function init() {
    $.ajax({

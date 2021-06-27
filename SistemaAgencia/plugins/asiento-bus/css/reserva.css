@@ -66,6 +66,10 @@ div.seatCharts-seat.selected {
   background-color: #c33a3a;
 }
 div.seatCharts-seat.ocupado {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   background-color: #3a78c3;
 }
 div.seatCharts-seat.unavailable {

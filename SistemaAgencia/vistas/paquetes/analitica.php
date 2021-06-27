@@ -6,6 +6,9 @@
    type="text/css" />
 <link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/jquery.seat-charts.css">
 <link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/reserva.css">
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 
 
 <!--COTINUANDO CON LA INICIALIZACION -->
@@ -30,7 +33,7 @@
    </section>
 
    <!-- Main content -->
-   <section class="content">
+   <section id="printDiv" class="content">
       <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
          <div class="row">
             <!-- <div class="offset-md-1"></div> -->
@@ -220,6 +223,15 @@
 
 
                               </div>
+                              <div class="row">
+
+                                 <div style="text-align: right;width:2200px">
+                                    <div style="margin: 5px" id="doPrint" class="btn btn-default"><i
+                                          class="fas fa-print"></i>
+                                       Imprimir</div>
+
+                                 </div>
+                              </div>
                            </div>
 
                         </div>
@@ -251,5 +263,6 @@
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/paquete/analitica.js"></script>
+<script src="<?= $base_url ?>js/imprimir.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
