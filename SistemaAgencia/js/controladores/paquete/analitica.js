@@ -8,33 +8,24 @@ init();
 document.getElementById("doPrint").onclick = function () {
    printElement(document.getElementById("printDiv"));
 }
-
 function printElement(elem) {
    let domClone = elem.cloneNode(true);
-
-   let $printSection = document.getElementById("printSection");
-
-   if (!$printSection) {
-      let $printSection = document.createElement("div");
-      $printSection.id = "printSection";
-      document.body.appendChild($printSection);
-   }
-
+   let $printSection = document.createElement("div");
+   $printSection.id = "printSection";
+   document.body.appendChild($printSection);
    $printSection.innerHTML = "";
    $printSection.appendChild(domClone);
    window.print();
 }
-
 function init() {
    $.ajax({
       url: URL_SERVIDOR + "TurPaquete/analitica?id_tours=" + ID_TUR,
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT
-      document.getElementById("nombreTours").value = response.nombre;
+      document.getElementById("titulo").innerHTML = response.nombre;
+      document.getElementById("fecha").innerHTML = `${moment(response.start).format('l')} - ${moment(response.end).format('l')}`;
       totalIngresos = response.totalIngresos;
-      $('#totalIngresos').text(`$ ${totalIngresos}`);
-      inicializarCalendario(response.start, response.end);
       inicializarTablaIngresos(response.reservas);
       crearTransporte(response.transporte, response.ocupados);
       inicializarTablaGastos(response.sitios, response.servicios, response.tatalPasajeros);
@@ -46,85 +37,26 @@ function init() {
 
    });
 }
-function inicializarCalendario(start, end) {
-   $('#fecha_salida').daterangepicker({
-      locale: {
-         format: 'DD/MM/YYYY',
-         "separator": " - ",
-         "applyLabel": "Aplicar",
-         "cancelLabel": "Cancelar",
-         "fromLabel": "De",
-         "toLabel": "A",
-         "customRangeLabel": "Custom",
-         "daysOfWeek": [
-            "Dom",
-            "Lun",
-            "Mar",
-            "Mie",
-            "Jue",
-            "Vie",
-            "Sab"
-         ],
-         "monthNames": [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"
-         ],
-         "firstDay": 0
-      },
-      startDate: moment(start),
-      endDate: moment(end)
-   });
-
-}
 function inicializarTablaIngresos(reservas) {
-   let tabla = $('#TablaIngresos').DataTable({
-      responsive: true,
-      autoWidth: false,
-      deferRender: true,
-      columns: [
-         { data: "nombre" },
-         { data: "label_asiento" },
-         { data: "descripcionProducto" },
-         { data: "monto" },
-         { data: "formaPagoUtilizada" },
-
-      ]
-   });
+   let tabla2 = document.getElementById('tReserva');
    reservas.forEach(reserva => {
-   //   AGREMAMOS LA DAATA A LA TABLA VISIBLE
-      tabla.row.add({
-         nombre: reserva.nombre,
-         label_asiento: reserva.label_asiento,
-         descripcionProducto: reserva.descripcionProducto,
-         monto: reserva.monto,
-         formaPagoUtilizada: reserva.formaPagoUtilizada,
-      }).draw(false);
-     // AGREGAMOS LA DATA A LA TABLA QUE SE IMPRIMIRA
-      let tr = crearFilaReserva(reserva);
-      let tabla2 = document.getElementById('tReserva');
+      // AGREGAMOS LA DATA A LA TABLA QUE SE IMPRIMIRA
+      let tr = document.createElement('tr');
+      tr.appendChild(crearColumna(reserva.nombre));
+      tr.appendChild(crearColumna(reserva.label_asiento));
+      tr.appendChild(crearColumna(reserva.descripcionProducto));
+      tr.appendChild(crearColumna(reserva.formaPagoUtilizada));
+      tr.appendChild(crearColumna(reserva.monto));
       tabla2.appendChild(tr);
    });
-}
-function crearFilaReserva(reserva) {
    let tr = document.createElement('tr');
-   tr.appendChild(crearColumna(reserva.nombre));
-   tr.appendChild(crearColumna(reserva.label_asiento));
-   tr.appendChild(crearColumna(reserva.descripcionProducto));
-   tr.appendChild(crearColumna(reserva.monto));
-   tr.appendChild(crearColumna(reserva.formaPagoUtilizada));
+   tr.appendChild(crearColumna("TOTAL"));
+   tr.appendChild(crearColumna(""));
+   tr.appendChild(crearColumna(""));
+   tr.appendChild(crearColumna(""));
+   tr.appendChild(crearColumna(`${totalIngresos}`));
+   tabla2.appendChild(tr);
 
-
-   return tr;
 }
 function crearColumna(info) {
    let td = document.createElement('td');
@@ -135,50 +67,55 @@ function crearColumna(info) {
    td.classList.add('textcenter');
    return td;
 }
-
 function inicializarTablaGastos(sitios, servicios, tatalPasajeros) {
    let totalGastos = 0.0;
-   let tabla = $('#TablaGastos').DataTable({
-      responsive: true,
-      autoWidth: false,
-      deferRender: true,
-      columns: [
-         { data: "nombre" },
-         { data: "costo" },
-         { data: "cantidad" },
-         { data: "subTotal" },
-
-      ]
-   });
+   let tabla2 = document.getElementById('tGasto');
    servicios.forEach(servicio => {
       let cantidad = (servicio.por_usuario == "0") ? 1 : tatalPasajeros;
       subTotal = cantidad * servicio.costo;
       totalGastos += subTotal;
-      tabla.row.add({
-         nombre: servicio.nombre_servicio,
-         costo: servicio.costo,
-         cantidad: cantidad,
-         subTotal: subTotal
-      }).draw(false);
+      // LLENAMOS LA TABLA QUE SE IMPRIMIRA
+      let tr = document.createElement('tr');
+      tr.appendChild(crearColumna(servicio.nombre_servicio));
+      tr.appendChild(crearColumna(servicio.costo));
+      tr.appendChild(crearColumna(cantidad));
+      tr.appendChild(crearColumna(subTotal));
+      tabla2.appendChild(tr);
+
    });
 
    sitios.forEach(sitio => {
       let cantidad = (sitio.por_usuario == "0") ? 1 : tatalPasajeros;
       subTotal = cantidad * sitio.costo;
       totalGastos += subTotal;
-      tabla.row.add({
-         nombre: sitio.nombre_sitio,
-         costo: sitio.costo,
-         cantidad: cantidad,
-         subTotal: subTotal
-      }).draw(false);
+        //PARA LLENAR LA TABLA QUE IMPRIMIREMOS
+      let tr = document.createElement('tr');
+      tr.appendChild(crearColumna(sitio.nombre_sitio));
+      tr.appendChild(crearColumna(sitio.costo));
+      tr.appendChild(crearColumna(cantidad));
+      tr.appendChild(crearColumna(subTotal));
+      tabla2.appendChild(tr);
    });
-   console.log(totalGastos);
    $('#totalGastos').text(`$ ${totalGastos}`);
    $('#totalGanancias').text(`$ ${totalIngresos - totalGastos}`);
-   
-}
 
+
+   // ESTO ES PRA LA TABLA QUE SE IMPRIMIRA
+   let trGastos = document.createElement('tr');
+   trGastos.appendChild(crearColumna("TOTAL DE GASTOS"));
+   trGastos.appendChild(crearColumna(""));
+   trGastos.appendChild(crearColumna(""));
+   trGastos.appendChild(crearColumna(`${totalGastos}`));
+   tabla2.appendChild(trGastos);
+
+   let trGanancias = document.createElement('tr');
+   trGanancias.appendChild(crearColumna("TOTAL DE GANANCIAS"));
+   trGanancias.appendChild(crearColumna(""));
+   trGanancias.appendChild(crearColumna(""));
+   trGanancias.appendChild(crearColumna(`${totalIngresos - totalGastos}`));
+   tabla2.appendChild(trGanancias);
+
+}
 function crearTransporte(transporte, ocupados) {
    if (transporte != null) {
 
@@ -195,7 +132,6 @@ function crearTransporte(transporte, ocupados) {
       bloquearAsientosInavilitados(deshabilitados);
    }
 }
-
 function crearStrFila(asientos_derecho, asientos_izquierdo) {
    let strFila = "";
    //LOS ASIENTOS DEL LADO DERECHO
@@ -211,7 +147,6 @@ function crearStrFila(asientos_derecho, asientos_izquierdo) {
    return strFila;
 
 }
-
 function crearFilas(strFila, asientos_derecho, asientos_izquierdo, numero_filas, filaTrasera) {
    let strTrasero = "";
    let strEspacio = "";
