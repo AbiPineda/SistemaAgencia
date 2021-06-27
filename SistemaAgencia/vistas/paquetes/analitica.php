@@ -33,7 +33,7 @@
    </section>
 
    <!-- Main content -->
-   <section id="printDiv" class="content">
+   <section id="" class="content">
       <form id="miFormulario" enctype="multipart/form-data" name="miFormulario" role="form">
          <div class="row">
             <!-- <div class="offset-md-1"></div> -->
@@ -246,6 +246,10 @@
          <!-- END timeline item -->
       </form>
    </section>
+
+   <div id="printDiv">
+   </div>
+
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
@@ -263,6 +267,6 @@
 <script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/paquete/analitica.js"></script>
-<script src="<?= $base_url ?>js/imprimir.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
+<?php include_once '../../plantillas/cierre.php'; ?>
 <?php include_once '../../plantillas/cierre.php'; ?>

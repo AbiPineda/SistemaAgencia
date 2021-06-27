@@ -1,4 +1,4 @@
-document.getElementById("doPrint").onclick = function() {
+document.getElementById("doPrint").onclick = function () {
     printElement(document.getElementById("printDiv"));
 }
 

@@ -4,10 +4,9 @@ let ID_TUR = urlParams.get('tur');
 
 init();
 // BOTON DE IMPRIMIR
-$(document).on('click', '#doPrint', function (evento) {
-   evento.preventDefault();
+document.getElementById("doPrint").onclick = function () {
    printElement(document.getElementById("printDiv"));
-});
+}
 
 function printElement(elem) {
    var domClone = elem.cloneNode(true);
@@ -15,9 +14,9 @@ function printElement(elem) {
    var $printSection = document.getElementById("printSection");
 
    if (!$printSection) {
-       var $printSection = document.createElement("div");
-       $printSection.id = "printSection";
-       document.body.appendChild($printSection);
+      var $printSection = document.createElement("div");
+      $printSection.id = "printSection";
+      document.body.appendChild($printSection);
    }
 
    $printSection.innerHTML = "";

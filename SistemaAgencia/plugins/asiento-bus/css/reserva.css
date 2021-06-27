@@ -37,6 +37,10 @@ body {
   font-size: 14px;
 }
 div.seatCharts-cell {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   color: #182c4e;
   height: 25px;
   width: 25px;
@@ -50,18 +54,34 @@ div.seatCharts-row {
   height: 35px;
 }
 div.seatCharts-seat.available {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   background-color: #b9dea0;
   /* background-color: #76B474; */
 }
 div.seatCharts-seat.available.first-class {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   /* 	background: url(vip.png); */
   background-color: #3a78c3;
 }
 div.seatCharts-seat.focused {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   /* background-color: #76B474; */
   background-color: #61c31f;
 }
 div.seatCharts-seat.selected {
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
   /* background-color: #E6CAC4; */
   background-color: #c33a3a;
 }
