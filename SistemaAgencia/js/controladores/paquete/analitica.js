@@ -10,12 +10,12 @@ document.getElementById("doPrint").onclick = function () {
 }
 
 function printElement(elem) {
-   var domClone = elem.cloneNode(true);
+   let domClone = elem.cloneNode(true);
 
-   var $printSection = document.getElementById("printSection");
+   let $printSection = document.getElementById("printSection");
 
    if (!$printSection) {
-      var $printSection = document.createElement("div");
+      let $printSection = document.createElement("div");
       $printSection.id = "printSection";
       document.body.appendChild($printSection);
    }
@@ -39,6 +39,8 @@ function init() {
       crearTransporte(response.transporte, response.ocupados);
       inicializarTablaGastos(response.sitios, response.servicios, response.tatalPasajeros);
       $('#loading').hide();
+
+      //ESTO ES PARA INICIALIZAR LA IMPRESION
    }).fail(function (response) {
       console.log(response);
 
@@ -99,15 +101,41 @@ function inicializarTablaIngresos(reservas) {
       ]
    });
    reservas.forEach(reserva => {
+   //   AGREMAMOS LA DAATA A LA TABLA VISIBLE
       tabla.row.add({
          nombre: reserva.nombre,
          label_asiento: reserva.label_asiento,
          descripcionProducto: reserva.descripcionProducto,
          monto: reserva.monto,
          formaPagoUtilizada: reserva.formaPagoUtilizada,
-      }).draw(false);;
+      }).draw(false);
+     // AGREGAMOS LA DATA A LA TABLA QUE SE IMPRIMIRA
+      let tr = crearFilaReserva(reserva);
+      let tabla2 = document.getElementById('tReserva');
+      tabla2.appendChild(tr);
    });
 }
+function crearFilaReserva(reserva) {
+   let tr = document.createElement('tr');
+   tr.appendChild(crearColumna(reserva.nombre));
+   tr.appendChild(crearColumna(reserva.label_asiento));
+   tr.appendChild(crearColumna(reserva.descripcionProducto));
+   tr.appendChild(crearColumna(reserva.monto));
+   tr.appendChild(crearColumna(reserva.formaPagoUtilizada));
+
+
+   return tr;
+}
+function crearColumna(info) {
+   let td = document.createElement('td');
+   let label = document.createElement('label');
+   label.innerHTML = info;
+   label.style.fontWeight = "normal";
+   td.appendChild(label);
+   td.classList.add('textcenter');
+   return td;
+}
+
 function inicializarTablaGastos(sitios, servicios, tatalPasajeros) {
    let totalGastos = 0.0;
    let tabla = $('#TablaGastos').DataTable({

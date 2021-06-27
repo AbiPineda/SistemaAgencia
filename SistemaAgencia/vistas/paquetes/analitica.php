@@ -302,18 +302,20 @@
 
                            </tr>
                         </table>
-                        <table id="factura_detalle">
+                        <table id="tReserva">
                            <thead>
                               <tr>
-                                 <th class="textcenter">Evento</th>
-                                 <th class="textcenter">Desde</th>
-                                 <th class="textcenter">Hasta</th>
+                                 <th>Cliente</th>
+                                 <th>Asientos Reservados</th>
+                                 <th>Detalle Resrva</th>
+                                 <th>Total</th>
+                                 <th>Forma de Pago</th>
                               </tr>
                            </thead>
                            <tbody id="detalle_productos">
                            </tbody>
                         </table>
-                        <table id="factura_detalle">
+                        <table id="tGasto">
                            <thead>
                               <tr>
                                  <th class="textcenter">Evento</th>

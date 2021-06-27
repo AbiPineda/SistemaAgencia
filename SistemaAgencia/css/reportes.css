@@ -73,7 +73,7 @@
 .round p{
 	padding: 0 15px;
 }
-#factura_detalle{
+#factura_detalle, #tGasto, #tReserva{
 	border-collapse: collapse;
 	
 }
@@ -84,6 +84,18 @@
 	border-collapse: none;
 }
 #factura_detalle thead th{
+	background: #058167;
+	color: #FFF;
+	padding: 5px;
+	border-collapse: none;
+}
+#tGasto thead th{
+	background: #058167;
+	color: #FFF;
+	padding: 5px;
+	border-collapse: none;
+}
+#tReserva thead th{
 	background: #058167;
 	color: #FFF;
 	padding: 5px;
