@@ -13,6 +13,7 @@ $(document).ready(function (){
         }
     });
 
+
 function inicializarValidaciones() {
 
         $('#register-form').validate({
@@ -54,11 +55,10 @@ function inicializarValidaciones() {
 
             }
         });
-
-    }
+}
 
     //***************para la galeria******************
-     function inicializarGaleria() {
+function inicializarGaleria() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotos').fileinput({
             theme: 'fas',
@@ -73,9 +73,9 @@ function inicializarValidaciones() {
             uploadAsync: false,
             showClose: false,
         });
-    }
+}
     //**********************************
-    function add() {
+function add() {
 
          let form = obtenerInfo();
         
@@ -141,11 +141,17 @@ function inicializarValidaciones() {
 
         });
 
-    }
+}
 
     function obtenerInfo(){
         let form = new FormData();
 
+        let asistiran = $("input[name='asistiran[]']").map(function () { return $(this).val(); }).get();
+        let pasaporte_personas = $("input[name='pasaporte_personas[]']").map(function () { return $(this).val(); }).get();
+        let verificar_personas= asistiran.filter(asistiran=>asistiran.length >1);
+        let verificar_pasaportes= pasaporte_personas.filter(pasaporte_personas=>pasaporte_personas.length >1);
+        let cuantos = verificar_personas.length;
+        console.log(cuantos);
         form.append("fecha",       document.getElementById("txtFecha").value);
         form.append("usuario",     document.getElementById("usuario").value);
         form.append("id_cliente",  document.getElementById("comboUsuario").value);
@@ -153,9 +159,13 @@ function inicializarValidaciones() {
         form.append("asistencia", document.getElementById("asistencia").value);
         form.append("start", document.getElementById("timepicker").value);
         form.append("title", document.getElementById("txtTitulo").value);
+        form.append("asistiran", JSON.stringify(verificar_personas));
+        form.append("pasaporte_personas", JSON.stringify(verificar_pasaportes));
+        form.append("cuantos",cuantos);
 
 
-        //let pasaporte_personas = document.getElementsByName("pasaporte_personas[]");
+
+        /*//let pasaporte_personas = document.getElementsByName("pasaporte_personas[]");
         //console.log(pasaporte_personas);
         $("input[name='pasaporte_personas[]']").each(function(indice, elemento) {
          //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
@@ -166,7 +176,7 @@ function inicializarValidaciones() {
          //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
          form.append('asistiran[]', $(elemento).val());
           });
-        //
+        //*/
         return form;
     }
    
