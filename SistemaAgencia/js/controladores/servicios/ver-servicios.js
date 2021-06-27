@@ -154,7 +154,16 @@ $(document).ready(function () {
         $("#spanNombre").html(data.nombre_contacto);
         $("#imgContacto").attr("src", data.url);
     });
+    // BOTON DE IMPRIMIR
+    $(document).on('click', '#print', function () {
+        // OBTENEMOS EL VALOR DEL FILTRO DE LA TABLA
+        let MiTabla = $("#tabla_servicios").DataTable();
+        let data = MiTabla.rows({ search: 'applied' }).data().length;
+        let tr = $('#cabeceraTabla');
+        var th = tr.find('th');
+        console.log(th);
 
+    });
     function inicializarTabla() {
         tabla = $("#tabla_servicios").DataTable({
             "responsive": true,
@@ -373,7 +382,7 @@ $(document).ready(function () {
         form.append("id_contacto", document.getElementById("contacto_servicio").value);
 
         let tipoServicio = $('#tipo_servicio').select2("data");
-        let fila_trasera  = $('#checkTrasero').prop('checked');
+        let fila_trasera = $('#checkTrasero').prop('checked');
         if (tipoServicio[0].text === "Transporte") {
             let asientos_disponibles = numero_filas * (asientos_derecho + asientos_izquierdo);
             if (fila_trasera) {
@@ -388,7 +397,7 @@ $(document).ready(function () {
             form.append("asiento_izquierdo", $('#asientos_izquierdo').val());
             form.append("fila_trasera", fila_trasera);
             form.append("asientos_dispobibles", asientos_disponibles);
-        } 
+        }
 
         //OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({

@@ -37,12 +37,13 @@
             <div class="card">
                <div class="card-header">
                   <h3 class="card-title">Servicios</h3>
+                  <button id="print" class="Container">imprimir</button>
                </div>
                <!-- /.card-header -->
                <div class="card-body">
                   <table id="tabla_servicios" class="table table-bordered table-striped">
                      <thead style="text-align: center;">
-                        <tr>
+                        <tr id="cabeceraTabla">
                            <th>Tipo del Servicio</th>
                            <th>Nombre</th>
                            <th>Costo ($)</th>
