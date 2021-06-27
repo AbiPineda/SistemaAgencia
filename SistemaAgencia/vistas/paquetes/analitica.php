@@ -247,7 +247,99 @@
       </form>
    </section>
 
-   <div id="printDiv">
+   <div class="container-fluid" id="printDiv">
+      <div class="row">
+         <section class="content">
+
+            <div class="container-fluid" id="printDiv">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div id="page_pdf">
+                        <table id="factura_head">
+                           <tr>
+                              <td class="logo_factura">
+                                 <div>
+                                    <img src="<?= $base_url ?>img/logo-min.jpg" all rel="stylesheet" type="text/css">
+                                 </div>
+                              </td>
+                              <td class="info_empresa">
+                                 <div>
+                                    <span class="h2">Agencia de Viajes Martínez Travels &
+                                       Tours</span>
+                                    <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                       del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                       2338<br>info.ventas@martineztraveltours.com</p>
+
+                                 </div>
+                              </td>
+
+                           </tr>
+                        </table>
+                        <table id="factura_cliente">
+                           <tr>
+                              <td class="info_cliente">
+                                 <div class="round">
+                                    <span class="h3">Datos Generales</span>
+                                    <table class="datos_cliente">
+                                       <thead>
+                                          <tr>
+                                             <td>
+                                                <label style="width: 100%; padding-left: 10px;">
+                                                   Titulo del viaje:</label>
+                                                <p name="titulo" id="titulo">
+                                             </td>
+                                             <td>
+                                                <label style="width: 100%; padding-left: 10px;">
+                                                   Fecha del viaje:</label>
+                                                <p name="fecha" id="fecha">
+                                             </td>
+                                          </tr>
+
+                                       </thead>
+                                    </table>
+                                 </div>
+                              </td>
+
+                           </tr>
+                        </table>
+                        <table id="factura_detalle">
+                           <thead>
+                              <tr>
+                                 <th class="textcenter">Evento</th>
+                                 <th class="textcenter">Desde</th>
+                                 <th class="textcenter">Hasta</th>
+                              </tr>
+                           </thead>
+                           <tbody id="detalle_productos">
+                           </tbody>
+                        </table>
+                        <table id="factura_detalle">
+                           <thead>
+                              <tr>
+                                 <th class="textcenter">Evento</th>
+                                 <th class="textcenter">Desde</th>
+                                 <th class="textcenter">Hasta</th>
+                              </tr>
+                           </thead>
+                           <tbody id="detalle_productos">
+                           </tbody>
+                        </table>
+
+
+
+                        <!--fin de crear tablas-->
+                     </div>
+                     <div class="row no-print">
+                        <div class="col-md-12">
+                           <div id="editor"></div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
    </div>
 
 </div>

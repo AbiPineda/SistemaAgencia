@@ -3,12 +3,11 @@ document.getElementById("doPrint").onclick = function () {
 }
 
 function printElement(elem) {
-    var domClone = elem.cloneNode(true);
-
-    var $printSection = document.getElementById("printSection");
+    let domClone = elem.cloneNode(true);
+    let $printSection = document.getElementById("printSection");
 
     if (!$printSection) {
-        var $printSection = document.createElement("div");
+        let $printSection = document.createElement("div");
         $printSection.id = "printSection";
         document.body.appendChild($printSection);
     }
