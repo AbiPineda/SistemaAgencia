@@ -1,6 +1,11 @@
 $(document).ready(function () {
 
+  //PARA CLONAR
+  const recarga2 = $("#recargar2").clone();
+  const recarga1 = $("#recargarPasa").clone();
 
+  const $grupo_per = $("[name='grupo_personasEdit']").clone();
+  const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,next,today',
@@ -87,13 +92,7 @@ $(document).ready(function () {
         $("#btn-pasaportes2").prop("disabled", false);
         //para mostrar en el input de las personas que asitiran
 
-        //PARA CLONAR
-        const $personasLimpiar = $("#recargar2").clone();
-        const $pasaporteLimpiar = $("#recargarPasa").clone();
-
-        const $grupo_per = $("[name='grupo_personasEdit']").clone();
-        const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
-
+      
         $.ajax({
           url: URL_SERVIDOR + 'Cita/verCita?id_cita=' + calEvent.id_cita,
           method: 'GET'
@@ -229,17 +228,17 @@ $(document).ready(function () {
 //PARA AGREGAR LOS INPUT
 function AgregarItems(arreglo, label, $original, $grupo) {
   for (let index = 0; index < arreglo.length; index++) {
-    if (index == 0) {
-      $original.find('input').val(arreglo[index]);
-      //verificamos si no hay mas elementos 
-    } else {
-      let $copia = $grupo.clone();
-      $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-      $copia.find('input').val(arreglo[index]);
-      $copia.insertAfter(label);
-    }
+    // if (index == 0) {
+    //   $original.find('input').val(arreglo[index]);
+    //   //verificamos si no hay mas elementos 
+    // } else {
+    //   let $copia = $grupo.clone();
+    //   $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+    //   $copia.find('input').val(arreglo[index]);
+    //   $copia.insertAfter(label);
+    // }
 
-    document.getElementById("btn-asistiran").disabled = false;
-    document.getElementById("btn-pasaportes").disabled = false;
+    // document.getElementById("btn-asistiran").disabled = false;
+    // document.getElementById("btn-pasaportes").disabled = false;
   }
 }//agregar item

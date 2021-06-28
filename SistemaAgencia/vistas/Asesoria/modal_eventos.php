@@ -178,17 +178,18 @@
                      </div>
 
                      <div class="form-group col-md-6">
-                        <div id="recargar2">
-                           <label id="per_edit">¿Personas que asistirán ?</label>
-                           <div class="form-group multiple-form-group input-group" name="grupo_personasEdit">
-                              <input type="text" name="asistiran[]" id="asistiran2" disabled="true" class="form-control"
-                                 placeholder="Agregar otra persona">
-                              <span class="input-group-btn">
-                                 <button type="button" class="btn btn-success btn-add" id="btn-asistiran2"
-                                    disabled="true" style="margin-top:0px;">+</button>
-                              </span>
+                        <div class="caja2">
+                           <div id="recargar2">
+                              <label id="per_edit">¿Personas que asistirán ?</label>
+                              <div class="form-group multiple-form-group input-group" name="grupo_personasEdit">
+                                 <input type="text" name="asistiran[]" id="asistiran2" disabled="true"
+                                    class="form-control" placeholder="Agregar otra persona">
+                                 <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success btn-add" id="btn-asistiran2"
+                                       disabled="true" style="margin-top:0px;">+</button>
+                                 </span>
+                              </div>
                            </div>
-
                         </div>
                         <!--Recargar las personas-->
 
@@ -208,15 +209,17 @@
                      </div>
 
                      <div class="form-group col-md-6">
-                        <div id="recargarPasa">
-                           <label id="pasa_edit">N° pasaporte de las personas</label>
-                           <div class="form-group multiple-form-group input-group" name="grupo_pasaporteEdit">
-                              <input type="text" name="pasaporte_personas[]" id="pasaporte_personas2" disabled="true"
-                                 class="form-control" placeholder="Digite el pasaporte">
-                              <span class="input-group-btn">
-                                 <button type="button" class="btn btn-success btn-add" id="btn-pasaportes2"
-                                    disabled="true" style="margin-top:0px;">+</button>
-                              </span>
+                        <div class="caja1">
+                           <div id="recargarPasa">
+                              <label id="pasa_edit">N° pasaporte de las personas</label>
+                              <div class="form-group multiple-form-group input-group" name="grupo_pasaporteEdit">
+                                 <input type="text" name="pasaporte_personas[]" id="pasaporte_personas2" disabled="true"
+                                    class="form-control" placeholder="Digite el pasaporte">
+                                 <span class="input-group-btn">
+                                    <button type="button" class="btn btn-success btn-add" id="btn-pasaportes2"
+                                       disabled="true" style="margin-top:0px;">+</button>
+                                 </span>
+                              </div>
                            </div>
                         </div>
                         <!--recargar pasaportes-->
