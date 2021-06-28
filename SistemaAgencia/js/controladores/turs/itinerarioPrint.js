@@ -65,3 +65,22 @@ function formatAMPM(date) {
     let strTime = hours + ':' + minutes + ' ' + ampm;
     return date.toLocaleDateString() + "  " + strTime;
 }
+document.getElementById("doPrint").onclick = function() {
+    printElement(document.getElementById("printDiv"));
+}
+
+function printElement(elem) {
+    var domClone = elem.cloneNode(true);
+
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+        var $printSection = document.createElement("div");
+        $printSection.id = "printSection";
+        document.body.appendChild($printSection);
+    }
+
+    $printSection.innerHTML = "";
+    $printSection.appendChild(domClone);
+    window.print();
+}

@@ -19,7 +19,7 @@ $(document).ready(function () {
 
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
-    
+
       let identificador = data.id_tours;
       let tipoGaleria = data.tipo;
       let informacionAdicional = { tipo: tipoGaleria, identificador: identificador };
@@ -77,12 +77,12 @@ $(document).ready(function () {
          }
       })
    });
-      //BOTON DE ANALITICAS
-      $(document).on('click', '.btn-group .btn-info', function (evento) {
-         evento.preventDefault();//para evitar que la pagina se recargue
-         let idSeleccionado = $(this).attr("name");
-         window.location = `${URL_SISTEMA}vistas/paquetes/analitica.php?tur=${idSeleccionado}`;
-      });
+   //BOTON DE ANALITICAS
+   $(document).on('click', '.btn-group .btn-info', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      let idSeleccionado = $(this).attr("name");
+      window.location = `${URL_SISTEMA}vistas/paquetes/analitica.php?tur=${idSeleccionado}`;
+   });
    //BOTON PARA ACTUALIZAR
    $(document).on('click', '#btnActualizar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
@@ -111,7 +111,11 @@ $(document).ready(function () {
       let idViaje = dataFilaTur.id_tours;
       let fechaInicioViaje = dataFilaTur.start;
       let fechaFinViaje = dataFilaTur.end;
-      window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
+      let titulo = dataFilaTur.nombreTours;
+
+      console.log(dataFilaTur);
+
+      window.location = `../tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}&&titulo=${titulo}`;
    });
    function inicializarTabla() {
       tabla = $("#tabla_servicios").DataTable({

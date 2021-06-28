@@ -115,12 +115,23 @@ a.text-success:hover {
 
                                  <button style="margin: 5px" type="submit"
                                     class="btn btn-danger float-right">Cancelar</button>
-                                 <button style="margin: 5px" id="btnGuardar" type="submit"
+                                 <button style="margin: 5px" id="imprimir" type="submit"
                                     class="btn btn-info float-left">Guardar</button>
 
 
                               </div>
                               <!-- /btn-group -->
+                           </div>
+
+                           <div class="card-footer">
+                              <div class="btn-group" style="width: 100%;">
+
+
+                                 <button style="margin: 5px" id="imprimir" type="submit"
+                                    class="btn btn-info float-left">Imprimir</button>
+
+
+                              </div>
                            </div>
                         </div>
                         <!-- /.card -->

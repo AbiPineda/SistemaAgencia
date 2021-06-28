@@ -25,9 +25,8 @@
             <div class="text-bold pt-2">Cargando...
             </div>
          </div>
-         <div class="row">
+         <div class="row" style="width: 100%; display: block;">
             <section class="content">
-
                <div class="container-fluid" id="printDiv">
                   <div class="row">
                      <div class="col-md-12">

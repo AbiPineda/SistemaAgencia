@@ -9,6 +9,7 @@ $(document).ready(function () {
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
     let ID_VIAJE = urlParams.get('viaje');
+    let TITULO = urlParams.get('titulo');
 
     let fechaInicioViaje = moment(urlParams.get('fechaInicioViaje'));
     let fechaEndViaje = moment(urlParams.get('fechaFinViaje')).add(1, "days");
@@ -256,6 +257,11 @@ $(document).ready(function () {
     $('#ComboTur').on('select2:select', function (e) {
         let precio = e.params.data.precio;
         document.getElementById("precio").value = precio;
+    });
+    // BOTON DE IMPRIMIR QUE SOLO REDIRECCIONARA
+    $(document).on('click', '#imprimir', function (evento) {
+        window.location = `itinerarioPrint.php?id=${ID_VIAJE}&titulo=${TITULO}`;
+
     });
     function cargarEventosSinFecha() {
         const Toast = Swal.mixin();
