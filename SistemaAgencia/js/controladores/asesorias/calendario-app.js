@@ -87,26 +87,42 @@
                     $("#btn-pasaportes2").prop("disabled", false);
                     //para mostrar en el input de las personas que asitiran
                 $(document).ready(function() {
-
+                    //PARA CLONAR
+                    const $grupo_per = $("[name='grupo_personasEdit']").clone();
+                    const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
                  $.ajax({
                  type: "GET",
-                 url: URL_SERVIDOR+'PersonasCitas/personas/'+calEvent.id_cita,
+                 url: URL_SERVIDOR+'Cita/verCita?id_cita='+calEvent.id_cita,
                  async: false,
                 dataType: "json",
                     success: function(data) {
 
-                let $select = $('#inputs');
-                let $selectPas=$('#inputsPasa');
-                $.each(data.personas, function(i,index) {
-                    $select.append('<input id="input" name="input[]" class="form-control" value="'+index.nombres_personas+'">');
-                    $selectPas.append('<input id="inputPas" name="inputPas[]" class="form-control" value="'+index.pasaporte_personas+'">');  
-                  });
-
+                    AgregarItems(data.personas, $('#per_edit'), $("[name='grupo_personas']"), $grupo_per);
+                    AgregarItems(data.pasaportes, $('#pasa_edit'), $("[name='grupo_pasaporte']"), $grupo_pasa);
                  },
                 error: function(data) {
                 //alert('error');
                     }
                  });
+
+                 //PARA AGREGAR LOS INPUT
+                 function AgregarItems(arreglo, label, $original, $grupo) {
+                  for (let index = 0; index < arreglo.length; index++) {
+                        if (index == 0) {
+                     $original.find('input').val(arreglo[index]);
+                    //verificamos si no hay mas elementos 
+                    } else {
+                    let $copia = $grupo.clone();
+                    $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+                    $copia.find('input').val(arreglo[index]);
+                    $copia.insertAfter(label);
+                    }
+
+          document.getElementById("btn-asistiran").disabled = false;
+         document.getElementById("btn-pasaportes").disabled = false;
+      }
+   }
+                 //FIN DE AGREGAR LOS INPUT
 
                 });
                 //****

@@ -1,8 +1,12 @@
 //vamos a verificar si el usuario ya tomo una cita
 //si ya realizo el proceso de asesoria estara registrada toda su informacion migratoria
 //entonces solo se necesita modificar los datos o add si hay nuevas preguntas
-$(function () {
-        $("#comboUsuario").change(function () {
+$(document).ready(function () {
+
+  const $grupo_per = $("[name='grupo_personas']").clone();
+  const $grupo_pasa = $("[name='grupo_pasaporte']").clone();
+
+$("#comboUsuario").change(function () {
            var id = document.getElementById("comboUsuario").value;
     $.ajax({
         url: URL_SERVIDOR + "Cita/verificarExist?id_cliente="+id,
@@ -17,6 +21,9 @@ $(function () {
          document.getElementById("btnAgregar").disabled = false;
          document.getElementById("pasaporte").disabled  = true;
          $('#pasaporte').val(response.existe.pasaporte);
+
+        AgregarItems(response.personas, $('#per'), $("[name='grupo_personas']"), $grupo_per);
+        AgregarItems(response.pasaportes, $('#pasa'), $("[name='grupo_pasaporte']"), $grupo_pasa);
 
        }else{
 
@@ -77,4 +84,22 @@ $(function () {
 
 
              });
-        });
+
+function AgregarItems(arreglo, label, $original, $grupo) {
+      for (let index = 0; index < arreglo.length; index++) {
+         if (index == 0) {
+            $original.find('input').val(arreglo[index]);
+            //verificamos si no hay mas elementos 
+         } else {
+            let $copia = $grupo.clone();
+            $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+            $copia.find('input').val(arreglo[index]);
+            $copia.insertAfter(label);
+         }
+
+          document.getElementById("btn-asistiran").disabled = false;
+         document.getElementById("btn-pasaportes").disabled = false;
+      }
+   }
+
+});
