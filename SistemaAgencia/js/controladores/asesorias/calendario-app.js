@@ -119,10 +119,11 @@
                     $copia.insertAfter(label);
                     }
 
-          document.getElementById("btn-asistiran").disabled = false;
-         document.getElementById("btn-pasaportes").disabled = false;
+                        document.getElementById("btn-asistiran").disabled = false;
+                         document.getElementById("btn-pasaportes").disabled = false;
                          }
-                         }
+                 }//agregar item
+                  })
 
                  //FIN DE AGREGAR LOS INPUT
                 //****
