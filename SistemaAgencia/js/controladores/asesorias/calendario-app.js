@@ -3,6 +3,7 @@ $(document).ready(function () {
   //PARA CLONAR
   const recarga2 = $("#recargar2").clone();
   const recarga1 = $("#recargarPasa").clone();
+ 
 
   const $grupo_per = $("[name='grupo_personasEdit']").clone();
   const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
@@ -104,6 +105,8 @@ $(document).ready(function () {
         }).fail(function (response) {
 
         });
+        $("#recargar2").load(" #recargar2");
+         $("#recargarPasa").load(" #recargarPasa");
         //FIN DE AGREGAR LOS INPUT
         //****
       } else {
@@ -228,17 +231,21 @@ $(document).ready(function () {
 //PARA AGREGAR LOS INPUT
 function AgregarItems(arreglo, label, $original, $grupo) {
   for (let index = 0; index < arreglo.length; index++) {
-    // if (index == 0) {
-    //   $original.find('input').val(arreglo[index]);
-    //   //verificamos si no hay mas elementos 
-    // } else {
-    //   let $copia = $grupo.clone();
-    //   $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-    //   $copia.find('input').val(arreglo[index]);
-    //   $copia.insertAfter(label);
-    // }
+     if (index == 0) {
+       $original.find('input').val(arreglo[index]);
+       //verificamos si no hay mas elementos 
+     } else {
+       let $copia = $grupo.clone();
+       $copia.find('button').toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+       $copia.find('input').val(arreglo[index]);
+       $copia.insertAfter(label);
+     }
 
-    // document.getElementById("btn-asistiran").disabled = false;
-    // document.getElementById("btn-pasaportes").disabled = false;
+    document.getElementById("btn-asistiran2").disabled = false;
+    document.getElementById("btn-pasaportes2").disabled = false;
+    document.getElementById("pasaporte_personas2").disabled = false;
+    document.getElementById("asistiran2").disabled = false;
   }
 }//agregar item
+
+//recept
