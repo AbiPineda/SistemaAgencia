@@ -189,12 +189,24 @@ $(document).ready(function() {
                                 '</div>&nbsp&nbsp');
 
                         } else {
+                            if (data.formulario[i].pregunta=='Nombre de las personas') {
+                                 var $select = $('#' + data.formulario[i].num_rama);
+                                  $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>'); 
+                                for (let k = 0, ken = data.pesonas.personas.length; k < ken; k++) {
+                                    $select.append('<input type="hidden" name="id_pregunta1[]" value="' +data.formulario[i].id_pregunta+ '" class="form-control">' +
+                                '<input type="text" name="respuesta1[]" value="' + data.pesonas.personas[k]+ '" class="form-control"' +
+                                'placeholder="¿' + data.pesonas.personas[k]+ '?"' +
+                                'style="width: 400px;margin-left: 98px; margin-top:6px;" disabled>&nbsp&nbsp'); 
+                                 }//fin for
+                            }else{
                             var $select = $('#' + data.formulario[i].num_rama);
                             $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
                                 '<input type="hidden" name="id_pregunta1[]" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
                                 '<input type="text" name="respuesta1[]" value="' + data.formulario[i].respuesta + '" class="form-control"' +
                                 'placeholder="¿' + data.formulario[i].pregunta + '?"' +
-                                'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp');
+                                'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp'); 
+                            }
+                            
                         }
                     }
                 }

@@ -121,7 +121,7 @@ $(document).ready(function () {
     },
     editable: true,
     eventDrop: function (calEvent) {
-      if (calEvent.estado_cita == 0 || calEvent.color == '#007bff') {
+      if (calEvent.estado_cita == 0) {
 
         $('#calendar').fullCalendar('refetchEvents');
         const Toast = Swal.mixin();
