@@ -157,7 +157,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-2">
                               <input type="hidden" id="txtFecha3" name="fecha" class="form-control"/>
-                              <input type="hidden" id="txtId" name="id_cita" class="form-control"/>
+                              <input type="text" id="txtId" name="id_cita" class="form-control"/>
                                  <label>Fecha</label>
                               <input type="text" id="txtFecha2" disabled="" name="fecha" class="form-control"/>
 
@@ -216,7 +216,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnActualizar"  class="btn btn-info float-right">Actualizar</button>
-                    <button type="button" id="btnEliminar" class="btn btn-warning" style="color: white">Eliminar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>

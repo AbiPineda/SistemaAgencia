@@ -62,8 +62,8 @@
             //http://localhost/restful/index.php/Calendario/calendario
             eventClick: function(calEvent, jsEvent, view) {
 
-                if (calEvent.estado_cita==0 || calEvent.color=='#FF0040') {
-                  $('#btnActualizar').prop("disabled",true);
+                if (calEvent.estado_cita==0) {
+                  $('#btnActualizar').prop("disabled",false);
                 }else{ $('#btnActualizar').prop("disabled",false);}
                 $('#tituloEvento').html(calEvent.title);
 
@@ -88,23 +88,24 @@
                     //para mostrar en el input de las personas que asitiran
                 $(document).ready(function() {
                     //PARA CLONAR
+                    const $personasLimpiar = $("#recargar2").clone();
+                    const $pasaporteLimpiar = $("#recargarPasa").clone();
+
                     const $grupo_per = $("[name='grupo_personasEdit']").clone();
                     const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
+
                  $.ajax({
-                 type: "GET",
-                 url: URL_SERVIDOR+'Cita/verCita?id_cita='+calEvent.id_cita,
-                 async: false,
-                dataType: "json",
-                    success: function(data) {
+                  url: URL_SERVIDOR + 'Cita/verCita?id_cita='+calEvent.id_cita,
+                    method: 'GET'
 
-                    AgregarItems(data.personas, $('#per_edit'), $("[name='grupo_personas']"), $grupo_per);
-                    AgregarItems(data.pasaportes, $('#pasa_edit'), $("[name='grupo_pasaporte']"), $grupo_pasa);
-                 },
-                error: function(data) {
-                //alert('error');
-                    }
-                 });
+                    }).done(function(response) {
 
+                    AgregarItems(response.personas, $('#per_edit'), $("[name='grupo_personasEdit']"), $grupo_per);
+                    AgregarItems(response.pasaportes, $('#pasa_edit'), $("[name='grupo_pasaporteEdit']"), $grupo_pasa);
+
+                    }).fail(function(response) {
+        
+                });
                  //PARA AGREGAR LOS INPUT
                  function AgregarItems(arreglo, label, $original, $grupo) {
                   for (let index = 0; index < arreglo.length; index++) {
@@ -120,11 +121,10 @@
 
           document.getElementById("btn-asistiran").disabled = false;
          document.getElementById("btn-pasaportes").disabled = false;
-      }
-   }
-                 //FIN DE AGREGAR LOS INPUT
+                         }
+                         }
 
-                });
+                 //FIN DE AGREGAR LOS INPUT
                 //****
                 }else{
                    $('#asistiran2').prop("disabled",true);

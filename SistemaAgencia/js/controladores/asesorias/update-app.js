@@ -1,18 +1,20 @@
+$(document).ready(function (){
+
     $("#btnActualizar").on('click', function(e) {
 
         e.preventDefault();
         // recolectarDatos();
+         let form = obtenerInfo();
          $.ajax({
             url: URL_SERVIDOR+"Cita/updateCita",
             method: 'POST',
-            data: $("#update-form").serialize()
-
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
         }).done(function (response) {
-
-         // $("#recargar2").load("#recargar2");//recargar solo un div y no toda la pagina
-         // $("#recargarPasa").load("#recargarPasa");
-          $('#inputs').empty();//vaciar los inputs dinamicos
-          $('#inputsPasa').empty();//vaciar los inputs dinamicos
+            
           $("#modal_eventos").modal('toggle');
           $('#calendar').fullCalendar('refetchEvents');
         
@@ -45,6 +47,25 @@
 
     });
 
+     function obtenerInfo(){
+        let form = new FormData();
+
+        let asistiran = $("input[name='asistiran[]']").map(function () { return $(this).val(); }).get();
+        let pasaporte_personas = $("input[name='pasaporte_personas[]']").map(function () { return $(this).val(); }).get();
+        let verificar_personas= asistiran.filter(asistiran=>asistiran.length >1);
+        let verificar_pasaportes= pasaporte_personas.filter(pasaporte_personas=>pasaporte_personas.length >1);
+        let cuantos = verificar_personas.length;
+        console.log(cuantos);
+        form.append("id_cita",       document.getElementById("txtId").value);
+         form.append("fecha", document.getElementById("txtFecha2").value);
+        form.append("asistencia", document.getElementById("asistencia2").value);
+        form.append("start", document.getElementById("timepicker2").value);
+        form.append("asistiran", JSON.stringify(verificar_personas));
+        form.append("pasaporte_personas", JSON.stringify(verificar_pasaportes));
+        form.append("cuantos",cuantos);
+
+        return form;
+    }
 
 
- 
+});
