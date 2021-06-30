@@ -8,6 +8,7 @@ $(document).ready(function() {
             success: function(data) {
 
                 var contador=0;
+                let cont=0;
                 
                 for (let i = 0, ien = data.preguntas.length; i < ien; i++) {
                    // alert('paso');
@@ -36,20 +37,21 @@ $(document).ready(function() {
                    
                      contador++;
                    }else{
+
                     if (data.preguntas[i].mas_respuestas=='Si') {
                        // alert('entre');
+                      
                     $select = $('#'+data.preguntas[i].num_rama);
-                    $select.append(
-                                   '<div class="form-group multiple-form-group input-group">'+
-                                '<select name="id_pregunta_mas[]" style="height: 0px;width: 0px;visibility: hidden;">'+
+                    $select.append('<select name="id_pregunta_mas'+cont+'" style="height: 0px;width: 0px;visibility: hidden;">'+
                                         '<option selected>'+data.preguntas[i].id_pregunta+'</option>'+
                                      '</select>'+  
-                              '<input type="text" name="respuesta_mas[]" value="" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
+                                   '<div class="form-group multiple-form-group input-group">'+
+                              '<input type="text" name="respuesta_mas'+cont+'[]" value="" id="asistiran" class="form-control" placeholder="¿'+data.preguntas[i].pregunta+'?" style="width: 368px; margin-top: 20px">'+
                               '<span class="input-group-btn">'+
                               '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>'+
                              '</span>'+
                              '</div>&nbsp&nbsp');
-
+                    cont++;
                     }else{
                     var $select = $('#'+data.preguntas[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta1[]" value="'+data.preguntas[i].id_pregunta+'" class="form-control">'+

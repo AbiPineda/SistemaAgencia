@@ -176,19 +176,24 @@ $(document).ready(function() {
                         if (data.formulario[i].mas_respuestas == 'Si') {
                             // alert('entre');
                             $select = $('#' + data.formulario[i].num_rama);
-                            $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
-                                '<div class="form-group multiple-form-group input-group">' +
+                            let resp= JSON.parse(data.formulario[i].respuesta);
+                            console.log(resp);
+                             $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
                                 '<select name="id_pregunta_mas[]" style="height: 0px;width: 0px;visibility: hidden;">' +
                                 '<option selected>' + data.formulario[i].id_pregunta + '</option>' +
-                                '</select>' +
-                                '<input type="text" name="respuesta_mas[]" value="' + data.formulario[i].respuesta + '" id="asistiran" class="form-control" placeholder="¿' + data.formulario[i].pregunta + '?"' +
+                                '</select>');
+                            for (let a = 0, aen = resp.length; a < aen; a++) {
+                                $select.append( '<div class="form-group multiple-form-group input-group">' +
+                                '<input type="text" name="respuesta_mas[]" value="' +resp[a] + '" id="asistiran" class="form-control" placeholder="¿' +resp[a]+ '?"' +
                                 'style="width: 368px;margin-left: 98px; margin-top:6px;">' +
                                 '<span class="input-group-btn">' +
                                 '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:2px;margin-right:55px;">+</button>' +
                                 '</span>' +
                                 '</div>&nbsp&nbsp');
+                            }
 
                         } else {
+
                             if (data.formulario[i].pregunta=='Nombre de las personas') {
                                  var $select = $('#' + data.formulario[i].num_rama);
                                   $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>'); 
@@ -199,13 +204,24 @@ $(document).ready(function() {
                                 'style="width: 400px;margin-left: 98px; margin-top:6px;" disabled>&nbsp&nbsp'); 
                                  }//fin for
                             }else{
-                            var $select = $('#' + data.formulario[i].num_rama);
-                            $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
+                                if(data.formulario[i].pregunta=='Cuantas personas viajan con usted'){
+                                var $select = $('#' + data.formulario[i].num_rama);
+                                $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
+                                '<input type="hidden" name="id_pregunta1[]" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
+                                '<input type="text" name="respuesta1[]" value="' + data.formulario[i].respuesta + '" class="form-control"' +
+                                'placeholder="¿' + data.formulario[i].pregunta + '?"' +
+                                'style="width: 400px;margin-left: 98px; margin-top:6px;" disabled>&nbsp&nbsp'); 
+
+                                }else{
+                                    var $select = $('#' + data.formulario[i].num_rama);
+                                $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
                                 '<input type="hidden" name="id_pregunta1[]" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
                                 '<input type="text" name="respuesta1[]" value="' + data.formulario[i].respuesta + '" class="form-control"' +
                                 'placeholder="¿' + data.formulario[i].pregunta + '?"' +
                                 'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp'); 
-                            }
+                                }
+
+                            }//fin else
                             
                         }
                     }
