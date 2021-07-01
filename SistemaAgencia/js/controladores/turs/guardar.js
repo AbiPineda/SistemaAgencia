@@ -39,7 +39,6 @@ function inicializarCalendario() {
 function guardar() {
    $('#loading').show();
    let form = obtenerData();
-
    //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
    $.ajax({
       url: URL_SERVIDOR + "TurPaquete/save",
@@ -102,14 +101,13 @@ function guardar() {
 function obtenerData() {
    let form = new FormData();
    let promocion = [];
+   let chequeo = [];
 
    //ESTO ES PARA L A GALERIA 
    let galeria = document.getElementById("fotos").files;
    for (let i = 0; i < galeria.length; i++) {
       form.append('fotos[]', galeria[i]);
    }
-
-
    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
    let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
    let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
@@ -120,23 +118,36 @@ function obtenerData() {
    let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
    let tipoTour = $("input[name='radioTipoTour']:checked").val();
 
+
+   // CREAMOS EL OBJETO QUE SE OCUPARA PARA EL PRECHEQUEO
+   chequeo = requisitos.map(function (requisito) {
+      let temporal = {};
+      temporal["estado"] = false;
+      temporal["requisito"] = requisito;
+      return temporal;
+   });
+
+   // AGREGAMOS LAS PROMOCIONES ESPECIALES
    for (let index = 0; index < titulos.length; index++) {
       if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
          promocion.push({ 'titulo': titulos[index], 'asiento': asientos[index], "pasaje": pasajes[index] });
       }
 
    }
+   // OBTENEMOS LAS FECHAS
    let valor = document.getElementById("fecha_salida").value;
    let fecha = valor.split(" - ");
    let start = fecha[0]
    let end = fecha[1]
 
 
+   // CREAMOS EL  FORM
    form.append("nombreTours", document.getElementById("nombreTours").value);
    form.append("promociones", JSON.stringify(promocion));
    form.append("no_incluye", JSON.stringify(no_incluye));
    form.append("requisitos", JSON.stringify(requisitos));
    form.append("incluye", JSON.stringify(incluye));
+   form.append("chequeo", JSON.stringify(chequeo));
    form.append("lugar_salida", JSON.stringify(salida));
    form.append("precio", document.getElementById("CostoPasaje").value);
    form.append("descripcion_tur", document.getElementById("descripcion_tur").value);

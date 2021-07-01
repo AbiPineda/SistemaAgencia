@@ -12,7 +12,10 @@ $(document).ready(function () {
       $('#modal-chekeo').modal('show');
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
-      console.log(data);
+
+      data.chequeo.forEach(element => {
+         console.log(element);
+      });
 
    });
 
@@ -34,7 +37,6 @@ $(document).ready(function () {
             dataSrc: function (json) {
                //PARA CONPROVAR QUE EL SERVICIO EXISTE
                if (json) {
-                  console.log(json);
                   $('#loading').hide();
 
                   json.reservas.forEach(reserva => {
@@ -47,13 +49,9 @@ $(document).ready(function () {
                      html += '        </button>';
                      html += '    </div>';
                      html += '</td>';
-
                      reserva.boton = html;
                   });
-
                   return json.reservas;
-
-
                } else {
                   $('#loading').hide();
                   return [];
