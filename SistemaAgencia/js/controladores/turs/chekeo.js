@@ -13,11 +13,38 @@ $(document).ready(function () {
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
 
-      data.chequeo.forEach(element => {
-         console.log(element);
-      });
+      let cajaRequisitos = document.getElementById("cajaRequisitos");
+      cajaRequisitos.appendChild(createDiv(""));
+      // data.chequeo.forEach(element => {
+      //    console.log(element);
+      // });
 
    });
+
+   function createDiv(data) {
+      let div = document.createElement('div');
+      // div.className.add("custom-control custom-checkbox");
+      div.className= "custom-control custom-checkbox";
+      div.append(createInput("Dui"));
+      div.append(createLabel("Dui"));
+      return div;
+   }
+
+   function createInput(requisito) {
+      let input = document.createElement('input');
+      input.className = 'custom-control-input';
+      input.type = 'checkbox';
+      input.id = requisito;
+      input.value = requisito;
+      return input;
+   }
+   function createLabel(requisito) {
+      let label = document.createElement('label');
+      label.className =('custom-control-label');
+      label.type = 'checkbox';
+      label.innerHTML = requisito;
+      return label;
+   }
 
    function inicializarTabla() {
       tabla = $("#tabla_servicios").DataTable({

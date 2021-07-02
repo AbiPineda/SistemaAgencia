@@ -77,82 +77,26 @@
          <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
 
-               <div class="overlay-wrapper">
-                  <div id="loadingActualizar" class="overlay">
-                     <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                     <div class="text-bold pt-2">Cargando...
-                     </div>
-                  </div>
+               <div class="">
                   <div class="modal-header">
-                     <h4 class="modal-title">Modificar Sitio</h4>
+                     <h4 class="modal-title">Pre-Chequeo</h4>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                      </button>
                   </div>
                   <div class="modal-body">
                      <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                            <!-- checkbox -->
-                           <div class="form-group">
+                           <div id="cajaRequisitos" class="form-group">
                               <div class="custom-control custom-checkbox">
-                                 <input class="custom-control-input" type="checkbox" id="customCheckbox1"
-                                    value="option1">
-                                 <label for="customCheckbox1" class="custom-control-label">Custom Checkbox</label>
+                                 <input class="custom-control-input" type="checkbox" id="requisitos" value="option1">
+                                 <label for="requisitos" class="custom-control-label">Custom Checkbox</label>
                               </div>
                               <div class="custom-control custom-checkbox">
                                  <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked="">
                                  <label for="customCheckbox2" class="custom-control-label">Custom Checkbox
                                     checked</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input class="custom-control-input" type="checkbox" id="customCheckbox3" disabled="">
-                                 <label for="customCheckbox3" class="custom-control-label">Custom Checkbox
-                                    disabled</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input class="custom-control-input custom-control-input-danger" type="checkbox"
-                                    id="customCheckbox4" checked="">
-                                 <label for="customCheckbox4" class="custom-control-label">Custom Checkbox with custom
-                                    color</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input
-                                    class="custom-control-input custom-control-input-danger custom-control-input-outline"
-                                    type="checkbox" id="customCheckbox5" checked="">
-                                 <label for="customCheckbox5" class="custom-control-label">Custom Checkbox with custom
-                                    color
-                                    outline</label>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <!-- radio -->
-                           <div class="form-group">
-                              <div class="custom-control custom-radio">
-                                 <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
-                                 <label for="customRadio1" class="custom-control-label">Custom Radio</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                 <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio"
-                                    checked="">
-                                 <label for="customRadio2" class="custom-control-label">Custom Radio checked</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                 <input class="custom-control-input" type="radio" id="customRadio3" disabled="">
-                                 <label for="customRadio3" class="custom-control-label">Custom Radio disabled</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                 <input class="custom-control-input custom-control-input-danger" type="radio"
-                                    id="customRadio4" name="customRadio2" checked="">
-                                 <label for="customRadio4" class="custom-control-label">Custom Radio with custom
-                                    color</label>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                 <input
-                                    class="custom-control-input custom-control-input-danger custom-control-input-outline"
-                                    type="radio" id="customRadio5" name="customRadio2">
-                                 <label for="customRadio5" class="custom-control-label">Custom Radio with custom color
-                                    outline</label>
                               </div>
                            </div>
                         </div>
