@@ -84,21 +84,11 @@
                         <span aria-hidden="true">&times;</span>
                      </button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" style="text-align: center;">
                      <div class="row">
                         <div class="col-sm-12">
                            <!-- checkbox -->
-                           <div id="cajaRequisitos" class="form-group">
-                              <div class="custom-control custom-checkbox">
-                                 <input class="custom-control-input" type="checkbox" id="requisitos" value="option1">
-                                 <label for="requisitos" class="custom-control-label">Custom Checkbox</label>
-                              </div>
-                              <div class="custom-control custom-checkbox">
-                                 <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked="">
-                                 <label for="customCheckbox2" class="custom-control-label">Custom Checkbox
-                                    checked</label>
-                              </div>
-                           </div>
+                           <div id="cajaRequisitos" class="form-group"> </div>
                         </div>
                      </div>
                   </div>
