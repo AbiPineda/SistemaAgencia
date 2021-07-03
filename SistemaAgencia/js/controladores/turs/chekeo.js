@@ -1,9 +1,9 @@
 $(document).ready(function () {
-   let isCompletyCheck = true;
    let tabla;
    const valores = window.location.search;
    const urlParams = new URLSearchParams(valores);
    let ID_TOUR = urlParams.get('viaje');
+   let ID_DETALLE;
    inicializarTabla();
 
    //BOTON EDITAR LA CHEQUEO
@@ -11,6 +11,9 @@ $(document).ready(function () {
       $('#modal-chekeo').modal('show');
       let fila = $(this).closest("tr");
       let data = tabla.row(fila).data();
+      ID_DETALLE = data.id_detalle;
+      console.log(data);
+
       let cajaRequisitos = document.getElementById("cajaRequisitos");
       data.chequeo.forEach(req => {
          cajaRequisitos.appendChild(createDiv(req));
@@ -35,7 +38,6 @@ $(document).ready(function () {
 
 
    });
-
    function createDiv(data) {
       let div = document.createElement('div');
       div.className = "custom-control custom-checkbox";
@@ -81,17 +83,20 @@ $(document).ready(function () {
                if (json) {
                   $('#loading').hide();
                   json.reservas.forEach(reserva => {
+                     let isCompletyCheck = true;
                      html = "";
                      html += '<td>';
                      html += '    <div class="btn-group">';
 
                      reserva.chequeo.forEach(requisito => {
                         //  si alguno de los elementos esta en false sera un boton griss
-                        if (!requisito.estado) { isCompletyCheck = false; return }
+                        if (!requisito.estado) { isCompletyCheck = false; }
                      });
                      if (isCompletyCheck) {
+                        // si esta checado completamente sera de color verde 
                         html += '        <button type="button" name="" class="btn btn-success" data-toggle="modal"';
                      } else {
+                        // si no esta checado completamente sera de color gris
                         html += '        <button type="button" name="" class="btn btn-secondary" data-toggle="modal"';
                      }
                      html += '            data-target="">';
@@ -121,11 +126,11 @@ $(document).ready(function () {
    function actualizarChequeo(chequeo) {
 
       let form = new FormData();
-      form.append("id_tours", ID_TOUR);
+      form.append("id_detalle", ID_DETALLE);
       form.append("chequeo", JSON.stringify(chequeo));
       //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
       $.ajax({
-         url: URL_SERVIDOR + "TurPaquete/update",
+         url: URL_SERVIDOR + "DetalleTour/updateChequeo",
          method: "POST",
          mimeType: "multipart/form-data",
          data: form,
@@ -133,18 +138,26 @@ $(document).ready(function () {
          processData: false,
          contentType: false,
       }).done(function (response) {
-         console.log(response);
-
+         let respuestaDecodificada = JSON.parse(response);
+         $('#modal-chekeo').modal('hide');
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: "Registro Actualizado",
+            showConfirmButton: true,
+         });
+         tabla.ajax.reload(null, false);
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
          console.log(response);
-
-
-
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Oops...',
+            icon: 'error',
+            text: "ERROR EN EL ENVIO DE INFORMACIÓN",
+            showConfirmButton: true,
+         });
       });
-
-
-
-
    }
 });
