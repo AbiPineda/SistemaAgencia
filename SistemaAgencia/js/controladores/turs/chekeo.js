@@ -31,7 +31,8 @@ $(document).ready(function () {
          obj["requisito"] = element;
          chequeo.push(obj);
       });
-      console.log(chequeo);
+      actualizarChequeo(chequeo);
+
 
    });
 
@@ -115,6 +116,35 @@ $(document).ready(function () {
             { data: "tipo" },
          ]
       });
+
+   }
+   function actualizarChequeo(chequeo) {
+
+      let form = new FormData();
+      form.append("id_tours", ID_TOUR);
+      form.append("chequeo", JSON.stringify(chequeo));
+      //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
+      $.ajax({
+         url: URL_SERVIDOR + "TurPaquete/update",
+         method: "POST",
+         mimeType: "multipart/form-data",
+         data: form,
+         timeout: 0,
+         processData: false,
+         contentType: false,
+      }).done(function (response) {
+         console.log(response);
+
+      }).fail(function (response) {
+         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+         console.log(response);
+
+
+
+      });
+
+
+
 
    }
 });
