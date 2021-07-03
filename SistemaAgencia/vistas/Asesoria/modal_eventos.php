@@ -112,7 +112,7 @@
                   </div>
 
                   <div class="row">
-                     <div class="col-sm-12">
+                     <div class="form-group col-sm-12">
 
                         <label>Agregar foto de pasaporte</label>
                         <div class="file-loading">

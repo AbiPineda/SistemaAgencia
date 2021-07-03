@@ -24,6 +24,10 @@ function inicializarValidaciones() {
                 asistencia: {
                     required: true
                 },
+                 pasaporte:{
+                    required:true,
+                    minlength:10
+                },
                 "asistiran[]": {
                     required:true,
                     minlength: 10
@@ -31,6 +35,9 @@ function inicializarValidaciones() {
                 "pasaporte_personas[]":{
                     required:true,
                     minlength: 10
+                },
+                "fotos[]":{
+                    required:true
                 }
             },
             messages: {
@@ -41,14 +48,20 @@ function inicializarValidaciones() {
                     required: "Seleccione si asistirá solo"
                    
                 },
-                "asistiran[]": {
+                pasaporte:{
                     required:"Campo vacío",
                     minlength: "Debe de tener una longitud minima de 10"
-                    
+                },
+                "asistiran[]": {
+                    required:"Campo vacío",
+                    minlength: "Debe de tener una longitud minima de 10" 
                 },
                 "pasaporte_personas[]":{
                     required:"Campo vacío",
                     minlength: "Debe de tener una longitud minima de 10"
+                },
+                "fotos[]":{
+                    required:"Inserte las fotos de los pasaportes"
                 }
 
             },
