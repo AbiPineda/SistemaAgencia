@@ -444,13 +444,13 @@ include_once '../../plantillas/cabecera.php';
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="register-form" name="register-form" onsubmit="return false">
+                        <form id="comision-form" name="register-form" onsubmit="return false">
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Comisión</label>
-                                        <input name="comision" id="comision" type="text" class="form-control"
+                                        <input name="comision" id="comisionActu" type="text" class="form-control"
                                             placeholder="Introduzca la comision" autocomplete="off">
                                     </div>
                                 </div>
@@ -460,7 +460,7 @@ include_once '../../plantillas/cabecera.php';
 
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                        <button name="btn-guardaComision" id="btn-guardaComision" class="btn btn-info btn-sm"
                             style="color: white">Guardar</button>
                     </div>
 

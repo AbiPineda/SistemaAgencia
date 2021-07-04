@@ -1,7 +1,19 @@
 $(document).ready(function (){
 
     inicializarValidaciones();
-  
+    inicializarValidacionesComision();
+  //guardar la comision
+   $('#btn-guardaComision').click(function(evento){
+       
+         let form = $("#comision-form");
+
+        form.validate();
+        
+        if (form.valid()) {
+               add_comision();    
+            
+        }         
+   });
     //BOTON PARA AGREGAR
     $(document).on('click', '#btn-producto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
@@ -18,6 +30,33 @@ $(document).ready(function (){
         }  
         
     });
+function inicializarValidacionesComision() {
+        $('#comision-form').validate({
+
+            rules: {
+                comision:{
+                    required: true
+                }
+            },
+            messages: {
+                comision:{
+                    required:"Digite la Comisión"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
+        });
+}
 
  function inicializarValidaciones() {
         $('#register-form').validate({
@@ -82,7 +121,7 @@ $(document).ready(function (){
         });
 
 
-    }
+}
 
 function llenarCombo(){
 
@@ -98,7 +137,12 @@ function llenarCombo(){
                     $select.append('<option value=' +index.id_producto+ '>' +index.nombre_producto+
                         '</option>');
                 });
-            },
+
+                 $.each(data.comision, function(i,ind) {
+                    $('#porcenaje').val(ind.porcentaje);
+                });
+                
+                   },
             error: function(err) {
                 $select.append('<option value="">Seleccione</option>');
                 var $select = $('#id_producto');
@@ -113,6 +157,67 @@ function llenarCombo(){
         });
 
 }
+function add_comision() {
+        let data = {
+         "porcentaje": document.getElementById("comisionActu").value
+         }; 
+
+        $.ajax({
+            url: URL_SERVIDOR+"Comision/comisionUpdate",
+            method: 'POST',
+            data: data
+
+        }).done(function (response) {
+        document.getElementById("comision-form").reset();
+        $('#id_producto').empty();
+        llenarCombo();
+         $('#add-comision').modal('hide');
+        
+        //$('#id_producto').load('#id_producto');
+         //$('#formulario').empty();//VACIO LOS DIV PARA QUE NO ME LOS MONTE UNO SOBRE OTRO
+          //$('#botones').empty();
+          
+
+          //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
+            //REST_Controller::HTTP_OK
+            //let respuestaDecodificada = JSON.parse(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
+            });
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            let respuestaDecodificada = JSON.parse(response.responseText);
+            let listaErrores = "";
+
+            if (respuestaDecodificada.errores) {
+                ///ARREGLO DE ERRORES 
+                let erroresEnvioDatos = respuestaDecodificada.errores;
+                for (mensaje in erroresEnvioDatos) {
+                    listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                     //toastr.error(erroresEnvioDatos[mensaje]);
+                };
+            } else {
+                listaErrores = respuestaDecodificada.mensaje
+            }
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Error',
+                icon: 'error',
+                text: response.responseText,
+                showConfirmButton: true,
+            });
+
+        });
+
+
+    }
 
     
 function add_producto() {

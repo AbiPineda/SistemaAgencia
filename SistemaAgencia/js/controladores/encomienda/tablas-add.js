@@ -29,13 +29,6 @@ $(document).ready(function() {
 
     //PARA LAS ENCOMIENDAS
 
-   $('#porcenaje').click(function(evento){
-        if ($(this).hasClass('form-control')) {
-             alert('exito');
-        }
-       
-   });
-
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
     $(document).on('click', '#agregarTabla', function(evento) {
 
