@@ -5,7 +5,7 @@ $(document).ready(function (){
   //guardar la comision
  /* $('.decimales').on('input', function () {
   this.value = this.value.replace(/[^0-9,.]/g, '').replace(/,/g, '.');
-  });
+  });*/
    $('#btn-guardaComision').click(function(evento){
        
          let form = $("#comision-form");
@@ -16,7 +16,7 @@ $(document).ready(function (){
                add_comision();    
             
         }         
-   });*/
+   });
     //BOTON PARA AGREGAR
     $(document).on('click', '#btn-producto', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
