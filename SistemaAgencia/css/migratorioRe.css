@@ -32,6 +32,28 @@
       #detalle_productos11 tr:nth-child(even) {
     background: #ededed;
      }
-      #detalle_productos12 tr:nth-child(even) {
+   #detalle_productos12 tr:nth-child(even) {
+    background: #ededed;
+     }
+
+    #detalle_product1 tr:nth-child(even) {
+    background: #ededed;
+     }
+   #detalle_product2 tr:nth-child(even) {
+    background: #ededed;
+     }
+   #detalle_product3 tr:nth-child(even) {
+    background: #ededed;
+     }
+   #detalle_product4 tr:nth-child(even) {
+    background: #ededed;
+     }
+   #detalle_product5 tr:nth-child(even) {
+    background: #ededed;
+     }
+    #detalle_product6 tr:nth-child(even) {
+    background: #ededed;
+     }
+    #detalle_product7 tr:nth-child(even) {
     background: #ededed;
      }

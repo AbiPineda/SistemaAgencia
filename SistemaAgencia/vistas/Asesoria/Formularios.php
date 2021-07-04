@@ -4,7 +4,9 @@ include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
 <link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
@@ -319,18 +321,6 @@ include_once '../../plantillas/barra_lateral.php';
 <?php
   include_once '../../plantillas/footer.php';
 ?>
-<!--SCRIPT PARA LOS REPORTES-->
-<script>
-document.getElementById("doPrint").addEventListener("click", function() {
-    var printContents = document.getElementById('printDiv').innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-});
-</script>
-<!--SCRIPT PARA LOS REPORTES FIN-->
-
 <!-- SCRIPT ADICIONALES -->
 <script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/formularios-app.js"></script>
@@ -342,6 +332,8 @@ document.getElementById("doPrint").addEventListener("click", function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+<!--para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 <!-- jquery-validation -->
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
