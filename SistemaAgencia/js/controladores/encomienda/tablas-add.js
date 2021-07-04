@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     inicializarValidacionesGuardar();
     inicializarGaleria();
@@ -30,7 +30,7 @@ $(document).ready(function() {
     //PARA LAS ENCOMIENDAS
 
     //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
-    $(document).on('click', '#agregarTabla', function(evento) {
+    $(document).on('click', '#agregarTabla', function (evento) {
 
 
         evento.preventDefault();
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
     function ExisteFila(id, cantidad, costo) {
         let encontrado = false;
-        tabla.rows().every(function(value, index) {
+        tabla.rows().every(function (value, index) {
             let data = this.data();
             if (id == data[5]) {
                 let subTotoal = (costo * cantidad).toFixed(2);
@@ -97,7 +97,7 @@ $(document).ready(function() {
 
     function modificarTotal() {
         TOTAL = 0.0;
-        tabla.rows().every(function(value, index) {
+        tabla.rows().every(function (value, index) {
             let data = this.data();
             TOTAL += parseFloat(data[3]);
         });
@@ -118,7 +118,7 @@ $(document).ready(function() {
         $('#totalCliente').text("$" + (TOTAL + COMISION));
     }
     //BOTON DE ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function(evento) {
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
 
         tabla.row($(this).parents('tr')).remove().draw();
         modificarTotal();
@@ -126,13 +126,13 @@ $(document).ready(function() {
         modificarTotalCliente();
     });
     //CAMBIOS EN EL INPUT DE PORCENTAJE
-    $(document).on('keyup mouseup', '#porcenaje', function() {
+    $(document).on('keyup mouseup', '#porcenaje', function () {
         modificarComision();
         modificarTotalCliente();
     });
 
     //BOTON DE GUARDAR 
-    $(document).on('click', '#btnguardar', function(evento) {
+    $(document).on('click', '#btnguardar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#datosOrigen-form");
         let form1 = $("#datosDestino-form");
@@ -176,14 +176,14 @@ $(document).ready(function() {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -245,14 +245,14 @@ $(document).ready(function() {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -279,7 +279,7 @@ $(document).ready(function() {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function(response) {
+        }).done(function (response) {
             //console.log(response);
             document.getElementById("datosOrigen-form").reset();
             document.getElementById("datosDestino-form").reset();
@@ -298,7 +298,7 @@ $(document).ready(function() {
                 resetMiTable();
             });
 
-        }).fail(function(response) {
+        }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -310,7 +310,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             });*/
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loading').hide();
         });
     }
@@ -326,7 +326,7 @@ $(document).ready(function() {
         let direccion_destino = document.getElementById("direccion").value;
         let alterna_destino = document.getElementById("direccion_alterna").value;
 
-        tabla.rows().every(function(value, index) {
+        tabla.rows().every(function (value, index) {
             let data = this.data();
 
             let id_producto = data[5];
@@ -400,15 +400,15 @@ $(document).ready(function() {
     //funcion para cargar el celular en el input
     function telefono() {
 
-        $("#comboUsuario").change(function() {
+        $("#comboUsuario").change(function () {
             var id = document.getElementById("comboUsuario").value;
 
             $.ajax({
                 url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE&id_cliente=" + id,
                 method: 'GET'
 
-            }).done(function(response) {
-                $.each(response.usuarios, function(i, index) {
+            }).done(function (response) {
+                $.each(response.usuarios, function (i, index) {
                     $("#telefono").val(index.celular);
 
                 });
@@ -416,7 +416,7 @@ $(document).ready(function() {
 
 
 
-            }).fail(function(response) {
+            }).fail(function (response) {
                 const Toast = Swal.mixin();
                 Toast.fire({
                     title: 'Error',
