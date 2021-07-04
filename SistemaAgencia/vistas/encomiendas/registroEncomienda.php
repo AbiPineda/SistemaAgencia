@@ -235,12 +235,22 @@ include_once '../../plantillas/cabecera.php';
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="form-group">
+                                                     <label>Comisión</label>
                                                     <div class="input-group">
-                                                        <input id="porcenaje" type="hidden"
-                                                            class="form-control">
+                                                        <input id="porcenaje" type="text"
+                                                            class="form-control" disabled="true">
                                                     </div>
                                                 </div>
                                             </div>
+
+                                             <div class="col-sm-1">
+                                            <br>
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-success btn-add" id="comision-add"
+                                                    name="" style="margin-top: 10px; width: 100%;">+</button>
+                                            </span>
+                                        </div>
+
                                         </div>
                                         <table id="add-tabla" class="table table-bordered table-hover">
                                             <thead>
@@ -416,7 +426,51 @@ include_once '../../plantillas/cabecera.php';
         <!-- /.modal-content -->
     </div>
    
+<!--modal actualizar comision-->
+ <div class="modal fade" id="add-comision">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
 
+                <div class="overlay-wrapper">
+                    <div id="loadingActualizar1" class="overlay">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        <div class="text-bold pt-2">Cargando...
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Comisión</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="register-form" name="register-form" onsubmit="return false">
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Comisión</label>
+                                        <input name="comision" id="comision" type="text" class="form-control"
+                                            placeholder="Introduzca la comision" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
+                            style="color: white">Guardar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+<!--MODAL ACTUALIZAR COMISION-->
 
 <?php
   include_once '../cliente/modalCliente.php';
@@ -426,6 +480,10 @@ include_once '../../plantillas/footer.php';
 $(document).on('click', '#producto-add', function() {
     $('#add-producto').modal('show');
     $('#loadingActualizar').hide();
+});
+$(document).on('click', '#comision-add', function() {
+    $('#add-comision').modal('show');
+    $('#loadingActualizar1').hide();
 });
 </script>
 <script>
