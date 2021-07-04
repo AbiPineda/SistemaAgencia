@@ -11,7 +11,7 @@ $(document).ready(function () {
    //BOTON DE EDITAR
    $(document).on('click', '.btn-group .btn-primary', function () {
       let idSeleccionado = $(this).attr("name");
-      window.location = `${URL_SISTEMA}vistas/tours/editar_tour.php?tur=${idSeleccionado}`;
+      window.location = `editar_tour.php?tur=${idSeleccionado}`;
    });
    //BOTON EDITAR LA FOTO
    $(document).on('click', '.btn-group .btn-warning', function () {
@@ -77,13 +77,7 @@ $(document).ready(function () {
          }
       })
    });
-   //BOTON DE ANALITICAS
-   $(document).on('click', '.btn-group .btn-info', function (evento) {
-      evento.preventDefault();//para evitar que la pagina se recargue
-      let idSeleccionado = $(this).attr("name");
-      window.location = `${URL_SISTEMA}vistas/tours/analitica.php?tur=${idSeleccionado}`;
-   });
-   //BOTON PARA ACTUALIZAR
+    //BOTON PARA ACTUALIZAR
    $(document).on('click', '#btnActualizar', function (evento) {
       evento.preventDefault();//para evitar que la pagina se recargue
       let form = $("#formularioEditar");
@@ -92,7 +86,6 @@ $(document).ready(function () {
          actualizar();
       }
    });
-
    //CUANDO EL MODAL SE CIERRA
    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
       console.log("cerrando modal")
@@ -112,7 +105,19 @@ $(document).ready(function () {
       let idViaje = dataFilaTur.id_tours;
       let fechaInicioViaje = dataFilaTur.start;
       let fechaFinViaje = dataFilaTur.end;
-      window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
+      window.location = `itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
+   });
+     //BOTON DE ANALITICAS
+     $(document).on('click', '.btn-group .btn-info', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      let idSeleccionado = $(this).attr("name");
+      window.location = `analitica.php?tur=${idSeleccionado}`;
+   });
+     //BOTON DE PRECHEQUEO
+     $(document).on('click', '.btn-group .btn-secondary', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      let idSeleccionado = $(this).attr("name");
+      window.location = `chekeo.php?viaje=${idSeleccionado}`;
    });
    function inicializarTabla() {
       tabla = $("#tabla_servicios").DataTable({
@@ -156,6 +161,10 @@ $(document).ready(function () {
                      html += '        <button type="button" name="' + json[i].id_tours + '"  class="btn btn-info" data-toggle="modal"';
                      html += '            data-target="">';
                      html += '            <i class="fa fa-signal" style="color: white"></i>';
+                     html += '        </button>';
+                     html += '        <button type="button" name="' + json[i].id_tours + '"  class="btn btn-secondary" data-toggle="modal"';
+                     html += '            data-target="">';
+                     html += '            <i class="fas fa-check-circle" style="color: white"></i>';
                      html += '        </button>';
                      html += '    </div>';
                      html += '</td>';
