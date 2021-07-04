@@ -83,28 +83,8 @@ $(document).ready(function () {
                if (json) {
                   $('#loading').hide();
                   json.reservas.forEach(reserva => {
-                     let isCompletyCheck = true;
-                     html = "";
-                     html += '<td>';
-                     html += '    <div class="btn-group">';
-
-                     reserva.chequeo.forEach(requisito => {
-                        //  si alguno de los elementos esta en false sera un boton griss
-                        if (!requisito.estado) { isCompletyCheck = false; }
-                     });
-                     if (isCompletyCheck) {
-                        // si esta checado completamente sera de color verde 
-                        html += '        <button type="button" name="" class="btn btn-success" data-toggle="modal"';
-                     } else {
-                        // si no esta checado completamente sera de color gris
-                        html += '        <button type="button" name="" class="btn btn-secondary" data-toggle="modal"';
-                     }
-                     html += '            data-target="">';
-                     html += '            <i class="fas fa-check-circle" style="color: white"></i>';
-                     html += '        </button>';
-                     html += '    </div>';
-                     html += '</td>';
-                     reserva.boton = html;
+                     reserva.boton = crearBoton(reserva.chequeo);
+                     reserva.label_asiento = crearLabel(reserva.label_asiento, reserva.cantidad_asientos);
                   });
                   return json.reservas;
                } else {
@@ -159,5 +139,36 @@ $(document).ready(function () {
             showConfirmButton: true,
          });
       });
+   }
+   function crearBoton(chequeo) {
+      let isCompletyCheck = true;
+      html = "";
+      html += '<td>';
+      html += '    <div class="btn-group">';
+
+      chequeo.forEach(requisito => {
+         //  si alguno de los elementos esta en false sera un boton griss
+         if (!requisito.estado) { isCompletyCheck = false; }
+      });
+      if (isCompletyCheck) {
+         // si esta checado completamente sera de color verde 
+         html += '        <button type="button" name="" class="btn btn-success" data-toggle="modal"';
+      } else {
+         // si no esta checado completamente sera de color gris
+         html += '        <button type="button" name="" class="btn btn-secondary" data-toggle="modal"';
+      }
+      html += '            data-target="">';
+      html += '            <i class="fas fa-check-circle" style="color: white"></i>';
+      html += '        </button>';
+      html += '    </div>';
+      html += '</td>';
+      return html;
+   }
+   function crearLabel(label, cantidad) {
+      if (label == 'NO_LABEL') {
+         return `cantidad de asientos: ${cantidad}`;
+      } else {
+         return `cantidad de asientos: ${cantidad} (${label})`;
+      }
    }
 });

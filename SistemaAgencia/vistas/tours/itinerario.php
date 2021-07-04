@@ -113,12 +113,11 @@ a.text-success:hover {
                               <br>
                               <div class="btn-group" style="width: 100%;">
 
-                                 <button style="margin: 5px" type="submit"
-                                    class="btn btn-danger float-right">Cancelar</button>
-                                 <button style="margin: 5px" id="imprimir" type="submit"
-                                    class="btn btn-info float-left">Guardar</button>
-
-
+                                 <button style="margin: 5px" type="submit" class="btn btn-danger float-right">Cancelar
+                                 </button>
+                                 <button style="margin: 5px" id="btnGuardar" type="submit"
+                                    class="btn btn-info float-left">Guardar
+                                 </button>
                               </div>
                               <!-- /btn-group -->
                            </div>
@@ -163,9 +162,9 @@ a.text-success:hover {
 <!-- ./wrapper -->
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/itinerario.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

@@ -183,10 +183,6 @@
                                  aria-selected="false"> Promociones</a>
                               <a class="nav-item nav-link" data-toggle="tab" href="#tab-salida" role="tab"
                                  aria-selected="false">Lugar de Salida</a>
-                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-sitios" role="tab"
-                                 aria-selected="false">Sitios Turísticos</a>
-                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-otros" role="tab"
-                                 aria-selected="false">Otros Servicios</a>
                            </div>
                         </nav>
                         <div class="tab-content p-3" id="nav-tabContent">
@@ -229,14 +225,6 @@
       <!-- /.card-body -->
    </div>
    <!-- /.card -->
-
-   </section>
-   </div>
-   <!-- /.modal-content -->
-   </div>
-   <!-- /.modal-dialog -->
-   </div>
-   <!-- End Modal EDITAR-->
 </form>
 
 

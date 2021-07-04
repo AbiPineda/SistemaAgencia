@@ -15,7 +15,7 @@ $(document).ready(function () {
     let fechaEndViaje = moment(urlParams.get('fechaFinViaje')).add(1, "days");
     let fechaFinViaje = moment(urlParams.get('fechaFinViaje'));
 
-    $('#titulo').html(`Itinerario (${fechaInicioViaje.local('es').format('LL')} - ${fechaFinViaje.local('es').format('ll')})`);
+    $('#titulo').html(`Itinerario (${fechaInicioViaje.local('es').format('L')} - ${fechaFinViaje.local('es').format('L')})`);
     /* PARA CREAR UN NUEVO EVENTO EVENTS */
     let currColor = '#007bff' //Red by default
     cargarEventosSinFecha();

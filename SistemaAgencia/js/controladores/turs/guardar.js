@@ -76,7 +76,8 @@ function guardar() {
                let idViaje = respuestaDecodificada.id;
                let fechaInicioViaje = respuestaDecodificada.turPaquete.start;
                let fechaFinViaje = respuestaDecodificada.turPaquete.end;
-               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}`;
+               let titulo = respuestaDecodificada.turPaquete.nombreTours;
+               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}&titulo=${titulo}`;
             }
          });
 
@@ -111,6 +112,7 @@ function obtenerData() {
    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
    let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
    let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
+   let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
 
 
    let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
