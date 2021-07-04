@@ -42,7 +42,11 @@ $(document).ready(function() {
                 for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
                     tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
                     if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
-                        tr.append(' <tr>'+
+                        if (response.formulario[j].pregunta=='Nombre de las personas' || response.formulario[j].mas_respuestas=='Si') {
+                           //NO PINTAR LAS PREGUNTAS SE PINTARAN DIFERETES
+
+                        }else{
+                         tr.append(' <tr>'+
                                 '<td class="textcenter">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
@@ -51,7 +55,67 @@ $(document).ready(function() {
                                 '<label name="anioC" id="anioC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
                                  '</td>'+
+                                '</tr>');   
+                        }
+                        
+                    }
+                 
+                   }
+               
+            }
+
+            for (let a = 0, aen = response.ramas.ramas.length; a < aen; a++) {
+                seleccion.append('<span class="h3">Preguntas con más respuesta de: '+response.ramas.ramas[a].categoria_rama+'</span>'+
+                                                '<table id="factura_detalle">'+
+                                                    '<thead>'+
+                                                           '<tr>'+
+                                                            '<th class="textcenter">Pregunta y respuesta</th>'+
+                                                            '</tr>'+                                                         
+                                                    '</thead>'+
+                                                    '<tbody id="detalle_product'+response.ramas.ramas[a].num_rama+'"'+
+                                                       
+                                                    '</tbody>'+
+
+                                                '</table>');
+                for (let b = 0, ben = response.formulario.length; b< ben ; b++) {
+                    tr2 = $('#detalle_product'+response.ramas.ramas[a].num_rama);
+                    if (response.formulario[b].num_rama == response.ramas.ramas[a].num_rama ) {
+                        if (response.formulario[b].pregunta=='Nombre de las personas') {
+                             tr2.append('<tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;"><strong>'+response.formulario[b].pregunta+'</strong></label>'+
+                                 '</td>'+
+                                '</tr>');   
+                          for(let x = 0, xen = response.pesonas.personas.length; x< xen ; x++){
+                             tr2.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+response.pesonas.personas[x]+'</label>'+
+                                 '</td>'+
                                 '</tr>');
+                                }   
+                        }//fin de if personas
+
+                        if(response.formulario[b].mas_respuestas=='Si'){
+                             let respu= JSON.parse(response.formulario[b].respuesta);
+                              tr2.append('<tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;"><strong>'+response.formulario[b].pregunta+'</strong></label>'+
+                                 '</td>'+
+                                '</tr>');  
+                             for(let v = 0, ven = respu.length; v< ven ; v++){
+                                tr2.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+respu[v]+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+                             }
+
+                        }//fin mas respuestas
+                        
                     }
                  
                    }
