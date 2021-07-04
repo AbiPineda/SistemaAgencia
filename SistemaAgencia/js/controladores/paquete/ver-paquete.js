@@ -92,6 +92,12 @@ $(document).ready(function () {
          actualizar();
       }
    });
+   //BOTON DE PRECHEQUEO
+   $(document).on('click', '.btn-group .btn-secondary', function (evento) {
+      evento.preventDefault();//para evitar que la pagina se recargue
+      let idSeleccionado = $(this).attr("name");
+      window.location = `../tours/chekeo.php?viaje=${idSeleccionado}`;
+   });
    //CUANDO EL MODAL SE CIERRA
    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
       console.log("cerrando modal")
@@ -159,6 +165,10 @@ $(document).ready(function () {
                      html += '        <button type="button" name="' + json[i].id_tours + '"  class="btn btn-info" data-toggle="modal"';
                      html += '            data-target="">';
                      html += '            <i class="fa fa-signal" style="color: white"></i>';
+                     html += '        </button>';
+                     html += '        <button type="button" name="' + json[i].id_tours + '"  class="btn btn-secondary" data-toggle="modal"';
+                     html += '            data-target="">';
+                     html += '            <i class="fas fa-check-circle" style="color: white"></i>';
                      html += '        </button>';
                      html += '    </div>';
                      html += '</td>';

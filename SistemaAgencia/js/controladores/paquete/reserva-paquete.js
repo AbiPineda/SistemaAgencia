@@ -18,6 +18,7 @@ $(document).ready(function () {
    let CUPOS;
    let nombre_producto;
    let descripcionProducto;
+   let requisitos = [];
 
    inicializarComboUsuario();
    inicialData(ID_TUR);
@@ -156,10 +157,10 @@ $(document).ready(function () {
          url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
          method: "GET"
       }).done(function (response) {
-          $('#titulo').html(`Reservar Paquete (${response.nombre})`);
+         $('#titulo').html(`Reservar Paquete (${response.nombre})`);
          nombre_producto = response.nombre;
          descripcionProducto = response.descripcion_tur;
-         console.log(response)
+         requisitos = response.requisitos;
          if (response.cupos != "" && response.cupos != "0") {
             costoPasaje.val(response.precio);
             CUPOS = parseInt(response.cupos);
@@ -260,6 +261,7 @@ $(document).ready(function () {
       let asientos_seleccionados = seat_charts.find('e.selected').seatIds;
       let dataAsiento = seat_charts.find('e.selected').seats;
       let total = 0.0;
+      let chequeo = [];
       let cantidad_asientos = 0;
       let label_asiento = [];
       let descripcionReserva = '';
@@ -269,9 +271,17 @@ $(document).ready(function () {
       ASIENTOS_SELECCIONADOS.forEach((element) => {
          total += parseFloat(element.subTotal);
          cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
-         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`  
+         descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`
       });
       descripcionReserva = `${descripcionReserva}  Total : $${total}`
+
+      // CREAMOS EL OBJETO QUE SE OCUPARA PARA EL PRECHEQUEO
+      chequeo = requisitos.map(function (requisito) {
+         let temporal = {};
+         temporal["estado"] = false;
+         temporal["requisito"] = requisito;
+         return temporal;
+      });
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
       form.append("asientos_seleccionados", asientos_seleccionados);
@@ -280,6 +290,8 @@ $(document).ready(function () {
       form.append("total", total);
       form.append("descripcionProducto", descripcionReserva);
       form.append("cantidad_asientos", cantidad_asientos);
+      form.append("chequeo", JSON.stringify(chequeo));
+
 
       return form;
    }
@@ -510,7 +522,7 @@ $(document).ready(function () {
    function bloquearAsientosOcupados(ocupados) {
       seat_charts.get(ocupados).status('ocupado');
    }
-   function reset (){
+   function reset() {
       tablaReserva.clear().draw();
       $('#totalPago').html('$0');
       $('#asientosAReservar').html('0');

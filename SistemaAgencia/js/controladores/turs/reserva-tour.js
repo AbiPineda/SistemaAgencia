@@ -264,9 +264,6 @@ $(document).ready(function () {
          temporal["requisito"] = requisito;
          return temporal;
       });
-      console.log(requisitos);
-      console.log(chequeo);
-
       form.append("id_tours", ID_TUR);
       form.append("id_cliente", id_cliente);
       form.append("asientos_seleccionados", "NO_SELECCIONADO");

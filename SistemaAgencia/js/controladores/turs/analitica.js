@@ -43,7 +43,7 @@ function inicializarTablaIngresos(reservas) {
       // AGREGAMOS LA DATA A LA TABLA QUE SE IMPRIMIRA
       let tr = document.createElement('tr');
       tr.appendChild(crearColumna(reserva.nombre));
-      tr.appendChild(crearColumna(reserva.label_asiento));
+      tr.appendChild(crearColumnaLabel(reserva.label_asiento, reserva.cantidad_asientos));
       tr.appendChild(crearColumna(reserva.descripcionProducto));
       tr.appendChild(crearColumna(reserva.formaPagoUtilizada));
       tr.appendChild(crearColumna(reserva.monto));
@@ -63,6 +63,24 @@ function crearColumna(info) {
    let label = document.createElement('label');
    label.innerHTML = info;
    label.style.fontWeight = "normal";
+   label.style.padding ='3px';
+   td.appendChild(label);
+   td.classList.add('textcenter');
+   return td;
+}
+function crearColumnaLabel(info, cantidad) {
+   let txt = '';
+   if (info == 'NO_LABEL') {
+      txt = `cantidad de asientos: ${cantidad}`;
+   } else {
+      txt = `cantidad de asientos: ${cantidad} (${info})`;
+   }
+
+   let td = document.createElement('td');
+   let label = document.createElement('label');
+   label.innerHTML = txt;
+   label.style.fontWeight = "normal";
+   label.style.padding ='3px';
    td.appendChild(label);
    td.classList.add('textcenter');
    return td;

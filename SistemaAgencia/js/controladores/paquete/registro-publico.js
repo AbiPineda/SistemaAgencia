@@ -77,7 +77,11 @@ function guardar() {
 
          }).then((result) => {
             if (result.value) {
-               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?tur=${respuestaDecodificada.id}`;
+               let idViaje = respuestaDecodificada.id;
+               let fechaInicioViaje = respuestaDecodificada.turPaquete.start;
+               let fechaFinViaje = respuestaDecodificada.turPaquete.end;
+               let titulo = respuestaDecodificada.turPaquete.nombreTours;
+               window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}&titulo=${titulo}`;
             }
          });
 
