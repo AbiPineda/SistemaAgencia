@@ -3,6 +3,9 @@ $(document).ready(function (){
     inicializarValidaciones();
     inicializarValidacionesComision();
   //guardar la comision
+ /* $('.decimales').on('input', function () {
+  this.value = this.value.replace(/[^0-9,.]/g, '').replace(/,/g, '.');
+  });*/
    $('#btn-guardaComision').click(function(evento){
        
          let form = $("#comision-form");

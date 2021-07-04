@@ -50,7 +50,7 @@
                      <div class="form-group col-md-4">
                         <label>N° pasaporte del cliente</label>
                         <input type="text" id="pasaporte" name="pasaporte" class="form-control"
-                           placeholder="A12345878" />
+                           placeholder="A12345878" pattern="^[A-Z]{1}[0-9]{8}" />
 
                      </div>
                   </div>
@@ -85,7 +85,7 @@
                         <label id="pasa">N° pasaporte de las personas</label>
                         <div class="form-group multiple-form-group input-group" name="grupo_pasaporte">
                            <input type="text" name="pasaporte_personas[]" id="pasaporte_personas" disabled=""
-                              class="form-control" placeholder="Digite el pasaporte">
+                              class="form-control" placeholder="Digite el pasaporte" pattern="^[A-Z]{1}[0-9]{8}">
                            <span class="input-group-btn">
                               <button type="button" class="btn btn-success btn-add" id="btn-pasaportes" disabled=""
                                  style="margin-top:0px;">+</button>

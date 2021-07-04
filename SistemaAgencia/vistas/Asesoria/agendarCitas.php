@@ -71,7 +71,13 @@ s
 ?>
 <?php include_once '../../plantillas/footer.php';?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
-
+<script>
+    //para la mascara del celular
+$(":input").inputmask();
+$("#pasaporte").inputmask({"mask": "A99999999"});
+$("#pasaporte_personas2").inputmask({"mask": "A99999999"});
+$("#pasaporte_personas").inputmask({"mask": "A99999999"});
+</script>
 <script src='<?= $base_url ?>plugins/a/js/moment.min.js'></script>
 <script src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
 <script src='<?= $base_url ?>plugins/a/js/locale/es.js'></script>
@@ -81,6 +87,8 @@ s
 <script src="<?= $base_url ?>plugins/toastr/toastr.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
+<!--para la mascara-->
+<script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 
  <!--para las subida de fotos-->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
