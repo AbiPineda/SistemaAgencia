@@ -3,6 +3,9 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
+    
+<!--para los reportes-->
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?= $base_url ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
 
@@ -477,7 +480,7 @@
                                             <div class="row no-print">
                                                 <div class="col-md-12">
 
-                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                    <button target="_blank" id="doPrint" type="button" class="btn btn-default"><i
                                                             class="fas fa-print"></i>
                                                         Imprimir</button>
 
@@ -526,5 +529,9 @@ $(function() {
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+<!--Para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
+
 
 <?php  include_once '../../plantillas/cierre.php';?>

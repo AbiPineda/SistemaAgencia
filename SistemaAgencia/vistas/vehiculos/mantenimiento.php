@@ -1,5 +1,4 @@
 <?php
-include_once '../cliente/session.php';
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
 ?>
