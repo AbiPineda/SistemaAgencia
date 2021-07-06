@@ -3,7 +3,7 @@
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
     type="text/css" />
-
+<link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
@@ -156,7 +156,7 @@
                                     <label>Fecha</label>
                                     <div class="input-group">
                                         <input id="fechaPartida" type="text" name="fechaPartida" class="form-control"
-                                            disabled >
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -186,7 +186,7 @@
                                     <label>Fecha</label>
                                     <div class="input-group">
                                         <input id="fechaLlegada" type="text" name="fechaLlegada" class="form-control"
-                                            disabled  >
+                                            disabled>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -281,7 +281,8 @@
                                 <div class="form-group">
                                     <label>Descuentos</label>
                                     <div class="input-group">
-                                        <input id="descuentos" name="descuentos" type="number" min=0 class="form-control">
+                                        <input id="descuentos" name="descuentos" type="number" min=0
+                                            class="form-control">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -356,7 +357,7 @@
 
                                                             </div>
                                                         </td>
-                                                        
+
                                                     </tr>
                                                 </table>
                                                 <table id="factura_cliente">
@@ -367,7 +368,8 @@
                                                                 <table class="datos_cliente">
                                                                     <thead>
                                                                         <tr>
-                                                                            <td><p> </p>
+                                                                            <td>
+                                                                                <p> </p>
                                                                                 <label>Cliente:</label>
                                                                                 <p name="nombreCliente"
                                                                                     id="nombreCliente">
@@ -381,7 +383,8 @@
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td><p> </p>
+                                                                            <td>
+                                                                                <p> </p>
                                                                                 <label>Teléfono:</label>
                                                                                 <p name="telefono" id="telefono"></p>
                                                                             </td>
@@ -533,7 +536,7 @@
                                             <div class="row no-print">
                                                 <div class="col-md-12">
 
-                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                                    <button target="_blank" id="doPrint"  type="button" class="btn btn-default"><i
                                                             class="fas fa-print"></i>
                                                         Imprimir</button>
 
@@ -571,6 +574,7 @@
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/cotizacion-app.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 
 

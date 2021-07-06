@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/cotizarVuelo/cotizar?id_cotizacion=" + idCotizar,
+            url: "http://localhost/API-REST-PHP/cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/cotizarVuelo/cotizar?id_cotizacion=" + idCotizar,
+            url: "http://localhost/API-REST-PHP/cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -134,58 +134,68 @@ $(document).ready(function() {
 
 
 
-
-
     function inicializarTabla() {
-        tabla = $("#tabla_cotizaciones").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-            "deferRender": true,
-            "ajax": {
-                "url": URL_SERVIDOR + "cotizarVuelo/cotizar",
-                "method": "GET",
-                "dataSrc": function(json) {
-                    console.log(json.informacion);
-
-                    if (json.informacion) {
-                        for (let i = 0, ien = json.informacion.length; i < ien; i++) {
-                            //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
-                            html = "";
-                            html += '<td>';
-                            html += '    <div class="btn-group">';
-                            html += '        <button type="button" name="' + json.informacion[i].id_cotizacion + '" class="btn btn-primary" data-toggle="modal"';
-                            html += '            data-target="#modal-editar">';
-                            html += '            <i class="fas fa-edit" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.informacion[i].id_cotizacion + '" class="btn btn-secondary" data-toggle="modal"';
-                            html += '            data-target="#modal-cotizacion">';
-                            html += '            <i class="fas fa-eye" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '        <button type="button" name="' + json.informacion[i].id_cotizacion + '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
-                            html += '        </button>';
-                            html += '    </div>';
-                            html += '</td>';
-                            json.informacion[i]["botones"] = html;
-
-                        }
-                        $('#loading').hide();
-                        return json.informacion;
-                    } else {
-                        $('#loading').hide();
-                        return [];
-                    }
-                }
-            },
+        tablaCotizaciones = $("#tabla_cotizaciones").DataTable({
+            responsive: true,
+            autoWidth: false,
+            deferRender: true,
             columns: [
                 { data: "nombre" },
                 { data: "ciudad_partida" },
                 { data: "ciudad_llegada" },
-                { data: "botones" },
+                { data: "botones" }
+            ],
+            columnDefs: [
+                { "className": "dt-center", "targets": "_all" },
+
+              
             ]
         });
 
+        $.ajax({
+            type: "GET",
+            url: URL_SERVIDOR + "cotizarVuelo/mostrarCotizacion",
+
+            dataType: "json",
+            success: function(response) {
+
+
+                for (let i = 0, ien = response.informacion.length; i < ien; i++) {
+                    //CREAMOS UNA NUEVA PROPIEDAD LLAMADA BOTONES
+                    html = "";
+                    html += '<td>';
+                    html += '    <div class="btn-group">';
+                    html += '        <button type="button" name="' + response.informacion[i].id_cotizacion + '" class="btn btn-primary" data-toggle="modal"';
+                    html += '            data-target="#modal-editar">';
+                    html += '            <i class="fas fa-edit" style="color: white"></i>';
+                    html += '        </button>';
+                    html += '        <button type="button" name="' + response.informacion[i].id_cotizacion + '" class="btn btn-secondary" data-toggle="modal"';
+                    html += '            data-target="#modal-cotizacion">';
+                    html += '            <i class="fas fa-eye" style="color: white"></i>';
+                    html += '        </button>';
+                    html += '        <button type="button" name="' + response.informacion[i].id_cotizacion + '" class="btn btn-danger" data-toggle="modal"';
+                    html += '            data-target="#modal-eliminar">';
+                    html += '            <i class="fas fa-trash" style="color: white"></i>';
+                    html += '        </button>';
+                    html += '    </div>';
+                    html += '</td>';
+                    response.informacion[i]["botones"] = html;
+
+                    let nuevoDetalle = {
+                        nombre: response.informacion[i].nombre,
+                        ciudad_partida: response.informacion[i].ciudad_partida,
+                        ciudad_llegada: response.informacion[i].ciudad_llegada,
+                        botones: html,
+                    };
+                    tablaCotizaciones.row.add(nuevoDetalle).draw(false);
+                }
+                $('#loading').hide();
+                return response.informacion;
+
+
+            },
+            error: function(err) {}
+        });
     }
 
     function inicializarValidaciones() {
