@@ -15,7 +15,7 @@ $(document).ready(function() {
         idAerolineas = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/aerolinea/aerolinea?idaerolinea=" + idAerolineas,
+            url: URL_SERVIDOR+"aerolinea/aerolinea?idaerolinea=" + idAerolineas,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

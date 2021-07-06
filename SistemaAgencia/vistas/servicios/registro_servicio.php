@@ -239,7 +239,6 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
 <script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

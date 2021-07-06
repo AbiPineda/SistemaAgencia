@@ -64,7 +64,7 @@ $(document).ready(function () {
 
 
     },
-    events: 'http://localhost/API-REST-PHP/index.php/Cita/cita', //aqui pongo la api que e hecho
+    events: URL_SERVIDOR+'index.php/Cita/cita', //aqui pongo la api que e hecho
     //http://localhost/restful/index.php/Calendario/calendario
     eventClick: function (calEvent, jsEvent, view) {
 
@@ -161,7 +161,7 @@ $(document).ready(function () {
             $('#timepicker2').val(calEvent.hora);
 
             $.ajax({
-              url: "http://localhost/API-REST-PHP/index.php/Cita/moverDias",
+              url: URL_SERVIDOR+"index.php/Cita/moverDias",
               method: 'POST',
               data: $("#update-form").serialize()
 

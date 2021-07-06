@@ -158,7 +158,6 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/paquete/analitica.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

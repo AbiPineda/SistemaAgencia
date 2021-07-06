@@ -3,6 +3,7 @@
 </footer>
 
 </div>
+<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <!-- ./wrapper -->
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>

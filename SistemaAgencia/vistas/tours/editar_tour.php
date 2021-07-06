@@ -552,7 +552,6 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/editar.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/registro-tour.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

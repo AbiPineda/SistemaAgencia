@@ -14,7 +14,7 @@ $(document).ready(function() {
         idVehiculo = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/vehiculo/vehiculos?idvehiculo=" + idVehiculo,
+            url: URL_SERVIDOR+"vehiculo/vehiculos?idvehiculo=" + idVehiculo,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

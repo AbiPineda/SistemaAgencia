@@ -219,7 +219,6 @@
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/reserva-tour.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>

@@ -13,7 +13,8 @@ s
 <!--para la subida de fotos al sistema-->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
+   type="text/css" />
 
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
@@ -72,11 +73,17 @@ s
 <?php include_once '../../plantillas/footer.php';?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <script>
-    //para la mascara del celular
+//para la mascara del celular
 $(":input").inputmask();
-$("#pasaporte").inputmask({"mask": "A99999999"});
-$("#pasaporte_personas2").inputmask({"mask": "A99999999"});
-$("#pasaporte_personas").inputmask({"mask": "A99999999"});
+$("#pasaporte").inputmask({
+   "mask": "A99999999"
+});
+$("#pasaporte_personas2").inputmask({
+   "mask": "A99999999"
+});
+$("#pasaporte_personas").inputmask({
+   "mask": "A99999999"
+});
 </script>
 <script src='<?= $base_url ?>plugins/a/js/moment.min.js'></script>
 <script src='<?= $base_url ?>plugins/a/js/fullcalendar.min.js'></script>
@@ -90,7 +97,7 @@ $("#pasaporte_personas").inputmask({"mask": "A99999999"});
 <!--para la mascara-->
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
 
- <!--para las subida de fotos-->
+<!--para las subida de fotos-->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
@@ -98,7 +105,7 @@ $("#pasaporte_personas").inputmask({"mask": "A99999999"});
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 
 
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
+
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/combobox.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/ramas_automaticas.js"></script>
@@ -120,7 +127,6 @@ $(document).ready(function() {
 
 $('#loadingActualizar').hide();
 $('#loadingActualizarEventos').hide();
-
 </script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

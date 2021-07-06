@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/promocionVuelo/promocion?idpromocion_vuelo=" + idPromocion,
+            url: URL_SERVIDOR+"promocionVuelo/promocion?idpromocion_vuelo=" + idPromocion,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

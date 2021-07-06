@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/serviciosVehiculo/mostrarServicios?idservicios_opc=" + idServicio,
+            url: URL_SERVIDOR+"serviciosVehiculo/mostrarServicios?idservicios_opc=" + idServicio,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

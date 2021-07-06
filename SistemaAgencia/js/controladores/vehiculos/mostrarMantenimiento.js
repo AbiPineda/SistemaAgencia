@@ -14,7 +14,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
+            url: URL_SERVIDOR+"mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -47,7 +47,7 @@ $(document).on('click', '.btn-group .btn-secondary', function() {
 
     $('#loadingActualizar').show();
     $.ajax({
-        url: "http://localhost/API-REST-PHP/mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
+        url: URL_SERVIDOR+"mantenimientoVehiculo/mantenimiento?id_mantenimiento=" + idMantenimiento,
            method: "GET"
     }).done(function(response) {
         //MANDALOS LOS VALORES AL MODAL

@@ -225,6 +225,5 @@
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/ver-tour.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

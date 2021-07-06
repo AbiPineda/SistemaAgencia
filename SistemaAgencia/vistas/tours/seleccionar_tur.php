@@ -230,7 +230,6 @@
 
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/seleccionar-tur.js"></script>
 <!-- CIERRE DE ETIQUETAS -->

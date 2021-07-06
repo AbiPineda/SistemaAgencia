@@ -214,7 +214,6 @@
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
 <script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>

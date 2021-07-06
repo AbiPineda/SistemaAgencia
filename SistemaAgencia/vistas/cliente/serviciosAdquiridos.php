@@ -248,7 +248,6 @@ include_once '../../plantillas/footer.php';
 ?>
 
 
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <!--alerta del sistema-->
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 

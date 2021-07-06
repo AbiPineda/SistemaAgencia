@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/tipo_viaje/viajes?idtipo_viaje=" + idTipoViaje,
+            url: URL_SERVIDOR+"tipo_viaje/viajes?idtipo_viaje=" + idTipoViaje,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

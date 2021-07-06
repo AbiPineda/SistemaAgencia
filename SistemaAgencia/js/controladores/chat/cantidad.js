@@ -1,7 +1,7 @@
 function obenerChats() {
 
    $.ajax({
-      url: "http://localhost/API-REST-PHP/Usuario/obtenerAdminByChat",
+      url:  URL_SERVIDOR+ "Usuario/obtenerAdminByChat",
       method: "GET"
    }).done(function (response) {
       // //CARGAMOS EL COSTO AL INPUT

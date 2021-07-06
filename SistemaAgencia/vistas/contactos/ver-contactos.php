@@ -210,6 +210,5 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.js"></script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/contactos/ver-contacto.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

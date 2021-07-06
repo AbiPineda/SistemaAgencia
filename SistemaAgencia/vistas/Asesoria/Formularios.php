@@ -3,26 +3,27 @@ include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-    type="text/css" />
+   type="text/css" />
 <!--para los reportes-->
 <link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
-<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css"/>
-<link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css"/>
+<link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
+<link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-    type="text/css" />
+   type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 
 <style>
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 75%;
 }
+
 .hidden {
-    display: none;
+   display: none;
 }
 </style>
 <?php 
@@ -32,177 +33,172 @@ include_once '../../plantillas/barra_lateral.php';
 
 
 <div class="content-wrapper" style="min-height: 1185.73px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Formularios Migratorios</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Formularios</li>
-                    </ol>
-                </div>
+   <!-- Content Header (Page header) -->
+   <section class="content-header">
+      <div class="container-fluid">
+         <div class="row mb-2">
+            <div class="col-sm-6">
+               <h1>Formularios Migratorios</h1>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
+            <div class="col-sm-6">
+               <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                  <li class="breadcrumb-item active">Formularios</li>
+               </ol>
+            </div>
+         </div>
+      </div><!-- /.container-fluid -->
+   </section>
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-12">
+   <!-- Main content -->
+   <section class="content">
+      <div class="row">
+         <div class="col-12">
 
 
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Citas atendidas</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div id="" class="dataTables_wrapper dt-bootstrap4">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table id="formularios" class="table table-bordered table-striped">
-                                        <thead style="text-align: center;">
-                                            <tr>
-                                                <th>Cliente</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <!-- /.inicio de loading -->
-                                        <div class="overlay-wrapper">
-                                            <div id="loading" class="overlay"><i
-                                                    class="fas fa-3x fa-sync-alt fa-spin"></i>
+            <div class="card">
+               <div class="card-header">
+                  <h3 class="card-title">Citas atendidas</h3>
+               </div>
+               <!-- /.card-header -->
+               <div class="card-body">
+                  <div id="" class="dataTables_wrapper dt-bootstrap4">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <table id="formularios" class="table table-bordered table-striped">
+                              <thead style="text-align: center;">
+                                 <tr>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Acciones</th>
+                                 </tr>
+                              </thead>
+                              <!-- /.inicio de loading -->
+                              <div class="overlay-wrapper">
+                                 <div id="loading" class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
 
-                                                <div class="text-bold pt-2">Cargando...
-                                                </div>
-                                            </div>
-                                            <tbody id="tableBody" style="text-align: center;">
-                                            </tbody>
-                                        </div>
-                                        <!-- /.fin de loading -->
+                                    <div class="text-bold pt-2">Cargando...
+                                    </div>
+                                 </div>
+                                 <tbody id="tableBody" style="text-align: center;">
+                                 </tbody>
+                              </div>
+                              <!-- /.fin de loading -->
 
-                                    </table>
-                                </div>
-                            </div>
-
+                           </table>
                         </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+                     </div>
+
+                  </div>
+               </div>
+               <!-- /.card-body -->
             </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </section>
+            <!-- /.card -->
+         </div>
+         <!-- /.col -->
+      </div>
+      <!-- /.row -->
+   </section>
 
-    <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
-        <!-- Modal EDITAR-->
-        <div class="modal fade" id="modal-imagenesEncomienda">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Editar Imagenes</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="file-loading">
-                            <input id="kv-explorer" name="foto" type="file" multiple>
-                        </div>
-                    </div>
-
-
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- End Modal EDITAR-->
-    </form>
-
-    <!-- Modal mostrar-->
-    <div class="modal fade" id="modal-editar">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+   <form id="formularioImagenes" name="formularioImagenes" enctype="multipart/form-data">
+      <!-- Modal EDITAR-->
+      <div class="modal fade" id="modal-imagenesEncomienda">
+         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-
-                <div class="overlay-wrapper">
-                    <div id="loadingActualizar" class="overlay">
-                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                        <div class="text-bold pt-2">Cargando...
-                        </div>
-                    </div>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Detalle del formulario</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-12 col-sm-1"></div>
-                            <div class="col-12 col-sm-10">
-                                <div class="card card-primary card-tabs">
-                                    <div class="card-header p-0 pt-1">
-                                        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+               <div class="modal-header">
+                  <h4 class="modal-title">Editar Imagenes</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="file-loading">
+                     <input id="kv-explorer" name="foto" type="file" multiple>
+                  </div>
+               </div>
 
 
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <form id="editar-form" name="register-form" onsubmit="return false"
-                                            class="form-inline" role="form">
-                                            <label
-                                                style="width: 400px;margin-left: 98px; margin-bottom:13px;">Cliente</label>
-                                            <div style="width: 200px;"></div>
-                                            <input type="hidden" id="id_cita" name="id_cita" value=""
-                                                class="form-control">
-                                            <input type="text" id="usuario" value="" class="form-control"
-                                                disabled="true"
-                                                style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
-
-
-                                            <div class="tab-content" id="custom-tabs-one-tabContent">
-
-
-                                            </div>
-                                            <!--fin de una pestaña-->
-                                            </br>
-                                            <div style="width: 400px;"></div>
-                                            <div style="width: 400px;">
-                                                <button type="button" id="btnActualizar" class="btn btn-primary btn-sm"
-                                                    style=" margin-top: 10px; color: white">Actualizar</button>
-                                                <button type="button" class="btn btn-danger btn-sm"
-                                                    style="margin-top: 10px; color: white"
-                                                    data-dismiss="modal">Cancelar</button>
-
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div>
-
-
-                </div>
             </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal-dialog -->
+      </div>
+      <!-- End Modal EDITAR-->
+   </form>
 
-        </div>
-    </div>
-    <!-- /.modal-content -->
+   <!-- Modal mostrar-->
+   <div class="modal fade" id="modal-editar">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+         <div class="modal-content">
+
+            <div class="overlay-wrapper">
+               <div id="loadingActualizar" class="overlay">
+                  <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                  <div class="text-bold pt-2">Cargando...
+                  </div>
+               </div>
+               <div class="modal-header">
+                  <h4 class="modal-title">Detalle del formulario</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+
+                  <div class="row">
+                     <div class="col-12 col-sm-1"></div>
+                     <div class="col-12 col-sm-10">
+                        <div class="card card-primary card-tabs">
+                           <div class="card-header p-0 pt-1">
+                              <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+
+
+                              </ul>
+                           </div>
+                           <div class="card-body">
+                              <form id="editar-form" name="register-form" onsubmit="return false" class="form-inline"
+                                 role="form">
+                                 <label style="width: 400px;margin-left: 98px; margin-bottom:13px;">Cliente</label>
+                                 <div style="width: 200px;"></div>
+                                 <input type="hidden" id="id_cita" name="id_cita" value="" class="form-control">
+                                 <input type="text" id="usuario" value="" class="form-control" disabled="true"
+                                    style="width: 400px;margin-left: 98px; margin-top:-15px;">&nbsp&nbsp
+
+
+                                 <div class="tab-content" id="custom-tabs-one-tabContent">
+
+
+                                 </div>
+                                 <!--fin de una pestaña-->
+                                 </br>
+                                 <div style="width: 400px;"></div>
+                                 <div style="width: 400px;">
+                                    <button type="button" id="btnActualizar" class="btn btn-primary btn-sm"
+                                       style=" margin-top: 10px; color: white">Actualizar</button>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                       style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
+
+                                 </div>
+
+                              </form>
+
+                           </div>
+
+
+                        </div>
+                     </div>
+                     <!-- /.card -->
+                  </div>
+               </div>
+
+
+            </div>
+         </div>
+
+      </div>
+   </div>
+   <!-- /.modal-content -->
 </div>
 <!-- /.modal-dialog -->
 </div>
@@ -210,119 +206,119 @@ include_once '../../plantillas/barra_lateral.php';
 
 <!--CODIGO DEL REPORTE-->
 <form id="miFormulario" name="miFormulario" role="form" onsubmit="return false">
-    <!-- Modal Cotizacion Reporte-->
-    <div class="modal fade" id="modal-cotizacion">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
+   <!-- Modal Cotizacion Reporte-->
+   <div class="modal fade" id="modal-cotizacion">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+         <div class="modal-content">
 
-                <div class="overlay-wrapper">
+            <div class="overlay-wrapper">
 
-                    <div class="modal-header">
-                        <h4 class="modal-title">Formulario Migratorio:</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <section class="content">
+               <div class="modal-header">
+                  <h4 class="modal-title">Formulario Migratorio:</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <section class="content">
 
-                                <div class="container-fluid" id="printDiv">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="page_pdf">
-                                                <table id="factura_head">
-                                                    <tr>
-                                                        <td class="logo_factura">
-                                                            <div>
-                                                                <img src="<?= $base_url ?>img/logo-min.jpg" all
-                                                                    rel="stylesheet" type="text/css">
-                                                            </div>
-                                                        </td>
-                                                        <td class="info_empresa">
-                                                            <div>
-                                                                <span class="h2">Agencia de Viajes Martínez Travels &
-                                                                    Tours</span>
-                                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
-                                                                    del Parquecito Infantil<br>Teléfono: +(503) 2319
-                                                                    2338<br>info.ventas@martineztraveltours.com</p>
+                        <div class="container-fluid" id="printDiv">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div id="page_pdf">
+                                    <table id="factura_head">
+                                       <tr>
+                                          <td class="logo_factura">
+                                             <div>
+                                                <img src="<?= $base_url ?>img/logo-min.jpg" all rel="stylesheet"
+                                                   type="text/css">
+                                             </div>
+                                          </td>
+                                          <td class="info_empresa">
+                                             <div>
+                                                <span class="h2">Agencia de Viajes Martínez Travels &
+                                                   Tours</span>
+                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
+                                                   del Parquecito Infantil<br>Teléfono: +(503) 2319
+                                                   2338<br>info.ventas@martineztraveltours.com</p>
 
-                                                            </div>
-                                                        </td>
-                                                        
-                                                    </tr>
+                                             </div>
+                                          </td>
+
+                                       </tr>
+                                    </table>
+                                    <table id="factura_cliente">
+                                       <tr>
+                                          <td class="info_cliente">
+                                             <div class="round">
+                                                <span class="h3">Datos Generales del Cliente</span>
+                                                <table class="datos_cliente">
+                                                   <thead>
+                                                      <tr>
+                                                         <td>
+                                                            <p> </p>
+                                                            <label>Cliente:</label>
+                                                            <p name="nombreC" id="nombreC">
+                                                            </p>
+
+                                                         </td>
+                                                         <td><label>DUI:</label>
+                                                            <p name="dui-cliente" id="dui-cliente">
+                                                            </p>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td>
+                                                            <p> </p>
+                                                            <label>Teléfono:</label>
+                                                            <p name="telefonoC" id="telefonoC"></p>
+                                                         </td>
+                                                         <td><label>Email:</label>
+                                                            <p name="emailC" id="emailC"></p>
+                                                         </td>
+                                                      </tr>
+                                                   </thead>
                                                 </table>
-                                                <table id="factura_cliente">
-                                                    <tr>
-                                                        <td class="info_cliente">
-                                                            <div class="round">
-                                                                <span class="h3">Datos Generales del Cliente</span>
-                                                                <table class="datos_cliente">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <td><p> </p>
-                                                                                <label>Cliente:</label>
-                                                                                <p name="nombreC"
-                                                                                    id="nombreC">
-                                                                                </p>
+                                             </div>
+                                          </td>
 
-                                                                            </td>
-                                                                            <td><label>DUI:</label>
-                                                                                <p name="dui-cliente"
-                                                                                    id="dui-cliente">
-                                                                                </p>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td><p> </p>
-                                                                                <label>Teléfono:</label>
-                                                                                <p name="telefonoC" id="telefonoC"></p>
-                                                                            </td>
-                                                                            <td><label>Email:</label>
-                                                                                <p name="emailC" id="emailC"></p>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </thead>
-                                                                </table>
-                                                            </div>
-                                                        </td>
+                                       </tr>
+                                    </table>
 
-                                                    </tr>
-                                                </table>
+                                    <div id="crear_tablas">
 
-                                               <div id="crear_tablas">
-                                               
-                                              </div><!--fin de crear tablas-->
-                                            </div>
-                                            <div class="row no-print">
-                                                <div class="col-md-12">
-
-                                                    <button target="_blank" id="doPrint" class="btn btn-default"><i
-                                                            class="fas fa-print"></i>
-                                                        Imprimir</button>
-
-                                                    <div id="editor"></div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                            </section>
+                                    <!--fin de crear tablas-->
+                                 </div>
+                                 <div class="row no-print">
+                                    <div class="col-md-12">
+
+                                       <button target="_blank" id="doPrint" class="btn btn-default"><i
+                                             class="fas fa-print"></i>
+                                          Imprimir</button>
+
+                                       <div id="editor"></div>
+
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                </div>
+                     </section>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-    <!-- End Modal EDITAR-->
+         </div>
+      </div>
+   </div>
+   <!-- End Modal EDITAR-->
 </form>
 <!--FIN DE CODIGO DE REPORTE-->
 <?php
   include_once '../../plantillas/footer.php';
 ?>
 <!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/formularios-app.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/input.js"></script>

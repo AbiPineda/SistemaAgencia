@@ -18,7 +18,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
+            url: URL_SERVIDOR+"DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
+            url: URL_SERVIDOR+"DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

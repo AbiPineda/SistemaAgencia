@@ -104,12 +104,12 @@ h6 {
                            </div>
                         </div>
                         <div class="col-12 col-sm-6">
-                           
+
                            <br>
                            <h6>Promoción disponible hasta: </h6>
                            <label name="fechaR" id="fechaR" data-date="" data-date-format="DD MMMM YYYY"></label>
                            <hr>
-                           
+
 
                            <div class="bg-primary py-2 px-3 mt-4">
                               <div class="centrar">
@@ -131,7 +131,7 @@ h6 {
                               <div class="card-body p-0">
                                  <ul class="nav nav-pills flex-column">
 
-                                 <li class="nav-item">
+                                    <li class="nav-item">
                                        <a href="#" class="nav-link">
                                           <i class="fas fa-plane-departure"></i> Saliendo de
                                           <span class="badge bg-warning float-right">
@@ -157,7 +157,7 @@ h6 {
                                           </span>
                                        </a>
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
                                           <i class="fas fa-plane"></i> Aerolinea
@@ -200,15 +200,13 @@ include_once '../../plantillas/footer.php';
 ?>
 
 
-<script> 
-$("label").on("change", function() { 
-this.setAttribute( "data-date", moment(this.value, "YYYY-MM-DD") .format( this.getAttribute("data-date-format") ) ) 
-}).trigger("change") 
+<script>
+$("label").on("change", function() {
+   this.setAttribute("data-date", moment(this.value, "YYYY-MM-DD").format(this.getAttribute("data-date-format")))
+}).trigger("change")
 </script>
 
 <!-- SCRIPT ADICIONALES -->
-<script type="text/javascript" src="<?= $base_url ?>js/controladores/conf.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="<?= $base_url ?>js/controladores/vuelos/disponibilidad-app.js"></script>

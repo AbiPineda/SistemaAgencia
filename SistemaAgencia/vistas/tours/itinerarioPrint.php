@@ -111,7 +111,6 @@
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="../../js/controladores/turs/itinerarioPrint.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

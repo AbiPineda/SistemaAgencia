@@ -8,7 +8,7 @@ $("#login-btn").on("click", function () {
     let btnHTML = $(this).html();
     $(this).html("<img id='loader' src='img/loader.svg' alt='Loading...!' />");
     $.ajax({
-      url: "http://localhost/API-REST-PHP/Usuario/loginUser",
+      url: URL_SERVIDOR+"Usuario/loginUser",
       method: "POST",
       data: $("#login-form").serialize()
     }).done(function (resp) {

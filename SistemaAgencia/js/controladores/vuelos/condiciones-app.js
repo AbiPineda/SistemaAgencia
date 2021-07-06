@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/infoadicional/informacion?idinfo_adicional=" + idInfo_Condicion,
+            url: URL_SERVIDOR+"infoadicional/informacion?idinfo_adicional=" + idInfo_Condicion,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

@@ -187,7 +187,6 @@ include_once '../../plantillas/footer.php';?>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
-<script src="<?= $base_url?>js/controladores/conf.js"></script>
 <script src="<?= $base_url?>js/controladores/vuelos/mostrarAerolinea.js"></script>
 <script src="<?= $base_url?>js/controladores/vuelos/comboAlianza.js"></script>
 <script src="<?= $base_url?>js/controladores/vuelos/insertarAerolinea.js"></script>

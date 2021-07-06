@@ -238,7 +238,7 @@ console.log(id);
 
 
 <!-- jquery-validation -->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/conf.js"></script>
+
 
 <!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>

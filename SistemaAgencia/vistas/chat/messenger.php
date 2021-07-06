@@ -75,7 +75,6 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <?php include_once '../../plantillas/footer.php'; ?>
    <!-- PONER SCRIPT ADICIONALES ACA -->
-   <script type="text/javascript" src="../../js/controladores/conf.js"></script>
    <!-- Firebase App is always required and must be first -->
    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
    <!-- Add additional services that you want to use -->

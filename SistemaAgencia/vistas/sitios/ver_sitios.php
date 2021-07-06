@@ -306,7 +306,6 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
 </script>
-<script src="<?= $base_url ?>js/controladores/conf.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/ver-sitio.js"></script>
 <script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
 <!-- CIERRE DE ETIQUETAS  -->

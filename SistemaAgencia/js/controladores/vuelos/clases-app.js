@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/tipo_clases/clases?idclase=" + idClase,
+            url: URL_SERVIDOR+"tipo_clases/clases?idclase=" + idClase,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

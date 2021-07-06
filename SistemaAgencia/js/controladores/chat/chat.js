@@ -42,7 +42,7 @@ $(document.body).on("click", ".user", function () {
 
   //OBTEGO LOS DATOS PARTICULARES DE ESE CHAT
   $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/obtenerChat",
+    url: URL_SERVIDOR+"Usuario/obtenerChat",
     method: "POST",
     data: { user_1: uid_administrador, user_2: uid_cliente },
     success: function (infoChat) {
@@ -128,7 +128,7 @@ $(".send-btn").on("click", function () {
 
 function getUsers() {
   $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/obtenerUsuarioByChat",
+    url: URL_SERVIDOR+"/Usuario/obtenerUsuarioByChat",
     method: "GET",
     success: function (response) {
       if (!response.error) {
@@ -245,7 +245,7 @@ function enviarMensaje() {
 }
 function actualizarFecha(uuid) {
   $.ajax({
-    url: "http://localhost/API-REST-PHP/Usuario/updateFecha",
+    url: URL_SERVIDOR+"/Usuario/updateFecha",
     method: "PUT",
     data: { uuid },
     success: function (resp) {

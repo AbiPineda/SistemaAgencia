@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
+            url: URL_SERVIDOR+"cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: "http://localhost/API-REST-PHP/cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
+            url: URL_SERVIDOR+"cotizarVuelo/mostrarCotizacion?id_cotizacion=" + idCotizar,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL
