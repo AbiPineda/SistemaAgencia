@@ -196,7 +196,7 @@ include_once '../../plantillas/cabecera.php';
                            <div class="col-sm-6">
                               <!-- text input -->
                               <div class="hidden">
-                                 <label name="detalle" id="detalle">Ingreso Mantenimiento de un Vehìculo</label>
+                                 <label name="detalle" id="detalle">Ingreso Mantenimiento de un Vehículo</label>
                               </div>
                            </div>
                            <div class="timeline-footer" style="text-align: right;">

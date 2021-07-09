@@ -36,6 +36,14 @@
                                                 id="descripcionCategoria" placeholder="Digite descripcion">
                                         </div>
                                     </div>
+
+                                    <div class="col-sm-6">
+                                 <!-- text input -->
+                                 <div class="hidden">
+                                    <label name="detalle" id="detalle">Ingreso una nueva Categoria de Tipos de Vehículo</label>
+                                 </div>
+                              </div>
+
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-info btn-sm" style="color: white" type="button"
@@ -57,4 +65,11 @@
     <!-- /.modal-dialog -->
 </div>
 
+
+<script>
+let id = localStorage.getItem('id_cliente');
+console.log(id);
+</script>
+
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/categoria-app.js"></script>

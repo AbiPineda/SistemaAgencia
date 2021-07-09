@@ -176,7 +176,7 @@ include_once '../../plantillas/cabecera.php';
                               <div class="col-sm-6">
                                  <!-- text input -->
                                  <div class="hidden">
-                                    <label name="detalle" id="detalle">Realizo Cotización de Vehìculo</label>
+                                    <label name="detalle" id="detalle">Realizo Cotización de Vehículo</label>
                                  </div>
                               </div>
 
