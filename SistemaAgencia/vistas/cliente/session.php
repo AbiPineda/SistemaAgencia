@@ -3,8 +3,8 @@ session_start();
 
 switch ($_POST['action']) {
    case 'start':
-      $_SESSION["activo"] = true;
-      $_SESSION["nivel"] = $_POST["nivel"];
+      $_SESSION["activoA"] = true;
+      $_SESSION["nivelA"] = $_POST["nivel"];
       break;
    case 'getActivo':
       echo json_encode($_SESSION["activo"]);

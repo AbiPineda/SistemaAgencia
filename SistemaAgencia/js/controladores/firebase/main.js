@@ -26,7 +26,7 @@ $("#login-btn").on("click", function () {
               $("#login-btn").html(btnHTML);
               if (data.user.uid != "") {
                 console.log(resp);
-                $.post("vistas/cliente/session.php", { action: "start", nivel: resp.nivel },
+                $.post("vistas/session/start.php", { action: "start", nivel: resp.nivel },
                   function (data) {
                     location = 'home.php';
                   });
@@ -150,12 +150,12 @@ function inicializarValidaciones() {
 }
 function initPreferencias(resp) {
   console.log(resp);
-  localStorage.setItem("id_cliente", resp.id_cliente);
-  localStorage.setItem("nombre", resp.nombre);
-  localStorage.setItem("correo", resp.correo);
-  localStorage.setItem("nivel", resp.nivel);
-  localStorage.setItem("celular", resp.celular);
-  localStorage.setItem("dui", resp.dui);
-  localStorage.setItem("foto", resp.foto);
-  localStorage.setItem("user_uuid", resp.user_uuid);
+  localStorage.setItem("id_clienteA", resp.id_cliente);
+  localStorage.setItem("nombreA", resp.nombre);
+  localStorage.setItem("correoA", resp.correo);
+  localStorage.setItem("nivelA", resp.nivel);
+  localStorage.setItem("celularA", resp.celular);
+  localStorage.setItem("duiA", resp.dui);
+  localStorage.setItem("fotoA", resp.foto);
+  localStorage.setItem("user_uuidA", resp.user_uuid);
 }

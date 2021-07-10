@@ -1,5 +1,5 @@
 <?php include_once '../../config/parametros.php'; ?>
-<?php include_once '../../plantillas/session.php'; ?>
+<?php include_once '../session/isEmpleado.php'; ?>
 <?php include_once '../../plantillas/cabecera.php'; ?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />

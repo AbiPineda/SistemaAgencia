@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    let id = localStorage.getItem('id_cliente');
+    let id = localStorage.getItem('id_clienteA');
     let detallito = document.getElementById('detalle').innerHTML;
 
     let fecha = new Date();

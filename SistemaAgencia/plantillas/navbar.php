@@ -53,9 +53,9 @@
 
 
             <li>
-               <div id="logout-btn" class="nav-link" id="cerrarSesion">
+               <a id="logout" class="nav-link" id="">
                   Cerrar Sesion <i class="fas fa-sign-out-alt"></i>
-               </div>
+               </a>
             </li>
 
 

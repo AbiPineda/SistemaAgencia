@@ -11,6 +11,7 @@
 <script src="<?= $base_url ?>js/controladores/firebase/firestore-config.js"></script>
 
 <script src="<?= $base_url ?>js/controladores/chat/cantidad.js"></script>
+<script src="<?= $base_url ?>js/controladores/session/closeSesion.js"></script>
 
 <!-- Bootstrap 4 -->
 <script src="<?= $base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
