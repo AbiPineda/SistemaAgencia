@@ -96,13 +96,9 @@ include_once '../../plantillas/cabecera.php';
                               <table id="add-tabla" class="table table-bordered table-hover">
                                  <thead>
                                     <tr style="text-align: center;">
-                                       <th>Producto</th>
-                                       <th>Costo</th>
-                                       <th>Cantidad</th>
-                                       <th>Sub Total</th>
-                                       <th>Acción</th>
-                                       <th>id</th>
-                                       <th>contador</th>
+                                       <th>Cliente</th>
+                                       <th>Fecha</th>
+                                       <th>Hora</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -151,24 +147,6 @@ include_once '../../plantillas/cabecera.php';
   include_once '../cliente/modalCliente.php';
 include_once '../../plantillas/footer.php';
 ?>
-   <script type="text/javascript">
-   $(document).on('click', '#producto-add', function() {
-      $('#add-producto').modal('show');
-      $('#loadingActualizar').hide();
-   });
-   $(document).on('click', '#comision-add', function() {
-      $('#add-comision').modal('show');
-      $('#loadingActualizar1').hide();
-   });
-   </script>
-   <script>
-   //para la mascara del celular
-   $(":input").inputmask();
-   $("#telefono_des").inputmask({
-      "mask": "(999) 9999-9999"
-   });
-   </script>
-
    <!--alerta del sistema-->
    <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
    <!--validaciones del sistema-->
@@ -176,21 +154,10 @@ include_once '../../plantillas/footer.php';
    <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
    <!--para la mascara-->
    <script src="<?= $base_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
-   <!--para las subida de fotos-->
-   <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>
-   <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/sortable.js" type="text/javascript"></script>
-   <script src="<?= $base_url ?>plugins/subir-foto/js/fileinput.js" type="text/javascript"></script>
-   <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
-   <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
+  
    <!--procesos del sistema-->
-   <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
-   <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
-   <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
-   <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad-re.js"></script>
-   <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
-   <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
-   <!--fecha actual-->
-   <script src="<?= $base_url ?>js/controladores/encomienda/fecha_actual.js"></script>
+   
+   <script src="<?= $base_url ?>js/controladores/asesorias/ingresos.js"></script>
 
 
    <?php include_once '../../plantillas/cierre.php'; ?>
