@@ -223,6 +223,8 @@ function crearColumna(info) {
          }
       }
    );
+
+   //FIN PARA LOS RADIO BUTTON
     function inicializarValidaciones() {
         $('#register-form').validate({
 

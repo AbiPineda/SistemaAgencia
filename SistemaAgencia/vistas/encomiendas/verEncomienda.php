@@ -44,6 +44,30 @@ include_once '../../plantillas/barra_lateral.php';
 
 
             <div class="card">
+                       <!--para filtrar las encomiendas activos e inactivos-->
+                <div class="card-header">
+                  <div class="row">
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioEncomienda" id="radioUsuarioCliente"
+                           value="activo" checked>
+                        <label class="form-check-label" for="radioProductoActivo">
+                           ENCOMIENDAS ACTIVAS
+                        </label>
+                         
+                     </div>
+                     <div class="form-check mx-auto">
+                        <input class="form-check-input" type="radio" name="radioEncomienda" id="radioUsuarioInactivo"
+                           value="inactivo">
+                        <label class="form-check-label" for="radioProductoInactivo">
+                           ENCOMIENDAS INACTIVAS
+                        </label>
+                         
+                     </div>
+                  </div>
+               </div>
+               <!-- /.card-header -->
+<!--*******************************fin de filtrar las encomiendas***-->
+                
                <div class="card-header">
                   <h3 class="card-title">Datos de la Encomienda</h3>
                </div>

@@ -124,25 +124,49 @@ $(document).on('click', '.btn-group .btn-primary', function () {
         });
     });
 });
-    //BOTON PARA ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function (evento) {
-        idpregunta = $(this).attr("name");
+    //BOTON PARA DAR DE ALTA A LA ENCOMIENDA
+    $(document).on('click', '.btn-group .btn-success', function (evento) {
+        id = $(this).attr("name");
         fila = $(this).closest("tr");
 
         const Toast = Swal.mixin();
         Swal.fire({
             title: '¿Estas seguro?',
-            text: "Se Eliminará este registro!",
+            text: "Se dara de alta la encomienda!",
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminar!'
+            confirmButtonText: 'Sí!'
         }).then((result) => {
             console.log(result);
             if (result.value) {
-                eliminar();
+                altaEnco();
+            }
+        })
+    });
+   
+
+    //BOTON PARA DAR DE BAJA A LA ENCOMIENDA
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
+        id = $(this).attr("name");
+        fila = $(this).closest("tr");
+
+        const Toast = Swal.mixin();
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Se dara debaja a esta encomienda!",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí!'
+        }).then((result) => {
+            console.log(result);
+            if (result.value) {
+                eliminarEnco();
             }
         })
     });
@@ -159,6 +183,27 @@ $(document).on('click', '.btn-group .btn-primary', function () {
 // vamos a inicializar la tabla
 
 //*********************fin*****
+
+  //CUANDO HAY CAMBIO EN EL RADIO BUTTON
+   $(document).on('change', 'input[type=radio][name="radioEncomienda"]', function () {
+      tabla.draw();
+   });
+   // PARA HACER FILTRAR REGISTROS EN LA TABLA DE A CUERDO CON RADIO BUTTON
+   $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+         let opcionSeleccionada = $("input[name='radioEncomienda']:checked").val();
+         switch (opcionSeleccionada) {
+            case 'activo':
+               return (data[5] == 'Enviado');
+            case 'inactivo':
+               return (data[5] == 'Inactivo');
+            default:
+               return true;
+         }
+      }
+   );
+
+
     function inicializarTabla() {
         tabla = $("#tabla_encomienda").DataTable({
             "responsive": true,
@@ -188,10 +233,16 @@ $(document).on('click', '.btn-group .btn-primary', function () {
                             html += '            data-target="#modal-galeria">';
                             html += '            <i class="fas fa-image" style="color: white"></i>';
                             html += '        </button>';
+                            if(json.Encomiendas[i].estado=='Enviado'){
                             html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-danger" data-toggle="modal"';
                             html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
+                            html += '            <i class="fas fa-arrow-down" style="color: white"></i>';
                             html += '        </button>';
+                            }else{
+                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-success">';
+                            html += '            <i class="fas fa-arrow-up" style="color: white"></i>';
+                            html += '        </button>';
+                            }
                             html += '    </div>';
                             html += '</td>';
                             json.Encomiendas[i]["botones"] = html;
@@ -211,7 +262,13 @@ $(document).on('click', '.btn-group .btn-primary', function () {
                 { data: "codigo_postal_origen" },
                 { data: "fecha" },
                 { data: "botones" },
-            ]
+                { data: "estado" },
+            ],
+             columnDefs: [
+            { "className": "dt-center", "targets": "_all" },
+           
+            { targets: [5], visible: false },
+         ]
         });
 
     }
@@ -291,12 +348,48 @@ $(document).on('click', '.btn-group .btn-primary', function () {
     }
 
 
-    function eliminar() {
+    function eliminarEnco() {
         let data = {
-            "id_pregunta": idpregunta
+            "id_encomienda": id
         };
         $.ajax({
-            url: URL_SERVIDOR + "Asesoria/deletePregunta",
+            url: URL_SERVIDOR + "Encomienda/deleteEncomienda",
+            method: "DELETE",
+            timeout: 0,
+            data: data
+        }).done(function (response) {
+            //REST_Controller::HTTP_OK
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: response.mensaje,
+                showConfirmButton: true,
+            }).then((result) => {
+                tabla.ajax.reload(null, false);
+            });
+        }).fail(function (response) {
+
+            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: "ERROR EN EL ENVIO DE INFORMACION",
+                showConfirmButton: true,
+            });
+
+        }).always(function (xhr, opts) {
+            $('#loadingActualizar').hide();
+        });
+    }
+
+     function altaEnco() {
+        let data = {
+            "id_encomienda": id
+        };
+        $.ajax({
+            url: URL_SERVIDOR + "Encomienda/deleteEncomienda",
             method: "DELETE",
             timeout: 0,
             data: data
