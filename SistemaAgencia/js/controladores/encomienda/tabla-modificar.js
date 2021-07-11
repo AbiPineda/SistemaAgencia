@@ -389,7 +389,7 @@ $(document).on('click', '.btn-group .btn-primary', function () {
             "id_encomienda": id
         };
         $.ajax({
-            url: URL_SERVIDOR + "Encomienda/deleteEncomienda",
+            url: URL_SERVIDOR + "Encomienda/altaEnco",
             method: "DELETE",
             timeout: 0,
             data: data
