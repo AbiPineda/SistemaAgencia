@@ -70,10 +70,6 @@ $(document).on('click', '.btn-group .btn-success', function () {
                             html += '         data-target="#modal-editar">';
                             html += '            <i class="fas fa-map-marked-alt" style="color: white"></i>';
                             html += '        </button>';
-                            html += '        <button type="button" name="' + json.Encomiendas[i].id_encomienda+ '" class="btn btn-danger" data-toggle="modal"';
-                            html += '            data-target="#modal-eliminar">';
-                            html += '            <i class="fas fa-trash" style="color: white"></i>';
-                            html += '        </button>';
                             html += '    </div>';
                             html += '</td>';
                             json.Encomiendas[i]["botones"] = html;
