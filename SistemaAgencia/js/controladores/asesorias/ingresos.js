@@ -52,17 +52,17 @@ $(document).ready(function () {
 
     function totalAsesorias() {
 
-        /*let precio=0;
+        let precio=0;
         let contar=0;
         let COMISION=0;
-        COMISION = ((parseInt($('#precio').val()))*(parseInt($('#asoriasTotales').val())));
+        COMISION = ((parseInt($('#precio').val()))*(parseInt($('#asoriasTotales').html())));
         $('#totalIngresos').empty();
-        $('#totalIngresos').text("$" + parseFloat(COMISION).toFixed(2));*/
-         let m1 = document.getElementById("precio");
+        $('#totalIngresos').text("$" + parseFloat(COMISION).toFixed(2));
+         /*let m1 = document.getElementById("precio");
          let m2 = document.getElementById("asoriasTotales");
 
          let multi = m1.value * m2.value;
-        document.getElementById("totalIngresos").innerHTML=multi;
+        document.getElementById("totalIngresos").innerHTML=multi;*/
     }
     
 
