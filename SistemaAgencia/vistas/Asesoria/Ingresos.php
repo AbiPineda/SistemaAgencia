@@ -64,6 +64,12 @@ include_once '../../plantillas/cabecera.php';
 
                                  </div>
                               </div>
+
+                              <div class="timeline-footer" style="text-align: right;">
+                              <a class="btn btn-info btn-sm" id="procesar" style="color: white">Procesar</a>
+
+                           </div>
+
                            </div>
                            <div>
                            </div>
@@ -93,7 +99,7 @@ include_once '../../plantillas/cabecera.php';
                                  </div>
 
                               </div>
-                              <table id="add-tabla" class="table table-bordered table-hover">
+                              <table id="tabla-ingresos" class="table table-bordered table-hover">
                                  <thead>
                                     <tr style="text-align: center;">
                                        <th>Cliente</th>
@@ -123,7 +129,7 @@ include_once '../../plantillas/cabecera.php';
                         <div class="row">
                            <div class="col-md-1 col-md-offset-1"> </div>
                            <div class="col-md-3  ">
-                              <label class="text-success ">Tortal de ingesos: </label>
+                              <label class="text-success ">Tortal de ingresos: </label>
                            </div>
                            <div class="col-md-3  ">
                               <label id="totalIngresos" class="text-success "> $0</label>
