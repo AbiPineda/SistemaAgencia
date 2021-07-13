@@ -26,7 +26,7 @@ $(document).ready(function() {
         }).done(function(response) {
 
             document.getElementById("register-cotizarVehiculo").reset();
-
+            guardarBitacora();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -37,6 +37,7 @@ $(document).ready(function() {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 location.reload();
             });
+          
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);

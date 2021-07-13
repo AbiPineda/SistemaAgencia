@@ -230,7 +230,6 @@ $(function() {
 })
 </script>
 
-
 <script>
 let id = localStorage.getItem('id_cliente');
 console.log(id);
@@ -238,7 +237,6 @@ console.log(id);
 
 
 <!-- jquery-validation -->
-
 
 <!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
 <script src="<?= $base_url ?>plugins/subir-foto/js/plugins/piexif.js" type="text/javascript"></script>

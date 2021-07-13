@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
 
     let id = localStorage.getItem('id_clienteA');
     let detallito = document.getElementById('detalle').innerHTML;
@@ -21,7 +21,7 @@ $(document).ready(function() {
     let fechaCompleta = ano + "-" + mes + "-" + dia;
     let horaCompleta = hora + ":" + minutos + ":" + segundos;
 
-    guardarBitacora();
+   // guardarBitacora();
 
     function guardarBitacora() {
 
@@ -71,6 +71,3 @@ $(document).ready(function() {
 
         })
     }
-
-
-});
