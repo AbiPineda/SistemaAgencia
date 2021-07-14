@@ -453,7 +453,7 @@ include_once '../../plantillas/cabecera.php';
                            <div class="form-group">
                               <label>Comisión</label>
                               <input name="comision" id="comisionActu" type="text" class="form-control decimales"
-                                 placeholder="Introduzca la comision" pattern="^[0-9]{1}[.]{1}[0-9]{2}"
+                                 placeholder="Introduzca la comision" pattern="^[0-9]{2}[.]{1}[0-9]{2}"
                                  autocomplete="off">
                            </div>
                         </div>

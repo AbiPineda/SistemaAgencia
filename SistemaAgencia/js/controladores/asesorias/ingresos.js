@@ -33,7 +33,9 @@ $(document).ready(function () {
                         $('#asoriasTotales').text(json.cuantos);
                         return json.ingresos;
                     } else {
+                         alert('No hay datos');
                         $('#loading').hide();
+
                         return json.ingresos;
                     }
                 }
