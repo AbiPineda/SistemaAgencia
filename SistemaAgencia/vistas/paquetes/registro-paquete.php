@@ -150,7 +150,7 @@
                                        <label>Contacto</label>
                                        <br>
                                        <a style="position:absolute; z-index:1;" href="#">
-                                          <div id="namePreviewTur">Nombre de Contacto
+                                          <div class="info_contacto" id="namePreviewTur">Nombre de Contacto
                                           </div>
                                           <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                                              <div class="ocultar card bg-light">
@@ -666,6 +666,8 @@
    <?php include_once '../sitios/registro_tipo.php' ?>
    <?php include_once '../contactos/modal-contacto.php' ?>
    <?php include_once '../../vistas/mapa/coordenadas.php' ?>
+   <?php include_once '../contactos/modal-verContacto.php'; ?>
+
 
 
 </div>
@@ -689,8 +691,5 @@
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
 <script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
-<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
-
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

@@ -230,6 +230,12 @@ $(document).on('click', '.btn-addRow', addRow);
 //BOTON DE ELIMINAR FILA
 $(document).on('click', '.btn-removeRow', removeRow);
 
+//CLICK EN EL LINK DEL CONTACTO
+$(document).on('click', '.info_contacto', function () {
+    // $('#modal_ver_contacto').modal('show');
+});
+
+
 function inicializarComboTuristico() {
     //COMBO DE TIPOS 
     $('#ComboTur').select2();

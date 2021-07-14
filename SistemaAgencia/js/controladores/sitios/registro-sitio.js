@@ -6,7 +6,7 @@ $(document).ready(function () {
     inicializarComboTipoSitios();
     inicializarValidacionesSitios();
     inicializarGaleriaSitios();
-   
+
     //BOTON ABRIR MODAL DE CONTACTO
     $(document).on('click', '#btn-nuevoContactoSitio', function (evento) {
         $('#modal-agregarContactoSitio').modal('show');
@@ -28,15 +28,11 @@ $(document).ready(function () {
     $(document).on('click', '#btnguardarSitio', function (evento) {
         evento.preventDefault();//para evitar que la pagina se recargue
         let form = $("#miFormularioSitio");
-        let coordenadas = $('#coordenadas').val();
+
         form.validate();
-        if (form.valid() && coordenadas) {
+        if (form.valid()) {
             guardarSitio();
         } else {
-            if (!coordenadas) {
-                errors = { coordenadas: "No ha seleccionada las coordenadas" };
-                $("#miFormularioSitio").validate().showErrors(errors);
-            }
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -121,7 +117,7 @@ $(document).ready(function () {
             // $('#loading').hide();
         });
     }
-    
+
     function inicializarValidacionesSitios() {
         $('#miFormularioSitio').validate({
             rules: {
@@ -129,9 +125,6 @@ $(document).ready(function () {
                     required: true,
                     minlength: 3,
                     maxlength: 40
-                },
-                coordenadas: {
-                    required: true,
                 },
                 descripcion: {
                     required: true,
@@ -148,10 +141,6 @@ $(document).ready(function () {
                     required: "Ingrese un nombre",
                     minlength: "Logitud del nombre debe ser mayor a 3",
                     maxlength: "Logitud del nombre no debe exceder a 40",
-                },
-                coordenadas: {
-                    required: "Debe de proporcionar las coordenadas",
-
                 },
                 descripcion: {
                     required: "La descripcion es necesaria",
@@ -178,7 +167,7 @@ $(document).ready(function () {
             }
         });
 
-         $('#formularioAgregarTipoSitio').validate({
+        $('#formularioAgregarTipoSitio').validate({
             rules: {
                 nombreTipo: {
                     required: true,
@@ -207,7 +196,7 @@ $(document).ready(function () {
         });
 
     }
-  
+
     function guardarSitio() {
         $('#loadingSitio').show();
         let form = getDAta();
@@ -252,8 +241,7 @@ $(document).ready(function () {
     }
     function getDAta() {
         let form = new FormData();
-        let myCoordnada = document.getElementById("coordenadas").value;
-        myCoordnada = myCoordnada.split(' ');
+
 
         //ESTO ES PARA L A GALERIA 
         let galeria = document.getElementById("fotosSitios").files;
@@ -262,8 +250,6 @@ $(document).ready(function () {
         }
         form.append("nombre_sitio", document.getElementById("nombreSitio").value);
         form.append("precio_sitio", document.getElementById("precioSitio").value);
-        form.append("longitud", myCoordnada[0]);
-        form.append("latitud", myCoordnada[1]);
         form.append("descripcion_sitio", document.getElementById("descripcionSitio").value);
         form.append("id_tipo_sitio", document.getElementById("ComboTipoSitio").value);
         form.append("informacion_contacto", document.getElementById("contacto_sitio").value);
@@ -272,9 +258,7 @@ $(document).ready(function () {
     }
     //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
     function actualizarComboSitio() {
-        console.log(typeof DATA_SITIO)
-
-        if (typeof DATA_SITIO !== 'undefined') {
+         if (typeof DATA_SITIO !== 'undefined') {
             console.log("actualizamos el combo sitio");
             inicializarComboTuristico();
         }

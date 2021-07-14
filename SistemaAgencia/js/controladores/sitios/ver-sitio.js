@@ -14,7 +14,7 @@ $(document).ready(function () {
         idSeleccionado = $(this).attr("name");
 
         $.ajax({
-            url: URL_SERVIDOR + "SitioTuristico/show?id_sitio_turistico=" + idSeleccionado,
+            url: `${URL_SERVIDOR}SitioTuristico/show?id_sitio_turistico=${idSeleccionado}&estado=1`,
             method: "GET"
         }).done(function (response) {
             let lista = response.sitios;
@@ -23,7 +23,6 @@ $(document).ready(function () {
                 //MANDALOS LOS VALORES AL MODAL
                 document.getElementById("nombre").value = lista[0].nombre_sitio;
                 document.getElementById("precio_sitio").value = lista[0].precio_sitio;
-                document.getElementById("coordenadas").value = lista[0].latitud + " " + lista[0].longitud;
                 document.getElementById("descripcion").value = lista[0].descripcion_sitio;
                 document.getElementById("ComboTipo").value = response.sitios[0].id_tipo_sitio;
                 $('#ComboTipo').trigger('change');
@@ -36,13 +35,6 @@ $(document).ready(function () {
             $('#modal-editar').modal('show');
             $('#loadingActualizar').hide();
         });;
-
-
-
-
-
-
-
     });
     //BOTON EDITAR LA FOTO
     $(document).on('click', '.btn-group .btn-warning', function () {
@@ -288,14 +280,14 @@ $(document).ready(function () {
     }
     function actualizar() {
         $('#loadingActualizar').show();
-        let myCoordnada = document.getElementById("coordenadas").value;
-        myCoordnada = myCoordnada.split(', ');
+        // let myCoordnada = document.getElementById("coordenadas").value;
+        // myCoordnada = myCoordnada.split(', ');
 
         let data = {
             "id_sitio_turistico": idSeleccionado,
             "nombre_sitio": document.getElementById("nombre").value,
-            "longitud": myCoordnada[1],
-            "latitud": myCoordnada[0],
+            // "longitud": myCoordnada[1],
+            // "latitud": myCoordnada[0],
             "descripcion": document.getElementById("descripcion").value,
             "tipo": document.getElementById("ComboTipo").value,
             "informacion_contacto": document.getElementById("contacto_servicio").value,

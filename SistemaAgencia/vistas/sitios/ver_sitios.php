@@ -91,7 +91,7 @@
                   </div>
                   <div class="modal-body">
                      <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <label>Nombre del sitio turístico</label>
                               <div class="input-group">
@@ -100,7 +100,7 @@
                               <!-- /.input group -->
                            </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <label>Precio</label>
                               <div class="input-group">
@@ -111,7 +111,10 @@
                            </div>
                         </div>
 
-                        <div class="col-sm-4">
+
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <label>Tipo</label>
                               <select name="ComboTipo" id="ComboTipo"
@@ -120,27 +123,7 @@
                               </select>
                            </div>
                         </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-sm-5">
-                           <!-- text input -->
-                           <div class="form-group">
-                              <label>Coordenadas</label>
-                              <div class="input-group">
-                                 <input disabled type="text" class="form-control" name="coordenadas" id="coordenadas">
-                              </div>
-                              <!-- /.input group -->
-                           </div>
-                        </div>
-                        <div class="col-sm-1">
-                           <br>
-                           <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                                 style="margin-top: 10px; width: 100%;" id="btn-mapa">
-                                 <i class="fas fa-globe" style="color: white"></i>
-                              </button>
-                           </span>
-                        </div>
+
                         <div class="col-sm-6">
                            <div class="form-group multiple-form-group input-group">
                               <label>Contacto</label>
@@ -238,56 +221,7 @@
       <!-- /.modal-dialog -->
    </div>
 
-   <!-- MODAL DEL CONTACTO -->
-   <div class="modal fade" id="modal_ver_contacto">
-      <!-- Modal EDITAR-->
-      <div class="modal-dialog modal-lg">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h4 class="modal-title">Información de Contacto</h4>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-
-               <div class="row">
-                  <div class="col-6">
-                     <p class="text-muted text-sm">
-                        <b>Nombre de Contacto</b>
-                        <span id="spanNombre">span nombre</span>
-                     </p>
-                     <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small">
-                           <span class="fa-li">
-                              <i class="fas fa-lg fa-mail-bulk"> </i>
-                           </span>
-                           <span id="spanCorreo">correo</span>
-                        </li>
-
-                        <li class="small">
-                           <span class="fa-li">
-                              <i class="fas fa-lg fa-phone"></i>
-                           </span>
-                           Teléfono #:
-                           <span id="spanTelefono">telefono</span>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="col-5 text-center">
-                     <img id="imgContacto" src="" alt="" class="img-fluid">
-                  </div>
-               </div>
-
-            </div>
-
-         </div>
-         <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-   </div>
-
-
+   <?php include_once '../contactos/modal-verContacto.php'; ?>
 
 
 </div>
@@ -304,9 +238,6 @@
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTY5pSkcpRB1CB58Y_3ob9gF52E4s97E">
-</script>
 <script src="<?= $base_url ?>js/controladores/sitios/ver-sitio.js"></script>
-<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
 <!-- CIERRE DE ETIQUETAS  -->
 <?php include_once '../../plantillas/cierre.php'; ?>

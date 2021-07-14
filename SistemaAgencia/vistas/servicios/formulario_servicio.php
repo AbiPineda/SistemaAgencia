@@ -28,6 +28,18 @@
                            <!-- /.input group -->
                         </div>
                      </div>
+                     <div class="col-sm-6">
+                        <div class="form-group">
+                           <label>Costo</label>
+                           <div class="input-group">
+                              <input placeholder="Digite el Costo" id="costos_defectoServicio"
+                                 name="costos_defectoServicio" type="number" class="form-control">
+                           </div>
+                           <!-- /.input group -->
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
 
                      <div class="col-sm-5">
                         <div class="form-group">
@@ -45,18 +57,9 @@
                               name="btn-nuevoTipoServicio" style="margin-top: 7px; width: 100%;">+</button>
                         </span>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-6">
-                        <div class="form-group">
-                           <label>Costo</label>
-                           <div class="input-group">
-                              <input placeholder="Digite el Costo" id="costos_defectoServicio"
-                                 name="costos_defectoServicio" type="number" class="form-control">
-                           </div>
-                           <!-- /.input group -->
-                        </div>
-                     </div>
+
+
+
                      <div class="col-sm-5">
                         <div class="form-group multiple-form-group input-group">
                            <label>Contacto</label>

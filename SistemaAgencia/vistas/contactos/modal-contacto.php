@@ -33,7 +33,7 @@
                               <!-- /.input group -->
                            </div>
                         </div>
-                        <div class="col-sm-12">Digite Teléfono
+                        <div class="col-sm-12">
                            <div class="form-group">
                               <label>Correo Electronico</label>
                               <div class="input-group">

@@ -17,7 +17,7 @@
                </div>
                <div class="modal-body">
                   <div class="row">
-                     <div class="col-sm-5">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <label>Nombre del sitio turístico</label>
                            <div class="input-group">
@@ -27,7 +27,7 @@
                            <!-- /.input group -->
                         </div>
                      </div>
-                     <div class="col-sm-1">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <label>Precio</label>
                            <div class="input-group">
@@ -37,7 +37,8 @@
                            <!-- /.input group -->
                         </div>
                      </div>
-
+                  </div>
+                  <div class="row">
                      <div class="col-sm-5">
                         <div class="form-group">
                            <label>Tipo</label>
@@ -52,28 +53,6 @@
                         <span class="input-group-btn">
                            <button type="button" class="btn btn-success btn-add" id="btn-nuevoTipoSitio"
                               name="btn-nuevoTipoSitio" style="margin-top: 10px; width: 100%;">+</button>
-                        </span>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-5">
-                        <!-- text input -->
-                        <div class="form-group">
-                           <label>Coordenadas</label>
-                           <div class="input-group">
-                              <input disabled type="text" class="form-control" name="coordenadas"
-                                 placeholder="Seleccione las coordenadas" id="coordenadas">
-                           </div>
-                           <!-- /.input group -->
-                        </div>
-                     </div>
-                     <div class="col-sm-1">
-                        <br>
-                        <span class="input-group-btn">
-                           <button type="button" class="btn btn-success btn-add" name="btn-mapa"
-                              style="margin-top: 10px; width: 100%;" id="btn-mapa">
-                              <i class="fas fa-globe" style="color: white"></i>
-                           </button>
                         </span>
                      </div>
                      <div class="col-sm-5">

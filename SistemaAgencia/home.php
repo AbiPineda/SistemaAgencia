@@ -1,10 +1,12 @@
  <?php
-include_once './config/parametros.php';
-include_once './vistas/session/isRentaCard.php';
-include_once './plantillas/cabecera.php';
-include_once  './plantillas/navbar.php';
-include_once './plantillas/barra_lateral.php';
-?>
+   include_once './config/parametros.php';
+   // include_once './vistas/session/isAdmin.php'; -> TENDRA ACCESO EL ADMINISTRADOR
+   // include_once './vistas/session/isEmpleado.php'; -> TENDRA ACCESO EL ADMINISTRADOR, EMPLEADO
+   // include_once './vistas/session/isRentaCard.php'; -> TENDRA ACCESO EL ADMINISTRADOR, EMPLEADO, RENT CARD
+   include_once './plantillas/cabecera.php';
+   include_once  './plantillas/navbar.php';
+   include_once './plantillas/barra_lateral.php';
+   ?>
  <!-- Content Wrapper. Contains page content -->
  <div id="contenido_principal">
     <div class="content-wrapper" style="min-height: 100;">
@@ -22,5 +24,5 @@ include_once './plantillas/barra_lateral.php';
     <!-- /.content-wrapper -->
  </div>
  <?php
-include_once './plantillas/footer.php';
-?>
+   include_once './plantillas/footer.php';
+   ?>
