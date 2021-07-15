@@ -158,7 +158,6 @@ include_once '../../plantillas/barra_lateral.php';
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button name="btnActualizar" id="btnActualizar" class="btn btn-info btn-sm"
                             style="color: white">Actualizar</button>
                     </div>
