@@ -150,7 +150,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                             </div>
                             <div class="col-sm-2" style="top: 32px; left: 12px;">
-                                
+
                                 <button type="button" name="" class="btn btn-success" id="add"><i class=""
                                         style="color: white"></i>+</button>
                                 <!-- /.input group -->
@@ -190,9 +190,11 @@ include_once '../../plantillas/barra_lateral.php';
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm"
                         style="color: white">Agregar</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="color: white"
+                        data-dismiss="modal">Cerrar</button>
+
                 </div>
 
             </div>
