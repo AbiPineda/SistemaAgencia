@@ -53,6 +53,7 @@ include_once  '../../plantillas/navbar.php';?>
             <div class="container-fluid">
                 <!-- ./row -->
                 <div class="row">
+
                     <div class="col-sm-12">
                         <div class="card card-primary card-tabs">
                             <div class="card-header p-0 pt-1">
@@ -60,62 +61,85 @@ include_once  '../../plantillas/navbar.php';?>
                                 </ul>
                             </div>
                             <div class="card-body">
-                                <div class="tab-content" id="custom-tabs-four-tabContent">
-                                    <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
-                                        aria-labelledby="custom-tabs-four-home-tab">
+                                <form id="migratorio-form" name="register-form" onsubmit="return false"
+                                    class="form-inline" role="form">
                                         <div class="col-sm-12">
-                                            <form id="migratorio-form" name="register-form" onsubmit="return false"
-                                                class="form-inline" role="form">
-                                                <div class="col-sm-12">
-                                                    <!-- text input -->
-                                                    <div class="form-group ">
-                                                        <div class="input-group">
-                                                            <select name="id_cita" id="citas_dias" class="form-control"
-                                                                required="true">
-                                                            </select>
-                                                            <div class="col-sm-12">
-                                                                <!-- text input -->
-                                                                <div class="form-group ">
-                                                                    <div class="input-group">
-                                                                        <div class="tab-content"
-                                                                            id="custom-tabs-one-tabContent">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="col-sm-12">
-                                                <!-- text input -->
-                                                <div class="form-group ">
+                                            <!-- text input -->
+                                            <div class="form-group ">
+                                                <div class="input-group">
+                                                    <select name="id_cita" id="citas_dias" class="form-control"
+                                                        required="true">
+                                                    </select>
+                                        
+                                    
+                                    <div class="tab-content" id="custom-tabs-one-tabContent">
+                                        <!--<div class="form-group" id="1"> 
+                                         <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
+                                         <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
+                                         <input type="hidden" class="form-control" placeholder="esta es una respuesa" id="mail" placeholder="esta es otra ´reg">
+                                         <input type="email" class="form-control" id="mail" placeholder="esta es una preguntas" style="width: 400px; margin-top: 20px">&nbsp&nbsp
+                            <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="Digite el nombre" style="width: 368px; margin-top: 20px">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>
+                             </span>
+                             </div>&nbsp&nbsp
+                             <div class="form-group multiple-form-group input-group">
+                              <input type="text" name="asistiran[]" id="asistiran" class="form-control" placeholder="Digite el nombre" style="width: 368px; margin-top: 20px">
+                              <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-add1" id="btn-asistiran" style="margin-top:19px;">+</button>
+                             </span>
+                             </div>&nbsp&nbsp
+                                          
+                                         </div>
 
-                                                    <div class="timeline-footer" style="text-align: right;">
-                                                        <button type="button" id="btnFormulario"
-                                                            class="btn btn-info btn-sm"
-                                                            style=" margin-top: 10px; color: white">Guardar</button>
-                                                        <button type="button" class="btn btn-danger btn-sm"
-                                                            style="margin-top: 10px; color: white"
-                                                            data-dismiss="modal">Cancelar</button>
+                                         <div class="form-group">
+                                            <input type="hidden" class="form-control" id="mail">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
+                                                <option>¿Esta casado por que quiere o lo obligaron?</option>
+                                                <option>si</option>
+                                                <option>No</option>
+                                                
+                                            </select>&nbsp&nbsp
+                                            <input type="hidden" class="form-control" id="mail">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
+                                                <option>¿Esta casado?</option>
+                                                
+                                            </select>&nbsp&nbsp
+                                            <input type="hidden" class="form-control" id="mail">
+                                            <select class="form-control" style="width: 400px;margin-top: 20px">
+                                                <option>¿Esta casado?</option>
+                                                
+                                            </select>&nbsp&nbsp
+                                             
+                                         </div>
+                                           
+                                        </div>-->
 
-                                                        <button type="button" style="margin-top: 10px;" name=""
-                                                            id="btnRepote" class="btn btn-secondary" data-toggle="modal"
-                                                            data-target="#reporte_migratorio">
-                                                            <i class="fas fa-eye" style="color: white"></i>
-                                                        </button>
 
-                                                    </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <!--fin de una pestaña-->
+
+                                </form>
+                                <div class="timeline-footer" style="text-align: right;">
+                                    <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
+                                        style=" margin-top: 10px; color: white">Guardar</button>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
+
+                                    <button type="button" style="margin-top: 10px;" name="" id="btnRepote"
+                                        class="btn btn-secondary" data-toggle="modal" data-target="#reporte_migratorio">
+                                        <i class="fas fa-eye" style="color: white"></i>
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /.card -->
                 </div>
+            </div>
         </section>
     </div>
 </div>

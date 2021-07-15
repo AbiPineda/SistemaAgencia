@@ -23,14 +23,14 @@
                  '<div class="row">' +
 
 
-                 '<div class="col-lg-6">' +
+                 '<div class="col-sm-12">' +
 
                  '<div class="form-group">' +
                  '<label for="cars">Digite la Pregunta</label>' +
                  '<input id="input_abierta" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control">' +
                  '<input id="rama" name="id_rama" type="hidden">' +
                  '<input  value="abierta" name="opcion" type="hidden">' +
-                 '</div></div><div class="col-lg-6">' +
+                 '</div></div><div class="col-sm-12">' +
 
                  '<div class="form-group">' +
                  '<label for="cars">Más de una Respuesta</label>' +
@@ -60,7 +60,7 @@
                  '<div class="timeline-body" style="margin-top: -9px;">' +
                  '<form id="register-form" name="register-form" onsubmit="return false">' +
                  '<div class="row">' +
-                 '<div class="col-lg-6">' +
+                 '<div class="col-sm-6">' +
                  '<div class="form-group"><label for="cars">Digite la Pregunta</label>' +
                  '<input id="input_cerrada" name="pregunta" autocomplete="off" placeholder="Digite la pregunta" type="text" class="form-control" style="width:100%;">' +
                  '<input id="rama" name="id_rama" type="hidden">' +
