@@ -297,7 +297,7 @@ include_once '../../plantillas/cabecera.php';
                               <div class="col-sm-12">
                                  <div class="form-group" id="desborde">
                                     <p>
-                                       <!-- <pre> --><label name="condiciones" id="condiciones"></label>
+                                      <label name="condiciones" id="condiciones"></label>
                                     </p>
                                  </div>
                               </div>

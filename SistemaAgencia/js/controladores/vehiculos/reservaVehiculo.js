@@ -34,7 +34,9 @@ $(document).ready(function() {
             { data: "botones" },
             { data: "id_servicio" },
             { data: "contador" },
+
         ]
+        
     });
 
     $(document).on('click', '#agregarTabla', function(evento) {

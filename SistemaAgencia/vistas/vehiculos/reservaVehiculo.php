@@ -246,6 +246,5 @@ include_once '../../plantillas/footer.php';
 <script src="<?= $base_url ?>js/controladores/vehiculos/comboServicio.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
 <script src="<?= $base_url ?>js/controladores/vehiculos/reservaVehiculo.js"></script>
-<script src="<?= $base_url?>js/controladores/vehiculos/insertarReserva.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>
