@@ -149,7 +149,7 @@ include_once '../../plantillas/barra_lateral.php';
                                 </div>
 
                             </div>
-                            <div class="col-sm-2" style="top: 32px;">
+                            <div class="col-sm-2" style="top: 32px; left: 12px;">
                                 
                                 <button type="button" name="" class="btn btn-success" id="add"><i class=""
                                         style="color: white"></i>+</button>
@@ -176,8 +176,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Opciones de respuestas</label>
                                 <div class="input-group">
@@ -193,7 +192,7 @@ include_once '../../plantillas/barra_lateral.php';
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm"
-                        style="color: white">agregar</button>
+                        style="color: white">Agregar</button>
                 </div>
 
             </div>
