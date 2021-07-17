@@ -493,8 +493,10 @@ include_once '../../plantillas/footer.php';
    //para la mascara del celular
    $(":input").inputmask();
    $("#telefono_des").inputmask({
-      "mask": "(999) 9999-9999"
+      "mask": "(+999) 9999-9999"
    });
+  
+
    </script>
 
    <!--alerta del sistema-->

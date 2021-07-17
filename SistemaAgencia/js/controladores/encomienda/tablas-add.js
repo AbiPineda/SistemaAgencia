@@ -295,8 +295,8 @@ $(document).ready(function () {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 location.reload();
-                $("#encomienda-form").trigger("reset");
-                resetMiTable();
+               // $("#encomienda-form").trigger("reset");
+               // resetMiTable();
                 
             });
 
