@@ -162,8 +162,9 @@ a.text-success:hover {
 <!-- ./wrapper -->
 <?php include_once '../../plantillas/footer.php'; ?>
 <!-- PONER SCRIPT ADICIONALES ACA -->
+<script src="../../plugins/moment/locale/es.js"></script>
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/turs/locales.min.js"></script>
 <script src="<?= $base_url ?>js/controladores/turs/itinerario.js"></script>
+
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>

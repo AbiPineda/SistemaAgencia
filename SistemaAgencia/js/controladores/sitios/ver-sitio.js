@@ -67,7 +67,7 @@ $(document).ready(function () {
                 uploadExtraData: informacionAdicional,
                 overwriteInitial: false,
                 initialPreviewAsData: true,
-                initialPreviewFileType : 'pdf',
+                // initialPreviewFileType : 'pdf',
                 allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
                 initialPreview: urlFotos,
                 initialPreviewConfig: infoFotos,
@@ -82,7 +82,7 @@ $(document).ready(function () {
     $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idSeleccionado = $(this).attr("name");
 
-        const Toast = Swal.mixin();
+
         Swal.fire({
             title: '¿Estas seguro?',
             text: "Se Eliminará este registro!",
@@ -340,14 +340,13 @@ $(document).ready(function () {
             data: data
         }).done(function (response) {
             //REST_Controller::HTTP_OK
+            tabla.ajax.reload(null, false);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
                 text: response.mensaje,
                 showConfirmButton: true,
-            }).then((result) => {
-                tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
 

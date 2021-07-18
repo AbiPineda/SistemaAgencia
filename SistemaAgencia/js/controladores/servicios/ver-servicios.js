@@ -30,8 +30,14 @@ $(document).ready(function () {
         $('#asientos_derecho').val(data.asiento_derecho);
         $('#asientos_izquierdo').val(data.asiento_izquierdo);
 
+        // para desactivar el combo cuando es tipo tranporte
+        if (data.id_tipo_servicio == 2) {
+            $("#tipo_servicio").prop("disabled", true);
+        } else {
+            $("#tipo_servicio").prop("disabled", false);
+        }
+
         if (data.filas) {
-            console.log(data);
             $('#configuracionAsientos').show();
             $('#dibujoAsientos').show();
             //LA VARIABLE MAPA Y METODOS ESTAN DEFINIDOS EN asiento-bus/js/admin-configuracion.js
@@ -103,7 +109,6 @@ $(document).ready(function () {
         idSerevicio = $(this).attr("name");
         fila = $(this).closest("tr");
 
-        const Toast = Swal.mixin();
         Swal.fire({
             title: '¿Estas seguro?',
             text: "Se Eliminará este registro!",
@@ -162,6 +167,35 @@ $(document).ready(function () {
         let tr = $('#cabeceraTabla');
         var th = tr.find('th');
         console.log(th);
+
+    });
+
+    //CUANDO HAY CAMBIOS EN EL COMBO TIPO DE SERVICIO 
+    $('#tipo_servicio').on('select2:select', function (e) {
+        let id = e.params.data.id;
+        // si el id es 2 (TRANSPORTE) MOSTTRAREMOS LA OPCION PARA AGREGARLO
+        if (id == 2) {
+            $('#configuracionAsientos').show();
+            $('#dibujoAsientos').show();
+            //LA VARIABLE MAPA Y METODOS ESTAN DEFINIDOS EN asiento-bus/js/admin-configuracion.js
+            numero_filas = 2;
+            asientos_derecho = 2;
+            asientos_izquierdo = 2;
+
+            $('#numero_filas').val(numero_filas);
+            $('#asientos_derecho').val(asientos_derecho);
+            $('#asientos_izquierdo').val(asientos_izquierdo);
+            $('#checkTrasero').prop('checked', false);
+
+            miMapa = [];
+            borrarTodo();
+            crearStrFila();
+            crearFilas();
+            dibujarAsientos();
+        } else {
+            $('#configuracionAsientos').hide();
+            $('#dibujoAsientos').hide();
+        }
 
     });
     function inicializarTabla() {
@@ -450,13 +484,12 @@ $(document).ready(function () {
         }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
+            tabla.ajax.reload(null, false);
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
                 text: response.mensaje,
                 showConfirmButton: true,
-            }).then((result) => {
-                tabla.ajax.reload(null, false);
             });
         }).fail(function (response) {
 

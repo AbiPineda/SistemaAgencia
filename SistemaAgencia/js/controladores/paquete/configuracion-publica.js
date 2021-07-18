@@ -15,20 +15,20 @@ inicializarComboServicio();
 inicializarGaleria();
 
 let tabla = $('#TablaCostos').DataTable({
-    "responsive": true,
-    "paging": true,
-    "lengthChange": false,
-    "searching": false,
-    "ordering": true,
-    "info": true,
-    "autoWidth": false,
-    "pageLength": 3,
+    responsive: true,
+    paging: true,
+    lengthChange: false,
+    searching: false,
+    ordering: true,
+    info: true,
+    autoWidth: false,
+    pageLength: 3,
 
-    "columnDefs": [
-        { "className": "dt-center", "targets": "_all" },
-        { "targets": [6], "visible": false },
-        { "targets": [7], "visible": false },
-        { "targets": [8], "visible": false },
+    columnDefs: [
+        { className: "dt-center", targets: "_all" },
+        { targets: [6], visible: false },
+        { targets: [7], visible: false },
+        { targets: [8], visible: false },
     ]
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TUR
