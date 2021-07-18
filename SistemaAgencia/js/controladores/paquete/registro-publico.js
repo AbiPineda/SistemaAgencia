@@ -39,6 +39,7 @@ function inicializarCalendario() {
 function guardar() {
    $('#loading').show();
    let form = obtenerData();
+   return;
 
    //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
    $.ajax({
@@ -140,16 +141,27 @@ function obtenerData() {
          });
       }
    });
+   let tipoPaquete = $("input[name='radioTipoPaquete']:checked").val();
 
    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
-   let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
-   let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
-   let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
+   // ELIMINAMOS CAMBOS VACIOS
+   salida = salida.filter(value => value != '');
 
+   let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
+   // ELIMINAMOS CAMBOS VACIOS
+   incluye = incluye.filter(value => value != '');   
+
+   let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
+   // ELIMINAMOS CAMBOS VACIOS
+   no_incluye = no_incluye.filter(value => value != '');  
+
+   let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
+   // ELIMINAMOS CAMBOS VACIOS
+   requisitos = requisitos.filter(value => value != '');      
+   
    let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
    let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
    let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
-   let tipoPaquete =  $("input[name='radioTipoPaquete']:checked").val();
 
    for (let index = 0; index < titulos.length; index++) {
       if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
@@ -173,7 +185,7 @@ function obtenerData() {
    form.append("precio", document.getElementById("CostoPasaje").value);
    form.append("descripcion_tur", document.getElementById("descripcion_tur").value);
    form.append("cupos_disponibles", cantidadByTransporte);
-   form.append("tipo",tipoPaquete);
+   form.append("tipo", tipoPaquete);
    form.append("start", start);
    form.append("end", end);
    form.append("estado", 1);
