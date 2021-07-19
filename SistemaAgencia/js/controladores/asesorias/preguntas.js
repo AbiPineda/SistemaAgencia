@@ -15,7 +15,7 @@ $(document).ready(function() {
                 if (data.preguntas[i].opcion == 'cerrada') {
                     var $select = $('#' + data.preguntas[i].num_rama);
                     $select.append('<input type="hidden" name="id_pregunta[' + contador + ']" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
-                        '<select class="form-control respuesta" name="respuesta[' + contador + ']" id="combo' + data.preguntas[i].id_pregunta + '" style="width:520px;margin-top: 20px;">' +
+                        '<select class="form-control respuesta" name="respuesta[' + contador + ']" id="combo' + data.preguntas[i].id_pregunta + '" style="width:590px;margin-top: 20px;">' +
                         '<option value="">¿' + data.preguntas[i].pregunta + '?</option>' +
                         '</select>&nbsp&nbsp');
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
                             '<option selected>' + data.preguntas[i].id_pregunta + '</option>' +
                             '</select>' +
                             '<div class="form-group multiple-form-group input-group">' +
-                            '<input type="text" name="respuesta_mas' + cont + '[]" value="" id="asistiran" class="form-control" placeholder="¿' + data.preguntas[i].pregunta + '?" style="width: 490px; margin-top: 20px">' +
+                            '<input type="text" name="respuesta_mas' + cont + '[]" value="" id="asistiran" class="form-control" placeholder="¿' + data.preguntas[i].pregunta + '?" style="width: 550px; margin-top: 20px">' +
                             '<span class="input-group-btn">' +
                             '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>' +
                             '</span>' +
@@ -56,7 +56,7 @@ $(document).ready(function() {
                         var $select = $('#' + data.preguntas[i].num_rama);
                         $select.append('<input type="hidden" name="id_pregunta1[]" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
                             '<input type="text" name="respuesta1[]" value="" class="form-control"' +
-                            'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:520px; margin-top: 20px">&nbsp&nbsp');
+                            'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:590px; margin-top: 20px">&nbsp&nbsp');
                     }
                 }
 
