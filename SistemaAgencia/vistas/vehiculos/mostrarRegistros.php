@@ -61,7 +61,7 @@
                      <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
                         data-target="#modal-modelo">Nuevo Modelo</a>
                      <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
-                        data-target="#modal-categoria">Nueva Categoria</a>
+                        data-target="#modal-categoria">Nueva Categoría</a>
                      <a class="btn btn-info btn-sm" style="color: white" data-toggle="modal"
                         data-target="#modal-transmision">Nueva Transmisión</a>
 
@@ -76,7 +76,7 @@
                               <thead style="text-align: center;">
                                  <tr>
                                     <th>Imagen</th>
-                                    <th>Categoria</th>
+                                    <th>Categoría</th>
                                     <th>Marca</th>
                                     <th>Modelo</th>
                                     <th>Placa</th>
@@ -140,7 +140,7 @@
                   <div class="row">
                      <div class="col-sm-3">
                         <div class="form-group">
-                           <label>Categoria</label>
+                           <label>Categoría</label>
                            <div class="input-group">
                               <input id="nombre" name="nombre" type="text" class="form-control" disabled>
                            </div>
@@ -169,7 +169,7 @@
                      </div>
                      <div class="col-sm-3">
                         <div class="form-group">
-                           <label>Numero de Placa</label>
+                           <label>Número de Placa</label>
                            <div class="input-group">
                               <input id="placa" name="placa" type="text" class="form-control" disabled>
                            </div>
@@ -198,7 +198,7 @@
                      </div>
                      <div class="col-sm-3">
                         <div class="form-group">
-                           <label>Transmision</label>
+                           <label>Transmisión</label>
                            <div class="input-group">
                               <input id="trans" name="trans" type="text" class="form-control" disabled>
                            </div>
@@ -289,7 +289,7 @@
       <div class="modal-dialog modal-xl">
          <div class="modal-content">
             <div class="modal-header">
-               <h4 class="modal-title">Editar Imagenes</h4>
+               <h4 class="modal-title">Editar Imágenes</h4>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>

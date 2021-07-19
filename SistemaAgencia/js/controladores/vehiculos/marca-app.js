@@ -1,6 +1,8 @@
 $("#btnAgregar").on('click', function(e) {
 
-       e.preventDefault();
+    e.preventDefault();
+    $('#loadingActualizar').show();
+
     $.ajax({
         url: URL_SERVIDOR + "marcaVehiculo/marca",
         method: 'POST',

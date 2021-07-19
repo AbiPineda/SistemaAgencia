@@ -3,6 +3,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                <h4 class="modal-title">Registrar Modelo de Vehículo</h4>
+
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -28,7 +30,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Modelo</label>
                                             <input type="text" class="form-control" name="modeloCarro" id="modeloCarro"
-                                                placeholder="Digite nombre de modelo">
+                                                placeholder="Digite nombre de modelo" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>

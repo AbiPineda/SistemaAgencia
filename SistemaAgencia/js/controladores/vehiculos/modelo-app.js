@@ -8,6 +8,7 @@ $(document).ready(function() {
             "modelo": document.getElementById("modeloCarro").value,
             "id_marca": document.getElementById("id_marca").value
         }
+        $('#loadingActualizar').show();
 
         $.ajax({
             url: URL_SERVIDOR + "modeloVehiculo/modelo",

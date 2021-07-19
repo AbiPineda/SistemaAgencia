@@ -2,6 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Registrar Marca de Vehículo</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -21,7 +22,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Marca</label>
                                             <input type="text" name="marca" class="form-control"
-                                                placeholder="Digite nombre de marca">
+                                                placeholder="Digite nombre de marca" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>

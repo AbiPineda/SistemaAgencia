@@ -2,6 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Registrar Servicio Adicional</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -22,7 +23,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Servicio</label>
                                             <input type="text" name="nombre_servicio" id="nombre_servicio"
-                                                class="form-control" placeholder="Digite nombre de servicio">
+                                                class="form-control" placeholder="Digite nombre de servicio" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -30,7 +31,7 @@
                                         <div class="form-group">
                                             <label>Precio</label>
                                             <input type="number" min="1" name="precio" id="precio" class="form-control"
-                                                placeholder="Digite precio">
+                                                placeholder="Digite precio" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -38,7 +39,7 @@
                                         <div class="form-group">
                                             <label>Descripción</label>
                                             <textarea class="form-control" rows="3" name="descripcion" id="descripcion"
-                                                placeholder="Describir.."></textarea>
+                                                placeholder="Describir.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
 
