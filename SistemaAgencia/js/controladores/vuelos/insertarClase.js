@@ -17,6 +17,8 @@ $(document).ready(function() {
         }).done(function(response) {
 
             $("#modal-tipoClase").modal('toggle');
+            document.getElementById("register-clase").reset();
+
             //inicio actualizar combo
             $('#idclase').empty();
             let DATA_CLASE;
@@ -57,7 +59,7 @@ $(document).ready(function() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-
+                location.reload();
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

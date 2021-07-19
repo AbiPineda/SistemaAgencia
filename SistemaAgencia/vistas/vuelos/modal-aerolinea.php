@@ -2,7 +2,7 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h4 class="modal-title">FALTAN TITULOS</h4>
+            <h4 class="modal-title">Registrar Aerolinea</h4>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -28,20 +28,20 @@
                                  </div>
                               </div>
                               <div class="form-group">
-                                 <label>Nombre de Aerolinea</label>
+                                 <label>Nombre de Aerolínea</label>
                                  <input type="text" class="form-control" name="nombreAerolinea" id="nombreAerolinea"
-                                    placeholder="Digite nombre de aerolinea">
+                                    placeholder="Digite nombre de aerolinea" autocomplete="off">
                               </div>
                               <div class="form-group">
                                  <label>URL de Sitio Web</label>
                                  <input type="text" class="form-control" name="sitioW" id="sitioW"
-                                    placeholder="Digite nombre de sitio Web">
+                                    placeholder="Digite nombre de sitio Web" autocomplete="off">
                               </div>
 
                               <div class="form-group">
-                                 <label>Telefono de Contacto</label>
+                                 <label>Teléfono de Contacto</label>
                                  <input type="text" class="form-control" name="tel" id="tel"
-                                    placeholder="(+234) 2423-4234">
+                                    placeholder="(+503) 2423-4234" autocomplete="off">
                               </div>
                            </div>
                         </div>

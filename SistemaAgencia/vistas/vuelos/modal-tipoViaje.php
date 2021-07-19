@@ -2,6 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Registrar Tipo de Viaje</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -22,7 +23,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Tipo de Viaje</label>
                                             <input type="text" name="nombre_tipoviajes" id="nombre_tipoviajes"
-                                                class="form-control" placeholder="Digite nombre de tipo de viaje">
+                                                class="form-control" placeholder="Digite nombre de tipo de viaje" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -31,7 +32,7 @@
                                         <div class="form-group">
                                             <label>Descripción</label>
                                             <textarea class="form-control" rows="3" name="descripcion_tipoViaje" id="descripcion_tipoViaje"
-                                                placeholder="Describir.."></textarea>
+                                                placeholder="Describir.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
                                 </div>

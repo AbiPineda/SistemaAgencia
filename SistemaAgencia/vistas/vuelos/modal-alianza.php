@@ -2,6 +2,7 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
+         <h4 class="modal-title">Registrar Alianza</h4>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -22,19 +23,19 @@
                               <div class="form-group">
                                  <label>Nombre de Alianza</label>
                                  <input type="text" class="form-control" name="nombreAlianza" id="nombreAlianza"
-                                    placeholder="Digite nombre de alianza">
+                                    placeholder="Digite nombre de alianza" autocomplete="off">
                               </div>
                               <div class="form-group">
                                  <label>URL de Sitio Web</label>
                                  <input type="text" class="form-control" name="sitio" id="sitio"
-                                    placeholder="Digite nombre de sitio Web">
+                                    placeholder="Digite nombre de sitio Web" autocomplete="off">
                               </div>
 
                               <div class="form-group">
-                                 <label>Telefono de Contacto</label>
+                                 <label>Teléfono de Contacto</label>
                                  <div class="input-group">
-                                    <input placeholder="(+234) 2423-4234" type="text" class="form-control" id="telef"
-                                       name="telef">
+                                    <input placeholder="(+503) 2423-4234" type="text" class="form-control" id="telef"
+                                       name="telef" autocomplete="off">
                                  </div>
                               </div>
                            </div>

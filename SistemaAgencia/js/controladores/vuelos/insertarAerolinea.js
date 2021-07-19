@@ -1,7 +1,7 @@
 inicializarMascara();
 
 //FUNCION CLICK
-$("#btnAerolinea").on('click', function (e) {
+$("#btnAerolinea").on('click', function(e) {
 
 
     e.preventDefault();
@@ -17,9 +17,10 @@ $("#btnAerolinea").on('click', function (e) {
         method: 'POST',
         data: myData
 
-    }).done(function (response) {
+    }).done(function(response) {
 
         $("#modal-aerolinea").modal('toggle');
+        document.getElementById("register-aerolinea").reset();
 
         //inicio recargar combo
         $('#idaerolinea').empty();
@@ -28,7 +29,7 @@ $("#btnAerolinea").on('click', function (e) {
             type: "GET",
             url: URL_SERVIDOR + "aerolinea/aerolinea",
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 let myData = [];
                 DATA_AEROLINEA = data.aerolineas;
                 for (let index = 0; index < DATA_AEROLINEA.length; index++) {
@@ -39,7 +40,7 @@ $("#btnAerolinea").on('click', function (e) {
                 }
                 $('#idaerolinea').select2({ data: myData });
             },
-            error: function (err) {
+            error: function(err) {
                 //si da un error ya que quede la alerta
                 const Toast = Swal.mixin();
                 Toast.fire({
@@ -60,8 +61,9 @@ $("#btnAerolinea").on('click', function (e) {
             showConfirmButton: true,
         }).then((result) => {
 
+            location.reload();
         });
-    }).fail(function (response) {
+    }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         let respuestaDecodificada = JSON.parse(response.responseText);
         let listaErrores = "";

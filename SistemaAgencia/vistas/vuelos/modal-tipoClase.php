@@ -2,6 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title">Registrar Tipo de Clase</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -22,7 +23,7 @@
                                         <div class="form-group">
                                             <label>Nombre de Tipo de Clase</label>
                                             <input type="text" name="nombre_clases" id="nombre_clases"
-                                                class="form-control" placeholder="Digite nombre de clase">
+                                                class="form-control" placeholder="Digite nombre de clase" autocomplete="off">
                                         </div>
                                     </div>
 
@@ -31,7 +32,7 @@
                                         <div class="form-group">
                                             <label>Descripción</label>
                                             <textarea class="form-control" rows="3" name="descripcion_clases" id="descripcion_clases"
-                                                placeholder="Describir.."></textarea>
+                                                placeholder="Describir.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
                                 </div>

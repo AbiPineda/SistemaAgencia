@@ -10,12 +10,12 @@ $(document).ready(function() {
     //BOTON MOSTRAR
     $(document).on('click', '.btn-group .btn-primary', function() {
 
-        //$('#loadingActualizar').hide();
+        $('#loadingActualizar').hide();
 
         idAerolineas = $(this).attr("name");
-        $('#loadingActualizar').show();
+        // $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR+"aerolinea/aerolinea?idaerolinea=" + idAerolineas,
+            url: URL_SERVIDOR + "aerolinea/aerolinea?idaerolinea=" + idAerolineas,
             method: "GET"
         }).done(function(response) {
             //MANDALOS LOS VALORES AL MODAL

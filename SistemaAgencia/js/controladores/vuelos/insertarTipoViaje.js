@@ -17,7 +17,8 @@ $(document).ready(function() {
         }).done(function(response) {
 
             $("#modal-tipoViaje").modal('toggle');
-            //inicio actualizar combo sin recargar
+            document.getElementById("register-viaje").reset();
+
             $('#idtipo_viaje').empty();
             let DATA_VIAJE;
 
@@ -60,7 +61,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                // location.reload();
+                location.reload();
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
