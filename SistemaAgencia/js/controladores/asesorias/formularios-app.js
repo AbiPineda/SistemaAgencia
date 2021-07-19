@@ -31,7 +31,6 @@ $(document).ready(function() {
                                                     '<thead>'+
                                                            '<tr>'+
                                                             '<th class="textcenter">Pregunta</th>'+
-                                                            '<th class="textcenter">Respuesta</th>'+
                                                             '</tr>'+                                                         
                                                     '</thead>'+
                                                     '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
@@ -42,27 +41,42 @@ $(document).ready(function() {
                 for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
                     tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
                     if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
-                        if (response.formulario[j].pregunta=='Nombre de las personas' || response.formulario[j].mas_respuestas=='Si') {
-                           //NO PINTAR LAS PREGUNTAS SE PINTARAN DIFERETES
-
-                        }else{
+                    
+                    if (response.formulario[j].pregunta=='Nombre de las personas') {
+                         tr.append('<tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
+                                 '</td>'+
+                                '</tr>');   
+                          for(let x = 0, xen = response.pesonas.personas.length; x< xen ; x++){
+                             tr.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+response.pesonas.personas[x]+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+                                }  
+                    }else{
                          tr.append(' <tr>'+
                                 '<td class="textcenter">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
-                                 '</td>'+
-                                '<td class="textcenter">'+
+                                 '</td><tr/>'+
+                                '<tr><td class="textcenter">'+
                                 '<label name="anioC" id="anioC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
                                  '</td>'+
-                                '</tr>');   
-                        }
+                                '</tr>'); 
+
+                    }  
+                        
                         
                     }
                  
                    }
                
-            }
+            }//primer for
 
             for (let a = 0, aen = response.ramas.ramas.length; a < aen; a++) {
                 seleccion.append('<span class="h3">Preguntas con más respuesta de: '+response.ramas.ramas[a].categoria_rama+'</span>'+
