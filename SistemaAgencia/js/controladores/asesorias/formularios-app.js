@@ -58,23 +58,41 @@ $(document).ready(function() {
                                 '</tr>');
                                 }  
                     }else{
+                         if(response.formulario[j].mas_respuestas=='Si'){
+                             let respu= JSON.parse(response.formulario[j].respuesta);
+                              tr.append('<tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
+                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
+                                 '</td>'+
+                                '</tr>');  
+                             for(let v = 0, ven = respu.length; v< ven ; v++){
+                                tr.append(' <tr>'+
+                                '<td class="textcenter">'+
+                                '<label name="anioC" id="anioC"'+
+                                 'style="font-weight: normal;">'+respu[v]+'</label>'+
+                                 '</td>'+
+                                '</tr>');
+                             }
+
+                        }else{
                          tr.append(' <tr>'+
                                 '<td class="textcenter">'+
                                 '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].pregunta+'</label>'+
+                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
                                  '</td><tr/>'+
                                 '<tr><td class="textcenter">'+
                                 '<label name="anioC" id="anioC"'+
                                  'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
                                  '</td>'+
                                 '</tr>'); 
+                        }
+                    }//de nombre de las personas
 
                     }  
                         
                         
                     }
-                 
-                   }
                
             }//primer for
 
