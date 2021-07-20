@@ -83,6 +83,7 @@ $(document).ready(function () {
 
                     '</table>');
                 for (let j = 0, jen = response.preguntas.length; j < jen; j++) {
+
                     tr = $('#detalle_productos' + response.ramas.ramas[i].num_rama);
                     if (response.preguntas[j].num_rama == response.ramas.ramas[i].num_rama) {
                         tr.append(' <tr>' +
@@ -357,6 +358,8 @@ $(document).ready(function () {
                             $select.append('<input type="hidden" name="id_pregunta1[]" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
                                 '<input type="text" name="respuesta1[]" value="" class="form-control"' +
                                 'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:590px; margin-top: 20px">&nbsp&nbsp');
+                            // $select.append(crearInputText());
+
                         }
                     }
 
@@ -374,5 +377,28 @@ $(document).ready(function () {
                 });
             }
         });
+    }
+    function crearInputText(data) {
+        let inputText = document.createElement("INPUT");
+        inputText.setAttribute("type", "text");
+        inputText.setAttribute("placeholder", `¿${data.pregunta}?`);
+        inputText.setAttribute("name", "this-is[]");
+        inputText.style.width = '590px';
+        inputText.style.marginTop = '20px';
+        inputText.classList.add('form-control');
+        
+
+
+
+
+
+        // var $select = $('#' + data.preguntas[i].num_rama);
+        // $select.append('<input type="hidden" name="id_pregunta1[]" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
+        //     '<input type="text" name="respuesta1[]" value="" class="form-control"' +
+        //     'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:590px; margin-top: 20px">&nbsp&nbsp');
+
+
+
+        return inputText;
     }
 });
