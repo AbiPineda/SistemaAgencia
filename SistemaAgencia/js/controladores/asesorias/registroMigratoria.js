@@ -319,29 +319,11 @@ $(document).ready(function () {
                     // alert('paso');
                     if (data.preguntas[i].opcion == 'cerrada') {
                         var $select = $('#' + data.preguntas[i].num_rama);
-                        $select.append('<input type="hidden" name="id_pregunta[' + contador + ']" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
-                            '<select class="form-control respuesta" name="respuesta[' + contador + ']" id="combo' + data.preguntas[i].id_pregunta + '" style="width:590px;margin-top: 20px;">' +
-                            '<option value="">¿' + data.preguntas[i].pregunta + '?</option>' +
-                            '</select>&nbsp&nbsp');
-                        //COMO YA CREE EL COMBO SELECCIONO EL ID Y CARGO EL COMBO
-                        var $combo = $('#combo' + data.preguntas[i].id_pregunta);
-                        $combo.select();
-                        //alert(data.preguntas[i].id_pregunta);
-                        for (let j = 0, jen = data.opciones.length; j < jen; j++) {
-                            //SOLO VA HA LLENAR EL COMBO CUANDO EL ID DE LA PREGUNTA SEA = AL ID 
-                            //DE LA PREGUNTA DE LAS OPCIONES RESPUESTAS
-                            if (data.preguntas[i].id_pregunta == data.opciones[j].id_pregunta) {
-                                $combo.append('<option value=' + data.opciones[j].opciones_respuestas + '>' + data.opciones[j].opciones_respuestas +
-                                    '</option>');
-                            }
-                        }
-
+                        $select.append(crearPreguntaCerrada(data.preguntas[i], data.opciones));
                         contador++;
                     } else {
-
                         if (data.preguntas[i].mas_respuestas == 'Si') {
                             // alert('entre');
-
                             $select = $('#' + data.preguntas[i].num_rama);
                             $select.append('<select name="id_pregunta_mas' + cont + '" style="height: 0px;width: 0px;visibility: hidden;">' +
                                 '<option selected>' + data.preguntas[i].id_pregunta + '</option>' +
@@ -355,10 +337,7 @@ $(document).ready(function () {
                             cont++;
                         } else {
                             var $select = $('#' + data.preguntas[i].num_rama);
-                            $select.append('<input type="hidden" name="id_pregunta1[]" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
-                                '<input type="text" name="respuesta1[]" value="" class="form-control"' +
-                                'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:590px; margin-top: 20px">&nbsp&nbsp');
-                            // $select.append(crearInputText());
+                            $select.append(crearInputText(data.preguntas[i]));
 
                         }
                     }
@@ -378,27 +357,61 @@ $(document).ready(function () {
             }
         });
     }
+    function crearLabel(txt) {
+        let label = document.createElement('label');
+        label.innerHTML = txt;
+        label.style.fontWeight = "normal";
+        label.style.padding = '3px';
+        return label;
+    }
+
+
     function crearInputText(data) {
+        let label = crearLabel(`¿${data.pregunta}?`);
         let inputText = document.createElement("INPUT");
         inputText.setAttribute("type", "text");
+        inputText.setAttribute("name", `respuesta1[]`);
         inputText.setAttribute("placeholder", `¿${data.pregunta}?`);
-        inputText.setAttribute("name", "this-is[]");
+        inputText.setAttribute("numero-rama", `${data.num_rama}`);
+        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
         inputText.style.width = '590px';
         inputText.style.marginTop = '20px';
         inputText.classList.add('form-control');
-        
 
+        let grupo = document.createElement('div');
+        grupo.append(label);
+        grupo.append(inputText);
 
-
-
-
-        // var $select = $('#' + data.preguntas[i].num_rama);
-        // $select.append('<input type="hidden" name="id_pregunta1[]" value="' + data.preguntas[i].id_pregunta + '" class="form-control">' +
-        //     '<input type="text" name="respuesta1[]" value="" class="form-control"' +
-        //     'placeholder="¿' + data.preguntas[i].pregunta + '?" style="width:590px; margin-top: 20px">&nbsp&nbsp');
-
-
-
-        return inputText;
+        return grupo;
     }
+    function crearPreguntaCerrada(data, listOption) {
+        let label = crearLabel(`¿${data.pregunta}?`);
+        let select = document.createElement("select");
+        select.setAttribute("name", `respuesta1[]`);
+        select.setAttribute("placeholder", `¿${data.pregunta}?`);
+        select.setAttribute("numero-rama", `${data.num_rama}`);
+        select.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        select.style.width = '590px';
+        select.style.marginTop = '20px';
+        select.classList.add('form-control');
+        select.classList.add('respuesta');
+
+        listOption.forEach(opt => {
+
+            if (data.id_pregunta == opt.id_pregunta) {
+                let option = document.createElement("OPTION");
+                option.setAttribute("value", opt.opciones_respuestas);
+                let t = document.createTextNode(opt.opciones_respuestas);
+                option.appendChild(t);
+                select.appendChild(option);
+            }
+        });
+
+        let grupo = document.createElement('div');
+        grupo.append(label);
+        grupo.append(select);
+
+        return grupo;
+    }
+
 });
