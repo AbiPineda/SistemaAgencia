@@ -8,35 +8,23 @@ $(document).ready(function () {
     let addFormGroup = function (event) {
         event.preventDefault();
 
-        let $formGroup = $(this).closest('.form-group');
-        let $multipleFormGroup = $formGroup.closest('.multiple-form-group');
-        let $formGroupClone = $formGroup.clone();
+        let $cajaMultiple = $(this).closest('.caja-multiple');
+        let $info = $(this).closest('.grupo').find('input');
 
-        $(this)
-            .toggleClass('btn-success btn-add btn-danger btn-remove')
-            .html('–');
 
-        $formGroupClone.find('input').val('');
-        $formGroupClone.find('.concept').text('Phone');
-        $formGroupClone.insertAfter($formGroup);
-
-        let $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
-        if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
-            $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+        $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+        let data = {
+            pregunta: $info.attr("placeholder"),
+            num_rama: $info.attr("numero-rama"),
+            id_pregunta: $info.attr("id-pregunta"),
         }
+        $cajaMultiple.append(crearOtherMultiple(data));
     };
     let removeFormGroup = function (event) {
         event.preventDefault();
 
-        let $formGroup = $(this).closest('.form-group');
-        let $multipleFormGroup = $formGroup.closest('.multiple-form-group');
-
-        let $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
-        if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
-            $lastFormGroupLast.find('.btn-add').attr('disabled', false);
-        }
-
-        $formGroup.remove();
+        let $grupo = $(this).closest('.grupo');
+        $grupo.remove();
     };
     let selectFormGroup = function (event) {
         event.preventDefault();
@@ -325,26 +313,14 @@ $(document).ready(function () {
                         if (data.preguntas[i].mas_respuestas == 'Si') {
                             // alert('entre');
                             $select = $('#' + data.preguntas[i].num_rama);
-                            $select.append('<select name="id_pregunta_mas' + cont + '" style="height: 0px;width: 0px;visibility: hidden;">' +
-                                '<option selected>' + data.preguntas[i].id_pregunta + '</option>' +
-                                '</select>' +
-                                '<div class="form-group multiple-form-group input-group">' +
-                                '<input type="text" name="respuesta_mas' + cont + '[]" value="" id="asistiran" class="form-control" placeholder="¿' + data.preguntas[i].pregunta + '?" style="width: 550px; margin-top: 20px">' +
-                                '<span class="input-group-btn">' +
-                                '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:19px;">+</button>' +
-                                '</span>' +
-                                '</div>&nbsp&nbsp');
+                            $select.append(crearPreguntaMultiple(data.preguntas[i]));
                             cont++;
                         } else {
                             var $select = $('#' + data.preguntas[i].num_rama);
                             $select.append(crearInputText(data.preguntas[i]));
-
                         }
                     }
-
-
                 }
-
             },
             error: function (err) {
                 const Toast = Swal.mixin();
@@ -364,8 +340,21 @@ $(document).ready(function () {
         label.style.padding = '3px';
         return label;
     }
+    function crearBoton() {
+        let span = document.createElement("span");
+        span.classList.add('input-group-btn');
 
-
+        let button = document.createElement("button");
+        button.classList.add('btn');
+        button.classList.add('btn-success');
+        button.classList.add('btn-add');
+        button.setAttribute("type", "button");
+        button.style.marginTop = '19px';
+        let t = document.createTextNode("+");
+        button.appendChild(t);
+        span.append(button);
+        return span;
+    }
     function crearInputText(data) {
         let label = crearLabel(`¿${data.pregunta}?`);
         let inputText = document.createElement("INPUT");
@@ -410,6 +399,53 @@ $(document).ready(function () {
         let grupo = document.createElement('div');
         grupo.append(label);
         grupo.append(select);
+
+        return grupo;
+    }
+    function crearPreguntaMultiple(data) {
+        let label = crearLabel(`¿${data.pregunta}?`);
+        let boton = crearBoton();
+        let inputText = document.createElement("INPUT");
+        inputText.setAttribute("type", "text");
+        inputText.setAttribute("name", `respuesta1[]`);
+        inputText.setAttribute("placeholder", `${data.pregunta}`);
+        inputText.setAttribute("numero-rama", `${data.num_rama}`);
+        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.style.width = '550px';
+        inputText.style.marginTop = '20px';
+        inputText.classList.add('form-control');
+        inputText.classList.add('input-multiple');
+
+        let contenedor = document.createElement('div');
+        contenedor.classList.add("caja-multiple");
+
+        let grupo = document.createElement('grupo');
+        grupo.classList.add("grupo");
+        grupo.append(inputText);
+        grupo.append(boton);
+
+        contenedor.append(label);
+        contenedor.append(grupo);
+
+        return contenedor;
+    }
+    function crearOtherMultiple(data) {
+        let inputText = document.createElement("INPUT");
+        let boton = crearBoton();
+        inputText.setAttribute("type", "text");
+        inputText.setAttribute("name", `respuesta1[]`);
+        inputText.setAttribute("placeholder", `${data.pregunta}`);
+        inputText.setAttribute("numero-rama", `${data.num_rama}`);
+        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.style.width = '550px';
+        inputText.style.marginTop = '20px';
+        inputText.classList.add('form-control');
+        inputText.classList.add('input-multiple');
+
+        let grupo = document.createElement('div');
+        grupo.classList.add("grupo");
+        grupo.append(inputText);
+        grupo.append(boton);
 
         return grupo;
     }
