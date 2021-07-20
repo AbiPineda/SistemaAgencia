@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const ID_VEHICULO = urlParams.get('vehiculo');
-        const estadoReservado =2;
+    const estadoReservado = 2;
 
     inicializarValidaciones();
     inicializarCalendario();
@@ -21,12 +21,13 @@ $(document).ready(function() {
         "info": true,
         "autoWidth": false,
         "pageLength": 3,
-        "responsive": true, 
+        "responsive": true,
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
-            // { "targets": [5], "visible": false },
-            // { "targets": [6], "visible": false },
-        ],columns: [
+            { "targets": [5], "visible": false },
+            { "targets": [6], "visible": false },
+        ],
+        columns: [
             { data: "servicio" },
             { data: "costo" },
             { data: "cantidad" },
@@ -36,7 +37,7 @@ $(document).ready(function() {
             { data: "contador" },
 
         ]
-        
+
     });
 
     $(document).on('click', '#agregarTabla', function(evento) {
@@ -49,10 +50,7 @@ $(document).ready(function() {
 
 
         //alert(cantidad);
-        if (!costo) {
-            // errors = { cantidad: "Digite la cantidad" };
-            // $("#encomienda-form").validate().showErrors(errors);
-        } else {
+        if (!costo) {} else {
 
             let id = document.getElementById("comboServicio").value;
             let costo = document.getElementById("costo").value;
@@ -124,11 +122,11 @@ $(document).ready(function() {
             TOTAL += parseFloat(data.sub_total);
         });
         $('#totalServicios').empty();
-        $('#totalServicios').text("$" + TOTAL);
+        $('#totalServicios').text("$" + (TOTAL).toFixed(2));
     }
 
 
-    
+
     ///PARA LAS VALIDACIONES AL  MOMENTO DE IMPRIMIRLAS
     function inicializarValidaciones() {
         $('#cliente-form').validate({
@@ -172,15 +170,17 @@ $(document).ready(function() {
             TOTAL_DIAS = fin.diff(inicio, 'days');
             let nuevoTotal = (precioAuto * TOTAL_DIAS).toFixed(2)
             $('#totalVehiculo').text(`$${nuevoTotal}(${TOTAL_DIAS} Días)`);
-            TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
+            TOTALVEHICULO = (precioAuto * TOTAL_DIAS);
+
+            modificarTotalCliente();
         });
     });
 
     function modificarTotalCliente() {
         //POR DIA
         $('#totalCliente').empty();
-        TOTALVEHICULO=(precioAuto * TOTAL_DIAS);
-        $('#totalCliente').text("$" + (parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
+        TOTALVEHICULO = (precioAuto * TOTAL_DIAS).toFixed(2);
+        $('#totalCliente').text("$" + ((parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO)))).toFixed(2));
         $('#emergencia').val((parseFloat(TOTAL) + (parseFloat(TOTALVEHICULO))));
     }
 
@@ -227,13 +227,13 @@ $(document).ready(function() {
         });
 
     }
- $("#btnGuardar").on('click', function(e) {
-            e.preventDefault();
-            let form = $("#register-reserva");
-            form.validate();
-            if (form.valid()) {
-    
-                /*let comboServicios = $("#comboServicio").select2('data');
+    $("#btnGuardar").on('click', function(e) {
+        e.preventDefault();
+        let form = $("#register-reserva");
+        form.validate();
+        if (form.valid()) {
+
+            /*let comboServicios = $("#comboServicio").select2('data');
                 let arregloServicios = [];
                
                 for (let index = 0; index < comboServicios.length; index++) {
@@ -241,88 +241,88 @@ $(document).ready(function() {
                 }
                 console.log(arregloServicios);*/
 
-              
-                let form = new FormData();
-                
-                form.append("id_vehiculo", ID_VEHICULO);
-                form.append("id_cliente", document.getElementById("comboUsuario").value);
-                form.append("direccionRecogida_detalle", document.getElementById("direccionR").value);
-                form.append("direccionDevolucion_detalle", document.getElementById("direccionD").value);
-                
-               // form.append("nombre_detalle", arregloServicios);
-        
-                form.append("fechaHora_detalle", document.getElementById("fecha_salida").value);
-                form.append("total_detalle", document.getElementById("emergencia").value);
-                form.append("activo_detalle", estadoReservado);
 
-                let detalle_servicios = [];
-                tabla.rows().every(function(value, index) {
-                    let data = this.data();
-        
-                    let servicios = data['servicio'];
-                    let costo_servicios = data['costo'];
-                    let cantidad_servicios = data['cantidad'];
-        
-                    detalle_servicios.push({
-                        "servicio_adicional": servicios,
-                        "costo_servicio": costo_servicios,
-                        "cantidad_servicio": cantidad_servicios
-        
-                    });
+            let form = new FormData();
+
+            form.append("id_vehiculo", ID_VEHICULO);
+            form.append("id_cliente", document.getElementById("comboUsuario").value);
+            form.append("direccionRecogida_detalle", document.getElementById("direccionR").value);
+            form.append("direccionDevolucion_detalle", document.getElementById("direccionD").value);
+
+            // form.append("nombre_detalle", arregloServicios);
+
+            form.append("fechaHora_detalle", document.getElementById("fecha_salida").value);
+            form.append("total_detalle", document.getElementById("emergencia").value);
+            form.append("activo_detalle", estadoReservado);
+
+            let detalle_servicios = [];
+            tabla.rows().every(function(value, index) {
+                let data = this.data();
+
+                let servicios = data['servicio'];
+                let costo_servicios = data['costo'];
+                let cantidad_servicios = data['cantidad'];
+
+                detalle_servicios.push({
+                    "servicio_adicional": servicios,
+                    "costo_servicio": costo_servicios,
+                    "cantidad_servicio": cantidad_servicios
+
                 });
-                form.append("detalle_servicios", JSON.stringify(detalle_servicios));
-    
-                $.ajax({
-                    url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",
-                    method: "POST",
-                    mimeType: "multipart/form-data",
-                    data: form,
-                    timeout: 0,
-                    processData: false,
-                    contentType: false,
-    
-                }).done(function(response) {
-    
-                    document.getElementById("register-reserva").reset();
-    
-                    const Toast = Swal.mixin();
-                    Toast.fire({
-                        title: 'Exito...',
-                        icon: 'success',
-                        text: response.mensaje,
-                        showConfirmButton: true,
-                    }).then((result) => {
-                        //TODO BIEN Y RECARGAMOS LA PAGINA 
-                        location.reload();
-                    });
-                }).fail(function(response) {
-                    
-                   
-                    //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-                    let respuestaDecodificada = JSON.parse(response.responseText);
-                    let listaErrores = "";
-    
-                    if (respuestaDecodificada.errores) {
-                        ///ARREGLO DE ERRORES 
-                        let erroresEnvioDatos = respuestaDecodificada.errores;
-                        for (mensaje in erroresEnvioDatos) {
-                            listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                            //toastr.error(erroresEnvioDatos[mensaje]);
-                        };
-                    } else {
-                        listaErrores = respuestaDecodificada.mensaje
-                    }
-                    const Toast = Swal.mixin();
-                    Toast.fire({
-                        title: 'Oops...',
-                        icon: 'error',
-                        text: listaErrores,
-                        showConfirmButton: true,
-                    });
-    
-                })
-    
-            }
-    
-        });
+            });
+            form.append("detalle_servicios", JSON.stringify(detalle_servicios));
+
+            $.ajax({
+                url: URL_SERVIDOR + "DetalleVehiculo/saveByAgency",
+                method: "POST",
+                mimeType: "multipart/form-data",
+                data: form,
+                timeout: 0,
+                processData: false,
+                contentType: false,
+
+            }).done(function(response) {
+
+                document.getElementById("register-reserva").reset();
+
+                const Toast = Swal.mixin();
+                Toast.fire({
+                    title: 'Exito...',
+                    icon: 'success',
+                    text: response.mensaje,
+                    showConfirmButton: true,
+                }).then((result) => {
+                    //TODO BIEN Y RECARGAMOS LA PAGINA 
+                    location.reload();
+                });
+            }).fail(function(response) {
+
+
+                //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+                let respuestaDecodificada = JSON.parse(response.responseText);
+                let listaErrores = "";
+
+                if (respuestaDecodificada.errores) {
+                    ///ARREGLO DE ERRORES 
+                    let erroresEnvioDatos = respuestaDecodificada.errores;
+                    for (mensaje in erroresEnvioDatos) {
+                        listaErrores += erroresEnvioDatos[mensaje] + "\n";
+                        //toastr.error(erroresEnvioDatos[mensaje]);
+                    };
+                } else {
+                    listaErrores = respuestaDecodificada.mensaje
+                }
+                const Toast = Swal.mixin();
+                Toast.fire({
+                    title: 'Oops...',
+                    icon: 'error',
+                    text: listaErrores,
+                    showConfirmButton: true,
+                });
+
+            })
+
+        }
+
+    });
 });
