@@ -69,7 +69,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                                     <div class="col-sm-12">
                                        <!-- text input -->
                                        <div class="form-group ">
-                                          <div class="input-group">
+                                          <div class="">
                                              <select name="id_cita" id="citas_dias" class="form-control" required="true"
                                                 style="width:610px; margin-top: 20px">
                                              </select>
