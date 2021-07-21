@@ -89,8 +89,6 @@ include_once  '../../plantillas/navbar.php'; ?>
                                  <div class="col-sm-12">
                                     <!-- text input -->
                                     <div class="form-group ">
-                                       <input type="text" class="telefono">
-
                                        <div class="timeline-footer" style="text-align: right;">
                                           <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
                                              style=" margin-top: 10px; color: white">Guardar</button>

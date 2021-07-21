@@ -5,7 +5,6 @@ $(document).ready(function () {
     llamarRamas();
     llamarPreguntita();
 
-
     // BOTON DE AGREGAR
     $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
@@ -14,15 +13,11 @@ $(document).ready(function () {
         let $info = $(this).closest('.grupo').find('input');
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         console.log($info.data());
-        let data = {
-            pregunta: $info.attr("placeholder"),
-            num_rama: $info.attr("numero-rama"),
-            id_pregunta: $info.attr("id-pregunta"),
-        }
-        $cajaMultiple.append(crearInputTelefono(data));
-        let dui =$cajaMultiple.find('input').inputmask();
-        dui.inputmask("99999999-9"); //static mask
-        dui.inputmask({ "mask": "99999999-9" }); //specifying options
+  
+        // $cajaMultiple.append(crearInput(data));
+        // let dui = $cajaMultiple.find('input').inputmask();
+        // dui.inputmask("99999999-9"); //static mask
+        // dui.inputmask({ "mask": "99999999-9" }); //specifying options
     });
     // BOTON DE ELIMINAR
     $(document).on('click', '.btn-remove', function (event) {
@@ -301,7 +296,7 @@ $(document).ready(function () {
                             cont++;
                         } else {
                             var $select = $('#' + data.preguntas[i].num_rama);
-                            $select.append(crearInputText(data.preguntas[i]));
+                            $select.append(crearPreguntaSimple(data.preguntas[i]));
                         }
                     }
                 }
@@ -340,48 +335,27 @@ $(document).ready(function () {
         span.append(button);
         return span;
     }
-    function crearInputText(data) {
-        let label = crearLabel(`¿${data.pregunta}?`);
-        let inputText = document.createElement("INPUT");
-        inputText.setAttribute("type", "text");
-        inputText.setAttribute("name", `respuesta1[]`);
-        inputText.setAttribute("placeholder", `¿${data.pregunta}?`);
-        inputText.setAttribute("numero-rama", `${data.num_rama}`);
-        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
-        inputText.dataset.numeroRama = data.num_rama;
-        inputText.dataset.idPregunta = data.id_pregunta;
-        inputText.style.width = '590px';
-        inputText.style.marginTop = '20px';
-        inputText.classList.add('form-control');
-
+    function crearPreguntaSimple(data) {
         let grupo = document.createElement('div');
+        let label = crearLabel(`¿${data.pregunta}?`);
+        let input = crearInput(data);
+        input.style.width = '590px';
+        input.style.marginTop = '20px';
         grupo.append(label);
-        grupo.append(inputText);
-
+        grupo.append(input);
         return grupo;
     }
-    function crearInputTelefono(data) {
-        let boton = crearBoton();
-        let inputText = document.createElement("INPUT");
-        inputText.setAttribute("type", "text");
-        inputText.setAttribute("name", `respuesta1[]`);
-        inputText.setAttribute("placeholder", `${data.pregunta}`);
-        inputText.setAttribute("numero-rama", `${data.num_rama}`);
-        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
-        inputText.dataset.numeroRama = data.num_rama;
-        inputText.dataset.idPregunta = data.id_pregunta;
-        inputText.style.width = '550px';
-        inputText.style.marginTop = '20px';
-        inputText.classList.add('form-control');
-        inputText.classList.add('input-multiple');
-        inputText.classList.add('telefono');
-
-        let grupo = document.createElement('div');
-        grupo.classList.add("grupo");
-        grupo.append(inputText);
-        grupo.append(boton);
-
-        return grupo;
+    function crearInput(data) {
+        let input = document.createElement("INPUT");
+        input.setAttribute("type", data.tipo);
+        input.setAttribute("name", `respuestas[]`);
+        input.setAttribute("placeholder", `¿${data.pregunta}?`);
+       
+        input.dataset.idPregunta = data.id_pregunta;
+        input.dataset.pregunta = data.pregunta;
+        input.dataset.tipo = data.tipo;
+        input.classList.add('form-control');
+        return input
     }
     function crearPreguntaCerrada(data, listOption) {
         let label = crearLabel(`¿${data.pregunta}?`);
@@ -468,4 +442,5 @@ $(document).ready(function () {
         celular.inputmask("(+123) 1234-5678"); //static mask
         celular.inputmask({ "mask": "(+999) 9999-9999" }); //specifying options
     }
+
 });
