@@ -5,44 +5,30 @@ $(document).ready(function () {
     llamarRamas();
     llamarPreguntita();
 
-    let addFormGroup = function (event) {
+
+    // BOTON DE AGREGAR
+    $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
 
         let $cajaMultiple = $(this).closest('.caja-multiple');
         let $info = $(this).closest('.grupo').find('input');
-
-
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         let data = {
             pregunta: $info.attr("placeholder"),
             num_rama: $info.attr("numero-rama"),
             id_pregunta: $info.attr("id-pregunta"),
         }
-        $cajaMultiple.append(crearOtherMultiple(data));
-    };
-    let removeFormGroup = function (event) {
+        $cajaMultiple.append(crearInputTelefono(data));
+        let dui =$cajaMultiple.find('input').inputmask();
+        dui.inputmask("99999999-9"); //static mask
+        dui.inputmask({ "mask": "99999999-9" }); //specifying options
+    });
+    // BOTON DE ELIMINAR
+    $(document).on('click', '.btn-remove', function (event) {
         event.preventDefault();
-
         let $grupo = $(this).closest('.grupo');
         $grupo.remove();
-    };
-    let selectFormGroup = function (event) {
-        event.preventDefault();
-
-        let $selectGroup = $(this).closest('.input-group-select');
-        let param = $(this).attr("href").replace("#", "");
-        let concept = $(this).text();
-
-        $selectGroup.find('.concept').text(concept);
-        $selectGroup.find('.input-group-select-val').val(param);
-
-    }
-    // BOTON DE AGREGAR
-    $(document).on('click', '.btn-add', addFormGroup);
-    // BOTON DE ELIMINAR
-    $(document).on('click', '.btn-remove', removeFormGroup);
-    // 
-    $(document).on('click', '.dropdown-menu a', selectFormGroup);
+    });
     //BOTON MOSTRAR EL REPORTE
     $(document).on('click', '#btnRepote', function () {
 
@@ -318,6 +304,7 @@ $(document).ready(function () {
                         }
                     }
                 }
+                inicializarMascara();
             },
             error: function (err) {
                 const Toast = Swal.mixin();
@@ -367,6 +354,27 @@ $(document).ready(function () {
         let grupo = document.createElement('div');
         grupo.append(label);
         grupo.append(inputText);
+
+        return grupo;
+    }
+    function crearInputTelefono(data) {
+        let boton = crearBoton();
+        let inputText = document.createElement("INPUT");
+        inputText.setAttribute("type", "text");
+        inputText.setAttribute("name", `respuesta1[]`);
+        inputText.setAttribute("placeholder", `${data.pregunta}`);
+        inputText.setAttribute("numero-rama", `${data.num_rama}`);
+        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.style.width = '550px';
+        inputText.style.marginTop = '20px';
+        inputText.classList.add('form-control');
+        inputText.classList.add('input-multiple');
+        inputText.classList.add('telefono');
+
+        let grupo = document.createElement('div');
+        grupo.classList.add("grupo");
+        grupo.append(inputText);
+        grupo.append(boton);
 
         return grupo;
     }
@@ -446,5 +454,13 @@ $(document).ready(function () {
 
         return grupo;
     }
-
+    function inicializarMascara() {
+        let dui = $("#dui");
+        let celular = $('.telefono');
+        dui.inputmask("99999999-9"); //static mask
+        dui.inputmask({ "mask": "99999999-9" }); //specifying options
+        // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
+        celular.inputmask("(+123) 1234-5678"); //static mask
+        celular.inputmask({ "mask": "(+999) 9999-9999" }); //specifying options
+    }
 });
