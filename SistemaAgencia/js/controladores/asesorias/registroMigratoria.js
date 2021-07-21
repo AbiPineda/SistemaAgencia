@@ -12,12 +12,12 @@ $(document).ready(function () {
         let $cajaMultiple = $(this).closest('.caja-multiple');
         let $info = $(this).closest('.grupo').find('input');
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-        console.log($info.data());
-  
-        // $cajaMultiple.append(crearInput(data));
-        // let dui = $cajaMultiple.find('input').inputmask();
-        // dui.inputmask("99999999-9"); //static mask
-        // dui.inputmask({ "mask": "99999999-9" }); //specifying options
+        let data = $info.data();
+
+        $cajaMultiple.append(crearOtherMultiple(data));
+        let dui = $cajaMultiple.find('input').inputmask();
+        dui.inputmask("99999999-9"); //static mask
+        dui.inputmask({ "mask": "99999999-9" }); //specifying options
     });
     // BOTON DE ELIMINAR
     $(document).on('click', '.btn-remove', function (event) {
@@ -350,7 +350,6 @@ $(document).ready(function () {
         input.setAttribute("type", data.tipo);
         input.setAttribute("name", `respuestas[]`);
         input.setAttribute("placeholder", `¿${data.pregunta}?`);
-       
         input.dataset.idPregunta = data.id_pregunta;
         input.dataset.pregunta = data.pregunta;
         input.dataset.tipo = data.tipo;
@@ -395,6 +394,9 @@ $(document).ready(function () {
         inputText.setAttribute("placeholder", `${data.pregunta}`);
         inputText.setAttribute("numero-rama", `${data.num_rama}`);
         inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.dataset.idPregunta = data.id_pregunta;
+        inputText.dataset.pregunta = data.pregunta;
+        inputText.dataset.tipo = data.tipo;
         inputText.style.width = '550px';
         inputText.style.marginTop = '20px';
         inputText.classList.add('form-control');
@@ -403,7 +405,7 @@ $(document).ready(function () {
         let contenedor = document.createElement('div');
         contenedor.classList.add("caja-multiple");
 
-        let grupo = document.createElement('grupo');
+        let grupo = document.createElement('div');
         grupo.classList.add("grupo");
         grupo.append(inputText);
         grupo.append(boton);
@@ -416,8 +418,8 @@ $(document).ready(function () {
     function crearOtherMultiple(data) {
         let inputText = document.createElement("INPUT");
         let boton = crearBoton();
-        inputText.setAttribute("type", "date");
-        inputText.setAttribute("name", `respuesta1[]`);
+        inputText.setAttribute("name", `respuestas[]`);
+        inputText.setAttribute("type", data.pregunta);
         inputText.setAttribute("placeholder", `${data.pregunta}`);
         inputText.setAttribute("numero-rama", `${data.num_rama}`);
         inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
