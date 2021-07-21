@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Martínez Travels y Tours</title>
+   <title>Martínez Travels & Tours</title>
    <!-- Tell the browser to be responsive to screen width -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,16 +33,16 @@
 <body class="hold-transition login-page">
    <div class="login-box">
       <div class="login-logo">
-         <a href=""><b>Administración</b><br>Martínez Travels y Tours</a>
+         <a href=""><b>Administración</b><br>Martínez Travels & Tours</a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
          <div class="card-body login-card-body">
-            <p class="login-box-msg">Identificate para iniciar sesión</p>
+            <p class="login-box-msg">Identifícate para Iniciar Sesión</p>
             <form id="login-form">
                <div class="input-group mb-3">
                   <input name="username" id="username" type="email" class="form-control"
-                     placeholder="Correo electrónico">
+                     placeholder="Correo Electrónico" autocomplete="off">
                   <div class="input-group-append">
                      <div class="input-group-text">
                         <span class="fas fa-user"></span>
@@ -50,7 +50,7 @@
                   </div>
                </div>
                <div class="input-group mb-3">
-                  <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" autocomplete="off">
                   <div class="input-group-append">
                      <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -68,7 +68,7 @@
             <!-- /.social-auth-links -->
 
             <p class="mb-1" style="text-align: center;">
-               <a href="./reset_password.php">Olvide mi contraseña</a>
+               <a href="./reset_password.php">Olvidé mi Contraseña</a>
             </p>
 
          </div>

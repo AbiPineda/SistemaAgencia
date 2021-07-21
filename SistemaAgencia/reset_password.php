@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Martínez Travels y Tours</title>
+   <title>Martínez Travels & Tours</title>
    <!-- Tell the browser to be responsive to screen width -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,7 +33,7 @@
 <body class="hold-transition login-page">
    <div class="login-box">
       <div class="login-logo">
-         <a href=""><b>Administración</b><br>Martínez Travels y Tours</a>
+         <a href=""><b>Administración</b><br>Martínez Travels & Tours</a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
@@ -41,8 +41,8 @@
             <p class="login-box-msg">Te enviaremos un correo electrónico para reestablecer tu contraseña</p>
             <form id="login-form">
                <div class="input-group mb-3">
-                  <input name="email" id="email" type="email" class="form-control" autocomplete="false"
-                     placeholder="Digita Correo electrónico">
+                  <input name="email" id="email" type="email" class="form-control" autocomplete="off"
+                     placeholder="Digite su Correo Electrónico">
                   <div class="input-group-append">
                      <div class="input-group-text">
                         <span class="fas fa-user"></span>
@@ -61,7 +61,7 @@
             <!-- /.social-auth-links -->
 
             <p class="mb-1" style="text-align: center;">
-               <a href="./index.php">Inicia Sesión</a>
+               <a href="./index.php">Iniciar Sesión</a>
             </p>
 
          </div>
