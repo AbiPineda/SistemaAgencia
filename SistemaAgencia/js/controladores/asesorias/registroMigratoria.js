@@ -13,6 +13,7 @@ $(document).ready(function () {
         let $cajaMultiple = $(this).closest('.caja-multiple');
         let $info = $(this).closest('.grupo').find('input');
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
+        console.log($info.data());
         let data = {
             pregunta: $info.attr("placeholder"),
             num_rama: $info.attr("numero-rama"),
@@ -347,6 +348,8 @@ $(document).ready(function () {
         inputText.setAttribute("placeholder", `¿${data.pregunta}?`);
         inputText.setAttribute("numero-rama", `${data.num_rama}`);
         inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.dataset.numeroRama = data.num_rama;
+        inputText.dataset.idPregunta = data.id_pregunta;
         inputText.style.width = '590px';
         inputText.style.marginTop = '20px';
         inputText.classList.add('form-control');
@@ -365,6 +368,8 @@ $(document).ready(function () {
         inputText.setAttribute("placeholder", `${data.pregunta}`);
         inputText.setAttribute("numero-rama", `${data.num_rama}`);
         inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        inputText.dataset.numeroRama = data.num_rama;
+        inputText.dataset.idPregunta = data.id_pregunta;
         inputText.style.width = '550px';
         inputText.style.marginTop = '20px';
         inputText.classList.add('form-control');
