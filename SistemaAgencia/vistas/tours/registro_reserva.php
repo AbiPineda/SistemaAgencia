@@ -49,10 +49,10 @@
                   <!-- /.timeline-label -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-plane bg-blue"></i>
+                     <i class="fas fa-user bg-blue"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 12:05</span>-->
-                        <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+                        <h3 class="timeline-header"><a href="#">Datos Generales</a></h3>
 
                         <div class="timeline-body">
                            <div class="row">
@@ -81,7 +81,7 @@
                   <!-- END timeline item -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-user bg-green"></i>
+                     <i class="fas fa-shuttle-van bg-red"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
                         <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
@@ -143,7 +143,7 @@
                   <!-- END timeline item -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-list bg-yellow"></i>
+                     <i class="fas fa-list bg-green"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>-->
                         <h3 class="timeline-header"><a href="#">Detalle</a>

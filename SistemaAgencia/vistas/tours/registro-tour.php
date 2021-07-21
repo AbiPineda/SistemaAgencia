@@ -188,7 +188,7 @@
                      <!-- END timeline item -->
                      <!-- END timeline item -->
                      <div>
-                        <i class="fas fa-money-bill-wave bg-blue"></i>
+                        <i class="fas fa-money-bill-wave bg-green"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
                               <a href="#">Promociones Especiales</a>
@@ -235,7 +235,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-image bg-green"></i>
+                        <i class="fas fa-image bg-yellow" style="color: white"></i>
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border">

@@ -104,7 +104,7 @@
                            </div>
                            <div class="card">
                               <div class="card-header">
-                                 <h3 class="card-title">Datos Basico:</h3>
+                                 <h3 class="card-title">Datos Generales:</h3>
 
                                  <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
