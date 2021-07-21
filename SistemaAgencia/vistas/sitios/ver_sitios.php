@@ -47,7 +47,7 @@
                            <th>Sitio</th>
                            <th>Precio</th>
                            <th>Contacto</th>
-                           <th>Descripcion</th>
+                           <th>Descripción</th>
                            <th>Acciones</th>
                         </tr>
                      </thead>
@@ -142,7 +142,7 @@
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <label>Descripcion del Servicio</label>
+                              <label>Descripción del Servicio</label>
                               <textarea name="descripcion" id="descripcion" class="form-control" rows="3"
                                  placeholder="Digitar aquí ..."></textarea>
                            </div>

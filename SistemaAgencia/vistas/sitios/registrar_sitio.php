@@ -121,7 +121,7 @@
                      <!-- END timeline item -->
                      <!-- timeline item -->
                      <div>
-                        <i class="fas fa-comments bg-green"></i>
+                        <i class="fas fa-comments bg-red"></i>
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border"><a href="#">Información Adicional</a></h3>
@@ -129,7 +129,7 @@
                               <div class="row">
                                  <div class="col-sm-12">
                                     <div class="form-group">
-                                       <label>Descripcion del Servicio</label>
+                                       <label>Descripción del Servicio</label>
                                        <textarea name="descripcionSitio" id="descripcionSitio" class="form-control"
                                           rows="3" placeholder="Digitar aquí ..."></textarea>
                                     </div>
@@ -141,16 +141,16 @@
 
 
                      <div>
-                        <i class="fas fa-image bg-danger"></i>
+                        <i class="fas fa-image bg-green"></i>
                         <div class="timeline-item">
 
-                           <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                           <h3 class="timeline-header no-border"><a href="#">Galería de Imágenes</a></h3>
                            <div class="timeline-body">
 
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione Imagenes</label>
+                                    <label>Seleccione Imágenes</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotosSitios[]" id="fotosSitios">
                                     </div>
