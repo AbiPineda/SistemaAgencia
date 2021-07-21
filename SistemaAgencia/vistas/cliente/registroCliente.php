@@ -61,17 +61,17 @@
                                              <label>Nombre de Cliente</label>
                                              <div class="input-group">
                                                 <input type="text" class="form-control" name="nombreCliente"
-                                                   placeholder="Digite Nombre" id="nombreCliente">
+                                                   placeholder="Digite su Nombre Completo" id="nombreCliente" autocomplete="off">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
                                        </div>
                                        <div class="col-sm-6">
                                           <div class="form-group">
-                                             <label>Correo Electronico</label>
+                                             <label>Correo Electrónico</label>
                                              <div class="input-group">
-                                                <input placeholder="Digite Correo Electronico" type="text"
-                                                   class="form-control" name="correo" id="correo">
+                                                <input placeholder="Digite su Correo Electrónico" type="text"
+                                                   class="form-control" name="correo" id="correo" autocomplete="off">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -84,7 +84,7 @@
                                              <label>Contraseña</label>
                                              <div class="input-group">
                                                 <input placeholder="Digite Contraseña" type="password"
-                                                   class="form-control" name="password1" id="password1">
+                                                   class="form-control" name="password1" id="password1" autocomplete="off">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -94,7 +94,7 @@
                                              <label>Repetir Contraseña</label>
                                              <div class="input-group">
                                                 <input type="password" placeholder="Repita Contraseña"
-                                                   class="form-control" name="password2" id="password2">
+                                                   class="form-control" name="password2" id="password2" autocomplete="off">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -115,8 +115,8 @@
                                           <div class="form-group">
                                              <label>Célular (opcional)</label>
                                              <div class="input-group">
-                                                <input placeholder="8765-4321" type="text" class="form-control"
-                                                   id="celular" name="celular">
+                                                <input placeholder="(+503)8765-4321" type="text" class="form-control"
+                                                   id="celular" name="celular" autocomplete="off">
                                              </div>
                                              <!-- /.input group -->
                                           </div>
@@ -169,7 +169,7 @@
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Subir imagenes del Dui</label>
+                                    <label>Subir imágenes de Dui</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotosDocumentos[]" id="fotosDocumentos">
                                     </div>
