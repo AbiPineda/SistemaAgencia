@@ -43,7 +43,7 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/cliente/catalogoCliente.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Catalogo de Clientes</p>
+                        <p>Catálogo de Clientes</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -168,7 +168,7 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/paquetes/registro-paquete.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Paquete Publico</p>
+                        <p>Paquete Público</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -224,13 +224,13 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/encomiendas/calculoEncomienda.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Calculo Encomienda</p>
+                        <p>Cálculo Encomienda</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/encomiendas/actualizacionEnvio.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Actualizacion de Envio</p>
+                        <p>Actualización de Envío</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -338,7 +338,7 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/vehiculos/registroVehiculo.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Registro de Vehiculo</p>
+                        <p>Registro de Vehículo</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -357,7 +357,7 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/vehiculos/vehiculosAlquilados.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Vehiculos Alquilados</p>
+                        <p>Vehículos Alquilados</p>
                      </a>
                   </li>
                   <li class="nav-item">
@@ -465,7 +465,7 @@
                   <li class="nav-item">
                      <a href="<?= $base_url ?>home.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
-                        <p>Estadisticas</p>
+                        <p>Estadísticas</p>
                      </a>
                   </li>
                </ul>
