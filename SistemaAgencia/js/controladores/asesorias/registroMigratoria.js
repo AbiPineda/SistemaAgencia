@@ -139,14 +139,12 @@ $(document).ready(function () {
 
                     } else {
                         //alert(name.num_rama+"rama");
-                        $select.append('<li class="nav-item">' +
-                            '<a class="nav-link" id="custom-tabs-one-' + name.num_rama + '-tab" data-toggle="pill"' +
-                            'href="#custom-tabs-one-' + name.num_rama + '" role="tab" aria-controls="custom-tabs-one-' + name.num_rama + '"' +
-                            'aria-selected="false">' + name.categoria_rama + '</a></li>');
-
-                        $nuevo.append('<div class="tab-pane fade" id="custom-tabs-one-' + name.num_rama + '"' +
-                            'role="tabpanel" aria-labelledby="custom-tabs-one-' + name.num_rama + '-tab">' +
-                            '<div class="form-group" id="' + name.num_rama + '"> </div></div>')
+                        $select.append(' <li class="nav-item"><a class="nav-link"' +
+                            'id="custom-tabs-one-home-' + name.num_rama + '" data-toggle="pill"' +
+                            'href="#custom-tabs-one-' + name.num_rama + '" role="tab" aria-controls="custom-tabs-one-home"' +
+                            'aria-selected="true">' + name.categoria_rama + '</a></li>');
+                        $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-' + name.num_rama + '" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
+                            '<div class="" id="' + name.num_rama + '"></div></div>');
                     }
 
                 });
