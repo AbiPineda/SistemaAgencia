@@ -63,47 +63,47 @@ include_once  '../../plantillas/navbar.php'; ?>
                         <div class="tab-content" id="custom-tabs-four-tabContent">
                            <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
                               aria-labelledby="custom-tabs-four-home-tab">
-                              <div class="col-sm-12">
-                                 <form id="migratorio-form" name="register-form" onsubmit="return false"
-                                    class="form-inline" role="form">
-                                    <div class="col-sm-12">
+                              <div class="row">
+                                 <div class="col-sm-12">
+                                    <form id="migratorio-form" name="register-form" onsubmit="return false"
+                                       class="form-inline" role="form">
+
                                        <!-- text input -->
-                                       <div class="form-group ">
-                                          <div class="">
+                                       <div class="form-group" style="width: 100%;">
+                                          <div class="algo" style="width: 100%;">
                                              <select name="id_cita" id="citas_dias" class="form-control" required="true"
-                                                style="width:610px; margin-top: 20px">
+                                                style="width:100%; margin-top: 20px">
                                              </select>
                                              <div class="col-sm-12">
                                                 <!-- text input -->
                                                 <div class="form-group ">
-                                                   <div class="input-group">
-                                                      <div class="tab-content" id="custom-tabs-one-tabContent">
+                                                   <div class="input-group" style="width: 100%;">
+                                                      <div style="width: 100%;" class="tab-content"
+                                                         id="custom-tabs-one-tabContent">
                                                       </div>
                                                    </div>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
-                                 </form>
-                                 <div class="col-sm-12">
-                                    <!-- text input -->
-                                    <div class="form-group ">
-                                       <div class="timeline-footer" style="text-align: right;">
-                                          <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
-                                             style=" margin-top: 10px; color: white">Guardar</button>
-                                          <button type="button" class="btn btn-danger btn-sm"
-                                             style="margin-top: 10px; color: white"
-                                             data-dismiss="modal">Cancelar</button>
 
-                                          <button type="button" style="margin-top: 10px;" name="" id="btnRepote"
-                                             class="btn btn-secondary" data-toggle="modal"
-                                             data-target="#reporte_migratorio">
-                                             <i class="fas fa-eye" style="color: white"></i>
-                                          </button>
-
+                                    </form>
+                                    <div class="col-sm-12">
+                                       <!-- text input -->
+                                       <div class="form-group ">
+                                          <div class="timeline-footer" style="text-align: right;">
+                                             <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
+                                                style=" margin-top: 10px; color: white">Guardar</button>
+                                             <button type="button" class="btn btn-danger btn-sm"
+                                                style="margin-top: 10px; color: white"
+                                                data-dismiss="modal">Cancelar</button>
+                                             <button type="button" style="margin-top: 10px;" name="" id="btnRepote"
+                                                class="btn btn-secondary" data-toggle="modal"
+                                                data-target="#reporte_migratorio">
+                                                <i class="fas fa-eye" style="color: white"></i>
+                                             </button>
+                                          </div>
                                        </div>
-
                                     </div>
                                  </div>
                               </div>

@@ -9,15 +9,19 @@ $(document).ready(function () {
     $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
 
+        // obtenemos el div con clase caja multiple mas cercano al boton
         let $cajaMultiple = $(this).closest('.caja-multiple');
-        let $info = $(this).closest('.grupo').find('input');
+        // obtenemos el input
+        let $input = $(this).closest('.grupo').find('input');
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
-        let data = $info.data();
-
+        // obtenemos la data del input
+        let data = $input.data();
+        // agregamos un input generado a la caja multiple
         $cajaMultiple.append(crearOtherMultiple(data));
-        let dui = $cajaMultiple.find('input').inputmask();
-        dui.inputmask("99999999-9"); //static mask
-        dui.inputmask({ "mask": "99999999-9" }); //specifying options
+        let inputSinMascara = $cajaMultiple.find('input').last();
+        // agregamos la mascara a nuestro input
+        agregarMascara(inputSinMascara, data.tipo);
+
     });
     // BOTON DE ELIMINAR
     $(document).on('click', '.btn-remove', function (event) {
@@ -290,17 +294,27 @@ $(document).ready(function () {
                         contador++;
                     } else {
                         if (data.preguntas[i].mas_respuestas == 'Si') {
-                            // alert('entre');
-                            $select = $('#' + data.preguntas[i].num_rama);
+                            // se selecciona la rama
+                            let $select = $('#' + data.preguntas[i].num_rama);
+                            // agregamos el input a la vista
                             $select.append(crearPreguntaMultiple(data.preguntas[i]));
+                            // obtenemos el input para agregarle la mascara
+                            let inputSinMascara = $select.find('input').last();
+                            // agregamos la mascara al input
+                            agregarMascara(inputSinMascara, data.preguntas[i].tipo);
                             cont++;
                         } else {
-                            var $select = $('#' + data.preguntas[i].num_rama);
+                            // se selecciona la rama
+                            let $select = $('#' + data.preguntas[i].num_rama);
+                            // agregamos el input a la vista
                             $select.append(crearPreguntaSimple(data.preguntas[i]));
+                            // obtenemos el input para agregarle la mascara
+                            let inputSinMascara = $select.find('input').last();
+                            // agregamos la mascara al input
+                            agregarMascara(inputSinMascara, data.preguntas[i].tipo);
                         }
                     }
                 }
-                inicializarMascara();
             },
             error: function (err) {
                 const Toast = Swal.mixin();
@@ -318,6 +332,7 @@ $(document).ready(function () {
         label.innerHTML = txt;
         label.style.fontWeight = "normal";
         label.style.padding = '3px';
+        label.style.fontWeight = 'bold';
         return label;
     }
     function crearBoton() {
@@ -330,6 +345,23 @@ $(document).ready(function () {
         button.classList.add('btn-add');
         button.setAttribute("type", "button");
         button.style.marginTop = '19px';
+        button.style.width = '5%';
+        let t = document.createTextNode("+");
+        button.appendChild(t);
+        span.append(button);
+        return span;
+    }
+    function crearOtherBoton() {
+        let span = document.createElement("span");
+        span.classList.add('input-group-btn');
+
+        let button = document.createElement("button");
+        button.classList.add('btn');
+        button.classList.add('btn-success');
+        button.classList.add('btn-add');
+        button.setAttribute("type", "button");
+        button.style.width = '5%';
+        button.style.marginTop = '10px';
         let t = document.createTextNode("+");
         button.appendChild(t);
         span.append(button);
@@ -339,7 +371,7 @@ $(document).ready(function () {
         let grupo = document.createElement('div');
         let label = crearLabel(`¿${data.pregunta}?`);
         let input = crearInput(data);
-        input.style.width = '590px';
+        input.style.width = '100%';
         input.style.marginTop = '20px';
         grupo.append(label);
         grupo.append(input);
@@ -347,13 +379,14 @@ $(document).ready(function () {
     }
     function crearInput(data) {
         let input = document.createElement("INPUT");
-        input.setAttribute("type", data.tipo);
+        input.setAttribute("type", obtenerTipoInput(data.tipo));
         input.setAttribute("name", `respuestas[]`);
         input.setAttribute("placeholder", `¿${data.pregunta}?`);
         input.dataset.idPregunta = data.id_pregunta;
         input.dataset.pregunta = data.pregunta;
         input.dataset.tipo = data.tipo;
         input.classList.add('form-control');
+        input.style.textAlign = 'center';
         return input
     }
     function crearPreguntaCerrada(data, listOption) {
@@ -363,8 +396,10 @@ $(document).ready(function () {
         select.setAttribute("placeholder", `¿${data.pregunta}?`);
         select.setAttribute("numero-rama", `${data.num_rama}`);
         select.setAttribute("id-pregunta", `${data.id_pregunta}`);
-        select.style.width = '590px';
-        select.style.marginTop = '20px';
+        select.style.width = '100%';
+        select.style.width = '100%';
+        select.style.textAlign = 'center';
+        select.style.paddingLeft = '50%';
         select.classList.add('form-control');
         select.classList.add('respuesta');
 
@@ -388,26 +423,18 @@ $(document).ready(function () {
     function crearPreguntaMultiple(data) {
         let label = crearLabel(`¿${data.pregunta}?`);
         let boton = crearBoton();
-        let inputText = document.createElement("INPUT");
-        inputText.setAttribute("type", "text");
-        inputText.setAttribute("name", `respuesta1[]`);
-        inputText.setAttribute("placeholder", `${data.pregunta}`);
-        inputText.setAttribute("numero-rama", `${data.num_rama}`);
-        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
-        inputText.dataset.idPregunta = data.id_pregunta;
-        inputText.dataset.pregunta = data.pregunta;
-        inputText.dataset.tipo = data.tipo;
-        inputText.style.width = '550px';
-        inputText.style.marginTop = '20px';
-        inputText.classList.add('form-control');
-        inputText.classList.add('input-multiple');
+        let input = crearInput(data);
+        input.style.width = '95%';
+        input.style.marginTop = '20px';
+        input.classList.add('form-control');
+        input.classList.add('input-multiple');
 
         let contenedor = document.createElement('div');
         contenedor.classList.add("caja-multiple");
 
         let grupo = document.createElement('div');
         grupo.classList.add("grupo");
-        grupo.append(inputText);
+        grupo.append(input);
         grupo.append(boton);
 
         contenedor.append(label);
@@ -416,33 +443,53 @@ $(document).ready(function () {
         return contenedor;
     }
     function crearOtherMultiple(data) {
-        let inputText = document.createElement("INPUT");
-        let boton = crearBoton();
-        inputText.setAttribute("name", `respuestas[]`);
-        inputText.setAttribute("type", data.pregunta);
-        inputText.setAttribute("placeholder", `${data.pregunta}`);
-        inputText.setAttribute("numero-rama", `${data.num_rama}`);
-        inputText.setAttribute("id-pregunta", `${data.id_pregunta}`);
-        inputText.style.width = '550px';
-        inputText.style.marginTop = '20px';
-        inputText.classList.add('form-control');
-        inputText.classList.add('input-multiple');
+        let boton = crearOtherBoton();
+        let input = crearInput(data);
+        input.style.width = '95%';
+        input.style.marginTop = '10px';
+        input.classList.add('form-control');
+        input.classList.add('input-multiple');
 
         let grupo = document.createElement('div');
         grupo.classList.add("grupo");
-        grupo.append(inputText);
+        grupo.append(input);
         grupo.append(boton);
 
         return grupo;
     }
-    function inicializarMascara() {
-        let dui = $("#dui");
-        let celular = $('.telefono');
-        dui.inputmask("99999999-9"); //static mask
-        dui.inputmask({ "mask": "99999999-9" }); //specifying options
-        // $("#dui").inputmask("9-a{1,3}9{1,3}"); //mask with dynamic syntax
-        celular.inputmask("(+123) 1234-5678"); //static mask
-        celular.inputmask({ "mask": "(+999) 9999-9999" }); //specifying options
+    function agregarMascara(input, tipo) {
+        switch (tipo) {
+            case 'telefono':
+                input.inputmask("(+123) 1234-5678"); //static mask
+                input.inputmask({ "mask": "(+999) 9999-9999" }); //specifying options
+                break;
+            case 'dui':
+                input.inputmask("99999999-9"); //static mask
+                input.inputmask({ "mask": "99999999-9" }); //specifying options
+                break;
+            case 'pasaporte':
+                input.inputmask("A99999999"); //static mask
+                input.inputmask({ "mask": "A99999999" }); //specifying options
+                break;
+            case 'nit':
+                input.inputmask("1013-110795-101-0"); //static mask
+                input.inputmask({ "mask": "9999-999999-999-9" }); //specifying options
+                break;
+            default:
+                break;
+        }
+    }
+    function obtenerTipoInput(tipo) {
+        switch (tipo) {
+            case 'date':
+                return 'date'
+            case 'email':
+                return 'email'
+            case 'number':
+                return 'number'
+            default:
+                return 'text';
+        }
     }
 
 });
