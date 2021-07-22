@@ -104,7 +104,7 @@
                            </div>
                            <div class="card">
                               <div class="card-header">
-                                 <h3 class="card-title">Datos Basico:</h3>
+                                 <h3 class="card-title">Datos Generales:</h3>
 
                                  <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
@@ -150,7 +150,7 @@
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fab fa-whatsapp"></i> Whatsapp
+                                          <i class="fab fa-whatsapp"></i> WhatsApp
                                           <span class="badge bg-Success float-right">
                                              <h7 name="transmision" id="transmision">7841-1184 / 7602-2242 </h7>
                                           </span>

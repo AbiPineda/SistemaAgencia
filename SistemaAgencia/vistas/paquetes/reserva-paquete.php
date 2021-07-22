@@ -26,7 +26,7 @@
             <div class="col-sm-3">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                  <li class="breadcrumb-item active">Registrar Sitio Turísticos</li>
+                  <li class="breadcrumb-item active">Reservar Paquete</li>
                </ol>
             </div>
          </div>
@@ -49,7 +49,7 @@
                   <!-- /.timeline-label -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-plane bg-blue"></i>
+                     <i class="fas fa-map-marked-alt bg-blue"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 12:05</span>-->
                         <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
@@ -81,10 +81,10 @@
                   <!-- END timeline item -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-user bg-green"></i>
+                     <i class="fas fa-shuttle-van bg-red"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
-                        <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
+                        <h3 class="timeline-header no-border"><a href="#">Opciones de Asientos</a></h3>
                         <div class="timeline-body">
                            <div class="row">
                               <div class="col-sm-4">
@@ -100,7 +100,7 @@
                               </div>
                               <div class="col-sm-4">
                                  <div class="form-group">
-                                    <label>Precio</label>
+                                    <label>Precio ($)</label>
                                     <div class="input-group">
                                        <input type="number" min="0" class=" form-control" disabled="true"
                                           name="costoPasaje" id="costoPasaje">
@@ -143,7 +143,7 @@
                   <!-- END timeline item -->
                   <!-- timeline item -->
                   <div>
-                     <i class="fas fa-list bg-yellow"></i>
+                     <i class="fas fa-list bg-green"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>-->
                         <h3 class="timeline-header"><a href="#">Detalle</a>
@@ -157,7 +157,7 @@
                                        <tr style="text-align: center;">
                                           <th>id</th>
                                           <th>Tipo de Asiento</th>
-                                          <th>Costo</th>
+                                          <th>Costo ($)</th>
                                           <th>Cantidad</th>
                                           <th>SubTotal</th>
                                           <th>Eliminar</th>
@@ -183,7 +183,7 @@
                            <div class="row">
                               <div class="col-md-1 col-md-offset-1"> </div>
                               <div class="col-md-3  ">
-                                 <label class="text-danger "> Asientos a reservar</label>
+                                 <label class="text-danger "> Asientos a Reservar</label>
                               </div>
                               <div class="col-md-3  ">
                                  <label id="asientosAReservar" class="text-danger"> 0</label>
@@ -196,10 +196,10 @@
                   <!-- END timeline item -->
                   <!-- timeline item -->
                   <div id="item_asiento">
-                     <i class="fas fa-user bg-green"></i>
+                     <i class="fas fa-chair bg-yellow"></i>
                      <div class="timeline-item">
                         <!--<span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>-->
-                        <h3 class="timeline-header no-border"><a href="#">Opciones de asientos</a></h3>
+                        <h3 class="timeline-header no-border"><a href="#">Ubicación de Asientos</a></h3>
                         <div class="timeline-body">
                            <div class="row" id="dibujoAsientos">
                               <!-- <div class="offset-md-1"></div> -->

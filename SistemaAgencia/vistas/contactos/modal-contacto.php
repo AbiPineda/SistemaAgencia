@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <label>Correo Electronico</label>
+                              <label>Correo Electrónico</label>
                               <div class="input-group">
                                  <input placeholder="Digite Correo" type="text" class="form-control"
                                     name="correoContactoSitio" id="correoContactoSitio">

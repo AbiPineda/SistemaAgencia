@@ -25,7 +25,7 @@
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
-                  <li class="breadcrumb-item active">Registrar Tur</li>
+                  <li class="breadcrumb-item active">Publicar Paquete</li>
                </ol>
             </div>
          </div>
@@ -54,7 +54,7 @@
                               <div class="row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label>Titulo del viaje</label>
+                                       <label>Título del viaje</label>
                                        <div class="input-group">
                                           <input placeholder="Digite el Título" type="text" class="form-control"
                                              id="nombreTours" name="nombreTours">
@@ -136,7 +136,7 @@
                                  </div>
                                  <div class="col-sm-2">
                                     <div class="form-group">
-                                       <label>Precio</label>
+                                       <label>Precio ($)</label>
                                        <div class="input-group">
                                           <input type="number" min="0" class=" form-control" name="precio_sitio"
                                              id="precio_sitio">
@@ -259,7 +259,7 @@
                                  </div>
                                  <div class="col-sm-2">
                                     <div class="form-group">
-                                       <label>Precio</label>
+                                       <label>Precio ($)</label>
                                        <div class="input-group">
                                           <input type="number" min="0" class=" form-control" name="precio_servicio"
                                              id="precio_servicio">
@@ -384,7 +384,7 @@
                                           </div>
                                           <div class="col-sm-2">
                                              <div class="form-group">
-                                                <label>Precio</label>
+                                                <label>Precio ($)</label>
                                                 <div class="input-group">
                                                    <input id="precio_transporte" name="precio_transporte" type="number"
                                                       min="1" class="form-control">
@@ -455,10 +455,10 @@
                                        </div>
                                        <thead>
                                           <tr style="text-align: center;">
-                                             <th>Sitio Turisto/Servicio dicional</th>
+                                             <th>Sitio Turístico/Servicio Adicional</th>
                                              <th>Costo</th>
                                              <th>Cantidad</th>
-                                             <th>por pasajero</th>
+                                             <th>Por pasajero</th>
                                              <th>Sub Total</th>
                                              <th>Eliminar</th>
                                              <th>tipo</th>
@@ -584,13 +584,13 @@
                            <div class="timeline-body">
                               <div class="row">
                                  <div class="col-sm-4">
-                                    <label>Titulo de la Promocion</label>
+                                    <label>Título de la Promoción</label>
                                  </div>
                                  <div class="col-sm-4">
                                     <label>Número de Asientos</label>
                                  </div>
                                  <div class="col-sm-4">
-                                    <label>Costo del Pasaje($)</label>
+                                    <label>Costo del Pasaje ($)</label>
                                  </div>
                               </div>
                               <div id="contenedorPromociones">
@@ -627,14 +627,14 @@
                         <div class="timeline-item">
 
                            <h3 class="timeline-header no-border">
-                              <a href="#">Galería de Imagenes</a>
+                              <a href="#">Galería de Imágenes</a>
                            </h3>
                            <div class="timeline-body">
 
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione Imagenes</label>
+                                    <label>Seleccione Imágenes</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotos[]" id="fotos">
                                     </div>

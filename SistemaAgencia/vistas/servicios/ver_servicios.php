@@ -48,7 +48,7 @@
                            <th>Nombre</th>
                            <th>Costo ($)</th>
                            <th>Contacto</th>
-                           <th>Descripcion</th>
+                           <th >Descripción</th>
                            <th>Acciones</th>
 
                         </tr>
