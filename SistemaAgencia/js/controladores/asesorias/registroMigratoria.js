@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
-    let idCita = urlParams.get('idCita');
+    let ID_CITA = urlParams.get('idCita');
     let cliente = urlParams.get('cliente');
     $('#titulo').html(`Registro de Información Migratoria - ${cliente}`);
 
@@ -474,18 +474,30 @@ $(document).ready(function () {
         // obtenemos todos los div con la clase caja multiples visibles en el div
         let $preguntaMultiple = $('.tab-pane .active').find('.caja-multiple');
         // estos son los inputs multiples
-        $preguntaMultiple.map(function () {
-            // console.log($(this).find('input'))
-            return $(this).val();
+        let mult = $preguntaMultiple.map(function () {
+            let inputs = $(this).find('input');
+            return filtrar(inputs);
         }).get();
+        console.log(mult);
         // obtenemos los inputs simples
         let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
-        // console.log($inputSimples)
-        let $preguntaCerrada = $('.tab-pane .active').find('select');
-        $preguntaCerrada.map(function () {
-            console.log($(this).data());
-            return $(this);
-        }).get();
+        let siimple = filtrar($preguntaSimples);
+        // console.log(siimple);
 
+        // Para obtener las pregutnas cerradas
+        let $preguntaCerrada = $('.tab-pane .active').find('select');
+        let cerrada = filtrar($preguntaCerrada);
+        // console.log(cerrada);
+
+
+    }
+    function filtrar($listaElementos) {
+        return $listaElementos.map(function () {
+            return {
+                id_pregunta: $(this).data().id_pregunta,
+                id_cita: ID_CITA,
+                respuesta: $(this).val()
+            };
+        }).get();
     }
 });
