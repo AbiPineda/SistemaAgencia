@@ -410,6 +410,7 @@ $(document).ready(function () {
 
         let contenedor = document.createElement('div');
         contenedor.classList.add("caja-multiple");
+        contenedor.dataset.id_pregunta = data.id_pregunta;
 
         let grupo = document.createElement('div');
         grupo.classList.add("grupo");
@@ -475,10 +476,36 @@ $(document).ready(function () {
         let $preguntaMultiple = $('.tab-pane .active').find('.caja-multiple');
         // estos son los inputs multiples
         let mult = $preguntaMultiple.map(function () {
+            // en el div .caja-multiples tenemos almacenado el id pregunta, lo recuperamos
+            let id_pregunta = ($(this).data().id_pregunta);
+            // obtenemos todos los input del elemento que estamos recorriendo con el map
             let inputs = $(this).find('input');
-            return filtrar(inputs);
+            // de esos inputs los recorremos para obtener todas las respuestas de esa pregutna
+            let respuestasMultiples = inputs.map(function () {
+                // solo devolvemos el valor
+                return $(this).val();
+                // el get espara que lo devuelva en forma de arreglo normal
+            }).get();
+            let objetoRestaMultiple = {
+                // 
+                respuesta : JSON.stringify(respuestasMultiples),
+                id_pregunta : id_pregunta,
+                id_cita : ID_CITA
+            };
+            // console.log(res);
+            // console.log(id_pregunta);
+            // console.log(ID_CITA);
+            return objetoRestaMultiple;
         }).get();
+
+
         console.log(mult);
+
+
+
+
+
+
         // obtenemos los inputs simples
         let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
         let siimple = filtrar($preguntaSimples);
