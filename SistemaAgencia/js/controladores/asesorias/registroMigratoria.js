@@ -472,6 +472,23 @@ $(document).ready(function () {
         }
     }
     function obtenerData() {
+
+        let mult = obtenerRespuestaMultples();
+        console.log(mult);
+
+        // obtenemos los inputs simples
+        let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
+        let siimple = filtrar($preguntaSimples);
+        console.log(siimple);
+
+        // Para obtener las pregutnas cerradas
+        let $preguntaCerrada = $('.tab-pane .active').find('select');
+        let cerrada = filtrar($preguntaCerrada);
+        console.log(cerrada);
+
+
+    }
+    function obtenerRespuestaMultples() {
         // obtenemos todos los div con la clase caja multiples visibles en el div
         let $preguntaMultiple = $('.tab-pane .active').find('.caja-multiple');
         // estos son los inputs multiples
@@ -488,9 +505,10 @@ $(document).ready(function () {
             }).get();
             let objetoRestaMultiple = {
                 // 
-                respuesta : JSON.stringify(respuestasMultiples),
-                id_pregunta : id_pregunta,
-                id_cita : ID_CITA
+                id_pregunta: id_pregunta,
+                id_cita: ID_CITA,
+                // JSON.stringify
+                respuesta: (respuestasMultiples),
             };
             // console.log(res);
             // console.log(id_pregunta);
@@ -499,24 +517,7 @@ $(document).ready(function () {
         }).get();
 
 
-        console.log(mult);
-
-
-
-
-
-
-        // obtenemos los inputs simples
-        let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
-        let siimple = filtrar($preguntaSimples);
-        // console.log(siimple);
-
-        // Para obtener las pregutnas cerradas
-        let $preguntaCerrada = $('.tab-pane .active').find('select');
-        let cerrada = filtrar($preguntaCerrada);
-        // console.log(cerrada);
-
-
+        return mult;
     }
     function filtrar($listaElementos) {
         return $listaElementos.map(function () {
