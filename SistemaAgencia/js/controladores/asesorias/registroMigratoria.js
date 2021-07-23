@@ -22,7 +22,6 @@ $(document).ready(function () {
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         // obtenemos la data del input
         let data = $input.data();
-        console.log(data);
         // agregamos un input generado a la caja multiple
         $cajaMultiple.append(crearOtherMultiple(data));
         let inputSinMascara = $cajaMultiple.find('input').last();
@@ -147,7 +146,6 @@ $(document).ready(function () {
             data: obtenerData()
 
         }).done(function (response) {
-            console.log(response);
             document.getElementById("migratorio-form").reset();
             //para no recargar la pagina
             $('#citas_dias').empty();
@@ -350,13 +348,14 @@ $(document).ready(function () {
         let grupo = document.createElement('div');
         let label = crearLabel(`¿${data.pregunta}?`);
         let input = crearInput(data, 'preguntaSimple[]');
+        input.classList.add('input-simple');
         input.style.width = '100%';
         input.style.marginTop = '20px';
         grupo.append(label);
         grupo.append(input);
         return grupo;
     }
-    function crearInput(data,name) {
+    function crearInput(data, name) {
         let input = document.createElement("INPUT");
         input.setAttribute("type", obtenerTipoInput(data.tipo));
         input.setAttribute("name", name);
@@ -373,8 +372,9 @@ $(document).ready(function () {
         let select = document.createElement("select");
         select.setAttribute("name", `respuestas[]`);
         select.setAttribute("placeholder", `¿${data.pregunta}?`);
-        select.setAttribute("numero-rama", `${data.num_rama}`);
-        select.setAttribute("id-pregunta", `${data.id_pregunta}`);
+        select.dataset.id_pregunta = data.id_pregunta;
+        select.dataset.pregunta = data.pregunta;
+        select.dataset.tipo = data.tipo;
         select.style.width = '100%';
         select.style.width = '100%';
         select.style.textAlign = 'center';
@@ -471,9 +471,21 @@ $(document).ready(function () {
         }
     }
     function obtenerData() {
-        // obtenemos todos los input visibles en el tab
-        let $listInput = $('.tab-pane .active').find('input');
-        console.log($listInput);
+        // obtenemos todos los div con la clase caja multiples visibles en el div
+        let $preguntaMultiple = $('.tab-pane .active').find('.caja-multiple');
+        // estos son los inputs multiples
+        $preguntaMultiple.map(function () {
+            // console.log($(this).find('input'))
+            return $(this).val();
+        }).get();
+        // obtenemos los inputs simples
+        let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
+        // console.log($inputSimples)
+        let $preguntaCerrada = $('.tab-pane .active').find('select');
+        $preguntaCerrada.map(function () {
+            console.log($(this).data());
+            return $(this);
+        }).get();
 
     }
 });
