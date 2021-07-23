@@ -35,7 +35,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                <div class="col-sm-6">
                   <h1>
 
-                     <small> Registro de Información Migratoria</small>
+                     <small id="titulo"> Registro de Información Migratoria</small>
                   </h1>
                </div>
                <div class="col-sm-6">
@@ -71,9 +71,6 @@ include_once  '../../plantillas/navbar.php'; ?>
                                        <!-- text input -->
                                        <div class="form-group" style="width: 100%;">
                                           <div class="algo" style="width: 100%;">
-                                             <select name="id_cita" id="citas_dias" class="form-control" required="true"
-                                                style="width:100%; margin-top: 20px">
-                                             </select>
                                              <div class="col-sm-12">
                                                 <!-- text input -->
                                                 <div class="form-group ">

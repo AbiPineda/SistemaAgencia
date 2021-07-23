@@ -1,7 +1,13 @@
 $(document).ready(function () {
 
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    let idCita = urlParams.get('idCita');
+    let cliente = urlParams.get('cliente');
+    $('#titulo').html(`Registro de Información Migratoria - ${cliente}`);
+
     validaciones();
-    cargarCitas();
+
     llamarRamas();
     llamarPreguntita();
 
@@ -16,6 +22,7 @@ $(document).ready(function () {
         $(this).toggleClass('btn-success btn-add btn-danger btn-remove').html('–');
         // obtenemos la data del input
         let data = $input.data();
+        console.log(data);
         // agregamos un input generado a la caja multiple
         $cajaMultiple.append(crearOtherMultiple(data));
         let inputSinMascara = $cajaMultiple.find('input').last();
@@ -80,44 +87,17 @@ $(document).ready(function () {
 
         });
     });
-    //FIN DE MOSTRAMOS EL REPORTE
+    //BOTON DE GUARDAR
     $(document).on('click', '#btnFormulario', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#migratorio-form");
         form.validate();
         if (form.valid()) {
-            insertarFormulario();
+            obtenerData();
         } else {
             toastr.error('Verifique los campos de selección');
         }
     });
-    function cargarCitas() {
-        $.ajax({
-            type: "GET",
-            url: URL_SERVIDOR + "Cita/formularioMigratorioCitas",
-            dataType: "json",
-            success: function (data) {
-
-                let $select = $('#citas_dias');
-                $select.append('<option disabled="" selected>Seleccione la cita</option>');
-                $.each(data.citas, function (i, name) {
-                    $select.append('<option value=' + name.id_cita + '>' + name.nombre +
-                        '</option>');
-                });
-            },
-            error: function (err) {
-                let $select = $('#combo_rama');
-                $select.append('<option disabled value="" selected>Seleccione la cita</option>');
-                /* const Toast = Swal.mixin();
-              Toast.fire({
-                  title: 'Error'
-                  icon: 'error',
-                  text:'No hay Ramas para mostrar',
-                  showConfirmButton: true,
-              });*/
-            }
-        });
-    }
     function llamarRamas() {
         $.ajax({
             type: "GET",
@@ -162,11 +142,12 @@ $(document).ready(function () {
     }
     function insertarFormulario() {
         $.ajax({
-            url: URL_SERVIDOR + "FormularioMigratorio/formulario",
+            url: URL_SERVIDOR + "FormularioMigratorio/save",
             method: 'POST',
-            data: $("#migratorio-form").serialize()
+            data: obtenerData()
 
         }).done(function (response) {
+            console.log(response);
             document.getElementById("migratorio-form").reset();
             //para no recargar la pagina
             $('#citas_dias').empty();
@@ -368,19 +349,19 @@ $(document).ready(function () {
     function crearPreguntaSimple(data) {
         let grupo = document.createElement('div');
         let label = crearLabel(`¿${data.pregunta}?`);
-        let input = crearInput(data);
+        let input = crearInput(data, 'preguntaSimple[]');
         input.style.width = '100%';
         input.style.marginTop = '20px';
         grupo.append(label);
         grupo.append(input);
         return grupo;
     }
-    function crearInput(data) {
+    function crearInput(data,name) {
         let input = document.createElement("INPUT");
         input.setAttribute("type", obtenerTipoInput(data.tipo));
-        input.setAttribute("name", `respuestas[]`);
+        input.setAttribute("name", name);
         input.setAttribute("placeholder", `¿${data.pregunta}?`);
-        input.dataset.idPregunta = data.id_pregunta;
+        input.dataset.id_pregunta = data.id_pregunta;
         input.dataset.pregunta = data.pregunta;
         input.dataset.tipo = data.tipo;
         input.classList.add('form-control');
@@ -390,7 +371,7 @@ $(document).ready(function () {
     function crearPreguntaCerrada(data, listOption) {
         let label = crearLabel(`¿${data.pregunta}?`);
         let select = document.createElement("select");
-        select.setAttribute("name", `respuesta1[]`);
+        select.setAttribute("name", `respuestas[]`);
         select.setAttribute("placeholder", `¿${data.pregunta}?`);
         select.setAttribute("numero-rama", `${data.num_rama}`);
         select.setAttribute("id-pregunta", `${data.id_pregunta}`);
@@ -421,7 +402,7 @@ $(document).ready(function () {
     function crearPreguntaMultiple(data) {
         let label = crearLabel(`¿${data.pregunta}?`);
         let boton = crearBoton();
-        let input = crearInput(data);
+        let input = crearInput(data, 'preguntaMultiple[]');
         input.style.width = '95%';
         input.style.marginTop = '20px';
         input.classList.add('form-control');
@@ -442,7 +423,7 @@ $(document).ready(function () {
     }
     function crearOtherMultiple(data) {
         let boton = crearOtherBoton();
-        let input = crearInput(data);
+        let input = crearInput(data, 'preguntaMultiple[]');
         input.style.width = '95%';
         input.style.marginTop = '10px';
         input.classList.add('form-control');
@@ -489,5 +470,10 @@ $(document).ready(function () {
                 return 'text';
         }
     }
+    function obtenerData() {
+        // obtenemos todos los input visibles en el tab
+        let $listInput = $('.tab-pane .active').find('input');
+        console.log($listInput);
 
+    }
 });
