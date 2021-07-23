@@ -89,7 +89,7 @@
                               <div class="row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label>Costo</label>
+                                       <label>Costo ($)</label>
                                        <div class="input-group">
                                           <input placeholder="Digite el Costo" id="costos_defectoServicio"
                                              name="costos_defectoServicio" type="number" class="form-control">
@@ -122,7 +122,7 @@
                               <div class="row" id="configuracionAsientos">
                                  <div class="col-sm-3">
                                     <div class="form-group">
-                                       <label>numero de filas </label>
+                                       <label>Número de Filas </label>
                                        <div class="input-group">
                                           <input id="numero_filas" name="numero_filas" type="number" min="2" value="2"
                                              step="1" class="form-control">
@@ -176,7 +176,7 @@
                                  <div class="col-sm-12">
                                     <!-- text input -->
                                     <div class="form    -group">
-                                       <label>Descripcion del Servicio</label>
+                                       <label>Descripción del Servicio</label>
                                        <textarea name="descripcion_servicio" id="descripcion_servicio"
                                           class="form-control" rows="3" placeholder="Digitar aquí ..."></textarea>
                                     </div>
@@ -193,13 +193,13 @@
                         <i class="fas fa-image bg-green"></i>
                         <div class="timeline-item">
 
-                           <h3 class="timeline-header no-border"><a href="#">Galería de Imagenes</a></h3>
+                           <h3 class="timeline-header no-border"><a href="#">Galería de Imágenes</a></h3>
                            <div class="timeline-body">
 
                               <div class="row">
                                  <div class="col-sm-12">
 
-                                    <label>Seleccione Imagenes</label>
+                                    <label>Seleccione Imágenes</label>
                                     <div class="file-loading">
                                        <input type="file" multiple name="fotosServicio[]" id="fotosServicio">
                                     </div>
