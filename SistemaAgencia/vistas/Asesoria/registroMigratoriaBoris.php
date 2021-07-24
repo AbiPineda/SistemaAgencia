@@ -9,19 +9,6 @@ include_once  '../../plantillas/navbar.php'; ?>
 <link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/migratorioRe.css" all rel="stylesheet" type="text/css" />
-
-<style>
-.center {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   width: 75%;
-}
-
-.hidden {
-   display: none;
-}
-</style>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
 
 <div class="wrapper">

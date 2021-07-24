@@ -9,7 +9,6 @@ $(document).ready(function () {
     validaciones();
 
     llamarRamas();
-    llamarPreguntita();
 
     // BOTON DE AGREGAR
     $(document).on('click', '.btn-add', function (event) {
@@ -115,18 +114,20 @@ $(document).ready(function () {
                             'aria-selected="true">' + name.categoria_rama + '</a></li>');
                         $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-' + name.num_rama + '" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
                             '<div class="" id="' + name.num_rama + '"></div></div>');
-
                     } else {
                         //alert(name.num_rama+"rama");
                         $select.append(' <li class="nav-item"><a class="nav-link"' +
                             'id="custom-tabs-one-home-' + name.num_rama + '" data-toggle="pill"' +
                             'href="#custom-tabs-one-' + name.num_rama + '" role="tab" aria-controls="custom-tabs-one-home"' +
                             'aria-selected="true">' + name.categoria_rama + '</a></li>');
-                        $nuevo.append('<div class="tab-pane fade show active" id="custom-tabs-one-' + name.num_rama + '" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
+                        $nuevo.append('<div class="tab-pane fade" id="custom-tabs-one-' + name.num_rama + '" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
                             '<div class="" id="' + name.num_rama + '"></div></div>');
                     }
 
                 });
+                llamarPreguntita();
+                console.log($('.nav-item > .active').next('li').find('a'));
+
             },
             error: function (err) {
                 const Toast = Swal.mixin();
@@ -473,20 +474,19 @@ $(document).ready(function () {
     }
     function obtenerData() {
 
+        let AllQuestion = [];
+        AllQuestion = [];
         let mult = obtenerRespuestaMultples();
-        console.log(mult);
-
+        AllQuestion.push(...mult);
         // obtenemos los inputs simples
         let $preguntaSimples = $('.tab-pane .active').find('.input-simple');
         let siimple = filtrar($preguntaSimples);
-        console.log(siimple);
-
+        AllQuestion.push(...siimple);
         // Para obtener las pregutnas cerradas
         let $preguntaCerrada = $('.tab-pane .active').find('select');
         let cerrada = filtrar($preguntaCerrada);
-        console.log(cerrada);
-
-
+        AllQuestion.push(...cerrada);
+        console.log(AllQuestion);
     }
     function obtenerRespuestaMultples() {
         // obtenemos todos los div con la clase caja multiples visibles en el div
