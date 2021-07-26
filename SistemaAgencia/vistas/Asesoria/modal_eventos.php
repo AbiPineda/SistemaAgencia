@@ -21,13 +21,22 @@
             <form id="register-form" name="register-form" onsubmit="return false" role="form">
                <div class="modal-body">
                   <div class="form-row">
-                     <div class="form-group col-md-2">
+                     <div class="form-group col-md-6">
                         <label>Fecha</label>
                         <input type="text" id="txtFecha" name="fecha" class="form-control" />
                         <input type="hidden" id="usuario" name="usuario" id="usuario" class="form-control" />
 
                      </div>
-                     <div class="form-group col-md-5">
+                     <div class="form-group col-md-6">
+                        <label>Hora de la cita</label>
+                        <div class="input-group clockpicker" data-autoclose="true">
+                           <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
+                        </div>
+                        <input type="hidden" class="form-control" id="txtTitulo" name="title" value="Asesoria" />
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="col-md-5">
                         <div class="form-group multiple-form-group input-group">
                            <label>Cliente</label>
                            <div class="input-group">
@@ -36,6 +45,7 @@
                                  style="width: 100%;" onchange="ShowSelected();">
                               </select>
                               <input type="hidden" name="estado" id="estado" value="Enviado">
+
                            </div>
                         </div>
                      </div>
@@ -46,17 +56,14 @@
                               data-target="#modalAgregarCliente" style="margin-top: 10px; width: 100%;">+</button>
                         </span>
                      </div>
-
-                     <div class="form-group col-md-4">
+                     <div class="col-md-6">
                         <label>N° pasaporte del cliente</label>
-                        <input type="text" id="pasaporte" name="pasaporte" class="form-control"
-                           placeholder="A12345878" pattern="^[A-Z]{1}[0-9]{8}" />
-
+                        <input type="text" id="pasaporte" name="pasaporte" class="form-control" placeholder="A12345878"
+                           pattern="^[A-Z]{1}[0-9]{8}" />
                      </div>
                   </div>
-
                   <div class="form-row">
-                     <div class="form-group col-md-2">
+                     <div class="form-group col-md-12">
                         <label>¿Asistirá solo/a?</label>
                         <select name="asistencia" id="asistencia" class="form-control">
                            <option disabled="" selected>Seleccione</option>
@@ -64,53 +71,34 @@
                            <option value="0">No</option>
                         </select>
                      </div>
-
+                  </div>
+                  <div class="form-row">
                      <div class="form-group col-md-6">
                         <div id="recargar">
-                           <label id="per">¿Personas que asistirán ?</label>
+                           <label id="per">¿Personas que asistirán?</label>
                            <div class="form-group multiple-form-group input-group" name="grupo_personas">
                               <input type="text" name="asistiran[]" id="asistiran" disabled="" class="form-control"
                                  placeholder="Digite el nombre">
                               <span class="input-group-btn">
-                                 <button type="button" class="btn btn-success btn-add" id="btn-asistiran" disabled=""
-                                    style="margin-top:0px;">+</button>
+                                 <button type="button" class="btn btn-success btn-add btn-nombres" id="btn-asistiran"
+                                    disabled="" style="margin-top:0px;">+</button>
                               </span>
                            </div>
 
                         </div>
-
                      </div>
-
-                     <div class="form-group col-md-4">
+                     <div class="form-group col-md-6">
                         <label id="pasa">N° pasaporte de las personas</label>
                         <div class="form-group multiple-form-group input-group" name="grupo_pasaporte">
                            <input type="text" name="pasaporte_personas[]" id="pasaporte_personas" disabled=""
                               class="form-control" placeholder="Digite el pasaporte" pattern="^[A-Z]{1}[0-9]{8}">
                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" id="btn-pasaportes" disabled=""
-                                 style="margin-top:0px;">+</button>
+                              <button type="button" class="btn btn-success btn-add btn-pasaporte" id="btn-pasaportes"
+                                 disabled="" style="margin-top:0px;">+</button>
                            </span>
                         </div>
-
                      </div>
-
                   </div>
-
-                  <div class="form-row">
-                     <div class="form-group col-md-2"></div>
-                     <div class="form-group col-md-6">
-                        <label>Hora de la cita</label>
-                        <div class="input-group clockpicker" data-autoclose="true">
-                           <input type="text" id="timepicker" name="start" class="form-control" value="08:00" />
-                        </div>
-                        <input type="hidden" class="form-control" id="txtTitulo" name="title" value="Asesoria" />
-
-                     </div>
-
-
-
-                  </div>
-
                   <div class="row">
                      <div class="form-group col-sm-12">
 
@@ -120,8 +108,6 @@
                         </div>
                      </div>
                   </div>
-
-
                </div>
                <div class="modal-footer">
                   <button type="button" id="btnAgregar" class="btn btn-primary btn-sm"

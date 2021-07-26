@@ -81,11 +81,6 @@ include_once  '../../plantillas/navbar.php'; ?>
                                              <button type="button" class="btn btn-danger btn-sm"
                                                 style="margin-top: 10px; color: white"
                                                 data-dismiss="modal">Cancelar</button>
-                                             <button type="button" style="margin-top: 10px;" name="" id="btnRepote"
-                                                class="btn btn-secondary" data-toggle="modal"
-                                                data-target="#reporte_migratorio">
-                                                <i class="fas fa-eye" style="color: white"></i>
-                                             </button>
                                           </div>
                                        </div>
                                     </div>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let explorer = $("#kv-explorer");
     let id_regunta;
     let tabla;
@@ -6,19 +6,19 @@ $(document).ready(function() {
     //inicializarValidaciones();
     inicializarComboRama();
     inicializarTabla();
-     //BOTON MOSTRAR EL REPORTE
-    $(document).on('click', '.btn-group .btn-secondary', function() {
+    //BOTON MOSTRAR EL REPORTE
+    $(document).on('click', '.btn-group .btn-secondary', function () {
 
         id = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
             url: URL_SERVIDOR + "FormularioMigratorio/formulariosLlenos/" + id,
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //MANDALOS LOS VALORES AL MODAL
-             $('#crear_tablas').empty();
+            $('#crear_tablas').empty();
             seleccion = $('#crear_tablas');
-             for (let i = 0, ien = response.cliente.length; i < ien; i++) {
+            for (let i = 0, ien = response.cliente.length; i < ien; i++) {
 
                 $('#nombreC').text(response.cliente[i].nombre);
                 $('#emailC').text(response.cliente[i].correo);
@@ -26,87 +26,86 @@ $(document).ready(function() {
                 $('#dui-cliente').text(response.cliente[i].dui);
             }
             for (let i = 0, ien = response.ramas.ramas.length; i < ien; i++) {
-                seleccion.append('<span class="h3">'+response.ramas.ramas[i].categoria_rama+'</span>'+
-                                                '<table id="factura_detalle">'+
-                                                    '<thead>'+
-                                                           '<tr>'+
-                                                            '<th class="textcenter">Pregunta y Respuestas</th>'+
-                                                            '</tr>'+                                                         
-                                                    '</thead>'+
-                                                    '<tbody id="detalle_productos'+response.ramas.ramas[i].num_rama+'"'+
-                                                       
-                                                    '</tbody>'+
+                seleccion.append('<span class="h3">' + response.ramas.ramas[i].categoria_rama + '</span>' +
+                    '<table id="factura_detalle">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th class="textcenter">Pregunta y Respuestas</th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody id="detalle_productos' + response.ramas.ramas[i].num_rama + '"' +
 
-                                                '</table>');
-                for (let j = 0, jen = response.formulario.length; j< jen ; j++) {
-                    tr = $('#detalle_productos'+response.ramas.ramas[i].num_rama);
-                    if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama ) {
-                    
-                    if (response.formulario[j].pregunta=='Nombre de las personas') {
-                         tr.append('<tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
-                                 '</td>'+
-                                '</tr>');   
-                          for(let x = 0, xen = response.pesonas.personas.length; x< xen ; x++){
-                             tr.append(' <tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="anioC" id="anioC"'+
-                                 'style="font-weight: normal;">'+response.pesonas.personas[x]+'</label>'+
-                                 '</td>'+
+                    '</tbody>' +
+
+                    '</table>');
+                for (let j = 0, jen = response.formulario.length; j < jen; j++) {
+                    tr = $('#detalle_productos' + response.ramas.ramas[i].num_rama);
+                    if (response.formulario[j].num_rama == response.ramas.ramas[i].num_rama) {
+
+                        if (response.formulario[j].pregunta == 'Nombre de las personas') {
+                            tr.append('<tr>' +
+                                '<td class="textcenter">' +
+                                '<label name="nombreVehiculoC" id="nombreVehiculoC"' +
+                                'style="font-weight: normal;"><strong>' + response.formulario[j].pregunta + '</strong></label>' +
+                                '</td>' +
                                 '</tr>');
-                                }  
-                    }else{
-                         if(response.formulario[j].mas_respuestas=='Si'){
-                             let respu= JSON.parse(response.formulario[j].respuesta);
-                              tr.append('<tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
-                                 '</td>'+
-                                '</tr>');  
-                             for(let v = 0, ven = respu.length; v< ven ; v++){
-                                tr.append(' <tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="anioC" id="anioC"'+
-                                 'style="font-weight: normal;">'+respu[v]+'</label>'+
-                                 '</td>'+
-                                '</tr>');
-                             }
+                            for (let x = 0, xen = response.pesonas.personas.length; x < xen; x++) {
+                                tr.append(' <tr>' +
+                                    '<td class="textcenter">' +
+                                    '<label name="anioC" id="anioC"' +
+                                    'style="font-weight: normal;">' + response.pesonas.personas[x] + '</label>' +
+                                    '</td>' +
+                                    '</tr>');
+                            }
+                        } else {
+                            if (response.formulario[j].mas_respuestas == 'Si') {
+                                let respu = JSON.parse(response.formulario[j].respuesta);
+                                tr.append('<tr>' +
+                                    '<td class="textcenter">' +
+                                    '<label name="nombreVehiculoC" id="nombreVehiculoC"' +
+                                    'style="font-weight: normal;"><strong>' + response.formulario[j].pregunta + '</strong></label>' +
+                                    '</td>' +
+                                    '</tr>');
+                                for (let v = 0, ven = respu.length; v < ven; v++) {
+                                    tr.append(' <tr>' +
+                                        '<td class="textcenter">' +
+                                        '<label name="anioC" id="anioC"' +
+                                        'style="font-weight: normal;">' + respu[v] + '</label>' +
+                                        '</td>' +
+                                        '</tr>');
+                                }
 
-                        }else{
-                         tr.append(' <tr>'+
-                                '<td class="textcenter">'+
-                                '<label name="nombreVehiculoC" id="nombreVehiculoC"'+
-                                 'style="font-weight: normal;"><strong>'+response.formulario[j].pregunta+'</strong></label>'+
-                                 '</td><tr/>'+
-                                '<tr><td class="textcenter">'+
-                                '<label name="anioC" id="anioC"'+
-                                 'style="font-weight: normal;">'+response.formulario[j].respuesta+'</label>'+
-                                 '</td>'+
-                                '</tr>'); 
-                        }
-                    }//de nombre de las personas
+                            } else {
+                                tr.append(' <tr>' +
+                                    '<td class="textcenter">' +
+                                    '<label name="nombreVehiculoC" id="nombreVehiculoC"' +
+                                    'style="font-weight: normal;"><strong>' + response.formulario[j].pregunta + '</strong></label>' +
+                                    '</td><tr/>' +
+                                    '<tr><td class="textcenter">' +
+                                    '<label name="anioC" id="anioC"' +
+                                    'style="font-weight: normal;">' + response.formulario[j].respuesta + '</label>' +
+                                    '</td>' +
+                                    '</tr>');
+                            }
+                        }//de nombre de las personas
 
-                    }  
-                        
-                        
                     }
-               
-            }//primer for
-        }).fail(function(response) {
 
-        }).always(function(xhr, opts) {
+
+                }
+
+            }//primer for
+        }).fail(function (response) {
+
+        }).always(function (xhr, opts) {
             $('#modal-cotizacion').modal('show');
 
         });
     });
-//FIN DE MOSTRAMOS EL REPORTE
-
+    //FIN DE MOSTRAMOS EL REPORTE
 
     //BOTON EDITAR LA FOTO
-    $(document).on('click', '.btn-group .btn-warning', function() {
+    $(document).on('click', '.btn-group .btn-warning', function () {
         $('#modal-imagenesEncomienda').modal('show');
         let identificador = $(this).attr("name");
         let nombreTabla = 'cita';
@@ -118,7 +117,7 @@ $(document).ready(function() {
             url: URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador,
             method: "GET",
 
-        }).done(function(response) {
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             console.log(URL_SERVIDOR + "Imagen/show?tipo=" + nombreTabla + "&identificador=" + identificador);
             response.forEach(element => {
@@ -148,145 +147,16 @@ $(document).ready(function() {
     });
 
     //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function() {
-        $('#loadingActualizar').hide();
-        id = $(this).attr("name");
-        fila = $(this).closest("tr");
-        usuario = fila.find('td:eq(0)').text();
-        document.getElementById("id_cita").value = id;
-        document.getElementById("usuario").value = usuario;
-
-
-        $.ajax({
-            type: "GET",
-            url: URL_SERVIDOR + "FormularioMigratorio/formulariosLlenos/" + id,
-            async: false,
-            dataType: "json",
-            success: function(data) {
-                var cont=0;
-                //vacias los elementos
-                for (let i = 0, ien = data.formulario.length; i < ien; i++) {
-                    // alert('paso');
-                    if (data.formulario[i].opcion == 'cerrada') {
-                        $('#' + data.formulario[i].num_rama).empty();
-                    } else {
-                        if (data.formulario[i].mas_respuestas == 'Si') {
-                            // alert('entre');
-                            $('#' + data.formulario[i].num_rama).empty();
-
-
-                        } else {
-                            $('#' + data.formulario[i].num_rama).empty();
-                        }
-                    }
-                }
-                //*******************
-
-                for (let i = 0, ien = data.formulario.length; i < ien; i++) {
-                    // alert('paso');
-                    if (data.formulario[i].opcion == 'cerrada') {
-                        var $select = $('#' + data.formulario[i].num_rama);
-                        $select.append('<input type="hidden" name="id_pregunta[]" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
-                            '<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
-                            '<select class="form-control respuesta" name="respuesta[]" id="combo' + data.formulario[i].id_pregunta + '" style="width: 400px;margin-left: 98px; margin-top:2px;">' +
-                            '<option disabled>¿' + data.formulario[i].pregunta + '?</option>' +
-                            '</select>&nbsp&nbsp');
-
-                        //COMO YA CREE EL COMBO SELECCIONO EL ID Y CARGO EL COMBO
-                        var $combo = $('#combo' + data.formulario[i].id_pregunta);
-                        $combo.select();
-
-                        //alert(data.preguntas[i].id_pregunta);
-                        for (let j = 0, jen = data.opciones.length; j < jen; j++) {
-                            //SOLO VA HA LLENAR EL COMBO CUANDO EL ID DE LA PREGUNTA SEA = AL ID 
-                            //DE LA PREGUNTA DE LAS OPCIONES RESPUESTAS
-                            if (data.formulario[i].id_pregunta == data.opciones[j].id_pregunta) {
-
-                                $combo.append('<option value=' + data.opciones[j].opciones_respuestas + '>' + data.opciones[j].opciones_respuestas +
-                                    '</option>');
-                                document.getElementById("combo" + data.formulario[i].id_pregunta).value = data.formulario[i].respuesta;
-
-                            }
-                        }
-
-
-                    } else {
-                        if (data.formulario[i].mas_respuestas == 'Si') {
-                            // alert('entre');
-                            $select = $('#' + data.formulario[i].num_rama);
-                            let resp= JSON.parse(data.formulario[i].respuesta);
-                            console.log(resp);
-                             $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
-                                '<select name="id_pregunta_mas'+cont+'" style="height: 0px;width: 0px;visibility: hidden;">' +
-                                '<option selected>' + data.formulario[i].id_pregunta + '</option>' +
-                                '</select>');
-                            for (let a = 0, aen = resp.length; a < aen; a++) {
-                                $select.append( '<div class="form-group multiple-form-group input-group">' +
-                                '<input type="text" name="respuesta_mas'+cont+'[]" value="' +resp[a] + '" id="asistiran" class="form-control" placeholder="¿' +resp[a]+ '?"' +
-                                'style="width: 368px;margin-left: 98px; margin-top:6px;">' +
-                                '<span class="input-group-btn">' +
-                                '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:2px;margin-right:55px;">+</button>' +
-                                '</span>' +
-                                '</div>&nbsp&nbsp');
-                            }
-                            cont++;
-                        } else {
-
-                            if (data.formulario[i].pregunta=='Nombre de las personas') {
-                                 var $select = $('#' + data.formulario[i].num_rama);
-                                  $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>'+
-                                                '<input type="hidden" name="id_pre[]" value="' +data.formulario[i].id_pregunta+ '" class="form-control">'); 
-                                for (let k = 0, ken = data.pesonas.personas.length; k < ken; k++) {
-                                     $select.append( '<div class="form-group multiple-form-group input-group">' +
-                                '<input type="text" name="respuest[]" value="' + data.pesonas.personas[k]+ '" id="asistiran" class="form-control" placeholder="¿' + data.pesonas.personas[k]+ '?"' +
-                                'style="width: 368px;margin-left: 98px; margin-top:6px;" disabled>' +
-                                '<span class="input-group-btn">' +
-                                '<button type="button" class="btn btn-success btn-add" id="btn-asistiran" style="margin-top:2px;margin-right:55px;" disabled>+</button>' +
-                                '</span>' +
-                                '</div>&nbsp&nbsp');
-                                 }//fin for
-                            }else{
-                                if(data.formulario[i].pregunta=='Cuantas personas viajan con usted'){
-                                var $select = $('#' + data.formulario[i].num_rama);
-                                $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
-                                '<input type="hidden" name="id_preg" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
-                                '<input type="text" name="respuest[]" value="' + data.formulario[i].respuesta + '" class="form-control"' +
-                                'placeholder="¿' + data.formulario[i].pregunta + '?"' +
-                                'style="width: 400px;margin-left: 98px; margin-top:6px;" disabled>&nbsp&nbsp'); 
-
-                                }else{
-                                    var $select = $('#' + data.formulario[i].num_rama);
-                                $select.append('<label style="width: 400px;margin-left: 98px; margin-top:4px;">¿' + data.formulario[i].pregunta + '?</label>' +
-                                '<input type="hidden" name="id_pregunta1[]" value="' + data.formulario[i].id_pregunta + '" class="form-control">' +
-                                '<input type="text" name="respuesta1[]" value="' + data.formulario[i].respuesta + '" class="form-control"' +
-                                'placeholder="¿' + data.formulario[i].pregunta + '?"' +
-                                'style="width: 400px;margin-left: 98px; margin-top:6px;">&nbsp&nbsp'); 
-                                }
-
-                            }//fin else
-                            
-                        }
-                    }
-                }
-
-            },
-            error: function(err) {
-                const Toast = Swal.mixin();
-                Toast.fire({
-                    title: 'Error',
-                    icon: 'error',
-                    text: 'No hay preguntas registradas..!',
-                    showConfirmButton: true,
-                });
-            }
-        });
-
-        $('#modal-editar').modal('show');
-
+    $(document).on('click', '.btn-group .btn-primary', function () {
+        let fila = $(this).closest("tr");
+        let data = tabla.row(fila).data();
+        let id_cita = data.id_cita;
+        let nombre = data.nombre;
+        window.location = `editarInformacionBoris.php?idCita=${id_cita}&cliente=${nombre}`;
     });
 
     //BOTON PARA ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function(evento) {
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idpregunta = $(this).attr("name");
         fila = $(this).closest("tr");
 
@@ -308,7 +178,7 @@ $(document).ready(function() {
         })
     });
     //BOTON PARA ACTUALIZAR
-    $(document).on('click', '#btnActualizar', function(evento) {
+    $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         // let form = $("#editar");
         // form.validate();
@@ -318,7 +188,7 @@ $(document).ready(function() {
     });
 
     //CUANDO EL MODAL SE CIERRA
-    $('#modal-imagenes').on('hidden.bs.modal', function(e) {
+    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
@@ -331,7 +201,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "Cita/Pasaportes",
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     //console.log(json.preguntas);
 
                     if (json.citas) {
@@ -408,14 +278,14 @@ $(document).ready(function() {
 
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -431,7 +301,7 @@ $(document).ready(function() {
             url: URL_SERVIDOR + "FormularioMigratorio/updateFormulario",
             method: 'POST',
             data: $("#editar-form").serialize()
-        }).done(function(response) {
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
@@ -443,7 +313,7 @@ $(document).ready(function() {
                 $('#modal-editar').modal('hide');;
                 tabla.ajax.reload(null, false);
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
             console.log(response);
 
             const Toast = Swal.mixin();
@@ -454,7 +324,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             });
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
         });
     }
@@ -468,7 +338,7 @@ $(document).ready(function() {
             method: "DELETE",
             timeout: 0,
             data: data
-        }).done(function(response) {
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
             Toast.fire({
@@ -479,7 +349,7 @@ $(document).ready(function() {
             }).then((result) => {
                 tabla.ajax.reload(null, false);
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
 
             console.log(response);
             const Toast = Swal.mixin();
@@ -490,7 +360,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             });
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
         });
     }
@@ -500,18 +370,18 @@ $(document).ready(function() {
         $.ajax({
             url: URL_SERVIDOR + "Asesoria/ramita",
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
             var $select = $('#id_rama');
-            $.each(response.ramas, function(i, name) {
+            $.each(response.ramas, function (i, name) {
                 $select.append('<option value=' + name.id_rama + '>' + name.categoria_rama +
                     '</option>');
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
             var $select = $('#id_rama');
             $select.append('<option disabled="" selected>Seleccione</option>');
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loading').hide();
         });
     }

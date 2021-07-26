@@ -101,13 +101,6 @@ $(document).ready(function () {
     function add() {
 
         let form = obtenerInfo();
-
-        //ESTO ES PARA LA GALERIA 
-        let galeria = document.getElementById("fotos").files;
-        for (let i = 0; i < galeria.length; i++) {
-            form.append('fotos[]', galeria[i]);
-        }
-
         $.ajax({
             url: URL_SERVIDOR + "Cita/citas",
             method: 'POST',

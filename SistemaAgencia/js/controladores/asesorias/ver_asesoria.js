@@ -5,7 +5,6 @@ inicializarTabla();
 $(document).on('click', '.btn-group .btn-primary', function () {
    let fila = $(this).closest("tr");
    let data = tabla.row(fila).data();
-
    window.location = `registroMigratoriaBoris.php?idCita=${data.id_cita}&cliente=${data.nombre}`;
 });
 function inicializarTabla() {

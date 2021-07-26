@@ -91,7 +91,7 @@ $(document).ready(function () {
         let form = $("#migratorio-form");
         form.validate();
         if (form.valid()) {
-            obtenerData();
+            guardar();
         } else {
             toastr.error('Verifique los campos de selección');
         }
@@ -126,8 +126,6 @@ $(document).ready(function () {
 
                 });
                 llamarPreguntita();
-                console.log($('.nav-item > .active').next('li').find('a'));
-
             },
             error: function (err) {
                 const Toast = Swal.mixin();
@@ -140,56 +138,22 @@ $(document).ready(function () {
             }
         });
     }
-    function insertarFormulario() {
+    function guardar() {
         $.ajax({
             url: URL_SERVIDOR + "FormularioMigratorio/save",
-            method: 'POST',
-            data: obtenerData()
-
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: obtenerData(),
+            timeout: 0,
+            processData: false,
+            contentType: false,
         }).done(function (response) {
-            document.getElementById("migratorio-form").reset();
-            //para no recargar la pagina
-            $('#citas_dias').empty();
-            $('#script').html('<script type="text/javascript" src="../../js/controladores/asesorias/combo_formulario.js">');
-
-
-            //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
-            //REST_Controller::HTTP_OK
-            //let respuestaDecodificada = JSON.parse(response);
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Exito...',
-                icon: 'success',
-                text: response.mensaje,
-                showConfirmButton: true,
-            }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
-                //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
-            });
+            console.log(response);
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            /* let respuestaDecodificada = JSON.parse(response.responseText);
-             let listaErrores = "";
- 
-             if (respuestaDecodificada.errores) {
-                 ///ARREGLO DE ERRORES 
-                 let erroresEnvioDatos = respuestaDecodificada.errores;
-                 for (mensaje in erroresEnvioDatos) {
-                     listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                      //toastr.error(erroresEnvioDatos[mensaje]);
-                 };
-             } else {
-                 listaErrores = respuestaDecodificada.mensaje
-             }
-             const Toast = Swal.mixin();
-             Toast.fire({
-                 title: 'Error',
-                 icon: 'error',
-                 text: listaErrores,
-                 showConfirmButton: true,
-             });*/
+            console.log(response);
 
-        })
+        });
     }
     function validaciones() {
 
@@ -473,7 +437,7 @@ $(document).ready(function () {
         }
     }
     function obtenerData() {
-
+        let form = new FormData();
         let AllQuestion = [];
         AllQuestion = [];
         let mult = obtenerRespuestaMultples();
@@ -486,7 +450,8 @@ $(document).ready(function () {
         let $preguntaCerrada = $('.tab-pane .active').find('select');
         let cerrada = filtrar($preguntaCerrada);
         AllQuestion.push(...cerrada);
-        console.log(AllQuestion);
+        form.append('AllQuestion', JSON.stringify(AllQuestion));
+        return form;
     }
     function obtenerRespuestaMultples() {
         // obtenemos todos los div con la clase caja multiples visibles en el div
@@ -508,7 +473,7 @@ $(document).ready(function () {
                 id_pregunta: id_pregunta,
                 id_cita: ID_CITA,
                 // JSON.stringify
-                respuesta: (respuestasMultiples),
+                respuesta: JSON.stringify(respuestasMultiples),
             };
             // console.log(res);
             // console.log(id_pregunta);

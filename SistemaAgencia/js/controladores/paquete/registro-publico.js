@@ -39,7 +39,7 @@ function inicializarCalendario() {
 function guardar() {
    $('#loading').show();
    let form = obtenerData();
-   return;
+   
 
    //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
    $.ajax({
