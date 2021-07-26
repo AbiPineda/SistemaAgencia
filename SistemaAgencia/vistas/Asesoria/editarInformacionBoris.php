@@ -77,7 +77,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                                        <div class="form-group ">
                                           <div class="timeline-footer" style="text-align: right;">
                                              <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
-                                                style=" margin-top: 10px; color: white">Guardar</button>
+                                                style=" margin-top: 10px; color: white">Actualizar</button>
                                              <button type="button" class="btn btn-danger btn-sm"
                                                 style="margin-top: 10px; color: white"
                                                 data-dismiss="modal">Cancelar</button>

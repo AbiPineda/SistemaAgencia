@@ -90,7 +90,7 @@ $(document).ready(function () {
       let form = $("#migratorio-form");
       form.validate();
       if (form.valid()) {
-         guardar();
+         actualizar();
       } else {
          toastr.error('Verifique los campos de selección');
       }
@@ -137,9 +137,11 @@ $(document).ready(function () {
          }
       });
    }
-   function guardar() {
+   function actualizar() {
+      // (obtenerData());
+      // return;
       $.ajax({
-         url: URL_SERVIDOR + "FormularioMigratorio/save",
+         url: URL_SERVIDOR + "FormularioMigratorio/update",
          method: "POST",
          mimeType: "multipart/form-data",
          data: obtenerData(),
@@ -376,6 +378,7 @@ $(document).ready(function () {
       let contenedor = document.createElement('div');
       contenedor.classList.add("caja-multiple");
       contenedor.dataset.id_pregunta = data.id_pregunta;
+      contenedor.dataset.id_formulario = data.id_formulario;
       contenedor.append(label);
 
       for (let index = 0; index < data.respuesta.length; index++) {
@@ -499,6 +502,8 @@ $(document).ready(function () {
       let cerrada = filtrar($preguntaCerrada);
       AllQuestion.push(...cerrada);
       form.append('AllQuestion', JSON.stringify(AllQuestion));
+
+      console.log(AllQuestion);
       return form;
    }
    function obtenerRespuestaMultples() {
@@ -507,7 +512,8 @@ $(document).ready(function () {
       // estos son los inputs multiples
       let mult = $preguntaMultiple.map(function () {
          // en el div .caja-multiples tenemos almacenado el id pregunta, lo recuperamos
-         let id_pregunta = ($(this).data().id_pregunta);
+         let id_pregunta = $(this).data().id_pregunta;
+         let id_formulario = $(this).data().id_formulario;
          // obtenemos todos los input del elemento que estamos recorriendo con el map
          let inputs = $(this).find('input');
          // de esos inputs los recorremos para obtener todas las respuestas de esa pregutna
@@ -517,10 +523,9 @@ $(document).ready(function () {
             // el get espara que lo devuelva en forma de arreglo normal
          }).get();
          let objetoRestaMultiple = {
-            // 
+            id_formulario: id_formulario,
             id_pregunta: id_pregunta,
             id_cita: ID_CITA,
-            // JSON.stringify
             respuesta: JSON.stringify(respuestasMultiples),
          };
          // console.log(res);
@@ -535,6 +540,7 @@ $(document).ready(function () {
    function filtrar($listaElementos) {
       return $listaElementos.map(function () {
          return {
+            id_formulario: $(this).data().id_formulario,
             id_pregunta: $(this).data().id_pregunta,
             id_cita: ID_CITA,
             respuesta: $(this).val()
