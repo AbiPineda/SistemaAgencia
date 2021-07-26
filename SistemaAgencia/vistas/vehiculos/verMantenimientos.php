@@ -229,11 +229,13 @@
                                           </td>
                                           <td class="info_empresa">
                                              <div>
-                                                <span class="h2">Agencia de Viajes Martínez Travels &
-                                                   Tours</span>
-                                                <p>Segunda Avenida Sur, Barrio El Centro, #4D a 150mts
-                                                   del Parquecito Infantil<br>Teléfono: +(503) 2319
-                                                   2338<br>info.ventas@martineztraveltours.com</p>
+                                                
+                                             <span class="h2" name="nombre_a" id="nombre_a"></span>
+                                             <p>
+                                                <p name="direccion_a" id="direccion_a"></p>
+                                                <p name="telefono_a" id="telefono_a"></p>
+                                                <p name="email_a" id="email_a"></p>
+                                             </p>
                                              </div>
                                           </td>
                                        </tr>
@@ -357,6 +359,7 @@ include_once '../../plantillas/footer.php';?>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <!--Para los reportes-->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/agencia/mostrarInfo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
 
 
