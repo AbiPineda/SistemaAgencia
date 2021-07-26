@@ -1,5 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../session/isEmpleado.php'; 
 include_once '../../plantillas/cabecera.php';
 
 ?>
@@ -175,7 +176,7 @@ include_once '../../plantillas/cabecera.php';
                               <div class="col-sm-6">
                                  <!-- text input -->
                                  <div class="hidden">
-                                    <label name="detalle" id="detalle">Realizo Cotización de Vehículo</label>
+                                    <label name="detalle" id="detalle">Realizó Cotización de Vehículo</label>
                                  </div>
                               </div>
 
@@ -230,7 +231,7 @@ $(function() {
 </script>
 
 <script>
-let id = localStorage.getItem('id_cliente');
+let id = localStorage.getItem('id_clienteA');
 console.log(id);
 </script>
 
@@ -245,22 +246,18 @@ console.log(id);
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 <script src="<?= $base_url ?>js/controladores/client/comboUsuario.js"></script>
-<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <!-- FIN DE SCRIPT PARA REGISTRO DE USUARIO -->
 
 <script src="<?= $base_url ?>js/mdtimepicker.js"></script> <!-- reloj -->
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
-
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
-
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-
-<script src="<?= $base_url ?>js/controladores/vehiculos/insertarCotizacionAuto.js"></script>
-
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <script src="<?= $base_url ?>plugins/select2/js/select2.full.min.js"></script>
 
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
+<script src="<?= $base_url ?>js/controladores/vehiculos/insertarCotizacionAuto.js"></script>
 
 <?php include_once '../../plantillas/cierre.php'; ?>

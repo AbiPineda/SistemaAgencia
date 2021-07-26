@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title">Registrar Categoría de Vehículo</h4>
+                <h4 class="modal-title">Registrar Categoría de Vehículo</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -24,7 +24,7 @@
                                     <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Nombre de Categoria</label>
+                                            <label>Nombre de Categoría</label>
                                             <input type="text" class="form-control" name="nombreCategoria"
                                                 id="nombreCategoria" placeholder="Digite nombre de categoria">
                                         </div>
@@ -32,19 +32,11 @@
                                     <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Descripción de Categoria</label>
+                                            <label>Descripción de Categoría</label>
                                             <input type="text" class="form-control" name="descripcionCategoria"
                                                 id="descripcionCategoria" placeholder="Digite descripcion">
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-6">
-                                 <!-- text input -->
-                                 <div class="hidden">
-                                    <label name="detalle" id="detalle">Ingreso una nueva Categoria de Tipos de Vehículo</label>
-                                 </div>
-                              </div>
-
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-info btn-sm" style="color: white" type="button"
@@ -65,12 +57,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
-
-<script>
-let id = localStorage.getItem('id_cliente');
-console.log(id);
-</script>
-
-<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/categoria-app.js"></script>

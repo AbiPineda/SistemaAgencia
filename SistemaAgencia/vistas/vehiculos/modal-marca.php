@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title">Registrar Marca de Vehículo</h4>
+                <h4 class="modal-title">Registrar Marca de Vehículo</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -25,6 +25,7 @@
                                                 placeholder="Digite nombre de marca" autocomplete="off">
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-info btn-sm" style="color: white" type="button"
@@ -42,5 +43,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/marca-app.js"></script>
