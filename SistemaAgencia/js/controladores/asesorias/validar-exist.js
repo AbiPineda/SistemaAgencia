@@ -2,7 +2,7 @@
 //si ya realizo el proceso de asesoria estara registrada toda su informacion migratoria
 //entonces solo se necesita modificar los datos o add si hay nuevas preguntas
 $(document).ready(function () {
-
+   const html = $('#otraCosa').clone();
   const $grupo_per = $("[name='grupo_personas']").clone();
   const $grupo_pasa = $("[name='grupo_pasaporte']").clone();
 
@@ -26,6 +26,10 @@ $("#comboUsuario").change(function () {
         AgregarItems(response.pasaportes, $('#pasa'), $("[name='grupo_pasaporte']"), $grupo_pasa);
 
        }else{
+        $("#pasaporte").val('');
+        $('#comboUsuario').val('').trigger('change');//limpia el combo
+        reset();
+       }
 
        if(response.mensaje=='Existe' && response.existe.color=='#007bff'){
 
@@ -54,7 +58,7 @@ $("#comboUsuario").change(function () {
          //por si se queda trabado el disabled lo habilitamos
             document.getElementById("btnAgregar").disabled = false;
        }
-   }
+   
 
 
     }).fail(function(response) {
@@ -101,5 +105,10 @@ function AgregarItems(arreglo, label, $original, $grupo) {
          document.getElementById("btn-pasaportes").disabled = false;
       }
    }
+
+   function reset() {
+    $("#cosa").empty();
+    $("#cosa").html(html);
+}
 
 });

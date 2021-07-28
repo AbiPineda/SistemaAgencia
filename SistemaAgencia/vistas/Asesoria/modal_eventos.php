@@ -72,7 +72,8 @@
                         </select>
                      </div>
                   </div>
-                  <div class="form-row">
+                  <div id="cosa">
+                     <div class="row" id="otraCosa">
                      <div class="form-group col-md-6">
                         <div id="recargar">
                            <label id="per">¿Personas que asistirán?</label>
@@ -99,6 +100,9 @@
                         </div>
                      </div>
                   </div>
+                     
+                  </div>
+                  
                   <div class="row">
                      <div class="form-group col-sm-12">
 
@@ -110,8 +114,8 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" id="btnAgregar" class="btn btn-primary btn-sm"
-                     style="color: white">Agregar</button>
+                  <button type="button" id="btnAgregar" class="btn btn-info btn-sm"
+                     style="color: white">Guardar</button>
                   <button type="button" class="btn btn-danger btn-sm" style="color: white"
                      data-dismiss="modal">Cancelar</button>
                </div>

@@ -108,7 +108,7 @@ $(document).ready(function () {
     $(document).on('click', '.btn-group .btn-warning', function () {
         $('#modal-imagenesEncomienda').modal('show');
         let identificador = $(this).attr("name");
-        let nombreTabla = 'cita';
+        let nombreTabla = 'pasaportes';
         let informacionAdicional = { tipo: nombreTabla, identificador: identificador };
         let urlFotos = [];
         let infoFotos = [];
@@ -145,6 +145,12 @@ $(document).ready(function () {
             });
         });
     });
+
+       //CUANDO EL MODAL SE CIERRA
+   $('#modal-imagenesEncomienda').on('hidden.bs.modal', function (e) {
+    console.log("cerrando modal")
+    explorer.fileinput('destroy');
+   })
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {

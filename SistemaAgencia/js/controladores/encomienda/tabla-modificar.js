@@ -53,6 +53,12 @@ $(document).ready(function () {
 
     });
 
+       //CUANDO EL MODAL SE CIERRA
+   $('#modal-imagenesEncomienda').on('hidden.bs.modal', function (e) {
+    console.log("cerrando modal")
+    explorer.fileinput('destroy');
+   });
+
     //*para crear la tabla
     function crearFila(event) {
     let tr = document.createElement('tr');
