@@ -282,6 +282,7 @@ $(document).ready(function() {
                 contentType: false,
 
             }).done(function(response) {
+                guardarBitacora();
 
                 document.getElementById("register-reserva").reset();
 

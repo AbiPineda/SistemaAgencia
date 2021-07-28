@@ -7,7 +7,7 @@ $("#btnAgregar").on('click', function(e) {
         data: $("#register-servicio").serialize()
 
     }).done(function(response) {
-
+        guardarBitacora();
         $("#modal-servicio").modal('toggle');
 
         document.getElementById("register-servicio").reset();

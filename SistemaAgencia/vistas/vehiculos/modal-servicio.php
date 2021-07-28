@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title">Registrar Servicio Adicional</h4>
+                <h4 class="modal-title">Registrar Servicio Adicional</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -23,7 +23,8 @@
                                         <div class="form-group">
                                             <label>Nombre de Servicio</label>
                                             <input type="text" name="nombre_servicio" id="nombre_servicio"
-                                                class="form-control" placeholder="Digite nombre de servicio" autocomplete="off">
+                                                class="form-control" placeholder="Digite nombre de servicio"
+                                                autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -42,13 +43,19 @@
                                                 placeholder="Describir.." autocomplete="off"></textarea>
                                         </div>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="hidden">
+                                            <label name="detalle" id="detalle">Registro nuevo Servicio Adicional</label>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="timeline-footer" style="text-align: right;">
-                                        <a class="btn btn-info btn-sm" style="color: white" type="button"
-                                            id="btnAgregar">Guardar</a>
-                                        <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
-                                    </div>
+                                    <a class="btn btn-info btn-sm" style="color: white" type="button"
+                                        id="btnAgregar">Guardar</a>
+                                    <a class="btn btn-danger btn-sm" style="color: white">Cancelar</a>
+                                </div>
                             </div>
 
 
@@ -66,4 +73,6 @@
 
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarServicios.js"></script>

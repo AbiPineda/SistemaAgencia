@@ -10,7 +10,6 @@ $(document).ready(function() {
         form.validate();
         if (form.valid()) {
             guardar();
-            guardarBitacora();
         }
     });
 
@@ -53,6 +52,7 @@ $(document).ready(function() {
         form.append("kilometraje", document.getElementById("kilometraje").value);
         form.append("tipoCombustible", document.getElementById("comboCombustible").value);
 
+
         //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
         $.ajax({
             url: URL_SERVIDOR + "vehiculo/vehiculo",
@@ -78,6 +78,7 @@ $(document).ready(function() {
                 $("#miFormulario").trigger("reset");
                 $('#id_renta').val('').trigger('change');
 
+                //guardarBitacora();
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
