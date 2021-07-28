@@ -44,7 +44,7 @@ $(document).ready(function() {
                 contentType: false,
 
             }).done(function(response) {
-
+                guardarBitacora();
                 document.getElementById("register-mantenimiento").reset();
 
                 const Toast = Swal.mixin();

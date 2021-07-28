@@ -24,9 +24,8 @@ $(document).ready(function() {
             data: myData
 
         }).done(function(response) {
-
+            guardarBitacora();
             document.getElementById("register-cotizarVehiculo").reset();
-            //guardarBitacora();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',

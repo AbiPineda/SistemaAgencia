@@ -10,6 +10,7 @@ $(document).ready(function() {
         form.validate();
         if (form.valid()) {
             guardar();
+            guardarBitacora();
         }
     });
 
@@ -25,7 +26,7 @@ $(document).ready(function() {
             form.append('fotos[]', galeria[i]);
         }
 
-       // let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
+        // let galeriaDocumentos = document.getElementById("fotosDocumentos").files[0];
         //form.append('foto', galeriaDocumentos); 
 
         let comboOpciones = $("#opc_avanzadas").select2('data');
@@ -63,8 +64,10 @@ $(document).ready(function() {
             contentType: false,
         }).done(function(response) {
             //REST_Controller::HTTP_OK
+
             let respuestaDecodificada = JSON.parse(response);
             const Toast = Swal.mixin();
+
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
@@ -74,6 +77,7 @@ $(document).ready(function() {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
                 $('#id_renta').val('').trigger('change');
+
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST

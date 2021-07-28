@@ -1,5 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../session/isEmpleado.php'; 
 include_once '../../plantillas/cabecera.php';
 ?>
 
@@ -251,16 +252,12 @@ function CambioPieza() {
 }
 </script>
 
-<script>
-let id = localStorage.getItem('id_cliente');
-console.log(id);
-</script>
 
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboModelo.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/comboPlaca.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vehiculos/insertarMantenimiento.js"></script>
 <script type="text/javascript" src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>

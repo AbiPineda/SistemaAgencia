@@ -230,12 +230,6 @@ $(function() {
 })
 </script>
 
-<script>
-let id = localStorage.getItem('id_clienteA');
-console.log(id);
-</script>
-
-
 <!-- jquery-validation -->
 
 <!-- INICIO DE SCRIPT PARA REGISTRO DE USUARIO -->
