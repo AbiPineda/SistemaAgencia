@@ -43,7 +43,7 @@ $(document).ready(function() {
                 contentType: false,
 
             }).done(function(response) {
-
+                guardarBitacora();
                 document.getElementById("register-cotizarv").reset();
 
                 const Toast = Swal.mixin();

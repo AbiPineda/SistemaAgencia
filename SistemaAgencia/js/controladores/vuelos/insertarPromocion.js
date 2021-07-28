@@ -53,6 +53,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
+                guardarBitacora();
                 $("#miFormulario").trigger("reset");
             });
         }).fail(function(response) {
@@ -92,65 +93,65 @@ $(document).ready(function() {
 
     function inicializarValidaciones() {
         $('#miFormulario').validate({
-           rules: {
-            nombre_promocion: {
-                 required: true,
-                 maxlength: 50
-              },
-              pais_promocion: {
-                required: true,
-                maxlength: 50
-              },
-              lugarSalida_promocion: {
-                required: true,
-                maxlength: 50
-              },
-              precio_promocion: {
-                 required: true,
-                 
-              },
-              fechaDisponible_promocion: {
-                required: true,
-                
-             }
-           },
-           messages: {
-            nombre_promocion: {
-                 required: "Ingrese nombre de ciudad",
-                 minlength: "Logitud del nombre debe ser mayor a 3",
-                 maxlength: "Logitud del nombre no debe exceder a 50",
-              },
-              pais_promocion: {
-                required: "Ingrese un país",
-                minlength: "Logitud del país debe ser mayor a 3",
-                maxlength: "Logitud del país no debe exceder a 50",
-              },
-              lugarSalida_promocion: {
-                required: "Ingrese desde que país saldra el vuelo",
-                minlength: "Logitud del país debe ser mayor a 3",
-                maxlength: "Logitud del país no debe exceder a 50",
-              },
-              precio_promocion: {
-                 required: "Ingrese precio por persona",
-                 
-              },
-              fechaDisponible_promocion: {
-                required: "Seleccione hasta que fecha estara disponible la promoción",
-                
-             }
-           },
-           errorElement: 'span',
-           errorPlacement: function (error, element) {
-              error.addClass('invalid-feedback');
-              element.closest('.form-group').append(error);
-           },
-           highlight: function (element, errorClass, validClass) {
-              $(element).addClass('is-invalid');
-           },
-           unhighlight: function (element, errorClass, validClass) {
-              $(element).removeClass('is-invalid');
-  
-           }
+            rules: {
+                nombre_promocion: {
+                    required: true,
+                    maxlength: 50
+                },
+                pais_promocion: {
+                    required: true,
+                    maxlength: 50
+                },
+                lugarSalida_promocion: {
+                    required: true,
+                    maxlength: 50
+                },
+                precio_promocion: {
+                    required: true,
+
+                },
+                fechaDisponible_promocion: {
+                    required: true,
+
+                }
+            },
+            messages: {
+                nombre_promocion: {
+                    required: "Ingrese nombre de ciudad",
+                    minlength: "Logitud del nombre debe ser mayor a 3",
+                    maxlength: "Logitud del nombre no debe exceder a 50",
+                },
+                pais_promocion: {
+                    required: "Ingrese un país",
+                    minlength: "Logitud del país debe ser mayor a 3",
+                    maxlength: "Logitud del país no debe exceder a 50",
+                },
+                lugarSalida_promocion: {
+                    required: "Ingrese desde que país saldra el vuelo",
+                    minlength: "Logitud del país debe ser mayor a 3",
+                    maxlength: "Logitud del país no debe exceder a 50",
+                },
+                precio_promocion: {
+                    required: "Ingrese precio por persona",
+
+                },
+                fechaDisponible_promocion: {
+                    required: "Seleccione hasta que fecha estara disponible la promoción",
+
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+
+            }
         });
-     }
+    }
 });

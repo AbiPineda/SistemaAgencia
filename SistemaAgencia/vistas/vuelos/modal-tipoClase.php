@@ -36,7 +36,12 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="hidden">
+                                        <label name="detalle" id="detalle">Ingresó nuevo Tipo de Clase</label>
+                                    </div>
+                                </div>
                                 <div class="timeline-footer" style="text-align: right;">
                                     <a class="btn btn-info btn-sm" style="color: white" type="button"
                                         id="btnAgregarClase">Guardar</a>
@@ -58,4 +63,5 @@
 </div>
 
 
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/vuelos/insertarClase.js"></script>

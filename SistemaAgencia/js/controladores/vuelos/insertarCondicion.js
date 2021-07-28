@@ -7,9 +7,8 @@ $("#btnAgregarCondicion").on('click', function(e) {
         data: $("#register-condicion").serialize()
 
     }).done(function(response) {
-
+        guardarBitacora();
         $("#modal-condiciones").modal('toggle');
-
         document.getElementById("register-condicion").reset();
 
         const Toast = Swal.mixin();
