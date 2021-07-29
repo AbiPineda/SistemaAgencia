@@ -159,7 +159,8 @@ $(document).ready(function() {
                 text: respuestaDecodificada.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //TODO BIEN Y RECARGAMOS LA PAGINA
+                guardarBitacora();
                 $("#miFormularioCliente").trigger("reset");
                 $("#comboUsuario").empty();
                 //************prueba*************

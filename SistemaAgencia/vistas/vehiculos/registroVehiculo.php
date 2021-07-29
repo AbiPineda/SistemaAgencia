@@ -281,7 +281,7 @@ include_once '../../plantillas/cabecera.php';
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <textarea class="form-control" rows="3" id="detalle" name="detalle"
+                                                <textarea class="form-control" rows="3" id="detalleVehiculo" name="detalleVehiculo"
                                                     placeholder="Digite Detalles Adicionales del Vehiculo"></textarea>
                                             </div>
                                         </div>
@@ -342,7 +342,6 @@ function CambioOpciones() {
 }
 </script>
 <!-- jquery-validation -->
-<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/additional-methods.min.js"></script>
@@ -361,6 +360,7 @@ function CambioOpciones() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script src="<?= $base_url ?>js/controladores/vehiculos/insertarVehiculo.js"></script>
 
 <script src="<?= $base_url ?>plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>

@@ -47,7 +47,7 @@ $(document).ready(function() {
         form.append("pasajeros", document.getElementById("pasajero").value);
         form.append("precio_diario", document.getElementById("precio").value);
         form.append("descripcion", document.getElementById("descripcion").value);
-        form.append("detalles", document.getElementById("detalle").value);
+        form.append("detalles", document.getElementById("detalleVehiculo").value);
         form.append("opc_avanzadas", arregloOpciones);
         form.append("kilometraje", document.getElementById("kilometraje").value);
         form.append("tipoCombustible", document.getElementById("comboCombustible").value);
@@ -74,11 +74,12 @@ $(document).ready(function() {
                 text: respuestaDecodificada.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
+                guardarBitacora();
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 $("#miFormulario").trigger("reset");
                 $('#id_renta').val('').trigger('change');
 
-                //guardarBitacora();
+
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
