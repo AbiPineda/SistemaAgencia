@@ -163,4 +163,3 @@
 <script src="<?= $base_url ?>js/controladores/paquete/analitica.js"></script>
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
-<?php include_once '../../plantillas/cierre.php'; ?>
