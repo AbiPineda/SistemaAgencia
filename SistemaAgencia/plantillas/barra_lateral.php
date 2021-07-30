@@ -13,10 +13,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
          <div class="image">
-            <img src="<?= $base_url ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img id="fotoA" src="../../img/avatar.png" class="img-circle elevation-2" alt="User Image">
          </div>
-         <div class="info">
-            <a href="#" class="d-block">Carlos Martínez</a>
+         <div class="info" style="white-space: normal;">
+            <a id="nombreA" href="#" class="d-block"></a>
          </div>
       </div>
 
@@ -65,6 +65,75 @@
                   </p>
                </a>
                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                           Sitios Turísticos
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/sitios/registrar_sitio.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Sitio</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/sitios/ver_sitios.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver sitios</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-address-card"></i>
+                        <p>
+                           Servicios Adicionales
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/servicios/registro_servicio.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Servicio</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/servicios/ver_servicios.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver Servicios</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                           Contactos
+                           <i class="right fas fa-angle-left"></i>
+                        </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/contactos/registro-contacto.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Registrar Contacto</p>
+                           </a>
+                        </li>
+                        <li class="nav-item">
+                           <a href="<?= $base_url ?>vistas/contactos/ver-contactos.php" class="nav-link">
+                              <i class="fas fa-ellipsis-v nav-icon"></i>
+                              <p>Ver Contactos</p>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
                   <li class="nav-item">
                      <a href="<?= $base_url ?>vistas/tours/registro-tour.php" class="nav-link">
                         <i class="fas fa-ellipsis-v nav-icon"></i>
@@ -488,7 +557,7 @@
                      </a>
                   </li>
                </ul>
-               
+
             </li>
          </ul>
       </nav>

@@ -53,7 +53,7 @@
 
 
             <li>
-               <a id="logout" class="nav-link" id="">
+               <a id="logout" style="cursor: pointer;" class="nav-link">
                   Cerrar Sesion <i class="fas fa-sign-out-alt"></i>
                </a>
             </li>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
    type="text/css" />
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css" all rel="stylesheet"
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
 <link href="<?= $base_url ?>css/miniatura-tabla.css" media="all" rel="stylesheet" type="text/css" />
 <link rel=" stylesheet" type="text/css" href="<?= $base_url ?>plugins/asiento-bus/css/jquery.seat-charts.css">
@@ -20,12 +20,12 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Crear Paquete Privado</h1>
+               <h1 id="titulo">Paquete Privado</h1>
             </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="../../home.php">Inicio</a></li>
-                  <li class="breadcrumb-item active">Paquete Privado</li>
+                  <li class="breadcrumb-item active">Publicar Tour</li>
                </ol>
             </div>
          </div>
@@ -44,6 +44,38 @@
                      </div>
                   </div>
                   <div class="timeline">
+                     <!-- timeline item -->
+                     <div>
+                        <i class="fas fa-user bg-yellow"></i>
+                        <div class="timeline-item">
+                           <!--<span class="time"><i class="fas fa-clock"></i> 12:05</span>-->
+                           <h3 class="timeline-header"><a href="#">Datos Generales:</a></h3>
+
+                           <div class="timeline-body">
+                              <div class="row">
+                                 <div class="col-sm-11">
+                                    <div class="form-group">
+                                       <label>Seleccione el Cliente</label>
+                                       <select name="comboUsuario" id="comboUsuario"
+                                          class="select2 select2-hidden-accessible form-control"
+                                          data-placeholder="Seleccione el tipo" style="width: 100%;">
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-1">
+                                    <br>
+                                    <span class="input-group-btn">
+                                       <button type="button" class="btn btn-success btn-add" id="btnNuevoCliente"
+                                          name="btnNuevoCliente" style="margin-top: 10px; width: 100%;">+</button>
+                                    </span>
+                                 </div>
+
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                     <!-- END timeline item -->
 
                      <!-- timeline item -->
                      <div>
@@ -93,8 +125,7 @@
                         <i class="fas fa-umbrella-beach bg-green"></i>
                         <div class="timeline-item">
                            <h3 class="timeline-header no-border">
-                              <a href="#">Sitios
-                                 Turístico</a>
+                              <a href="#">Sitios Turístico</a>
                            </h3>
                            <div class="timeline-body">
                               <div class="row">
@@ -132,7 +163,7 @@
                                        <label>Contacto</label>
                                        <br>
                                        <a style="position:absolute; z-index:1;" href="#">
-                                          <div id="namePreviewTur">Nombre de Contacto
+                                          <div class="info_contacto" id="namePreviewTur">Nombre de Contacto
                                           </div>
                                           <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                                              <div class="ocultar card bg-light">
@@ -347,7 +378,7 @@
                                     <table id="TablaCostos" class="table table-bordered table-hover">
                                        <div class="row">
 
-                                          <div class="col-sm-3">
+                                          <div class="col-sm-6">
                                              <div class="form-group">
                                                 <label>Número de Pasajeros</label>
                                                 <div class="input-group">
@@ -356,7 +387,7 @@
                                                 </div>
                                              </div>
                                           </div>
-                                          <div class="col-sm-3">
+                                          <div class="col-sm-6">
                                              <div class="form-group">
                                                 <label>Costo del Pasaje ($)</label>
                                                 <div class="input-group">
@@ -423,6 +454,66 @@
                                  </div>
                               </div>
                            </div>
+                        </div>
+                     </div>
+                     <!-- timeline item -->
+                     <!-- END timeline item -->
+                     <div>
+                        <i class="fas fa-plus-square bg-red"></i>
+                        <div class="timeline-item">
+                           <h3 class="timeline-header no-border">
+                              <a href="#">Otras opciones</a>
+                           </h3>
+                           <div class="timeline-body">
+                              <div id="contenedor_opcions">
+                                 <div class="row" id="otras_opciones">
+                                    <div class="col-sm-3">
+                                       <label>Lugar(es) de Salida</label>
+                                       <div class="form-group multiple-form-group input-group">
+                                          <input type="text" name="lugar_salida[]" class="form-control"
+                                             placeholder="Digite el lugar">
+                                          <span class="input-group-btn">
+                                             <button type="button" class="btn btn-success btn-add"
+                                                style="margin-top:0px;">+</button>
+                                          </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <label>El viaje incluye</label>
+                                       <div class="form-group multiple-form-group input-group">
+                                          <input type="text" name="incluye[]" class="form-control"
+                                             placeholder="¿Qué incluye el viaje?">
+                                          <span class="input-group-btn">
+                                             <button type="button" class="btn btn-success btn-add"
+                                                style="margin-top:0px;">+</button>
+                                          </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <label>El viaje no incluye</label>
+                                       <div class="form-group multiple-form-group input-group">
+                                          <input type="text" name="no_incluye[]" class="form-control"
+                                             placeholder="¿Qué incluye no incluye viaje?">
+                                          <span class="input-group-btn">
+                                             <button type="button" class="btn btn-success btn-add"
+                                                style="margin-top:0px;">+</button>
+                                          </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <label>Requisitos</label>
+                                       <div class="form-group multiple-form-group input-group">
+                                          <input type="text" name="requisitos[]" class="form-control"
+                                             placeholder="Digite los requisitos">
+                                          <span class="input-group-btn">
+                                             <button type="button" class="btn btn-success btn-add"
+                                                style="margin-top:0px;">+</button>
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                            <br> <br>
                            <div class="timeline-footer" style="text-align: right;">
                               <button name="btnguardar" id="btnguardar" class="btn btn-info btn-sm"
@@ -432,10 +523,7 @@
 
                         </div>
                      </div>
-                     <!-- timeline item -->
                      <!-- END timeline item -->
-
-
                   </div>
                </div>
 
@@ -450,6 +538,9 @@
    <?php include_once '../sitios/registro_tipo.php' ?>
    <?php include_once '../contactos/modal-contacto.php' ?>
    <?php include_once '../../vistas/mapa/coordenadas.php' ?>
+   <?php include_once '../contactos/modal-verContacto.php' ?>
+   <?php include_once '../cliente/modalCliente.php'  ?>
+
 </div>
 
 <?php include_once '../../plantillas/footer.php'; ?>
@@ -464,15 +555,12 @@
 <script src="<?= $base_url ?>/plugins/sweetalert2/sweetalert2.js"></script>
 
 <!-- EN EL CONTROLADOR ESTA LA LOGICA DE ESTA PANTALLA -->
+<script src="<?= $base_url ?>js/controladores/client/registro-cliente.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/jquery.seat-charts.js"></script>
 <script src="<?= $base_url ?>plugins/asiento-bus/js/admin-configuracion.js"></script>
 <script src="<?= $base_url ?>js/controladores/paquete/registro-privado.js"></script>
-<script src="<?= $base_url ?>js/controladores/paquete/configuracion-privada.js"></script>
 <script src="<?= $base_url ?>js/controladores/servicios/registro-servicio.js"></script>
 <script src="<?= $base_url ?>js/controladores/sitios/registro-sitio.js"></script>
 <script src="<?= $base_url ?>js/controladores/contactos/registro-contacto.js"></script>
-<script src="<?= $base_url ?>js/controladores/mapas/myMap"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key="></script>
-
 <!-- CIERRE DE ETIQUETAS -->
 <?php include_once '../../plantillas/cierre.php'; ?>
