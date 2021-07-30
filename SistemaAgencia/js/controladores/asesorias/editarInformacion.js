@@ -461,6 +461,7 @@ $(document).ready(function () {
                input.val(respuestas[index]);
                break;
             default:
+               input.val(respuestas[index]);
                break;
          }
       });

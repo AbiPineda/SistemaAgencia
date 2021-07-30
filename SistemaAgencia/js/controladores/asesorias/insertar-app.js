@@ -147,14 +147,14 @@ $(document).ready(function () {
                 };
             } else {
                 listaErrores = respuestaDecodificada.mensaje
-            }
+            }*/
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Error',
                 icon: 'error',
-                text: listaErrores,
+                text:response.mensaje,
                 showConfirmButton: true,
-            });*/
+            });
 
         });
 
@@ -163,56 +163,13 @@ $(document).ready(function () {
     function obtenerInfo() {
         let form = new FormData();
 
-        let asistiran = $("input[name='asistiran[]']").map(function () { return $(this).val(); }).get();
-        let pasaporte_personas = $("input[name='pasaporte_personas[]']").map(function () { return $(this).val(); }).get();
-        let verificar_personas = asistiran.filter(asistiran => asistiran.length > 1);
-        let verificar_pasaportes = pasaporte_personas.filter(pasaporte_personas => pasaporte_personas.length > 1);
-        let cuantos = verificar_personas.length;
-        let pasaporte_cuantos = verificar_pasaportes.length;
-
-        let galeria = document.getElementById("fotos").files;
-      
-
-        if (cuantos == pasaporte_cuantos) {
-            //si son iguales recoje la data
-            for (let i = 0; i < galeria.length; i++) {
-                form.append('fotos[]', galeria[i]);
-            }
            form.append("fecha", document.getElementById("txtFecha").value);
             form.append("usuario", document.getElementById("usuario").value);
             form.append("id_cliente", document.getElementById("comboUsuario").value);
-            form.append("pasaporte", document.getElementById("pasaporte").value);
-            form.append("asistencia", document.getElementById("asistencia").value);
             form.append("start", document.getElementById("timepicker").value);
             form.append("title", document.getElementById("txtTitulo").value);
-            form.append("asistiran", JSON.stringify(verificar_personas));
-            form.append("pasaporte_personas", JSON.stringify(verificar_pasaportes));
-            form.append("cuantos", cuantos);
-        } else {
-
-            const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Error',
-                icon: 'error',
-                text: 'Verifique los nombre de las personas: ' + cuantos + ' Pasaportes: ' + pasaporte_cuantos,
-                showConfirmButton: true,
-            });
-
-        }
-
-
-        /*//let pasaporte_personas = document.getElementsByName("pasaporte_personas[]");
-        //console.log(pasaporte_personas);
-        $("input[name='pasaporte_personas[]']").each(function(indice, elemento) {
-         //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
-         form.append('pasaporte_personas[]', $(elemento).val());
-          });
-          // 
-        $("input[name='asistiran[]']").each(function(indice, elemento) {
-         //console.log('El elemento con el índice '+indice+' contiene '+$(elemento).val());
-         form.append('asistiran[]', $(elemento).val());
-          });
-        //*/
+            
+      
         return form;
     }
 

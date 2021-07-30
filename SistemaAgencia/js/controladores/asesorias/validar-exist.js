@@ -27,7 +27,7 @@ $("#comboUsuario").change(function () {
 
        }else{
         $("#pasaporte").val('');
-        $('#comboUsuario').val('').trigger('change');//limpia el combo
+       // $('#comboUsuario').val('').trigger('change');//limpia el combo
         reset();
        }
 
