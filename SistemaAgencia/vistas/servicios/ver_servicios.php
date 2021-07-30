@@ -1,5 +1,6 @@
 <?php include_once '../../config/parametros.php'; ?>
 <?php include_once '../../plantillas/cabecera.php'; ?>
+<?php include_once '../../vistas/session/isEmpleado.php'; ?>
 <!-- COLORAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all" rel="stylesheet">
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
@@ -48,7 +49,7 @@
                            <th>Nombre</th>
                            <th>Costo ($)</th>
                            <th>Contacto</th>
-                           <th >Descripción</th>
+                           <th>Descripción</th>
                            <th>Acciones</th>
 
                         </tr>

@@ -1,5 +1,6 @@
 <!-- INICIALIZACION -->
 <?php include_once '../../config/parametros.php'; ?>
+<?php include_once '../../vistas/session/isEmpleado.php'; ?>
 <html>
 
 <head>
