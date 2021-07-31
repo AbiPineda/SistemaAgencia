@@ -14,22 +14,6 @@ $("#comboUsuario").change(function () {
 
     }).done(function(response) {
 
-        //alert(response.existe.id_cita);
-      
-       if (response.mensaje=='Existe' && response.existe.color=='#FF0040') {
-
-         document.getElementById("btnAgregar").disabled = false;
-         document.getElementById("pasaporte").disabled  = true;
-         $('#pasaporte').val(response.existe.pasaporte);
-
-        AgregarItems(response.personas, $('#per'), $("[name='grupo_personas']"), $grupo_per);
-        AgregarItems(response.pasaportes, $('#pasa'), $("[name='grupo_pasaporte']"), $grupo_pasa);
-
-       }else{
-        $("#pasaporte").val('');
-       // $('#comboUsuario').val('').trigger('change');//limpia el combo
-        reset();
-       }
 
        if(response.mensaje=='Existe' && response.existe.color=='#007bff'){
 
@@ -48,7 +32,7 @@ $("#comboUsuario").change(function () {
             console.log(result);
             if (result.value) {
                  $("#modal_registro").modal('toggle');
-
+                 $('#comboUsuario').val('').trigger('change');//limpia el combo
             }
         });
 
@@ -62,6 +46,7 @@ $("#comboUsuario").change(function () {
 
 
     }).fail(function(response) {
+        console.log(response);
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         let respuestaDecodificada = JSON.parse(response.responseText);
         let listaErrores = "";

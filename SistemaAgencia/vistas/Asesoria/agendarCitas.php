@@ -114,6 +114,8 @@ $("#pasaporte_personas").inputmask({
 <script src="<?= $base_url ?>js/controladores/asesorias/update-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/calendario-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/input.js"></script>
+<script src="<?= $base_url ?>js/controladores/asesorias/validar-exist.js"></script>
+
 <script>
 $(document).ready(function() {
    $('#timepicker').mdtimepicker(); //Initializes the time picker
