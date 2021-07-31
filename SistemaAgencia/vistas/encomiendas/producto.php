@@ -92,7 +92,7 @@ include_once '../../plantillas/barra_lateral.php';
 
       <!-- ******************Modal ********************************-->
       <div class="modal fade" id="add-unidad">
-         <div class="modal-dialog modal-lg modal-dialog-centered">
+         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
 
                <div class="overlay-wrapper">
@@ -111,11 +111,11 @@ include_once '../../plantillas/barra_lateral.php';
                      <form id="unidad-form" name="register-form" onsubmit="return false">
                         <div class="row">
                            <div class="col-sm-3"></div>
-                           <div class="col-sm-6">
+                           <div class="col-sm-12">
                               <div class="form-group">
                                  <label>Nombre</label>
                                  <input name="unidad_medida" type="text" class="form-control"
-                                    placeholder="Introduzca el nombre" autocomplete="off">
+                                    placeholder="Ejemplo: Libra" autocomplete="off">
                               </div>
                            </div>
                            <div class="col-sm-3"></div>

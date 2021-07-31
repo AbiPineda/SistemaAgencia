@@ -136,7 +136,7 @@ include_once '../../plantillas/barra_lateral.php';
                            <div class="col-sm-6">
                               <div class="form-group">
                                  <label>Tarifa</label>
-                                 <input name="tarifa" id="tarifa" type="text" class="form-control"
+                                 <input name="tarifa" id="tarifa" type="number" min=0 class="form-control"
                                     placeholder="Introduzca la tarifa" autocomplete="off">
                               </div>
                            </div>
@@ -176,7 +176,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                   </div>
                   <div class="modal-footer">
-                     <button type="button" id="btnActualizarProducto" class="btn btn-primary btn-sm"
+                     <button type="button" id="btnActualizarProducto" class="btn btn-info btn-sm"
                         style="color: white">Actualizar</button>
                      <button type="button" class="btn btn-danger btn-sm" style="color: white"
                         data-dismiss="modal">Cancelar</button>

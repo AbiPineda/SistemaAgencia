@@ -452,8 +452,8 @@ include_once '../../plantillas/cabecera.php';
                         <div class="col-sm-12">
                            <div class="form-group">
                               <label>Comisión</label>
-                              <input name="comision" id="comisionActu" type="number" min=0 class="form-control decimales"
-                                 placeholder="Introduzca la comision" pattern="^[0-9]{2}[.]{1}[0-9]{2}"
+                              <input name="comision" id="comisionActu" type="number" min=0 max=100 class="form-control"
+                                 placeholder="Introduzca la comision" 
                                  autocomplete="off">
                            </div>
                         </div>

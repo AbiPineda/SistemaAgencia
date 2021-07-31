@@ -38,7 +38,7 @@ include_once '../../plantillas/cabecera.php';
             <div class="timeline">
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-address-card bg-blue"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
@@ -108,7 +108,7 @@ include_once '../../plantillas/cabecera.php';
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-people-carry bg-red"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
 
@@ -128,7 +128,7 @@ include_once '../../plantillas/cabecera.php';
                                  <label>Teléfono</label>
                                  <div class="input-group">
                                     <input type="text" name="telefono_des" id="telefono_des" class="form-control"
-                                       autocomplete="off">
+                                       autocomplete="off" placeholder="(503)7232-2345">
                                  </div>
                               </div>
                               <div class="col-sm-6">
@@ -162,7 +162,7 @@ include_once '../../plantillas/cabecera.php';
                                     <label>Dirección alterna</label>
                                     <input name="direccion_alterna" id="direccion_alterna" type="text"
                                        class="form-control"
-                                       placeholder="Ej: Correo El Salvador ó 2da, av sur, numero 34, barrio centro">
+                                       placeholder="Ej: Correos El Salvador Sucursal San Vicente, Segunda Avenida Sur, Barrio Centro">
                                  </div>
                               </div>
                            </div>
@@ -228,7 +228,7 @@ include_once '../../plantillas/cabecera.php';
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="tabla">
-                  <i class="fas fa-user bg-green"></i>
+                  <i class="fas fa-hand-holding-usd bg-yellow"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
                      <div class="timeline-body">

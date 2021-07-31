@@ -39,7 +39,7 @@ include_once '../../plantillas/barra_lateral.php';
             <div class="timeline">
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-address-card bg-blue"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
@@ -102,7 +102,7 @@ include_once '../../plantillas/barra_lateral.php';
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fas fa-people-carry bg-red"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
 
@@ -224,7 +224,7 @@ include_once '../../plantillas/barra_lateral.php';
                <!--END timeline item-->
                <!-- timeline item -->
                <div id="tabla">
-                  <i class="fas fa-user bg-green"></i>
+                  <i class="fas fa-hand-holding-usd bg-yellow"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
                      <div class="timeline-body">
@@ -296,7 +296,7 @@ include_once '../../plantillas/barra_lateral.php';
                <!-- END timeline item -->
                <!-- END timeline item -->
                <div>
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-image bg-purple"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
 
@@ -393,7 +393,7 @@ include_once '../../plantillas/barra_lateral.php';
                         <div class="col-sm-1">
                            <br>
                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-primary btn-add" id="btn-unidad" name="btn-unidad"
+                              <button type="button" class="btn btn-success btn-add" id="btn-unidad" name="btn-unidad"
                                  style="margin-top: 10px; width: 100%;">+</button>
                            </span>
                         </div>
