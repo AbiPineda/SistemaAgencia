@@ -40,6 +40,19 @@
                  '<option value="No">No</option>' +
 
                  '</select></div>' +
+                 '<div class="form-group">' +
+                 '<label for="cars">Tipo de pregunta</label>' +
+                 '<select name="tipo" id="tipo_pregunta" class="form-control">' +
+                 '<option disabled selected >Seleccione</option>' +
+                 '<option value="text">Texto</option>' +
+                 '<option value="telefono">Teléfono</option>' +
+                 '<option value="dui">DUI</option>' +
+                 '<option value="pasaporte">Pasaporte</option>' +
+                 '<option value="nit">NIT</option>' +
+                 '<option value="date">Fecha</option>' +
+                 '<option value="number">Número</option>' +
+
+                 '</select></div>' +
                  '<div class="timeline-footer" style="text-align: right;">' +
                  '<button id="btn-preguntas"' +
                  'class="btn btn-info btn-sm" style="color: white; margin: 5px;">Guardar</button>' +
