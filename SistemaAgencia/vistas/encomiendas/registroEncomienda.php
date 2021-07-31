@@ -39,7 +39,7 @@ include_once '../../plantillas/cabecera.php';
             <div class="timeline">
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-user bg-blue"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Origen</a></h3>
 
@@ -109,7 +109,7 @@ include_once '../../plantillas/cabecera.php';
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="formulario">
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-people-carry bg-red"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Datos de Destino</a></h3>
 
@@ -229,7 +229,7 @@ include_once '../../plantillas/cabecera.php';
                <!-- END timeline item -->
                <!-- timeline item -->
                <div id="tabla">
-                  <i class="fas fa-user bg-green"></i>
+                  <i class="fas fa-file-invoice-dollar bg-yellow"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header no-border"><a href="#">Agregando Información</a></h3>
                      <div class="timeline-body">
@@ -311,7 +311,7 @@ include_once '../../plantillas/cabecera.php';
                <!-- END timeline item -->
                <!-- END timeline item -->
                <div>
-                  <i class="fas fa-box-open bg-green"></i>
+                  <i class="fas fa-image bg-purple"></i>
                   <div class="timeline-item">
                      <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
 
@@ -430,7 +430,7 @@ include_once '../../plantillas/cabecera.php';
 
    <!--modal actualizar comision-->
    <div class="modal fade" id="add-comision">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-sm modal-dialog-centered">
          <div class="modal-content">
 
             <div class="overlay-wrapper">
@@ -449,10 +449,10 @@ include_once '../../plantillas/cabecera.php';
                   <form id="comision-form" name="register-form" onsubmit="return false">
                      <div class="row">
                         <div class="col-sm-3"></div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                            <div class="form-group">
                               <label>Comisión</label>
-                              <input name="comision" id="comisionActu" type="text" class="form-control decimales"
+                              <input name="comision" id="comisionActu" type="number" min=0 class="form-control decimales"
                                  placeholder="Introduzca la comision" pattern="^[0-9]{2}[.]{1}[0-9]{2}"
                                  autocomplete="off">
                            </div>

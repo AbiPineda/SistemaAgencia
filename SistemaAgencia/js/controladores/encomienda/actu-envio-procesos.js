@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-	//CACHANDO LOS VALORES DEL URL
+    //CACHANDO LOS VALORES DEL URL
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
     let ID_ENCOMIENDA = urlParams.get('ac');
@@ -12,24 +12,24 @@ $(document).ready(function () {
     mostrarDatos();
     inicializarTabla();
 
- //BOTON MOSTRAR EL REPORTE
+    //BOTON MOSTRAR EL REPORTE
     $(document).on('click', '#btnRepoteHistorial', function() {
 
         id = $(this).attr("name");
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" +ID_ENCOMIENDA,
+            url: URL_SERVIDOR + "Encomienda/encomiendaModificar?id_encomienda=" + ID_ENCOMIENDA,
             method: "GET"
         }).done(function(response) {
-               
+
             //MANDALOS LOS VALORES AL MODAL
-            
-             for (let i = 0, ien = response.Encomiendas.length; i < ien; i++) {
+
+            for (let i = 0, ien = response.Encomiendas.length; i < ien; i++) {
                 $('#nombreC').text(response.Encomiendas[i].nombre);
                 $('#telefonoC').text(response.Encomiendas[i].celular);
                 $('#ciudadC').text(response.Encomiendas[i].ciudad_origen);
                 $('#codigoC').text(response.Encomiendas[i].codigo_postal_origen);
-                $('#totalEncomienda').text(response.Encomiendas[i].total_encomienda);  
+                $('#totalEncomienda').text(response.Encomiendas[i].total_encomienda);
                 $('#tot').text(response.Encomiendas[i].total_cliente);
             }
             for (let j = 0, jen = response.Detalles_destino.length; j < jen; j++) {
@@ -39,19 +39,19 @@ $(document).ready(function () {
                 $('#ciudadD').text(response.Detalles_destino[j].ciudad_destino);
                 $('#codigoD').text(response.Detalles_destino[j].codigo_postal_destino);
                 $('#direccionD').text(response.Detalles_destino[j].direccion_destino);
-                $('#alternaD').text(response.Detalles_destino[j].alterna_destino);    
+                $('#alternaD').text(response.Detalles_destino[j].alterna_destino);
             }
             //para la tabla para el historial
             let tablahistorial = document.getElementById('historial_envio');
-                response.historial.forEach(event => {
-            let tr = crearFilaHisto(event);
-            tablahistorial.appendChild(tr);
+            response.historial.forEach(event => {
+                let tr = crearFilaHisto(event);
+                tablahistorial.appendChild(tr);
             });
             //para la tabla de los productos
             let tablaReporte = document.getElementById('factura_detalle');
-                response.detalle.forEach(event => {
-            let tr = crearFila(event);
-            tablaReporte.appendChild(tr);
+            response.detalle.forEach(event => {
+                let tr = crearFila(event);
+                tablaReporte.appendChild(tr);
             });
         }).fail(function(response) {
 
@@ -64,56 +64,58 @@ $(document).ready(function () {
 
     //*para crear la tabla
     function crearFilaHisto(event) {
-    let tr = document.createElement('tr');
-    tr.appendChild(crearColumna(event.descripcion));
-    tr.appendChild(crearColumna(event.hora));
-    tr.appendChild(crearColumna(event.fecha));
-    return tr;
+        let tr = document.createElement('tr');
+        tr.appendChild(crearColumna(event.descripcion));
+        tr.appendChild(crearColumna(event.hora));
+        tr.appendChild(crearColumna(event.fecha));
+        return tr;
     }
+
     function crearFila(event) {
-    let tr = document.createElement('tr');
-    tr.appendChild(crearColumna(event.nombre_producto));
-    tr.appendChild(crearColumna(event.tarifa));
-    tr.appendChild(crearColumna(event.cantidad));
-     tr.appendChild(crearColumna(event.sub_total));
-    return tr;
+        let tr = document.createElement('tr');
+        tr.appendChild(crearColumna(event.nombre_producto));
+        tr.appendChild(crearColumna(event.tarifa));
+        tr.appendChild(crearColumna(event.cantidad));
+        tr.appendChild(crearColumna(event.sub_total));
+        return tr;
     }
-function crearColumna(info) {
-    let td = document.createElement('td');
-    let label = document.createElement('label');
-    label.innerHTML = info;
-    label.style.fontWeight = "normal";
-    td.appendChild(label);
-    td.classList.add('textcenter');
-    return td;
-}
+
+    function crearColumna(info) {
+        let td = document.createElement('td');
+        let label = document.createElement('label');
+        label.innerHTML = info;
+        label.style.fontWeight = "normal";
+        td.appendChild(label);
+        td.classList.add('textcenter');
+        return td;
+    }
     //**********funciones para crear las tablas fin
-//FIN DE MOSTRAMOS EL REPORTE
+    //FIN DE MOSTRAMOS EL REPORTE
 
- //BOTON PARA AGREGAR
-$(document).on('click', '#btn-informacion', function (evento) {
+    //BOTON PARA AGREGAR
+    $(document).on('click', '#btn-informacion', function(evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        let form = $("#informacion-form");  
-       form.validate();
-         if (form.valid()) {
+        let form = $("#informacion-form");
+        form.validate();
+        if (form.valid()) {
             add_actualizacion();
-        }  
-        
-});
+        }
 
-//BOTON PARA ENTREGAR LA ENCOMIENDA
-$(document).on('click', '#btn-entregar', function (evento) {
+    });
+
+    //BOTON PARA ENTREGAR LA ENCOMIENDA
+    $(document).on('click', '#btn-entregar', function(evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        entregar();  
-        
-});
+        entregar();
 
-function mostrarDatos() {
+    });
+
+    function mostrarDatos() {
         $.ajax({
             url: URL_SERVIDOR + 'Encomienda/encomiendaModificar?id_encomienda=' + ID_ENCOMIENDA,
             method: "GET"
-        }).done(function (response) {
-            $.each(response.Encomiendas, function (i, index) {
+        }).done(function(response) {
+            $.each(response.Encomiendas, function(i, index) {
                 $('#nombre_cliente').text(index.nombre);
                 $('#cliente').text(index.id_usuario);
                 $('#telefono').text(index.celular);
@@ -121,18 +123,18 @@ function mostrarDatos() {
                 $('#codigo').text(index.codigo_postal_origen);
                 $('#fecha').text(index.fecha);
 
-                if (index.estado=='Entregado') {
-                	$('#btn-informacion').prop('disabled',true);
-                	$('#btn-entregar').prop('disabled',true);
-                }else{
-                	$('#btn-informacion').prop('disabled',false);
-                	$('#btn-entregar').prop('disabled',false);
+                if (index.estado == 'Entregado') {
+                    $('#btn-informacion').prop('disabled', true);
+                    $('#btn-entregar').prop('disabled', true);
+                } else {
+                    $('#btn-informacion').prop('disabled', false);
+                    $('#btn-entregar').prop('disabled', false);
                 }
             });
 
             //.each para los datos destino
 
-            $.each(response.Detalles_destino, function (i,pivote) {
+            $.each(response.Detalles_destino, function(i, pivote) {
                 $('#cliente_des').text(pivote.nombre_cliente_destini);
                 $('#telefono_des').text(pivote.telefono);
                 $('#ciudad_des').text(pivote.ciudad_destino);
@@ -142,28 +144,28 @@ function mostrarDatos() {
             });
 
 
-        }).fail(function (response) {
+        }).fail(function(response) {
             console.log(response);
 
         });
 
-}
+    }
 
-function inicializarTabla() {
+    function inicializarTabla() {
         tabla = $("#add-tabla").DataTable({
             "responsive": true,
             "autoWidth": false,
             "deferRender": true,
-            "columnDefs":[
-            {"className":"dt-center","targets":"_all"},
-            {"targets":[4], "visible":false},
-            {"targets":[5], "visible":false},
-            {"targets":[6], "visible":false},
+            "columnDefs": [
+                { "className": "dt-center", "targets": "_all" },
+                { "targets": [4], "visible": false },
+                { "targets": [5], "visible": false },
+                { "targets": [6], "visible": false },
             ],
             "ajax": {
                 "url": URL_SERVIDOR + "Detalle_Encomienda/detalles?id_encomienda=" + ID_ENCOMIENDA,
                 "method": "GET",
-                "dataSrc": function (json) {
+                "dataSrc": function(json) {
                     //console.log(json.preguntas);
 
                     if (json.detalles) {
@@ -181,7 +183,7 @@ function inicializarTabla() {
                             json.detalles[i]["botones"] = html;
 
                             json.detalles[i]["contador"] = contadorTabla;
-                            contadorTabla ++;
+                            contadorTabla++;
 
 
 
@@ -205,90 +207,90 @@ function inicializarTabla() {
             ]
         });
 
-}
+    }
 
-function mostrarHistorial(){
-    	//mostrar informacion
-         $.ajax({
+    function mostrarHistorial() {
+        //mostrar informacion
+        $.ajax({
             type: "GET",
-            url: URL_SERVIDOR+"Detalle_envio/detalleEnvio?id_encomienda="+ID_ENCOMIENDA,
+            url: URL_SERVIDOR + "Detalle_envio/detalleEnvio?id_encomienda=" + ID_ENCOMIENDA,
             success: function(data) {
-            	//alert('estoy aqui');
+                //alert('estoy aqui');
                 if (data.detalles.length > 0) {
-                	//crear el boton cuando ya ayan registros
-                	let entregarDiv = $('#entregar-div');
-                	$('#entregar-div').empty();
-                    entregarDiv.append('<button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"'+
-                            'style="color: white">Entregar</button>');
+                    //crear el boton cuando ya ayan registros
+                    let entregarDiv = $('#entregar-div');
+                    $('#entregar-div').empty();
+                    entregarDiv.append('<button name="btn-entregar" id="btn-entregar" class="btn btn-warning btn-sm"' +
+                        'style="color: white">Entregar</button>');
 
-                	//alert('entre');
-                for (let i = 0, ien = data.detalles.length; i < ien; i++) {
-                   // alert('paso');
-                     var $select = $('#historias');
-                    $select.append('<div class="row">'+
-                                        '<div class="col-sm-12">'+
-                                               
-                                                '<div class="input-group">'+
-                                                '<label class="far fa-marker"></label>'+
-                                                 '<label class="text-success">'+data.detalles[i].descripcion+'</label>&nbsp'+
-                                                 '<label class="text-success">'+data.detalles[i].fecha+'</label>&nbsp'+
-                                                 '<label class="text-success">'+data.detalles[i].hora+'</label>'+
-                                                '</div>'+
-                                        '</div>'+
-                                      '</div>');
+                    //alert('entre');
+                    for (let i = 0, ien = data.detalles.length; i < ien; i++) {
+                        // alert('paso');
+                        var $select = $('#historias');
+                        $select.append('<div class="row">' +
+                            '<div class="col-sm-12">' +
 
-                    
+                            '<div class="input-group">' +
+                            '<label class="far fa-marker"></label>' +
+                            '<label class="text-success">' + data.detalles[i].descripcion + '</label>&nbsp' +
+                            '<label class="text-success">' + data.detalles[i].fecha + '</label>&nbsp' +
+                            '<label class="text-success">' + data.detalles[i].hora + '</label>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>');
+
+
+                    }
+                } else {
+                    //vamos a poner un mensaje
+
+                    var $select = $('#historias');
+                    $select.append('<div class="row">' +
+                        '<div class="col-sm-12">' +
+
+                        '<div class="input-group">' +
+                        '<label class="far fa-marker"></label>' +
+                        '<label class="text-success">No hay Registros</label>&nbsp' +
+
+                        '</div>' +
+                        '</div>' +
+                        '</div>');
+                    $('#entregar-div').empty();
+
                 }
-            }else{
-            	//vamos a poner un mensaje
-
-            	 var $select = $('#historias');
-                    $select.append('<div class="row">'+
-                                        '<div class="col-sm-12">'+
-                                               
-                                                '<div class="input-group">'+
-                                                '<label class="far fa-marker"></label>'+
-                                                 '<label class="text-success">No hay Registros</label>&nbsp'+
-                                                
-                                                '</div>'+
-                                        '</div>'+
-                                      '</div>');
-                  $('#entregar-div').empty();
-
-            }
 
             },
             error: function(err) {
                 const Toast = Swal.mixin();
-            Toast.fire({
-                title: 'Error',
-                icon: 'error',
-                text:'No hay preguntas registradas..!',
-                showConfirmButton: true,
-            });
+                Toast.fire({
+                    title: 'Error',
+                    icon: 'error',
+                    text: 'No hay preguntas registradas..!',
+                    showConfirmButton: true,
+                });
             }
         });
 
         ///ESTA PARTE ES PARA EL USUARIO PARA MOSTRARLOS
-}
+    }
 
-function entregar() {
+    function entregar() {
 
-    	let data = {
-         "descripcion":         'Entregado',
-         "id_encomienda":        ID_ENCOMIENDA,
-         "fecha":                document.getElementById("fecha_actu").value,
-         "hora":                 document.getElementById("hora_actu").value
-         }; 
+        let data = {
+            "descripcion": 'Entregado',
+            "id_encomienda": ID_ENCOMIENDA,
+            "fecha": document.getElementById("fecha_actu").value,
+            "hora": document.getElementById("hora_actu").value
+        };
 
         $.ajax({
-            url: URL_SERVIDOR+"Detalle_envio/entregar",
+            url: URL_SERVIDOR + "Detalle_envio/entregar",
             method: 'POST',
             data: data
 
-        }).done(function (response) {
-        	 $('#historias').empty();
-                mostrarHistorial();
+        }).done(function(response) {
+            $('#historias').empty();
+            mostrarHistorial();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -299,11 +301,11 @@ function entregar() {
                 //desabilitado temporal en el momento que se ejecuto la acción
                 //cuando vuelva a cargar la pagina en el mostrarDatos()
                 //en esa funcion se va ha validar sengun el estado de la encomienda
-                $('#btn-informacion').prop('disabled',true);
-                 $('#entregar-div').empty();
+                $('#btn-informacion').prop('disabled', true);
+                $('#entregar-div').empty();
             });
 
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
@@ -313,7 +315,7 @@ function entregar() {
                 let erroresEnvioDatos = respuestaDecodificada.errores;
                 for (mensaje in erroresEnvioDatos) {
                     listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                     //toastr.error(erroresEnvioDatos[mensaje]);
+                    //toastr.error(erroresEnvioDatos[mensaje]);
                 };
             } else {
                 listaErrores = respuestaDecodificada.mensaje
@@ -329,25 +331,25 @@ function entregar() {
         });
 
 
-}
+    }
 
-function add_actualizacion() {
+    function add_actualizacion() {
 
-    	let data = {
-         "descripcion":          document.getElementById("titulo_actu").value,
-         "id_encomienda":        ID_ENCOMIENDA,
-         "fecha":                document.getElementById("fecha_actu").value,
-         "hora":                 document.getElementById("hora_actu").value
-         }; 
+        let data = {
+            "descripcion": document.getElementById("titulo_actu").value,
+            "id_encomienda": ID_ENCOMIENDA,
+            "fecha": document.getElementById("fecha_actu").value,
+            "hora": document.getElementById("hora_actu").value
+        };
 
         $.ajax({
-            url: URL_SERVIDOR+"Detalle_envio/detalleEnvios",
+            url: URL_SERVIDOR + "Detalle_envio/detalleEnvios",
             method: 'POST',
             data: data
 
-        }).done(function (response) {
-        //document.getElementById("informacion-form").reset();
-        $('#titulo_actu').val('');
+        }).done(function(response) {
+            //document.getElementById("informacion-form").reset();
+            $('#titulo_actu').val('');
 
             const Toast = Swal.mixin();
             Toast.fire({
@@ -359,7 +361,7 @@ function add_actualizacion() {
                 $('#historias').empty();
                 mostrarHistorial();
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
@@ -369,7 +371,7 @@ function add_actualizacion() {
                 let erroresEnvioDatos = respuestaDecodificada.errores;
                 for (mensaje in erroresEnvioDatos) {
                     listaErrores += erroresEnvioDatos[mensaje] + "\n";
-                     //toastr.error(erroresEnvioDatos[mensaje]);
+                    //toastr.error(erroresEnvioDatos[mensaje]);
                 };
             } else {
                 listaErrores = respuestaDecodificada.mensaje
@@ -385,41 +387,41 @@ function add_actualizacion() {
         });
 
 
-}
-    
-function inicializarValidaciones() {
+    }
+
+    function inicializarValidaciones() {
 
         $('#informacion-form').validate({
 
             rules: {
-               
-                titulo_actu:{
+
+                titulo_actu: {
                     required: true,
                     minlength: 8
                 }
             },
             messages: {
-                
-                titulo_actu:{
-                    required:"Digite el titulo de la actualización",
-                    minlength:"El titulo debe tener una longitud minima de 8"
+
+                titulo_actu: {
+                    required: "Digite el titulo de la actualización",
+                    minlength: "El titulo debe tener una longitud minima de 8"
                 }
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
         });
 
-}
+    }
 
 });

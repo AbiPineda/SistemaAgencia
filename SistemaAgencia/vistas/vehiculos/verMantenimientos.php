@@ -233,7 +233,6 @@ include_once '../../plantillas/cabecera.php'; ?>
                                                         </td>
                                                         <td class="info_empresa">
                                                             <div>
-
                                                                 <span class="h2" name="nombre_a" id="nombre_a"></span>
                                                                 <p>
                                                                 <p style="margin: 1px;display:inline;" name="direccion_a" id="direccion_a"></p>

@@ -1,5 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
+include_once '../session/isEmpleado.php'; 
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php'; ?>
 <!--para el reloj-->
@@ -94,7 +95,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             style="color: white">Guardar</button>
                                         <!-- DIV CHUCO <div id="entregar-div">-->
                                         <button name="btn-entregar" id="btn-entregar" class="btn btn-light btn-sm"
-                                            style="color: white; background-color:#52BE80;">Entregar</button>
+                                            style="color: white; background-color:#0E6251;">Entregar</button>
                                         <!-- DIV CHUCO </div>-->
 
                                     </div>
@@ -344,14 +345,16 @@ include_once '../../plantillas/barra_lateral.php';
                                                             </td>
                                                             <td class="info_empresa">
                                                                 <div>
-                                                                    <span class="h2">Agencia de Viajes Martínez Travels
-                                                                        &
-                                                                        Tours</span>
-                                                                    <p>Segunda Avenida Sur, Barrio El Centro, #4D a
-                                                                        150mts
-                                                                        del Parquecito Infantil<br>Teléfono: +(503) 2319
-                                                                        2338<br>info.ventas@martineztraveltours.com</p>
-
+                                                                    <span class="h2" name="nombre_a"
+                                                                        id="nombre_a"></span>
+                                                                    <p>
+                                                                    <p style="margin: 1px;display:inline;"
+                                                                        name="direccion_a" id="direccion_a"></p>
+                                                                    <p style="margin: 1px;display:inline:float:right"
+                                                                        name="telefono_a" id="telefono_a">
+                                                                    </p>
+                                                                    <p name="email_a" id="email_a"></p>
+                                                                    </p>
                                                                 </div>
                                                             </td>
 
@@ -569,6 +572,7 @@ document.getElementById('hora_actu').value = hora + ":" + minutos
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <!--Script de los procedimientos del sistema-->
+<script type="text/javascript" src="<?= $base_url?>js/controladores/agencia/mostrarInfo.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/actu-envio-procesos.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
