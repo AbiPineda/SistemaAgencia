@@ -1,12 +1,5 @@
 $(document).ready(function () {
 
-  //PARA CLONAR
-  const recarga2 = $("#recargar2").clone();
-  const recarga1 = $("#recargarPasa").clone();
- 
-
-  const $grupo_per = $("[name='grupo_personasEdit']").clone();
-  const $grupo_pasa = $("[name='grupo_pasaporteEdit']").clone();
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,next,today',
@@ -69,7 +62,7 @@ $(document).ready(function () {
     eventClick: function (calEvent, jsEvent, view) {
 
       if (calEvent.estado_cita == 0) {
-        $('#btnActualizar').prop("disabled", false);
+        $('#btnActualizar').prop("disabled", true);
       } else { $('#btnActualizar').prop("disabled", false); }
       $('#tituloEvento').html(calEvent.title);
 
@@ -81,40 +74,7 @@ $(document).ready(function () {
       $('#txtFecha3').val(fechita);
       $('#txtId').val(calEvent.id_cita);
       $('#timepicker2').val(calEvent.hora);
-      document.getElementById("asistencia2").value = calEvent.compania;
-
-      if (calEvent.compania == 0) {
-        $('#inputs').empty();//vaciar los inputs dinamicos
-        $('#inputsPasa').empty();//vaciar los inputs dinamicos
-        //que los vacie y despues que los muestre...
-        $('#asistiran2').prop("disabled", false);
-        $('#btn-asistiran2').prop("disabled", false);
-        $("#pasaporte_personas2").prop("disabled", false);
-        $("#btn-pasaportes2").prop("disabled", false);
-        //para mostrar en el input de las personas que asitiran
-
-      
-        $.ajax({
-          url: URL_SERVIDOR + 'Cita/verCita?id_cita=' + calEvent.id_cita,
-          method: 'GET'
-
-        }).done(function (response) {
-          AgregarItems(response.personas, $('#per_edit'), $("[name='grupo_personasEdit']"), $grupo_per);
-          AgregarItems(response.pasaportes, $('#pasa_edit'), $("[name='grupo_pasaporteEdit']"), $grupo_pasa);
-
-        }).fail(function (response) {
-
-        });
-        $("#recargar2").load(" #recargar2");
-         $("#recargarPasa").load(" #recargarPasa");
-        //FIN DE AGREGAR LOS INPUT
-        //****
-      } else {
-        $('#asistiran2').prop("disabled", true);
-        $('#btn-asistiran2').prop("disabled", true);
-        $('#inputs').empty();
-        $('#inputsPasa').empty();
-      }
+     
       $('#id_cliente').val(calEvent.id_cita);
       $('#modal_eventos').modal();
       //document.getElementById("update-form").reset();
