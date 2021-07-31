@@ -124,6 +124,7 @@ $(document).ready(function () {
                }
 
             });
+            crearTabGaleria($select, $nuevo);
             llamarPreguntita();
          },
          error: function (err) {
@@ -547,5 +548,40 @@ $(document).ready(function () {
             respuesta: $(this).val()
          };
       }).get();
+   }
+   function crearTabGaleria($select, $nuevo) {
+      $select.append(' <li class="nav-item"><a class="nav-link"' +
+         'id="custom-tabs-one-home-galeria" data-toggle="pill"' +
+         'href="#custom-tabs-one-galeria" role="tab" aria-controls="custom-tabs-one-home"' +
+         'aria-selected="true">Pasaportes</a></li>');
+      $nuevo.append('<div class="tab-pane fade" id="custom-tabs-one-galeria" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
+         '<div class="" id="galeria"></div></div>');
+
+      let html = '';
+      html += '<div class="row">';
+      html += '    <div class="col-sm-12">';
+      html += '        <label>Seleccione Imágenes</label>';
+      html += '        <div class="file-loading">';
+      html += '            <input type="file" multiple name="pasaportes[]" id="pasaportes">';
+      html += '        </div>';
+      html += '    </div>';
+      html += '</div>';
+
+      $nuevo.append(html);
+
+      $('#pasaportes').fileinput({
+         theme: 'fas',
+         language: 'es',
+         //uploadUrl: '#',
+         showUpload: false,
+         //showCaption: false,
+         maxFileSize: 2000,
+         maxFilesNum: 10,
+         allowedFileExtensions: ['jpg', 'png', 'gif'],
+         required: true,
+         uploadAsync: false,
+         showClose: false,
+      });
+
    }
 });

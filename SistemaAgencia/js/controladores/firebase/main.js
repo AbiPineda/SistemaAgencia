@@ -81,8 +81,9 @@ function login() {
     }).done(function (resp) {
       //NUESTRO SERVICIO RETORNARA UN TOKEN QUE ES EL
       // QUE OCUPAREMOS PARA MANEJAR LA SESION DEL USUARIO
+      $("#login-btn").prop('disabled', true);
       if (!resp.err) {
-        if (resp.nivel == 'EMPLEADO' || resp.nivel == 'ADMINISTRADOR') {
+        if (resp.nivel == 'EMPLEADO' || resp.nivel == 'ADMINISTRADOR' || resp.nivel == 'RENTA CARS') {
           //aqui estamos guardando la foto de perfil del usuario          
           let token = resp.token;
           firebase
@@ -123,6 +124,8 @@ function login() {
       }
 
     }).fail(function (resp) {
+      console.log("here")
+      const Toast = Swal.mixin();
       $("#login-btn").prop('disabled', false);
       if (resp.responseJSON.err) {
         if (resp.responseJSON.mensaje == 'EMAIL_NOT_FOUND') {

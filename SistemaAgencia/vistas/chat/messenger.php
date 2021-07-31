@@ -37,7 +37,7 @@
                            <textarea class="message-input" id="message-input"
                               placeholder="Escribe tu mensaje"></textarea>
                            <button id="btn-enviar" class="send-btn"><i
-                                 class="fab fa-telegram-plane"></i>&nbsp;Send</button>
+                                 class="fab fa-telegram-plane"></i>&nbsp;Enviar</button>
                         </div>
                      </div>
 

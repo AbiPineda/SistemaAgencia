@@ -3,11 +3,11 @@ $(document).ready(function () {
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
     let ID_CITA = urlParams.get('idCita');
+    let ID_CLIENTE = urlParams.get('idCliente');
     let cliente = urlParams.get('cliente');
     $('#titulo').html(`Registro de Información Migratoria - ${cliente}`);
 
     validaciones();
-
     llamarRamas();
 
     // BOTON DE AGREGAR
@@ -91,7 +91,14 @@ $(document).ready(function () {
         let form = $("#migratorio-form");
         form.validate();
         if (form.valid()) {
-            guardar();
+            let tabSeleccionado = $('.tab-pane .active').attr('id');
+            if (tabSeleccionado == 'custom-tabs-one-galeria') {
+                // si es el tab de la galeria 
+                guardarPasaportes();
+            } else {
+                // si es un tab de preguntas
+                guardar();
+            }
         } else {
             toastr.error('Verifique los campos de selección');
         }
@@ -125,6 +132,7 @@ $(document).ready(function () {
                     }
 
                 });
+                crearTabGaleria($select, $nuevo);
                 llamarPreguntita();
             },
             error: function (err) {
@@ -139,6 +147,10 @@ $(document).ready(function () {
         });
     }
     function guardar() {
+
+
+        console.log("guardando data");
+        return;
         $.ajax({
             url: URL_SERVIDOR + "FormularioMigratorio/save",
             method: "POST",
@@ -148,12 +160,61 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
-            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: 'Registro Guardado Exitosamente',
+                showConfirmButton: true,
+            })
         }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-            console.log(response);
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: 'Error en el envio de información',
+                showConfirmButton: true,
+            })
 
         });
+    }
+    function guardarPasaportes() {
+        let form = new FormData();
+        form.append("tipo", 'pasaportes');
+        form.append("identificador", ID_CLIENTE);
+        let galeria = document.getElementById("pasaportes").files;
+        for (let i = 0; i < galeria.length; i++) {
+            form.append('fotos[]', galeria[i]);
+        }
+        $.ajax({
+            url: URL_SERVIDOR + "Imagen/saveGaleria",
+            method: "POST",
+            mimeType: "multipart/form-data",
+            data: form,
+            timeout: 0,
+            processData: false,
+            contentType: false,
+        }).done(function (response) {
+            console.log(response)
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: 'Registro Guardado Exitosamente',
+                showConfirmButton: true,
+            })
+        }).fail(function (response) {
+            //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+            const Toast = Swal.mixin();
+            Toast.fire({
+                title: 'Exito...',
+                icon: 'success',
+                text: 'Error en el envio de información',
+                showConfirmButton: true,
+            })
+
+        }); 
     }
     function validaciones() {
 
@@ -471,13 +532,11 @@ $(document).ready(function () {
             let objetoRestaMultiple = {
                 // 
                 id_pregunta: id_pregunta,
-                id_cita: ID_CITA,
+                id_cliente: ID_CLIENTE,
                 // JSON.stringify
                 respuesta: JSON.stringify(respuestasMultiples),
             };
-            // console.log(res);
-            // console.log(id_pregunta);
-            // console.log(ID_CITA);
+
             return objetoRestaMultiple;
         }).get();
 
@@ -488,9 +547,48 @@ $(document).ready(function () {
         return $listaElementos.map(function () {
             return {
                 id_pregunta: $(this).data().id_pregunta,
-                id_cita: ID_CITA,
+                id_cliente: ID_CLIENTE,
                 respuesta: $(this).val()
             };
         }).get();
+    }
+    function crearTabGaleria($select, $nuevo) {
+        $select.append(`
+        <li class="nav-item">
+            <a class="nav-link" id="custom-tabs-one-home-galeria " data-toggle="pill" 
+                href="#custom-tabs-one-galeria" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">
+                Documentos
+            </a>
+        </li>       
+        `);
+
+        $nuevo.append(`
+        <div class="tab-pane fade" id="custom-tabs-one-galeria" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+            <div id="galeria">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Subir imágenes de Pasaportes</label>
+                        <div class="file-loading">
+                            <input type="file" multiple name="pasaportes[]"  id="pasaportes">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`);
+
+        $('#pasaportes').fileinput({
+            theme: 'fas',
+            language: 'es',
+            //uploadUrl: '#',
+            showUpload: false,
+            //showCaption: false,
+            maxFileSize: 2000,
+            maxFilesNum: 10,
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            required: true,
+            uploadAsync: false,
+            showClose: false,
+        });
+
     }
 });
