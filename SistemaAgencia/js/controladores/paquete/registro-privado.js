@@ -33,7 +33,7 @@ let tabla = $('#TablaCostos').DataTable({
     ]
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TUR
-$('#ComboTur').on('select2:select', function (e) {
+$('#ComboTur').on('select2:select', function(e) {
 
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
@@ -49,7 +49,7 @@ $('#ComboTur').on('select2:select', function (e) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
-$('#ComboServicio').on('select2:select', function (e) {
+$('#ComboServicio').on('select2:select', function(e) {
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
     DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -64,7 +64,7 @@ $('#ComboServicio').on('select2:select', function (e) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TRANSPORTE
-$('#ComboTransporte').on('select2:select', function (e) {
+$('#ComboTransporte').on('select2:select', function(e) {
     //OBTENEMOS LA DATA DEL COMBO    
     let data;
     let id = e.params.data.id;
@@ -88,7 +88,7 @@ $('#ComboTransporte').on('select2:select', function (e) {
     modificarGanancias();
 });
 //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
-$(document).on('click', '#btnAgregarTur', function (evento) {
+$(document).on('click', '#btnAgregarTur', function(evento) {
     evento.preventDefault();
     //verificamos que exista algo seleccionado en el combo
     if (!document.getElementById("ComboTur").value) return;
@@ -118,7 +118,7 @@ $(document).on('click', '#btnAgregarTur', function (evento) {
     }
 });
 //AGREGANDO LA INFORMACION DE UN SITIO SERVICIO A LA TABLA
-$(document).on('click', '#btnAgregarSitio', function (evento) {
+$(document).on('click', '#btnAgregarSitio', function(evento) {
     evento.preventDefault();
     //verificamos que se halla seleccionado algo en el select
     if (!document.getElementById("ComboServicio").value) return;
@@ -147,7 +147,7 @@ $(document).on('click', '#btnAgregarSitio', function (evento) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE PRECIO DE TRANSPORTE
-$(document).on('keyup mouseup', '#precio_transporte', function () {
+$(document).on('keyup mouseup', '#precio_transporte', function() {
 
     let id = $('#ComboTransporte').val();
     let cantidad = 1;
@@ -159,19 +159,19 @@ $(document).on('keyup mouseup', '#precio_transporte', function () {
     modificarGanancias();
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
-$(document).on('keyup mouseup', '#cantidad', function () {
+$(document).on('keyup mouseup', '#cantidad', function() {
     cantidadByTransporte = $(this).val();
     modificarTabla();
     modificarIngresos();
     modificarGanancias();
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE COSTO DE PASAJE
-$(document).on('keyup mouseup', '#CostoPasaje', function () {
+$(document).on('keyup mouseup', '#CostoPasaje', function() {
     modificarIngresos();
     modificarGanancias();
 });
 //BOTON DE ELIMINAR
-$(document).on('click', '.btn-group .btn-danger', function (evento) {
+$(document).on('click', '.btn-group .btn-danger', function(evento) {
     let fila = tabla.row($(this).parents('tr')).data();
     totalGastos -= parseFloat(fila[4]);
     $('#totalGastos').text("$" + totalGastos);
@@ -181,7 +181,7 @@ $(document).on('click', '.btn-group .btn-danger', function (evento) {
 
 });
 //BOTON DE GUARDAR 
-$(document).on('click', '#btnguardar', function (evento) {
+$(document).on('click', '#btnguardar', function(evento) {
     evento.preventDefault(); //para evitar que la pagina se recargue
     let form = $("#miFormulario");
     form.validate();
@@ -190,7 +190,7 @@ $(document).on('click', '#btnguardar', function (evento) {
     mensajeError("Complete los campos");
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
-$(document).on('click', '#newServicio', function (evento) {
+$(document).on('click', '#newServicio', function(evento) {
     //se habilita el combo
     $('#tipo_servicio').prop('disabled', false);
     //seleccionamos por defecto la primera opcion
@@ -205,7 +205,7 @@ $(document).on('click', '#newServicio', function (evento) {
     $('#modal-agregarServicio').modal('show');
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
-$(document).on('click', '#newTranspore', function (evento) {
+$(document).on('click', '#newTranspore', function(evento) {
     //seleccionamos por defecto la opcion del transporte
     // $('#tipo_servicio').val('2');
     //seshabilitamos el combo
@@ -218,12 +218,12 @@ $(document).on('click', '#newTranspore', function (evento) {
     $('#modal-agregarServicio').modal('show');
 });
 //BOTON + AGREGAR UN NUEVO SITIO 
-$(document).on('click', '#newSitio', function (evento) {
+$(document).on('click', '#newSitio', function(evento) {
     console.log("sitosdfad f");
     $('#modal-agregarSitio').modal('show');
 });
 //BOTON + DE NUEVO CLIENTE
-$(document).on('click', '#btnNuevoCliente', function (evento) {
+$(document).on('click', '#btnNuevoCliente', function(evento) {
     $('#modalAgregarCliente').modal('show');
 });
 //BOTON DE AGREGAR INPUT
@@ -235,9 +235,10 @@ $(document).on('click', '.btn-addRow', addRow);
 //BOTON DE ELIMINAR FILA
 $(document).on('click', '.btn-removeRow', removeRow);
 //CLICK EN EL LINK DEL CONTACTO
-$(document).on('click', '.info_contacto', function () {
+$(document).on('click', '.info_contacto', function() {
     // $('#modal_ver_contacto').modal('show');
 });
+
 function inicializarComboTuristico() {
     //COMBO DE TIPOS 
     $('#ComboTur').select2();
@@ -245,7 +246,7 @@ function inicializarComboTuristico() {
     $.ajax({
         url: URL_SERVIDOR + "SitioTuristico/show",
         method: "GET"
-    }).done(function (response) {
+    }).done(function(response) {
         //REST_Controller::HTTP_OK
         let myData = [];
         if (response.sitios) {
@@ -262,19 +263,20 @@ function inicializarComboTuristico() {
         } else {
             $('#ComboTur').select2();
         }
-    }).fail(function (response) {
+    }).fail(function(response) {
         $('#ComboTur').select2();
 
-    }).always(function (xhr, opts) {
+    }).always(function(xhr, opts) {
         // $('#loading').hide();
     });
 }
+
 function inicializarComboServicio() {
     //COMBO DE CONTACTOS
     $.ajax({
         url: URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
         method: "GET"
-    }).done(function (response) {
+    }).done(function(response) {
         //REST_Controller::HTTP_OK
         let dataOtros = [];
         let dataTransporte = [];
@@ -293,15 +295,16 @@ function inicializarComboServicio() {
             $('#ComboServicio').select2();
             $('#ComboTransporte').select2();
         }
-    }).fail(function (response) {
+    }).fail(function(response) {
         $('#ComboServicio').select2();
         $('#ComboTransporte').select2();
 
-    }).always(function (xhr, opts) {
+    }).always(function(xhr, opts) {
         agregarInformacionContacto();
         $('#loading').hide();
     });
 }
+
 function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id, Crearboton = true) {
     let subTotoal = (precio * cantidad).toFixed(2);
     let html = "";
@@ -323,9 +326,10 @@ function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id, Crearboton
     $('#totalGastos').text("$" + totalGastos);
 
 }
+
 function modificarTabla() {
     totalGastos = 0;
-    tabla.rows().every(function (value, index) {
+    tabla.rows().every(function(value, index) {
         let data = this.data();
         let porPasajero = data[3];
         if (porPasajero == "si") {
@@ -337,10 +341,12 @@ function modificarTabla() {
     });
     $('#totalGastos').text("$" + totalGastos);
 }
+
 function modificarIngresos() {
     totalIngresos = parseFloat(cantidadByTransporte * $("#CostoPasaje").val());
     $('#totalIngresos').text("$" + totalIngresos);
 }
+
 function modificarGanancias() {
     ganancias = parseFloat(totalIngresos - totalGastos);
     if (ganancias > 0) {
@@ -358,6 +364,7 @@ function modificarGanancias() {
     }
     $('#ganancias').text("$" + ganancias.toFixed(2));
 }
+
 function inicializarGaleria() {
     // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
     $('#fotos').fileinput({
@@ -374,6 +381,7 @@ function inicializarGaleria() {
         showClose: false,
     });
 }
+
 function inicializarValidaciones() {
     $('#miFormulario').validate({
         rules: {
@@ -496,19 +504,20 @@ function inicializarValidaciones() {
             },
         },
         errorElement: 'span',
-        errorPlacement: function (error, element) {
+        errorPlacement: function(error, element) {
             error.addClass('invalid-feedback');
             element.closest('.form-group').append(error);
         },
-        highlight: function (element, errorClass, validClass) {
+        highlight: function(element, errorClass, validClass) {
             $(element).addClass('is-invalid');
         },
-        unhighlight: function (element, errorClass, validClass) {
+        unhighlight: function(element, errorClass, validClass) {
             $(element).removeClass('is-invalid');
 
         }
     });
 }
+
 function resetMiTable() {
     contadorTabla = 0;
     totalGastos = 0;
@@ -519,6 +528,7 @@ function resetMiTable() {
     $('#ganancias').text("$0");
     $('#totalGastos').text("$0");
 }
+
 function restaurarContactos() {
 
     document.getElementById("precio_sitio").value = DATA_SITIO[0].precio_sitio;
@@ -535,6 +545,7 @@ function restaurarContactos() {
     document.getElementById("phoneContactoServicio").innerHTML = DATA_SERVICIO[0].telefono;
     document.getElementById("imgContactoServicio").src = DATA_SERVICIO[0].url;
 }
+
 function addFormGroup(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.form-group');
@@ -546,11 +557,13 @@ function addFormGroup(event) {
         $formGroupClone.insertAfter($formGroup);
     }
 }
+
 function removeFormGroup(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.form-group');
     $formGroup.remove();
 }
+
 function addRow(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.row');
@@ -562,23 +575,27 @@ function addRow(event) {
         $formGroupClone.insertAfter($formGroup);
     }
 }
+
 function removeRow(event) {
     event.preventDefault();
     let $formGroup = $(this).closest('.row');
     $formGroup.remove();
 }
+
 function restOtrasOpciones() {
 
     $("#contenedor_opcions").empty();
     $("#contenedor_opcions").html(htmlOtrasOpciones);
 }
+
 function resetPromociones() {
     $("#contenedorPromociones").empty();
     $("#contenedorPromociones").html(htmlPromociones);
 }
+
 function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
     let encontrado = false;
-    tabla.rows().every(function (value, index) {
+    tabla.rows().every(function(value, index) {
         let data = this.data();
         if (id == data[7] && tipo == data[6]) {
             let subTotoal = (costo * cantidad).toFixed(2);
@@ -592,6 +609,7 @@ function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
 
     return encontrado;
 }
+
 function agregarInformacionContacto() {
     let ComboServicio = document.getElementById("ComboServicio").value;
     let CombotSitio = document.getElementById("ComboTur").value;
@@ -616,8 +634,9 @@ function agregarInformacionContacto() {
     }
 
 }
+
 function modificarRowTransporte(id, cantidad, costo, titulo) {
-    tabla.rows().every(function (value, index) {
+    tabla.rows().every(function(value, index) {
         let data = this.data();
         //PARA MODIFICAR LA FILA CON CONTADOR 0 QUE ES DONDE SIEMPRE SE ENCUENTRA LA EL TRANSPORTE
         if (data[8] == "0") {
@@ -635,6 +654,7 @@ function modificarRowTransporte(id, cantidad, costo, titulo) {
     });
 
 }
+
 function mensajeError(mensaje = 'erro') {
     const Toast = Swal.mixin();
     Toast.fire({
@@ -644,6 +664,7 @@ function mensajeError(mensaje = 'erro') {
         showConfirmButton: true,
     });
 }
+
 function inicializarCalendario() {
     $('#fecha_salida').daterangepicker({
         locale: {
@@ -681,6 +702,7 @@ function inicializarCalendario() {
         }
     });
 }
+
 function guardar() {
     $('#loading').show();
     let form = obtenerData();
@@ -695,7 +717,9 @@ function guardar() {
         timeout: 0,
         processData: false,
         contentType: false,
-    }).done(function (response) {
+    }).done(function(response) {
+        guardarBitacora();
+
         console.log(response);
         let respuestaDecodificada = JSON.parse(response);
         const Toast = Swal.mixin();
@@ -732,7 +756,7 @@ function guardar() {
             });
 
         });
-    }).fail(function (response) {
+    }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         console.log(response);
 
@@ -744,17 +768,18 @@ function guardar() {
             showConfirmButton: true,
         });
 
-    }).always(function (xhr, opts) {
+    }).always(function(xhr, opts) {
         $('#loading').hide();
     });
 }
+
 function obtenerData() {
     let form = new FormData();
     let serviciosAdicionales = [];
     let sistiosTuristicos = [];
     let promocion = [];
 
-    tabla.rows().every(function (value, index) {
+    tabla.rows().every(function(value, index) {
         let data = this.data();
         let title = data[0];
         let costo = data[1];
@@ -783,19 +808,19 @@ function obtenerData() {
     let tipoPaquete = 'Privado';
 
 
-    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
+    let salida = $("input[name='lugar_salida[]']").map(function() { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     salida = salida.filter(value => value != '');
 
-    let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
+    let incluye = $("input[name='incluye[]']").map(function() { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     incluye = incluye.filter(value => value != '');
 
-    let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
+    let no_incluye = $("input[name='no_incluye[]']").map(function() { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     no_incluye = no_incluye.filter(value => value != '');
 
-    let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
+    let requisitos = $("input[name='requisitos[]']").map(function() { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     requisitos = requisitos.filter(value => value != '');
 
@@ -823,11 +848,12 @@ function obtenerData() {
     return form;
 
 }
+
 function inicializarComboUsuario() {
     $.ajax({
         url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE",
         method: "GET"
-    }).done(function (response) {
+    }).done(function(response) {
         //REST_Controller::HTTP_OK
 
         let myData = [];
@@ -840,16 +866,14 @@ function inicializarComboUsuario() {
                     text: `${lista[index].nombre} (Dui: ${lista[index].dui})`
                 });
             }
-            $('#comboUsuario').select2(
-                { data: myData }
-            );
+            $('#comboUsuario').select2({ data: myData });
         } else {
             $('#comboUsuario').select2();
         }
-    }).fail(function (response) {
+    }).fail(function(response) {
         $('#comboUsuario').select2();
 
-    }).always(function (xhr, opts) {
+    }).always(function(xhr, opts) {
         $('#loadingReservaTur').hide();
     });
 
