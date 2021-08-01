@@ -146,11 +146,11 @@ $(document).ready(function () {
         });
     });
 
-       //CUANDO EL MODAL SE CIERRA
-   $('#modal-imagenesEncomienda').on('hidden.bs.modal', function (e) {
-    console.log("cerrando modal")
-    explorer.fileinput('destroy');
-   })
+    //CUANDO EL MODAL SE CIERRA
+    $('#modal-imagenesEncomienda').on('hidden.bs.modal', function (e) {
+        console.log("cerrando modal")
+        explorer.fileinput('destroy');
+    })
 
     //BOTON DE EDITAR
     $(document).on('click', '.btn-group .btn-primary', function () {
@@ -158,7 +158,8 @@ $(document).ready(function () {
         let data = tabla.row(fila).data();
         let id_cita = data.id_cita;
         let nombre = data.nombre;
-        window.location = `editarInformacionBoris.php?idCita=${id_cita}&cliente=${nombre}`;
+        let id_cliente = data.id_cliente;
+        window.location = `editarInformacionBoris.php?idCita=${id_cita}&cliente=${nombre}&idCliente=${id_cliente }`;
     });
 
     //BOTON PARA ELIMINAR

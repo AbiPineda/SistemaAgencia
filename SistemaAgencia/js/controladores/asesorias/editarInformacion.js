@@ -3,6 +3,7 @@ $(document).ready(function () {
    const valores = window.location.search;
    const urlParams = new URLSearchParams(valores);
    let ID_CITA = urlParams.get('idCita');
+   let ID_CLIENTE = urlParams.get('idCliente');
    let cliente = urlParams.get('cliente');
    $('#titulo').html(`Registro de Información Migratoria - ${cliente}`);
 
@@ -223,10 +224,10 @@ $(document).ready(function () {
    function llamarPreguntita() {
       $.ajax({
          type: "GET",
-         url: `${URL_SERVIDOR}Asesoria/respuestas?id_cita=${ID_CITA}`,
+         url: `${URL_SERVIDOR}Asesoria/respuestas?id_cliente=${ID_CLIENTE}`,
          dataType: "json",
          success: function (data) {
-
+            console.log(data)
             var contador = 0;
             let cont = 0;
 
@@ -326,7 +327,11 @@ $(document).ready(function () {
       let input = document.createElement("INPUT");
       input.setAttribute("type", obtenerTipoInput(data.tipo));
       input.setAttribute("name", name);
-      input.setAttribute("value", data.respuesta);
+      if (typeof (data.respuesta) == 'undefined') {
+         input.setAttribute("value", '');
+      } else {
+         input.setAttribute("value", data.respuesta);
+      }
       input.setAttribute("placeholder", `¿${data.pregunta}?`);
       input.dataset.id_pregunta = data.id_pregunta;
       input.dataset.pregunta = data.pregunta;
@@ -527,12 +532,9 @@ $(document).ready(function () {
          let objetoRestaMultiple = {
             id_formulario: id_formulario,
             id_pregunta: id_pregunta,
-            id_cita: ID_CITA,
+            id_cliente: ID_CLIENTE,
             respuesta: JSON.stringify(respuestasMultiples),
          };
-         // console.log(res);
-         // console.log(id_pregunta);
-         // console.log(ID_CITA);
          return objetoRestaMultiple;
       }).get();
 
@@ -544,30 +546,34 @@ $(document).ready(function () {
          return {
             id_formulario: $(this).data().id_formulario,
             id_pregunta: $(this).data().id_pregunta,
-            id_cita: ID_CITA,
+            id_cliente: ID_CLIENTE,
             respuesta: $(this).val()
          };
       }).get();
    }
    function crearTabGaleria($select, $nuevo) {
-      $select.append(' <li class="nav-item"><a class="nav-link"' +
-         'id="custom-tabs-one-home-galeria" data-toggle="pill"' +
-         'href="#custom-tabs-one-galeria" role="tab" aria-controls="custom-tabs-one-home"' +
-         'aria-selected="true">Pasaportes</a></li>');
-      $nuevo.append('<div class="tab-pane fade" id="custom-tabs-one-galeria" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">' +
-         '<div class="" id="galeria"></div></div>');
+      $select.append(`
+      <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-one-home-galeria " data-toggle="pill" 
+              href="#custom-tabs-one-galeria" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">
+              Documentos
+          </a>
+      </li>       
+      `);
 
-      let html = '';
-      html += '<div class="row">';
-      html += '    <div class="col-sm-12">';
-      html += '        <label>Seleccione Imágenes</label>';
-      html += '        <div class="file-loading">';
-      html += '            <input type="file" multiple name="pasaportes[]" id="pasaportes">';
-      html += '        </div>';
-      html += '    </div>';
-      html += '</div>';
-
-      $nuevo.append(html);
+      $nuevo.append(`
+      <div class="tab-pane fade" id="custom-tabs-one-galeria" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+          <div id="galeria">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <label>Subir imágenes de Pasaportes</label>
+                      <div class="file-loading">
+                          <input type="file" multiple name="pasaportes[]"  id="pasaportes">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>`);
 
       $('#pasaportes').fileinput({
          theme: 'fas',
