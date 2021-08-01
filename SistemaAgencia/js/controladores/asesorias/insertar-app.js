@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     inicializarValidaciones();
-    inicializarGaleria();
 
     //BOTON PARA AGREGAR
     $(document).on('click', '#btnAgregar', function (evento) {
@@ -20,48 +19,11 @@ $(document).ready(function () {
             rules: {
                 id_cliente: {
                     required: true
-                },
-                asistencia: {
-                    required: true
-                },
-                pasaporte: {
-                    required: true,
-                    minlength: 9
-                },
-                "asistiran[]": {
-                    required: true,
-                    minlength: 10
-                },
-                "pasaporte_personas[]": {
-                    required: true,
-                    minlength: 9
-                },
-                "fotos[]": {
-                    required: true
                 }
             },
             messages: {
                 id_cliente: {
                     required: "Seleccione el Cliente"
-                },
-                asistencia: {
-                    required: "Seleccione si asistirá solo"
-
-                },
-                pasaporte: {
-                    required: "Campo vacío",
-                    minlength: "Debe de tener una longitud minima de 9"
-                },
-                "asistiran[]": {
-                    required: "Campo vacío",
-                    minlength: "Debe de tener una longitud minima de 10"
-                },
-                "pasaporte_personas[]": {
-                    required: "Campo vacío",
-                    minlength: "Debe de tener una longitud minima de 9"
-                },
-                "fotos[]": {
-                    required: "Inserte las fotos de los pasaportes"
                 }
 
             },
@@ -80,24 +42,7 @@ $(document).ready(function () {
         });
     }
 
-    //***************para la galeria******************
-    function inicializarGaleria() {
-        // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
-        $('#fotos').fileinput({
-            theme: 'fas',
-            language: 'es',
-            //uploadUrl: '#',
-            showUpload: false,
-            //showCaption: false,
-            maxFileSize: 2000,
-            maxFilesNum: 10,
-            allowedFileExtensions: ['jpg', 'png', 'gif'],
-            required: true,
-            uploadAsync: false,
-            showClose: false,
-        });
-    }
-    //**********************************
+
     function add() {
 
         let form = obtenerInfo();
@@ -126,14 +71,14 @@ $(document).ready(function () {
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: response.mensaje,
+                text: 'Registro insertado con exito',
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 //location.reload(); 
             });
         }).fail(function (response) {
-            console.log(response);/*
+            console.log(response);
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             let respuestaDecodificada = JSON.parse(response.responseText);
             let listaErrores = "";
@@ -147,12 +92,12 @@ $(document).ready(function () {
                 };
             } else {
                 listaErrores = respuestaDecodificada.mensaje
-            }*/
+            }
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Error',
                 icon: 'error',
-                text:response.mensaje,
+                text:listaErrores,
                 showConfirmButton: true,
             });
 
