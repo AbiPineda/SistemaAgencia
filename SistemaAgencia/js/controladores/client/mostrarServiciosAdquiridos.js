@@ -13,6 +13,7 @@ $(document).ready(function () {
     // inicializarTablaEncomiendas();
     inicializarTablaVehiculos();
     inicializarTablaVuelos();
+    inicializarTablaAsesorias();
 
     function mostrarDatos() {
 
@@ -28,6 +29,38 @@ $(document).ready(function () {
         }).fail(function (response) {
             console.log(response);
 
+        });
+
+    }
+
+    function inicializarTablaAsesorias() {
+        tabla = $("#add-asesoria").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "deferRender": true,
+            "columnDefs": [
+                { "className": "dt-center", "targets": "_all" },
+
+            ],
+            "ajax": {
+                "url": URL_SERVIDOR + "Cita/citaWeb?id_cliente=" + ID_CLIENTE,
+                "method": "GET",
+                "dataSrc": function (json) {
+                    if (json) {
+                        
+                        $('#loading').hide();
+                        return json;
+                    } else {
+                        $('#loading').hide();
+                        return [];
+                    }
+                }
+            },
+            columns: [
+                { data: "title" },
+                { data: "fechaConver" },
+                { data: "hora" },
+            ]
         });
 
     }
