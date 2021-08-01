@@ -1,5 +1,5 @@
 // CUANDO LA PAGINA YA ESTA LISTA
-$(document).ready(function () {
+$(document).ready(function() {
     $('#configuracionAsientos').hide();
     $('#dibujoAsientos').hide();
     inicializarGaleriaServicio();
@@ -9,8 +9,8 @@ $(document).ready(function () {
     inicializarComboTipoServicio();
 
     //BOTON DE GUARDAR
-    $(document).on('click', '#btnguardarServicio', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+    $(document).on('click', '#btnguardarServicio', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#miFormularioServicio");
         form.validate();
         if (form.valid()) {
@@ -18,8 +18,8 @@ $(document).ready(function () {
         }
     });
     //BOTON PARA AGREGAR UN NUEVO TIPO 
-    $(document).on('click', '#btnAgregarTipoServicio', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+    $(document).on('click', '#btnAgregarTipoServicio', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#formularioAgregarTipoServicio");
         form.validate();
         if (form.valid()) {
@@ -27,15 +27,15 @@ $(document).ready(function () {
         }
     });
     //BOTON DE + CONTACTO
-    $(document).on('click', '#nuevoContactoServicio', function (evento) {
+    $(document).on('click', '#nuevoContactoServicio', function(evento) {
         $('#modal-agregarContactoSitio').modal('show');
     });
     //BOTON DE NUEVO TIPO
-    $(document).on('click', '#btn-nuevoTipoServicio', function (evento) {
+    $(document).on('click', '#btn-nuevoTipoServicio', function(evento) {
         $('#modal-agregarTipoServicio').modal('show');
     });
     //CAMBIO EN EL COMBO TIPO PARA MOSTRAR EL DIBUJO DEL TRANSPORTE
-    $('#tipo_servicio').on('select2:select', function (e) {
+    $('#tipo_servicio').on('select2:select', function(e) {
         let data = e.params.data;
         if (data.text === "Transporte") {
             $('#configuracionAsientos').show();
@@ -60,9 +60,11 @@ $(document).ready(function () {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             actualizarCombo();
+            guardarBitacora();
+
             //CERRAMOS EL MODAL
             $('#modal-agregarServicio').modal('hide');
             //RESTAURAMOS LOS CAMPOS
@@ -83,7 +85,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
             $('#loadingServicio').hide();
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -97,6 +99,7 @@ $(document).ready(function () {
 
         });
     }
+
     function getData() {
         let form = new FormData();
         //ESTO ES PARA L A GALERIA 
@@ -135,6 +138,7 @@ $(document).ready(function () {
             inicializarComboServicio();
         }
     }
+
     function guardarTipoServicio() {
         $('#loadingServicio').show();
         let myData = {
@@ -146,7 +150,7 @@ $(document).ready(function () {
             data: myData,
             timeout: 0,
 
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = response;
             //AGREGAMOS RESPUESTA AL COMBO
@@ -156,6 +160,8 @@ $(document).ready(function () {
             $('#tipo_servicio').append(newOption).trigger('change');
             //mandamos un mensaje al usuario
             const Toast = Swal.mixin();
+            guardarBitacora();
+
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
@@ -166,7 +172,7 @@ $(document).ready(function () {
                 $("#formularioAgregarTipoServicio").trigger("reset");
                 $('#modal-agregarTipoServicio').modal('hide');
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
             let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
@@ -178,12 +184,13 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $("#formularioAgregarTipoServicio").trigger("reset");
             $('#modal-agregarTipoServicio').modal('hide');
             $('#loadingServicio').hide();
         });
     }
+
     function inicializarGaleriaServicio() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotosServicio').fileinput({
@@ -200,6 +207,7 @@ $(document).ready(function () {
             showClose: false,
         });
     }
+
     function inicializarComboContactoServicio() {
         //COMBO DE TIPOS 
         $('#tipo_servicio').select2();
@@ -207,7 +215,7 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "Contacto/show",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.contactos) {
@@ -218,25 +226,24 @@ $(document).ready(function () {
                         text: lista[index].nombre_contacto
                     });
                 }
-                $('#contacto_servicio').select2(
-                    { data: myData }
-                );
+                $('#contacto_servicio').select2({ data: myData });
             } else {
                 $('#contacto_servicio').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#contacto_servicio').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             //  $('#loading').hide();
         });
     }
+
     function inicializarComboTipoServicio() {
 
         $.ajax({
             url: URL_SERVIDOR + "TipoServicio/show",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.tipo) {
@@ -247,19 +254,18 @@ $(document).ready(function () {
                         text: lista[index].tipo_servicio
                     });
                 }
-                $('#tipo_servicio').select2(
-                    { data: myData }
-                );
+                $('#tipo_servicio').select2({ data: myData });
             } else {
                 $('#tipo_servicio').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#tipo_servicio').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loadingServicio').hide();
         });
     }
+
     function inicializarValidacionesServicio() {
         $('#miFormularioServicio').validate({
             rules: {
@@ -276,7 +282,8 @@ $(document).ready(function () {
                 descripcion_servicio: {
                     required: true,
                     minlength: 10,
-                }, fotosServicio: {
+                },
+                fotosServicio: {
                     required: true
                 }
             },
@@ -298,14 +305,14 @@ $(document).ready(function () {
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -325,14 +332,14 @@ $(document).ready(function () {
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }

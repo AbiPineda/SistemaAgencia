@@ -1,5 +1,5 @@
 // CUANDO LA PAGINA YA ESTA LISTA
-$(document).ready(function () {
+$(document).ready(function() {
     let dataTipo;
 
     inicializarComboContactoSitios();
@@ -8,12 +8,12 @@ $(document).ready(function () {
     inicializarGaleriaSitios();
 
     //BOTON ABRIR MODAL DE CONTACTO
-    $(document).on('click', '#btn-nuevoContactoSitio', function (evento) {
+    $(document).on('click', '#btn-nuevoContactoSitio', function(evento) {
         $('#modal-agregarContactoSitio').modal('show');
     });
     //BOTON PARA AGREGAR UN NUEVO TIPO 
-    $(document).on('click', '#btnAgregarTipoSitio', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+    $(document).on('click', '#btnAgregarTipoSitio', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#formularioAgregarTipoSitio");
         form.validate();
         if (form.valid()) {
@@ -21,12 +21,12 @@ $(document).ready(function () {
         }
     });
     //BOTON DE NUEVO TIPO
-    $(document).on('click', '#btn-nuevoTipoSitio', function (evento) {
+    $(document).on('click', '#btn-nuevoTipoSitio', function(evento) {
         $('#modal-agregarTipoSitio').modal('show');
     });
     //BOTON DE GUARDAR
-    $(document).on('click', '#btnguardarSitio', function (evento) {
-        evento.preventDefault();//para evitar que la pagina se recargue
+    $(document).on('click', '#btnguardarSitio', function(evento) {
+        evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#miFormularioSitio");
 
         form.validate();
@@ -47,7 +47,7 @@ $(document).ready(function () {
         $.ajax({
             url: URL_SERVIDOR + "TipoSitio/show",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.tipo) {
@@ -58,20 +58,19 @@ $(document).ready(function () {
                         text: lista[index].tipo_sitio
                     });
                 }
-                $('#ComboTipoSitio').select2(
-                    { data: myData }
-                );
+                $('#ComboTipoSitio').select2({ data: myData });
             } else {
                 $('#ComboTipoSitio').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#ComboTipoSitio').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loadingSitio').hide();
         });
 
     }
+
     function inicializarGaleriaSitios() {
         // ESTO ES PARA INICIALIZAR EL ELEMENTO DE SUBIDA DE FOTOS (EN ESTE CASO UNA GALERIA )
         $('#fotosSitios').fileinput({
@@ -88,12 +87,13 @@ $(document).ready(function () {
             showClose: false,
         });
     }
+
     function inicializarComboContactoSitios() {
         //COMBO DE CONTACTOS
         $.ajax({
             url: URL_SERVIDOR + "Contacto/show",
             method: "GET"
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let myData = [];
             if (response.contactos) {
@@ -104,16 +104,14 @@ $(document).ready(function () {
                         text: lista[index].nombre_contacto
                     });
                 }
-                $('#contacto_sitio').select2(
-                    { data: myData }
-                );
+                $('#contacto_sitio').select2({ data: myData });
             } else {
                 $('#contacto_sitio').select2();
             }
-        }).fail(function (response) {
+        }).fail(function(response) {
             $('#contacto_sitio').select2();
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             // $('#loading').hide();
         });
     }
@@ -129,9 +127,11 @@ $(document).ready(function () {
                 descripcion: {
                     required: true,
                     minlength: 10,
-                }, fotosSitios: {
+                },
+                fotosSitios: {
                     required: true
-                }, precioSitio: {
+                },
+                precioSitio: {
                     required: true,
                     min: 0
                 }
@@ -145,23 +145,25 @@ $(document).ready(function () {
                 descripcion: {
                     required: "La descripcion es necesaria",
                     minlength: "Debe de tener una longitud minima de 10",
-                }, fotosSitios: {
+                },
+                fotosSitios: {
                     required: "Suba por lo menos 1 foto"
-                }, nombreSitio: {
+                },
+                nombreSitio: {
                     required: "El precio es necesario",
                     min: "Debe de ser mayor que 0"
                 }
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -182,14 +184,14 @@ $(document).ready(function () {
 
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -209,8 +211,9 @@ $(document).ready(function () {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
+            guardarBitacora();
             actualizarComboSitio();
             const Toast = Swal.mixin();
             $('#modal-agregarSitio').modal('hide');
@@ -221,9 +224,10 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
+
                 $("#miFormularioSitio").trigger("reset");
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -235,10 +239,11 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $('#loadingSitio').hide();
         });
     }
+
     function getDAta() {
         let form = new FormData();
 
@@ -258,11 +263,12 @@ $(document).ready(function () {
     }
     //ACTUALIZAMOS EL COMBO QUE SE ENCUENTRA EN PUBLICAR PAQUETE
     function actualizarComboSitio() {
-         if (typeof DATA_SITIO !== 'undefined') {
+        if (typeof DATA_SITIO !== 'undefined') {
             console.log("actualizamos el combo sitio");
             inicializarComboTuristico();
         }
     }
+
     function guardarTipoSitio() {
         $('#loadingSitio').show();
         let myData = {
@@ -274,7 +280,7 @@ $(document).ready(function () {
             data: myData,
             timeout: 0,
 
-        }).done(function (response) {
+        }).done(function(response) {
             //REST_Controller::HTTP_OK
             let respuestaDecodificada = response;
             //AGREGAMOS RESPUESTA AL COMBO
@@ -294,7 +300,7 @@ $(document).ready(function () {
                 $("#formularioAgregarTipoSitio").trigger("reset");
                 $('#modal-agregarTipoSitio').modal('hide');
             });
-        }).fail(function (response) {
+        }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
             let listaErrores = "ERROR EN EL ENVIO DE INFORMACION";
@@ -306,7 +312,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             });
 
-        }).always(function (xhr, opts) {
+        }).always(function(xhr, opts) {
             $("#formularioAgregarTipoSitio").trigger("reset");
             $('#modal-agregarTipoSitio').modal('hide');
             $('#loadingSitio').hide();
