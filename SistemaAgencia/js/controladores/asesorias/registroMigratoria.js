@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
-    let ID_CITA = urlParams.get('idCita');
+    let ID_CITA = urlParams.get('id_cita');
     let ID_CLIENTE = urlParams.get('idCliente');
     let cliente = urlParams.get('cliente');
     $('#titulo').html(`Registro de Información Migratoria - ${cliente}`);
@@ -147,10 +147,7 @@ $(document).ready(function () {
         });
     }
     function guardar() {
-
-
-        console.log("guardando data");
-        return;
+      
         $.ajax({
             url: URL_SERVIDOR + "FormularioMigratorio/save",
             method: "POST",
@@ -160,6 +157,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
         }).done(function (response) {
+            console.log(response);
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -175,8 +173,7 @@ $(document).ready(function () {
                 icon: 'success',
                 text: 'Error en el envio de información',
                 showConfirmButton: true,
-            })
-
+            });
         });
     }
     function guardarPasaportes() {
@@ -512,6 +509,7 @@ $(document).ready(function () {
         let cerrada = filtrar($preguntaCerrada);
         AllQuestion.push(...cerrada);
         form.append('AllQuestion', JSON.stringify(AllQuestion));
+        form.append('id_cita', ID_CITA);
         return form;
     }
     function obtenerRespuestaMultples() {

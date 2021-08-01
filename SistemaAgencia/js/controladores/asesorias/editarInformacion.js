@@ -91,7 +91,16 @@ $(document).ready(function () {
       let form = $("#migratorio-form");
       form.validate();
       if (form.valid()) {
-         actualizar();
+
+
+         let tabSeleccionado = $('.tab-pane .active').attr('id');
+         if (tabSeleccionado == 'custom-tabs-one-galeria') {
+            // si es el tab de la galeria 
+            guardarPasaportes();
+         } else {
+            // si es un tab de preguntas
+            actualizar();
+         }
       } else {
          toastr.error('Verifique los campos de selección');
       }
@@ -125,8 +134,7 @@ $(document).ready(function () {
                }
 
             });
-            crearTabGaleria($select, $nuevo);
-            llamarPreguntita();
+            llamarPreguntita($select, $nuevo);
          },
          error: function (err) {
             const Toast = Swal.mixin();
@@ -140,8 +148,7 @@ $(document).ready(function () {
       });
    }
    function actualizar() {
-      // (obtenerData());
-      // return;
+
       $.ajax({
          url: URL_SERVIDOR + "FormularioMigratorio/update",
          method: "POST",
@@ -151,10 +158,58 @@ $(document).ready(function () {
          processData: false,
          contentType: false,
       }).done(function (response) {
-         console.log(response);
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: 'Registro Guardado Exitosamente',
+            showConfirmButton: true,
+         });
       }).fail(function (response) {
          //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
-         console.log(response);
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: 'Error en el envio de información',
+            showConfirmButton: true,
+         });
+
+      });
+   }
+   function guardarPasaportes() {
+      let form = new FormData();
+      form.append("tipo", 'pasaportes');
+      form.append("identificador", ID_CLIENTE);
+      let galeria = document.getElementById("pasaportes").files;
+      for (let i = 0; i < galeria.length; i++) {
+         form.append('fotos[]', galeria[i]);
+      }
+      $.ajax({
+         url: URL_SERVIDOR + "Imagen/saveGaleria",
+         method: "POST",
+         mimeType: "multipart/form-data",
+         data: form,
+         timeout: 0,
+         processData: false,
+         contentType: false,
+      }).done(function (response) {
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: 'Registro Guardado Exitosamente',
+            showConfirmButton: true,
+         })
+      }).fail(function (response) {
+         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+         const Toast = Swal.mixin();
+         Toast.fire({
+            title: 'Exito...',
+            icon: 'success',
+            text: 'Error en el envio de información',
+            showConfirmButton: true,
+         })
 
       });
    }
@@ -221,7 +276,7 @@ $(document).ready(function () {
               }
           });*/
    }
-   function llamarPreguntita() {
+   function llamarPreguntita($selectTop, $nuevoTop) {
       $.ajax({
          type: "GET",
          url: `${URL_SERVIDOR}Asesoria/respuestas?id_cliente=${ID_CLIENTE}`,
@@ -260,6 +315,8 @@ $(document).ready(function () {
                   }
                }
             }
+            crearTabGaleria($selectTop, $nuevoTop, data.pasaportes);
+
          },
          error: function (err) {
             const Toast = Swal.mixin();
@@ -508,9 +565,19 @@ $(document).ready(function () {
       let $preguntaCerrada = $('.tab-pane .active').find('select');
       let cerrada = filtrar($preguntaCerrada);
       AllQuestion.push(...cerrada);
-      form.append('AllQuestion', JSON.stringify(AllQuestion));
 
-      console.log(AllQuestion);
+      // verificamos que todas las preguntas ya hallan sido contestadas
+      // puede ser que agregen nuevas preguntas 
+      // o que este tab no se lleno la primera vez
+      let newQuestion = AllQuestion.filter(question => question.id_formulario == 'undefined');
+      let oldQuestion = AllQuestion.filter(question => question.id_formulario != 'undefined');
+      // eliminamos la  propiedad id_formulario para demostrar que es una nueva pregunta
+      newQuestion = newQuestion.map(question => {
+         delete question.id_formulario;
+         return question
+      });
+      form.append('newQuestion', JSON.stringify(newQuestion));
+      form.append('oldQuestion', JSON.stringify(oldQuestion));
       return form;
    }
    function obtenerRespuestaMultples() {
@@ -551,7 +618,9 @@ $(document).ready(function () {
          };
       }).get();
    }
-   function crearTabGaleria($select, $nuevo) {
+   function crearTabGaleria($select, $nuevo, pasaportes) {
+      let urlFotos = [];
+      let infoFotos = [];
       $select.append(`
       <li class="nav-item">
           <a class="nav-link" id="custom-tabs-one-home-galeria " data-toggle="pill" 
@@ -560,7 +629,6 @@ $(document).ready(function () {
           </a>
       </li>       
       `);
-
       $nuevo.append(`
       <div class="tab-pane fade" id="custom-tabs-one-galeria" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
           <div id="galeria">
@@ -574,19 +642,29 @@ $(document).ready(function () {
               </div>
           </div>
       </div>`);
+      // ACA
+      pasaportes.forEach(element => {
+         let informacion = {
+            url: URL_SERVIDOR + "Imagen/delete",
+            key: element.id_foto
+         };
+         infoFotos.push(informacion);
+         urlFotos.push(element.foto_path);
+      });
+
 
       $('#pasaportes').fileinput({
          theme: 'fas',
          language: 'es',
-         //uploadUrl: '#',
+         overwriteInitial: false,
          showUpload: false,
-         //showCaption: false,
-         maxFileSize: 2000,
-         maxFilesNum: 10,
-         allowedFileExtensions: ['jpg', 'png', 'gif'],
+         initialPreviewAsData: true,
+         allowedFileExtensions: ["jpg", "png", "gif", "pdf"],
+         initialPreview: urlFotos,
+         initialPreviewConfig: infoFotos,
          required: true,
-         uploadAsync: false,
-         showClose: false,
+         maxFileSize: 10000,
+         maxFilesNum: 10,
       });
 
    }
