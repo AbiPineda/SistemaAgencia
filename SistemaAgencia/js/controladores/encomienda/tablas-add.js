@@ -294,7 +294,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
-                location.reload();
+                guardarBitacora();
+                //location.reload();
                // $("#encomienda-form").trigger("reset");
                // resetMiTable();
                 

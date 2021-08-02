@@ -326,6 +326,13 @@ include_once '../../plantillas/cabecera.php';
                               </div>
                            </div>
 
+                           <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="hidden">
+                                            <label name="detalle" id="detalle">Registró una Encomienda</label>
+                                        </div>
+                           </div>
+
 
                         </div><br>
                         <div class="timeline-footer" style="text-align: right;">
@@ -519,6 +526,7 @@ include_once '../../plantillas/footer.php';
    <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad-re.js"></script>
    <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
    <script src="<?= $base_url ?>js/controladores/encomienda/tablas-add.js"></script>
+   <script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
    <!--fecha actual-->
    <script src="<?= $base_url ?>js/controladores/encomienda/fecha_actual.js"></script>
 
