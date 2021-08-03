@@ -29,7 +29,7 @@
 #factura_destino,
 #historial_envio,
 #tReserva,
-#tGasto {
+#tGasto,#servicios {
   width: 100%;
   margin-bottom: 10px;
   border-spacing: 10px 5px;
@@ -91,6 +91,16 @@
 #tReserva {
   border-collapse: collapse;
 }
+#servicios thead th {
+  background: #058167;
+  color: #fff;
+  padding: 5px;
+  border-collapse: none;
+  /* PARA CHROME */
+  -webkit-print-color-adjust: exact;
+  /* PARA FIREFOX */
+  color-adjust: exact;
+}
 #historial_envio thead th {
   background: #058167;
   color: #fff;
@@ -132,6 +142,9 @@
   color-adjust: exact;
 }
 #detalle_productos tr:nth-child(even) {
+  background: #ededed;
+}
+#detalle_productosServicios tr:nth-child(even) {
   background: #ededed;
 }
 #detalle_totales span {

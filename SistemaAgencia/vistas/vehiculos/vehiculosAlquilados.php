@@ -421,7 +421,7 @@ include_once '../../plantillas/cabecera.php'; ?>
                                           </tr>
                                        </tbody>
                                     </table>
-                                    <table id="factura_detalle">
+                                    <table id="servicios">
                                        <thead>
                                           <tr>
                                              <th class="textcenter">Cantidad
@@ -433,14 +433,8 @@ include_once '../../plantillas/cabecera.php'; ?>
 
                                           </tr>
                                        </thead>
-                                       <tbody id="detalle_productos">
+                                       <tbody id="detalle_productosServicios">
 
-                                          <tr>
-                                             <td class="textcenter">falta</td>
-                                             <td class="textcenter">falta</td>
-                                             <td class="textcenter">falta</td>
-
-                                          </tr>
                                        </tbody>
                                     </table>
 

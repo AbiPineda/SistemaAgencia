@@ -1,30 +1,30 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let explorer = $("#kv-explorer");
     let idAlquiler;
     let id_vehiculo;
     let tabla;
 
-    let ciento=100;
-    let TotalSinInteres=0;
+    let ciento = 100;
+    let TotalSinInteres = 0;
 
-     inicializarValidaciones();
+    inicializarValidaciones();
     inicializarTabla();
 
     //BOTON DE EDITAR
-    $(document).on('click', '.btn-group .btn-primary', function() {
+    $(document).on('click', '.btn-group .btn-primary', function () {
 
         idAlquiler = $(this).attr("name");
         id_vehiculo = $(this).attr("id");
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR+"DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
+            url: URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //MANDALOS LOS VALORES AL MODAL
             for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
 
-                
+
                 document.getElementById("idDetalle").value = response.detalleVehiculo[i].id_detalle;
                 document.getElementById("cliente").value = response.detalleVehiculo[i].nombre;
                 document.getElementById("placa").value = response.detalleVehiculo[i].placa;
@@ -35,33 +35,34 @@ $(document).ready(function() {
                 document.getElementById("recogida").value = response.detalleVehiculo[i].direccionRecogida_detalle;
                 document.getElementById("devolucion").value = response.detalleVehiculo[i].direccionDevolucion_detalle;
                 document.getElementById("fechaHora").value = response.detalleVehiculo[i].fechaHora_detalle;
-                document.getElementById("servicios").value = response.detalleVehiculo[i].nombre_detalle;
-               
-               
-                
-              
+                document.getElementById("servicios").value = response.detalleVehiculo[i].servicio_adicional;
             }
-        }).fail(function(response) {
+            for (let i = 0, ien = response.detalle_servicio.length; i < ien; i++) {
 
-        }).always(function(xhr, opts) {
+                document.getElementById("servicios").value = response.detalle_servicio[i].servicio_adicional;
+
+            }
+        }).fail(function (response) {
+
+        }).always(function (xhr, opts) {
             $('#modal-editar').modal('show');
             $('#loadingActualizar').hide();
         });
     });
 
     //BOTON MOSTRAR 
-    $(document).on('click', '.btn-group .btn-secondary', function() {
+    $(document).on('click', '.btn-group .btn-secondary', function () {
 
         idAlquiler = $(this).attr("name");
         id_vehiculo = $(this).attr("id");
 
         $('#loadingActualizar').show();
         $.ajax({
-            url: URL_SERVIDOR+"DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
+            url: URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo?id_detalle=" + idAlquiler,
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //MANDALOS LOS VALORES AL MODAL
-           for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
+            for (let i = 0, ien = response.detalleVehiculo.length; i < ien; i++) {
 
                 $('#nombreC').text(response.detalleVehiculo[i].nombre);
                 $('#emailC').text(response.detalleVehiculo[i].correo);
@@ -75,22 +76,58 @@ $(document).ready(function() {
 
                 $('#direccion_recogidaC').text(response.detalleVehiculo[i].direccionRecogida_detalle);
                 $('#direccion_devolucionC').text(response.detalleVehiculo[i].direccionDevolucion_detalle);
-                
+
 
                 $('#fecha-hora').text(response.detalleVehiculo[i].fechaHora_detalle);
                 $('#tot').text(response.detalleVehiculo[i].total_detalle);
             }
 
-        }).fail(function(response) {
+            //para la tabla
+            $('#detalle_productosServicios').empty();
+            let tablaReporte = document.getElementById('detalle_productosServicios');
+            response.detalle_servicio.forEach(event => {
+                let tr = crearFila(event);
+                tablaReporte.appendChild(tr);
+            });
+           /* for (let j = 0, jen = response.detalle_servicio.length; j < jen; j++) {
 
-        }).always(function(xhr, opts) {
+                $('#servicioA').text(response.detalle_servicio[j].servicio_adicional);
+                $('#precioA').text(response.detalle_servicio[j].costo_servicio);
+                $('#cantidadA').text(response.detalle_servicio[j].cantidad_servicio);
+
+
+            }*/
+
+        }).fail(function (response) {
+
+        }).always(function (xhr, opts) {
             $('#modal-cotizacion').modal('show');
 
         });
     });
 
+     //*para crear la tabla
+     function crearFila(event) {
+        let tr = document.createElement('tr');
+        tr.appendChild(crearColumna(event.cantidad_servicio)); 
+        tr.appendChild(crearColumna(event.servicio_adicional));
+        tr.appendChild(crearColumna(event.costo_servicio));
+       
+        return tr;
+    }
+    function crearColumna(info) {
+        let td = document.createElement('td');
+        let label = document.createElement('label');
+        label.innerHTML = info;
+        label.style.fontWeight = "normal";
+        td.appendChild(label);
+        td.classList.add('textcenter');
+        return td;
+    }
+        //**********funciones para crear las tablas fin
+
     //BOTON PARA ELIMINAR
-    $(document).on('click', '.btn-group .btn-danger', function(evento) {
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
         idAlquiler = $(this).attr("name");
         fila = $(this).closest("tr");
 
@@ -112,7 +149,7 @@ $(document).ready(function() {
         })
     });
     //BOTON PARA ACTUALIZAR
-    $(document).on('click', '#btnActualizar', function(evento) {
+    $(document).on('click', '#btnActualizar', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
         let form = $("#miFormulario");
         form.validate();
@@ -121,7 +158,7 @@ $(document).ready(function() {
         }
     });
     //CUANDO EL MODAL SE CIERRA
-    $('#modal-imagenes').on('hidden.bs.modal', function(e) {
+    $('#modal-imagenes').on('hidden.bs.modal', function (e) {
         console.log("cerrando modal")
         explorer.fileinput('destroy');
     })
@@ -134,7 +171,7 @@ $(document).ready(function() {
             "ajax": {
                 "url": URL_SERVIDOR + "DetalleVehiculo/obtenerDetalleVehiculo",
                 "method": "GET",
-                "dataSrc": function(json) {
+                "dataSrc": function (json) {
                     console.log(json.detalleVehiculo);
 
                     if (json.detalleVehiculo) {
@@ -193,14 +230,14 @@ $(document).ready(function() {
 
             },
             errorElement: 'span',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
 
             }
@@ -217,7 +254,7 @@ $(document).ready(function() {
             "horaDevolucion": document.getElementById("timepicker").value,
             "porcentajeMora": document.getElementById("porcentaje").value,
             "totalDevolucion": document.getElementById("pagar").value,
-            "idvehiculo":id_vehiculo
+            "idvehiculo": id_vehiculo
         };
         ///OCUPAR ESTA CONFIGURACION CUANDO SOLO SEA TEXTO
         $.ajax({
@@ -225,7 +262,7 @@ $(document).ready(function() {
             method: "PUT",
             timeout: 0,
             data: data
-        }).done(function(response) {
+        }).done(function (response) {
             console.log(response);
             //REST_Controller::HTTP_OK
             const Toast = Swal.mixin();
@@ -238,7 +275,7 @@ $(document).ready(function() {
                 $('#modal-editar').modal('hide');;
                 tabla.ajax.reload(null, false);
             });
-        }).fail(function(response) {
+        }).fail(function (response) {
             console.log(response);
 
             const Toast = Swal.mixin();
@@ -249,22 +286,20 @@ $(document).ready(function() {
                 showConfirmButton: true,
             });
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loadingActualizar').hide();
         });
     }
 
-    
+
 
     $(document).on('keyup mouseup', '#porcentaje', function () {
 
-    let  interes =parseFloat( document.getElementById('porcentaje').value);
-    let  TotalSinInteres =parseFloat( document.getElementById('total').value);
-    let calculo =parseFloat(interes*TotalSinInteres)/ciento;
-    let TotalconInteres=TotalSinInteres + calculo;
-    document.getElementById('pagar').value=TotalconInteres;
+        let interes = parseFloat(document.getElementById('porcentaje').value);
+        let TotalSinInteres = parseFloat(document.getElementById('total').value);
+        let calculo = parseFloat(interes * TotalSinInteres) / ciento;
+        let TotalconInteres = TotalSinInteres + calculo;
+        document.getElementById('pagar').value = TotalconInteres;
 
     });
 });
-
-
