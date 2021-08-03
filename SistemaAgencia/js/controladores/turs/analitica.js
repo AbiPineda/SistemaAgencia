@@ -27,8 +27,8 @@ function init() {
       document.getElementById("fecha").innerHTML = `${moment(response.start).format('l')} - ${moment(response.end).format('l')}`;
       totalIngresos = response.totalIngresos;
       inicializarTablaIngresos(response.reservas);
-      // crearTransporte(response.transporte, response.ocupados);
-      // inicializarTablaGastos(response.sitios, response.servicios, response.tatalPasajeros);
+      crearTransporte(response.transporte, response.ocupados);
+      inicializarTablaGastos(response.sitios, response.servicios, response.tatalPasajeros);
       $('#loading').hide();
 
       //ESTO ES PARA INICIALIZAR LA IMPRESION
@@ -106,7 +106,7 @@ function inicializarTablaGastos(sitios, servicios, tatalPasajeros) {
       let cantidad = (sitio.por_usuario == "0") ? 1 : tatalPasajeros;
       subTotal = cantidad * sitio.costo;
       totalGastos += subTotal;
-      //PARA LLENAR LA TABLA QUE IMPRIMIREMOS
+        //PARA LLENAR LA TABLA QUE IMPRIMIREMOS
       let tr = document.createElement('tr');
       tr.appendChild(crearColumna(sitio.nombre_sitio));
       tr.appendChild(crearColumna(sitio.costo));

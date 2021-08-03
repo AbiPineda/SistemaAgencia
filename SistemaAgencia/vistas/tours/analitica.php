@@ -15,6 +15,7 @@
 <!--COTINUANDO CON LA INICIALIZACION -->
 <?php include_once '../../plantillas/navbar.php'; ?>
 <?php include_once '../../plantillas/barra_lateral.php'; ?>
+
 <div class="content-wrapper" style="min-height: 1185.73px;background: white;">
    <!-- Content Header (Page header) -->
 
@@ -92,7 +93,8 @@
                               <tbody id="detalle_productos">
                               </tbody>
                            </table>
-                           <!-- <div class="row" id="dibujoAsientos">
+                           <div class="row" id="dibujoAsientos">
+                              <!-- <div class="offset-md-1"></div> -->
                               <div class="col-sm-6">
                                  <div id="seat-map" class="float-right">
                                     <div class="front-indicator">Frontal</div>
@@ -101,8 +103,8 @@
                               <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
                                  <div id="legend"></div>
                               </div>
-                           </div> -->
-                           <!-- <table id="tGasto">
+                           </div>
+                           <table id="tGasto">
                               <thead>
                                  <tr style="text-align: center;">
                                     <th>Sitio Turisto/Servicio dicional</th>
@@ -113,7 +115,7 @@
                               </thead>
                               <tbody id="detalle_productos">
                               </tbody>
-                           </table> -->
+                           </table>
 
 
 

@@ -60,15 +60,10 @@
                                        <table class="datos_cliente">
                                           <thead>
                                              <tr>
-                                                <td>
+                                                <td style="text-align: center;">
                                                    <label style="width: 100%; padding-left: 10px;">
                                                       Titulo del viaje:</label>
                                                    <p name="titulo" id="titulo">
-                                                </td>
-                                                <td>
-                                                   <label style="width: 100%; padding-left: 10px;">
-                                                      Fecha del viaje:</label>
-                                                   <p name="fecha" id="fecha">
                                                 </td>
                                              </tr>
 
@@ -92,8 +87,7 @@
                               <tbody id="detalle_productos">
                               </tbody>
                            </table>
-                           <div class="row" id="dibujoAsientos">
-                              <!-- <div class="offset-md-1"></div> -->
+                           <!-- <div class="row" id="dibujoAsientos">
                               <div class="col-sm-6">
                                  <div id="seat-map" class="float-right">
                                     <div class="front-indicator">Frontal</div>
@@ -102,7 +96,7 @@
                               <div class="col-sm-4 flex flex-column-reverse flex-sm-column">
                                  <div id="legend"></div>
                               </div>
-                           </div>
+                           </div> -->
                            <table id="tGasto">
                               <thead>
                                  <tr style="text-align: center;">
