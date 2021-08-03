@@ -75,6 +75,7 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
+                guardarBitacora();
                 //location.reload(); 
             });
         }).fail(function (response) {

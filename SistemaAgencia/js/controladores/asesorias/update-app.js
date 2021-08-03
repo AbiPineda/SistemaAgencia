@@ -28,6 +28,7 @@ $(document).ready(function (){
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
+                //guardarBitacora();
                 //location.reload(); //NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
             });
 

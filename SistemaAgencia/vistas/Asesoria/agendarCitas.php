@@ -1,6 +1,8 @@
 <?php include_once '../../config/parametros.php'; ?>
 <?php //include_once '../../plantillas/cabecera.php'; ?>
-<?php include_once './pluing.php'; ?>
+<?php include_once './pluing.php'; 
+include_once '../session/isEmpleado.php';
+?>
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 
 <link rel="stylesheet" href="<?= $base_url ?>plugins/toastr/toastr.min.css">
@@ -111,6 +113,7 @@ $("#pasaporte_personas").inputmask({
 <script src="<?= $base_url ?>js/controladores/asesorias/ramas_automaticas.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/preguntas_automaticas.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/insertar-app.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/update-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/calendario-app.js"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/input.js"></script>

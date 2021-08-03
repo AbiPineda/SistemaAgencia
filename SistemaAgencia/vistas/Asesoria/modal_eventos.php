@@ -56,6 +56,12 @@
                               data-target="#modalAgregarCliente" style="margin-top: 10px; width: 100%;">+</button>
                         </span>
                      </div>
+                     <div class="col-sm-6">
+                              <!-- text input -->
+                              <div class="hidden">
+                                 <label name="detalle" id="detalle">Registró una Asesoria</label>
+                              </div>
+                           </div>
                   </div>
                      
                   </div>
@@ -113,6 +119,12 @@
                         </div>
                         <input type="hidden" class="form-control" id="txtTitulo" name="title" value="Asesoria" />
                      </div>
+                     <div class="col-sm-6">
+                              <!-- text input -->
+                              <div class="hidden">
+                                 <label name="detalle" id="detalle">Modifico una Asesoria</label>
+                              </div>
+                           </div>
 
                   </div>
 
