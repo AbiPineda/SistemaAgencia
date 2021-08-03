@@ -710,7 +710,7 @@ function guardar() {
 
     //OCUPAR ESTA CONFIGURACION CUANDO SE ENVIAEN ARCHIVOS(FOTOS-IMAGENES)
     $.ajax({
-        url: URL_SERVIDOR + "TurPaquete/save",
+        url: URL_SERVIDOR + "TurPaquete/savePrivado",
         method: "POST",
         mimeType: "multipart/form-data",
         data: form,
@@ -805,9 +805,6 @@ function obtenerData() {
             });
         }
     });
-    let tipoPaquete = 'Privado';
-
-
     let salida = $("input[name='lugar_salida[]']").map(function() { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     salida = salida.filter(value => value != '');
@@ -829,6 +826,8 @@ function obtenerData() {
     let start = fecha[0]
     let end = fecha[1]
 
+
+    form.append("id_cliente", document.getElementById('comboUsuario').value);    
     form.append("sitios", JSON.stringify(sistiosTuristicos));
     form.append("servicios", JSON.stringify(serviciosAdicionales));
     form.append("nombreTours", document.getElementById("nombreTours").value);
@@ -840,7 +839,7 @@ function obtenerData() {
     form.append("lugar_salida", JSON.stringify(salida));
     form.append("promociones", JSON.stringify(promocion));
     form.append("cupos_disponibles", cantidadByTransporte);
-    form.append("tipo", tipoPaquete);
+    form.append("tipo", 'Paquete Privado');
     form.append("start", start);
     form.append("end", end);
     form.append("estado", 1);
