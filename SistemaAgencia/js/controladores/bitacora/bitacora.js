@@ -45,6 +45,7 @@ function guardarBitacora() {
 
     }).fail(function(response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
+        console.log(response);
         let respuestaDecodificada = JSON.parse(response.responseText);
         let listaErrores = "";
 

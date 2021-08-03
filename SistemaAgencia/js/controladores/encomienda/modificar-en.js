@@ -310,7 +310,8 @@ $(document).ready(function () {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA
-                 window.location = `${URL_SISTEMA}vistas/encomiendas/verEncomienda.php` 
+                guardarBitacora();
+                 window.location = `${URL_SISTEMA}vistas/encomiendas/verEncomienda.php`;
                
             });
             

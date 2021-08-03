@@ -1,6 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../session/isEmpleado.php'; 
+include_once '../session/isEmpleado.php';
 include_once '../../plantillas/cabecera.php';
 ?>
 

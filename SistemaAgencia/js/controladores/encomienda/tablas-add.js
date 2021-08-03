@@ -295,7 +295,7 @@ $(document).ready(function () {
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
                 guardarBitacora();
-                //location.reload();
+                location.reload();
                // $("#encomienda-form").trigger("reset");
                // resetMiTable();
                 

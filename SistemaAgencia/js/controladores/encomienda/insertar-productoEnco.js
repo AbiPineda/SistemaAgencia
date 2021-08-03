@@ -256,7 +256,7 @@ function add_producto() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
-                //TODO BIEN Y RECARGAMOS LA PAGINA 
+                guardarBitacora();
                 //location.reload(); NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
             });
         }).fail(function (response) {

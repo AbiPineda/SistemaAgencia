@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
+include_once '../session/isEmpleado.php';
 include_once  '../../plantillas/navbar.php'; ?>
 <!--para la subida de fotos al sistema-->
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
@@ -158,6 +159,13 @@ include_once '../../plantillas/barra_lateral.php';
                                        class="form-control"
                                        placeholder="Ej: Correo El Salvador ó 2da, av sur, numero 34, barrio centro">
                                  </div>
+                              </div>
+                           </div>
+
+                           <div class="col-sm-6">
+                              <!-- text input -->
+                              <div class="hidden">
+                                 <label name="detalle" id="detalle">Modifico una encomienda</label>
                               </div>
                            </div>
 
@@ -442,10 +450,13 @@ $(document).on('click', '#producto-add', function() {
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <!--Script de los procedimientos del sistema-->
+
 <script src="<?= $base_url ?>js/controladores/encomienda/modificar-en.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
+
 
 <?php include_once '../../plantillas/cierre.php'; ?>
