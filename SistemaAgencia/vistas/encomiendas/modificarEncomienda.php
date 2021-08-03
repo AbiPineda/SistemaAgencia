@@ -295,6 +295,13 @@ include_once '../../plantillas/barra_lateral.php';
                            <div class="col-md-3  ">
                               <label id="totalCliente" class="text-danger "> $0</label>
                            </div>
+                           
+                        </div>
+
+                        <div class="timeline-footer" style="text-align: right;">
+                           <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
+                              style="color: white">Actualizar</button>
+                           <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
                         </div>
                      </div>
                      <br>
@@ -302,36 +309,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                </div>
                <!-- END timeline item -->
-               <!-- END timeline item -->
-               <div>
-                  <i class="fas fa-image bg-purple"></i>
-                  <div class="timeline-item">
-                     <h3 class="timeline-header"><a href="#">Adjunte factura</a></h3>
-
-                     <div class="timeline-body">
-                        <div class="row">
-
-                           <div class="col-sm-12">
-
-                              <label>Seleccione Imagenes</label>
-                              <div class="file-loading">
-                                 <input type="file" multiple name="fotos[]" id="fotos">
-                              </div>
-                           </div>
-
-
-                        </div><br>
-                        <div class="timeline-footer" style="text-align: right;">
-                           <button name="btnguardar" id="btnActualizar" class="btn btn-info btn-sm"
-                              style="color: white">Actualizar</button>
-                           <button class="btn btn-danger btn-sm" style="color: white">Cancelar</button>
-                        </div>
-                     </div>
-                  </div>
-
-               </div>
-               <!-- END timeline item -->
-
+            
 
                <!-- /.timeline-label -->
             </div>
@@ -372,13 +350,7 @@ include_once '../../plantillas/barra_lateral.php';
                               <input name="tarifa" id="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
                            </div>
                         </div>
-                        <div class="col-sm-6">
-                           <!-- text input -->
-                           <div class="hidden">
-                              <label name="detalle" id="detalle">Registró un Producto</label>
-                           </div>
-                        </div>
-
+                      
                      </div>
                   </form>
                   <form id="unidadre-form" name="register-form" onsubmit="return false">
