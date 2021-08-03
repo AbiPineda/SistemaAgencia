@@ -115,23 +115,6 @@
                               </div>
                               <div class="card-body p-0">
                                  <ul class="nav nav-pills flex-column">
-
-                                    <li class="nav-item active">
-                                       <a href="#" class="nav-link">
-                                          <i class="far fa-calendar-alt"></i> Fecha de viaje
-                                          <span class="badge bg-primary float-right">
-                                             <h7 name="fecha" id="fecha"></h7>
-                                          </span>
-                                       </a>
-                                    </li>
-                                    <li class="nav-item">
-                                       <a href="#" class="nav-link">
-                                          <i class="fas fa-user-friends"></i> Cupos Disponibles
-                                          <span class="badge bg-danger float-right">
-                                             <h7 name="cupos" id="cupos"></h7>
-                                          </span>
-                                       </a>
-                                    </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
                                           <i class="fas fa-clipboard-check"></i> Reservación
@@ -230,14 +213,6 @@
       <!-- /.card-body -->
    </div>
    <!-- /.card -->
-
-   </section>
-   </div>
-   <!-- /.modal-content -->
-   </div>
-   <!-- /.modal-dialog -->
-   </div>
-   <!-- End Modal EDITAR-->
 </form>
 
 

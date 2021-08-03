@@ -128,11 +128,11 @@ $(document).ready(function () {
          "responsive": true,
          "autoWidth": false,
          "deferRender": true,
-         "order": [[4, "desc"]],
+         "order": [[3, "desc"]],
          "columnDefs": [
             { "className": "dt-center", "targets": "_all" },
-            { "targets": [5], "visible": false },
-            { "targets": [4], width: "30%" },
+            { "targets": [4], "visible": false },
+            { "targets": [3], width: "30%" },
 
          ],
          "ajax": {
@@ -157,10 +157,6 @@ $(document).ready(function () {
                      html += '        <button type="button" name="' + json[i].id_tours + '" class="btn btn-warning" data-toggle="modal"';
                      html += '            data-target="#modal-galeria">';
                      html += '            <i class="fas fa-image" style="color: white"></i>';
-                     html += '        </button>';
-                     html += '        <button type="button" name="' + json[i].id_tours + '" class="btn btn-success" data-toggle="modal"';
-                     html += '            data-target="">';
-                     html += '            <i class="nav-icon fas fa-map-marked-alt" style="color: white"></i>';
                      html += '        </button>';
                      html += '        <button type="button" name="' + json[i].id_tours + '"  class="btn btn-info" data-toggle="modal"';
                      html += '            data-target="">';
@@ -191,7 +187,7 @@ $(document).ready(function () {
          columns: [
             { data: "nombreTours" },
             { data: "precio" },
-            { data: "fecha" },
+         
             { data: "tipo" },
             { data: "botones" },
             { data: "id_tours" },

@@ -17,6 +17,7 @@ $(document).ready(function() {
     let transporte = false;
     let CUPOS;
     let nombre_producto;
+    let descripcionProducto;
     let requisitos = [];
 
     inicializarComboUsuario();
@@ -156,8 +157,7 @@ $(document).ready(function() {
             url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
             method: "GET"
         }).done(function(response) {
-            console.log(response)
-            $('#titulo').html(`Reservar Tour (${response.nombre})`);
+            $('#titulo').html(`Reservar Paquete (${response.nombre})`);
             nombre_producto = response.nombre;
             descripcionProducto = response.descripcion_tur;
             requisitos = response.requisitos;
@@ -182,6 +182,21 @@ $(document).ready(function() {
                     });
                 }
                 inicialComboAsientos();
+                if (response.transporte != null) {
+                    transporte = true;
+                    let derecho = response.transporte.asiento_derecho;
+                    let izquierdo = response.transporte.asiento_izquierdo;
+                    let numero_filas = response.transporte.filas;
+                    let deshabilitados = response.transporte.asientos_deshabilitados;
+
+                    let strFila = crearStrFila(derecho, izquierdo);
+                    let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
+                    dibujarAsientos(mapa);
+                    bloquearAsientosInavilitados(deshabilitados);
+                    bloquearAsientosOcupados(response.transporte.ocupados);
+                } else {
+                    $('#dibujoAsientos').hide();
+                }
             } else {
                 $('#item_asiento').hide();
 
@@ -192,6 +207,7 @@ $(document).ready(function() {
                     showConfirmButton: true,
                 });
             }
+
         }).fail(function(response) {
             console.log("Error");
             console.log(response);
@@ -212,16 +228,15 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
         }).done(function(response) {
-
             guardarBitacora();
 
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: "Reserva Guardada Exitosamente",
+                text: "Servicio Guardado Exitosamente",
                 showConfirmButton: true,
-            });
+            })
             reset();
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
@@ -246,18 +261,22 @@ $(document).ready(function() {
     function getData() {
         let form = new FormData();
         let id_cliente = document.getElementById('comboUsuario').value;
+        let asientos_seleccionados = seat_charts.find('e.selected').seatIds;
+        let dataAsiento = seat_charts.find('e.selected').seats;
+        let total = 0.0;
         let chequeo = [];
-        let totalPago = 0.0;
         let cantidad_asientos = 0;
+        let label_asiento = [];
         let descripcionReserva = '';
-
-        ASIENTOS_SELECCIONADOS.forEach((element) => {
-            totalPago += parseFloat(element.subTotal);
-            descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub Total: $${element.subTotal}\n`
-            cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
+        dataAsiento.forEach(element => {
+            label_asiento.push(element.settings.label);
         });
-        descripcionReserva = `${descripcionReserva}  Total : $${totalPago}`
-
+        ASIENTOS_SELECCIONADOS.forEach((element) => {
+            total += parseFloat(element.subTotal);
+            cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
+            descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`
+        });
+        descripcionReserva = `${descripcionReserva}  Total : $${total}`
 
         // CREAMOS EL OBJETO QUE SE OCUPARA PARA EL PRECHEQUEO
         chequeo = requisitos.map(function(requisito) {
@@ -268,13 +287,14 @@ $(document).ready(function() {
         });
         form.append("id_tours", ID_TUR);
         form.append("id_cliente", id_cliente);
-        form.append("asientos_seleccionados", "NO_SELECCIONADO");
-        form.append("label_asiento", "NO_LABEL");
+        form.append("asientos_seleccionados", asientos_seleccionados);
+        form.append("label_asiento", label_asiento);
         form.append("nombre_producto", nombre_producto);
-        form.append("total", totalPago);
+        form.append("total", total);
         form.append("descripcionProducto", descripcionReserva);
         form.append("cantidad_asientos", cantidad_asientos);
         form.append("chequeo", JSON.stringify(chequeo));
+
 
         return form;
     }

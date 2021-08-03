@@ -89,7 +89,7 @@ $(document).ready(function () {
                html += '        <div class="mask">';
                html += '            <h2 id="">' + ARR_TUR[index].nombreTours + '</h2>';
                html += '            <br>';
-               html += '            <div> Fecha: ' + ARR_TUR[index].start + '</div>';
+               // html += '            <div> Fecha: ' + ARR_TUR[index].start + '</div>';
                html += '            <p> Precio $' + ARR_TUR[index].precio + '</p>';
                html += '           <button type="button" name="' + ARR_TUR[index].id_tours + '" class="btn btn-primary" data-toggle="modal"';
                html += '            data-target="#modal-editar">Detalles</button>';

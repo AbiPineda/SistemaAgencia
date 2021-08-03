@@ -151,7 +151,7 @@
                                     </li>
                                     <li class="nav-item">
                                        <a href="#" class="nav-link">
-                                          <i class="fab fa-whatsapp"></i> Whatsapp
+                                          <i class="fab fa-whatsapp"></i> WhatsApp
                                           <span class="badge bg-Success float-right">
                                              <h7 name="transmision" id="transmision">7841-1184 / 7602-2242 </h7>
                                           </span>
@@ -184,6 +184,10 @@
                                  aria-selected="false"> Promociones</a>
                               <a class="nav-item nav-link" data-toggle="tab" href="#tab-salida" role="tab"
                                  aria-selected="false">Lugar de Salida</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-sitios" role="tab"
+                                 aria-selected="false">Sitios Turísticos</a>
+                              <a class="nav-item nav-link" data-toggle="tab" href="#tab-otros" role="tab"
+                                 aria-selected="false">Otros Servicios</a>
                            </div>
                         </nav>
                         <div class="tab-content p-3" id="nav-tabContent">

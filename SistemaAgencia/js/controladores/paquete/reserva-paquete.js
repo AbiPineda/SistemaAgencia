@@ -1,5 +1,5 @@
 // CUANDO LA PAGINA YA ESTA LISTA
-$(document).ready(function() {
+$(document).ready(function () {
 
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
@@ -14,10 +14,7 @@ $(document).ready(function() {
     let tablaReserva;
     let totalReserva = 0;
     let seat_charts;
-    let transporte = false;
-    let CUPOS;
     let nombre_producto;
-    let descripcionProducto;
     let requisitos = [];
 
     inicializarComboUsuario();
@@ -25,83 +22,38 @@ $(document).ready(function() {
     inicializarTabla();
 
     //CUANDO HAY CAMBIOS EN EL COMBO DE ASIENTOS
-    $('#comboAsiento').on('select2:select', function(e) {
+    $('#comboAsiento').on('select2:select', function (e) {
         let id = e.params.data.id;
         let asiento = buscar(id);
         costoPasaje.val(asiento.pasaje);
     });
     //BOTON DE NUEVO CLIENTE
-    $(document).on('click', '#btnNuevoCliente', function(evento) {
+    $(document).on('click', '#btnNuevoCliente', function (evento) {
         $('#modalAgregarCliente').modal('show');
     });
     //BOTON DE GUARDAR
-    $(document).on('click', '#btnguardarReserva', function(evento) {
+    $(document).on('click', '#btnguardarReserva', function (evento) {
         evento.preventDefault(); //para evitar que la pagina se recargue
-        if (transporte) {
-            let seleccionados = seat_charts.find('e.selected').seatIds.length; //este es un arreglo
-            let porElegir = 0;
-            ASIENTOS_SELECCIONADOS.forEach(element => {
-                //cantidad       => lo que ha puesto el usuario en el input
-                //seleccionables => la cantidad de asientons que puede seleccionar por haber elegido ese tipo
-                porElegir += parseInt(element.cantidad) * parseInt(element.seleccionables);
+        //cantidad       => lo que ha puesto el usuario en el input
+        //seleccionables => la cantidad de asientons que puede seleccionar por haber elegido ese tipo
+        let porElegir = 0;
+        ASIENTOS_SELECCIONADOS.forEach(element => {
+            porElegir += parseInt(element.cantidad) * parseInt(element.seleccionables);
+        });
+        if (porElegir == 0) {
+            Toast.fire({
+                title: 'Oops...',
+                icon: 'error',
+                text: `No se ha seleccionado ningun tipo de asiento`,
+                showConfirmButton: true,
             });
-            if (seleccionados > CUPOS || porElegir > CUPOS) {
-                Toast.fire({
-                    title: 'Oops...',
-                    icon: 'error',
-                    text: `Ha seleccionado más asientos de los disponibles (${CUPOS})`,
-                    showConfirmButton: true,
-                });
-            } else {
-                if (porElegir == 0) {
-                    Toast.fire({
-                        title: 'Oops...',
-                        icon: 'error',
-                        text: `No se ha seleccionado ningun tipo de asiento`,
-                        showConfirmButton: true,
-                    });
-                } else {
-                    if (porElegir != seleccionados) {
-                        Toast.fire({
-                            title: 'Oops...',
-                            icon: 'error',
-                            text: `Debe de elegir ${porElegir} asiento(s)`,
-                            showConfirmButton: true,
-                        });
-                    } else {
-                        guardarReserva();
-                    }
-
-                }
-            }
         } else {
-            let porElegir = 0;
-            ASIENTOS_SELECCIONADOS.forEach(element => {
-                porElegir += parseInt(element.cantidad) * parseInt(element.seleccionables);
-            });
-            if (porElegir == 0) {
-                Toast.fire({
-                    title: 'Oops...',
-                    icon: 'error',
-                    text: `No se ha seleccionado ningun tipo de asiento`,
-                    showConfirmButton: true,
-                });
-            } else {
-                if (porElegir > CUPOS) {
-                    Toast.fire({
-                        title: 'Oops...',
-                        icon: 'error',
-                        text: `Ha seleccionado más asientos de los disponibles (${CUPOS})`,
-                        showConfirmButton: true,
-                    });
-                } else {
-                    guardarReserva();
-                }
-            }
+            guardarReserva();
         }
+
     });
     //AGREGAR A LA TABLA
-    $(document).on('click', '#btnAgregarAsiento', function() {
+    $(document).on('click', '#btnAgregarAsiento', function () {
         let cantidad = $('#cantidadAsientos').val();
         if (cantidad) {
             let id = $('#comboAsiento').val();
@@ -114,7 +66,7 @@ $(document).ready(function() {
 
     });
     //BOTON DE ELIMINAR DE LA TABLA
-    $(document).on('click', '.btn-group .btn-danger', function(evento) {
+    $(document).on('click', '.btn-group .btn-danger', function (evento) {
         let fila = $(this).closest("tr");
         let data = tablaReserva.row(fila).data();
         tablaReserva.row(fila).remove().draw();
@@ -126,7 +78,7 @@ $(document).ready(function() {
         $.ajax({
             url: URL_SERVIDOR + "Usuario/obtenerUsuario?nivel=CLIENTE",
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //REST_Controller::HTTP_OK
 
             let myData = [];
@@ -143,10 +95,10 @@ $(document).ready(function() {
             } else {
                 $('#comboUsuario').select2();
             }
-        }).fail(function(response) {
+        }).fail(function (response) {
             $('#comboUsuario').select2();
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loadingReservaTur').hide();
         });
 
@@ -156,59 +108,32 @@ $(document).ready(function() {
         $.ajax({
             url: `${URL_SERVIDOR}TurPaquete/showReserva?id_tours=${idTour}`,
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             $('#titulo').html(`Reservar Paquete (${response.nombre})`);
             nombre_producto = response.nombre;
             descripcionProducto = response.descripcion_tur;
             requisitos = response.requisitos;
-            if (response.cupos != "" && response.cupos != "0") {
-                costoPasaje.val(response.precio);
-                CUPOS = parseInt(response.cupos);
-                $('#cupos').html(CUPOS);
-                //AGREGAMOS EL COSTO BASE
+
+            costoPasaje.val(response.precio);
+            //AGREGAMOS EL COSTO BASE
+            DATA_ASIENTOS.push({
+                seleccionables: "1",
+                id: 0,
+                pasaje: response.precio,
+                titulo: "Normal",
+            });
+            let lista = response.promociones;
+            for (let index = 0; index < lista.length; index++) {
                 DATA_ASIENTOS.push({
-                    seleccionables: "1",
-                    id: 0,
-                    pasaje: response.precio,
-                    titulo: "Normal",
-                });
-                let lista = response.promociones;
-                for (let index = 0; index < lista.length; index++) {
-                    DATA_ASIENTOS.push({
-                        seleccionables: lista[index].asiento,
-                        id: index + 1,
-                        pasaje: lista[index].pasaje,
-                        titulo: lista[index].titulo,
-                    });
-                }
-                inicialComboAsientos();
-                if (response.transporte != null) {
-                    transporte = true;
-                    let derecho = response.transporte.asiento_derecho;
-                    let izquierdo = response.transporte.asiento_izquierdo;
-                    let numero_filas = response.transporte.filas;
-                    let deshabilitados = response.transporte.asientos_deshabilitados;
-
-                    let strFila = crearStrFila(derecho, izquierdo);
-                    let mapa = crearFilas(strFila, derecho, izquierdo, numero_filas, true);
-                    dibujarAsientos(mapa);
-                    bloquearAsientosInavilitados(deshabilitados);
-                    bloquearAsientosOcupados(response.transporte.ocupados);
-                } else {
-                    $('#dibujoAsientos').hide();
-                }
-            } else {
-                $('#item_asiento').hide();
-
-                Toast.fire({
-                    title: 'Oops...',
-                    icon: 'warning',
-                    text: "No hay cupos disponibles",
-                    showConfirmButton: true,
+                    seleccionables: lista[index].asiento,
+                    id: index + 1,
+                    pasaje: lista[index].pasaje,
+                    titulo: lista[index].titulo,
                 });
             }
+            inicialComboAsientos();
 
-        }).fail(function(response) {
+        }).fail(function (response) {
             console.log("Error");
             console.log(response);
 
@@ -227,18 +152,19 @@ $(document).ready(function() {
             timeout: 0,
             processData: false,
             contentType: false,
-        }).done(function(response) {
+        }).done(function (response) {
+
             guardarBitacora();
 
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
                 icon: 'success',
-                text: "Servicio Guardado Exitosamente",
+                text: "Reserva Guardada Exitosamente",
                 showConfirmButton: true,
-            })
+            });
             reset();
-        }).fail(function(response) {
+        }).fail(function (response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
             console.log(response);
 
@@ -250,7 +176,7 @@ $(document).ready(function() {
                 showConfirmButton: true,
             });
 
-        }).always(function(xhr, opts) {
+        }).always(function (xhr, opts) {
             $('#loadingReservaTur').hide();
         });
 
@@ -261,25 +187,21 @@ $(document).ready(function() {
     function getData() {
         let form = new FormData();
         let id_cliente = document.getElementById('comboUsuario').value;
-        let asientos_seleccionados = seat_charts.find('e.selected').seatIds;
-        let dataAsiento = seat_charts.find('e.selected').seats;
-        let total = 0.0;
         let chequeo = [];
+        let totalPago = 0.0;
         let cantidad_asientos = 0;
-        let label_asiento = [];
         let descripcionReserva = '';
-        dataAsiento.forEach(element => {
-            label_asiento.push(element.settings.label);
-        });
+
         ASIENTOS_SELECCIONADOS.forEach((element) => {
-            total += parseFloat(element.subTotal);
+            totalPago += parseFloat(element.subTotal);
+            descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub Total: $${element.subTotal}\n`
             cantidad_asientos += parseInt(element.cantidad) * parseInt(element.seleccionables);
-            descripcionReserva = `${descripcionReserva} ${element.cantidad} X Asiento(s) ${element.tipo}  $${element.costo} c/u, Sub total: ${element.subTotal}  \n`
         });
-        descripcionReserva = `${descripcionReserva}  Total : $${total}`
+        descripcionReserva = `${descripcionReserva}  Total : $${totalPago}`
+
 
         // CREAMOS EL OBJETO QUE SE OCUPARA PARA EL PRECHEQUEO
-        chequeo = requisitos.map(function(requisito) {
+        chequeo = requisitos.map(function (requisito) {
             let temporal = {};
             temporal["estado"] = false;
             temporal["requisito"] = requisito;
@@ -287,14 +209,13 @@ $(document).ready(function() {
         });
         form.append("id_tours", ID_TUR);
         form.append("id_cliente", id_cliente);
-        form.append("asientos_seleccionados", asientos_seleccionados);
-        form.append("label_asiento", label_asiento);
+        form.append("asientos_seleccionados", "NO_SELECCIONADO");
+        form.append("label_asiento", "NO_LABEL");
         form.append("nombre_producto", nombre_producto);
-        form.append("total", total);
+        form.append("total", totalPago);
         form.append("descripcionProducto", descripcionReserva);
         form.append("cantidad_asientos", cantidad_asientos);
         form.append("chequeo", JSON.stringify(chequeo));
-
 
         return form;
     }
@@ -365,7 +286,7 @@ $(document).ready(function() {
 
     function existeFila(asiento, cantidad) {
         let encontrado = false;
-        tablaReserva.rows().every(function(value, index) {
+        tablaReserva.rows().every(function (value, index) {
             let data = this.data();
             if (asiento.id == data.id) {
                 let subTotal = (asiento.pasaje * cantidad).toFixed(2);
@@ -400,98 +321,13 @@ $(document).ready(function() {
 
     }
 
-    function dibujarAsientos(miMapa) {
-        let firstSeatLabel = 1;
-        //inicializacmos el sc
-        seat_charts = $('#seat-map').seatCharts({
-            map: miMapa,
-            seats: {
-                f: {
-                    price: 100,
-                    classes: 'first-class', //your custom CSS class
-                    category: 'First Class'
-                },
-                e: {
-                    price: 40,
-                    classes: 'economy-class', //your custom CSS class
-                    category: 'Economy Class'
-                }
 
-            },
-            naming: {
-                top: false,
-                left: false,
-                getLabel: function(character, row, column) {
-                    return firstSeatLabel++;
-                },
-            },
-            legend: {
-                node: $('#legend'),
-                items: [
-                    ['e', 'unavailable', 'Asientos no Disponibles'],
-                    ['e', 'ocupado', 'Asientos ya ocupados'],
-                    ['e', 'selected', 'Asientos seleccionados'],
-                    ['e', 'available', 'Asientos Disponibles'],
-                ]
-            },
-            click: function() {
-                if (this.status() == 'available') {
-                    //let's create a new <li> which we'll add to the cart items
-                    $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' +
-                            this.data().price +
-                            '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
-                        .attr('id', 'cart-item-' + this.settings.id)
-                        .data('seatId', this.settings.id)
-                        .appendTo($cart);
-
-                    /*
-                     * Lets update the counter and total
-                     *
-                     * .find function will not find the current seat, because it will change its stauts only after return
-                     * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
-                     */
-                    $counter.text(seat_charts.find('selected').length + 1);
-                    $total.text(recalculateTotal(seat_charts) + this.data().price);
-
-                    return 'selected';
-                } else if (this.status() == 'selected') {
-                    //update the counter
-                    $counter.text(seat_charts.find('selected').length - 1);
-                    //and total
-                    $total.text(recalculateTotal(seat_charts) - this.data().price);
-
-                    //remove the item from our cart
-                    $('#cart-item-' + this.settings.id).remove();
-
-                    //seat has been vacated
-                    return 'available';
-                } else if (this.status() == 'unavailable') {
-                    //seat has been already booked
-                    return 'unavailable';
-                } else {
-                    return this.style();
-                }
-            },
-            focus: function() {
-
-                if (this.status() == 'available') {
-                    return 'focused';
-                } else {
-                    return this.style();
-                }
-            },
-            blur: function() {
-                return this.status();
-            }
-        });
-
-    }
 
     function recalculateTotal(sc) {
         var total = 0;
 
         //basically find every selected seat and sum its price
-        sc.find('selected').each(function() {
+        sc.find('selected').each(function () {
             total += this.data().price;
         });
 
@@ -506,7 +342,7 @@ $(document).ready(function() {
         }
         //LOS ESPACIOS QUE SE VAN A COLOCAR ENTRE ASIENTOS DERECHOS E IZQUIERDOS
         strFila += "_"
-            //ASIENTOS DEL LADO IZQUIERDO
+        //ASIENTOS DEL LADO IZQUIERDO
         for (let index = 0; index < asientos_izquierdo; index++) {
             strFila += "e"
         }

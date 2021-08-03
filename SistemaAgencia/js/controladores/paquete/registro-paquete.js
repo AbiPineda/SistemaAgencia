@@ -32,7 +32,7 @@ let tabla = $('#TablaCostos').DataTable({
     ]
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TUR
-$('#ComboTur').on('select2:select', function(e) {
+$('#ComboTur').on('select2:select', function (e) {
 
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
@@ -48,7 +48,7 @@ $('#ComboTur').on('select2:select', function(e) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL COMBO SERVICIO
-$('#ComboServicio').on('select2:select', function(e) {
+$('#ComboServicio').on('select2:select', function (e) {
     let DATA_SELECCIONADA;
     let id = e.params.data.id;
     DATA_SELECCIONADA = DATA_SERVICIO.find(myServicio => myServicio.id_servicios === id);
@@ -63,7 +63,7 @@ $('#ComboServicio').on('select2:select', function(e) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL COMBO TRANSPORTE
-$('#ComboTransporte').on('select2:select', function(e) {
+$('#ComboTransporte').on('select2:select', function (e) {
     //OBTENEMOS LA DATA DEL COMBO    
     let data;
     let id = e.params.data.id;
@@ -87,7 +87,7 @@ $('#ComboTransporte').on('select2:select', function(e) {
     modificarGanancias();
 });
 //AGREGANDO LA INFORMACION DE UN TUR A LA TABLA
-$(document).on('click', '#btnAgregarTur', function(evento) {
+$(document).on('click', '#btnAgregarTur', function (evento) {
     evento.preventDefault();
     //verificamos que exista algo seleccionado en el combo
     if (!document.getElementById("ComboTur").value) return;
@@ -117,7 +117,7 @@ $(document).on('click', '#btnAgregarTur', function(evento) {
     }
 });
 //AGREGANDO LA INFORMACION DE UN SITIO SERVICIO A LA TABLA
-$(document).on('click', '#btnAgregarSitio', function(evento) {
+$(document).on('click', '#btnAgregarSitio', function (evento) {
     evento.preventDefault();
     //verificamos que se halla seleccionado algo en el select
     if (!document.getElementById("ComboServicio").value) return;
@@ -146,7 +146,7 @@ $(document).on('click', '#btnAgregarSitio', function(evento) {
     }
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE PRECIO DE TRANSPORTE
-$(document).on('keyup mouseup', '#precio_transporte', function() {
+$(document).on('keyup mouseup', '#precio_transporte', function () {
 
     let id = $('#ComboTransporte').val();
     let cantidad = 1;
@@ -159,18 +159,18 @@ $(document).on('keyup mouseup', '#precio_transporte', function() {
 });
 
 //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE PASAJEROS
-$(document).on('keyup mouseup', '#cantidad', function() {
+$(document).on('keyup mouseup', '#cantidad', function () {
     modificarTabla();
     modificarIngresos();
     modificarGanancias();
 });
 //CUANDO HAY CAMBIOS EN EL INPUT DE NUMERO DE COSTO DE PASAJE
-$(document).on('keyup mouseup', '#CostoPasaje', function() {
+$(document).on('keyup mouseup', '#CostoPasaje', function () {
     modificarIngresos();
     modificarGanancias();
 });
 //BOTON DE ELIMINAR
-$(document).on('click', '.btn-group .btn-danger', function(evento) {
+$(document).on('click', '.btn-group .btn-danger', function (evento) {
     let fila = tabla.row($(this).parents('tr')).data();
     totalGastos -= parseFloat(fila[4]);
     $('#totalGastos').text("$" + totalGastos);
@@ -180,7 +180,7 @@ $(document).on('click', '.btn-group .btn-danger', function(evento) {
 
 });
 //BOTON DE GUARDAR 
-$(document).on('click', '#btnguardar', function(evento) {
+$(document).on('click', '#btnguardar', function (evento) {
     evento.preventDefault(); //para evitar que la pagina se recargue
     let form = $("#miFormulario");
     form.validate();
@@ -189,7 +189,7 @@ $(document).on('click', '#btnguardar', function(evento) {
     mensajeError("Complete los campos");
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
-$(document).on('click', '#newServicio', function(evento) {
+$(document).on('click', '#newServicio', function (evento) {
     //se habilita el combo
     $('#tipo_servicio').prop('disabled', false);
     //seleccionamos por defecto la primera opcion
@@ -204,7 +204,7 @@ $(document).on('click', '#newServicio', function(evento) {
     $('#modal-agregarServicio').modal('show');
 });
 //BOTON + AGREGAR UN NUEVO SERVICIO 
-$(document).on('click', '#newTranspore', function(evento) {
+$(document).on('click', '#newTranspore', function (evento) {
     //seleccionamos por defecto la opcion del transporte
     $('#tipo_servicio').val('2');
     //seshabilitamos el combo
@@ -217,7 +217,7 @@ $(document).on('click', '#newTranspore', function(evento) {
     $('#modal-agregarServicio').modal('show');
 });
 //BOTON + AGREGAR UN NUEVO SITIO 
-$(document).on('click', '#newSitio', function(evento) {
+$(document).on('click', '#newSitio', function (evento) {
     console.log("sitosdfad f");
     $('#modal-agregarSitio').modal('show');
 });
@@ -231,7 +231,7 @@ $(document).on('click', '.btn-addRow', addRow);
 $(document).on('click', '.btn-removeRow', removeRow);
 
 //CLICK EN EL LINK DEL CONTACTO
-$(document).on('click', '.info_contacto', function() {
+$(document).on('click', '.info_contacto', function () {
     // $('#modal_ver_contacto').modal('show');
 });
 
@@ -243,7 +243,7 @@ function inicializarComboTuristico() {
     $.ajax({
         url: URL_SERVIDOR + "SitioTuristico/show",
         method: "GET"
-    }).done(function(response) {
+    }).done(function (response) {
         //REST_Controller::HTTP_OK
         let myData = [];
         if (response.sitios) {
@@ -260,10 +260,10 @@ function inicializarComboTuristico() {
         } else {
             $('#ComboTur').select2();
         }
-    }).fail(function(response) {
+    }).fail(function (response) {
         $('#ComboTur').select2();
 
-    }).always(function(xhr, opts) {
+    }).always(function (xhr, opts) {
         // $('#loading').hide();
     });
 }
@@ -273,7 +273,7 @@ function inicializarComboServicio() {
     $.ajax({
         url: URL_SERVIDOR + "ServiciosAdicionales/obtenerServicio",
         method: "GET"
-    }).done(function(response) {
+    }).done(function (response) {
         //REST_Controller::HTTP_OK
         let dataOtros = [];
         let dataTransporte = [];
@@ -292,11 +292,11 @@ function inicializarComboServicio() {
             $('#ComboServicio').select2();
             $('#ComboTransporte').select2();
         }
-    }).fail(function(response) {
+    }).fail(function (response) {
         $('#ComboServicio').select2();
         $('#ComboTransporte').select2();
 
-    }).always(function(xhr, opts) {
+    }).always(function (xhr, opts) {
         agregarInformacionContacto();
         $('#loading').hide();
     });
@@ -326,7 +326,7 @@ function agregarFila(nombre, precio, cantidad, PorPasajero, tipo, id, Crearboton
 
 function modificarTabla() {
     totalGastos = 0;
-    tabla.rows().every(function(value, index) {
+    tabla.rows().every(function (value, index) {
         let data = this.data();
         let porPasajero = data[3];
         if (porPasajero == "si") {
@@ -501,14 +501,14 @@ function inicializarValidaciones() {
             },
         },
         errorElement: 'span',
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             error.addClass('invalid-feedback');
             element.closest('.form-group').append(error);
         },
-        highlight: function(element, errorClass, validClass) {
+        highlight: function (element, errorClass, validClass) {
             $(element).addClass('is-invalid');
         },
-        unhighlight: function(element, errorClass, validClass) {
+        unhighlight: function (element, errorClass, validClass) {
             $(element).removeClass('is-invalid');
 
         }
@@ -592,7 +592,7 @@ function resetPromociones() {
 
 function ExisteFila(id, cantidad, costo, tipo, PorPasajero) {
     let encontrado = false;
-    tabla.rows().every(function(value, index) {
+    tabla.rows().every(function (value, index) {
         let data = this.data();
         if (id == data[7] && tipo == data[6]) {
             let subTotoal = (costo * cantidad).toFixed(2);
@@ -632,7 +632,7 @@ function agregarInformacionContacto() {
 }
 
 function modificarRowTransporte(id, cantidad, costo, titulo) {
-    tabla.rows().every(function(value, index) {
+    tabla.rows().every(function (value, index) {
         let data = this.data();
         //PARA MODIFICAR LA FILA CON CONTADOR 0 QUE ES DONDE SIEMPRE SE ENCUENTRA LA EL TRANSPORTE
         if (data[8] == "0") {
@@ -713,46 +713,24 @@ function guardar() {
         timeout: 0,
         processData: false,
         contentType: false,
-    }).done(function(response) {
+    }).done(function (response) {
         guardarBitacora();
 
         console.log(response);
-        let respuestaDecodificada = JSON.parse(response);
+        //TODO BIEN Y RECARGAMOS LA PAGINA 
+        $("#miFormulario").trigger("reset");
+        restaurarContactos();
+        resetMiTable();
+        restOtrasOpciones();
+        resetPromociones();
         const Toast = Swal.mixin();
         Toast.fire({
             title: 'Exito...',
             icon: 'success',
             text: "Viaje Guardado Exitosamente",
             showConfirmButton: true,
-        }).then((result) => {
-            //TODO BIEN Y RECARGAMOS LA PAGINA 
-            $("#miFormulario").trigger("reset");
-            restaurarContactos();
-            resetMiTable();
-            restOtrasOpciones();
-            resetPromociones();
-            Toast.fire({
-                title: '¿Desea Editar el itinerario ahora?',
-                text: "Puedes Editarlo más tarde si quieres",
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, Quiero editarlo ahora!',
-                cancelButtonText: "No, en otro momento",
-
-            }).then((result) => {
-                if (result.value) {
-                    let idViaje = respuestaDecodificada.id;
-                    let fechaInicioViaje = respuestaDecodificada.turPaquete.start;
-                    let fechaFinViaje = respuestaDecodificada.turPaquete.end;
-                    let titulo = respuestaDecodificada.turPaquete.nombreTours;
-                    window.location = `${URL_SISTEMA}vistas/tours/itinerario.php?viaje=${idViaje}&&fechaInicioViaje=${fechaInicioViaje}&&fechaFinViaje=${fechaFinViaje}&titulo=${titulo}`;
-                }
-            });
-
         });
-    }).fail(function(response) {
+    }).fail(function (response) {
         //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
         console.log(response);
 
@@ -764,7 +742,7 @@ function guardar() {
             showConfirmButton: true,
         });
 
-    }).always(function(xhr, opts) {
+    }).always(function (xhr, opts) {
         $('#loading').hide();
     });
 }
@@ -780,7 +758,7 @@ function obtenerData() {
     for (let i = 0; i < galeria.length; i++) {
         form.append('fotos[]', galeria[i]);
     }
-    tabla.rows().every(function(value, index) {
+    tabla.rows().every(function (value, index) {
         let data = this.data();
         let title = data[0];
         let costo = data[1];
@@ -808,25 +786,25 @@ function obtenerData() {
     });
     let tipoPaquete = $("input[name='radioTipoPaquete']:checked").val();
 
-    let salida = $("input[name='lugar_salida[]']").map(function() { return $(this).val(); }).get();
+    let salida = $("input[name='lugar_salida[]']").map(function () { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     salida = salida.filter(value => value != '');
 
-    let incluye = $("input[name='incluye[]']").map(function() { return $(this).val(); }).get();
+    let incluye = $("input[name='incluye[]']").map(function () { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     incluye = incluye.filter(value => value != '');
 
-    let no_incluye = $("input[name='no_incluye[]']").map(function() { return $(this).val(); }).get();
+    let no_incluye = $("input[name='no_incluye[]']").map(function () { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     no_incluye = no_incluye.filter(value => value != '');
 
-    let requisitos = $("input[name='requisitos[]']").map(function() { return $(this).val(); }).get();
+    let requisitos = $("input[name='requisitos[]']").map(function () { return $(this).val(); }).get();
     // ELIMINAMOS CAMBOS VACIOS
     requisitos = requisitos.filter(value => value != '');
 
-    let pasajes = $("input[name='pasajes[]']").map(function() { return $(this).val(); }).get();
-    let asientos = $("input[name='asientos[]']").map(function() { return $(this).val(); }).get();
-    let titulos = $("input[name='titulos[]']").map(function() { return $(this).val(); }).get();
+    let pasajes = $("input[name='pasajes[]']").map(function () { return $(this).val(); }).get();
+    let asientos = $("input[name='asientos[]']").map(function () { return $(this).val(); }).get();
+    let titulos = $("input[name='titulos[]']").map(function () { return $(this).val(); }).get();
 
     for (let index = 0; index < titulos.length; index++) {
         if (titulos[index] != "" && asientos[index] != "" && pasajes[index] != "") {
