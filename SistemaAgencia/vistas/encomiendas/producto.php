@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/parametros.php';
 include_once '../../plantillas/cabecera.php';
+include_once '../session/isEmpleado.php';
 include_once  '../../plantillas/navbar.php';?>
 <!--LOS SCRIPT ADICIONALES-->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
@@ -76,6 +77,12 @@ include_once '../../plantillas/barra_lateral.php';
                                  </span>
                               </div>
 
+                           </div>
+                           <div class="col-sm-6">
+                              <!-- text input -->
+                              <div class="hidden">
+                                 <label name="detalle" id="detalle">Registró un Producto</label> 
+                              </div>
                            </div>
                         </form>
                         <div class="timeline-footer" style="text-align: right;">
@@ -155,6 +162,7 @@ $(document).on('click', '#unidad-add', function() {
 ?>
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-producto.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 

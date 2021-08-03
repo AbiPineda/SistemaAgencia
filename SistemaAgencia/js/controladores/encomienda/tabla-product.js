@@ -293,6 +293,7 @@ $(document).ready(function() {
                 text: response.mensaje,
                 showConfirmButton: true,
             }).then((result) => {
+                guardarBitacora();
                 $('#modificacion-producto').modal('hide');;
                 tabla.ajax.reload(null, false);
             });

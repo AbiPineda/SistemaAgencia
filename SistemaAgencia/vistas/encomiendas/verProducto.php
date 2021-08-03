@@ -1,6 +1,9 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../../plantillas/cabecera.php';?>
+include_once '../../plantillas/cabecera.php';
+include_once '../session/isEmpleado.php';
+?>
+
 <!-- COLOCAR ESTILOS ADICIONALES AQUI -->
 <link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
    type="text/css" />
@@ -140,7 +143,14 @@ include_once '../../plantillas/barra_lateral.php';
                                     placeholder="Introduzca la tarifa" autocomplete="off">
                               </div>
                            </div>
+                           <div class="col-sm-6">
+                           <!-- text input -->
+                           <div class="hidden">
+                              <label name="detalle" id="detalle">Modifico un Producto</label>
+                           </div>
                         </div>
+                        </div>
+
 
                      </form>
                      <form id="unidad-form" name="register-form" onsubmit="return false">
@@ -281,6 +291,7 @@ include_once '../../plantillas/barra_lateral.php';
 <!-- SCRIPT ADICIONALES -->
 
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/tabla-product.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <!-- jquery-validation -->
