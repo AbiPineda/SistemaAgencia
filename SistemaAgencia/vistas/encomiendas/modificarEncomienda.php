@@ -339,8 +339,8 @@ include_once '../../plantillas/barra_lateral.php';
          </div>
       </div>
    </section>
-   <!-- Modal mostrar-->
-   <div class="modal fade" id="add-producto">
+    <!-- Modal mostrar-->
+    <div class="modal fade" id="add-producto">
       <div class="modal-dialog modal-lg modal-dialog-centered">
          <div class="modal-content">
 
@@ -362,47 +362,46 @@ include_once '../../plantillas/barra_lateral.php';
                         <div class="col-sm-6">
                            <div class="form-group">
                               <label>Nombre</label>
-                              <input name="nombre_producto" type="text" class="form-control"
-                                 placeholder="Introduzca el nombre" autocomplete="off">
+                              <input name="nombre_producto" id="producto" type="text" class="form-control" placeholder="Introduzca el nombre" autocomplete="off">
                            </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <label>Tarifa</label>
-                              <input name="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa"
-                                 autocomplete="off">
+                              <input name="tarifa" id="tarifa" type="text" class="form-control" placeholder="Introduzca la tarifa" autocomplete="off">
                            </div>
                         </div>
-
-                        <div class="col-sm-3">
-                           <div class="form-group">
-                              <div class="input-group">
-                                 <label>Unidad de medida</label>
-                                 <select name="id_unidad" id="id_unidad"
-                                    class="select2 select2-hidden-accessible form-control" data-placeholder="Seleccione"
-                                    style="width: 100%;">
-                                 </select>
-                              </div>
+                        <div class="col-sm-6">
+                           <!-- text input -->
+                           <div class="hidden">
+                              <label name="detalle" id="detalle">Registró un Producto</label>
                            </div>
                         </div>
 
                      </div>
                   </form>
-                  <form id="unidad-form" name="register-form" onsubmit="return false">
+                  <form id="unidadre-form" name="register-form" onsubmit="return false">
                      <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <div class="input-group">
+                                 <label>Unidad de medida</label>
+                                 <select name="id_unidad" id="id_unidad" class="select2 select2-hidden-accessible form-control" data-placeholder="Seleccione" style="width: 100%;">
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
                         <div class="col-sm-5">
                            <div class="form-group">
                               <label>Nueva Unidad</label>
-                              <input name="unidad_medida" id="unidad_medida" type="text" class="form-control"
-                                 placeholder="Introduzca la unidad" autocomplete="off">
+                              <input name="unidad_medida" id="unidad_medida" type="text" class="form-control" placeholder="Introduzca la unidad" autocomplete="off">
                            </div>
                         </div>
                         <div class="col-sm-1">
                            <br>
                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-success btn-add" id="btn-unidad" name="btn-unidad"
-                                 style="margin-top: 10px; width: 100%;">+</button>
+                              <button type="button" class="btn btn-success btn-add" id="btn-unidad" name="btn-unidad" style="margin-top: 10px; width: 100%;">+</button>
                            </span>
                         </div>
                      </div>
@@ -412,8 +411,7 @@ include_once '../../plantillas/barra_lateral.php';
 
                <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm"
-                     style="color: white">Guardar</button>
+                  <button name="btn-producto" id="btn-producto" class="btn btn-info btn-sm" style="color: white">Guardar</button>
                </div>
 
             </div>
@@ -452,11 +450,12 @@ $(document).on('click', '#producto-add', function() {
 <!--Script de los procedimientos del sistema-->
 
 <script src="<?= $base_url ?>js/controladores/encomienda/modificar-en.js"></script>
+<script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
+
 <script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
-<script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 
 
 <?php include_once '../../plantillas/cierre.php'; ?>
