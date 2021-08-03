@@ -1,6 +1,6 @@
 <?php
 include_once '../../config/parametros.php';
-include_once '../session/isEmpleado.php'; 
+include_once '../session/isEmpleado.php';
 include_once '../../plantillas/cabecera.php';
 include_once  '../../plantillas/navbar.php'; ?>
 <!--para el reloj-->
@@ -10,11 +10,9 @@ include_once  '../../plantillas/navbar.php'; ?>
 <link href="<?= $base_url ?>plugins/subir-foto/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>plugins/subir-foto/css/avatar.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
-<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet"
-    type="text/css" />
+<link href="<?= $base_url ?>plugins/subir-foto/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
 <!--alerta del sistema-->
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-    type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 <!--para los reportes-->
 <link href="<?= $base_url ?>css/imprimir.css" all rel="stylesheet" type="text/css" />
 <link href="<?= $base_url ?>css/reportes.css" all rel="stylesheet" type="text/css" />
@@ -58,8 +56,7 @@ include_once '../../plantillas/barra_lateral.php';
                                             <div class="form-group multiple-form-group input-group">
                                                 <label>Título</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="titulo_actu"
-                                                        id="titulo_actu" placeholder="Digite título">
+                                                    <input type="text" class="form-control" name="titulo_actu" id="titulo_actu" placeholder="Digite título">
                                                 </div>
 
                                             </div>
@@ -69,8 +66,7 @@ include_once '../../plantillas/barra_lateral.php';
                                         <div class="col-sm-12">
                                             <label>Fecha</label>
                                             <div class="input-group">
-                                                <input type="date" name="fecha_actu" id="fecha_actu"
-                                                    class="form-control" disabled="true">
+                                                <input type="date" name="fecha_actu" id="fecha_actu" class="form-control" disabled="true">
                                             </div>
                                         </div>
                                     </div>
@@ -80,8 +76,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <label>Hora</label>
                                                 <div class="input-group">
                                                     <div class="input-group clockpicker" data-autoclose="true">
-                                                        <input type="text" id="hora_actu" name="hora_actu"
-                                                            class="form-control" />
+                                                        <input type="text" id="hora_actu" name="hora_actu" class="form-control" />
                                                     </div>
 
 
@@ -89,13 +84,18 @@ include_once '../../plantillas/barra_lateral.php';
 
                                             </div>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="hidden">
+                                                <label name="detalle" id="detalle">Registró un Actualización de envío</label>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="timeline-footer" style="text-align: right;">
-                                        <button name="btn-informacion" id="btn-informacion" class="btn btn-info btn-sm"
-                                            style="color: white">Guardar</button>
+                                        <button name="btn-informacion" id="btn-informacion" class="btn btn-info btn-sm" style="color: white">Guardar</button>
                                         <!-- DIV CHUCO <div id="entregar-div">-->
-                                        <button name="btn-entregar" id="btn-entregar" class="btn btn-light btn-sm"
-                                            style="color: white; background-color:#0E6251;">Entregar</button>
+                                        <button name="btn-entregar" id="btn-entregar" class="btn btn-light btn-sm" style="color: white; background-color:#0E6251;">Entregar</button>
                                         <!-- DIV CHUCO </div>-->
 
                                     </div>
@@ -141,8 +141,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                     <label id="nombre_cliente"></label>
                                                 </div>
                                                 <div class="input-group">
-                                                    <input type="hidden" class="form-control" name="cliente"
-                                                        id="cliente" disabled="true">
+                                                    <input type="hidden" class="form-control" name="cliente" id="cliente" disabled="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -295,8 +294,7 @@ include_once '../../plantillas/barra_lateral.php';
                             </div>
                             <br>
                             <div class="timeline-footer" style="text-align: right;">
-                                <button type="button" style="margin-top: 10px;" name="" id="btnRepoteHistorial"
-                                    class="btn btn-secondary" data-toggle="modal" data-target="#reporte_historial">
+                                <button type="button" style="margin-top: 10px;" name="" id="btnRepoteHistorial" class="btn btn-secondary" data-toggle="modal" data-target="#reporte_historial">
                                     <i class="fas fa-eye" style="color: white"></i>
                                 </button>
 
@@ -339,19 +337,15 @@ include_once '../../plantillas/barra_lateral.php';
                                                         <tr>
                                                             <td class="logo_factura">
                                                                 <div>
-                                                                    <img src="<?= $base_url ?>img/logo-min.jpg" all
-                                                                        rel="stylesheet" type="text/css">
+                                                                    <img src="<?= $base_url ?>img/logo-min.jpg" all rel="stylesheet" type="text/css">
                                                                 </div>
                                                             </td>
                                                             <td class="info_empresa">
                                                                 <div>
-                                                                    <span class="h2" name="nombre_a"
-                                                                        id="nombre_a"></span>
+                                                                    <span class="h2" name="nombre_a" id="nombre_a"></span>
                                                                     <p>
-                                                                    <p style="margin: 1px;display:inline;"
-                                                                        name="direccion_a" id="direccion_a"></p>
-                                                                    <p style="margin: 1px;display:inline:float:right"
-                                                                        name="telefono_a" id="telefono_a">
+                                                                    <p style="margin: 1px;display:inline;" name="direccion_a" id="direccion_a"></p>
+                                                                    <p style="margin: 1px;display:inline:float:right" name="telefono_a" id="telefono_a">
                                                                     </p>
                                                                     <p name="email_a" id="email_a"></p>
                                                                     </p>
@@ -433,8 +427,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                                                 <td>
                                                                                     <p> </p>
                                                                                     <label>Dirección:</label>
-                                                                                    <p name="direccionD"
-                                                                                        id="direccionD"></p>
+                                                                                    <p name="direccionD" id="direccionD"></p>
                                                                                 </td>
                                                                                 <td><label>Dirección Alterna:</label>
                                                                                     <p name="alternaD" id="alternaD">
@@ -486,16 +479,13 @@ include_once '../../plantillas/barra_lateral.php';
                                                                 <td colspan="3" class="textright"><label>Total
                                                                         Encomienda($)</label>
                                                                 </td>
-                                                                <td class="textcenter"><label name="descuent"
-                                                                        id="totalEncomienda"
-                                                                        style="font-weight: normal;"></label></td>
+                                                                <td class="textcenter"><label name="descuent" id="totalEncomienda" style="font-weight: normal;"></label></td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="3" class="textright"><label>TOTAL
                                                                         ($)</label>
                                                                 </td>
-                                                                <td class="textcenter"><label name="tot" id="tot"
-                                                                        style="font-weight: normal;"></label></td>
+                                                                <td class="textcenter"><label name="tot" id="tot" style="font-weight: normal;"></label></td>
                                                             </tr>
                                                         </tfoot>
                                                     </table>
@@ -504,8 +494,7 @@ include_once '../../plantillas/barra_lateral.php';
                                                 <div class="row no-print">
                                                     <div class="col-md-12">
 
-                                                        <button target="_blank" id="doPrint" type="button"
-                                                            class="btn btn-default"><i class="fas fa-print"></i>
+                                                        <button target="_blank" id="doPrint" type="button" class="btn btn-default"><i class="fas fa-print"></i>
                                                             Imprimir</button>
 
                                                         <div id="editor"></div>
@@ -532,28 +521,28 @@ include_once '../../plantillas/barra_lateral.php';
 include_once '../../plantillas/footer.php';
 ?>
 <script type="text/javascript">
-$(document).on('click', '#producto-add', function() {
-    $('#add-producto').modal('show');
-    $('#loadingActualizar').hide();
-});
+    $(document).on('click', '#producto-add', function() {
+        $('#add-producto').modal('show');
+        $('#loadingActualizar').hide();
+    });
 
-$(document).ready(function() {
-    $('#hora_actu').mdtimepicker(); //Initializes the time picker
-});
+    $(document).ready(function() {
+        $('#hora_actu').mdtimepicker(); //Initializes the time picker
+    });
 
-///fecha actual y hora
-let fecha = new Date(); //Fecha actual
-let mes = fecha.getMonth() + 1; //obteniendo mes
-let dia = fecha.getDate(); //obteniendo dia
-let ano = fecha.getFullYear(); //obteniendo año
-let hora = fecha.getHours();
-let minutos = fecha.getMinutes();
-if (dia < 10)
-    dia = '0' + dia; //agrega cero si el menor de 10
-if (mes < 10)
-    mes = '0' + mes //agrega cero si el menor de 10
-document.getElementById('fecha_actu').value = ano + "-" + mes + "-" + dia;
-document.getElementById('hora_actu').value = hora + ":" + minutos
+    ///fecha actual y hora
+    let fechaActu = new Date(); //Fecha actual
+    let mesActu = fechaActu.getMonth() + 1; //obteniendo mes
+    let diaActu = fechaActu.getDate(); //obteniendo dia
+    let anoActu = fechaActu.getFullYear(); //obteniendo año
+    let horaActu = fechaActu.getHours();
+    let minutosActu = fechaActu.getMinutes();
+    if (diaActu < 10)
+        diaActu = '0' + diaActu; //agrega cero si el menor de 10
+    if (mesActu < 10)
+        mesActu = '0' + mesActu //agrega cero si el menor de 10
+    document.getElementById('fecha_actu').value = anoActu + "-" + mesActu + "-" + diaActu;
+    document.getElementById('hora_actu').value = horaActu + ":" + minutosActu
 </script>
 
 <!--alerta del sistema-->
@@ -572,12 +561,13 @@ document.getElementById('hora_actu').value = hora + ":" + minutos
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <!--Script de los procedimientos del sistema-->
-<script type="text/javascript" src="<?= $base_url?>js/controladores/agencia/mostrarInfo.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/agencia/mostrarInfo.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/actu-envio-procesos.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/encomienda/combo-unidad.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/encomienda/combo-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/producto.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-unidad.js"></script>
 <script src="<?= $base_url ?>js/controladores/encomienda/insertar-productoEnco.js"></script>
 <!--Para los reportes-->
-<script type="text/javascript" src="<?= $base_url?>js/imprimir.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/imprimir.js"></script>
 <?php include_once '../../plantillas/cierre.php'; ?>

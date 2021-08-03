@@ -360,6 +360,7 @@ $(document).ready(function() {
             }).then((result) => {
                 $('#historias').empty();
                 mostrarHistorial();
+                guardarBitacora();
             });
         }).fail(function(response) {
             //SI HUBO UN ERROR EN LA RESPUETA REST_Controller::HTTP_BAD_REQUEST
