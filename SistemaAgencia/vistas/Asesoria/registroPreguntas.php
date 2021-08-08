@@ -8,8 +8,7 @@ include_once '../../plantillas/barra_lateral.php';
 
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet"
-   type="text/css" />
+<link href="<?= $base_url ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" all rel="stylesheet" type="text/css" />
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -60,9 +59,14 @@ include_once '../../plantillas/barra_lateral.php';
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label for="cars">Seleccione rama de la Pregunta</label>
-                                       <select name='combo_rama' disabled id='combo_rama' class="form-control"
-                                          onchange="ShowRama();">
+                                       <select name='combo_rama' disabled id='combo_rama' class="form-control" onchange="ShowRama();">
                                        </select>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="hidden">
+                                       <label name="detalle" id="detalle">Registro una Pregunta</label>
                                     </div>
                                  </div>
                               </div>
@@ -100,8 +104,7 @@ include_once '../../plantillas/barra_lateral.php';
                      <div class="form-group">
                         <label>Opciones de respuestas</label>
                         <div class="input-group">
-                           <input id="opcion" name="opcion" type="text" class="form-control" autocomplete="off"
-                              placeholder="Digite la opción">
+                           <input id="opcion" name="opcion" type="text" class="form-control" autocomplete="off" placeholder="Digite la opción">
                         </div>
                         <!-- /.input group -->
                      </div>
@@ -110,8 +113,7 @@ include_once '../../plantillas/barra_lateral.php';
             </div>
             <div class="modal-footer justify-content-between">
                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-               <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm"
-                  style="color: white">agregar</button>
+               <button name="btnActualizar" id="agregar" class="btn btn-info btn-sm" style="color: white">agregar</button>
             </div>
          </div>
       </div>
@@ -123,12 +125,13 @@ include_once '../../plantillas/barra_lateral.php';
 </div>
 
 <?php
-  include_once '../../plantillas/footer.php';
+include_once '../../plantillas/footer.php';
 ?>
 <div id="script"></div>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/creacion_registros.js"></script>
-<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/ramas_automaticas.js"></script>
-<!--<script type="text/javascript" src="<?= $base_url?>js/controladores/asesorias/combobox-ramas.js"></script>-->
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/asesorias/creacion_registros.js"></script>
+<script type="text/javascript" src="<?= $base_url ?>js/controladores/asesorias/ramas_automaticas.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
+<!--<script type="text/javascript" src="<?= $base_url ?>js/controladores/asesorias/combobox-ramas.js"></script>-->
 
 <script src="<?= $base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="<?= $base_url ?>plugins/jquery-validation/jquery.validate.min.js"></script>

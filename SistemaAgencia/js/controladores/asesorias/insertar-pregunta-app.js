@@ -94,6 +94,7 @@ function inicializarValidaciones() {
           //$("#recargar").load(" #recargar");//recargar solo un div y no toda la pagina
             //REST_Controller::HTTP_OK
             //let respuestaDecodificada = JSON.parse(response);
+            guardarBitacora();
             const Toast = Swal.mixin();
             Toast.fire({
                 title: 'Exito...',
@@ -102,6 +103,7 @@ function inicializarValidaciones() {
                 showConfirmButton: true,
             }).then((result) => {
                 //TODO BIEN Y RECARGAMOS LA PAGINA 
+                
                 location.reload(); ///NO QUIERO QUE RECARGUE ME ACTUALIZA SOLA
             });
         }).fail(function (response) {

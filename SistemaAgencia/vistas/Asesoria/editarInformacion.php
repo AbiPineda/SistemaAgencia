@@ -53,12 +53,10 @@ include_once  '../../plantillas/navbar.php'; ?>
                      </div>
                      <div class="card-body">
                         <div class="tab-content" id="custom-tabs-four-tabContent">
-                           <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
-                              aria-labelledby="custom-tabs-four-home-tab">
+                           <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
                               <div class="row">
                                  <div class="col-sm-12">
-                                    <form id="migratorio-form" name="register-form" onsubmit="return false"
-                                       class="form-inline" role="form">
+                                    <form id="migratorio-form" name="register-form" onsubmit="return false" class="form-inline" role="form">
 
                                        <!-- text input -->
                                        <div class="form-group" style="width: 100%;">
@@ -67,8 +65,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                                                 <!-- text input -->
                                                 <div class="form-group ">
                                                    <div class="input-group" style="width: 100%;">
-                                                      <div style="width: 100%;" class="tab-content"
-                                                         id="custom-tabs-one-tabContent">
+                                                      <div style="width: 100%;" class="tab-content" id="custom-tabs-one-tabContent">
                                                       </div>
                                                    </div>
                                                 </div>
@@ -81,11 +78,8 @@ include_once  '../../plantillas/navbar.php'; ?>
                                        <!-- text input -->
                                        <div class="form-group ">
                                           <div class="timeline-footer" style="text-align: right;">
-                                             <button type="button" id="btnFormulario" class="btn btn-info btn-sm"
-                                                style=" margin-top: 10px; color: white">Actualizar</button>
-                                             <button type="button" class="btn btn-danger btn-sm"
-                                                style="margin-top: 10px; color: white"
-                                                data-dismiss="modal">Cancelar</button>
+                                             <button type="button" id="btnFormulario" class="btn btn-info btn-sm" style=" margin-top: 10px; color: white">Actualizar</button>
+                                             <button type="button" class="btn btn-danger btn-sm" style="margin-top: 10px; color: white" data-dismiss="modal">Cancelar</button>
                                           </div>
                                        </div>
                                     </div>
@@ -98,6 +92,12 @@ include_once  '../../plantillas/navbar.php'; ?>
                </div>
             </div>
       </section>
+   </div>
+   <div class="col-sm-6">
+      <!-- text input -->
+      <div class="hidden">
+         <label name="detalle" id="detalle">Actualización de llenado de formulario migratorio</label>
+      </div>
    </div>
 </div>
 <!--CODIGO DEL REPORTE-->
@@ -127,8 +127,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                                        <tr>
                                           <td class="logo_factura">
                                              <div>
-                                                <img src="<?= $base_url ?>img/logo-min.jpg" all rel="stylesheet"
-                                                   type="text/css">
+                                                <img src="<?= $base_url ?>img/logo-min.jpg" all rel="stylesheet" type="text/css">
                                              </div>
                                           </td>
                                           <td class="info_empresa">
@@ -190,8 +189,7 @@ include_once  '../../plantillas/navbar.php'; ?>
                                  <div class="row no-print">
                                     <div class="col-md-12">
 
-                                       <button target="_blank" id="doPrint" class="btn btn-default"><i
-                                             class="fas fa-print"></i>
+                                       <button target="_blank" id="doPrint" class="btn btn-default"><i class="fas fa-print"></i>
                                           Imprimir</button>
 
                                        <div id="editor"></div>
@@ -226,5 +224,6 @@ include_once '../../plantillas/footer.php';
 <script src="<?= $base_url ?>plugins/subir-foto/js/locales/es.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>plugins/subir-foto/themes/fas/theme.js" type="text/javascript"></script>
 <script src="<?= $base_url ?>js/controladores/asesorias/editarInformacion.js"></script>
+<script src="<?= $base_url ?>js/controladores/bitacora/bitacora.js"></script>
 <!--para los reportes-->
 <?php include_once '../../plantillas/cierre.php'; ?>
